@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out this repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Fetch latest data
       run: |-
         awk -v FS='\t' -v OFS='' '($4=="statuspage") {print "mkdir -p data/",$1,"; curl ",$3,"/api/v2/summary.json | jq > data/",$1,"/summary.json"}' companies.tsv | bash
