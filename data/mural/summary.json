@@ -4,24 +4,9 @@
     "name": "MURAL",
     "url": "https://status.mural.co",
     "time_zone": "America/Argentina/Buenos_Aires",
-    "updated_at": "2022-12-02T05:08:11.153-03:00"
+    "updated_at": "2022-12-02T17:23:52.284-03:00"
   },
   "components": [
-    {
-      "id": "80j005qsrmjz",
-      "name": "Authentication",
-      "status": "operational",
-      "created_at": "2020-05-05T19:05:31.771-03:00",
-      "updated_at": "2022-09-28T05:30:00.214-03:00",
-      "position": 1,
-      "description": "SSO, SAML and email + password validation services",
-      "showcase": true,
-      "start_date": null,
-      "group_id": "mkmjnq1rb559",
-      "page_id": "dbk70dpy3n7h",
-      "group": false,
-      "only_show_if_degraded": false
-    },
     {
       "id": "mkmjnq1rb559",
       "name": "MURAL Application",
@@ -47,6 +32,21 @@
         "j5mdtth26nww",
         "fdfdjpgcjdfj"
       ]
+    },
+    {
+      "id": "80j005qsrmjz",
+      "name": "Authentication",
+      "status": "operational",
+      "created_at": "2020-05-05T19:05:31.771-03:00",
+      "updated_at": "2022-09-28T05:30:00.214-03:00",
+      "position": 1,
+      "description": "SSO, SAML and email + password validation services",
+      "showcase": true,
+      "start_date": null,
+      "group_id": "mkmjnq1rb559",
+      "page_id": "dbk70dpy3n7h",
+      "group": false,
+      "only_show_if_degraded": false
     },
     {
       "id": "20lgmjb54nmc",
@@ -81,9 +81,9 @@
     {
       "id": "n5pr4zs1pp8n",
       "name": "Website",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2016-04-25T11:15:13.167-03:00",
-      "updated_at": "2022-09-28T05:30:00.236-03:00",
+      "updated_at": "2022-12-02T17:23:51.719-03:00",
       "position": 3,
       "description": "The main MURAL website at www.mural.co",
       "showcase": true,
@@ -199,10 +199,63 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "3z0cvylf2g11",
+      "name": "MURAL \"Workspace members\" page is not loading",
+      "status": "investigating",
+      "created_at": "2022-12-02T17:23:51.687-03:00",
+      "updated_at": "2022-12-02T17:23:52.279-03:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/c1tqfd0ph12t",
+      "started_at": "2022-12-02T17:23:51.682-03:00",
+      "page_id": "dbk70dpy3n7h",
+      "incident_updates": [
+        {
+          "id": "bm437s8510m0",
+          "status": "investigating",
+          "body": "We’re experiencing a service disruption causing the “Workspace members” page within MURAL workspaces to display a blank page — workspace admins are therefore unable to view or edit the members within a workspace.\nWe are currently investigating the root cause of this issue and will update this page as soon as we have more information to share. We apologize for any inconveniences caused and appreciate your patience.\nPlease check our status page for the most up-to-date info :point_right: status.mural.co/",
+          "incident_id": "3z0cvylf2g11",
+          "created_at": "2022-12-02T17:23:51.765-03:00",
+          "updated_at": "2022-12-02T17:23:52.274-03:00",
+          "display_at": "2022-12-02T17:23:51.765-03:00",
+          "affected_components": [
+            {
+              "code": "n5pr4zs1pp8n",
+              "name": "Website",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1598774973593981000
+        }
+      ],
+      "components": [
+        {
+          "id": "n5pr4zs1pp8n",
+          "name": "Website",
+          "status": "degraded_performance",
+          "created_at": "2016-04-25T11:15:13.167-03:00",
+          "updated_at": "2022-12-02T17:23:51.719-03:00",
+          "position": 3,
+          "description": "The main MURAL website at www.mural.co",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "dbk70dpy3n7h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
