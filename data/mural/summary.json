@@ -4,13 +4,13 @@
     "name": "MURAL",
     "url": "https://status.mural.co",
     "time_zone": "America/Argentina/Buenos_Aires",
-    "updated_at": "2022-12-05T15:29:25.327-03:00"
+    "updated_at": "2022-12-05T17:27:51.187-03:00"
   },
   "components": [
     {
       "id": "mkmjnq1rb559",
       "name": "MURAL Application",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2021-06-25T14:45:02.399-03:00",
       "updated_at": "2021-06-29T10:48:09.162-03:00",
       "position": 1,
@@ -49,21 +49,6 @@
       "only_show_if_degraded": false
     },
     {
-      "id": "g14n1f17ws50",
-      "name": "Learning",
-      "status": "operational",
-      "created_at": "2021-03-26T10:00:25.594-03:00",
-      "updated_at": "2021-06-29T10:48:09.169-03:00",
-      "position": 2,
-      "description": "The MURAL learning platform at learning.mural.co. This service is currently in public beta.",
-      "showcase": true,
-      "start_date": "2021-03-26",
-      "group_id": null,
-      "page_id": "dbk70dpy3n7h",
-      "group": false,
-      "only_show_if_degraded": false
-    },
-    {
       "id": "20lgmjb54nmc",
       "name": "Billing",
       "status": "operational",
@@ -74,6 +59,21 @@
       "showcase": true,
       "start_date": null,
       "group_id": "mkmjnq1rb559",
+      "page_id": "dbk70dpy3n7h",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "g14n1f17ws50",
+      "name": "Learning",
+      "status": "operational",
+      "created_at": "2021-03-26T10:00:25.594-03:00",
+      "updated_at": "2021-06-29T10:48:09.169-03:00",
+      "position": 2,
+      "description": "The MURAL learning platform at learning.mural.co. This service is currently in public beta.",
+      "showcase": true,
+      "start_date": "2021-03-26",
+      "group_id": null,
       "page_id": "dbk70dpy3n7h",
       "group": false,
       "only_show_if_degraded": false
@@ -111,9 +111,9 @@
     {
       "id": "9hx4nz71759s",
       "name": "Exports",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2018-01-04T01:38:28.281-03:00",
-      "updated_at": "2022-02-18T22:09:43.390-03:00",
+      "updated_at": "2022-12-05T17:27:50.382-03:00",
       "position": 4,
       "description": "Service that handles exporting murals to images, PDFs or any other kind of format",
       "showcase": true,
@@ -199,10 +199,63 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "xfxn2n40z2rl",
+      "name": "MURAL Exports Delay",
+      "status": "investigating",
+      "created_at": "2022-12-05T17:27:50.344-03:00",
+      "updated_at": "2022-12-05T17:27:51.179-03:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/rdhq6y60bgb9",
+      "started_at": "2022-12-05T17:27:50.336-03:00",
+      "page_id": "dbk70dpy3n7h",
+      "incident_updates": [
+        {
+          "id": "72cvt8qp1s1m",
+          "status": "investigating",
+          "body": "Exports of murals are taking longer than usual to process. We're investigating the issue and will restore normal service as quickly as possible.\r\n\r\nPlease check our status page for the most up-to-date info 👉 status.mural.co/",
+          "incident_id": "xfxn2n40z2rl",
+          "created_at": "2022-12-05T17:27:50.429-03:00",
+          "updated_at": "2022-12-05T17:27:51.173-03:00",
+          "display_at": "2022-12-05T17:27:50.429-03:00",
+          "affected_components": [
+            {
+              "code": "9hx4nz71759s",
+              "name": "MURAL Application - Exports",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1599863139159650300
+        }
+      ],
+      "components": [
+        {
+          "id": "9hx4nz71759s",
+          "name": "Exports",
+          "status": "partial_outage",
+          "created_at": "2018-01-04T01:38:28.281-03:00",
+          "updated_at": "2022-12-05T17:27:50.382-03:00",
+          "position": 4,
+          "description": "Service that handles exporting murals to images, PDFs or any other kind of format",
+          "showcase": true,
+          "start_date": null,
+          "group_id": "mkmjnq1rb559",
+          "page_id": "dbk70dpy3n7h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
