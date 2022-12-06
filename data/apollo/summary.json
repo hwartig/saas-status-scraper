@@ -4,7 +4,7 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2022-12-05T10:23:45.678-08:00"
+    "updated_at": "2022-12-06T09:59:02.744-08:00"
   },
   "components": [
     {
@@ -40,9 +40,9 @@
     {
       "id": "kjtxqnqszhv8",
       "name": "Schema Publishing",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2021-10-01T11:16:27.822-07:00",
-      "updated_at": "2022-11-10T13:16:42.706-08:00",
+      "updated_at": "2022-12-06T09:54:58.000-08:00",
       "position": 3,
       "description": "The Schema Publishing feature which is leveraged by tools like Server auto-reporting, `rover graph publish`, and `rover subgraph publish`.",
       "showcase": true,
@@ -55,9 +55,9 @@
     {
       "id": "9mh4j3cltpvv",
       "name": "Schema Checks",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2021-10-01T11:15:13.566-07:00",
-      "updated_at": "2022-11-10T13:16:42.721-08:00",
+      "updated_at": "2022-12-06T09:54:58.012-08:00",
       "position": 4,
       "description": "The Schema Checks feature enabling user workflows for commands like `rover graph check`, and `rover subgraph check`.",
       "showcase": true,
@@ -218,10 +218,110 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "wtmh17whn1zk",
+      "name": "Checks and Contract Launches Delayed",
+      "status": "identified",
+      "created_at": "2022-12-06T09:54:57.969-08:00",
+      "updated_at": "2022-12-06T09:59:02.737-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/zhzwhgm5jbgz",
+      "started_at": "2022-12-06T09:01:58.000-08:00",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "7mkn0h5q6w8d",
+          "status": "identified",
+          "body": "We have identified an issue where our federation pipeline was deployed out of order.\n\nUsers who are impacted here are:\n\n- Build pipeline track set to 2.0\n- Any builds and variants based on a build pipeline track set to 2.0\n\nWe are currently working on rolling back the errant deploy. We expect this to fully unblock any and all checks and all new publishes.",
+          "incident_id": "wtmh17whn1zk",
+          "created_at": "2022-12-06T09:58:46.923-08:00",
+          "updated_at": "2022-12-06T09:59:02.733-08:00",
+          "display_at": "2022-12-06T09:58:46.000-08:00",
+          "affected_components": [
+            {
+              "code": "9mh4j3cltpvv",
+              "name": "Schema Checks",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "kjtxqnqszhv8",
+              "name": "Schema Publishing",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "7jbt0vlbs03g",
+          "status": "investigating",
+          "body": "We are currently investigating an issue with Checks and Contract launches being delayed. We will update once we know scope of impact.",
+          "incident_id": "wtmh17whn1zk",
+          "created_at": "2022-12-06T09:54:58.048-08:00",
+          "updated_at": "2022-12-06T09:55:32.109-08:00",
+          "display_at": "2022-12-06T09:01:58.000-08:00",
+          "affected_components": [
+            {
+              "code": "9mh4j3cltpvv",
+              "name": "Schema Checks",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "kjtxqnqszhv8",
+              "name": "Schema Publishing",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "kjtxqnqszhv8",
+          "name": "Schema Publishing",
+          "status": "partial_outage",
+          "created_at": "2021-10-01T11:16:27.822-07:00",
+          "updated_at": "2022-12-06T09:54:58.000-08:00",
+          "position": 3,
+          "description": "The Schema Publishing feature which is leveraged by tools like Server auto-reporting, `rover graph publish`, and `rover subgraph publish`.",
+          "showcase": true,
+          "start_date": "2021-10-01",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "9mh4j3cltpvv",
+          "name": "Schema Checks",
+          "status": "partial_outage",
+          "created_at": "2021-10-01T11:15:13.566-07:00",
+          "updated_at": "2022-12-06T09:54:58.012-08:00",
+          "position": 4,
+          "description": "The Schema Checks feature enabling user workflows for commands like `rover graph check`, and `rover subgraph check`.",
+          "showcase": true,
+          "start_date": "2021-10-01",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
