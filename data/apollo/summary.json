@@ -4,7 +4,7 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2022-12-15T14:23:33.101-08:00"
+    "updated_at": "2022-12-15T15:16:24.179-08:00"
   },
   "components": [
     {
@@ -218,147 +218,7 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [
-    {
-      "id": "vqz4c8sdrl3w",
-      "name": "Metrics Ingestion and Schema Checks Delayed",
-      "status": "monitoring",
-      "created_at": "2022-12-15T13:01:11.045-08:00",
-      "updated_at": "2022-12-15T14:16:00.166-08:00",
-      "monitoring_at": "2022-12-15T13:19:01.447-08:00",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/rcc3jyn8pry5",
-      "started_at": "2022-12-15T13:01:11.039-08:00",
-      "page_id": "r56zbm15x15h",
-      "incident_updates": [
-        {
-          "id": "49jkg7q0zmtt",
-          "status": "monitoring",
-          "body": "Our metrics ingestion lag has recovered, and our operations check data storage system latency is no longer elevated. We are continuing to monitor our systems for further discrepancies.",
-          "incident_id": "vqz4c8sdrl3w",
-          "created_at": "2022-12-15T14:16:00.163-08:00",
-          "updated_at": "2022-12-15T14:16:00.163-08:00",
-          "display_at": "2022-12-15T14:16:00.163-08:00",
-          "affected_components": [
-            {
-              "code": "zmt0l1mwxnw5",
-              "name": "Metrics Ingestion",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "9mh4j3cltpvv",
-              "name": "Schema Checks",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "q1lc2z609ply",
-          "status": "monitoring",
-          "body": "We've determined that while the storage system service was non-functional, our metrics ingestion lag also increased. This lag has been recovering since we implemented the fix, and continues to recover.",
-          "incident_id": "vqz4c8sdrl3w",
-          "created_at": "2022-12-15T13:28:58.937-08:00",
-          "updated_at": "2022-12-15T13:28:58.937-08:00",
-          "display_at": "2022-12-15T13:28:58.937-08:00",
-          "affected_components": [
-            {
-              "code": "zmt0l1mwxnw5",
-              "name": "Metrics Ingestion",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "9mh4j3cltpvv",
-              "name": "Schema Checks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "z9xdr3t22h0s",
-          "status": "monitoring",
-          "body": "We believe the delay is due to increased latency in our operations check data storage system, due to an issue in one of the constituent services. We have fixed the issue with the constituent service, and the storage system is recovering.",
-          "incident_id": "vqz4c8sdrl3w",
-          "created_at": "2022-12-15T13:19:01.447-08:00",
-          "updated_at": "2022-12-15T13:19:01.447-08:00",
-          "display_at": "2022-12-15T13:19:01.447-08:00",
-          "affected_components": [
-            {
-              "code": "9mh4j3cltpvv",
-              "name": "Schema Checks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qgfqmlpzj9mk",
-          "status": "investigating",
-          "body": "We are currently investigating an issue with schema checks being delayed. We are currently investigating to understand the scope of the degradation.",
-          "incident_id": "vqz4c8sdrl3w",
-          "created_at": "2022-12-15T13:01:11.141-08:00",
-          "updated_at": "2022-12-15T13:01:11.141-08:00",
-          "display_at": "2022-12-15T13:01:11.141-08:00",
-          "affected_components": [
-            {
-              "code": "9mh4j3cltpvv",
-              "name": "Schema Checks",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "zmt0l1mwxnw5",
-          "name": "Metrics Ingestion",
-          "status": "operational",
-          "created_at": "2017-11-02T16:10:04.393-07:00",
-          "updated_at": "2022-12-15T14:16:00.108-08:00",
-          "position": 2,
-          "description": "The metrics ingestion pipeline that Servers and Gateways report to, enabling support of Studio analytics and features.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "r56zbm15x15h",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "9mh4j3cltpvv",
-          "name": "Schema Checks",
-          "status": "operational",
-          "created_at": "2021-10-01T11:15:13.566-07:00",
-          "updated_at": "2022-12-15T14:16:00.126-08:00",
-          "position": 4,
-          "description": "The Schema Checks feature enabling user workflows for commands like `rover graph check`, and `rover subgraph check`.",
-          "showcase": true,
-          "start_date": "2021-10-01",
-          "group_id": null,
-          "page_id": "r56zbm15x15h",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    }
-  ],
+  "incidents": [],
   "scheduled_maintenances": [],
   "status": {
     "indicator": "none",
