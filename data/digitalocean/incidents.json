@@ -4,9 +4,283 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-01-11T00:00:43.253Z"
+    "updated_at": "2023-01-11T01:59:09.728Z"
   },
   "incidents": [
+    {
+      "id": "n2bfh9t2g76f",
+      "name": "Multiple Services in NYC1",
+      "status": "investigating",
+      "created_at": "2023-01-11T01:59:09.633Z",
+      "updated_at": "2023-01-11T01:59:09.725Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/hzd93dmp5t2s",
+      "started_at": "2023-01-11T01:59:09.622Z",
+      "page_id": "s2k7tnzlhrpw",
+      "incident_updates": [
+        {
+          "id": "dpr7wghgp7ry",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue beginning at 01:33 UTC. At this time, we've observed recovery of services, but between 01:33 - 01:40 UTC, users may have experienced errors with multiple services. \n\nWe are still working to determine the root cause and the full scope of impact, but have confirmed errors occurred with reaching the Cloud Control Panel, event processing, traffic to some DigitalOcean web endpoints, and network connectivity to Droplets and Droplet-based services in NYC1. \n\nWe will post an update with further information as soon as possible.",
+          "incident_id": "n2bfh9t2g76f",
+          "created_at": "2023-01-11T01:59:09.723Z",
+          "updated_at": "2023-01-11T01:59:09.723Z",
+          "display_at": "2023-01-11T01:59:09.723Z",
+          "affected_components": [
+            {
+              "code": "xymwmm4wsr4l",
+              "name": "Services - Cloud Control Panel",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "m7nv9rsmrssk",
+              "name": "Services - Event Processing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "cl06j64ltm9s",
+              "name": "Regions - NYC1",
+              "old_status": "under_maintenance",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "xymwmm4wsr4l",
+          "name": "Cloud Control Panel",
+          "status": "degraded_performance",
+          "created_at": "2017-02-17T21:40:34.099Z",
+          "updated_at": "2023-01-11T01:59:09.667Z",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "9xmhrchbp51t",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "cl06j64ltm9s",
+          "name": "NYC1",
+          "status": "under_maintenance",
+          "created_at": "2017-02-17T21:48:01.306Z",
+          "updated_at": "2023-01-11T00:00:43.158Z",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "6ycn9yslydsq",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "m7nv9rsmrssk",
+          "name": "Event Processing",
+          "status": "degraded_performance",
+          "created_at": "2017-02-17T21:40:14.164Z",
+          "updated_at": "2023-01-11T01:59:09.685Z",
+          "position": 11,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "9xmhrchbp51t",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
+    {
+      "id": "pfh7zf1l5851",
+      "name": "Droplet Creation in SFO3",
+      "status": "monitoring",
+      "created_at": "2023-01-11T00:38:49.924Z",
+      "updated_at": "2023-01-11T01:18:02.891Z",
+      "monitoring_at": "2023-01-11T01:18:02.881Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/n1xmr4xmk5ft",
+      "started_at": "2023-01-11T00:38:49.909Z",
+      "page_id": "s2k7tnzlhrpw",
+      "incident_updates": [
+        {
+          "id": "kppb9h50drxc",
+          "status": "monitoring",
+          "body": "Our Engineering team identified the root cause and implemented a fix to resolve the issue with Droplet creation in our SFO3 region. Users should now be able to create Droplets and Droplet-based services in this region. We are monitoring the situation closely and will post an update once the matter is completely resolved.",
+          "incident_id": "pfh7zf1l5851",
+          "created_at": "2023-01-11T01:18:02.881Z",
+          "updated_at": "2023-01-11T01:18:02.881Z",
+          "display_at": "2023-01-11T01:18:02.881Z",
+          "affected_components": [
+            {
+              "code": "xc1fvcqsqp80",
+              "name": "Services - Droplets",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "y5mb12th36zh",
+              "name": "Services - Kubernetes",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "chj29s92gg0x",
+              "name": "Services - Load Balancers",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "lklbmflv3jcl",
+              "name": "Services - Managed Databases",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "99gtwvvfhtyz",
+              "name": "Regions - SFO3",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "hjtfbm018cjb",
+          "status": "investigating",
+          "body": "As of 00:00 UTC, Our Engineering team is investigating an issue with Droplet creation in our SFO3 region. During this time, a subset of users may experience issues while creating Droplets, Load Balancers, Managed Databases, or Kubernetes clusters. We apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "pfh7zf1l5851",
+          "created_at": "2023-01-11T00:38:50.078Z",
+          "updated_at": "2023-01-11T00:38:50.078Z",
+          "display_at": "2023-01-11T00:38:50.078Z",
+          "affected_components": [
+            {
+              "code": "xc1fvcqsqp80",
+              "name": "Services - Droplets",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "y5mb12th36zh",
+              "name": "Services - Kubernetes",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "chj29s92gg0x",
+              "name": "Services - Load Balancers",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "lklbmflv3jcl",
+              "name": "Services - Managed Databases",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "99gtwvvfhtyz",
+              "name": "Regions - SFO3",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "xc1fvcqsqp80",
+          "name": "Droplets",
+          "status": "degraded_performance",
+          "created_at": "2017-02-17T21:40:23.067Z",
+          "updated_at": "2023-01-11T00:38:49.971Z",
+          "position": 10,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "9xmhrchbp51t",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "99gtwvvfhtyz",
+          "name": "SFO3",
+          "status": "operational",
+          "created_at": "2020-05-12T19:05:08.138Z",
+          "updated_at": "2022-06-15T06:06:26.659Z",
+          "position": 12,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "6ycn9yslydsq",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "y5mb12th36zh",
+          "name": "Kubernetes",
+          "status": "degraded_performance",
+          "created_at": "2019-02-21T18:10:26.468Z",
+          "updated_at": "2023-01-11T00:38:49.992Z",
+          "position": 13,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "9xmhrchbp51t",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "chj29s92gg0x",
+          "name": "Load Balancers",
+          "status": "degraded_performance",
+          "created_at": "2017-03-15T20:20:44.175Z",
+          "updated_at": "2023-01-11T00:38:50.011Z",
+          "position": 14,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "9xmhrchbp51t",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "lklbmflv3jcl",
+          "name": "Managed Databases",
+          "status": "degraded_performance",
+          "created_at": "2019-02-14T16:21:36.279Z",
+          "updated_at": "2023-01-11T00:38:50.032Z",
+          "position": 15,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "9xmhrchbp51t",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "w53hq58htzl5",
       "name": "Functions through App Platform",
@@ -297,9 +571,9 @@
         {
           "id": "xc1fvcqsqp80",
           "name": "Droplets",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-02-17T21:40:23.067Z",
-          "updated_at": "2023-01-09T16:29:56.958Z",
+          "updated_at": "2023-01-11T00:38:49.971Z",
           "position": 10,
           "description": null,
           "showcase": false,
@@ -312,9 +586,9 @@
         {
           "id": "y5mb12th36zh",
           "name": "Kubernetes",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-21T18:10:26.468Z",
-          "updated_at": "2023-01-09T16:29:56.974Z",
+          "updated_at": "2023-01-11T00:38:49.992Z",
           "position": 13,
           "description": null,
           "showcase": false,
@@ -327,9 +601,9 @@
         {
           "id": "chj29s92gg0x",
           "name": "Load Balancers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-03-15T20:20:44.175Z",
-          "updated_at": "2023-01-09T16:29:56.990Z",
+          "updated_at": "2023-01-11T00:38:50.011Z",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -342,9 +616,9 @@
         {
           "id": "lklbmflv3jcl",
           "name": "Managed Databases",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-14T16:21:36.279Z",
-          "updated_at": "2023-01-09T16:29:57.005Z",
+          "updated_at": "2023-01-11T00:38:50.032Z",
           "position": 15,
           "description": null,
           "showcase": false,
@@ -1288,9 +1562,9 @@
         {
           "id": "xymwmm4wsr4l",
           "name": "Cloud Control Panel",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-02-17T21:40:34.099Z",
-          "updated_at": "2022-12-06T17:40:32.172Z",
+          "updated_at": "2023-01-11T01:59:09.667Z",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -1303,9 +1577,9 @@
         {
           "id": "y5mb12th36zh",
           "name": "Kubernetes",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-21T18:10:26.468Z",
-          "updated_at": "2023-01-09T16:29:56.974Z",
+          "updated_at": "2023-01-11T00:38:49.992Z",
           "position": 13,
           "description": null,
           "showcase": false,
@@ -2007,9 +2281,9 @@
         {
           "id": "m7nv9rsmrssk",
           "name": "Event Processing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-02-17T21:40:14.164Z",
-          "updated_at": "2022-11-29T16:23:18.809Z",
+          "updated_at": "2023-01-11T01:59:09.685Z",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -2727,9 +3001,9 @@
         {
           "id": "lklbmflv3jcl",
           "name": "Managed Databases",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-14T16:21:36.279Z",
-          "updated_at": "2023-01-09T16:29:57.005Z",
+          "updated_at": "2023-01-11T00:38:50.032Z",
           "position": 15,
           "description": null,
           "showcase": false,
@@ -3632,9 +3906,9 @@
         {
           "id": "xc1fvcqsqp80",
           "name": "Droplets",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-02-17T21:40:23.067Z",
-          "updated_at": "2023-01-09T16:29:56.958Z",
+          "updated_at": "2023-01-11T00:38:49.971Z",
           "position": 10,
           "description": null,
           "showcase": false,
@@ -3647,9 +3921,9 @@
         {
           "id": "y5mb12th36zh",
           "name": "Kubernetes",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-21T18:10:26.468Z",
-          "updated_at": "2023-01-09T16:29:56.974Z",
+          "updated_at": "2023-01-11T00:38:49.992Z",
           "position": 13,
           "description": null,
           "showcase": false,
@@ -3662,9 +3936,9 @@
         {
           "id": "chj29s92gg0x",
           "name": "Load Balancers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-03-15T20:20:44.175Z",
-          "updated_at": "2023-01-09T16:29:56.990Z",
+          "updated_at": "2023-01-11T00:38:50.011Z",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -3677,9 +3951,9 @@
         {
           "id": "lklbmflv3jcl",
           "name": "Managed Databases",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-14T16:21:36.279Z",
-          "updated_at": "2023-01-09T16:29:57.005Z",
+          "updated_at": "2023-01-11T00:38:50.032Z",
           "position": 15,
           "description": null,
           "showcase": false,
@@ -3771,9 +4045,9 @@
         {
           "id": "xymwmm4wsr4l",
           "name": "Cloud Control Panel",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-02-17T21:40:34.099Z",
-          "updated_at": "2022-12-06T17:40:32.172Z",
+          "updated_at": "2023-01-11T01:59:09.667Z",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -4146,9 +4420,9 @@
         {
           "id": "lklbmflv3jcl",
           "name": "Managed Databases",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-14T16:21:36.279Z",
-          "updated_at": "2023-01-09T16:29:57.005Z",
+          "updated_at": "2023-01-11T00:38:50.032Z",
           "position": 15,
           "description": null,
           "showcase": false,
@@ -4271,9 +4545,9 @@
         {
           "id": "y5mb12th36zh",
           "name": "Kubernetes",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-21T18:10:26.468Z",
-          "updated_at": "2023-01-09T16:29:56.974Z",
+          "updated_at": "2023-01-11T00:38:49.992Z",
           "position": 13,
           "description": null,
           "showcase": false,
@@ -4523,9 +4797,9 @@
         {
           "id": "xc1fvcqsqp80",
           "name": "Droplets",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-02-17T21:40:23.067Z",
-          "updated_at": "2023-01-09T16:29:56.958Z",
+          "updated_at": "2023-01-11T00:38:49.971Z",
           "position": 10,
           "description": null,
           "showcase": false,
@@ -4538,9 +4812,9 @@
         {
           "id": "y5mb12th36zh",
           "name": "Kubernetes",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-21T18:10:26.468Z",
-          "updated_at": "2023-01-09T16:29:56.974Z",
+          "updated_at": "2023-01-11T00:38:49.992Z",
           "position": 13,
           "description": null,
           "showcase": false,
@@ -4746,9 +5020,9 @@
         {
           "id": "lklbmflv3jcl",
           "name": "Managed Databases",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-14T16:21:36.279Z",
-          "updated_at": "2023-01-09T16:29:57.005Z",
+          "updated_at": "2023-01-11T00:38:50.032Z",
           "position": 15,
           "description": null,
           "showcase": false,
@@ -5191,9 +5465,9 @@
         {
           "id": "lklbmflv3jcl",
           "name": "Managed Databases",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-14T16:21:36.279Z",
-          "updated_at": "2023-01-09T16:29:57.005Z",
+          "updated_at": "2023-01-11T00:38:50.032Z",
           "position": 15,
           "description": null,
           "showcase": false,
@@ -5405,9 +5679,9 @@
         {
           "id": "y5mb12th36zh",
           "name": "Kubernetes",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-21T18:10:26.468Z",
-          "updated_at": "2023-01-09T16:29:56.974Z",
+          "updated_at": "2023-01-11T00:38:49.992Z",
           "position": 13,
           "description": null,
           "showcase": false,
@@ -5514,9 +5788,9 @@
         {
           "id": "xymwmm4wsr4l",
           "name": "Cloud Control Panel",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-02-17T21:40:34.099Z",
-          "updated_at": "2022-12-06T17:40:32.172Z",
+          "updated_at": "2023-01-11T01:59:09.667Z",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -5767,9 +6041,9 @@
         {
           "id": "m7nv9rsmrssk",
           "name": "Event Processing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-02-17T21:40:14.164Z",
-          "updated_at": "2022-11-29T16:23:18.809Z",
+          "updated_at": "2023-01-11T01:59:09.685Z",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -5925,9 +6199,9 @@
         {
           "id": "xc1fvcqsqp80",
           "name": "Droplets",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-02-17T21:40:23.067Z",
-          "updated_at": "2023-01-09T16:29:56.958Z",
+          "updated_at": "2023-01-11T00:38:49.971Z",
           "position": 10,
           "description": null,
           "showcase": false,
@@ -6240,9 +6514,9 @@
         {
           "id": "xymwmm4wsr4l",
           "name": "Cloud Control Panel",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-02-17T21:40:34.099Z",
-          "updated_at": "2022-12-06T17:40:32.172Z",
+          "updated_at": "2023-01-11T01:59:09.667Z",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -6577,9 +6851,9 @@
         {
           "id": "xc1fvcqsqp80",
           "name": "Droplets",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-02-17T21:40:23.067Z",
-          "updated_at": "2023-01-09T16:29:56.958Z",
+          "updated_at": "2023-01-11T00:38:49.971Z",
           "position": 10,
           "description": null,
           "showcase": false,
@@ -6592,9 +6866,9 @@
         {
           "id": "m7nv9rsmrssk",
           "name": "Event Processing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-02-17T21:40:14.164Z",
-          "updated_at": "2022-11-29T16:23:18.809Z",
+          "updated_at": "2023-01-11T01:59:09.685Z",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -6607,9 +6881,9 @@
         {
           "id": "chj29s92gg0x",
           "name": "Load Balancers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-03-15T20:20:44.175Z",
-          "updated_at": "2023-01-09T16:29:56.990Z",
+          "updated_at": "2023-01-11T00:38:50.011Z",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -6622,9 +6896,9 @@
         {
           "id": "lklbmflv3jcl",
           "name": "Managed Databases",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-14T16:21:36.279Z",
-          "updated_at": "2023-01-09T16:29:57.005Z",
+          "updated_at": "2023-01-11T00:38:50.032Z",
           "position": 15,
           "description": null,
           "showcase": false,
@@ -7406,9 +7680,9 @@
         {
           "id": "xc1fvcqsqp80",
           "name": "Droplets",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-02-17T21:40:23.067Z",
-          "updated_at": "2023-01-09T16:29:56.958Z",
+          "updated_at": "2023-01-11T00:38:49.971Z",
           "position": 10,
           "description": null,
           "showcase": false,
@@ -7882,289 +8156,6 @@
           "description": null,
           "showcase": false,
           "start_date": null,
-          "group_id": "9xmhrchbp51t",
-          "page_id": "s2k7tnzlhrpw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "w4vprbbpwhgw",
-      "name": "Transit Network connectivity in SGP1 region",
-      "status": "resolved",
-      "created_at": "2022-10-19T14:33:09.976Z",
-      "updated_at": "2022-10-19T18:00:50.807Z",
-      "monitoring_at": "2022-10-19T16:24:46.471Z",
-      "resolved_at": "2022-10-19T18:00:50.784Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/dfg824t7tksk",
-      "started_at": "2022-10-19T14:33:09.963Z",
-      "page_id": "s2k7tnzlhrpw",
-      "incident_updates": [
-        {
-          "id": "7x3ts9ks7ppw",
-          "status": "resolved",
-          "body": "Our Engineering team has observed a mitigated impact for this issue, due to the routed action taken around the issue caused by the upstream network connectivity issue from the EU region to USA and Asia. Users should no longer experience any network latency/packet loss. Image push to the container registries and App Platform builds should continue to work as expected in the SGP region. \n\nWe appreciate your patience throughout the process and if you continue to experience problems, please open a ticket with our support team for further review.",
-          "incident_id": "w4vprbbpwhgw",
-          "created_at": "2022-10-19T18:00:50.784Z",
-          "updated_at": "2022-10-19T18:00:50.784Z",
-          "display_at": "2022-10-19T18:00:50.784Z",
-          "affected_components": [
-            {
-              "code": "vtmbhmvd5dqv",
-              "name": "Services - App Platform",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "bcwz10mdvf0r",
-              "name": "Services - Container Registry",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "nf94kg7630pr",
-              "name": "Regions - SGP1",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "54lhbff4c6k2",
-          "status": "monitoring",
-          "body": "Our engineering team has routed around the issue caused by the upstream network connectivity issue from the EU region to USA and Asia. Users should no longer experience any network latency/packet loss from the EU region to USA and Asia. \n\nUsers shouldn't experience any issues while pushing their images to their container registries and App Platform users shouldn't experience any build failures in the SGP region.\n\nWe are currently monitoring the results and will post an update as soon as the issue is resolved completely.",
-          "incident_id": "w4vprbbpwhgw",
-          "created_at": "2022-10-19T16:24:46.471Z",
-          "updated_at": "2022-10-19T16:24:46.471Z",
-          "display_at": "2022-10-19T16:24:46.471Z",
-          "affected_components": [
-            {
-              "code": "vtmbhmvd5dqv",
-              "name": "Services - App Platform",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bcwz10mdvf0r",
-              "name": "Services - Container Registry",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "nf94kg7630pr",
-              "name": "Regions - SGP1",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jqxb28mn8vnf",
-          "status": "investigating",
-          "body": "Our Engineering team is aware of an upstream issue impacting network connectivity from the EU region to USA and Asia. During this time, users may experience network latency/packet loss from the EU region to USA and Asia. \n\nWe are also seeing users unable to push their images to their container registry and App Platform users might experience build failures in the SGP region.\n\nOur Engineering team is investigating any possible mitigations to work around this upstream issue. We will provide an update as soon as further information is available.",
-          "incident_id": "w4vprbbpwhgw",
-          "created_at": "2022-10-19T14:33:10.106Z",
-          "updated_at": "2022-10-19T14:33:10.106Z",
-          "display_at": "2022-10-19T14:33:10.106Z",
-          "affected_components": [
-            {
-              "code": "vtmbhmvd5dqv",
-              "name": "Services - App Platform",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bcwz10mdvf0r",
-              "name": "Services - Container Registry",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "nf94kg7630pr",
-              "name": "Regions - SGP1",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "vtmbhmvd5dqv",
-          "name": "App Platform",
-          "status": "operational",
-          "created_at": "2020-10-06T12:31:55.370Z",
-          "updated_at": "2023-01-09T22:32:27.551Z",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": "2020-10-06",
-          "group_id": "9xmhrchbp51t",
-          "page_id": "s2k7tnzlhrpw",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "bcwz10mdvf0r",
-          "name": "Container Registry",
-          "status": "operational",
-          "created_at": "2020-11-02T19:40:46.930Z",
-          "updated_at": "2022-11-17T18:04:45.403Z",
-          "position": 8,
-          "description": null,
-          "showcase": false,
-          "start_date": "2020-11-02",
-          "group_id": "9xmhrchbp51t",
-          "page_id": "s2k7tnzlhrpw",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "nf94kg7630pr",
-          "name": "SGP1",
-          "status": "operational",
-          "created_at": "2017-02-17T21:49:07.673Z",
-          "updated_at": "2022-12-12T17:00:43.887Z",
-          "position": 13,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "6ycn9yslydsq",
-          "page_id": "s2k7tnzlhrpw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "9vv2dtb4msg9",
-      "name": "App Platform Deployments",
-      "status": "resolved",
-      "created_at": "2022-10-07T15:18:17.623Z",
-      "updated_at": "2022-10-07T19:19:31.968Z",
-      "monitoring_at": "2022-10-07T18:09:15.400Z",
-      "resolved_at": "2022-10-07T19:19:31.953Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/jg93y6fb18wv",
-      "started_at": "2022-10-07T15:18:17.613Z",
-      "page_id": "s2k7tnzlhrpw",
-      "incident_updates": [
-        {
-          "id": "ph2zsw1shx3h",
-          "status": "resolved",
-          "body": "We've confirmed the issue with our App Platform service is fully resolved. Everything should be functioning normally including the new app deployments and updates to the existing ones. We appreciate your patience throughout the process and if you continue to experience problems, please open a ticket with our support team for further review.",
-          "incident_id": "9vv2dtb4msg9",
-          "created_at": "2022-10-07T19:19:31.953Z",
-          "updated_at": "2022-10-07T19:19:31.953Z",
-          "display_at": "2022-10-07T19:19:31.953Z",
-          "affected_components": [
-            {
-              "code": "vtmbhmvd5dqv",
-              "name": "Services - App Platform",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "7t9s4fqwl4pm",
-              "name": "Regions - Global",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "mdprxtj2xz00",
-          "status": "monitoring",
-          "body": "Our Engineering team identified the root cause of the issues impacting App Platform deployments on our platform. Users may have observed impact caused by this issue between 2022-10-06 02:00 UTC and 2022-10-07 17:35 UTC. \n\nWe have now implemented a fix to resolve the issue and are monitoring the situation closely. We will post another update as soon as the issue is fully resolved.",
-          "incident_id": "9vv2dtb4msg9",
-          "created_at": "2022-10-07T18:09:15.400Z",
-          "updated_at": "2022-10-07T18:09:15.400Z",
-          "display_at": "2022-10-07T18:09:15.400Z",
-          "affected_components": [
-            {
-              "code": "vtmbhmvd5dqv",
-              "name": "Services - App Platform",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "7t9s4fqwl4pm",
-              "name": "Regions - Global",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "f8ysycws77r8",
-          "status": "investigating",
-          "body": "Our engineering team is investigating an issue with App platform. During this time, some users may experience issues while deploying and building new applications and adding components to existing applications using GitHub Repos on the App platform service. We apologize for the inconvenience and will share an update once we have more information.",
-          "incident_id": "9vv2dtb4msg9",
-          "created_at": "2022-10-07T15:18:17.696Z",
-          "updated_at": "2022-10-07T15:18:17.696Z",
-          "display_at": "2022-10-07T15:18:17.696Z",
-          "affected_components": [
-            {
-              "code": "vtmbhmvd5dqv",
-              "name": "Services - App Platform",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "7t9s4fqwl4pm",
-              "name": "Regions - Global",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "7t9s4fqwl4pm",
-          "name": "Global",
-          "status": "operational",
-          "created_at": "2017-02-17T21:44:07.397Z",
-          "updated_at": "2023-01-09T22:32:27.522Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "6ycn9yslydsq",
-          "page_id": "s2k7tnzlhrpw",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "vtmbhmvd5dqv",
-          "name": "App Platform",
-          "status": "operational",
-          "created_at": "2020-10-06T12:31:55.370Z",
-          "updated_at": "2023-01-09T22:32:27.551Z",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": "2020-10-06",
           "group_id": "9xmhrchbp51t",
           "page_id": "s2k7tnzlhrpw",
           "group": false,
