@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-01-11T00:03:06.735-08:00"
+    "updated_at": "2023-01-11T10:51:22.461-08:00"
   },
   "incidents": [
     {
@@ -732,7 +732,7 @@
       "name": "[Major] Latency with Some Box Services",
       "status": "postmortem",
       "created_at": "2022-11-23T08:30:00.000-08:00",
-      "updated_at": "2022-11-29T12:39:26.530-08:00",
+      "updated_at": "2023-01-11T10:51:22.447-08:00",
       "monitoring_at": null,
       "resolved_at": "2022-11-23T10:30:00.000-08:00",
       "impact": "major",
@@ -743,10 +743,10 @@
         {
           "id": "p4kjpp86g3hp",
           "status": "postmortem",
-          "body": "On November 23rd, 2022 between 10:39 AM and 11:29 AM, some users may have experienced difficulties while working in Box. During this time, permissions checks failed, preventing some calls from succeeding. The issue occurred due to a non-backward-compatible change to a permissions schema, as part of our ongoing effort to improve the performance of our services. We were able to resolve the issue by reverting the schema change. In addition, we are changing the schema definition to support both forward and backward compatibility, and improving our testing and monitoring processes to detect any problems deploying updating permissions, to prevent similar issues from occurring in the future.\n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. We will publish the results as soon as we have concluded our investigation.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting permissions checks in multiple Box services. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nOn November 23rd, 2022 between 10:39 AM and 11:29 AM, some users may have experienced difficulties while accessing content in Box. During this time, permissions checks were not available for certain workflows, which caused multiple services to stop allowing access. The issue occurred due to a non-backward-compatible change that was introduced while adding a feature intended to improve the performance of permissions checks. We were able to resolve the issue by reverting the change. In addition, we are working to improve our testing and monitoring processes to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis**\n\nPermissions checks depend on a schema. In order to make checks faster, we are adding support for bulk lookups, a feature that will reduce the number of requests to other internal services and thus improve the response time. Some new fields required for the bulk-lookups feature were added in a way that made the change non-backward-compatible, causing services to fail in production. This failure rendered the permissions system temporarily unable to grant access to certain content in Box.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Add tests to ensure backwards-compatibility.\n* Enhance our code-review checklist to add looking for non-backwards-compatible changes.\n* Improve our deployment process to add more training for developers who publish permissions changes.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
           "incident_id": "zpxp96sqxgnk",
           "created_at": "2022-11-29T12:38:11.954-08:00",
-          "updated_at": "2022-11-29T12:39:26.527-08:00",
+          "updated_at": "2023-01-11T10:51:22.444-08:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
@@ -774,10 +774,10 @@
       "name": "[Major] Issues with generating Content Preview",
       "status": "postmortem",
       "created_at": "2022-11-15T17:01:53.929-08:00",
-      "updated_at": "2022-12-08T10:16:51.377-08:00",
+      "updated_at": "2023-01-11T10:49:58.107-08:00",
       "monitoring_at": "2022-11-15T22:16:50.757-08:00",
       "resolved_at": "2022-11-16T08:02:03.842-08:00",
-      "impact": "minor",
+      "impact": "major",
       "shortlink": "https://stspg.io/3sq8mm8fttyd",
       "started_at": "2022-11-15T17:01:53.921-08:00",
       "page_id": "208q92hckwws",
@@ -785,10 +785,10 @@
         {
           "id": "gk2synflr4kp",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we will update as more information is confirmed._\n\n \n\nBetween November 15, 2022 at 7:12 am PST and November 16, 2022 at 3:04 am PST, some users may have experienced difficulties while working in Box. During this time, customers may have experienced preview conversion latencies for Sharepoint or Microsoft Excel files. The issue occurred as a result of a reduction of available conversion capacity as part of ongoing data center migrations. We were able to resolve the issue by provisioning additional capacity in their place. In addition, operational process and tooling will be implemented to prevent similar issues from occurring in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. We will publish the results as soon as we have concluded our investigation.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting conversion latencies for Sharepoint or Microsoft Excel files. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween November 15, 2022 at 7:12 am PST and November 16, 2022 at 3:04 am PST, some users may have experienced difficulties while working in Box. During this time, customers may have experienced preview conversion latencies for Sharepoint or Microsoft Excel files. The issue occurred as a result of a reduction of available conversion capacity as part of ongoing data center migrations. We were able to resolve the issue by provisioning additional capacity in their place. In addition, operational process and tooling will be implemented to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nAs part of a data center migration, hosts for the conversion service were removed from production before replacement capacity was brought online, resulting in a 15% loss to conversion capacity. The capacity loss and root cause were identified right away and additional capacity was brought online to compensate. \n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Process updates have been enabled to better facilitate communication between Infrastructure and Capacity teams to minimize the likelihood of similar issues occurring in the future.\n* Changes to automation for the validation of capacity requests have been enacted.\n* Canary rollout of windows related changes for the conversion service will be enabled. \n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
           "incident_id": "62hgzb30ttqp",
           "created_at": "2022-12-08T10:16:21.655-08:00",
-          "updated_at": "2022-12-08T10:16:51.373-08:00",
+          "updated_at": "2023-01-11T10:49:46.774-08:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
