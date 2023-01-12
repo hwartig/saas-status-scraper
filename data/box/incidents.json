@@ -4,15 +4,15 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-01-12T00:05:06.627-08:00"
+    "updated_at": "2023-01-12T11:35:01.710-08:00"
   },
   "incidents": [
     {
       "id": "c3wp7gqvymj8",
       "name": "[Minor] Issue with Uploads, Downloads, and Public API",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-01-09T15:55:02.000-08:00",
-      "updated_at": "2023-01-09T17:01:32.507-08:00",
+      "updated_at": "2023-01-12T11:35:01.708-08:00",
       "monitoring_at": "2023-01-09T16:38:54.702-08:00",
       "resolved_at": "2023-01-09T17:01:31.713-08:00",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2023-01-09T15:55:02.000-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "jtbqd44mc2n9",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Desktop Applications \\(Box Sync, Box Drive\\), Box Web Application \\(Uploads/Downloads\\), and Box Platform / API \\(Uploads/Downloads\\). We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 3:30pm PDT and 4:17pm PDT on Jan 9th, 2023, some users may have experienced difficulties while working on the Box platform. During this time, users may have experienced slow login times as well as failures when attempting to upload and download files. \n\n## **Analysis**\n\nThe issue occurred as an unexpected result of a resource utilization priority conflict during the deployment process of an internal tool. Specifically, an internal service being deployed to our production environment had a higher resource utilization priority than another critical system process, which subsequently failed when affected nodes’ resources were exhausted. We were able to resolve the issue by reverting the change.\n\nIn addition, we are improving our change risk assessment criteria and health alerts for this kind of tool, and working to design a more progressive deployment process for this internal tool to prevent similar issues from occurring in the future.\n\n## **Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Improving our risk assessment criteria for deploying these types of tools. \n\n* Extending our capacity guidelines to provide more clarity around system resource consumption and better resource distribution.\n* Increasing our alerting to detect early warning signs of systems running at a higher capacity than expected.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "c3wp7gqvymj8",
+          "created_at": "2023-01-12T11:33:50.428-08:00",
+          "updated_at": "2023-01-12T11:35:01.706-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "cg0rywvhv4gz",
           "status": "resolved",
