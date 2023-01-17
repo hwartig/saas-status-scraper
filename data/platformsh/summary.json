@@ -4,15 +4,15 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-01-15T20:23:32.278Z"
+    "updated_at": "2023-01-17T12:05:39.778Z"
   },
   "components": [
     {
       "id": "w62ktynq8s8d",
       "name": "Console",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2019-07-23T19:37:12.161Z",
-      "updated_at": "2023-01-12T17:11:02.048Z",
+      "updated_at": "2023-01-17T12:05:39.727Z",
       "position": 1,
       "description": "Project console for Platform Professional.",
       "showcase": false,
@@ -68,21 +68,6 @@
       "only_show_if_degraded": false
     },
     {
-      "id": "bdf18vdcv04l",
-      "name": "Provisioning",
-      "status": "operational",
-      "created_at": "2017-07-06T08:55:28.166Z",
-      "updated_at": "2022-10-14T03:34:19.209Z",
-      "position": 3,
-      "description": null,
-      "showcase": false,
-      "start_date": null,
-      "group_id": "fyqkwqq92sxm",
-      "page_id": "l2x5n4czt1ph",
-      "group": false,
-      "only_show_if_degraded": false
-    },
-    {
       "id": "qk08sqsyz837",
       "name": "Canada (ca-1.platform.sh)",
       "status": "operational",
@@ -93,6 +78,21 @@
       "showcase": false,
       "start_date": null,
       "group_id": null,
+      "page_id": "l2x5n4czt1ph",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "bdf18vdcv04l",
+      "name": "Provisioning",
+      "status": "operational",
+      "created_at": "2017-07-06T08:55:28.166Z",
+      "updated_at": "2022-10-14T03:34:19.209Z",
+      "position": 3,
+      "description": null,
+      "showcase": false,
+      "start_date": null,
+      "group_id": "fyqkwqq92sxm",
       "page_id": "l2x5n4czt1ph",
       "group": false,
       "only_show_if_degraded": false
@@ -340,7 +340,7 @@
     {
       "id": "fyqkwqq92sxm",
       "name": "Accounts",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2017-07-06T08:55:17.023Z",
       "updated_at": "2021-04-13T23:00:57.451Z",
       "position": 19,
@@ -374,7 +374,60 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "3bs8n3j9bxsv",
+      "name": "Project user interface outage",
+      "status": "investigating",
+      "created_at": "2023-01-17T12:05:39.694Z",
+      "updated_at": "2023-01-17T12:05:39.775Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/nkk6d5189lg5",
+      "started_at": "2023-01-17T12:05:39.686Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "fr123t9hvm60",
+          "status": "investigating",
+          "body": "We have detected an issue affecting the project management user interface. URLs starting with https://console.platform.sh/ may not load properly and result in an error. Our Operations team has been notified and is currently working to restore service. \n\nThis does not affect the availability of your websites.\n\nWe will update you as soon as we have further information.",
+          "incident_id": "3bs8n3j9bxsv",
+          "created_at": "2023-01-17T12:05:39.772Z",
+          "updated_at": "2023-01-17T12:05:39.772Z",
+          "display_at": "2023-01-17T12:05:39.772Z",
+          "affected_components": [
+            {
+              "code": "w62ktynq8s8d",
+              "name": "Accounts - Console",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "w62ktynq8s8d",
+          "name": "Console",
+          "status": "major_outage",
+          "created_at": "2019-07-23T19:37:12.161Z",
+          "updated_at": "2023-01-17T12:05:39.727Z",
+          "position": 1,
+          "description": "Project console for Platform Professional.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "fyqkwqq92sxm",
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "3p6gs7cj9fch",
@@ -594,7 +647,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "major",
+    "description": "Partial System Outage"
   }
 }
