@@ -4,24 +4,9 @@
     "name": "LogRocket",
     "url": "http://status.logrocket.com",
     "time_zone": "America/New_York",
-    "updated_at": "2023-01-18T10:40:43.414-05:00"
+    "updated_at": "2023-01-18T10:41:51.705-05:00"
   },
   "components": [
-    {
-      "id": "78xsxv9q0z44",
-      "name": "Session Collection",
-      "status": "operational",
-      "created_at": "2016-08-22T17:19:51.868-04:00",
-      "updated_at": "2022-12-05T13:58:16.455-05:00",
-      "position": 1,
-      "description": "Endpoint for collecting session logs",
-      "showcase": true,
-      "start_date": null,
-      "group_id": null,
-      "page_id": "wykzh58rpbks",
-      "group": false,
-      "only_show_if_degraded": false
-    },
     {
       "id": "r4pstyrwg2j0",
       "name": "Slack Integration",
@@ -33,6 +18,21 @@
       "showcase": false,
       "start_date": null,
       "group_id": "d05f79s01qd7",
+      "page_id": "wykzh58rpbks",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "78xsxv9q0z44",
+      "name": "Session Collection",
+      "status": "operational",
+      "created_at": "2016-08-22T17:19:51.868-04:00",
+      "updated_at": "2022-12-05T13:58:16.455-05:00",
+      "position": 1,
+      "description": "Endpoint for collecting session logs",
+      "showcase": true,
+      "start_date": null,
+      "group_id": null,
       "page_id": "wykzh58rpbks",
       "group": false,
       "only_show_if_degraded": false
@@ -55,9 +55,9 @@
     {
       "id": "6ffrlj44k87r",
       "name": "Dashboard",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2016-08-22T15:38:49.584-04:00",
-      "updated_at": "2022-12-11T09:30:02.779-05:00",
+      "updated_at": "2023-01-18T10:41:51.614-05:00",
       "position": 2,
       "description": "The main LogRocket dashboard",
       "showcase": true,
@@ -100,9 +100,9 @@
     {
       "id": "n1ntr6nfbmyc",
       "name": "Issues",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2018-12-21T12:11:10.665-05:00",
-      "updated_at": "2022-12-08T00:12:32.693-05:00",
+      "updated_at": "2023-01-18T10:41:51.629-05:00",
       "position": 4,
       "description": "Issue list and details",
       "showcase": false,
@@ -115,9 +115,9 @@
     {
       "id": "9pfmb7c16n57",
       "name": "Metrics",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2021-10-04T10:09:36.149-04:00",
-      "updated_at": "2022-12-11T09:30:02.803-05:00",
+      "updated_at": "2023-01-18T10:41:51.642-05:00",
       "position": 5,
       "description": "Metrics and analytics charts and dashboards",
       "showcase": false,
@@ -130,9 +130,9 @@
     {
       "id": "b7fb11tpy1qr",
       "name": "Alerts",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2020-10-05T11:48:28.281-04:00",
-      "updated_at": "2022-12-11T09:30:02.826-05:00",
+      "updated_at": "2023-01-18T10:41:51.657-05:00",
       "position": 6,
       "description": "Notifications when your metrics meet conditions you define, sent to destinations like email, Slack, or a webhook",
       "showcase": false,
@@ -193,10 +193,126 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "jlk321y6kplf",
+      "name": "Performance issues with primary search database",
+      "status": "investigating",
+      "created_at": "2023-01-18T10:41:51.574-05:00",
+      "updated_at": "2023-01-18T10:41:51.702-05:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/l396w22zr1sq",
+      "started_at": "2023-01-18T10:41:51.566-05:00",
+      "page_id": "wykzh58rpbks",
+      "incident_updates": [
+        {
+          "id": "lsc532k323x7",
+          "status": "investigating",
+          "body": "We are currently investigating an issue impacting our primary search database. Searching for sessions, loading metric charts, issues and alerting are all impacted. Session data collection has not been impacted.",
+          "incident_id": "jlk321y6kplf",
+          "created_at": "2023-01-18T10:41:51.699-05:00",
+          "updated_at": "2023-01-18T10:41:51.699-05:00",
+          "display_at": "2023-01-18T10:41:51.699-05:00",
+          "affected_components": [
+            {
+              "code": "6ffrlj44k87r",
+              "name": "Dashboard",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "n1ntr6nfbmyc",
+              "name": "Issues",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "b7fb11tpy1qr",
+              "name": "Alerts",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "9pfmb7c16n57",
+              "name": "Metrics",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "6ffrlj44k87r",
+          "name": "Dashboard",
+          "status": "partial_outage",
+          "created_at": "2016-08-22T15:38:49.584-04:00",
+          "updated_at": "2023-01-18T10:41:51.614-05:00",
+          "position": 2,
+          "description": "The main LogRocket dashboard",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "wykzh58rpbks",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "n1ntr6nfbmyc",
+          "name": "Issues",
+          "status": "partial_outage",
+          "created_at": "2018-12-21T12:11:10.665-05:00",
+          "updated_at": "2023-01-18T10:41:51.629-05:00",
+          "position": 4,
+          "description": "Issue list and details",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "wykzh58rpbks",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "9pfmb7c16n57",
+          "name": "Metrics",
+          "status": "partial_outage",
+          "created_at": "2021-10-04T10:09:36.149-04:00",
+          "updated_at": "2023-01-18T10:41:51.642-05:00",
+          "position": 5,
+          "description": "Metrics and analytics charts and dashboards",
+          "showcase": false,
+          "start_date": "2021-10-04",
+          "group_id": null,
+          "page_id": "wykzh58rpbks",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "b7fb11tpy1qr",
+          "name": "Alerts",
+          "status": "partial_outage",
+          "created_at": "2020-10-05T11:48:28.281-04:00",
+          "updated_at": "2023-01-18T10:41:51.657-05:00",
+          "position": 6,
+          "description": "Notifications when your metrics meet conditions you define, sent to destinations like email, Slack, or a webhook",
+          "showcase": false,
+          "start_date": "2020-10-05",
+          "group_id": null,
+          "page_id": "wykzh58rpbks",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
