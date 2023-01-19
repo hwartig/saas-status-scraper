@@ -4,9 +4,38 @@
     "name": "MURAL",
     "url": "https://status.mural.co",
     "time_zone": "America/Argentina/Buenos_Aires",
-    "updated_at": "2023-01-19T05:06:52.861-03:00"
+    "updated_at": "2023-01-19T05:37:50.137-03:00"
   },
   "incidents": [
+    {
+      "id": "ystrrt6qzxss",
+      "name": "Redirected URL is invalid error when logging in to Mural in MS Teams",
+      "status": "investigating",
+      "created_at": "2023-01-19T05:36:59.198-03:00",
+      "updated_at": "2023-01-19T05:37:50.129-03:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/4ncryxrvqn4n",
+      "started_at": "2023-01-19T05:36:59.000-03:00",
+      "page_id": "dbk70dpy3n7h",
+      "incident_updates": [
+        {
+          "id": "5k7s228lb8l1",
+          "status": "investigating",
+          "body": "We’re experiencing a service disruption causing Users are currently unable to sign in to Mural in MS Teams. We are currently investigating the root cause of this issue and will keep this page updated as soon as we have more information to share. We apologize for any inconvenience caused and appreciate your patience.\n\nPlease check our status page for the most up-to-date info at status.mural.co/",
+          "incident_id": "ystrrt6qzxss",
+          "created_at": "2023-01-19T05:36:59.242-03:00",
+          "updated_at": "2023-01-19T05:37:50.123-03:00",
+          "display_at": "2023-01-19T05:36:59.000-03:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": 1615991699796549600
+        }
+      ],
+      "components": []
+    },
     {
       "id": "xfxn2n40z2rl",
       "name": "MURAL Exports Delay",
@@ -8186,111 +8215,6 @@
           "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "42zc4v22b21z",
-          "name": "Canvas",
-          "status": "operational",
-          "created_at": "2014-10-06T09:26:19.039-03:00",
-          "updated_at": "2022-08-16T14:20:53.307-03:00",
-          "position": 3,
-          "description": "The murals, sticky notes, images and other content",
-          "showcase": true,
-          "start_date": null,
-          "group_id": "mkmjnq1rb559",
-          "page_id": "dbk70dpy3n7h",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "q8k6jzzmyycf",
-      "name": "Real time collaboration is down",
-      "status": "postmortem",
-      "created_at": "2020-03-11T15:33:07.588-03:00",
-      "updated_at": "2020-03-13T00:24:19.651-03:00",
-      "monitoring_at": "2020-03-11T15:48:34.935-03:00",
-      "resolved_at": "2020-03-11T16:55:32.945-03:00",
-      "impact": "major",
-      "shortlink": "http://stspg.io/bzzxxsqzpyck",
-      "started_at": "2020-03-11T15:33:07.583-03:00",
-      "page_id": "dbk70dpy3n7h",
-      "incident_updates": [
-        {
-          "id": "684v52x2g088",
-          "status": "postmortem",
-          "body": "### Summary\n\nOn March 11th, 2020, at  11:20 Pacific Time, our infrastructure monitoring systems showed an unusual load on the realtime collaboration component in our platform. This component is what enables different users to work together on a mural at the same time seamlessly. We were able to see how some of our realtime collaboration servers became unresponsive, effectively bringing down realtime collaboration for those users working together in murals at that time.\n\nAs soon as we identified the increased load for these servers we acknowledged the situation in our status page at 11:33 and began applying remediation measures by increasing our dedicated capacity. The service gradually recovered responsiveness and 15 minutes later, at 11:48 we saw all load flow back to regular levels. We continued monitoring the situation for over an hour and at 12:55 we marked the incident as resolved.\n\n### Details and Corrective actions\n\nOnce the issue was mitigated, we began forensics analysis to determine the root cause for it. The outage was caused by one of our ingress network services being unable to cope with unprecedented increase rates in capacity throughput. This single network service failed and the load assigned to it was automatically distributed to other services in the same ingress network layer. This sudden excess load made the other ingress layer services become saturated themselves, effectively making the whole layer partially unresponsive until we deployed additional servers to increase overall throughput. Since this event took place, we have doubled our permanent capacity and enhanced our monitoring with more relevant metrics so we can detect future similar events before they happen, in order to prevent them from happening again across our infrastructure. We are also working on an auto-scaling mechanism for the realtime collaboration subsystem to be released later this month.\n\n### Conclusion\n\nWe are as concerned as you about the recent events regarding the COVID-19 pandemic. As a result of this outbreak and recent prevention measurements by governments across the world, many companies and teams find themselves [suddenly working remotely](https://blog.mural.co/suddenly-remote), and every day brings more challenges to solve. MURAL helps teams collaborate remotely, and in these past days, we have seen unprecedented usage. Being prepared to handle these unexpected events is something we take extremely seriously. Our commitment to providing the best possible remote collaboration tools and practices to all imagination workers is stronger than ever, and we acknowledge this kind of service interruptions are not acceptable. Just as you and your community are learning to adapt to recent developments, we too are learning how to adapt to thrive in these trying times.\n\nWe apologize for any inconvenience caused by this incident and thank you for your understanding.\n\nThis won’t happen again.\n\nThe MURAL Team",
-          "incident_id": "q8k6jzzmyycf",
-          "created_at": "2020-03-13T00:08:12.862-03:00",
-          "updated_at": "2020-03-13T00:24:19.648-03:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": "We published a postmortem on our March 11th incident: http://stspg.io/bzzxxsqzpyck",
-          "tweet_id": null
-        },
-        {
-          "id": "wqyncnbrmvp9",
-          "status": "resolved",
-          "body": "The issue in our real-time collaboration service was mitigated and the platform is behaving normally.",
-          "incident_id": "q8k6jzzmyycf",
-          "created_at": "2020-03-11T16:55:32.945-03:00",
-          "updated_at": "2020-03-11T16:55:32.945-03:00",
-          "display_at": "2020-03-11T16:55:32.945-03:00",
-          "affected_components": [
-            {
-              "code": "42zc4v22b21z",
-              "name": "Web Application",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3v6l3rp34b50",
-          "status": "monitoring",
-          "body": "Service is now stable again and we are monitoring the service.",
-          "incident_id": "q8k6jzzmyycf",
-          "created_at": "2020-03-11T15:48:34.935-03:00",
-          "updated_at": "2020-03-11T15:48:35.866-03:00",
-          "display_at": "2020-03-11T15:48:34.935-03:00",
-          "affected_components": [
-            {
-              "code": "42zc4v22b21z",
-              "name": "Web Application",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1237812683098845200
-        },
-        {
-          "id": "mwcwyxd02vk2",
-          "status": "identified",
-          "body": "We are currently experiencing issues with our real-time collaboration service. Intermittent connectivity issues may be experienced by some clients. We are actively monitoring and working on it, and we will keep status.mural.co page updated on any changes.",
-          "incident_id": "q8k6jzzmyycf",
-          "created_at": "2020-03-11T15:33:07.647-03:00",
-          "updated_at": "2020-03-11T15:33:08.272-03:00",
-          "display_at": "2020-03-11T15:33:07.647-03:00",
-          "affected_components": [
-            {
-              "code": "42zc4v22b21z",
-              "name": "Web Application",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1237808792483418000
         }
       ],
       "components": [
