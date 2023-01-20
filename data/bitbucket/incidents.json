@@ -4,7 +4,7 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-01-19T08:23:41.463Z"
+    "updated_at": "2023-01-20T04:12:18.076Z"
   },
   "incidents": [
     {
@@ -188,9 +188,9 @@
     {
       "id": "k76wrpkvsfw4",
       "name": "Degraded Pipelines performance",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2022-12-16T10:28:56.633Z",
-      "updated_at": "2022-12-16T10:52:38.564Z",
+      "updated_at": "2023-01-20T04:12:18.074Z",
       "monitoring_at": "2022-12-16T10:52:11.330Z",
       "resolved_at": "2022-12-16T10:52:38.550Z",
       "impact": "minor",
@@ -198,6 +198,19 @@
       "started_at": "2022-12-16T10:28:56.625Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "hrd02wqsshsd",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn December 16, 2022, between 10:07 and 15:40 UTC, Atlassian's internal artifact management infrastructure experienced an outage. Some Atlassian customers using Bitbucket Pipelines, Marketplace apps and integrations, and managing attachments across Atlassian cloud products were impacted. Bitbucket users experienced failures of Bitbucket pipelines and Bitbucket pipeline runners, Marketplace apps and integrations users experienced missing webhooks, and actions on attachments \\(especially uploads\\) were impacted across all our products. The event was triggered by Atlassian's internal Artifact Repository Manager becoming unavailable due to a combination of an abnormally high load and misconfiguration of rate limiting and circuit breaking. Customers in all regions were impacted. The incident was immediately detected by our monitoring systems and mitigated by changing policies and configuration, which allowed the Artifact Repository Manager to recover. The total time to resolution was about five hours and 33 minutes.\n\n### **IMPACT**\n\nWe detected the impact of this incident on December 16, 2022, at 10:07 UTC, recovery started at 11:00 UTC with most of the functionality restored by 12:12 UTC, and full recovery was achieved at 15:40 UTC.\n\nBelow is the breakdown of the impact for each product.\n\nMarketplace apps and integrations:\n\n* Webhooks were intermittently impacted for approximately two hours \\(10:07 UTC - 12:07 UTC\\).\n* Between 13:45 UTC and 15:40 UTC, we observed a significantly increased failure rate and drop in traffic on app discoverability \\(apps disappearing from products UI\\), app execution \\(apps execution failing\\), and developer capabilities \\(app deployment and management\\).\n\nBitbucket:\n\n* Bitbucket Pipelines rely heavily on our internal artifact management infrastructure to fetch the necessary container images during builds and were impacted for the duration of the incident.\n* We have detected approximately 60,000 build steps failures in the affected period.\n\nAll Atlassian cloud products:\n\n* Our internal attachment management infrastructure had encountered scaling issues and this intermittently affected the ability to upload/manage attachments for approximately two hours.\n* Users of Confluence, Jira Service Management, and Jira Software were unable to view or upload attachments.\n\n### **ROOT CAUSE**\n\nThe issue was caused by an outage of Atlassian's internal Artefact Repository Manager due to a combination of an abnormally high load and misconfiguration of rate limiting and circuit breaking. As a result, the products listed above could not access Docker images and other necessary artifacts to scale up, which caused partial degradation of some services or complete unavailability of some other services for customers. The restart of the internal Artifact Repository Manager and changes in policies and configuration caused downtime to the service but led to successful recovery.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. After the immediate impact of this outage was resolved, the incident response team completed a technical analysis of the root cause and contributing factors. The team has conducted a post-incident review to determine how we can avoid the impact of this kind of outage in the future.\n\nWe are prioritizing the following improvement actions to minimize the likelihood of incidents of this type reoccurring:\n\n* Build redundancy into the artifact management system to increase resiliency.\n* Make changes to our internal infrastructure and affected systems to improve resiliency.\n* Improve our internal documentation for incident resolution.\n* Tweak alerting to improve the detection and TTR of similar incidents in the future.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "k76wrpkvsfw4",
+          "created_at": "2023-01-20T04:12:01.341Z",
+          "updated_at": "2023-01-20T04:12:18.072Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "n7cfh3cl452v",
           "status": "resolved",
