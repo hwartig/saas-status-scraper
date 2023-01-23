@@ -4,7 +4,7 @@
     "name": "Zoom",
     "url": "https://status.zoom.us",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-01-20T11:23:31.293-08:00"
+    "updated_at": "2023-01-22T22:04:48.695-08:00"
   },
   "components": [
     {
@@ -445,9 +445,9 @@
     {
       "id": "nyfqtg3bpllm",
       "name": "REST API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-03-17T15:28:23.405-07:00",
-      "updated_at": "2020-04-06T15:25:14.997-07:00",
+      "updated_at": "2023-01-22T22:04:48.636-08:00",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -1626,7 +1626,7 @@
     {
       "id": "dhtlfcvrh3qh",
       "name": "Zoom Developer Platform",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-04-06T15:25:04.810-07:00",
       "updated_at": "2022-03-18T10:04:39.573-07:00",
       "position": 11,
@@ -2197,7 +2197,60 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "c48nty1n9t1r",
+      "name": "A subset of users not able to use oauth for authentication.",
+      "status": "investigating",
+      "created_at": "2023-01-22T22:04:48.595-08:00",
+      "updated_at": "2023-01-22T22:04:48.692-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/8ctjz2hd0w35",
+      "started_at": "2023-01-22T22:04:48.586-08:00",
+      "page_id": "14qjgk812kgk",
+      "incident_updates": [
+        {
+          "id": "z3vq52d8qzdm",
+          "status": "investigating",
+          "body": "Our monitoring has detected service degradation where Zoom’s Rest API mentioned below is impacted. Our engineers are currently investigating the impact and root cause. Zoom will provide updates as soon as there is more information to share.",
+          "incident_id": "c48nty1n9t1r",
+          "created_at": "2023-01-22T22:04:48.689-08:00",
+          "updated_at": "2023-01-22T22:04:48.689-08:00",
+          "display_at": "2023-01-22T22:04:48.689-08:00",
+          "affected_components": [
+            {
+              "code": "nyfqtg3bpllm",
+              "name": "Zoom Developer Platform - REST API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "nyfqtg3bpllm",
+          "name": "REST API",
+          "status": "degraded_performance",
+          "created_at": "2020-03-17T15:28:23.405-07:00",
+          "updated_at": "2023-01-22T22:04:48.636-08:00",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "dhtlfcvrh3qh",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "v50988y73btt",
@@ -2541,7 +2594,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
