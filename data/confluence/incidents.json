@@ -4,7 +4,7 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-01-20T18:28:48.660Z"
+    "updated_at": "2023-01-24T01:31:42.017Z"
   },
   "incidents": [
     {
@@ -465,9 +465,9 @@
     {
       "id": "j037n57ytq53",
       "name": "Confluence sites are unavailable",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-01-13T01:32:19.938Z",
-      "updated_at": "2023-01-13T02:43:34.948Z",
+      "updated_at": "2023-01-24T01:31:42.009Z",
       "monitoring_at": "2023-01-13T02:09:10.515Z",
       "resolved_at": "2023-01-13T02:43:34.933Z",
       "impact": "major",
@@ -475,6 +475,19 @@
       "started_at": "2023-01-13T01:32:19.924Z",
       "page_id": "4g2my7tbhjsq",
       "incident_updates": [
+        {
+          "id": "jjc77pkc613r",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn January 13, 2023, between 00:27 and 01:25 UTC, Atlassian customers using Confluence Cloud couldn’t access their Confluence sites. The event was triggered by a bug in the GraphQL service deploy script. The bug caused the script to fetch the wrong configuration file version, which is incompatible with the application code, and caused the service to fail when responding to all the incoming API requests with authentication errors.\n\nThe incident impacted customers in U.S. West \\(N. California\\), Europe \\(Frankfurt\\), and Asia Pacific \\(Singapore\\) regions. The incident was detected within 3 minutes by the frontend error detection system and mitigated by rolling back the last deployment of our GraphQL service, which put Atlassian systems into a known good state. The total time to resolution was 58 minutes.\n\n### **IMPACT**\n\nThe overall impact was between January 13, 2023, between 00:27am UTC and January 13, 2023, 01:25 AM UTC on Confluence Cloud products. The incident caused service disruption to customers in the U.S. West \\(N. California\\), Europe \\(Frankfurt\\), and Asia Pacific \\(Singapore\\) regions.\n\n### **ROOT CAUSE**\n\nThe issue was caused by a bug in the GraphQL service deploy script. As a precaution, GraphQL service’s code changes have to be soaked in our staging environment before they are released to production. On the day of a production release, the GraphQL team will select a commit that has been soaked enough time to release.\n\nThere is a bug in the deploy script so that while the application source code is deployed per the commit the team chooses to release, the configuration file is fetched from the latest commit by the script. The latest configuration file change was incompatible with the application code and caused the service to fail when responding to all incoming API requests with authentication errors.\n\nThe faulty service is a GraphQL gateway service to all Confluence Cloud API traffic. Since it throws 401 errors for all the requests, all the GraphQL requests fail and hence render Confluence Cloud in the regions deployed inaccessible.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe appreciate outages impact your productivity. We apologize to our partners and customers whose services were impacted during this incident, and we are taking immediate steps to improve the platform’s performance and availability.\n\nWhile we have a number of testing and preventative processes in place to avoid this type of situation, this specific bug wasn’t discovered because it’s rare the service has a configuration file change that is not backward compatible with the code. A combination of the bug in the deploy script and the non-backward-compatible configuration file change caused this problem in production.\n\nWe are prioritizing the following improvement actions to avoid this type of incident in the future:\n\n* Fix the bug in the deploy script so that the configuration file will be fetched together with the application code to ensure they are always compatible with each other\n* Update the on-call runbook and continue to train on-call engineers on how to perform a quick rollback on faulty service to minimize the incident time\n* Audit all the Confluence Cloud microservices to confirm every microservice deployed has the correct anomaly detection and progressive rollout setup\n\nFurthermore, we deploy our changes progressively \\(by percentage and each region\\) to avoid a broad impact but in this case, our error rate detection did not work as expected. To minimize the impact of breaking changes to our environments, we will implement additional preventative measures such as:\n\n* Bolster error detection mechanisms on the outer HTTP layer. We currently have error detector in the GraphQL layer but this time the request failed in the HTTP layer without reaching the GraphQL request handling. We need both types of detectors to cover different scenarios.\n* Bolster deployment validation to verify core functionalities of GraphQL during deployment so that deployment will be immediately halted and rolled back if the validation fails.\n\nThank you to your continued support.\n\nAtlassian Customer Support",
+          "incident_id": "j037n57ytq53",
+          "created_at": "2023-01-24T00:41:22.359Z",
+          "updated_at": "2023-01-24T01:31:42.006Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "jcg92xwq92pm",
           "status": "resolved",
