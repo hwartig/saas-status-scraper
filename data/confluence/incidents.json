@@ -4,15 +4,15 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-01-24T01:31:42.017Z"
+    "updated_at": "2023-01-31T18:23:54.487Z"
   },
   "incidents": [
     {
       "id": "6jdy2658xtky",
       "name": "Confluence not accessible",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-01-20T09:49:59.285Z",
-      "updated_at": "2023-01-20T12:01:27.151Z",
+      "updated_at": "2023-01-31T18:14:18.222Z",
       "monitoring_at": "2023-01-20T10:21:44.717Z",
       "resolved_at": "2023-01-20T12:01:27.135Z",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2023-01-20T09:49:59.270Z",
       "page_id": "4g2my7tbhjsq",
       "incident_updates": [
+        {
+          "id": "81whmqrk9yct",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn January 20, 2023, between 08:57 AM and 09:29 AM UTC, Atlassian customers using Confluence Cloud couldn’t access their Confluence sites. The event was triggered by thread depletion in some of the GraphQL nodes in the Europe \\(Frankfurt\\) region. Our system automatically stopped sending requests to these unhealthy nodes but then overloaded the rest of the healthy nodes. The remaining nodes experienced high CPU, slow response time, and high error rates, which in turn rendered Confluence sites unresponsive.\n\nThe incident impacted customers in the Europe \\(Frankfurt\\) region. It was detected within seven minutes by the GraphQL high CPU detection system and mitigated by aggressively scaling up the service in that region, which put Atlassian systems into a known good state. The total time to resolution was 32 minutes.\n\n### **IMPACT**\n\nThe overall impact was on January 20, 2023, between 08:57 AM UTC and 09:29 AM UTC for Confluence Cloud products. The incident caused service disruption to customers in the Europe \\(Frankfurt\\) region.\n\n### **ROOT CAUSE**\n\nThe issue was caused by thread pool depletion in some of Confluence’s GraphQL nodes. The thread pool depletion was triggered by a code change in GraphQL, which fetches authorization tokens from our authorization service using async threads meant to improve performance. Confluence’s GraphQL service recently switched to using a thread pool to handle all token fetch operations. During the incident, Confluence’s authorization service experienced spikes in new connections and returned timeout errors when the GraphQL service tried to fetch tokens. Since these fetches were executed in a thread pool, we ended up with thread pool depletion on our GraphQL service, making some of the nodes unresponsive.\n\nWhile our system automatically rotated the unhealthy nodes out of service and replaced them with new nodes, the ongoing traffic overloaded the remaining healthy nodes, which then rendered the remaining healthy nodes unresponsive.\n\nThe faulty service is a GraphQL gateway service to all Confluence Cloud API traffic. Since all the nodes were either not serving traffic or too overloaded to serve traffic, many of the GraphQL requests failed and rendered Confluence Cloud in the region inaccessible.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe appreciate outages impact your productivity and apologize to our partners and customers whose services were impacted during this incident. We are taking immediate steps to avoid a similar situation and improve the platform’s performance and availability.\n\nWhile we have a number of testing and preventative processes in place to avoid this type of situation, this specific issue was triggered only under particular load conditions when the authorization service fails to respond to token fetch requests and when the majority of the GraphQL nodes experience thread depletion.\n\nWe are prioritizing the following actions to avoid this type of incident in the future:\n\n* Turn off the async token fetch immediately\n* Look into faster automatic node replacement when nodes are unhealthy\n* Audit GraphQL and authorization services to confirm they can handle increasing loads in different regions\n\nThank you for your continued support.\n\nAtlassian Customer Support",
+          "incident_id": "6jdy2658xtky",
+          "created_at": "2023-01-31T18:09:10.532Z",
+          "updated_at": "2023-01-31T18:14:18.218Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "w07p1f93gzr7",
           "status": "resolved",
