@@ -4,9 +4,38 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-02-01T00:02:47.832-08:00"
+    "updated_at": "2023-02-01T14:28:28.518-08:00"
   },
   "incidents": [
+    {
+      "id": "9j9v3lsp7bzy",
+      "name": "[Major] Admin Reports Issue",
+      "status": "resolved",
+      "created_at": "2023-02-01T12:00:00.000-08:00",
+      "updated_at": "2023-02-01T14:28:28.515-08:00",
+      "monitoring_at": null,
+      "resolved_at": "2023-02-01T12:00:00.000-08:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/hj12fxyc2123",
+      "started_at": "2023-02-01T12:00:00.000-08:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "3ns0gqn19k8y",
+          "status": "resolved",
+          "body": "We are currently investigating reports of an issue impacting the availability of Admin Reports. We have identified the cause of the issue and are actively working to remediate impact to the customer experience. \n\nUpdate: The issue appears to be remediated. We are back to Admins Reports being operational.",
+          "incident_id": "9j9v3lsp7bzy",
+          "created_at": "2023-02-01T14:08:44.541-08:00",
+          "updated_at": "2023-02-01T14:28:28.431-08:00",
+          "display_at": "2023-02-01T12:00:00.000-08:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": []
+    },
     {
       "id": "dl8mmx87wr90",
       "name": "[Major] Customers are experiencing impact to Public API, Uploads, Downloads, and Metadata.",
@@ -6424,151 +6453,6 @@
         }
       ],
       "components": []
-    },
-    {
-      "id": "bz3gmk5x1nqf",
-      "name": "[Critical] Issue with generating Reports",
-      "status": "postmortem",
-      "created_at": "2021-07-13T11:15:35.497-07:00",
-      "updated_at": "2021-09-01T13:27:41.733-07:00",
-      "monitoring_at": "2021-07-13T12:10:37.111-07:00",
-      "resolved_at": "2021-07-13T14:03:36.636-07:00",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/2tpg4drt7g7r",
-      "started_at": "2021-07-13T11:15:35.487-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "jr9sr21478bp",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting Enterprise Reports. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 1:25am and 10:51am on July 13, 2021, some users may have experienced difficulties while working in Box. During this time, Enterprise Reports could not be generated. The issue occurred as a result of an image dependency that was reverted within one of our cloud vendors' environments. As a result, the service was temporarily unable to provision computational resources to execute the report jobs. We were able to resolve the issue by rebuilding the images. In addition, we are working to increase our monitoring sensitivity to such failures and reviewing our image lifecycles to prevent similar vendor issues from impacting customers in the future. \n\n**Analysis** \n\nOne of Box's cloud vendors made a change to cloud compute dependencies that our Enterprise Reports image pipeline leverages as part of creating computational resources for job execution.  After the next run of our image pipeline, the Enterprise Report job image included a failing dependency from our cloud vendor.  After  our cloud vendor reverted the problematic change and Box generated a new image, Box's Enterprise Reports were able to resume successfully.\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Increase monitoring sensitivity to report-generation failures\n\n* Review image lifecycles to limit the potential impact of dependency changes\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
-          "incident_id": "bz3gmk5x1nqf",
-          "created_at": "2021-07-28T12:09:05.142-07:00",
-          "updated_at": "2021-09-01T13:27:41.730-07:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "sq78x3s9ywvq",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. Box services have been restored to full functionality. Please contact Box Support at https://support.box.com/ if you continue to experience any issues.",
-          "incident_id": "bz3gmk5x1nqf",
-          "created_at": "2021-07-13T14:03:36.636-07:00",
-          "updated_at": "2021-07-13T14:03:37.219-07:00",
-          "display_at": "2021-07-13T14:03:36.636-07:00",
-          "affected_components": [
-            {
-              "code": "mbtpbpfcg6vg",
-              "name": "Box Web Application - Admin Console & Functionality",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1415054328495165400
-        },
-        {
-          "id": "2fhhs65x7k7f",
-          "status": "monitoring",
-          "body": "We are seeing some recover in regards to the Reports being generated when exporting. We will continue to monitor the issue to assure recovery.",
-          "incident_id": "bz3gmk5x1nqf",
-          "created_at": "2021-07-13T13:17:41.719-07:00",
-          "updated_at": "2021-07-13T13:17:42.311-07:00",
-          "display_at": "2021-07-13T13:17:41.719-07:00",
-          "affected_components": [
-            {
-              "code": "mbtpbpfcg6vg",
-              "name": "Box Web Application - Admin Console & Functionality",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1415042773544104000
-        },
-        {
-          "id": "t4xwn13k75yr",
-          "status": "monitoring",
-          "body": "We are seeing some recover in regards to the Reports being generated when exporting. We will continue to monitor the issue to assure recovery.",
-          "incident_id": "bz3gmk5x1nqf",
-          "created_at": "2021-07-13T12:10:37.111-07:00",
-          "updated_at": "2021-07-13T12:10:37.716-07:00",
-          "display_at": "2021-07-13T12:10:37.111-07:00",
-          "affected_components": [
-            {
-              "code": "mbtpbpfcg6vg",
-              "name": "Box Web Application - Admin Console & Functionality",
-              "old_status": "major_outage",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1415025893014065200
-        },
-        {
-          "id": "8jwzbn7nlp27",
-          "status": "investigating",
-          "body": "We are seeing that real time reporting is still available for the following reports: User Activity Report, Security logs. Users can view the report information by clicking 'View' when generating report.",
-          "incident_id": "bz3gmk5x1nqf",
-          "created_at": "2021-07-13T11:39:37.568-07:00",
-          "updated_at": "2021-07-13T11:39:39.219-07:00",
-          "display_at": "2021-07-13T11:39:37.568-07:00",
-          "affected_components": [
-            {
-              "code": "mbtpbpfcg6vg",
-              "name": "Box Web Application - Admin Console & Functionality",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1415018097879126000
-        },
-        {
-          "id": "fbc6fk5rzwjd",
-          "status": "investigating",
-          "body": "We are currently investigating an issue that is impacting reporting as of July 13 01:00 PDT. Users may see delays in reports being generated and exported or they may see error. We advise that customers do not repeat export requests at this time. We will provide updates here as soon as they are available.",
-          "incident_id": "bz3gmk5x1nqf",
-          "created_at": "2021-07-13T11:15:35.595-07:00",
-          "updated_at": "2021-07-13T11:15:36.142-07:00",
-          "display_at": "2021-07-13T11:15:35.595-07:00",
-          "affected_components": [
-            {
-              "code": "mbtpbpfcg6vg",
-              "name": "Box Web Application - Admin Console & Functionality",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1415012045766889500
-        }
-      ],
-      "components": [
-        {
-          "id": "mbtpbpfcg6vg",
-          "name": "Admin Console & Functionality",
-          "status": "operational",
-          "created_at": "2018-10-01T20:10:42.874-07:00",
-          "updated_at": "2022-11-23T20:15:20.798-08:00",
-          "position": 8,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
     }
   ]
 }
