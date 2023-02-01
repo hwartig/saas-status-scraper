@@ -4,7 +4,7 @@
     "name": "Bitrise CI",
     "url": "https://status.bitrise.io",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-02-01T08:03:18.713Z"
+    "updated_at": "2023-02-01T17:27:42.943Z"
   },
   "components": [
     {
@@ -57,6 +57,21 @@
       "only_show_if_degraded": false
     },
     {
+      "id": "1bbcjjt6xjs7",
+      "name": "Bitrise Support Center",
+      "status": "operational",
+      "created_at": "2021-07-08T02:41:43.070Z",
+      "updated_at": "2021-07-08T02:47:36.784Z",
+      "position": 2,
+      "description": "https://support.bitrise.io/",
+      "showcase": true,
+      "start_date": "2021-01-01",
+      "group_id": "dqpg17227kyv",
+      "page_id": "1q8r4n02vb2k",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
       "id": "k4nmvg5qdmkf",
       "name": "Linux Stack (Android, web projects, ...)",
       "status": "operational",
@@ -74,29 +89,14 @@
     {
       "id": "jmwzblpshvb7",
       "name": "Web App",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-10-31T15:46:48.508Z",
-      "updated_at": "2023-01-10T19:06:36.071Z",
+      "updated_at": "2023-02-01T17:27:42.063Z",
       "position": 2,
       "description": null,
       "showcase": true,
       "start_date": null,
       "group_id": null,
-      "page_id": "1q8r4n02vb2k",
-      "group": false,
-      "only_show_if_degraded": false
-    },
-    {
-      "id": "1bbcjjt6xjs7",
-      "name": "Bitrise Support Center",
-      "status": "operational",
-      "created_at": "2021-07-08T02:41:43.070Z",
-      "updated_at": "2021-07-08T02:47:36.784Z",
-      "position": 2,
-      "description": "https://support.bitrise.io/",
-      "showcase": true,
-      "start_date": "2021-01-01",
-      "group_id": "dqpg17227kyv",
       "page_id": "1q8r4n02vb2k",
       "group": false,
       "only_show_if_degraded": false
@@ -162,21 +162,6 @@
       "only_show_if_degraded": false
     },
     {
-      "id": "q00r0fc4kryq",
-      "name": "Insights",
-      "status": "operational",
-      "created_at": "2022-02-18T14:17:24.641Z",
-      "updated_at": "2022-05-03T19:17:41.451Z",
-      "position": 6,
-      "description": null,
-      "showcase": true,
-      "start_date": "2021-10-01",
-      "group_id": null,
-      "page_id": "1q8r4n02vb2k",
-      "group": false,
-      "only_show_if_degraded": false
-    },
-    {
       "id": "gx078yrg8r4l",
       "name": "DNSimple Name Servers",
       "status": "operational",
@@ -187,6 +172,21 @@
       "showcase": false,
       "start_date": null,
       "group_id": "dgrgk07ng5t9",
+      "page_id": "1q8r4n02vb2k",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "q00r0fc4kryq",
+      "name": "Insights",
+      "status": "operational",
+      "created_at": "2022-02-18T14:17:24.641Z",
+      "updated_at": "2022-05-03T19:17:41.451Z",
+      "position": 6,
+      "description": null,
+      "showcase": true,
+      "start_date": "2021-10-01",
+      "group_id": null,
       "page_id": "1q8r4n02vb2k",
       "group": false,
       "only_show_if_degraded": false
@@ -484,7 +484,60 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "z4v6b1d87ddd",
+      "name": "Secrets not redacted in new build logs",
+      "status": "investigating",
+      "created_at": "2023-02-01T17:27:42.028Z",
+      "updated_at": "2023-02-01T17:27:42.935Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/6wbzwkw6mpgw",
+      "started_at": "2023-02-01T17:27:42.023Z",
+      "page_id": "1q8r4n02vb2k",
+      "incident_updates": [
+        {
+          "id": "khcv8j7j2y9w",
+          "status": "investigating",
+          "body": "Users can experience that Secret Env Vars are not redacted and are visible in the build logs, we have rolled back Build Log Grouping as we’re investigating an issue.",
+          "incident_id": "z4v6b1d87ddd",
+          "created_at": "2023-02-01T17:27:42.115Z",
+          "updated_at": "2023-02-01T17:27:42.928Z",
+          "display_at": "2023-02-01T17:27:42.115Z",
+          "affected_components": [
+            {
+              "code": "jmwzblpshvb7",
+              "name": "Web App",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1620836302295023600
+        }
+      ],
+      "components": [
+        {
+          "id": "jmwzblpshvb7",
+          "name": "Web App",
+          "status": "degraded_performance",
+          "created_at": "2015-10-31T15:46:48.508Z",
+          "updated_at": "2023-02-01T17:27:42.063Z",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "1q8r4n02vb2k",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "4d370ts7k24x",
@@ -519,7 +572,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
