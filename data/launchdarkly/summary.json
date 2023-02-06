@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-02-06T00:37:30.542-08:00"
+    "updated_at": "2023-02-06T01:02:38.626-08:00"
   },
   "components": [
     {
@@ -185,9 +185,9 @@
     {
       "id": "hf1r5xs02ll2",
       "name": "Experiment results processing",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2022-09-16T15:33:34.500-07:00",
-      "updated_at": "2023-02-05T23:46:14.517-08:00",
+      "updated_at": "2023-02-06T01:02:38.580-08:00",
       "position": 3,
       "description": "Ingestion and recording of experiment results",
       "showcase": true,
@@ -196,6 +196,27 @@
       "page_id": "9404kdk7lkn7",
       "group": false,
       "only_show_if_degraded": false
+    },
+    {
+      "id": "j28fw96kw68y",
+      "name": "Experimentation (core functionality)",
+      "status": "operational",
+      "created_at": "2022-09-16T15:24:04.061-07:00",
+      "updated_at": "2022-09-16T15:27:28.028-07:00",
+      "position": 3,
+      "description": "Ability to process and manage experiment data through LaunchDarkly’s UI and API",
+      "showcase": false,
+      "start_date": null,
+      "group_id": null,
+      "page_id": "9404kdk7lkn7",
+      "group": true,
+      "only_show_if_degraded": false,
+      "components": [
+        "q7sktr3j8cd1",
+        "1skhs8zvnlm6",
+        "hf1r5xs02ll2",
+        "2f264mc5ls7f"
+      ]
     },
     {
       "id": "2hh5b13z44vt",
@@ -228,25 +249,19 @@
       "only_show_if_degraded": false
     },
     {
-      "id": "j28fw96kw68y",
-      "name": "Experimentation (core functionality)",
-      "status": "degraded_performance",
-      "created_at": "2022-09-16T15:24:04.061-07:00",
-      "updated_at": "2022-09-16T15:27:28.028-07:00",
-      "position": 3,
-      "description": "Ability to process and manage experiment data through LaunchDarkly’s UI and API",
+      "id": "g5bksjhndxmj",
+      "name": "Flag usage metrics",
+      "status": "operational",
+      "created_at": "2018-08-30T10:10:07.695-07:00",
+      "updated_at": "2022-12-12T19:37:50.051-08:00",
+      "position": 4,
+      "description": "Recording and displaying of data pertaining to your flag usage",
       "showcase": false,
       "start_date": null,
-      "group_id": null,
+      "group_id": "2868qx437p9m",
       "page_id": "9404kdk7lkn7",
-      "group": true,
-      "only_show_if_degraded": false,
-      "components": [
-        "q7sktr3j8cd1",
-        "1skhs8zvnlm6",
-        "hf1r5xs02ll2",
-        "2f264mc5ls7f"
-      ]
+      "group": false,
+      "only_show_if_degraded": false
     },
     {
       "id": "2f264mc5ls7f",
@@ -259,36 +274,6 @@
       "showcase": true,
       "start_date": "2022-09-16",
       "group_id": "j28fw96kw68y",
-      "page_id": "9404kdk7lkn7",
-      "group": false,
-      "only_show_if_degraded": false
-    },
-    {
-      "id": "dbc44wm7yn68",
-      "name": "Edge API",
-      "status": "operational",
-      "created_at": "2022-10-13T10:37:20.077-07:00",
-      "updated_at": "2022-10-13T10:37:20.077-07:00",
-      "position": 4,
-      "description": "Flag updates for Edge integrations",
-      "showcase": true,
-      "start_date": "2022-10-13",
-      "group_id": "vvb9wn53mspf",
-      "page_id": "9404kdk7lkn7",
-      "group": false,
-      "only_show_if_degraded": false
-    },
-    {
-      "id": "g5bksjhndxmj",
-      "name": "Flag usage metrics",
-      "status": "operational",
-      "created_at": "2018-08-30T10:10:07.695-07:00",
-      "updated_at": "2022-12-12T19:37:50.051-08:00",
-      "position": 4,
-      "description": "Recording and displaying of data pertaining to your flag usage",
-      "showcase": false,
-      "start_date": null,
-      "group_id": "2868qx437p9m",
       "page_id": "9404kdk7lkn7",
       "group": false,
       "only_show_if_degraded": false
@@ -313,6 +298,21 @@
         "2hh5b13z44vt",
         "g5bksjhndxmj"
       ]
+    },
+    {
+      "id": "dbc44wm7yn68",
+      "name": "Edge API",
+      "status": "operational",
+      "created_at": "2022-10-13T10:37:20.077-07:00",
+      "updated_at": "2022-10-13T10:37:20.077-07:00",
+      "position": 4,
+      "description": "Flag updates for Edge integrations",
+      "showcase": true,
+      "start_date": "2022-10-13",
+      "group_id": "vvb9wn53mspf",
+      "page_id": "9404kdk7lkn7",
+      "group": false,
+      "only_show_if_degraded": false
     },
     {
       "id": "510s6rkgvxs6",
@@ -393,80 +393,7 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [
-    {
-      "id": "cthz37snw8nd",
-      "name": "Delayed Experimentation Results",
-      "status": "monitoring",
-      "created_at": "2023-02-05T23:46:14.481-08:00",
-      "updated_at": "2023-02-06T00:37:30.540-08:00",
-      "monitoring_at": "2023-02-06T00:37:30.523-08:00",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/slqytbw7h6c2",
-      "started_at": "2023-02-05T23:46:14.473-08:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "gvq4yfq5f0ds",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "cthz37snw8nd",
-          "created_at": "2023-02-06T00:37:30.523-08:00",
-          "updated_at": "2023-02-06T00:37:30.523-08:00",
-          "display_at": "2023-02-06T00:37:30.523-08:00",
-          "affected_components": [
-            {
-              "code": "hf1r5xs02ll2",
-              "name": "Experimentation (core functionality) - Experiment results processing",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "w336rmz7817t",
-          "status": "investigating",
-          "body": "We are currently investigating an issue with delayed results for experimentation.",
-          "incident_id": "cthz37snw8nd",
-          "created_at": "2023-02-05T23:46:14.562-08:00",
-          "updated_at": "2023-02-05T23:46:14.562-08:00",
-          "display_at": "2023-02-05T23:46:14.562-08:00",
-          "affected_components": [
-            {
-              "code": "hf1r5xs02ll2",
-              "name": "Experimentation (core functionality) - Experiment results processing",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "hf1r5xs02ll2",
-          "name": "Experiment results processing",
-          "status": "degraded_performance",
-          "created_at": "2022-09-16T15:33:34.500-07:00",
-          "updated_at": "2023-02-05T23:46:14.517-08:00",
-          "position": 3,
-          "description": "Ingestion and recording of experiment results",
-          "showcase": true,
-          "start_date": "2022-09-16",
-          "group_id": "j28fw96kw68y",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    }
-  ],
+  "incidents": [],
   "scheduled_maintenances": [
     {
       "id": "myztj48c5ygp",
@@ -524,7 +451,7 @@
     }
   ],
   "status": {
-    "indicator": "minor",
-    "description": "Partially Degraded Service"
+    "indicator": "none",
+    "description": "All Systems Operational"
   }
 }
