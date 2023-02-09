@@ -4,9 +4,61 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-02-09T08:05:15.772Z"
+    "updated_at": "2023-02-09T19:44:37.789Z"
   },
   "incidents": [
+    {
+      "id": "61fpljbky0tc",
+      "name": "Email delivery is degraded",
+      "status": "investigating",
+      "created_at": "2023-02-09T19:44:37.678Z",
+      "updated_at": "2023-02-09T19:44:37.785Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/frb4jc0f4rbk",
+      "started_at": "2023-02-09T19:44:37.670Z",
+      "page_id": "bqlf8qjztdtr",
+      "incident_updates": [
+        {
+          "id": "7rks7ls96515",
+          "status": "investigating",
+          "body": "We are investigating reports of delays in sending emails for Jira Service Management, Jira Software, and Atlassian Bitbucket Cloud customers. We will provide more details once we identify the root cause.",
+          "incident_id": "61fpljbky0tc",
+          "created_at": "2023-02-09T19:44:37.782Z",
+          "updated_at": "2023-02-09T19:44:37.782Z",
+          "display_at": "2023-02-09T19:44:37.782Z",
+          "affected_components": [
+            {
+              "code": "vc7m6mtqmxf9",
+              "name": "Email delivery",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "vc7m6mtqmxf9",
+          "name": "Email delivery",
+          "status": "degraded_performance",
+          "created_at": "2016-08-31T21:24:07.594Z",
+          "updated_at": "2023-02-09T19:44:37.719Z",
+          "position": 11,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "bqlf8qjztdtr",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "ffwhfmw2k809",
       "name": "Website is slow",
@@ -1123,9 +1175,9 @@
         {
           "id": "vc7m6mtqmxf9",
           "name": "Email delivery",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-08-31T21:24:07.594Z",
-          "updated_at": "2022-11-17T08:12:46.410Z",
+          "updated_at": "2023-02-09T19:44:37.719Z",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -3047,9 +3099,9 @@
         {
           "id": "vc7m6mtqmxf9",
           "name": "Email delivery",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-08-31T21:24:07.594Z",
-          "updated_at": "2022-11-17T08:12:46.410Z",
+          "updated_at": "2023-02-09T19:44:37.719Z",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -6211,256 +6263,6 @@
         }
       ],
       "components": [
-        {
-          "id": "rzh2n85q7vtt",
-          "name": "Pipelines",
-          "status": "operational",
-          "created_at": "2016-08-23T20:04:54.469Z",
-          "updated_at": "2022-12-16T16:25:10.454Z",
-          "position": 9,
-          "description": "Continuous integration and delivery for Bitbucket repos",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "bqlf8qjztdtr",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "k6pbf7mbxhdd",
-      "name": "Bitbucket Pipelines are not operational, Webhooks History is unavailable",
-      "status": "postmortem",
-      "created_at": "2021-12-07T16:33:43.336Z",
-      "updated_at": "2021-12-16T15:49:14.268Z",
-      "monitoring_at": "2021-12-07T22:38:15.107Z",
-      "resolved_at": "2021-12-08T01:46:54.693Z",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/69hm1vzmmwf5",
-      "started_at": "2021-12-07T16:33:43.329Z",
-      "page_id": "bqlf8qjztdtr",
-      "incident_updates": [
-        {
-          "id": "dhzrhzt478z9",
-          "status": "postmortem",
-          "body": "### **SUMMARY**\n\nOn December 7, 2021, between 15:54 UTC and December 8, 2021, at 01:55 UTC, Atlassian Cloud services using AWS services in the US-EAST-1 region experienced a failure. This affected customers using Atlassian Access, Bitbucket Cloud, Compass, Confluence Cloud, the Jira family of products, and Trello. Products were unable to operate as expected, resulting in partial or complete degradation of services. The event was triggered by an AWS networking outage in US-EAST-1 affecting multiple AWS services and led to the inability to access AWS APIs and the AWS management console. The incident was first reported by Atlassian Access whose monitoring detected faults accessing DynamoDB services in the region. Recovery of affected Atlassian services occurred on a service-by-service basis from 2021-12-07 21:50 UTC when the underlying AWS services also began to recover. Full recovery of Atlassian Cloud services was notified at 2021-12-08 1:55 UTC.\n\n  \n\n### **IMPACT**\n\nThe overall impact occurred between December 7, 2021, between 15:54 UTC and December 8, 2021, at 01:55 UTC_._ The incident caused partial to complete service disruption of Atlassian Cloud services in the US-EAST-1 region. Product-specific impacts are listed below.\n\nThe primary impact for customers of Jira Software, Jira Service Management and Jira Work Management hosted in the US-EAST-1 region, was being unable to scale up, which caused slow response times for web requests and delays in background job processing, including webhooks in the AP region. There was significant latency for customers accessing Jira. Some customers experienced service unavailability while the incident took place. \n\nJira Align experienced an email outage for US customers due to the AWS Service outage that affected many of the AWS Services including Simple Email Service. A small percentage of Jira Align emails were not sent due to the AWS incident.\n\nBitbucket Pipelines was unavailable and steps failed to be executed.\n\nFor Jira Automation, tenant’s rules execution were delayed since CloudWatch was affected.\n\nConfluence experienced minor impact due to upstream services impacting user management, search, notifications, and media. At the same time Confluence was impacted by error rates related to the inability to scale up, and GraphQL had higher latencies.\n\nTrello email-to-board and dashcards features experienced degraded performance.\n\nAtlassian Access reported product transfers from one organization failed intermittently. Admins were not able to update features like IP Allowlist, Audit Logs, Data Residency, Custom Domain Email Notification and Mobile Application Management. Yet, users were able to access and view these features. During the incident, emails to admins experienced a delay. There was degraded experience when creating and deleting API tokens. \n\nStatuspage was largely unaffected. However, notification workers could not scale up and communications to customers were delayed, though they could be replayed later. The incident also impacted users trying to sign in to manage portals and private pages.\n\nCompass experienced a minor impact on its ability to write to its primary database store. No core features were affected. \n\nAtlassian's customers could have experienced stale data issues in production, US-EAST-1 for ~30s, against expected 5s at p99, because of delayed token resolution. \n\nThe provisioning of new cloud tenants was also impacted until the recovery of the services. \n\n### **ROOT CAUSE**\n\nThe issue was caused by a problem with several network devices within AWS’s internal network. These devices were receiving more traffic than they were able to process, which led to elevated latency and packet loss. As a result, it affected multiple AWS services which Atlassian's platform relies on, causing service degradation and disruption to the products mentioned above. For more information in regards to the root cause, see [Summary of the AWS Service Event in the Northern Virginia \\(US-EAST-1\\) Region](https://aws.amazon.com/message/12721).\n\nThere were no relevant Atlassian-driven events in the lead-up that have been identified to cause or contribute to this incident.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. We are taking immediate steps to improve the Atlassian platform's resiliency and availability to reduce the impact of such an event in the future. While Atlassian's Cloud services do run in several regions \\(US EAST and WEST, AP, EU CENTRAL and WEST, among others\\) and data is replicated across several regions to increase the resilience against outages of this magnitude, we have identified and are taking actions that include improvements to our region failover process. This will minimize the impact of future outages on Atlassian’s Cloud services and provide better support for our customers. \n\nWe are prioritizing the following actions to avoid repeating this type of incident:\n\n* Enhance and strengthen our plans for cross-region resiliency and disaster recovery plans, including: continue practicing region failover in production, investigate and implement better resilience strategies for services, Active/Active or Active/Passive.\n* Improving and adopting multi-region architecture for services that do require it. \n* Exercise wargaming scenarios that will simulate this outage to assess customer view of the incident. This will allow us to create further action items to improve our region failover process. \n\nWe apologize to customers whose services were impacted during this incident. \n\nThanks,\n\nAtlassian Customer Support",
-          "incident_id": "k6pbf7mbxhdd",
-          "created_at": "2021-12-16T15:49:01.623Z",
-          "updated_at": "2021-12-16T15:49:14.266Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rskyl1d9643c",
-          "status": "resolved",
-          "body": "The incident impacting Bitbucket Pipelines and Webhooks History has now been resolved and all components are fully back to normal.",
-          "incident_id": "k6pbf7mbxhdd",
-          "created_at": "2021-12-08T01:46:54.693Z",
-          "updated_at": "2021-12-08T01:46:55.157Z",
-          "display_at": "2021-12-08T01:46:54.693Z",
-          "affected_components": [
-            {
-              "code": "rfzky0v13fbp",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "rzh2n85q7vtt",
-              "name": "Pipelines",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1468396639647793200
-        },
-        {
-          "id": "klnz65ryjs8z",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues. Most of the features in Bitbucket Pipelines are back to normal and the service if mostly recovered and operational. We are still investigating and monitoring minor impact caused by some errors in AWS ECR during the build execution.",
-          "incident_id": "k6pbf7mbxhdd",
-          "created_at": "2021-12-08T00:33:34.641Z",
-          "updated_at": "2021-12-08T00:33:35.279Z",
-          "display_at": "2021-12-08T00:33:34.641Z",
-          "affected_components": [
-            {
-              "code": "rfzky0v13fbp",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "rzh2n85q7vtt",
-              "name": "Pipelines",
-              "old_status": "major_outage",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1468378185112817700
-        },
-        {
-          "id": "jc01qcnbg5t0",
-          "status": "monitoring",
-          "body": "We have started to see recovery for both Pipelines and Webhook History. We are now monitoring closely and expect recovery shortly.",
-          "incident_id": "k6pbf7mbxhdd",
-          "created_at": "2021-12-07T22:38:15.107Z",
-          "updated_at": "2021-12-07T22:38:15.613Z",
-          "display_at": "2021-12-07T22:38:15.107Z",
-          "affected_components": [
-            {
-              "code": "rfzky0v13fbp",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "rzh2n85q7vtt",
-              "name": "Pipelines",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1468349161971937300
-        },
-        {
-          "id": "2z8dctkjv1c1",
-          "status": "identified",
-          "body": "We continue to work together with AWS to resolve the customer impact and get our services restored as soon as possible. Our incident team has assessed the impact of the expected surge in load once the AWS outage is resolved and has put the necessary mitigations in place.\n\nWebhooks History is unavailable and has been root caused to a downstream outage with in our underlying platform provider AWS in us-east-1. Webhooks delivery is not impacted and continues to function normally.",
-          "incident_id": "k6pbf7mbxhdd",
-          "created_at": "2021-12-07T20:40:00.613Z",
-          "updated_at": "2021-12-07T20:40:00.984Z",
-          "display_at": "2021-12-07T20:40:00.613Z",
-          "affected_components": [
-            {
-              "code": "rfzky0v13fbp",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "rzh2n85q7vtt",
-              "name": "Pipelines",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1468319404999934000
-        },
-        {
-          "id": "jzct6zhsv0yj",
-          "status": "identified",
-          "body": "We continue to work together with AWS to resolve the customer impact and get our services restored as soon as possible. Our incident team has assessed the impact of the expected surge in load once the AWS outage is resolved and has put the necessary mitigations in place.\n\nWebhooks History is unavailable and has been root caused to a downstream outage with in our underlying platform provider AWS in us-east-1. Webhooks delivery is not impacted and continues to function normally.",
-          "incident_id": "k6pbf7mbxhdd",
-          "created_at": "2021-12-07T19:38:51.823Z",
-          "updated_at": "2021-12-07T19:38:52.958Z",
-          "display_at": "2021-12-07T19:38:51.823Z",
-          "affected_components": [
-            {
-              "code": "rfzky0v13fbp",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "rzh2n85q7vtt",
-              "name": "Pipelines",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1468304020175409200
-        },
-        {
-          "id": "st9fdc3g9t6m",
-          "status": "identified",
-          "body": "We continue to work on resolving the incident with pipelines stuck in \"pending\" status. We have identified the root cause and will provide additional updates as soon as possible.",
-          "incident_id": "k6pbf7mbxhdd",
-          "created_at": "2021-12-07T19:01:25.505Z",
-          "updated_at": "2021-12-07T19:01:25.921Z",
-          "display_at": "2021-12-07T19:01:25.505Z",
-          "affected_components": [
-            {
-              "code": "rzh2n85q7vtt",
-              "name": "Pipelines",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1468294595431727000
-        },
-        {
-          "id": "g6cwbs9bwzyp",
-          "status": "identified",
-          "body": "Bitbucket Pipelines is still not operational with builds currently stuck in \"pending\" state. We have identified the issue to be related with a downstream outage in our underlying platform provider AWS in us-east-1. We are working together with AWS to resolve the customer impact and get our services restored as soon as possible. You may be required to restart your Pipelines once the issue is resolved.",
-          "incident_id": "k6pbf7mbxhdd",
-          "created_at": "2021-12-07T17:52:36.555Z",
-          "updated_at": "2021-12-07T17:52:37.598Z",
-          "display_at": "2021-12-07T17:52:36.555Z",
-          "affected_components": [
-            {
-              "code": "rzh2n85q7vtt",
-              "name": "Pipelines",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1468277279990050800
-        },
-        {
-          "id": "yxnccc3nf9vm",
-          "status": "investigating",
-          "body": "We are currently investigating this issue. Your Pipelines could be stuck in \"Pending\" state while we resolve this issue. You may be required to restart your Pipelines once the issue is resolved.",
-          "incident_id": "k6pbf7mbxhdd",
-          "created_at": "2021-12-07T16:33:43.422Z",
-          "updated_at": "2021-12-07T16:33:44.216Z",
-          "display_at": "2021-12-07T16:33:43.422Z",
-          "affected_components": [
-            {
-              "code": "rzh2n85q7vtt",
-              "name": "Pipelines",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1468257426633748500
-        }
-      ],
-      "components": [
-        {
-          "id": "rfzky0v13fbp",
-          "name": "Webhooks",
-          "status": "operational",
-          "created_at": "2015-07-29T01:37:04.511Z",
-          "updated_at": "2022-07-22T01:30:40.304Z",
-          "position": 7,
-          "description": "The Bitbucket webhooks service",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "bqlf8qjztdtr",
-          "group": false,
-          "only_show_if_degraded": false
-        },
         {
           "id": "rzh2n85q7vtt",
           "name": "Pipelines",
