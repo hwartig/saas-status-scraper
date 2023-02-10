@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-02-10T08:47:22.701-08:00"
+    "updated_at": "2023-02-10T09:25:05.226-08:00"
   },
   "incidents": [
     {
@@ -813,9 +813,9 @@
     {
       "id": "9j9v3lsp7bzy",
       "name": "[Major] Admin Reports Issue",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-02-01T12:00:00.000-08:00",
-      "updated_at": "2023-02-01T14:29:24.490-08:00",
+      "updated_at": "2023-02-10T09:25:05.224-08:00",
       "monitoring_at": null,
       "resolved_at": "2023-02-01T12:00:00.000-08:00",
       "impact": "none",
@@ -823,6 +823,19 @@
       "started_at": "2023-02-01T12:00:00.000-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "qb08gp3jdcbd",
+          "status": "postmortem",
+          "body": "Between **10 AM PT on January 31, 2023 and** **4 PM PT on February 1, 2023**, some users may have experienced difficulties while working in Box. During this time, some enterprise admins may have experienced delays running Box admin reports. The issue occurred due to backend resource exhaustion in our reporting system caused by idle reporting resources not being cleared as quickly as new reporting resources were being provisioned. We were able to resolve the issue by manually removing idle reporting resources and adjusting our internal configurations for how quickly idle reporting resources are re-cycled. In addition, to prevent similar issues from occurring in the future, we will be provisioning additional monitoring to detect an excess buildup of idle reporting resources before they impact the customer experience. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "9j9v3lsp7bzy",
+          "created_at": "2023-02-10T09:24:56.241-08:00",
+          "updated_at": "2023-02-10T09:25:05.220-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "3ns0gqn19k8y",
           "status": "resolved",
