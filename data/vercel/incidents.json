@@ -4,7 +4,7 @@
     "name": "Vercel",
     "url": "https://www.vercel-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-02-11T17:43:11.917Z"
+    "updated_at": "2023-02-11T23:05:05.890Z"
   },
   "incidents": [
     {
@@ -35,6 +35,58 @@
         }
       ],
       "components": []
+    },
+    {
+      "id": "1m4htygnbppf",
+      "name": "Elevated Error Rates in Serverless Functions",
+      "status": "resolved",
+      "created_at": "2023-02-11T13:31:47.000Z",
+      "updated_at": "2023-02-11T23:05:05.888Z",
+      "monitoring_at": null,
+      "resolved_at": "2023-02-11T13:31:47.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/qqyb7f7gn9qp",
+      "started_at": "2023-02-11T13:31:47.000Z",
+      "page_id": "lvglq8h0mdyh",
+      "incident_updates": [
+        {
+          "id": "wcqw8s1x4n45",
+          "status": "resolved",
+          "body": "A change to optimize outbound HTTP requests from Serverless Functions started gradually rolling out under a feature flag on 2/10 16:48 UTC to a subset of customers. This resulted in some serverless functions deployed after the change being unable to consume the response body properly.\n\nOn 2/11 13:31 UTC, our on-call team disabled the flag to turn off the change after identifying the root cause through details provided by affected customers. After the rollback, customers were able to mitigate the issue by manually redeploying the app.\n\nThis incident only affected Serverless Functions.",
+          "incident_id": "1m4htygnbppf",
+          "created_at": "2023-02-11T23:04:47.948Z",
+          "updated_at": "2023-02-11T23:05:05.823Z",
+          "display_at": "2023-02-11T13:31:47.000Z",
+          "affected_components": [
+            {
+              "code": "kgcsn9c73xzf",
+              "name": "Serverless Functions",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "kgcsn9c73xzf",
+          "name": "Serverless Functions",
+          "status": "operational",
+          "created_at": "2020-04-23T06:52:31.365Z",
+          "updated_at": "2023-01-11T16:04:28.174Z",
+          "position": 15,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
     },
     {
       "id": "v3v42mt79pwn",
@@ -7448,35 +7500,6 @@
           "only_show_if_degraded": false
         }
       ]
-    },
-    {
-      "id": "0ghwv21gb38g",
-      "name": "Log Drains Data Collection Errors",
-      "status": "resolved",
-      "created_at": "2022-06-15T06:55:00.000Z",
-      "updated_at": "2022-06-15T09:46:06.648Z",
-      "monitoring_at": null,
-      "resolved_at": "2022-06-15T06:55:00.000Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/zsh7wgd09wh6",
-      "started_at": "2022-06-15T06:55:00.000Z",
-      "page_id": "lvglq8h0mdyh",
-      "incident_updates": [
-        {
-          "id": "hrdrxnzbyn3c",
-          "status": "resolved",
-          "body": "Between 06:55am UTC and 09:28am UTC, log drains integrations did not collect data. Metrics during this time will not be backfilled.",
-          "incident_id": "0ghwv21gb38g",
-          "created_at": "2022-06-15T09:43:31.213Z",
-          "updated_at": "2022-06-15T09:46:06.589Z",
-          "display_at": "2022-06-15T06:55:00.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": []
     }
   ]
 }
