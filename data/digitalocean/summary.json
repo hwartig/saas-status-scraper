@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-02-12T08:11:40.579Z"
+    "updated_at": "2023-02-13T08:05:00.646Z"
   },
   "components": [
     {
@@ -72,7 +72,7 @@
     {
       "id": "9xmhrchbp51t",
       "name": "Services",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-02-17T21:38:50.394Z",
       "updated_at": "2020-09-11T06:57:09.795Z",
       "position": 2,
@@ -487,9 +487,9 @@
     {
       "id": "chj29s92gg0x",
       "name": "Load Balancers",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-03-15T20:20:44.175Z",
-      "updated_at": "2023-01-11T02:06:26.873Z",
+      "updated_at": "2023-02-13T08:05:00.572Z",
       "position": 14,
       "description": null,
       "showcase": false,
@@ -651,6 +651,79 @@
     }
   ],
   "incidents": [
+    {
+      "id": "8ckbzf68vqnx",
+      "name": "Load Balancer creation in NYC1",
+      "status": "investigating",
+      "created_at": "2023-02-13T08:05:00.475Z",
+      "updated_at": "2023-02-13T08:05:00.639Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/10d8lpx9nzd5",
+      "started_at": "2023-02-13T08:05:00.458Z",
+      "page_id": "s2k7tnzlhrpw",
+      "incident_updates": [
+        {
+          "id": "92vt3q6y4k2s",
+          "status": "investigating",
+          "body": "As of 06:25 UTC, our Engineering team is investigating an issue impacting Load Balancer creation in the NYC1 region. During this time, users may experience issues creating new Load Balancers in NYC1 region. We apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "8ckbzf68vqnx",
+          "created_at": "2023-02-13T08:05:00.636Z",
+          "updated_at": "2023-02-13T08:05:00.636Z",
+          "display_at": "2023-02-13T08:05:00.636Z",
+          "affected_components": [
+            {
+              "code": "chj29s92gg0x",
+              "name": "Services - Load Balancers",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "cl06j64ltm9s",
+              "name": "Regions - NYC1",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "cl06j64ltm9s",
+          "name": "NYC1",
+          "status": "operational",
+          "created_at": "2017-02-17T21:48:01.306Z",
+          "updated_at": "2023-01-11T02:38:54.848Z",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "6ycn9yslydsq",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "chj29s92gg0x",
+          "name": "Load Balancers",
+          "status": "degraded_performance",
+          "created_at": "2017-03-15T20:20:44.175Z",
+          "updated_at": "2023-02-13T08:05:00.572Z",
+          "position": 14,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "9xmhrchbp51t",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "kcnsscw1cmsz",
       "name": "Network Connectivity in the APAC region",
@@ -857,7 +930,7 @@
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
