@@ -4,9 +4,82 @@
     "name": "Netlify",
     "url": "https://www.netlifystatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-02-14T08:09:30.605Z"
+    "updated_at": "2023-02-14T17:24:20.791Z"
   },
   "incidents": [
+    {
+      "id": "16trg3m7wcsl",
+      "name": "Delay in processing DNS Records",
+      "status": "identified",
+      "created_at": "2023-02-14T17:24:19.602Z",
+      "updated_at": "2023-02-14T17:24:20.774Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/5ccv1mxdlvcz",
+      "started_at": "2023-02-14T17:24:19.594Z",
+      "page_id": "83dz7syz0j3x",
+      "incident_updates": [
+        {
+          "id": "w2n705hsng9h",
+          "status": "identified",
+          "body": "Beginning at 16:45 UTC, our upstream provider began experiencing delays in processing of any DNS records updates. All site traffic is not impacted at this time. However, any changes to DNS records will not be reflected in our UI.",
+          "incident_id": "16trg3m7wcsl",
+          "created_at": "2023-02-14T17:24:19.711Z",
+          "updated_at": "2023-02-14T17:24:20.762Z",
+          "display_at": "2023-02-14T17:24:19.711Z",
+          "affected_components": [
+            {
+              "code": "bmy0vgv9lvv8",
+              "name": "Third-Party Services - NS1 API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "qx435pfgxfw7",
+              "name": "Third-Party Services - NS1 Management Portal",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1625546496564416500
+        }
+      ],
+      "components": [
+        {
+          "id": "bmy0vgv9lvv8",
+          "name": "NS1 API",
+          "status": "degraded_performance",
+          "created_at": "2023-02-14T17:11:29.123Z",
+          "updated_at": "2023-02-14T17:24:19.644Z",
+          "position": 8,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "912v4l5dqqhk",
+          "page_id": "83dz7syz0j3x",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "qx435pfgxfw7",
+          "name": "NS1 Management Portal",
+          "status": "degraded_performance",
+          "created_at": "2023-02-14T17:13:03.852Z",
+          "updated_at": "2023-02-14T17:24:19.663Z",
+          "position": 9,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "912v4l5dqqhk",
+          "page_id": "83dz7syz0j3x",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "3n9tjl08nht2",
       "name": "Increased failures in Edge Function Builds",
@@ -4245,98 +4318,6 @@
         }
       ],
       "components": []
-    },
-    {
-      "id": "8vt0jnlj9r28",
-      "name": "Increase in Failed Builds",
-      "status": "resolved",
-      "created_at": "2022-09-12T12:06:32.531Z",
-      "updated_at": "2022-09-12T14:05:09.704Z",
-      "monitoring_at": "2022-09-12T13:15:28.635Z",
-      "resolved_at": "2022-09-12T14:05:09.281Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/yqv9d25qy7x9",
-      "started_at": "2022-09-12T12:06:32.526Z",
-      "page_id": "83dz7syz0j3x",
-      "incident_updates": [
-        {
-          "id": "smfbpm4sg7h6",
-          "status": "resolved",
-          "body": "The build system appears to be stable now. We will continue to monitor.",
-          "incident_id": "8vt0jnlj9r28",
-          "created_at": "2022-09-12T14:05:09.281Z",
-          "updated_at": "2022-09-12T14:05:09.699Z",
-          "display_at": "2022-09-12T14:05:09.281Z",
-          "affected_components": [
-            {
-              "code": "999zpz7s4z44",
-              "name": "Build Pipeline",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1569326251034443800
-        },
-        {
-          "id": "7vff9sd5fzzv",
-          "status": "monitoring",
-          "body": "We’re seeing a decrease in failed builds. The team will continue to monitor.",
-          "incident_id": "8vt0jnlj9r28",
-          "created_at": "2022-09-12T13:15:28.635Z",
-          "updated_at": "2022-09-12T13:15:29.313Z",
-          "display_at": "2022-09-12T13:15:28.635Z",
-          "affected_components": [
-            {
-              "code": "999zpz7s4z44",
-              "name": "Build Pipeline",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1569313750188175400
-        },
-        {
-          "id": "d5dt9tgq3m9q",
-          "status": "investigating",
-          "body": "Starting at 11:44 UTC, we’re seeing an increase in failed builds. The team is investigating the issue.",
-          "incident_id": "8vt0jnlj9r28",
-          "created_at": "2022-09-12T12:06:32.622Z",
-          "updated_at": "2022-09-12T12:06:33.171Z",
-          "display_at": "2022-09-12T12:06:32.622Z",
-          "affected_components": [
-            {
-              "code": "999zpz7s4z44",
-              "name": "Build Pipeline",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1569296401959645200
-        }
-      ],
-      "components": [
-        {
-          "id": "999zpz7s4z44",
-          "name": "Build Pipeline",
-          "status": "operational",
-          "created_at": "2016-08-26T19:06:12.274Z",
-          "updated_at": "2023-02-06T19:23:05.717Z",
-          "position": 4,
-          "description": "The system that builds your source code into websites (for git-backed deployments)",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "83dz7syz0j3x",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
     }
   ]
 }
