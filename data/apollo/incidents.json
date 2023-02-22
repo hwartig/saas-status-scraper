@@ -4,9 +4,81 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-02-21T11:43:10.755-08:00"
+    "updated_at": "2023-02-22T15:19:28.644-08:00"
   },
   "incidents": [
+    {
+      "id": "rv7v6pnbczl9",
+      "name": "GCS Schema Delivery Partial Outage",
+      "status": "resolved",
+      "created_at": "2023-02-16T13:24:40.000-08:00",
+      "updated_at": "2023-02-22T15:19:28.641-08:00",
+      "monitoring_at": null,
+      "resolved_at": "2023-02-22T10:52:15.000-08:00",
+      "impact": "major",
+      "shortlink": "https://stspg.io/db5640twxn7t",
+      "started_at": "2023-02-16T13:24:40.000-08:00",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "8crvzcg57lfy",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "rv7v6pnbczl9",
+          "created_at": "2023-02-22T15:19:15.080-08:00",
+          "updated_at": "2023-02-22T15:19:28.623-08:00",
+          "display_at": "2023-02-22T10:52:15.000-08:00",
+          "affected_components": [
+            {
+              "code": "f9vbgntg553n",
+              "name": "Uplink",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2v2b74k9bpz8",
+          "status": "investigating",
+          "body": "Between February 16th, at 21:24 UTC and February 22nd at 18:52 UTC, Apollo had a bug in our GCS Schema Delivery Pipeline.\n\nTo be impacted by this bug, customers would need to:\n\n- Be on an Apollo Gateway version before 0.45.0, and have their Gateway set to receive SuperGraph configuration via GCS\n    - NOTE: In Apollo Gateway version 0.34.0 we changed SuperGraph delivery to default to Uplink\n- Be on Federation version 1.0\n- Make a change to a Subgraph URL but NOT make a change to their Subgraph's schema\n\nIf you believe you fall into the above camp, you will be able to resolve this issue on your end by making any deployment whatsoever to the variant in question.\n\nPlease reach out to support for any further questions.",
+          "incident_id": "rv7v6pnbczl9",
+          "created_at": "2023-02-22T15:18:40.673-08:00",
+          "updated_at": "2023-02-22T15:19:06.701-08:00",
+          "display_at": "2023-02-16T13:24:40.000-08:00",
+          "affected_components": [
+            {
+              "code": "f9vbgntg553n",
+              "name": "Uplink",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "f9vbgntg553n",
+          "name": "Uplink",
+          "status": "operational",
+          "created_at": "2021-09-27T09:44:28.215-07:00",
+          "updated_at": "2023-02-22T15:19:15.053-08:00",
+          "position": 1,
+          "description": "Studio managed Supergraph Schema Delivery. Apollo Gateway (v 0.34+) uses Uplink to fetch routing configuration dynamically from the Apollo schema registry.",
+          "showcase": true,
+          "start_date": "2021-09-27",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "31x97b7qz1jx",
       "name": "Cloud Router Serverless offering experiencing inconsistent availability",
@@ -4482,7 +4554,7 @@
           "name": "Uplink",
           "status": "operational",
           "created_at": "2021-09-27T09:44:28.215-07:00",
-          "updated_at": "2022-07-21T05:39:05.194-07:00",
+          "updated_at": "2023-02-22T15:19:15.053-08:00",
           "position": 1,
           "description": "Studio managed Supergraph Schema Delivery. Apollo Gateway (v 0.34+) uses Uplink to fetch routing configuration dynamically from the Apollo schema registry.",
           "showcase": true,
@@ -4847,7 +4919,7 @@
           "name": "Uplink",
           "status": "operational",
           "created_at": "2021-09-27T09:44:28.215-07:00",
-          "updated_at": "2022-07-21T05:39:05.194-07:00",
+          "updated_at": "2023-02-22T15:19:15.053-08:00",
           "position": 1,
           "description": "Studio managed Supergraph Schema Delivery. Apollo Gateway (v 0.34+) uses Uplink to fetch routing configuration dynamically from the Apollo schema registry.",
           "showcase": true,
@@ -5554,98 +5626,6 @@
           "description": "This includes features like Slack, Webhooks, and Emails.",
           "showcase": true,
           "start_date": null,
-          "group_id": null,
-          "page_id": "r56zbm15x15h",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "h6zcwbm508v3",
-      "name": "Uplink downtime for fetching configuration for contract schemas",
-      "status": "resolved",
-      "created_at": "2022-03-16T22:51:28.081-07:00",
-      "updated_at": "2022-03-16T23:55:16.702-07:00",
-      "monitoring_at": "2022-03-16T23:32:54.648-07:00",
-      "resolved_at": "2022-03-16T23:55:16.688-07:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/sll56qlzvs0w",
-      "started_at": "2022-03-16T22:51:28.076-07:00",
-      "page_id": "r56zbm15x15h",
-      "incident_updates": [
-        {
-          "id": "bbp8p76ysmd2",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "h6zcwbm508v3",
-          "created_at": "2022-03-16T23:55:16.688-07:00",
-          "updated_at": "2022-03-16T23:55:16.688-07:00",
-          "display_at": "2022-03-16T23:55:16.688-07:00",
-          "affected_components": [
-            {
-              "code": "f9vbgntg553n",
-              "name": "Uplink",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3lflfrb0xlss",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results to ensure the problem is resolved and uptime is returned. Service to Uplink for contracts users should return momentarily, though error messages for affected contract variants may continue for several minutes.",
-          "incident_id": "h6zcwbm508v3",
-          "created_at": "2022-03-16T23:32:54.648-07:00",
-          "updated_at": "2022-03-16T23:32:54.648-07:00",
-          "display_at": "2022-03-16T23:32:54.648-07:00",
-          "affected_components": [
-            {
-              "code": "f9vbgntg553n",
-              "name": "Uplink",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qtdc42gddkf3",
-          "status": "identified",
-          "body": "We have identified an issue within Uplink that is currently affecting contract variants that have been published to since 12:00am Eastern time. We are currently implementing a fix and we expect service will be returned to normal soon. We apologize for the disruption in service and are hard at work to bring things back online.",
-          "incident_id": "h6zcwbm508v3",
-          "created_at": "2022-03-16T22:51:28.159-07:00",
-          "updated_at": "2022-03-16T22:51:28.159-07:00",
-          "display_at": "2022-03-16T22:51:28.159-07:00",
-          "affected_components": [
-            {
-              "code": "f9vbgntg553n",
-              "name": "Uplink",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "f9vbgntg553n",
-          "name": "Uplink",
-          "status": "operational",
-          "created_at": "2021-09-27T09:44:28.215-07:00",
-          "updated_at": "2022-07-21T05:39:05.194-07:00",
-          "position": 1,
-          "description": "Studio managed Supergraph Schema Delivery. Apollo Gateway (v 0.34+) uses Uplink to fetch routing configuration dynamically from the Apollo schema registry.",
-          "showcase": true,
-          "start_date": "2021-09-27",
           "group_id": null,
           "page_id": "r56zbm15x15h",
           "group": false,
