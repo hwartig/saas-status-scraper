@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-02-22T00:10:58.040-08:00"
+    "updated_at": "2023-02-22T11:21:46.439-08:00"
   },
   "incidents": [
     {
@@ -1027,7 +1027,7 @@
       "name": "[Major] Issue with Box Uploads/Downloads",
       "status": "postmortem",
       "created_at": "2023-02-03T21:00:00.000-08:00",
-      "updated_at": "2023-02-16T15:15:55.586-08:00",
+      "updated_at": "2023-02-22T11:21:46.428-08:00",
       "monitoring_at": null,
       "resolved_at": "2023-02-03T23:00:00.000-08:00",
       "impact": "major",
@@ -1038,10 +1038,10 @@
         {
           "id": "7xbbh0bljqlv",
           "status": "postmortem",
-          "body": "As part of compliance requirement, Observability team were working on changes to enable TLS on WF. On Feb 3rd 2023 at 10:09 a.m PST there was change pushed to enabled TLS for WF proxy in GCP Skynet which stopped all the Istio enabled pods’ to stop communicate with WF Proxy. In order to fix that a second change was pushed to update the Vector config which fixed the Istio based pods’ but this time synapse based pods’ were impacted and not able to reach the WF proxy. After this GTOC noticed a drop on successful download and upload on the Tier 1 metrics. This was due to the multiple changes pushed iteratively for WF proxy and vector agent. The sudden drop in metrics was due to synapsed based agent not able to send metrics to Wavefront Proxy which was listening on TLS port. During this time there was no customer impact but few pods in us-west1 and us-west4 were reported to be in crash-loop back due to vector side car not coming up because of OOM. The metrics started to recover at around 7:49 p.m PST after adding port 2878 in Istio and reverting the vector agent configuration. \n\n‌\n\nAfter stabilizing ISSUE-5170, at around 9:09 pm PST, GTOC noticed drop in Uploads, Downloads and increase in 5xx errors which was due to application pods going in crash-loop back as vector sidecar was not able to start due to OOM. To remediate this issue, vector sidecar memory was increased from 200MB to 512 MB for all application pods across all K8 clusters. This caused all the pods to bounce and come back up successfully. We suspect the sudden surge in  Vector side car memory utilization was due to the Vector configuration changes pushed and hot reloaded which caused multiple retires to reach the WF proxy using the updated endpoints.",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\n _Between February 3, 2023 at 09:09 PM PST and February 4, 2023 at 11:20 AM PST, some users may have experienced difficulties while working in Box. During this time, some users may have experienced failures when attempting to upload or download Content to Box. The issue was a result of a faulty change that resulted in resource exhaustion in a cluster running our upload and download services. We were able to resolve the issue by deploying additional resources and scaling up our services. In addition, we are working on improving our change management process to prevent similar issues from occurring in the future._ \n\n_We are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem._\n\n _We are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter._ \n\n \n\n_Sincerely,_\n\n_The Box Team_",
           "incident_id": "q7698phkj2jj",
           "created_at": "2023-02-16T15:15:04.008-08:00",
-          "updated_at": "2023-02-16T15:15:55.583-08:00",
+          "updated_at": "2023-02-22T11:21:46.424-08:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
