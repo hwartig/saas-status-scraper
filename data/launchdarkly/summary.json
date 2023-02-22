@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-02-22T00:03:01.485-08:00"
+    "updated_at": "2023-02-22T03:10:44.403-08:00"
   },
   "components": [
     {
@@ -365,9 +365,9 @@
     {
       "id": "xqtx8rntl6pn",
       "name": "Integrations and webhooks",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-03-16T09:40:42.611-07:00",
-      "updated_at": "2023-02-09T10:25:05.046-08:00",
+      "updated_at": "2023-02-22T03:10:43.279-08:00",
       "position": 8,
       "description": "LaunchDarkly-managed integrations with third-party services",
       "showcase": false,
@@ -393,7 +393,60 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "gylmfpqh2vrq",
+      "name": "OAuth flow is down",
+      "status": "investigating",
+      "created_at": "2023-02-22T03:10:43.240-08:00",
+      "updated_at": "2023-02-22T03:10:44.389-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/mg3fgfx52y7w",
+      "started_at": "2023-02-22T03:10:43.232-08:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "wx6qxx1fj9hl",
+          "status": "investigating",
+          "body": "We are currently investigating this issue. This issue is preventing customers from authorizing new OAuth 2.0 applications such as the Slack App and MS Teams App. Customers who have previously authorized these applications should be unaffected.",
+          "incident_id": "gylmfpqh2vrq",
+          "created_at": "2023-02-22T03:10:43.336-08:00",
+          "updated_at": "2023-02-22T03:10:44.381-08:00",
+          "display_at": "2023-02-22T03:10:43.336-08:00",
+          "affected_components": [
+            {
+              "code": "xqtx8rntl6pn",
+              "name": "Integrations and webhooks",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1628351578125086700
+        }
+      ],
+      "components": [
+        {
+          "id": "xqtx8rntl6pn",
+          "name": "Integrations and webhooks",
+          "status": "degraded_performance",
+          "created_at": "2020-03-16T09:40:42.611-07:00",
+          "updated_at": "2023-02-22T03:10:43.279-08:00",
+          "position": 8,
+          "description": "LaunchDarkly-managed integrations with third-party services",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "myztj48c5ygp",
@@ -451,7 +504,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
