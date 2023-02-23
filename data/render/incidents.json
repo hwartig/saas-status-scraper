@@ -4,7 +4,7 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-02-23T08:11:25.158Z"
+    "updated_at": "2023-02-23T23:38:27.424Z"
   },
   "incidents": [
     {
@@ -52,9 +52,9 @@
     {
       "id": "cdnhnjw1vm9t",
       "name": "Services not reachable - \"SSL handshake failed Error code 525\"",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-02-22T15:34:38.542Z",
-      "updated_at": "2023-02-22T15:45:08.964Z",
+      "updated_at": "2023-02-23T23:38:27.323Z",
       "monitoring_at": "2023-02-22T15:34:38.599Z",
       "resolved_at": "2023-02-22T15:45:08.523Z",
       "impact": "major",
@@ -62,6 +62,19 @@
       "started_at": "2023-02-22T15:34:38.532Z",
       "page_id": "tyfhm2rrt1tl",
       "incident_updates": [
+        {
+          "id": "pkbhjc9wyps7",
+          "status": "postmortem",
+          "body": "# Summary\n\nOn February 22, 2023 we deployed a change to our routing layer that resulted in certificate errors for a subset of services in the Oregon and Frankfurt regions for traffic using custom domains. We completed a rollback of the change 12 minutes later to mitigate the impact. The time of impact was 15:16-15:28 UTC for the Oregon region and 15:26-15:36 UTC for the Frankfurt region.\n\n# Root Cause\n\nWe deployed a change that caused our routing layer to fail to serve any certificate for custom domains, resulting in connection failures between Cloudflare and our origins. We identified the cause and initiated a rollback 8 minutes after the start of the impact.\n\nWe run a suite of tests to verify critical functionality for all changes in a staging environment before deploying to production. While we have tests to verify that our routing layer can serve traffic for web services, this incident exposed a gap in our test coverage related to serving traffic for custom domains. As a result, the problematic change made it through our deployment pipeline undetected and was deployed to production, resulting in customer impact.\n\n# Mitigations\n\n* We will improve our test coverage to ensure that traffic sent to web services via custom domains can be served successfully before deploying changes to production",
+          "incident_id": "cdnhnjw1vm9t",
+          "created_at": "2023-02-23T23:37:22.881Z",
+          "updated_at": "2023-02-23T23:38:27.217Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our February 22nd incident: https://stspg.io/s5rfydphhk9p",
+          "tweet_id": null
+        },
         {
           "id": "x6hcr82gfdcl",
           "status": "resolved",
