@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-02-22T13:55:47.375-08:00"
+    "updated_at": "2023-02-22T19:43:19.288-08:00"
   },
   "incidents": [
     {
@@ -1069,7 +1069,7 @@
       "name": "[Major] Admin Reports Issue",
       "status": "postmortem",
       "created_at": "2023-02-01T12:00:00.000-08:00",
-      "updated_at": "2023-02-15T04:10:03.607-08:00",
+      "updated_at": "2023-02-22T19:43:19.277-08:00",
       "monitoring_at": null,
       "resolved_at": "2023-02-01T12:00:00.000-08:00",
       "impact": "major",
@@ -1080,10 +1080,10 @@
         {
           "id": "qb08gp3jdcbd",
           "status": "postmortem",
-          "body": "Between **10 AM PT on January 31, 2023 and** **4 PM PT on February 1, 2023**, some users may have experienced difficulties while working in Box. During this time, some enterprise admins may have experienced delays running Box admin reports. The issue occurred due to backend resource exhaustion in our reporting system caused by idle reporting resources not being cleared as quickly as new reporting resources were being provisioned. We were able to resolve the issue by manually removing idle reporting resources and adjusting our internal configurations for how quickly idle reporting resources are re-cycled. In addition, to prevent similar issues from occurring in the future, we will be provisioning additional monitoring to detect an excess buildup of idle reporting resources before they impact the customer experience. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting Enterprise Reporting. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n‌\n\nBetween 10:00 AM PST on January 31, 2023, and 4:00 PM PST on February 1, 2023, some users may have experienced difficulties while working in Box. During this time, some enterprise admins may have experienced delays running Box admin reports. The issue occurred due to backend resource exhaustion in our reporting system. We were able to resolve the issue by removing idle reporting resources and adjusting our internal configurations governing recycling of idle reporting resources. In addition, to prevent similar issues from occurring in the future, we will be provisioning additional monitoring to detect an excess buildup of idle reporting resources before they impact the customer experience. \n\n‌\n\n**Analysis** \n\nThe Enterprise Reporting product dynamically creates compute clusters to run reports requested by customers and then destroys them once they are idle in order to free up capacity for new clusters to be launched. The root cause of this issue was that the process responsible for destroying these reporting compute clusters was unable to keep up with the rate at which clusters were scheduled for destruction, creating a backlog that eventually resulted in temporary exhaustion of the compute resource available to run customer reports. As a result, some enterprise admins may have experienced delays in running reports during the impacted timeframe. Additionally, this issue took longer to detect than it otherwise may have because our monitoring initially failed to distinguish the resulting customer report backlog from the expected higher customer reporting traffic that typically occurs at the end of each month.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Update the reporting cluster destruction process so that it can keep pace with the rate at which clusters are provisioned\n* Add direct monitoring for a backlog of reporting clusters that are scheduled for destruction\n* Add direct monitoring for exhaustion of available reporting compute resources\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
           "incident_id": "9j9v3lsp7bzy",
           "created_at": "2023-02-10T09:24:56.241-08:00",
-          "updated_at": "2023-02-10T09:25:05.220-08:00",
+          "updated_at": "2023-02-22T19:43:19.273-08:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
