@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-02-23T20:43:53.066-08:00"
+    "updated_at": "2023-02-23T21:25:20.754-08:00"
   },
   "incidents": [
     {
@@ -1159,7 +1159,7 @@
       "name": "Connectivity Lost on 10% of Super SIM Devices",
       "status": "identified",
       "created_at": "2023-02-23T01:27:02.286-08:00",
-      "updated_at": "2023-02-23T20:43:53.056-08:00",
+      "updated_at": "2023-02-23T21:25:20.745-08:00",
       "monitoring_at": "2023-02-23T01:27:02.383-08:00",
       "resolved_at": null,
       "impact": "minor",
@@ -1167,6 +1167,26 @@
       "started_at": "2023-02-23T12:05:47.000-08:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "nfn381w8zjqb",
+          "status": "identified",
+          "body": "While attempting to restore all Twilio services to normal, we made a configuration change at our datacenter modifying how some traffic between Twilio's Mobile Core and our carrier partners is handled at 2:16 PM PT. This may have created some delays or prevented devices from connecting in a small number of countries. The most notable impact observed by Twilio was in New Zealand. At ~8:00 PM PT, the issue was identified and we temporarily blocked attachments on the impacted connectivity partner in New Zealand. SIMs failing to connect should have failed over to backup IMSIs on the SIMs allowing them to reconnect via an alternative connectivity partner. At ~9:00 PM PT, the configuration change was reverted and we re-enabled the blocked connectivity partner in New Zealand. Impact in other countries not identified by Twilio should have subsided after the configuration change was reverted. We'll provide another update in 16 hours or as soon as more information becomes available.",
+          "incident_id": "q8lvjpz53fc0",
+          "created_at": "2023-02-23T21:25:20.743-08:00",
+          "updated_at": "2023-02-23T21:25:20.743-08:00",
+          "display_at": "2023-02-23T21:25:20.743-08:00",
+          "affected_components": [
+            {
+              "code": "z5mpqfbwf2md",
+              "name": "INTERNET OF THINGS - Super SIM",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "c1lhd5g8pyvx",
           "status": "identified",
