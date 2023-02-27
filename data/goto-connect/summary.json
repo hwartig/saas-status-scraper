@@ -4,7 +4,7 @@
     "name": "GoToConnect",
     "url": "https://status.gotoconnect.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-02-23T19:05:21.703Z"
+    "updated_at": "2023-02-27T20:46:36.562Z"
   },
   "components": [
     {
@@ -25,7 +25,7 @@
     {
       "id": "w79bdn658bt8",
       "name": "VoIP Calls",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2021-10-11T16:48:42.165Z",
       "updated_at": "2021-10-11T16:56:01.298Z",
       "position": 1,
@@ -60,9 +60,9 @@
     {
       "id": "4byzv5f861xn",
       "name": "SMS",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2021-10-11T17:00:57.303Z",
-      "updated_at": "2022-11-02T01:18:41.242Z",
+      "updated_at": "2023-02-27T20:46:36.498Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -75,9 +75,9 @@
     {
       "id": "340kw1vr579v",
       "name": "GoToConnect Web",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2021-10-11T16:49:24.560Z",
-      "updated_at": "2023-01-20T00:30:12.728Z",
+      "updated_at": "2023-02-27T20:46:36.519Z",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -154,7 +154,7 @@
     {
       "id": "hht03hjc30gq",
       "name": "Messaging",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2021-10-11T17:00:57.286Z",
       "updated_at": "2021-10-11T17:01:33.892Z",
       "position": 3,
@@ -231,7 +231,81 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "d5g8dd27h0xj",
+      "name": "GoTo Connect - SMS not loading | Unable to add/edit/favorite contact | Contact search currently slow",
+      "status": "investigating",
+      "created_at": "2023-02-27T20:46:36.460Z",
+      "updated_at": "2023-02-27T20:46:36.559Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/1dy7rlsxzk75",
+      "started_at": "2023-02-27T20:46:36.447Z",
+      "page_id": "vmhzrt4cm9fj",
+      "incident_updates": [
+        {
+          "id": "7vdjyztqbz7s",
+          "status": "investigating",
+          "body": "We are actively investigating reports that some GoTo Connect customers may be unable to load the SMS page, add/edit/favorite contacts. Contact searching is also slow.\n\nOur engineers are working to identify the issue and will provide another update shortly.",
+          "incident_id": "d5g8dd27h0xj",
+          "created_at": "2023-02-27T20:46:36.557Z",
+          "updated_at": "2023-02-27T20:46:36.557Z",
+          "display_at": "2023-02-27T20:46:36.557Z",
+          "affected_components": [
+            {
+              "code": "340kw1vr579v",
+              "name": "VoIP Calls - GoToConnect Web",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "4byzv5f861xn",
+              "name": "Messaging - SMS",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "4byzv5f861xn",
+          "name": "SMS",
+          "status": "partial_outage",
+          "created_at": "2021-10-11T17:00:57.303Z",
+          "updated_at": "2023-02-27T20:46:36.498Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2021-10-11",
+          "group_id": "hht03hjc30gq",
+          "page_id": "vmhzrt4cm9fj",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "340kw1vr579v",
+          "name": "GoToConnect Web",
+          "status": "partial_outage",
+          "created_at": "2021-10-11T16:49:24.560Z",
+          "updated_at": "2023-02-27T20:46:36.519Z",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": "2021-10-11",
+          "group_id": "w79bdn658bt8",
+          "page_id": "vmhzrt4cm9fj",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "c9ynzpv210wq",
@@ -343,7 +417,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
