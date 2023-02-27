@@ -4,9 +4,38 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-02-26T00:02:06.192-08:00"
+    "updated_at": "2023-02-27T07:20:59.436-08:00"
   },
   "incidents": [
+    {
+      "id": "mmr4r2jh0v82",
+      "name": "[Major] Customers may have experienced failures when using Box.com",
+      "status": "resolved",
+      "created_at": "2023-02-27T05:00:00.000-08:00",
+      "updated_at": "2023-02-27T07:20:59.432-08:00",
+      "monitoring_at": null,
+      "resolved_at": "2023-02-27T05:00:00.000-08:00",
+      "impact": "major",
+      "shortlink": "https://stspg.io/vnrpmd1jtypn",
+      "started_at": "2023-02-27T05:00:00.000-08:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "6fnqp15ww5ys",
+          "status": "resolved",
+          "body": "From approximately 04:57 and 05:06 AM US Pacific time, customers using Box.com and any of the Box features may have experienced errors or failures. There is no current impact and we're considering this issue to be resolved. If you are currently seeing any issues, please let us know at https://support.box.com.",
+          "incident_id": "mmr4r2jh0v82",
+          "created_at": "2023-02-27T07:16:51.904-08:00",
+          "updated_at": "2023-02-27T07:20:59.320-08:00",
+          "display_at": "2023-02-27T05:00:00.000-08:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": []
+    },
     {
       "id": "yyjybcb8bywk",
       "name": "[Major] Degradation of Search",
@@ -6744,241 +6773,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "g58jskvcnlh8",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "nh3vh8tvw398",
-      "name": "[Critical] Issue with Box Embed Uploads",
-      "status": "postmortem",
-      "created_at": "2021-09-27T12:53:08.775-07:00",
-      "updated_at": "2021-10-18T12:42:13.016-07:00",
-      "monitoring_at": "2021-09-27T20:32:03.727-07:00",
-      "resolved_at": "2021-09-27T22:37:11.963-07:00",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/7g4jgn2j5dc4",
-      "started_at": "2021-09-27T12:53:08.761-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "zx5tb8jz1q2z",
-          "status": "postmortem",
-          "body": "\\*\\*\\*UPDATED: Oct 18, 2021 @ 12:41 PM PT\n\nWe recently addressed issues affecting uploads via Box Embed Widget and a subset of accelerated uploads. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 1:00PM PDT on September 23, 2021 and 10:23PM PDT on September 27, 2021, some users may have experienced difficulties while working in Box. During this time, customers uploading via Box Embed Widget would see an error notification and multiple uploads of the same file. For customers uploading via accelerated nodes with the IP Allowlist feature enabled, users experienced errors in the upload. The issue occurred as a result of a recent code change in our upload service intended to clean up some deprecated pathways. We were able to resolve the issue by reverting the change and restoring to a previous known version. In addition, we are adding several new tests and alerts as part of the deployment process to prevent similar issues from occurring in the future.\n\n**Analysis** \n\nAs part of regular updates, an upload service deployment was done in production. This change incorrectly overwrote a header that is used by downstream services to determine the original context of the upload. As such, in the Embed Widget case, the downstream service failed to recognize that CORS headers need to be set in the response. This caused errors only on the client side, which were not visible to the service. Corrective actions are being taken to ensure both the client and server side is aware of this change going forward in a timely manner.\n\nIn the IP Allowlisting and accelerated nodes case, the upload was not recognized to be from the original source through accelerated node and thus failed authorization check.\n\nWe were able to resolve the issue by reverting the change and restoring to a previous known version. After the revert of the deployment, the issue was mitigated.\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Adding additional testing and alerting during the development for html5 uploads\n\n* Adding additional testing and alerting during the development for IP Allowlist and accelerator combination\n\n* Adding a sanity environment before full deployment of upload-proxy service\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n Sincerely,\n\nThe Box Team\n\n‌\n\n\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\n\n_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we will update as more information is confirmed._\n\nBetween 1:00PM PDT on September 23, 2021 and 10:23PM PDT on September 27, 2021, some users may have experienced difficulties while working in Box. During this time, some customers experienced issues uploading files to Box via the Box Embed Widget and for a subset of accelerated uploads. The issue occurred as a result of a recent code change in our upload service to clean up some deprecated pathways. We were able to resolve the issue by reverting the change and restoring to a previous known version. In addition, we are adding several new tests and alerts as part of the deployment process to prevent similar issues from occurring in the future.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. We will publish the results as soon as we have concluded our investigation.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
-          "incident_id": "nh3vh8tvw398",
-          "created_at": "2021-10-12T09:31:27.681-07:00",
-          "updated_at": "2021-10-18T12:42:13.010-07:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "g18hl241s39p",
-          "status": "resolved",
-          "body": "The Box Embed upload error has been fixed and no additional impact has been observed. We are considering the issue to be fully resolved. If you are encountering any issues, please contact Box Support at https://support.box.com.",
-          "incident_id": "nh3vh8tvw398",
-          "created_at": "2021-09-27T22:37:11.963-07:00",
-          "updated_at": "2021-09-27T22:37:11.963-07:00",
-          "display_at": "2021-09-27T22:37:11.963-07:00",
-          "affected_components": [
-            {
-              "code": "f42mcm1h8lw9",
-              "name": "Box Platform / API - Box Embed Widget",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "c65jnfv7j6mj",
-              "name": "Partners / Integrations - Box for Salesforce",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "mkmsdsfl4mxf",
-              "name": "Partners / Integrations - NetSuite",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7kn575wqwz4v",
-          "status": "monitoring",
-          "body": "We are seeing a recovery of uploads using Box Embed. We will continue to monitor the situation and provide an update for resolution soon.",
-          "incident_id": "nh3vh8tvw398",
-          "created_at": "2021-09-27T20:32:03.727-07:00",
-          "updated_at": "2021-09-27T20:32:03.727-07:00",
-          "display_at": "2021-09-27T20:32:03.727-07:00",
-          "affected_components": [
-            {
-              "code": "f42mcm1h8lw9",
-              "name": "Box Platform / API - Box Embed Widget",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "c65jnfv7j6mj",
-              "name": "Partners / Integrations - Box for Salesforce",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "mkmsdsfl4mxf",
-              "name": "Partners / Integrations - NetSuite",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "t48w61v662k0",
-          "status": "identified",
-          "body": "We have pushed a fix for the issue to all users. Some users are expected to see recovery with uploads in the Box Embed. This change will take full effect later tonight once it completes the process. Update later tonight when the change takes full effect.",
-          "incident_id": "nh3vh8tvw398",
-          "created_at": "2021-09-27T16:22:33.966-07:00",
-          "updated_at": "2021-09-27T16:22:33.966-07:00",
-          "display_at": "2021-09-27T16:22:33.966-07:00",
-          "affected_components": [
-            {
-              "code": "f42mcm1h8lw9",
-              "name": "Box Platform / API - Box Embed Widget",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "c65jnfv7j6mj",
-              "name": "Partners / Integrations - Box for Salesforce",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "mkmsdsfl4mxf",
-              "name": "Partners / Integrations - NetSuite",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "d3q1n5p0lnz1",
-          "status": "identified",
-          "body": "The issue has been identified. We are now testing a fix to push for all users. Next update to status site, in an hour or when change has been implemented to all users.",
-          "incident_id": "nh3vh8tvw398",
-          "created_at": "2021-09-27T13:46:42.110-07:00",
-          "updated_at": "2021-09-27T13:46:42.110-07:00",
-          "display_at": "2021-09-27T13:46:42.110-07:00",
-          "affected_components": [
-            {
-              "code": "f42mcm1h8lw9",
-              "name": "Box Platform / API - Box Embed Widget",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "c65jnfv7j6mj",
-              "name": "Partners / Integrations - Box for Salesforce",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "mkmsdsfl4mxf",
-              "name": "Partners / Integrations - NetSuite",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5qpmzly5v52t",
-          "status": "investigating",
-          "body": "We are currently investigating an issue with Box Embed widget starting Sept 24th 6 AM PDT, uploads to Box via the embed will result in an error: \"Something went wrong with the upload. Please Try Again.\" This will affect any Box Embed widget including customers using Netsuite and Salesforce integrations. Refreshing the page containing the asset will show that the files did upload successfully and that the error appears to be a false positive.",
-          "incident_id": "nh3vh8tvw398",
-          "created_at": "2021-09-27T12:53:08.926-07:00",
-          "updated_at": "2021-09-27T12:53:08.926-07:00",
-          "display_at": "2021-09-27T12:53:08.926-07:00",
-          "affected_components": [
-            {
-              "code": "dl6g3rgzpbmw",
-              "name": "Box Platform / API - Uploads/Downloads",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "c65jnfv7j6mj",
-              "name": "Partners / Integrations - Box for Salesforce",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "mkmsdsfl4mxf",
-              "name": "Partners / Integrations - NetSuite",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "c65jnfv7j6mj",
-          "name": "Box for Salesforce",
-          "status": "operational",
-          "created_at": "2018-12-17T19:09:23.007-08:00",
-          "updated_at": "2021-09-27T20:32:03.642-07:00",
-          "position": 3,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "jvy3knlf7n32",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "mkmsdsfl4mxf",
-          "name": "NetSuite",
-          "status": "operational",
-          "created_at": "2020-03-10T14:12:53.128-07:00",
-          "updated_at": "2021-09-27T20:32:03.668-07:00",
-          "position": 5,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "jvy3knlf7n32",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "f42mcm1h8lw9",
-          "name": "Box Embed Widget",
-          "status": "operational",
-          "created_at": "2021-09-27T13:11:38.330-07:00",
-          "updated_at": "2021-09-28T08:43:27.606-07:00",
-          "position": 7,
-          "description": "Box Embed Widget",
-          "showcase": false,
-          "start_date": "2021-09-27",
-          "group_id": "vggytbdllrjt",
           "page_id": "208q92hckwws",
           "group": false,
           "only_show_if_degraded": false
