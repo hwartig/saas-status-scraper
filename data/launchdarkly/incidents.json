@@ -4,9 +4,61 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-03-02T12:43:03.297-08:00"
+    "updated_at": "2023-03-02T14:24:51.749-08:00"
   },
   "incidents": [
+    {
+      "id": "n9t3vdlfk9r3",
+      "name": "Context Indexing Delays",
+      "status": "identified",
+      "created_at": "2023-03-02T14:24:45.973-08:00",
+      "updated_at": "2023-03-02T14:24:51.745-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/ngx8hl0y5msl",
+      "started_at": "2023-03-02T14:24:45.966-08:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "shlwbsrjjk1y",
+          "status": "identified",
+          "body": "We have identified an issue with our context indexing pipeline experiencing delays. New contexts will not show up in contexts (formerly users) dashboard. All data will be processed once the pipeline has caught up. No data has been lost.\nFeature flag evaluation and updating is unaffected.",
+          "incident_id": "n9t3vdlfk9r3",
+          "created_at": "2023-03-02T14:24:46.012-08:00",
+          "updated_at": "2023-03-02T14:24:46.012-08:00",
+          "display_at": "2023-03-02T14:24:46.012-08:00",
+          "affected_components": [
+            {
+              "code": "0z3ns76sxvnf",
+              "name": "Feature management (core functionality) - Flag targeting",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "0z3ns76sxvnf",
+          "name": "Flag targeting",
+          "status": "operational",
+          "created_at": "2015-01-05T20:05:03.176-08:00",
+          "updated_at": "2023-01-02T23:54:20.209-08:00",
+          "position": 2,
+          "description": "UI and APIs used to update flag targeting rules",
+          "showcase": true,
+          "start_date": null,
+          "group_id": "j4z3sqx09pkg",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "bjx1cnk2vl6w",
       "name": "Event Processing Delays",
@@ -5010,98 +5062,6 @@
         }
       ],
       "components": []
-    },
-    {
-      "id": "0n563m8ddg90",
-      "name": "Scheduled Flag Changes Degraded Performance",
-      "status": "resolved",
-      "created_at": "2022-09-29T07:07:51.062-07:00",
-      "updated_at": "2022-09-29T08:19:56.263-07:00",
-      "monitoring_at": "2022-09-29T07:28:21.230-07:00",
-      "resolved_at": "2022-09-29T08:19:54.551-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/f8n6w3zqy1q1",
-      "started_at": "2022-09-29T07:07:51.054-07:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "fmvdjzb4vqgv",
-          "status": "resolved",
-          "body": "This incident has been resolved",
-          "incident_id": "0n563m8ddg90",
-          "created_at": "2022-09-29T08:19:54.551-07:00",
-          "updated_at": "2022-09-29T08:19:56.255-07:00",
-          "display_at": "2022-09-29T08:19:54.551-07:00",
-          "affected_components": [
-            {
-              "code": "xkfhb7ktnvb6",
-              "name": "Feature management (core functionality) - Feature workflows",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1575505662309978000
-        },
-        {
-          "id": "k8ktdwbcxl47",
-          "status": "monitoring",
-          "body": "We deployed a fix and continuing to monitor flag scheduler",
-          "incident_id": "0n563m8ddg90",
-          "created_at": "2022-09-29T07:28:21.230-07:00",
-          "updated_at": "2022-09-29T07:28:22.408-07:00",
-          "display_at": "2022-09-29T07:28:21.230-07:00",
-          "affected_components": [
-            {
-              "code": "xkfhb7ktnvb6",
-              "name": "Feature management (core functionality) - Feature workflows",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1575492686047760400
-        },
-        {
-          "id": "4tjstnp55pn3",
-          "status": "identified",
-          "body": "We're seeing a delay in scheduled changes being applied and expect these to take effect as normal, data has not been lost at this time.",
-          "incident_id": "0n563m8ddg90",
-          "created_at": "2022-09-29T07:07:51.144-07:00",
-          "updated_at": "2022-09-29T07:07:51.144-07:00",
-          "display_at": "2022-09-29T07:07:51.144-07:00",
-          "affected_components": [
-            {
-              "code": "xkfhb7ktnvb6",
-              "name": "Feature management (core functionality) - Feature workflows",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "xkfhb7ktnvb6",
-          "name": "Feature workflows",
-          "status": "operational",
-          "created_at": "2022-02-28T13:47:46.907-08:00",
-          "updated_at": "2022-09-29T07:28:21.203-07:00",
-          "position": 1,
-          "description": "Workflow functionality for automated features like scheduled changes and approvals",
-          "showcase": true,
-          "start_date": "2022-02-28",
-          "group_id": "j4z3sqx09pkg",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
     }
   ]
 }
