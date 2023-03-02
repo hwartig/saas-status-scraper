@@ -4,7 +4,7 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2023-03-01T03:12:11.890-05:00"
+    "updated_at": "2023-03-02T00:00:04.969-05:00"
   },
   "components": [
     {
@@ -190,9 +190,9 @@
     {
       "id": "3f2df1dmxn4b",
       "name": "Aptible Deploy",
-      "status": "under_maintenance",
+      "status": "operational",
       "created_at": "2017-07-25T12:40:40.556-04:00",
-      "updated_at": "2023-02-09T00:01:09.766-05:00",
+      "updated_at": "2023-03-02T00:00:03.750-05:00",
       "position": 7,
       "description": null,
       "showcase": true,
@@ -440,9 +440,9 @@
         {
           "id": "3f2df1dmxn4b",
           "name": "Aptible Deploy",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2023-02-09T00:01:09.766-05:00",
+          "updated_at": "2023-03-02T00:00:03.750-05:00",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -455,97 +455,10 @@
       ],
       "scheduled_for": "2023-03-02T20:00:00.000-05:00",
       "scheduled_until": "2023-03-02T23:59:00.000-05:00"
-    },
-    {
-      "id": "l45lr2y2tpft",
-      "name": "Database SSL Certificate Rotation - Dedicated Stack Database restarted required",
-      "status": "in_progress",
-      "created_at": "2023-01-31T11:41:33.897-05:00",
-      "updated_at": "2023-02-09T00:01:10.447-05:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/6w4sycqnjg04",
-      "started_at": "2023-01-31T11:41:33.892-05:00",
-      "page_id": "fmwgqnbnbc4r",
-      "incident_updates": [
-        {
-          "id": "lc5bn1s8dlgf",
-          "status": "in_progress",
-          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
-          "incident_id": "l45lr2y2tpft",
-          "created_at": "2023-02-09T00:01:09.841-05:00",
-          "updated_at": "2023-02-09T00:01:10.436-05:00",
-          "display_at": "2023-02-09T00:01:09.841-05:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "operational",
-              "new_status": "under_maintenance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1623547531849523200
-        },
-        {
-          "id": "qmsz5ghmc87p",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "l45lr2y2tpft",
-          "created_at": "2023-02-08T23:00:04.162-05:00",
-          "updated_at": "2023-02-08T23:00:04.987-05:00",
-          "display_at": "2023-02-08T23:00:04.162-05:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1623532157800177700
-        },
-        {
-          "id": "rc5v489s8826",
-          "status": "scheduled",
-          "body": "Impacted database types: Elasticsearch, Redis, InfluxDB, MongoDB, RabbitMQ, CouchDB\n\nThe above listed database types will need to be restarted to update load a newly issued *.aptible.in certificate. The current certificate is set to expire March 3, 2023.\n\nThe new certificate will be available on Dedicated Stacks starting Feb 9th at 00:00 Eastern.  After this time, customers should restart impacted Databases on their Dedicated Stacks at their convenience to update the certificate.\n\nIf you choose to take no action, Aptible's SRE team will identify any and all databases using the expiring certificate, and restart them on March 2nd between 8:00 PM and 11:59 PM Eastern.\n_______\n\nThe full timeline for Database certificate updates process process is as follows:\n\nFeb 2 : Database Certificate will be updated on Shared Stacks. Shared Stack databases will be restarted to load the new certificate\n\nFeb 2 through Feb 9 : Testing period for shared stacks.  While we do not expect any compatibility issues (we're using the same issuer as the existing certificates), we have seen In rare occasions client applications may also need to be restarted due to client driver and versions. Please use this period to recognize if your App is required to restart, so you can ensure you are prepared for later updating your Dedicated Stack Databases.\n\nFeb 9 : The new certificate will be available for all Dedicated Stacks.\n\nFeb 9 through March 2 : Customers should restart impacted Databases on their Dedicated Stacks at their convenience to update the certificate.\n\nMarch 2: Aptible's SRE team will identify any and all databases using the expiring certificate, and restart them between 8:00 PM and 11:59 PM Eastern\n\n______\n\nFAQ: \n\nQ: Do I need to \"restart\", or can I \"reload\" my databases?\nA: Both `aptible db:restart` or `aptible db:reload` will work.  If you need to restart your database for any reason, either to scale the disk size or container size, the certificate will be updated.\n\nQ: How do I tell if my Database has had the maintenance completed successfully?\nA:  You can use the Database's Activity tab on dashboard.aptible.com to ensure there has been a successful restart operation after Feb 9th.  You can also email support@aptible.com to ask for a list of remaining Databases.\n\nQ: What happens if I don't take any action, or miss restarting a Database?\nA: Aptible's SRE team will identify any remaining Databases on March 2nd, and restart them between 10:00PM and 11:59PM Eastern.\n\nQ: What about PostgreSQL and MySQL?\nA: PostgreSQL and MySQL Databases hosted on Aptible use self-signed certificates, and no action is required for them at this time. https://deploy-docs.aptible.com/docs/database-encryption-in-transit",
-          "incident_id": "l45lr2y2tpft",
-          "created_at": "2023-01-31T11:41:33.949-05:00",
-          "updated_at": "2023-01-31T11:41:33.949-05:00",
-          "display_at": "2023-01-31T11:41:33.949-05:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "3f2df1dmxn4b",
-          "name": "Aptible Deploy",
-          "status": "under_maintenance",
-          "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2023-02-09T00:01:09.766-05:00",
-          "position": 7,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "fmwgqnbnbc4r",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2023-02-09T00:00:00.000-05:00",
-      "scheduled_until": "2023-03-02T00:00:00.000-05:00"
     }
   ],
   "status": {
-    "indicator": "maintenance",
-    "description": "Service Under Maintenance"
+    "indicator": "none",
+    "description": "All Systems Operational"
   }
 }
