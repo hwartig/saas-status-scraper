@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-03-06T20:43:02.768-08:00"
+    "updated_at": "2023-03-06T20:51:53.039-08:00"
   },
   "components": [
     {
@@ -764,9 +764,9 @@
     {
       "id": "42zx9w2kmtvf",
       "name": "SMS, Latin America",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:53:08.618-08:00",
-      "updated_at": "2023-03-06T10:15:52.777-08:00",
+      "updated_at": "2023-03-06T20:51:24.614-08:00",
       "position": 7,
       "description": null,
       "showcase": false,
@@ -1289,7 +1289,7 @@
     {
       "id": "j8hlnyphbbs0",
       "name": "CARRIER NETWORK",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:24:19.092-08:00",
       "updated_at": "2021-10-20T06:58:53.440-07:00",
       "position": 17,
@@ -1485,17 +1485,37 @@
   "incidents": [
     {
       "id": "td2fspfprj7g",
-      "name": "On Call Engineers are Investigating",
+      "name": "Inbound SMS Delivery Failure to Twilio Phone Numbers in Mexico",
       "status": "investigating",
       "created_at": "2023-03-06T20:17:13.585-08:00",
-      "updated_at": "2023-03-06T20:17:13.628-08:00",
+      "updated_at": "2023-03-06T20:51:53.032-08:00",
       "monitoring_at": null,
       "resolved_at": null,
-      "impact": "none",
+      "impact": "minor",
       "shortlink": "https://stspg.io/smk49wntv8lq",
       "started_at": "2023-03-06T20:17:13.579-08:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "rrr1q4jdb818",
+          "status": "investigating",
+          "body": "We are experiencing inbound SMS delivery failure when sending messages to Twilio phone numbers in Mexico. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "td2fspfprj7g",
+          "created_at": "2023-03-06T20:51:24.658-08:00",
+          "updated_at": "2023-03-06T20:51:24.658-08:00",
+          "display_at": "2023-03-06T20:51:24.658-08:00",
+          "affected_components": [
+            {
+              "code": "42zx9w2kmtvf",
+              "name": "CARRIER NETWORK - SMS, Latin America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "yv53n2rxmnd9",
           "status": "investigating",
@@ -1510,7 +1530,23 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [
+        {
+          "id": "42zx9w2kmtvf",
+          "name": "SMS, Latin America",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:53:08.618-08:00",
+          "updated_at": "2023-03-06T20:51:24.614-08:00",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
     },
     {
       "id": "bpbjysk6s8nr",
@@ -3419,7 +3455,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
