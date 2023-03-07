@@ -4,7 +4,7 @@
     "name": "MURAL",
     "url": "https://status.mural.co",
     "time_zone": "America/Argentina/Buenos_Aires",
-    "updated_at": "2023-03-07T18:02:31.589-03:00"
+    "updated_at": "2023-03-07T18:03:14.620-03:00"
   },
   "incidents": [
     {
@@ -162,9 +162,9 @@
     {
       "id": "ystrrt6qzxss",
       "name": "Redirected URL is invalid error when logging in to Mural in MS Teams and Zoom",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-01-19T05:36:59.000-03:00",
-      "updated_at": "2023-03-07T18:02:31.582-03:00",
+      "updated_at": "2023-03-07T18:03:14.617-03:00",
       "monitoring_at": "2023-01-19T10:45:09.786-03:00",
       "resolved_at": "2023-01-19T11:45:16.906-03:00",
       "impact": "minor",
@@ -172,6 +172,19 @@
       "started_at": "2023-01-19T05:36:59.000-03:00",
       "page_id": "dbk70dpy3n7h",
       "incident_updates": [
+        {
+          "id": "0dwzg6j7l79g",
+          "status": "postmortem",
+          "body": "**What happened?**\n\nAt around 05:43 UTC we started to receive notifications from Mural users that were unable to log in via 3rd party integrations. Access to Mural via [www.mural.co](http://www.mural.co) was not impacted.\n\nA database migration affected integrations and Mural API apps, temporarily resulting in duplicate documents. This had the effect of redirect URLs for these apps not being returned in the API response, and authentication failing. After the problem was identified, the duplicate documents were removed and normal integration and Mural API app authentication was restored at 13:45 UTC.\n\n**Summary**\n\nAccess to Mural via 3rd party integrations, Microsoft Teams and Zoom, was interrupted from 05:43 UTC to 13:45 UTC for a total of 8 hours and 2 minutes.\n\n**What we've done to avoid this happening again**\n\nWe are developing more robust test mechanism for database migrations and expanding our documentation around the steps to follow.",
+          "incident_id": "ystrrt6qzxss",
+          "created_at": "2023-01-25T10:29:02.820-03:00",
+          "updated_at": "2023-03-07T18:03:14.614-03:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "9qv3bws127xv",
           "status": "resolved",
