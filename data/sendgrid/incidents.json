@@ -4,9 +4,61 @@
     "name": "SendGrid",
     "url": "https://status.sendgrid.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-03-08T23:49:55.098-08:00"
+    "updated_at": "2023-03-09T14:31:33.374-08:00"
   },
   "incidents": [
+    {
+      "id": "qmqtyxp57y6t",
+      "name": "Heroku SendGrid Plan Change Failures",
+      "status": "investigating",
+      "created_at": "2023-03-09T14:31:33.277-08:00",
+      "updated_at": "2023-03-09T14:31:33.370-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/58y0fw5775mx",
+      "started_at": "2023-03-09T14:31:33.272-08:00",
+      "page_id": "3tgl2vf85cht",
+      "incident_updates": [
+        {
+          "id": "7v08hkx9gx5m",
+          "status": "investigating",
+          "body": "Starting at 3:04 PM PT on March 9th, our engineers began investigating a technical issue in which users of the Heroku partner platform faced 500 errors when attempting to upgrade, downgrade or provision their SendGrid Heroku plans. This issue began at 4AM PT on March 8th. This only impacts Heroku SendGrid subscription package changes and does not impact any other of our partner subscriptions. This issue does not affect mail send.  Another update will be provided as soon as more information is available or within the next hour.",
+          "incident_id": "qmqtyxp57y6t",
+          "created_at": "2023-03-09T14:31:33.367-08:00",
+          "updated_at": "2023-03-09T14:31:33.367-08:00",
+          "display_at": "2023-03-09T14:31:33.367-08:00",
+          "affected_components": [
+            {
+              "code": "ylw5fnzv1r15",
+              "name": "Partners",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "ylw5fnzv1r15",
+          "name": "Partners",
+          "status": "degraded_performance",
+          "created_at": "2021-02-24T09:35:17.332-08:00",
+          "updated_at": "2023-03-09T14:31:33.318-08:00",
+          "position": 8,
+          "description": "Partner reseller services and integrations",
+          "showcase": false,
+          "start_date": "2021-02-24",
+          "group_id": null,
+          "page_id": "3tgl2vf85cht",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "s8m47pd2z2vs",
       "name": "Singapore phone numbers are not receiving 2FA codes.",
@@ -5663,9 +5715,9 @@
         {
           "id": "ylw5fnzv1r15",
           "name": "Partners",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2021-02-24T09:35:17.332-08:00",
-          "updated_at": "2022-09-13T16:48:20.996-07:00",
+          "updated_at": "2023-03-09T14:31:33.318-08:00",
           "position": 8,
           "description": "Partner reseller services and integrations",
           "showcase": false,
@@ -6990,105 +7042,6 @@
           "description": "Billing and Invoicing services",
           "showcase": false,
           "start_date": "2021-03-24",
-          "group_id": null,
-          "page_id": "3tgl2vf85cht",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "l519hx82qnfy",
-      "name": "500 errors from SendGrid V3 API and User interface errors",
-      "status": "resolved",
-      "created_at": "2022-08-01T10:12:46.359-07:00",
-      "updated_at": "2022-08-01T10:53:27.801-07:00",
-      "monitoring_at": "2022-08-01T10:12:46.468-07:00",
-      "resolved_at": "2022-08-01T10:53:27.778-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/zh5dt46rnp8m",
-      "started_at": "2022-08-01T10:12:46.353-07:00",
-      "page_id": "3tgl2vf85cht",
-      "incident_updates": [
-        {
-          "id": "8d35wzn29ncc",
-          "status": "resolved",
-          "body": "Our engineers have confirmed the issue has been resolved. Customers who were experiencing issues logging in or with 500 errors while performing v3 API calls, should no longer see those issues. All systems are operating normally at this time.",
-          "incident_id": "l519hx82qnfy",
-          "created_at": "2022-08-01T10:53:27.778-07:00",
-          "updated_at": "2022-08-01T10:53:27.778-07:00",
-          "display_at": "2022-08-01T10:53:27.778-07:00",
-          "affected_components": [
-            {
-              "code": "4kpfnh9zn3cq",
-              "name": "Website",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "vgl8t6wflyjt",
-              "name": "API",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "m4mz7msvlpqn",
-          "status": "monitoring",
-          "body": "Starting around 9:37 AM PT our engineers identified intermittent issues with login through our User Interface. API mail send wasn't affected, but most of V3 API endpoints were. Customers attempting to hit impacted endpoints would have received a 5xx error during this time. We identified the cause and deployed a fix. We are monitoring this, and we'll provide an update in 30 minutes or as soon as more information becomes available.",
-          "incident_id": "l519hx82qnfy",
-          "created_at": "2022-08-01T10:12:46.468-07:00",
-          "updated_at": "2022-08-01T10:12:46.468-07:00",
-          "display_at": "2022-08-01T10:12:46.468-07:00",
-          "affected_components": [
-            {
-              "code": "4kpfnh9zn3cq",
-              "name": "Website",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "vgl8t6wflyjt",
-              "name": "API",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "vgl8t6wflyjt",
-          "name": "API",
-          "status": "operational",
-          "created_at": "2015-11-18T06:25:16.300-08:00",
-          "updated_at": "2023-01-31T18:55:35.228-08:00",
-          "position": 4,
-          "description": "General API functionality not including mail.send calls",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "3tgl2vf85cht",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "4kpfnh9zn3cq",
-          "name": "Website",
-          "status": "operational",
-          "created_at": "2015-11-18T06:19:03.286-08:00",
-          "updated_at": "2023-03-03T07:57:08.998-08:00",
-          "position": 5,
-          "description": "Availability of SendGrid.com",
-          "showcase": false,
-          "start_date": null,
           "group_id": null,
           "page_id": "3tgl2vf85cht",
           "group": false,
