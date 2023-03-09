@@ -4,15 +4,15 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-03-08T20:53:27.972Z"
+    "updated_at": "2023-03-09T12:50:59.313Z"
   },
   "incidents": [
     {
       "id": "bq2shf3m6zb4",
       "name": "Multiple issues affecting some projects",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-03-02T20:23:25.940Z",
-      "updated_at": "2023-03-03T03:44:59.891Z",
+      "updated_at": "2023-03-09T12:50:59.311Z",
       "monitoring_at": "2023-03-03T00:03:54.915Z",
       "resolved_at": "2023-03-03T03:44:59.877Z",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2023-03-02T20:23:25.935Z",
       "page_id": "l2x5n4czt1ph",
       "incident_updates": [
+        {
+          "id": "hmrzsq0svhl5",
+          "status": "postmortem",
+          "body": "**Overview**\n\nOn March 2nd, at 20:23 UTC an incident was declared for the us-2 region. On-call engineers began receiving alerts for multiple sites down and immediately began an investigation.\n\n**What Happened**\n\nA maintenance operation applied to the storage layer unintentionally resulted in degraded performance for most of the grid hosts in the region. The purpose of the maintenance was to improve the storage layer by switching to an upgraded back end but the migration to this new system resulted in elevated CPU resource consumption leading to a major performance impact on any environment running on one of these affected hosts.\n\n**Resolution**\n\nIn order to mitigate the impact of the incident, additional storage layer resources were provisioned and deployed to the region. The migration was able to continue as planned and grid hosts began to recover as expected.\n\n**Impact**\n\nWe have paused this same maintenance across all regions to assess how to safely move forward.",
+          "incident_id": "bq2shf3m6zb4",
+          "created_at": "2023-03-09T12:50:17.931Z",
+          "updated_at": "2023-03-09T12:50:59.309Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "38m2mkt63clb",
           "status": "resolved",
