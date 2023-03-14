@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "America/Chicago",
-    "updated_at": "2023-03-13T14:05:31.350-05:00"
+    "updated_at": "2023-03-13T20:43:04.218-05:00"
   },
   "components": [
     {
@@ -68,9 +68,9 @@
     {
       "id": "80ykv2p95qgy",
       "name": "API",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2020-04-01T16:30:26.075-05:00",
-      "updated_at": "2023-01-10T15:03:40.399-06:00",
+      "updated_at": "2023-03-13T19:44:27.382-05:00",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -113,9 +113,9 @@
     {
       "id": "49yq6v65b33l",
       "name": "Deployments",
-      "status": "degraded_performance",
+      "status": "major_outage",
       "created_at": "2020-04-01T16:53:18.234-05:00",
-      "updated_at": "2023-03-13T09:32:42.970-05:00",
+      "updated_at": "2023-03-13T19:44:27.413-05:00",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -207,7 +207,7 @@
     {
       "id": "ycm6xbpsfqvd",
       "name": "Platform and Tools",
-      "status": "degraded_performance",
+      "status": "major_outage",
       "created_at": "2020-04-01T16:34:45.488-05:00",
       "updated_at": "2021-02-25T10:06:12.403-06:00",
       "position": 3,
@@ -793,66 +793,84 @@
   ],
   "incidents": [
     {
-      "id": "xk4yrys2rzdm",
-      "name": "Apps V1 Instances are sometimes, wrongly, being stopped without user intervention",
-      "status": "identified",
-      "created_at": "2023-03-13T09:00:44.213-05:00",
-      "updated_at": "2023-03-13T14:05:31.341-05:00",
+      "id": "lh5f3pdvnsxy",
+      "name": "Apps V1 Outage",
+      "status": "investigating",
+      "created_at": "2023-03-13T19:44:27.347-05:00",
+      "updated_at": "2023-03-13T19:47:50.790-05:00",
       "monitoring_at": null,
       "resolved_at": null,
-      "impact": "none",
-      "shortlink": "https://stspg.io/86zwkcxqgy6k",
-      "started_at": "2023-03-13T09:00:44.207-05:00",
+      "impact": "major",
+      "shortlink": "https://stspg.io/8rr6p8hw5wdg",
+      "started_at": "2023-03-13T19:44:27.000-05:00",
       "page_id": "65rccr4mbblw",
       "incident_updates": [
         {
-          "id": "3s2fnpl61mmr",
-          "status": "identified",
-          "body": "We are provisioning far bigger servers to handle the increased workload our Nomad cluster has seen these past months.",
-          "incident_id": "xk4yrys2rzdm",
-          "created_at": "2023-03-13T14:05:31.339-05:00",
-          "updated_at": "2023-03-13T14:05:31.339-05:00",
-          "display_at": "2023-03-13T14:05:31.339-05:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "10p5hzqfkkn7",
-          "status": "identified",
-          "body": "Removing the server from the cluster seems to have helped with this issue temporarily.",
-          "incident_id": "xk4yrys2rzdm",
-          "created_at": "2023-03-13T09:05:15.139-05:00",
-          "updated_at": "2023-03-13T09:05:15.139-05:00",
-          "display_at": "2023-03-13T09:05:15.139-05:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xf5s26ycb0w6",
-          "status": "identified",
-          "body": "Our nomad cluster has consistency issues right now due to one of the servers at the limits of its resources. This seems to have an effect on apps V1.",
-          "incident_id": "xk4yrys2rzdm",
-          "created_at": "2023-03-13T09:00:44.251-05:00",
-          "updated_at": "2023-03-13T09:00:44.251-05:00",
-          "display_at": "2023-03-13T09:00:44.251-05:00",
-          "affected_components": null,
-          "deliver_notifications": false,
+          "id": "wzlr1v7jp6hq",
+          "status": "investigating",
+          "body": "We have temporarily disabled Apps V1 deploys.\n\nOur Apps V1 platform is currently operating in a severely degraded state. Apps that are already running will stay running, but any changes to VM state will fail, including deploys. This is a result of capacity issues in our underlying nomad cluster. An attempt to grow our cluster has left it in a bad state which we are working to correct.\n\nOur API is also being impacted and will be intermittently available until the Apps V1 platform is restored.",
+          "incident_id": "lh5f3pdvnsxy",
+          "created_at": "2023-03-13T19:44:27.465-05:00",
+          "updated_at": "2023-03-13T19:47:50.631-05:00",
+          "display_at": "2023-03-13T19:44:27.000-05:00",
+          "affected_components": [
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Platform and Tools - API",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Platform and Tools - Deployments",
+              "old_status": "degraded_performance",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [
+        {
+          "id": "80ykv2p95qgy",
+          "name": "API",
+          "status": "partial_outage",
+          "created_at": "2020-04-01T16:30:26.075-05:00",
+          "updated_at": "2023-03-13T19:44:27.382-05:00",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": "ycm6xbpsfqvd",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "49yq6v65b33l",
+          "name": "Deployments",
+          "status": "major_outage",
+          "created_at": "2020-04-01T16:53:18.234-05:00",
+          "updated_at": "2023-03-13T19:44:27.413-05:00",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "ycm6xbpsfqvd",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
     },
     {
       "id": "tj8z2cpbx2kr",
       "name": "Deployment monitoring and app status have stale data",
       "status": "monitoring",
       "created_at": "2023-03-13T08:15:17.312-05:00",
-      "updated_at": "2023-03-13T10:25:12.439-05:00",
+      "updated_at": "2023-03-13T19:44:27.437-05:00",
       "monitoring_at": "2023-03-13T09:32:43.002-05:00",
       "resolved_at": null,
       "impact": "minor",
@@ -925,9 +943,9 @@
         {
           "id": "49yq6v65b33l",
           "name": "Deployments",
-          "status": "degraded_performance",
+          "status": "major_outage",
           "created_at": "2020-04-01T16:53:18.234-05:00",
-          "updated_at": "2023-03-13T09:32:42.970-05:00",
+          "updated_at": "2023-03-13T19:44:27.413-05:00",
           "position": 2,
           "description": null,
           "showcase": false,
@@ -938,11 +956,66 @@
           "only_show_if_degraded": false
         }
       ]
+    },
+    {
+      "id": "xk4yrys2rzdm",
+      "name": "Apps V1 Instances are sometimes, wrongly, being stopped without user intervention",
+      "status": "identified",
+      "created_at": "2023-03-13T09:00:44.213-05:00",
+      "updated_at": "2023-03-13T14:05:31.341-05:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/86zwkcxqgy6k",
+      "started_at": "2023-03-13T09:00:44.207-05:00",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "3s2fnpl61mmr",
+          "status": "identified",
+          "body": "We are provisioning far bigger servers to handle the increased workload our Nomad cluster has seen these past months.",
+          "incident_id": "xk4yrys2rzdm",
+          "created_at": "2023-03-13T14:05:31.339-05:00",
+          "updated_at": "2023-03-13T14:05:31.339-05:00",
+          "display_at": "2023-03-13T14:05:31.339-05:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "10p5hzqfkkn7",
+          "status": "identified",
+          "body": "Removing the server from the cluster seems to have helped with this issue temporarily.",
+          "incident_id": "xk4yrys2rzdm",
+          "created_at": "2023-03-13T09:05:15.139-05:00",
+          "updated_at": "2023-03-13T09:05:15.139-05:00",
+          "display_at": "2023-03-13T09:05:15.139-05:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "xf5s26ycb0w6",
+          "status": "identified",
+          "body": "Our nomad cluster has consistency issues right now due to one of the servers at the limits of its resources. This seems to have an effect on apps V1.",
+          "incident_id": "xk4yrys2rzdm",
+          "created_at": "2023-03-13T09:00:44.251-05:00",
+          "updated_at": "2023-03-13T09:00:44.251-05:00",
+          "display_at": "2023-03-13T09:00:44.251-05:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": []
     }
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "minor",
-    "description": "Partially Degraded Service"
+    "indicator": "major",
+    "description": "Partial System Outage"
   }
 }
