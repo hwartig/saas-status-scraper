@@ -4,15 +4,15 @@
     "name": "Airbrake",
     "url": "https://status.airbrake.io",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-03-15T00:54:50.318-07:00"
+    "updated_at": "2023-03-15T07:53:22.342-07:00"
   },
   "components": [
     {
       "id": "l9s6qy47zpz7",
       "name": "Web App",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2013-03-14T17:11:39.360-07:00",
-      "updated_at": "2022-04-25T04:13:23.294-07:00",
+      "updated_at": "2023-03-15T07:53:20.885-07:00",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -55,9 +55,9 @@
     {
       "id": "r3tsbzdb7qst",
       "name": "Notifications",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2013-03-14T17:11:56.524-07:00",
-      "updated_at": "2022-12-28T17:13:23.108-08:00",
+      "updated_at": "2023-03-15T07:53:20.900-07:00",
       "position": 4,
       "description": null,
       "showcase": true,
@@ -128,10 +128,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "645jyxdr7qmx",
+      "name": "Delay in error processing",
+      "status": "investigating",
+      "created_at": "2023-03-15T07:53:20.848-07:00",
+      "updated_at": "2023-03-15T07:53:22.327-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/pvx7rcdkf4w5",
+      "started_at": "2023-03-15T07:53:20.841-07:00",
+      "page_id": "jq64r4cdpggk",
+      "incident_updates": [
+        {
+          "id": "q3tvllql8qyg",
+          "status": "investigating",
+          "body": "We are currently investigating a delay in error processing. Errors on your error dashboard and error email notifications might take longer to appear than usual. We will share updates as we make progress in addressing this issue. If you have any questions or concerns, please reach us at support@airbrake.io. We apologize for any inconvenience.",
+          "incident_id": "645jyxdr7qmx",
+          "created_at": "2023-03-15T07:53:20.947-07:00",
+          "updated_at": "2023-03-15T07:53:22.318-07:00",
+          "display_at": "2023-03-15T07:53:20.947-07:00",
+          "affected_components": [
+            {
+              "code": "l9s6qy47zpz7",
+              "name": "Web App",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "r3tsbzdb7qst",
+              "name": "Notifications",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1636017750727606300
+        }
+      ],
+      "components": [
+        {
+          "id": "l9s6qy47zpz7",
+          "name": "Web App",
+          "status": "degraded_performance",
+          "created_at": "2013-03-14T17:11:39.360-07:00",
+          "updated_at": "2023-03-15T07:53:20.885-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "jq64r4cdpggk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "r3tsbzdb7qst",
+          "name": "Notifications",
+          "status": "degraded_performance",
+          "created_at": "2013-03-14T17:11:56.524-07:00",
+          "updated_at": "2023-03-15T07:53:20.900-07:00",
+          "position": 4,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "jq64r4cdpggk",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
