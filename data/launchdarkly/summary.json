@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-03-15T00:55:41.369-07:00"
+    "updated_at": "2023-03-15T01:52:44.519-07:00"
   },
   "components": [
     {
@@ -106,9 +106,9 @@
     {
       "id": "0z3ns76sxvnf",
       "name": "Flag targeting",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-01-05T20:05:03.176-08:00",
-      "updated_at": "2023-03-10T14:54:48.216-08:00",
+      "updated_at": "2023-03-15T01:52:43.848-07:00",
       "position": 2,
       "description": "UI and APIs used to update flag targeting rules",
       "showcase": true,
@@ -151,7 +151,7 @@
     {
       "id": "j4z3sqx09pkg",
       "name": "Feature management (core functionality)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-02-28T13:46:44.240-08:00",
       "updated_at": "2022-02-28T13:47:02.295-08:00",
       "position": 2,
@@ -393,7 +393,60 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "g69k6cld84h6",
+      "name": "Big Segment CSV file uploads failing",
+      "status": "investigating",
+      "created_at": "2023-03-15T01:52:43.817-07:00",
+      "updated_at": "2023-03-15T01:52:44.512-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/5wzppw3m895z",
+      "started_at": "2023-03-15T01:52:43.810-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "q3gfq9hpb1rd",
+          "status": "investigating",
+          "body": "We are experiencing an issue preventing Big Segment CSV files from uploading successfully.",
+          "incident_id": "g69k6cld84h6",
+          "created_at": "2023-03-15T01:52:43.885-07:00",
+          "updated_at": "2023-03-15T01:52:44.505-07:00",
+          "display_at": "2023-03-15T01:52:43.885-07:00",
+          "affected_components": [
+            {
+              "code": "0z3ns76sxvnf",
+              "name": "Feature management (core functionality) - Flag targeting",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1635926995317190700
+        }
+      ],
+      "components": [
+        {
+          "id": "0z3ns76sxvnf",
+          "name": "Flag targeting",
+          "status": "degraded_performance",
+          "created_at": "2015-01-05T20:05:03.176-08:00",
+          "updated_at": "2023-03-15T01:52:43.848-07:00",
+          "position": 2,
+          "description": "UI and APIs used to update flag targeting rules",
+          "showcase": true,
+          "start_date": null,
+          "group_id": "j4z3sqx09pkg",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "kkq4zc2qjj7l",
@@ -451,7 +504,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
