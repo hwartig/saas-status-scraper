@@ -4,30 +4,62 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-03-16T20:06:06.442Z"
+    "updated_at": "2023-03-16T22:39:51.759Z"
   },
   "incidents": [
     {
       "id": "wdjpqt8s5ss6",
       "name": "Degraded performance impacting Bitbucket Pipelines and Webhooks",
-      "status": "investigating",
+      "status": "resolved",
       "created_at": "2023-03-16T17:26:15.122Z",
-      "updated_at": "2023-03-16T20:06:06.431Z",
+      "updated_at": "2023-03-16T22:37:36.773Z",
       "monitoring_at": null,
-      "resolved_at": null,
+      "resolved_at": "2023-03-16T22:37:36.757Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/49thc6v06155",
       "started_at": "2023-03-16T17:26:15.115Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
         {
+          "id": "dbfdkblfcttf",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "wdjpqt8s5ss6",
+          "created_at": "2023-03-16T22:37:36.757Z",
+          "updated_at": "2023-03-16T22:37:36.757Z",
+          "display_at": "2023-03-16T22:37:36.757Z",
+          "affected_components": [
+            {
+              "code": "k0x2yw1435v7",
+              "name": "API",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "rfzky0v13fbp",
+              "name": "Webhooks",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "rzh2n85q7vtt",
+              "name": "Pipelines",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
           "id": "kz7v7cnd2ph6",
           "status": "investigating",
           "body": "The issue has been resolved and the service is operating normally.",
           "incident_id": "wdjpqt8s5ss6",
           "created_at": "2023-03-16T20:06:06.428Z",
-          "updated_at": "2023-03-16T20:06:06.428Z",
-          "display_at": "2023-03-16T20:06:06.428Z",
+          "updated_at": "2023-03-16T22:37:04.213Z",
+          "display_at": "2023-03-16T20:06:06.000Z",
           "affected_components": [
             {
               "code": "k0x2yw1435v7",
@@ -168,9 +200,9 @@
     {
       "id": "0s3fntjgx88g",
       "name": "Bitbucket Cloud website outage",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-03-13T18:26:57.405Z",
-      "updated_at": "2023-03-13T18:47:09.337Z",
+      "updated_at": "2023-03-16T22:39:51.756Z",
       "monitoring_at": "2023-03-13T18:35:18.164Z",
       "resolved_at": "2023-03-13T18:47:08.342Z",
       "impact": "critical",
@@ -178,6 +210,19 @@
       "started_at": "2023-03-13T18:26:57.396Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "xn3yjljryk8j",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn March 13th at 6:10 pm UTC all primary Bitbucket services became unreachable due to internal authentication issue with a primary database. This was a result of the database configuration error which was promptly reverted leading to an immediate recovery across all services at 6:28 pm UTC.\n\n### **IMPACT**\n\nOn March 13th between 6:10 pm UTC and 6:28 pm UTC  [https://bitbucket.org](https://bitbucket.org/) was unreachable. This included web traffic, API traffic, and Pipeline builds. This did not impact Git, HTTPS or SSH, traffic. \n\n### **ROOT CAUSE**\n\nThe issue was identified as an configuration error with the primary application database.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. While we have a number of testing and preventative processes in place, this specific issue happened through manual database configuration being done to remediate a separate prior incident.\n\nWe will be putting in place preventative improvement actions which will include adding automation to prevent a similar issues from happening in the future.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "0s3fntjgx88g",
+          "created_at": "2023-03-16T22:37:59.831Z",
+          "updated_at": "2023-03-16T22:39:51.752Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "nt9jlptc0wq3",
           "status": "resolved",
