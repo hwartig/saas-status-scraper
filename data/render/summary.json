@@ -4,7 +4,7 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-03-19T20:43:10.992Z"
+    "updated_at": "2023-03-19T21:44:54.215Z"
   },
   "components": [
     {
@@ -250,9 +250,9 @@
     {
       "id": "kdtx600d1lcv",
       "name": "Builds and Deploys",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-05-06T00:17:50.301Z",
-      "updated_at": "2023-02-17T20:08:51.715Z",
+      "updated_at": "2023-03-19T21:43:08.427Z",
       "position": 4,
       "description": "New builds and deploys for hosted services.",
       "showcase": true,
@@ -370,7 +370,7 @@
     {
       "id": "4r7rv784cclm",
       "name": "Oregon",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-05-06T00:07:58.093Z",
       "updated_at": "2022-08-15T20:03:36.083Z",
       "position": 6,
@@ -455,7 +455,7 @@
     {
       "id": "wtb4wdj1f07v",
       "name": "Frankfurt",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-05-06T00:09:07.946Z",
       "updated_at": "2022-08-15T20:03:36.095Z",
       "position": 7,
@@ -565,9 +565,9 @@
     {
       "id": "1wqcyxr2qylf",
       "name": "Builds and Deploys",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-05-06T00:17:13.811Z",
-      "updated_at": "2023-02-24T05:03:46.065Z",
+      "updated_at": "2023-03-19T21:43:08.442Z",
       "position": 8,
       "description": "New builds and deploys for hosted services.",
       "showcase": true,
@@ -666,17 +666,43 @@
   "incidents": [
     {
       "id": "7403tzblkmzx",
-      "name": "We are seeing reports of slow deploys for some users",
+      "name": "We are seeing reports of failing deploys for some users",
       "status": "investigating",
       "created_at": "2023-03-19T20:11:28.983Z",
-      "updated_at": "2023-03-19T20:11:30.089Z",
+      "updated_at": "2023-03-19T21:44:54.211Z",
       "monitoring_at": null,
       "resolved_at": null,
-      "impact": "none",
+      "impact": "major",
       "shortlink": "https://stspg.io/7v9vz092rnl5",
       "started_at": "2023-03-19T20:11:28.977Z",
       "page_id": "tyfhm2rrt1tl",
       "incident_updates": [
+        {
+          "id": "j5tb0crvvszg",
+          "status": "investigating",
+          "body": "We are continuing to investigate failing deploys",
+          "incident_id": "7403tzblkmzx",
+          "created_at": "2023-03-19T21:43:08.480Z",
+          "updated_at": "2023-03-19T21:43:09.289Z",
+          "display_at": "2023-03-19T21:43:08.480Z",
+          "affected_components": [
+            {
+              "code": "1wqcyxr2qylf",
+              "name": "Oregon - Builds and Deploys",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "kdtx600d1lcv",
+              "name": "Frankfurt - Builds and Deploys",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1637570427513077800
+        },
         {
           "id": "wlqrmy68xv3k",
           "status": "investigating",
@@ -700,16 +726,31 @@
       ],
       "components": [
         {
-          "id": "j45c7rjc3n51",
-          "name": "Render Dashboard",
-          "status": "operational",
-          "created_at": "2019-02-08T22:32:29.843Z",
-          "updated_at": "2023-03-02T01:13:53.714Z",
-          "position": 1,
-          "description": "dashboard.render.com",
+          "id": "kdtx600d1lcv",
+          "name": "Builds and Deploys",
+          "status": "partial_outage",
+          "created_at": "2022-05-06T00:17:50.301Z",
+          "updated_at": "2023-03-19T21:43:08.427Z",
+          "position": 4,
+          "description": "New builds and deploys for hosted services.",
           "showcase": true,
-          "start_date": null,
-          "group_id": null,
+          "start_date": "2022-01-01",
+          "group_id": "wtb4wdj1f07v",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "1wqcyxr2qylf",
+          "name": "Builds and Deploys",
+          "status": "partial_outage",
+          "created_at": "2022-05-06T00:17:13.811Z",
+          "updated_at": "2023-03-19T21:43:08.442Z",
+          "position": 8,
+          "description": "New builds and deploys for hosted services.",
+          "showcase": true,
+          "start_date": "2022-01-01",
+          "group_id": "4r7rv784cclm",
           "page_id": "tyfhm2rrt1tl",
           "group": false,
           "only_show_if_degraded": false
@@ -719,7 +760,7 @@
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
