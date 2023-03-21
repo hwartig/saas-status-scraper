@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-03-21T00:53:11.634-07:00"
+    "updated_at": "2023-03-21T14:08:30.297-07:00"
   },
   "incidents": [
     {
@@ -620,9 +620,9 @@
     {
       "id": "rzny9g6tjmxz",
       "name": "[Major] Customers may have experienced failures when using Box Notes and Shared Links",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-03-02T19:15:00.000-08:00",
-      "updated_at": "2023-03-02T20:31:30.712-08:00",
+      "updated_at": "2023-03-21T14:08:30.290-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-03-02T19:15:00.000-08:00",
       "impact": "none",
@@ -630,6 +630,19 @@
       "started_at": "2023-03-02T19:15:00.000-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "0nvchsyg82jf",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting restricted shared links. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween **2:28pm** and **7:13pm** on **March 2nd**, some users may have experienced difficulties while working in Box. During this time, some users attempting to access shared links via invitation from Shield users may have had their access restricted. The issue occurred as a result of a recent code change. We were able to resolve the issue by rolling back the code change. In addition, we are working to add additional testing and alerting to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\n‌\n\nDuring the incident, owners and collaborators may have been restricted from accessing shared links owned by Shield users as a result of a recent code change. The degradation started after the code change rolled out and appeared as increased block actions on our metrics. The issue was first reported by a Boxer encountering problems accessing Box Notes. The problematic release was rolled back and the issue was resolved. \n\n‌\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Extending our automation testing to cover missed scenarios, capturing similar issues before deployment.\n* Enhancing our alerting to detect irregular service activity, allowing us to identify similar issues sooner.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "rzny9g6tjmxz",
+          "created_at": "2023-03-21T14:08:12.655-07:00",
+          "updated_at": "2023-03-21T14:08:30.283-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our March 3rd incident: https://stspg.io/nbl3yfbr3wmd",
+          "tweet_id": null
+        },
         {
           "id": "fptjtg4lfznh",
           "status": "resolved",
