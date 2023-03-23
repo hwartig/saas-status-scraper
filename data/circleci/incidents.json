@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-03-23T19:15:48.536Z"
+    "updated_at": "2023-03-23T22:22:31.070Z"
   },
   "incidents": [
     {
@@ -724,7 +724,7 @@
       "name": "Jobs not starting cont'd",
       "status": "postmortem",
       "created_at": "2023-03-15T03:19:08.315Z",
-      "updated_at": "2023-03-15T17:47:16.935Z",
+      "updated_at": "2023-03-23T22:22:31.067Z",
       "monitoring_at": "2023-03-15T03:41:30.197Z",
       "resolved_at": "2023-03-15T05:14:31.000Z",
       "impact": "critical",
@@ -738,7 +738,7 @@
           "body": "On March 14, 2023 starting at 18:00 UTC we experienced a failure in our internal networking system. As a result some internal traffic was routed incorrectly. We originally thought the issue was isolated to a few services, but soon concluded the problem impacted most services.\n\nOnce we had identified this was a systemic failure, we decided that a restart of our internal cloud infrastructure was required. After the initial restart was complete, the UI, API, and some docker jobs were working.\n\nWe then discovered that the networking problem had unexpectedly impacted other infrastructure systems which required more restarts. At the same time, we had problems spinning up resources to process the backlog of machine jobs.\n\nBy 01:30 UTC all restarts had completed, and jobs were running with slight delays for Mac and Machine jobs. By 02:40 UTC, all resource types were running with normal delays.\n\nAt 02:50 UTC as a precaution, we decided to restart infrastructure that was not directly impacted by the networking issue. During that restart we experienced some delays starting jobs, but were able to immediately identify the issue. By 04:00 UTC all job types were running again.\n\nWe will publish a full incident report here. To be notified when it is published, please subscribe to status page updates on [status.circleci.com](http://status.circleci.com/).",
           "incident_id": "9c9nq4p6wx3x",
           "created_at": "2023-03-15T17:44:24.687Z",
-          "updated_at": "2023-03-15T17:47:16.926Z",
+          "updated_at": "2023-03-23T22:22:31.064Z",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
