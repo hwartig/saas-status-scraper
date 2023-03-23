@@ -4,9 +4,81 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-03-15T10:43:07.337-07:00"
+    "updated_at": "2023-03-23T14:12:29.009-07:00"
   },
   "incidents": [
+    {
+      "id": "r4zzpp83ts6h",
+      "name": "Default Router communication to AWS Uplink degraded",
+      "status": "resolved",
+      "created_at": "2023-03-15T14:11:46.000-07:00",
+      "updated_at": "2023-03-23T14:12:29.006-07:00",
+      "monitoring_at": "2023-03-15T14:11:46.000-07:00",
+      "resolved_at": "2023-03-22T14:30:13.000-07:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/nmsqsmlmmm2p",
+      "started_at": "2023-03-15T14:11:46.000-07:00",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "9t009js6zpy0",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "r4zzpp83ts6h",
+          "created_at": "2023-03-23T14:12:13.598-07:00",
+          "updated_at": "2023-03-23T14:12:28.994-07:00",
+          "display_at": "2023-03-22T14:30:13.000-07:00",
+          "affected_components": [
+            {
+              "code": "f9vbgntg553n",
+              "name": "Uplink",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "9v2hgvnk3k92",
+          "status": "monitoring",
+          "body": "On March 15th, at 9:01 AM Pacific, Apollo performed maintenance on our AWS Uplink configuration delivery system. The change was to migrate our internal loadbalancers to best practice Edge optimized routing.\n\nIn doing so, we removed a route used by default Routers, thus making their fallback to AWS fail with a 4XX.\n\nFrom our observations of our systems, this impacted some of our traffic but with our knowledge of our rates of success/failure with our GCP Uplink, we do not believe any Routers running in our customer's systems were critically impacted.\n\nNo Apollo Gateways were impacted by this change at all.\n\nOn March 23rd, at around 2:30 PM Pacific, we patched this issue and confirmed seeing our 4XX error rate drop back to almost 0%.\n\nWe apologize for any inconvenience this caused by this escaped bug, and will be working in the coming days on our postmortem. As always, we appreciate your patience!",
+          "incident_id": "r4zzpp83ts6h",
+          "created_at": "2023-03-23T14:11:46.146-07:00",
+          "updated_at": "2023-03-23T14:12:04.504-07:00",
+          "display_at": "2023-03-15T14:11:46.000-07:00",
+          "affected_components": [
+            {
+              "code": "f9vbgntg553n",
+              "name": "Uplink",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "f9vbgntg553n",
+          "name": "Uplink",
+          "status": "operational",
+          "created_at": "2021-09-27T09:44:28.215-07:00",
+          "updated_at": "2023-03-23T14:12:13.576-07:00",
+          "position": 1,
+          "description": "Studio managed Supergraph Schema Delivery. Apollo Gateway (v 0.34+) uses Uplink to fetch routing configuration dynamically from the Apollo schema registry.",
+          "showcase": true,
+          "start_date": "2021-09-27",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "0r9mhvwh3x9h",
       "name": "Studio UI Unavailable",
@@ -96,7 +168,7 @@
           "name": "Uplink",
           "status": "operational",
           "created_at": "2021-09-27T09:44:28.215-07:00",
-          "updated_at": "2023-03-15T09:55:04.440-07:00",
+          "updated_at": "2023-03-23T14:12:13.576-07:00",
           "position": 1,
           "description": "Studio managed Supergraph Schema Delivery. Apollo Gateway (v 0.34+) uses Uplink to fetch routing configuration dynamically from the Apollo schema registry.",
           "showcase": true,
@@ -4583,7 +4655,7 @@
           "name": "Uplink",
           "status": "operational",
           "created_at": "2021-09-27T09:44:28.215-07:00",
-          "updated_at": "2023-03-15T09:55:04.440-07:00",
+          "updated_at": "2023-03-23T14:12:13.576-07:00",
           "position": 1,
           "description": "Studio managed Supergraph Schema Delivery. Apollo Gateway (v 0.34+) uses Uplink to fetch routing configuration dynamically from the Apollo schema registry.",
           "showcase": true,
@@ -4948,7 +5020,7 @@
           "name": "Uplink",
           "status": "operational",
           "created_at": "2021-09-27T09:44:28.215-07:00",
-          "updated_at": "2023-03-15T09:55:04.440-07:00",
+          "updated_at": "2023-03-23T14:12:13.576-07:00",
           "position": 1,
           "description": "Studio managed Supergraph Schema Delivery. Apollo Gateway (v 0.34+) uses Uplink to fetch routing configuration dynamically from the Apollo schema registry.",
           "showcase": true,
@@ -5377,157 +5449,6 @@
           "description": "The Schema Checks feature enabling user workflows for commands like `rover graph check`, and `rover subgraph check`.",
           "showcase": true,
           "start_date": "2021-10-01",
-          "group_id": null,
-          "page_id": "r56zbm15x15h",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "zd63qfmtg76x",
-          "name": "Studio UI",
-          "status": "operational",
-          "created_at": "2017-11-02T16:10:13.943-07:00",
-          "updated_at": "2023-01-12T15:35:14.984-08:00",
-          "position": 12,
-          "description": "The Studio SaaS Frontend UI.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "r56zbm15x15h",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "t9p9c1wl77dc",
-      "name": "Documenter unable to Login to Studio, and Summaries delayed",
-      "status": "resolved",
-      "created_at": "2022-03-30T14:43:30.712-07:00",
-      "updated_at": "2022-03-30T15:11:10.563-07:00",
-      "monitoring_at": "2022-03-30T15:01:01.315-07:00",
-      "resolved_at": "2022-03-30T15:11:10.549-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/h2wn3knxhvyq",
-      "started_at": "2022-03-30T14:43:30.706-07:00",
-      "page_id": "r56zbm15x15h",
-      "incident_updates": [
-        {
-          "id": "745t3rs34xcm",
-          "status": "resolved",
-          "body": "We are seeing all emails being sent successfully. We should be fully operational. Thanks as always for your patience!",
-          "incident_id": "t9p9c1wl77dc",
-          "created_at": "2022-03-30T15:11:10.549-07:00",
-          "updated_at": "2022-03-30T15:11:10.549-07:00",
-          "display_at": "2022-03-30T15:11:10.549-07:00",
-          "affected_components": [
-            {
-              "code": "zd63qfmtg76x",
-              "name": "Studio UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "6f6f3b6g0v82",
-              "name": "Notifications",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qcpsv9rhd3x3",
-          "status": "monitoring",
-          "body": "We have deployed a change to our emails functionality and are monitoring the changes for progress.",
-          "incident_id": "t9p9c1wl77dc",
-          "created_at": "2022-03-30T15:01:01.315-07:00",
-          "updated_at": "2022-03-30T15:01:01.315-07:00",
-          "display_at": "2022-03-30T15:01:01.315-07:00",
-          "affected_components": [
-            {
-              "code": "zd63qfmtg76x",
-              "name": "Studio UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "6f6f3b6g0v82",
-              "name": "Notifications",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "lhkvxf5zhdt7",
-          "status": "identified",
-          "body": "In a great turn of events: only team members at Apollo are \"Documenters\" in Studio! Therefore, there is 0 client facing impact on our customers.\n\nWe are still working on addressing the delay in notifications.",
-          "incident_id": "t9p9c1wl77dc",
-          "created_at": "2022-03-30T14:46:17.643-07:00",
-          "updated_at": "2022-03-30T14:46:17.643-07:00",
-          "display_at": "2022-03-30T14:46:17.643-07:00",
-          "affected_components": [
-            {
-              "code": "zd63qfmtg76x",
-              "name": "Studio UI",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "6f6f3b6g0v82",
-              "name": "Notifications",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0w4sgkkfkzt9",
-          "status": "identified",
-          "body": "We are seeing errors in Studio resulting from a recent deploy where anyone with the \"Documenter\" role will be unable to login. We have identified this issue, and confirmed it is also causing delays with our summaries feature due to dependent queries. We are in the process of rolling these changes back and will have more information in no more than 15 minutes.",
-          "incident_id": "t9p9c1wl77dc",
-          "created_at": "2022-03-30T14:43:30.809-07:00",
-          "updated_at": "2022-03-30T14:43:30.809-07:00",
-          "display_at": "2022-03-30T14:43:30.809-07:00",
-          "affected_components": [
-            {
-              "code": "zd63qfmtg76x",
-              "name": "Studio UI",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "6f6f3b6g0v82",
-              "name": "Notifications",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "6f6f3b6g0v82",
-          "name": "Notifications",
-          "status": "operational",
-          "created_at": "2019-09-25T09:10:54.252-07:00",
-          "updated_at": "2022-10-31T04:59:50.382-07:00",
-          "position": 6,
-          "description": "This includes features like Slack, Webhooks, and Emails.",
-          "showcase": true,
-          "start_date": null,
           "group_id": null,
           "page_id": "r56zbm15x15h",
           "group": false,
