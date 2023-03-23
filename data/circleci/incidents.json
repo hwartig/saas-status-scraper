@@ -4,22 +4,62 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-03-23T15:49:00.959Z"
+    "updated_at": "2023-03-23T16:27:34.220Z"
   },
   "incidents": [
     {
       "id": "597zx0hz8pzq",
       "name": "Issues With Gitlab Webhooks Causing Builds to Not Execute",
-      "status": "investigating",
+      "status": "resolved",
       "created_at": "2023-03-23T15:48:45.634Z",
-      "updated_at": "2023-03-23T15:49:00.956Z",
-      "monitoring_at": null,
-      "resolved_at": null,
+      "updated_at": "2023-03-23T16:27:34.212Z",
+      "monitoring_at": "2023-03-23T16:15:39.000Z",
+      "resolved_at": "2023-03-23T16:27:33.761Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/42xl947zp8n2",
       "started_at": "2023-03-23T15:48:45.629Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "6s63v4x9gr08",
+          "status": "resolved",
+          "body": "The issue has been resolved.\n\nIt should be noted that customers that attempted to trigger a build during the outage may need to navigate to the webhook settings in the GitLab UI, then reactivate the webhook before being able to trigger a build again. If you continue to see this issue after reactivating your webhook, you must remove it completely and recreate it.",
+          "incident_id": "597zx0hz8pzq",
+          "created_at": "2023-03-23T16:27:33.761Z",
+          "updated_at": "2023-03-23T16:27:34.208Z",
+          "display_at": "2023-03-23T16:27:33.761Z",
+          "affected_components": [
+            {
+              "code": "60j1gp5j396y",
+              "name": "CircleCI Webhooks",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1638940559233671200
+        },
+        {
+          "id": "ll9jy7xyvgzc",
+          "status": "monitoring",
+          "body": "We have identified the issue and made the necessary changes to address the behavior so GitLab pipelines should be executing normally. It is possible that customers that attempted to trigger a build during the outage will need to navigate to the webhook settings in the GitLab UI, then reactivate it before being able to trigger a build again. If you continue to see this issue after reactivating your webhook, you must remove it completely and recreate it.",
+          "incident_id": "597zx0hz8pzq",
+          "created_at": "2023-03-23T16:15:39.156Z",
+          "updated_at": "2023-03-23T16:25:17.227Z",
+          "display_at": "2023-03-23T16:15:39.000Z",
+          "affected_components": [
+            {
+              "code": "60j1gp5j396y",
+              "name": "CircleCI Webhooks",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1638937562709643300
+        },
         {
           "id": "cb4j31kz8335",
           "status": "investigating",
@@ -45,9 +85,9 @@
         {
           "id": "60j1gp5j396y",
           "name": "CircleCI Webhooks",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2021-08-16T17:40:51.027Z",
-          "updated_at": "2023-03-23T15:48:45.660Z",
+          "updated_at": "2023-03-23T16:15:39.126Z",
           "position": 9,
           "description": "Webhooks sent from CircleCI",
           "showcase": true,
