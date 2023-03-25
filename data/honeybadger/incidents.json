@@ -4,7 +4,7 @@
     "name": "Honeybadger.io",
     "url": "https://status.honeybadger.io",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-03-24T18:42:58.442-07:00"
+    "updated_at": "2023-03-24T19:26:33.981-07:00"
   },
   "incidents": [
     {
@@ -12,7 +12,7 @@
       "name": "Unhealthy API server",
       "status": "resolved",
       "created_at": "2023-03-24T03:30:00.000-07:00",
-      "updated_at": "2023-03-24T18:07:41.672-07:00",
+      "updated_at": "2023-03-24T19:26:33.975-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-03-24T15:30:00.000-07:00",
       "impact": "none",
@@ -23,10 +23,10 @@
         {
           "id": "zln3qy02hrsr",
           "status": "resolved",
-          "body": "Starting around 3:30pm PST, we had an incident where an unhealthy API server was in rotation in our load balancer. During that time requests routed to that server responded with a 502 which could have resulted in the client storing notices with delayed retrying. Because of this, you may have seen a lag in error processing. \n\nAt around 5:30pm PST we removed the unhealthy server from rotation. Some customers might be still be impacted by rate limiting as they retry sending any queued notices.",
+          "body": "Starting around 3:30pm PST, we had an incident where an unhealthy API server was in rotation in our load balancer. During that time requests routed to that server responded with a 502 which could have resulted in the clients dropping notices.\n\nAt around 5:30pm PST we removed the unhealthy server from rotation.\n\n7:22pm PST edit: Reworded message to describe that notices are not queued on the client, but dropped when the server responds in an error state",
           "incident_id": "bmxpc0cp3g1x",
           "created_at": "2023-03-24T18:06:30.149-07:00",
-          "updated_at": "2023-03-24T18:07:41.597-07:00",
+          "updated_at": "2023-03-24T19:26:33.973-07:00",
           "display_at": "2023-03-24T15:30:00.000-07:00",
           "affected_components": null,
           "deliver_notifications": false,
