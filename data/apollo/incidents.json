@@ -4,9 +4,61 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-03-28T16:50:26.430-07:00"
+    "updated_at": "2023-03-29T12:10:31.968-07:00"
   },
   "incidents": [
+    {
+      "id": "kjd0l5kchtcp",
+      "name": "Cloud Router Provisioning Interruption",
+      "status": "investigating",
+      "created_at": "2023-03-29T12:10:31.903-07:00",
+      "updated_at": "2023-03-29T12:10:31.965-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/xvbnvhylwtcl",
+      "started_at": "2023-03-29T12:10:31.898-07:00",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "ylt14jm05kzt",
+          "status": "investigating",
+          "body": "We are experiencing issues with the creation and updates of Cloud Routers due to an upstream hosting provider interruption. Provisioned Cloud Routers are currently stable and serving traffic as usual. Endpoint availability is also not affected by this issue. Our team is closely monitoring the situation, and we will provide updates as soon as the service is stable. Thank you for your patience.",
+          "incident_id": "kjd0l5kchtcp",
+          "created_at": "2023-03-29T12:10:31.963-07:00",
+          "updated_at": "2023-03-29T12:10:31.963-07:00",
+          "display_at": "2023-03-29T12:10:31.963-07:00",
+          "affected_components": [
+            {
+              "code": "821z1tygvvpf",
+              "name": "Cloud Routing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "821z1tygvvpf",
+          "name": "Cloud Routing",
+          "status": "degraded_performance",
+          "created_at": "2022-10-28T04:32:57.526-07:00",
+          "updated_at": "2023-03-29T12:10:31.927-07:00",
+          "position": 14,
+          "description": "GraphOS Cloud supergraphs hosted on Apollo infrastructure",
+          "showcase": true,
+          "start_date": "2022-10-03",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "m71gvvg5ggtb",
       "name": "Cloud Router Provisioning Interruption",
@@ -85,9 +137,9 @@
         {
           "id": "821z1tygvvpf",
           "name": "Cloud Routing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2022-10-28T04:32:57.526-07:00",
-          "updated_at": "2023-03-28T16:50:26.389-07:00",
+          "updated_at": "2023-03-29T12:10:31.927-07:00",
           "position": 14,
           "description": "GraphOS Cloud supergraphs hosted on Apollo infrastructure",
           "showcase": true,
@@ -530,9 +582,9 @@
         {
           "id": "821z1tygvvpf",
           "name": "Cloud Routing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2022-10-28T04:32:57.526-07:00",
-          "updated_at": "2023-03-28T16:50:26.389-07:00",
+          "updated_at": "2023-03-29T12:10:31.927-07:00",
           "position": 14,
           "description": "GraphOS Cloud supergraphs hosted on Apollo infrastructure",
           "showcase": true,
@@ -1945,9 +1997,9 @@
         {
           "id": "821z1tygvvpf",
           "name": "Cloud Routing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2022-10-28T04:32:57.526-07:00",
-          "updated_at": "2023-03-28T16:50:26.389-07:00",
+          "updated_at": "2023-03-29T12:10:31.927-07:00",
           "position": 14,
           "description": "GraphOS Cloud supergraphs hosted on Apollo infrastructure",
           "showcase": true,
@@ -3219,9 +3271,9 @@
         {
           "id": "821z1tygvvpf",
           "name": "Cloud Routing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2022-10-28T04:32:57.526-07:00",
-          "updated_at": "2023-03-28T16:50:26.389-07:00",
+          "updated_at": "2023-03-29T12:10:31.927-07:00",
           "position": 14,
           "description": "GraphOS Cloud supergraphs hosted on Apollo infrastructure",
           "showcase": true,
@@ -5385,58 +5437,6 @@
         }
       ],
       "components": []
-    },
-    {
-      "id": "hdzzqc9dxrph",
-      "name": "Users getting logged out after 30 seconds",
-      "status": "resolved",
-      "created_at": "2022-05-17T13:44:28.000-07:00",
-      "updated_at": "2022-05-17T14:12:44.008-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2022-05-17T13:44:28.000-07:00",
-      "impact": "none",
-      "shortlink": "https://stspg.io/79fbk8k72jpc",
-      "started_at": "2022-05-17T13:44:28.000-07:00",
-      "page_id": "r56zbm15x15h",
-      "incident_updates": [
-        {
-          "id": "lpbslq4rcwtx",
-          "status": "resolved",
-          "body": "At 13:06 Pacific Apollo underwent a production outage for our Studio UI features. Both internally and externally, users logged into Studio were being logged back out after 30 seconds. This outage ended at 13:44.\n\nThis was due to a production deploy of some new feature flagging logic, which enables some Enterprise logout functionality. Instead of this functionality being localized, and enabled for testing, we ended up turning this on for everyone. At 13:44, the issue was identified and we promptly disabled the errant feature flag.\n\nWe understand the kind of disruption this caused for everyone (not least of which because at Apollo we also dog food our own product and were getting booted after 30 seconds). We will be conducting our post mortem for this in the coming days as we continue to strive to provide you with the best possible service.\n\nAs always, we appreciate your patience!",
-          "incident_id": "hdzzqc9dxrph",
-          "created_at": "2022-05-17T14:11:28.125-07:00",
-          "updated_at": "2022-05-17T14:12:43.882-07:00",
-          "display_at": "2022-05-17T13:44:28.000-07:00",
-          "affected_components": [
-            {
-              "code": "zd63qfmtg76x",
-              "name": "Studio UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "zd63qfmtg76x",
-          "name": "Studio UI",
-          "status": "operational",
-          "created_at": "2017-11-02T16:10:13.943-07:00",
-          "updated_at": "2023-01-12T15:35:14.984-08:00",
-          "position": 12,
-          "description": "The Studio SaaS Frontend UI.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "r56zbm15x15h",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
     }
   ]
 }
