@@ -4,15 +4,15 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-03-31T01:11:04.279-07:00"
+    "updated_at": "2023-03-31T10:01:09.692-07:00"
   },
   "incidents": [
     {
       "id": "660w4xwff96k",
       "name": "[Minor] Delays in Box Sync, Box Drive",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-03-29T03:00:00.000-07:00",
-      "updated_at": "2023-03-29T10:55:08.159-07:00",
+      "updated_at": "2023-03-31T10:01:09.689-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-03-29T03:00:00.000-07:00",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2023-03-29T10:55:03.215-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "kyf711lkxw61",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\nOn March 29, 2023 between 2:56 am and 10:40 am PDT, some users may have experienced difficulties while working in Box. During this time, some users may have experienced delays in Box Drive synchronizing changes. The issue occurred due to a regularly scheduled internal credential rotation failing to propagate completely. We were able to resolve the issue by manually synchronizing the affected service with the latest credentials. In addition, we are ensuring services self-validate against the credential freshness constraints to minimize the likelihood of similar issues occurring in the future.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "660w4xwff96k",
+          "created_at": "2023-03-31T10:00:53.065-07:00",
+          "updated_at": "2023-03-31T10:01:09.686-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "cn9y2c309l5m",
           "status": "resolved",
@@ -39,9 +52,9 @@
     {
       "id": "gfsffngbfsck",
       "name": "[Critical] Issue With File Request Links",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-03-24T10:23:38.804-07:00",
-      "updated_at": "2023-03-24T11:18:15.408-07:00",
+      "updated_at": "2023-03-31T09:59:49.370-07:00",
       "monitoring_at": "2023-03-24T10:40:17.600-07:00",
       "resolved_at": "2023-03-24T11:18:15.392-07:00",
       "impact": "critical",
@@ -49,6 +62,19 @@
       "started_at": "2023-03-24T10:23:38.797-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "d5ftmbkrggwn",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\nOn March 24th, between 09:23 am PDT and 10:33 am PDT, some users may have experienced difficulties while working in Box. During this time, users may have experienced failures of certain File Request operations. The issue occurred due to a scheduled change to add a new server in the service discovery cluster, which eventually caused the File Request service to break. We were able to remediate this issue by reverting the change and performing a manual restart of the File Request service. Additionally, we have hardened the server deployment strategy to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "gfsffngbfsck",
+          "created_at": "2023-03-31T09:59:25.885-07:00",
+          "updated_at": "2023-03-31T09:59:49.369-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "6w1jjtpvw9tk",
           "status": "resolved",
