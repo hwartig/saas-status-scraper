@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-04-04T06:27:12.631-07:00"
+    "updated_at": "2023-04-04T06:31:33.245-07:00"
   },
   "incidents": [
     {
@@ -229,9 +229,9 @@
     {
       "id": "8m9nm6wwybx9",
       "name": "[Major] Issues with Public API and Box Notes",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-03-21T22:48:08.000-07:00",
-      "updated_at": "2023-04-04T06:27:12.620-07:00",
+      "updated_at": "2023-04-04T06:30:41.438-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-03-21T23:10:12.234-07:00",
       "impact": "major",
@@ -239,6 +239,19 @@
       "started_at": "2023-03-21T22:48:08.000-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "v2tkwn644xby",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn March 21, 2023 from 5:37 AM to 6:39 AM PDT and 9:37 PM to 10:39 PM PDT and on March 22, 2023 from 9:12 AM to 9:39 AM PDT, some users may have experienced difficulties while working in Box. During this time, some users may have experienced API login failures and errors when creating or deleting Box Notes. The issue occurred due to a misconfiguration on one of our caching hosts, which occasionally caused the server to terminate and become unresponsive to user traffic while it restarted. We were able to resolve the issue by replacing the bad instance with a properly configured one. In addition, we are adding observability and graceful handling of this misconfiguration in order to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "8m9nm6wwybx9",
+          "created_at": "2023-04-04T06:27:05.732-07:00",
+          "updated_at": "2023-04-04T06:30:41.435-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "dzt9mrgyr3t1",
           "status": "resolved",
@@ -413,9 +426,9 @@
     {
       "id": "ttkzc1c4s0wk",
       "name": "[MInor] Customers may have been experiencing failures when using Box Sign",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-03-13T19:00:00.000-07:00",
-      "updated_at": "2023-03-16T08:56:59.195-07:00",
+      "updated_at": "2023-04-04T06:31:33.242-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-03-13T19:00:00.000-07:00",
       "impact": "minor",
@@ -423,6 +436,19 @@
       "started_at": "2023-03-16T08:56:52.697-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "90zd51b8vb0n",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nBetween March 13, 2023 and March 15, 2023, some users may have experienced difficulties while working in Box. During this time, some users may have encountered loading issues while trying to sign a document. The issue occurred as a result of releasing a new feature in Box Sign. In connection with this release, there was a change in a specific flow for some enterprises based on their enterprise settings. We were able to resolve the issue in the short term by disabling the new feature in affected enterprises. We were subsequently able to release a fix that handled that flow properly. In addition, we are working on updating our monitoring and testing to minimize the likelihood of similar issues occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "ttkzc1c4s0wk",
+          "created_at": "2023-04-04T06:31:12.894-07:00",
+          "updated_at": "2023-04-04T06:31:33.240-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "814d1l450cnj",
           "status": "resolved",
