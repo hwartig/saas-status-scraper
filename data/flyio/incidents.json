@@ -4,9 +4,61 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "America/Chicago",
-    "updated_at": "2023-04-01T17:05:44.483-05:00"
+    "updated_at": "2023-04-04T05:23:30.331-05:00"
   },
   "incidents": [
+    {
+      "id": "mjg05znxv70z",
+      "name": "Capacity issues in SJC region",
+      "status": "identified",
+      "created_at": "2023-04-04T05:23:30.271-05:00",
+      "updated_at": "2023-04-04T05:23:30.329-05:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/z0w528181krb",
+      "started_at": "2023-04-04T05:23:30.265-05:00",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "l7zs1fm2vngd",
+          "status": "identified",
+          "body": "We have noticed consistently high demand in the SJC region and are provisioning additional capacity.",
+          "incident_id": "mjg05znxv70z",
+          "created_at": "2023-04-04T05:23:30.327-05:00",
+          "updated_at": "2023-04-04T05:23:30.327-05:00",
+          "display_at": "2023-04-04T05:23:30.327-05:00",
+          "affected_components": [
+            {
+              "code": "49qj4qjyzlzn",
+              "name": "Application Hosting - SJC - Sunnyvale, California (US)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "49qj4qjyzlzn",
+          "name": "SJC - Sunnyvale, California (US)",
+          "status": "degraded_performance",
+          "created_at": "2019-07-01T14:26:35.856-05:00",
+          "updated_at": "2023-04-04T05:23:30.296-05:00",
+          "position": 19,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "rd8bfy6h8nby",
       "name": "Blocked Apps V1 deployments",
@@ -4796,87 +4848,6 @@
           "only_show_if_degraded": false
         }
       ]
-    },
-    {
-      "id": "fynhdghx1jlp",
-      "name": "Host failure in ORD",
-      "status": "resolved",
-      "created_at": "2022-12-05T15:24:46.876-06:00",
-      "updated_at": "2022-12-08T15:33:55.850-06:00",
-      "monitoring_at": "2022-12-05T21:32:18.276-06:00",
-      "resolved_at": "2022-12-08T15:33:55.836-06:00",
-      "impact": "none",
-      "shortlink": "https://stspg.io/nyfflx7s72j9",
-      "started_at": "2022-12-05T15:24:46.870-06:00",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "sd93x5hxq7sk",
-          "status": "resolved",
-          "body": "All remaining machines have been migrated.",
-          "incident_id": "fynhdghx1jlp",
-          "created_at": "2022-12-08T15:33:55.836-06:00",
-          "updated_at": "2022-12-08T15:33:55.836-06:00",
-          "display_at": "2022-12-08T15:33:55.836-06:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ww0zwysc6qd0",
-          "status": "monitoring",
-          "body": "All Postgres apps and pg_data volumes recreated from latest available snapshot were moved last night. Only a few remaining machines are left to migrate.",
-          "incident_id": "fynhdghx1jlp",
-          "created_at": "2022-12-07T10:17:33.469-06:00",
-          "updated_at": "2022-12-07T10:17:33.469-06:00",
-          "display_at": "2022-12-07T10:17:33.469-06:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jlqgv4n55xjl",
-          "status": "monitoring",
-          "body": "Applications without volumes have all been restarted on other hosts in the region.  Most volumes have been restored from their most recent daily snapshot and are migrated to another host. Recently-written data will be unavailable for volumes not in a multi-node cluster.",
-          "incident_id": "fynhdghx1jlp",
-          "created_at": "2022-12-05T21:32:18.276-06:00",
-          "updated_at": "2022-12-05T21:32:18.276-06:00",
-          "display_at": "2022-12-05T21:32:18.276-06:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "kg99046wr4cx",
-          "status": "identified",
-          "body": "We are working to replace a failed disk.",
-          "incident_id": "fynhdghx1jlp",
-          "created_at": "2022-12-05T15:42:50.359-06:00",
-          "updated_at": "2022-12-05T15:42:50.359-06:00",
-          "display_at": "2022-12-05T15:42:50.359-06:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "t43fw3h5k9rr",
-          "status": "investigating",
-          "body": "We are troubleshooting a failed host in ORD.",
-          "incident_id": "fynhdghx1jlp",
-          "created_at": "2022-12-05T15:24:46.909-06:00",
-          "updated_at": "2022-12-05T15:24:46.909-06:00",
-          "display_at": "2022-12-05T15:24:46.909-06:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": []
     }
   ]
 }
