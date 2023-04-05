@@ -4,9 +4,81 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-03-29T14:40:46.973-07:00"
+    "updated_at": "2023-04-05T00:54:22.921-07:00"
   },
   "incidents": [
+    {
+      "id": "f3hxxf0csc0c",
+      "name": "Datadog Forwarding: Delayed metrics",
+      "status": "monitoring",
+      "created_at": "2023-04-05T00:25:30.000-07:00",
+      "updated_at": "2023-04-05T00:54:22.919-07:00",
+      "monitoring_at": "2023-04-05T00:54:02.708-07:00",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/fy1wk5pg7n6c",
+      "started_at": "2023-04-05T00:25:30.000-07:00",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "q6tj5tfjqvy1",
+          "status": "monitoring",
+          "body": "We have identified the issue and implemented a fix. Metrics should no longer be delayed when sent to Datadog. We will continue monitoring the situation.",
+          "incident_id": "f3hxxf0csc0c",
+          "created_at": "2023-04-05T00:54:02.708-07:00",
+          "updated_at": "2023-04-05T00:54:02.708-07:00",
+          "display_at": "2023-04-05T00:54:02.708-07:00",
+          "affected_components": [
+            {
+              "code": "79m4wnw76gy8",
+              "name": "Datadog Forwarding",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "g3dv2w4fn1g0",
+          "status": "investigating",
+          "body": "We are investigating a potential issue with metrics forwarded to Datadog. Customers may see delayed metrics at this time.",
+          "incident_id": "f3hxxf0csc0c",
+          "created_at": "2023-04-05T00:45:30.940-07:00",
+          "updated_at": "2023-04-05T00:54:22.841-07:00",
+          "display_at": "2023-04-05T00:25:30.000-07:00",
+          "affected_components": [
+            {
+              "code": "79m4wnw76gy8",
+              "name": "Datadog Forwarding",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "79m4wnw76gy8",
+          "name": "Datadog Forwarding",
+          "status": "degraded_performance",
+          "created_at": "2022-09-01T13:59:37.603-07:00",
+          "updated_at": "2023-04-05T00:45:30.897-07:00",
+          "position": 13,
+          "description": "A feature of Apollo Studio that allows users to forward metrics observed via Apollo's telemetry pipeline to their Datadog instance(s).",
+          "showcase": true,
+          "start_date": "2022-09-01",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "kjd0l5kchtcp",
       "name": "Cloud Router Provisioning Interruption",
@@ -3625,9 +3697,9 @@
         {
           "id": "79m4wnw76gy8",
           "name": "Datadog Forwarding",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2022-09-01T13:59:37.603-07:00",
-          "updated_at": "2022-09-01T16:00:08.390-07:00",
+          "updated_at": "2023-04-05T00:45:30.897-07:00",
           "position": 13,
           "description": "A feature of Apollo Studio that allows users to forward metrics observed via Apollo's telemetry pipeline to their Datadog instance(s).",
           "showcase": true,
@@ -5428,35 +5500,6 @@
           "only_show_if_degraded": false
         }
       ]
-    },
-    {
-      "id": "c5dvk0tbg5bv",
-      "name": "Users unable to override schema check configuration via the CLI",
-      "status": "resolved",
-      "created_at": "2022-05-18T15:30:00.000-07:00",
-      "updated_at": "2022-05-19T06:24:50.831-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2022-05-18T15:30:00.000-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/071tb1bhlpww",
-      "started_at": "2022-05-18T15:30:00.000-07:00",
-      "page_id": "r56zbm15x15h",
-      "incident_updates": [
-        {
-          "id": "cxkw606zf0p7",
-          "status": "resolved",
-          "body": "Users that tried to override schema check configuration via Rover, the legacy Apollo CLI client, or used the API directly received 400 errors due to a misconfiguration in scalar parsing. The issue has now been fixed. If you are currently overriding schema check `from` and `to` values manually, please ensure that these are passed as string types rather than integers.",
-          "incident_id": "c5dvk0tbg5bv",
-          "created_at": "2022-05-18T22:48:41.755-07:00",
-          "updated_at": "2022-05-19T06:24:50.699-07:00",
-          "display_at": "2022-05-18T15:30:00.000-07:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": []
     }
   ]
 }
