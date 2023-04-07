@@ -4,9 +4,101 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-04-07T11:52:21.982-07:00"
+    "updated_at": "2023-04-07T13:22:42.705-07:00"
   },
   "incidents": [
+    {
+      "id": "18vmt4xcb687",
+      "name": "[Major] Customers may experience issues uploading new documents to Box Sign",
+      "status": "identified",
+      "created_at": "2023-04-07T13:05:13.999-07:00",
+      "updated_at": "2023-04-07T13:22:42.688-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/35wwpl9x0s9l",
+      "started_at": "2023-04-07T13:05:13.991-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "xnjlk9dm1syq",
+          "status": "identified",
+          "body": "Our team has identified the underlying cause of this issue and is working to take remediating steps. We will provide the next update as soon as possible.",
+          "incident_id": "18vmt4xcb687",
+          "created_at": "2023-04-07T13:22:42.686-07:00",
+          "updated_at": "2023-04-07T13:22:42.686-07:00",
+          "display_at": "2023-04-07T13:22:42.686-07:00",
+          "affected_components": [
+            {
+              "code": "63v1bg2phxrr",
+              "name": "Box Web Application - Box Sign",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "cdkk0wt3jr8k",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue.",
+          "incident_id": "18vmt4xcb687",
+          "created_at": "2023-04-07T13:06:15.471-07:00",
+          "updated_at": "2023-04-07T13:06:16.306-07:00",
+          "display_at": "2023-04-07T13:06:15.471-07:00",
+          "affected_components": [
+            {
+              "code": "63v1bg2phxrr",
+              "name": "Box Web Application - Box Sign",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1644431415633907700
+        },
+        {
+          "id": "qkmd8zd6y69s",
+          "status": "investigating",
+          "body": "We are investigating an ongoing issue affecting uploading new documents to Box Sign. We will provide more information as soon as it is available.",
+          "incident_id": "18vmt4xcb687",
+          "created_at": "2023-04-07T13:05:14.083-07:00",
+          "updated_at": "2023-04-07T13:05:14.083-07:00",
+          "display_at": "2023-04-07T13:05:14.083-07:00",
+          "affected_components": [
+            {
+              "code": "63v1bg2phxrr",
+              "name": "Box Web Application - Box Sign",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "63v1bg2phxrr",
+          "name": "Box Sign",
+          "status": "partial_outage",
+          "created_at": "2021-10-21T16:52:57.541-07:00",
+          "updated_at": "2023-04-07T13:05:14.039-07:00",
+          "position": 14,
+          "description": null,
+          "showcase": false,
+          "start_date": "2021-10-21",
+          "group_id": "l6vzpnn62cgq",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "qfqsmg71jv9q",
       "name": "[MAJOR] Delays in Box Relay",
@@ -2159,9 +2251,9 @@
         {
           "id": "63v1bg2phxrr",
           "name": "Box Sign",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2021-10-21T16:52:57.541-07:00",
-          "updated_at": "2023-03-27T12:01:30.711-07:00",
+          "updated_at": "2023-04-07T13:05:14.039-07:00",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -6854,48 +6946,6 @@
           "only_show_if_degraded": false
         }
       ]
-    },
-    {
-      "id": "nsfr748l3mvb",
-      "name": "[Outage] Box Sign page not loading.",
-      "status": "postmortem",
-      "created_at": "2022-02-01T13:00:00.000-08:00",
-      "updated_at": "2022-03-23T11:45:28.045-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2022-02-01T15:03:00.000-08:00",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/zp7grszq41qv",
-      "started_at": "2022-02-01T15:03:00.000-08:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "54gfybjs4x1x",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting Box. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nOn February 1st between 3:03 pm and 4:14 pm PT, some users may have experienced difficulties while working in Box. During this time, the Box Sign user interface may not have been accessible for some users and signed documents may have been processed with a delay. \n\n**Analysis** \n\nOn February 1st networking and firewall changes were made in our ongoing effort to improve performance and stability. Due to this change our services were unable to reach out to an external service required for digitally signing documents. \n\nOur deployment/QA process did not test each individual external endpoint, and so this issue was not identified in the deployment/QA process. In addition, some alarms were misconfigured that would have reduced service degradation.  We were able to resolve the issue by whitelisting this external endpoint. \n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Improvements to our deployment/QA processes to test each individual endpoint for infrastructure changes. \n\n* Reconfiguration of alarms and improvements to observability with more granular alarms.\n\n* Improvements to our replay process that can restart failed tasks to mitigate consequences should other issues resulting in failed task occur in the future.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
-          "incident_id": "nsfr748l3mvb",
-          "created_at": "2022-02-07T09:28:21.301-08:00",
-          "updated_at": "2022-03-23T11:45:28.042-07:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "k4qk7ch5t597",
-          "status": "resolved",
-          "body": "From approximately 3:03 PM to 4:15 PM US Pacific time, we had an issue impacting Box Sign. Our systems automatically detected and corrected the underlying issue. There is no current impact and no further updates will be provided here. If you are currently seeing any issues, please let us know at https://support.box.com.",
-          "incident_id": "nsfr748l3mvb",
-          "created_at": "2022-02-01T17:04:33.605-08:00",
-          "updated_at": "2022-02-02T08:56:25.516-08:00",
-          "display_at": "2022-02-01T15:03:00.000-08:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": []
     }
   ]
 }
