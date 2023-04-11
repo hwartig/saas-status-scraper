@@ -4,7 +4,7 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-04-10T20:50:55.494Z"
+    "updated_at": "2023-04-10T23:52:20.332Z"
   },
   "incidents": [
     {
@@ -249,9 +249,9 @@
     {
       "id": "cy0fhmn85jnb",
       "name": "Issues affecting services, deploys, Postgres, and Redis in Oregon.",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-03-30T19:14:06.359Z",
-      "updated_at": "2023-03-30T21:50:02.394Z",
+      "updated_at": "2023-04-10T23:52:20.324Z",
       "monitoring_at": "2023-03-30T21:13:32.980Z",
       "resolved_at": "2023-03-30T21:50:01.411Z",
       "impact": "critical",
@@ -259,6 +259,19 @@
       "started_at": "2023-03-30T19:14:06.351Z",
       "page_id": "tyfhm2rrt1tl",
       "incident_updates": [
+        {
+          "id": "3skr08kmbyp0",
+          "status": "postmortem",
+          "body": "# Summary\n\nBetween 2023-03-30 19:00 UTC and 2023-03-30 20:30 UTC, one of our Oregon clusters experienced an outage that affected builds & deploys, new service and datastore creation, and network connectivity both inbound and outbound.\n\n# Root Cause\n\nAfter performing routine maintenance on our etcd cluster, we noticed that there was something severely wrong as each etcd member started back up. We determined that we were affected by a combination of a data corruption bug that existed in the etcd version we were running, and poor disk performance causing the etcd leader to occasionally fall behind followers. etcd being in an inconsistent state meant all cluster operations grounded to a halt, and it took the team approximately 90 minutes to recover the cluster to a healthy state.\n\n# Mitigations\n\n* We have upgraded our etcd cluster to a version without that data corruption bug.\n* We have upgraded the hardware that our etcd processes run on.\n* We have identified a set of improvements to our tooling for etcd maintenance and reliability. This work will be completed in the coming weeks.",
+          "incident_id": "cy0fhmn85jnb",
+          "created_at": "2023-04-10T23:44:07.448Z",
+          "updated_at": "2023-04-10T23:52:20.321Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our March 30th incident: https://stspg.io/dg5j7xv7ry85",
+          "tweet_id": null
+        },
         {
           "id": "xtchgcrjxsqh",
           "status": "resolved",
