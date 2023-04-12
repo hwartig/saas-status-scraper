@@ -4,15 +4,15 @@
     "name": "Contentful",
     "url": "https://www.contentfulstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-04-12T10:42:56.743Z"
+    "updated_at": "2023-04-12T11:11:53.448Z"
   },
   "components": [
     {
       "id": "0fdg751p3dxn",
       "name": "Content Management API",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2013-11-01T17:17:34.168Z",
-      "updated_at": "2023-04-05T07:00:18.660Z",
+      "updated_at": "2023-04-12T11:11:53.400Z",
       "position": 1,
       "description": "API used for content management by editors",
       "showcase": false,
@@ -100,9 +100,9 @@
     {
       "id": "4dfc8gzs7k20",
       "name": "Authentication Service",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2013-11-01T17:44:57.814Z",
-      "updated_at": "2023-03-20T08:13:58.137Z",
+      "updated_at": "2023-04-12T11:11:53.412Z",
       "position": 7,
       "description": "Web access and OAuth service",
       "showcase": false,
@@ -188,10 +188,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "z17pmrf5jvf8",
+      "name": "Authentication issues with Contentful APIs",
+      "status": "investigating",
+      "created_at": "2023-04-12T11:11:53.374Z",
+      "updated_at": "2023-04-12T11:11:53.446Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/9b3t00psx1wd",
+      "started_at": "2023-04-12T11:11:53.369Z",
+      "page_id": "4bv17htq00cz",
+      "incident_updates": [
+        {
+          "id": "pkbxn2kgzlkr",
+          "status": "investigating",
+          "body": "Users are currently experiencing problems with authentication with Contentful APIs. We are investigating the issue.",
+          "incident_id": "z17pmrf5jvf8",
+          "created_at": "2023-04-12T11:11:53.444Z",
+          "updated_at": "2023-04-12T11:11:53.444Z",
+          "display_at": "2023-04-12T11:11:53.444Z",
+          "affected_components": [
+            {
+              "code": "0fdg751p3dxn",
+              "name": "Content Management API",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "4dfc8gzs7k20",
+              "name": "Authentication Service",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "0fdg751p3dxn",
+          "name": "Content Management API",
+          "status": "major_outage",
+          "created_at": "2013-11-01T17:17:34.168Z",
+          "updated_at": "2023-04-12T11:11:53.400Z",
+          "position": 1,
+          "description": "API used for content management by editors",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "4bv17htq00cz",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "4dfc8gzs7k20",
+          "name": "Authentication Service",
+          "status": "partial_outage",
+          "created_at": "2013-11-01T17:44:57.814Z",
+          "updated_at": "2023-04-12T11:11:53.412Z",
+          "position": 7,
+          "description": "Web access and OAuth service",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "4bv17htq00cz",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "major",
+    "description": "Partial System Outage"
   }
 }
