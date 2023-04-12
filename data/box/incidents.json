@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-04-12T01:22:04.131-07:00"
+    "updated_at": "2023-04-12T15:38:21.852-07:00"
   },
   "incidents": [
     {
@@ -560,9 +560,9 @@
     {
       "id": "2thnqnsq0gy6",
       "name": "[Major] Issues with Uploads, Downloads and Logins",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-03-16T16:30:00.000-07:00",
-      "updated_at": "2023-03-22T14:00:07.555-07:00",
+      "updated_at": "2023-04-12T15:38:21.848-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-03-16T20:30:00.000-07:00",
       "impact": "major",
@@ -570,6 +570,19 @@
       "started_at": "2023-03-16T20:30:00.000-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "wqfnw0n4756b",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting the Box web application. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n‌\n\nOn March 16th, 2023 between 4:30pm and 7:00pm PDT, some users may have experienced difficulties while working in Box. During this time, some users may have experienced higher than usual latencies and slightly elevated error rates when interacting with the Box website. The issue occurred due to a mistake made as part of a maintenance operation aimed at improving the efficiency and reliability of one of our foundational services. This maintenance operation resulted in fewer servers being left to serve the Box web application than were necessary to serve all incoming traffic without any customer impact. We were able to resolve the issue by restoring the necessary capacity for the impacted service. In addition, we are implementing autoscaling for this service to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nThe problem occurred over the course of a maintenance operation during which a legacy virtual-machine-based server fleet serving the Box web application was being replaced with a container-based fleet. Both fleets were sharing the load before the maintenance took place, and as the maintenance operation completed, only the container-based fleet remained. Although a load projection had been made prior to the maintenance and the container-based fleet was expected to be able to handle the full load of the site, it eventually became clear that our container-based fleet was struggling to keep up with demand. This resulted in higher latencies and slightly elevated error rates across the Box web application. In order to recover application performance, we put the virtual-machine-based fleet back in service to share the load with the container-based one.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* The capacity projection model for the container-based fleet has been adjusted to reflect the outcome of this maintenance. This means the more capacity will be available in the container-based fleet as we retire the virtual-machine-based fleet.\n* We are improving our observability to detect early indicators of insufficient capacity, so we can react to them before customer experience is impacted.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "2thnqnsq0gy6",
+          "created_at": "2023-04-12T15:38:14.883-07:00",
+          "updated_at": "2023-04-12T15:38:21.846-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "0rxmptvq47l6",
           "status": "resolved",
