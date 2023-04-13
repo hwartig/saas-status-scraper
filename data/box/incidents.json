@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-04-13T09:25:03.107-07:00"
+    "updated_at": "2023-04-13T15:01:18.741-07:00"
   },
   "incidents": [
     {
@@ -617,7 +617,7 @@
       "name": "[Major] Customers may have been experiencing failures when using Uploads or Public API",
       "status": "postmortem",
       "created_at": "2023-03-15T02:00:00.000-07:00",
-      "updated_at": "2023-04-05T09:06:03.618-07:00",
+      "updated_at": "2023-04-13T15:01:18.731-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-03-15T02:00:00.000-07:00",
       "impact": "major",
@@ -628,10 +628,10 @@
         {
           "id": "kmhwzcj8mc06",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\nOn March 15, 2023, between 03:10 am and 03:27 am PT, some users may have experienced difficulties while working in Box. During this time, certain file uploads and downloads may have failed. The issue occurred due to an automated security patching tool restarting a server, which caused some service discovery tools to fail. The issue resolved itself once the server restarted. As a result, we have hardened the server patching tool’s configuration to prevent similar issues from occurring in the future**.** \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
+          "body": "_We recently addressed issues affecting file uploads and downloads. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future._\n\n \n\n_Between 03:10 AM PT and 03:27 AM PT on March 15, 2023, some users may have experienced difficulties while working in Box. During this time, certain file uploads and downloads may have failed. The issue occurred due to an automated security patching tool restarting a server, which caused some service discovery tools to fail. The issue resolved itself once the server restarted. As a result, we have hardened the server patching tool’s configuration to prevent similar issues from occurring in the future._ \n\n‌\n\n_Analysis _\n\n_The service discovery cluster requires a fixed number of minimum healthy servers running at any given time. The automated patching tool removed the primary service discovery server from the working server pool, at which point the cluster became unhealthy.  None of the remaining servers in the working pool assumed the primary role responsibility as expected, which resulted in a temporary interruption of the service discovery function.  Service discovery functionality resumed after the original primary server was patched and returned to the working pool._ \n\n‌\n\n_Corrective Actions_\n\n_The following corrective actions have been completed or are planned:_\n\n* _Add additional server\\(s\\) to existing service discovery cluster to increase cluster fault tolerance._\n* _Modify automated patching tool configuration to limit impact on existing service discovery cluster._\n* _Migrate clients to use an updated and stable service discovery cluster version._\n* _Add additional monitoring to check service discovery cluster readiness._\n\n‌\n\n_We are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter._ \n\n \n\n_Sincerely,_\n\n_The Box Team_",
           "incident_id": "qj5f1wfsg662",
           "created_at": "2023-04-05T09:05:12.716-07:00",
-          "updated_at": "2023-04-05T09:06:03.615-07:00",
+          "updated_at": "2023-04-13T15:01:18.728-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
