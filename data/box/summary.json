@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-04-17T18:45:29.739-07:00"
+    "updated_at": "2023-04-17T19:42:59.988-07:00"
   },
   "components": [
     {
@@ -689,9 +689,9 @@
     {
       "id": "k577rblv57vr",
       "name": "Box Relay",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-01-02T12:05:42.075-08:00",
-      "updated_at": "2023-04-04T08:16:31.074-07:00",
+      "updated_at": "2023-04-17T19:26:52.268-07:00",
       "position": 6,
       "description": null,
       "showcase": false,
@@ -1151,10 +1151,10 @@
   "incidents": [
     {
       "id": "9zfz771sht67",
-      "name": "[Major] Issues with Public API",
+      "name": "[Major] Issues with Public API and Box Relay",
       "status": "investigating",
       "created_at": "2023-04-17T18:45:20.956-07:00",
-      "updated_at": "2023-04-17T18:45:29.734-07:00",
+      "updated_at": "2023-04-17T19:26:52.294-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -1162,6 +1162,26 @@
       "started_at": "2023-04-17T18:45:20.950-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "m3fdq46drc4p",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue. Users may also experience errors when using Box Relay.",
+          "incident_id": "9zfz771sht67",
+          "created_at": "2023-04-17T19:26:52.293-07:00",
+          "updated_at": "2023-04-17T19:26:52.293-07:00",
+          "display_at": "2023-04-17T19:26:52.293-07:00",
+          "affected_components": [
+            {
+              "code": "k577rblv57vr",
+              "name": "Box Relay",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "bdj59tw28m7p",
           "status": "investigating",
@@ -1176,12 +1196,28 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [
+        {
+          "id": "k577rblv57vr",
+          "name": "Box Relay",
+          "status": "degraded_performance",
+          "created_at": "2020-01-02T12:05:42.075-08:00",
+          "updated_at": "2023-04-17T19:26:52.268-07:00",
+          "position": 6,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
     }
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
