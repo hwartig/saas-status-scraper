@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-04-19T01:04:42.708-07:00"
+    "updated_at": "2023-04-19T15:59:33.187-07:00"
   },
   "incidents": [
     {
@@ -629,9 +629,9 @@
     {
       "id": "18vmt4xcb687",
       "name": "[Major] Customers may experience issues uploading new documents to Box Sign",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-04-07T13:05:13.999-07:00",
-      "updated_at": "2023-04-07T14:00:48.313-07:00",
+      "updated_at": "2023-04-19T15:59:33.185-07:00",
       "monitoring_at": "2023-04-07T13:27:04.005-07:00",
       "resolved_at": "2023-04-07T14:00:48.298-07:00",
       "impact": "minor",
@@ -639,6 +639,19 @@
       "started_at": "2023-04-07T13:05:13.991-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "c42s1zc9ybyv",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Box Sign. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 11:00 AM PT and 1:21 PM PT on April 7, 2023, some users may have experienced difficulties while working in Box. During this time, Box Sign users were unable to start the signing process using the upload new file feature. Users were presented with an error banner when uploading new documents. The issue occurred as a result of a recent code change made to standardize error code messages, which inadvertently impacted an internal interaction. We were able to resolve the issue by rolling back the relevant change. In addition, we have identified several corrective actions, detailed below, to minimize the likelihood of similar issues occurring in the future. \n\n‌\n\n**Analysis** \n\nAs part of an effort to standardize error codes returned in API responses, we rolled out a change that updated some existing codes. This change impacted an internal interaction, in the Box Sign document upload flow, that was explicitly relying on a prior error code value. When the relevant error situation arose, the code was unable to detect and mitigate the recoverable error, resulting in it being propagated out to the end-user in the form of an error banner.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Added additional tests to prevent modifications of existing error codes until it is deemed safe to do so.\n* Started the process to deprecate custom error code values, only keeping the standardized HTTP response codes.\n* Augmenting continuous end-to-end testing on pre-production environments for increased observability around critical user journeys.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "18vmt4xcb687",
+          "created_at": "2023-04-19T15:59:27.065-07:00",
+          "updated_at": "2023-04-19T15:59:33.183-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "mrnl17thh15l",
           "status": "resolved",
