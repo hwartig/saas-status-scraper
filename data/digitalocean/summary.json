@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-04-19T08:13:22.187Z"
+    "updated_at": "2023-04-20T05:57:05.528Z"
   },
   "components": [
     {
@@ -72,7 +72,7 @@
     {
       "id": "9xmhrchbp51t",
       "name": "Services",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-02-17T21:38:50.394Z",
       "updated_at": "2020-09-11T06:57:09.795Z",
       "position": 2,
@@ -352,9 +352,9 @@
     {
       "id": "xc1fvcqsqp80",
       "name": "Droplets",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-02-17T21:40:23.067Z",
-      "updated_at": "2023-04-14T08:16:06.072Z",
+      "updated_at": "2023-04-20T05:57:05.479Z",
       "position": 10,
       "description": null,
       "showcase": false,
@@ -651,6 +651,79 @@
     }
   ],
   "incidents": [
+    {
+      "id": "2x7l06gjvv7n",
+      "name": "Global Droplet creation",
+      "status": "investigating",
+      "created_at": "2023-04-20T05:57:05.443Z",
+      "updated_at": "2023-04-20T05:57:05.526Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/5c8pxvslx8d4",
+      "started_at": "2023-04-20T05:57:05.432Z",
+      "page_id": "s2k7tnzlhrpw",
+      "incident_updates": [
+        {
+          "id": "3s7cjzllwn0g",
+          "status": "investigating",
+          "body": "As of 05:00 UTC, our Engineering team is investigating an issue with processing Droplet creation events across all regions. During this time users may experience latencies or failed events when creating Droplets. We apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "2x7l06gjvv7n",
+          "created_at": "2023-04-20T05:57:05.523Z",
+          "updated_at": "2023-04-20T05:57:05.523Z",
+          "display_at": "2023-04-20T05:57:05.523Z",
+          "affected_components": [
+            {
+              "code": "xc1fvcqsqp80",
+              "name": "Services - Droplets",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "7t9s4fqwl4pm",
+              "name": "Regions - Global",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "7t9s4fqwl4pm",
+          "name": "Global",
+          "status": "operational",
+          "created_at": "2017-02-17T21:44:07.397Z",
+          "updated_at": "2023-01-21T02:29:56.304Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "6ycn9yslydsq",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "xc1fvcqsqp80",
+          "name": "Droplets",
+          "status": "degraded_performance",
+          "created_at": "2017-02-17T21:40:23.067Z",
+          "updated_at": "2023-04-20T05:57:05.479Z",
+          "position": 10,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "9xmhrchbp51t",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "kcnsscw1cmsz",
       "name": "Subsea Fiber Faults in the APAC region",
@@ -1008,7 +1081,7 @@
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
