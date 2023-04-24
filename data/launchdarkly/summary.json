@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-04-24T01:11:51.805-07:00"
+    "updated_at": "2023-04-24T12:34:38.838-07:00"
   },
   "components": [
     {
@@ -251,7 +251,7 @@
     {
       "id": "2868qx437p9m",
       "name": "Feature management (non-core functionality)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-03-20T14:51:47.901-07:00",
       "updated_at": "2022-09-16T15:27:28.035-07:00",
       "position": 4,
@@ -272,9 +272,9 @@
     {
       "id": "g5bksjhndxmj",
       "name": "Flag usage metrics",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-08-30T10:10:07.695-07:00",
-      "updated_at": "2023-04-20T17:01:38.743-07:00",
+      "updated_at": "2023-04-24T12:34:38.801-07:00",
       "position": 4,
       "description": "Recording and displaying of data pertaining to your flag usage",
       "showcase": false,
@@ -393,7 +393,60 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "98yzqnms9cps",
+      "name": "Event processing delays",
+      "status": "investigating",
+      "created_at": "2023-04-24T12:34:38.775-07:00",
+      "updated_at": "2023-04-24T12:34:38.836-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/s18ym1w5f9r0",
+      "started_at": "2023-04-24T12:34:38.769-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "fvmfqb3gpgxt",
+          "status": "investigating",
+          "body": "We have identified a delay in our event processing for a minority of flag data. Flag Insights graphs may not be showing the most recent data. We are continuing to investigate this issue.",
+          "incident_id": "98yzqnms9cps",
+          "created_at": "2023-04-24T12:34:38.835-07:00",
+          "updated_at": "2023-04-24T12:34:38.835-07:00",
+          "display_at": "2023-04-24T12:34:38.835-07:00",
+          "affected_components": [
+            {
+              "code": "g5bksjhndxmj",
+              "name": "Feature management (non-core functionality) - Flag usage metrics",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "g5bksjhndxmj",
+          "name": "Flag usage metrics",
+          "status": "degraded_performance",
+          "created_at": "2018-08-30T10:10:07.695-07:00",
+          "updated_at": "2023-04-24T12:34:38.801-07:00",
+          "position": 4,
+          "description": "Recording and displaying of data pertaining to your flag usage",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "2868qx437p9m",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "r9h1bjqngbrd",
@@ -451,7 +504,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
