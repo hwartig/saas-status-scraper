@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-04-26T19:30:51.306Z"
+    "updated_at": "2023-04-26T20:21:58.568Z"
   },
   "components": [
     {
@@ -656,7 +656,7 @@
       "name": "Cloud Control Panel and API",
       "status": "identified",
       "created_at": "2023-04-26T18:42:41.179Z",
-      "updated_at": "2023-04-26T19:30:51.300Z",
+      "updated_at": "2023-04-26T20:21:58.557Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -664,6 +664,38 @@
       "started_at": "2023-04-26T18:42:41.168Z",
       "page_id": "s2k7tnzlhrpw",
       "incident_updates": [
+        {
+          "id": "c8cxh08y5xls",
+          "status": "identified",
+          "body": "Our Engineering team has observed multiple mitigation strategies resulting in lessening error rates for our Cloud Control Panel and API. At this time, we expect the majority of users to be able to access cloud.digitalocean.com and send API requests normally. Based on the recurrences we've observed so far, there may still be intermittent periods of failures until the situation is fully resolved.\n\nThank you for your patience.",
+          "incident_id": "5k1yppbhpsp8",
+          "created_at": "2023-04-26T20:21:57.441Z",
+          "updated_at": "2023-04-26T20:21:58.547Z",
+          "display_at": "2023-04-26T20:21:57.441Z",
+          "affected_components": [
+            {
+              "code": "1082j139b5bg",
+              "name": "Services - API",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "xymwmm4wsr4l",
+              "name": "Services - Cloud Control Panel",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "7t9s4fqwl4pm",
+              "name": "Regions - Global",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": 1651320737024848000
+        },
         {
           "id": "f2zfw5dr69j5",
           "status": "identified",
@@ -1164,135 +1196,7 @@
       ]
     }
   ],
-  "scheduled_maintenances": [
-    {
-      "id": "8y77c45ks3l9",
-      "name": "TOR1 Network Maintenance",
-      "status": "in_progress",
-      "created_at": "2023-04-21T12:58:23.086Z",
-      "updated_at": "2023-04-26T19:05:07.251Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/rx41dcx4jk3n",
-      "started_at": "2023-04-21T12:58:23.073Z",
-      "page_id": "s2k7tnzlhrpw",
-      "incident_updates": [
-        {
-          "id": "fnn6jkmbr5v1",
-          "status": "in_progress",
-          "body": "Given the issue occurring with our Cloud Control Panel and API, we have made the decision to delay this maintenance while all hands are on deck to mitigate the incident occurring here: https://status.digitalocean.com/incidents/5k1yppbhpsp8\n\nAs we know more, we'll update this page when we are able to start this maintenance, or if we need to reschedule this maintenance event. We appreciate your patience and understanding and apologize for the unexpected change.",
-          "incident_id": "8y77c45ks3l9",
-          "created_at": "2023-04-26T19:05:06.626Z",
-          "updated_at": "2023-04-26T19:05:07.248Z",
-          "display_at": "2023-04-26T19:05:06.626Z",
-          "affected_components": [
-            {
-              "code": "1f90pjx4y4jc",
-              "name": "Services - Networking",
-              "old_status": "under_maintenance",
-              "new_status": "operational"
-            },
-            {
-              "code": "c65109y4h6vk",
-              "name": "Regions - TOR1",
-              "old_status": "under_maintenance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1651301395801456600
-        },
-        {
-          "id": "4cntp4w900ck",
-          "status": "in_progress",
-          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
-          "incident_id": "8y77c45ks3l9",
-          "created_at": "2023-04-26T19:00:15.721Z",
-          "updated_at": "2023-04-26T19:00:16.343Z",
-          "display_at": "2023-04-26T19:00:15.721Z",
-          "affected_components": [
-            {
-              "code": "1f90pjx4y4jc",
-              "name": "Services - Networking",
-              "old_status": "operational",
-              "new_status": "under_maintenance"
-            },
-            {
-              "code": "c65109y4h6vk",
-              "name": "Regions - TOR1",
-              "old_status": "operational",
-              "new_status": "under_maintenance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1651300175758123000
-        },
-        {
-          "id": "rzn40hb5g4cy",
-          "status": "scheduled",
-          "body": "Start: 2023-04-26 19:00 UTC\nEnd:  2023-04-26 22:00 UTC\n\nDuring the above window, we will be performing maintenance on core network equipment in our TOR1 datacenter as part of network upgrade.\n\nExpected impact:\n\nThis maintenance is designed and tested to be seamless and we do not expect any impact to customer traffic during the maintenance period. If an unexpected issue arises, affected Droplets and Droplet-based services would experience a temporary loss of connectivity over the public network. Services in the TOR1 region could also experience issues with management of events such as power on/off, snapshots, and backups etc. We will endeavor to keep any such impact to a minimum.\n\nIf you have any questions related to this issue please send us a ticket from your cloud support page. https://cloudsupport.digitalocean.com/s/createticket",
-          "incident_id": "8y77c45ks3l9",
-          "created_at": "2023-04-21T12:58:23.139Z",
-          "updated_at": "2023-04-21T12:58:24.364Z",
-          "display_at": "2023-04-21T12:58:23.139Z",
-          "affected_components": [
-            {
-              "code": "1f90pjx4y4jc",
-              "name": "Services - Networking",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "c65109y4h6vk",
-              "name": "Regions - TOR1",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1649397169663918000
-        }
-      ],
-      "components": [
-        {
-          "id": "c65109y4h6vk",
-          "name": "TOR1",
-          "status": "operational",
-          "created_at": "2017-02-17T21:49:17.358Z",
-          "updated_at": "2023-04-26T19:05:06.581Z",
-          "position": 14,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "6ycn9yslydsq",
-          "page_id": "s2k7tnzlhrpw",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "1f90pjx4y4jc",
-          "name": "Networking",
-          "status": "operational",
-          "created_at": "2017-02-17T21:42:08.667Z",
-          "updated_at": "2023-04-26T19:05:06.598Z",
-          "position": 17,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "9xmhrchbp51t",
-          "page_id": "s2k7tnzlhrpw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2023-04-26T19:00:00.000Z",
-      "scheduled_until": "2023-04-26T22:00:00.000Z"
-    }
-  ],
+  "scheduled_maintenances": [],
   "status": {
     "indicator": "minor",
     "description": "Minor Service Outage"
