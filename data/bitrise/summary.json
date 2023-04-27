@@ -4,7 +4,7 @@
     "name": "Bitrise CI",
     "url": "https://status.bitrise.io",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-04-27T07:57:01.252Z"
+    "updated_at": "2023-04-27T11:06:01.167Z"
   },
   "components": [
     {
@@ -25,7 +25,7 @@
     {
       "id": "kx4q970bbvm5",
       "name": "Build Processing",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-10-31T16:03:35.403Z",
       "updated_at": "2020-12-08T18:09:35.841Z",
       "position": 1,
@@ -74,9 +74,9 @@
     {
       "id": "k4nmvg5qdmkf",
       "name": "Linux Stack (Android, web projects, ...)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-10-31T16:00:22.122Z",
-      "updated_at": "2023-02-08T16:48:30.780Z",
+      "updated_at": "2023-04-27T11:06:00.630Z",
       "position": 2,
       "description": "Builds on Linux platforms",
       "showcase": true,
@@ -499,10 +499,63 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "zj9cd0z0xh55",
+      "name": "Queues on the public Linux builds",
+      "status": "investigating",
+      "created_at": "2023-04-27T11:06:00.593Z",
+      "updated_at": "2023-04-27T11:06:01.160Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/mhvyntzsfs4n",
+      "started_at": "2023-04-27T11:06:00.584Z",
+      "page_id": "1q8r4n02vb2k",
+      "incident_updates": [
+        {
+          "id": "vnx2zn02kw3f",
+          "status": "investigating",
+          "body": "We are seeing really high queues on the public Linux builds. We are still investigating the root issue and will have further updates soon.",
+          "incident_id": "zj9cd0z0xh55",
+          "created_at": "2023-04-27T11:06:00.675Z",
+          "updated_at": "2023-04-27T11:06:01.153Z",
+          "display_at": "2023-04-27T11:06:00.675Z",
+          "affected_components": [
+            {
+              "code": "k4nmvg5qdmkf",
+              "name": "Build Processing - Linux Stack (Android, web projects, ...)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1651543213801619500
+        }
+      ],
+      "components": [
+        {
+          "id": "k4nmvg5qdmkf",
+          "name": "Linux Stack (Android, web projects, ...)",
+          "status": "degraded_performance",
+          "created_at": "2015-10-31T16:00:22.122Z",
+          "updated_at": "2023-04-27T11:06:00.630Z",
+          "position": 2,
+          "description": "Builds on Linux platforms",
+          "showcase": true,
+          "start_date": null,
+          "group_id": "kx4q970bbvm5",
+          "page_id": "1q8r4n02vb2k",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
