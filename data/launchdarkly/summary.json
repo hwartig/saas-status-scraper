@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-04-30T13:00:02.189-07:00"
+    "updated_at": "2023-04-30T17:07:18.193-07:00"
   },
   "components": [
     {
@@ -170,9 +170,9 @@
     {
       "id": "1skhs8zvnlm6",
       "name": "Experiment metric management",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-09-16T15:25:16.137-07:00",
-      "updated_at": "2022-09-16T15:25:39.976-07:00",
+      "updated_at": "2023-04-30T17:07:17.625-07:00",
       "position": 2,
       "description": "Creating and editing metrics",
       "showcase": true,
@@ -215,7 +215,7 @@
     {
       "id": "j28fw96kw68y",
       "name": "Experimentation (core functionality)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-09-16T15:24:04.061-07:00",
       "updated_at": "2022-09-16T15:27:28.028-07:00",
       "position": 3,
@@ -393,10 +393,63 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "bw5dr9gc10gc",
+      "name": "Experimentation metrics creation/modification unavailable for LaunchDarkly UI users",
+      "status": "investigating",
+      "created_at": "2023-04-30T17:07:17.602-07:00",
+      "updated_at": "2023-04-30T17:07:18.183-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/4pj4dwlxvnvn",
+      "started_at": "2023-04-30T17:07:17.596-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "tw4rdksdkpml",
+          "status": "investigating",
+          "body": "We have identified that creating or modifying experimentation metrics is currently unavailable for LaunchDarkly UI users. API users are unaffected.",
+          "incident_id": "bw5dr9gc10gc",
+          "created_at": "2023-04-30T17:07:17.654-07:00",
+          "updated_at": "2023-04-30T17:07:18.177-07:00",
+          "display_at": "2023-04-30T17:07:17.654-07:00",
+          "affected_components": [
+            {
+              "code": "1skhs8zvnlm6",
+              "name": "Experimentation (core functionality) - Experiment metric management",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1652826993845735400
+        }
+      ],
+      "components": [
+        {
+          "id": "1skhs8zvnlm6",
+          "name": "Experiment metric management",
+          "status": "degraded_performance",
+          "created_at": "2022-09-16T15:25:16.137-07:00",
+          "updated_at": "2023-04-30T17:07:17.625-07:00",
+          "position": 2,
+          "description": "Creating and editing metrics",
+          "showcase": true,
+          "start_date": "2022-09-16",
+          "group_id": "j28fw96kw68y",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
