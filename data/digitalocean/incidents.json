@@ -4,9 +4,103 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-05-02T08:07:56.387Z"
+    "updated_at": "2023-05-03T02:43:54.200Z"
   },
   "incidents": [
+    {
+      "id": "tlz48txf7jpt",
+      "name": "Spaces CDN Certificate and Load Balancer creates in AMS3 and SGP1",
+      "status": "investigating",
+      "created_at": "2023-05-03T02:26:27.794Z",
+      "updated_at": "2023-05-03T02:26:27.871Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/0f8wrddjc0wb",
+      "started_at": "2023-05-03T02:26:27.782Z",
+      "page_id": "s2k7tnzlhrpw",
+      "incident_updates": [
+        {
+          "id": "6l765wlgf329",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue with the SSL certificate on the Spaces CDN in our AMS3 and SGP1 regions.\n \nDuring this time, users with Spaces buckets not using a custom SSL certificate with the CDN will see SSL errors while viewing objects. \n\nDue to a dependency on the Spaces CDN, users may also see slow or failed creates for Load Balancers.\n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "tlz48txf7jpt",
+          "created_at": "2023-05-03T02:26:27.869Z",
+          "updated_at": "2023-05-03T02:26:27.869Z",
+          "display_at": "2023-05-03T02:26:27.869Z",
+          "affected_components": [
+            {
+              "code": "w7dvwpvd248r",
+              "name": "Services - Spaces CDN",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "3s5rmcxl95h0",
+              "name": "Regions - AMS3",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "nf94kg7630pr",
+              "name": "Regions - SGP1",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "3s5rmcxl95h0",
+          "name": "AMS3",
+          "status": "operational",
+          "created_at": "2017-02-17T21:46:05.294Z",
+          "updated_at": "2023-04-12T02:31:31.550Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "6ycn9yslydsq",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "nf94kg7630pr",
+          "name": "SGP1",
+          "status": "operational",
+          "created_at": "2017-02-17T21:49:07.673Z",
+          "updated_at": "2023-04-14T08:16:06.092Z",
+          "position": 13,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "6ycn9yslydsq",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "w7dvwpvd248r",
+          "name": "Spaces CDN",
+          "status": "degraded_performance",
+          "created_at": "2020-04-27T17:53:14.657Z",
+          "updated_at": "2023-05-03T02:26:27.829Z",
+          "position": 20,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "9xmhrchbp51t",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "kcnsscw1cmsz",
       "name": "Subsea Fiber Faults in the APAC region",
@@ -8046,131 +8140,6 @@
           "description": null,
           "showcase": false,
           "start_date": null,
-          "group_id": "9xmhrchbp51t",
-          "page_id": "s2k7tnzlhrpw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "w53hq58htzl5",
-      "name": "Functions through App Platform",
-      "status": "resolved",
-      "created_at": "2023-01-09T21:59:46.511Z",
-      "updated_at": "2023-01-09T23:11:55.335Z",
-      "monitoring_at": "2023-01-09T22:32:27.593Z",
-      "resolved_at": "2023-01-09T23:11:55.323Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/hryzv7n5l2x9",
-      "started_at": "2023-01-09T21:59:46.500Z",
-      "page_id": "s2k7tnzlhrpw",
-      "incident_updates": [
-        {
-          "id": "73gwtttczsbg",
-          "status": "resolved",
-          "body": "The Engineering team has confirmed that the issue with Functions through App Platform has now been fully resolved.  If you continue to see errors please open a ticket with our Support team and they will be happy to assist you.",
-          "incident_id": "w53hq58htzl5",
-          "created_at": "2023-01-09T23:11:55.323Z",
-          "updated_at": "2023-01-09T23:11:55.323Z",
-          "display_at": "2023-01-09T23:11:55.323Z",
-          "affected_components": [
-            {
-              "code": "vtmbhmvd5dqv",
-              "name": "Services - App Platform",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "7t9s4fqwl4pm",
-              "name": "Regions - Global",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2wq44f7jxchp",
-          "status": "monitoring",
-          "body": "Our Engineering team has implemented a fix to resolve the issue with Functions through App Platform and is monitoring the situation. We will post an update once we can fully confirm resolution.",
-          "incident_id": "w53hq58htzl5",
-          "created_at": "2023-01-09T22:32:27.593Z",
-          "updated_at": "2023-01-09T22:32:27.593Z",
-          "display_at": "2023-01-09T22:32:27.593Z",
-          "affected_components": [
-            {
-              "code": "vtmbhmvd5dqv",
-              "name": "Services - App Platform",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "7t9s4fqwl4pm",
-              "name": "Regions - Global",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nrjjfbymx6x5",
-          "status": "investigating",
-          "body": "Our Engineering team is investigating an issue with Functions through the App Platform system. At this time users will see 504 errors when processing Functions in Apps in all regions. We apologize for the disruption and will post an update with more information as soon as it is available.",
-          "incident_id": "w53hq58htzl5",
-          "created_at": "2023-01-09T21:59:46.613Z",
-          "updated_at": "2023-01-09T21:59:47.170Z",
-          "display_at": "2023-01-09T21:59:46.613Z",
-          "affected_components": [
-            {
-              "code": "vtmbhmvd5dqv",
-              "name": "Services - App Platform",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "7t9s4fqwl4pm",
-              "name": "Regions - Global",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1612569850223919000
-        }
-      ],
-      "components": [
-        {
-          "id": "7t9s4fqwl4pm",
-          "name": "Global",
-          "status": "operational",
-          "created_at": "2017-02-17T21:44:07.397Z",
-          "updated_at": "2023-04-27T21:57:20.997Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "6ycn9yslydsq",
-          "page_id": "s2k7tnzlhrpw",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "vtmbhmvd5dqv",
-          "name": "App Platform",
-          "status": "operational",
-          "created_at": "2020-10-06T12:31:55.370Z",
-          "updated_at": "2023-04-27T21:57:21.016Z",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": "2020-10-06",
           "group_id": "9xmhrchbp51t",
           "page_id": "s2k7tnzlhrpw",
           "group": false,

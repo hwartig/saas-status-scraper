@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-05-02T08:07:56.387Z"
+    "updated_at": "2023-05-03T02:43:54.200Z"
   },
   "components": [
     {
@@ -72,7 +72,7 @@
     {
       "id": "9xmhrchbp51t",
       "name": "Services",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-02-17T21:38:50.394Z",
       "updated_at": "2020-09-11T06:57:09.795Z",
       "position": 2,
@@ -592,9 +592,9 @@
     {
       "id": "w7dvwpvd248r",
       "name": "Spaces CDN",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-04-27T17:53:14.657Z",
-      "updated_at": "2022-11-28T22:56:09.606Z",
+      "updated_at": "2023-05-03T02:26:27.829Z",
       "position": 20,
       "description": null,
       "showcase": false,
@@ -650,7 +650,102 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "tlz48txf7jpt",
+      "name": "Spaces CDN Certificate and Load Balancer creates in AMS3 and SGP1",
+      "status": "investigating",
+      "created_at": "2023-05-03T02:26:27.794Z",
+      "updated_at": "2023-05-03T02:26:27.871Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/0f8wrddjc0wb",
+      "started_at": "2023-05-03T02:26:27.782Z",
+      "page_id": "s2k7tnzlhrpw",
+      "incident_updates": [
+        {
+          "id": "6l765wlgf329",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue with the SSL certificate on the Spaces CDN in our AMS3 and SGP1 regions.\n \nDuring this time, users with Spaces buckets not using a custom SSL certificate with the CDN will see SSL errors while viewing objects. \n\nDue to a dependency on the Spaces CDN, users may also see slow or failed creates for Load Balancers.\n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "tlz48txf7jpt",
+          "created_at": "2023-05-03T02:26:27.869Z",
+          "updated_at": "2023-05-03T02:26:27.869Z",
+          "display_at": "2023-05-03T02:26:27.869Z",
+          "affected_components": [
+            {
+              "code": "w7dvwpvd248r",
+              "name": "Services - Spaces CDN",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "3s5rmcxl95h0",
+              "name": "Regions - AMS3",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "nf94kg7630pr",
+              "name": "Regions - SGP1",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "3s5rmcxl95h0",
+          "name": "AMS3",
+          "status": "operational",
+          "created_at": "2017-02-17T21:46:05.294Z",
+          "updated_at": "2023-04-12T02:31:31.550Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "6ycn9yslydsq",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "nf94kg7630pr",
+          "name": "SGP1",
+          "status": "operational",
+          "created_at": "2017-02-17T21:49:07.673Z",
+          "updated_at": "2023-04-14T08:16:06.092Z",
+          "position": 13,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "6ycn9yslydsq",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "w7dvwpvd248r",
+          "name": "Spaces CDN",
+          "status": "degraded_performance",
+          "created_at": "2020-04-27T17:53:14.657Z",
+          "updated_at": "2023-05-03T02:26:27.829Z",
+          "position": 20,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "9xmhrchbp51t",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "90tn2w44xxdf",
@@ -729,7 +824,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
