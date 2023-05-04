@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-05-04T14:13:42.387-07:00"
+    "updated_at": "2023-05-04T15:51:26.341-07:00"
   },
   "components": [
     {
@@ -215,7 +215,7 @@
     {
       "id": "j28fw96kw68y",
       "name": "Experimentation (core functionality)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-09-16T15:24:04.061-07:00",
       "updated_at": "2022-09-16T15:27:28.028-07:00",
       "position": 3,
@@ -236,9 +236,9 @@
     {
       "id": "hf1r5xs02ll2",
       "name": "Experiment results processing",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-09-16T15:33:34.500-07:00",
-      "updated_at": "2023-05-01T20:47:33.899-07:00",
+      "updated_at": "2023-05-04T15:51:26.297-07:00",
       "position": 3,
       "description": "Ingestion and recording of experiment results",
       "showcase": true,
@@ -393,7 +393,60 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "vtkpfd3p0cp9",
+      "name": "Experimentation Results Processing Delay",
+      "status": "monitoring",
+      "created_at": "2023-05-04T15:51:26.272-07:00",
+      "updated_at": "2023-05-04T15:51:26.339-07:00",
+      "monitoring_at": "2023-05-04T15:51:26.332-07:00",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/px8195pfkk0l",
+      "started_at": "2023-05-04T15:51:26.265-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "9hhxj9jkw3xl",
+          "status": "monitoring",
+          "body": "We have identified a delay in our experimentation results. Results may be delayed by about 30 mins.",
+          "incident_id": "vtkpfd3p0cp9",
+          "created_at": "2023-05-04T15:51:26.332-07:00",
+          "updated_at": "2023-05-04T15:51:26.332-07:00",
+          "display_at": "2023-05-04T15:51:26.332-07:00",
+          "affected_components": [
+            {
+              "code": "hf1r5xs02ll2",
+              "name": "Experimentation (core functionality) - Experiment results processing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "hf1r5xs02ll2",
+          "name": "Experiment results processing",
+          "status": "degraded_performance",
+          "created_at": "2022-09-16T15:33:34.500-07:00",
+          "updated_at": "2023-05-04T15:51:26.297-07:00",
+          "position": 3,
+          "description": "Ingestion and recording of experiment results",
+          "showcase": true,
+          "start_date": "2022-09-16",
+          "group_id": "j28fw96kw68y",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "m7cvbfz4whbf",
@@ -505,7 +558,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
