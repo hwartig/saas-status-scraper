@@ -4,15 +4,88 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-05-08T21:44:06.084Z"
+    "updated_at": "2023-05-09T02:12:20.713Z"
   },
   "incidents": [
+    {
+      "id": "h6yw8yckkcth",
+      "name": "DNS Resolution in SFO1",
+      "status": "investigating",
+      "created_at": "2023-05-09T02:06:24.173Z",
+      "updated_at": "2023-05-09T02:06:24.241Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/fwy0d7vlkt42",
+      "started_at": "2023-05-09T02:06:24.164Z",
+      "page_id": "s2k7tnzlhrpw",
+      "incident_updates": [
+        {
+          "id": "nhrn5yzsgjwr",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating user reports of services in our SFO1 region being unable to complete DNS lookups/resolve domains. This includes running commands on Droplets that utilize DNS lookups, such as \"wget\" and \"apt update\", etc. Inbound network connections to services should still be operating normally. \n\nThank you for your patience as our team works to understand the root cause of the issue. We'll post an update once we have further information.",
+          "incident_id": "h6yw8yckkcth",
+          "created_at": "2023-05-09T02:06:24.239Z",
+          "updated_at": "2023-05-09T02:06:24.239Z",
+          "display_at": "2023-05-09T02:06:24.239Z",
+          "affected_components": [
+            {
+              "code": "yzksrkss544p",
+              "name": "Services - DNS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "mypfybvgyhrk",
+              "name": "Regions - SFO1",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "yzksrkss544p",
+          "name": "DNS",
+          "status": "degraded_performance",
+          "created_at": "2017-04-26T16:27:19.801Z",
+          "updated_at": "2023-05-09T02:06:24.200Z",
+          "position": 9,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "9xmhrchbp51t",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "mypfybvgyhrk",
+          "name": "SFO1",
+          "status": "degraded_performance",
+          "created_at": "2017-02-17T21:48:46.498Z",
+          "updated_at": "2023-05-09T02:12:20.620Z",
+          "position": 10,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "6ycn9yslydsq",
+          "page_id": "s2k7tnzlhrpw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "2pr0ttvbvjfd",
       "name": "Network Connectivity in SFO",
       "status": "monitoring",
       "created_at": "2023-05-08T19:11:42.691Z",
-      "updated_at": "2023-05-08T20:40:29.605Z",
+      "updated_at": "2023-05-09T02:12:20.704Z",
       "monitoring_at": "2023-05-08T20:40:29.589Z",
       "resolved_at": null,
       "impact": "minor",
@@ -20,6 +93,44 @@
       "started_at": "2023-05-08T19:11:42.679Z",
       "page_id": "s2k7tnzlhrpw",
       "incident_updates": [
+        {
+          "id": "mscc1yqh3h6v",
+          "status": "monitoring",
+          "body": "We have received numerous reports of DNS resolution issues in SFO1 and are now tracking that incident here: https://status.digitalocean.com/incidents/h6yw8yckkcth\n\nAt this time, we do not believe the DNS issues in SFO1 are related to this incident. Our upstream provider continues to work to fully resolve the issue, but traffic has remained shifted away from that provider, which mitigated user impact at 20:10 UTC. \n\nIf you continue to face network issues to services in SFO1, we invite you to submit a ticket with our Support team, who will be happy to assist.",
+          "incident_id": "2pr0ttvbvjfd",
+          "created_at": "2023-05-09T02:12:20.700Z",
+          "updated_at": "2023-05-09T02:12:20.700Z",
+          "display_at": "2023-05-09T02:12:20.700Z",
+          "affected_components": [
+            {
+              "code": "1f90pjx4y4jc",
+              "name": "Services - Networking",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "mypfybvgyhrk",
+              "name": "Regions - SFO1",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "8kndbnbgddpr",
+              "name": "Regions - SFO2",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "99gtwvvfhtyz",
+              "name": "Regions - SFO3",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "j9l6bpv1840t",
           "status": "monitoring",
@@ -103,7 +214,7 @@
           "name": "SFO1",
           "status": "degraded_performance",
           "created_at": "2017-02-17T21:48:46.498Z",
-          "updated_at": "2023-05-08T19:11:42.728Z",
+          "updated_at": "2023-05-09T02:12:20.620Z",
           "position": 10,
           "description": null,
           "showcase": false,
@@ -116,9 +227,9 @@
         {
           "id": "8kndbnbgddpr",
           "name": "SFO2",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-02-17T21:48:57.020Z",
-          "updated_at": "2023-05-08T19:11:42.747Z",
+          "updated_at": "2023-05-09T02:12:20.641Z",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -131,9 +242,9 @@
         {
           "id": "99gtwvvfhtyz",
           "name": "SFO3",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2020-05-12T19:05:08.138Z",
-          "updated_at": "2023-05-08T19:11:42.765Z",
+          "updated_at": "2023-05-09T02:12:20.661Z",
           "position": 12,
           "description": null,
           "showcase": false,
@@ -7989,131 +8100,6 @@
           "created_at": "2017-02-17T21:49:07.673Z",
           "updated_at": "2023-04-14T08:16:06.092Z",
           "position": 13,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "6ycn9yslydsq",
-          "page_id": "s2k7tnzlhrpw",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "1f90pjx4y4jc",
-          "name": "Networking",
-          "status": "degraded_performance",
-          "created_at": "2017-02-17T21:42:08.667Z",
-          "updated_at": "2023-05-08T19:11:42.782Z",
-          "position": 17,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "9xmhrchbp51t",
-          "page_id": "s2k7tnzlhrpw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "nyl4jc90qwy2",
-      "name": "Networking Connectivity in TOR1",
-      "status": "resolved",
-      "created_at": "2023-01-13T16:58:32.636Z",
-      "updated_at": "2023-01-13T17:53:02.060Z",
-      "monitoring_at": "2023-01-13T17:13:38.071Z",
-      "resolved_at": "2023-01-13T17:53:02.045Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/ky1hsc075ysk",
-      "started_at": "2023-01-13T16:58:32.627Z",
-      "page_id": "s2k7tnzlhrpw",
-      "incident_updates": [
-        {
-          "id": "7k8mfgj8m281",
-          "status": "resolved",
-          "body": "Our Engineering team has confirmed full resolution of the issue that impacted network reachability in our TOR1 region. All services and resources should now be fully reachable. \n\nIf you continue to experience problems, please open a ticket with our support team from within your Cloud Control Panel. Thank you for your patience and we apologize for any inconvenience.",
-          "incident_id": "nyl4jc90qwy2",
-          "created_at": "2023-01-13T17:53:02.045Z",
-          "updated_at": "2023-01-13T17:53:02.045Z",
-          "display_at": "2023-01-13T17:53:02.045Z",
-          "affected_components": [
-            {
-              "code": "1f90pjx4y4jc",
-              "name": "Services - Networking",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "c65109y4h6vk",
-              "name": "Regions - TOR1",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6sw62nkm8q06",
-          "status": "monitoring",
-          "body": "Our Engineering team has identified an issue that impacted network connectivity to the TOR1 region. Between 16:24  - 17:01 UTC, users may have noticed network reachability issues to Droplets and Droplet-based services, like Managed Kubernetes and  Database Clusters. The team has observed network stability after the initial outage.\n\nWe are monitoring the situation and will post an update once we confirm the issue is fully resolved.",
-          "incident_id": "nyl4jc90qwy2",
-          "created_at": "2023-01-13T17:13:38.071Z",
-          "updated_at": "2023-01-13T17:13:38.071Z",
-          "display_at": "2023-01-13T17:13:38.071Z",
-          "affected_components": [
-            {
-              "code": "1f90pjx4y4jc",
-              "name": "Services - Networking",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "c65109y4h6vk",
-              "name": "Regions - TOR1",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "58nj4ctq3z56",
-          "status": "investigating",
-          "body": "Our Engineering team is investigating an issue with network connectivity in our TOR1 region, beginning 16:24 UTC. At this time, users may see high amounts of packet loss, network timeouts, or increased latency to Droplets and Droplet-based services. \n\nWe'll post an update as soon as we have further information.",
-          "incident_id": "nyl4jc90qwy2",
-          "created_at": "2023-01-13T16:58:32.702Z",
-          "updated_at": "2023-01-13T16:58:32.702Z",
-          "display_at": "2023-01-13T16:58:32.702Z",
-          "affected_components": [
-            {
-              "code": "1f90pjx4y4jc",
-              "name": "Services - Networking",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "c65109y4h6vk",
-              "name": "Regions - TOR1",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "c65109y4h6vk",
-          "name": "TOR1",
-          "status": "operational",
-          "created_at": "2017-02-17T21:49:17.358Z",
-          "updated_at": "2023-05-03T20:17:32.949Z",
-          "position": 14,
           "description": null,
           "showcase": false,
           "start_date": null,
