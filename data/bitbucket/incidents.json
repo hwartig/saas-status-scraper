@@ -4,7 +4,7 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-05-21T08:15:59.035Z"
+    "updated_at": "2023-05-22T02:50:07.311Z"
   },
   "incidents": [
     {
@@ -142,9 +142,9 @@
     {
       "id": "10ws2wytyfl2",
       "name": "Git LFS and Pipelines artifacts capabilities degraded",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-05-15T03:39:20.998Z",
-      "updated_at": "2023-05-15T04:57:22.845Z",
+      "updated_at": "2023-05-22T02:50:07.308Z",
       "monitoring_at": "2023-05-15T04:12:08.947Z",
       "resolved_at": "2023-05-15T04:51:10.878Z",
       "impact": "critical",
@@ -152,6 +152,19 @@
       "started_at": "2023-05-15T03:39:20.991Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "t1cj3hd8vm67",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn May 15, 2023, between 02:36 and 04:08 UTC, Atlassian customers using Bitbucket, Confluence, Jira Align, Jira Service Management, Jira Software, Jira Work Management, Jira Product Discovery, and Atlas products with services hosted in the us-west-1 region were impacted by an incident related to the storing and retrieval of data assets, including media, attachments and build artifacts.\n\nThe event was triggered by a network migration of an internal service as part of an initiative to increase security by hardening partitions between network segments. The incident was detected within three minutes by automated monitoring and mitigated by a rollback of the change which put Atlassian systems into a known good state. The total time to resolution was about one hour and 32 minutes.\n\n### **IMPACT**\n\nThe impact across products was:\n\n* Bitbucket - Bitbucket Pipelines self-hosted builds were failing, access to Git LFS failed and cloud-hosted builds were delayed.\n* Confluence, Jira Align, Jira Service Management, Jira Software, Jira Work Management, Jira Product Discovery, and Atlas - media capabilities \\(images, videos, documents, audio\\) were affected and it was not possible to upload, download or view existing media attachments or files.\n\nThe service disruption lasted for one hour and 32 minutes between May 15, 2023, 02:36 and May 15, 2023, 04:08 UTC and caused service disruption to customers with services hosted in the us-west-1 region.\n\n### **ROOT CAUSE**\n\nThe issue was caused by an attempted migration of a service to a new network segment. As part of this migration, a DNS record pointing to the old network segment was not updated, which resulted in failure when the old network stack was removed. While we have a number of testing and preventative processes in place, this specific issue wasn’t identified as moving services across network segments is not a regular activity and is difficult to accurately replicate in a test environment. To mitigate against these types of issues, we made this change using blue/green deployment practices but failed to run adequate verification steps before decommissioning the old stack.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Reviewing our systems that decommission service stacks and implementing checks that customer traffic is no longer being served prior to decommissioning the stacks; and\n* As part of our service network migration process, we are adding steps to identify when there are associated DNS records that require attention.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "10ws2wytyfl2",
+          "created_at": "2023-05-22T02:49:57.765Z",
+          "updated_at": "2023-05-22T02:50:07.305Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "8fn9rfw7669r",
           "status": "resolved",
