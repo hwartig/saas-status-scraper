@@ -4,7 +4,7 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-05-25T08:14:04.204Z"
+    "updated_at": "2023-05-25T20:53:52.314Z"
   },
   "incidents": [
     {
@@ -1721,6 +1721,48 @@
           "only_show_if_degraded": false
         }
       ]
+    },
+    {
+      "id": "lvz7ycrpb5nx",
+      "name": "Intermittent Downtime for PITR Enabled Databases",
+      "status": "postmortem",
+      "created_at": "2023-04-27T21:00:00.000Z",
+      "updated_at": "2023-05-25T20:53:52.312Z",
+      "monitoring_at": null,
+      "resolved_at": "2023-04-27T21:00:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/5y7pqjmc3l5n",
+      "started_at": "2023-05-25T20:53:09.838Z",
+      "page_id": "tyfhm2rrt1tl",
+      "incident_updates": [
+        {
+          "id": "v2jfst5r5smy",
+          "status": "postmortem",
+          "body": "# Summary\n\nOn April 21st, 2023, Point-in-time Recovery \\(PITR\\) was released to eligible new databases. Backups taken for PITR had an incorrect networking configuration causing the backup job to attach itself into the routing layer as an eligible IP for database routing.\n\nNew connections to PITR-enabled databases would fail 50% of the time during the window where PITR backups were taken because they would be routed to the backup job that had did not have a database running.\n\n# Impact\n\n50% of new connections to PITR-enabled databases would fail if initiated while PITR backup job was running. The amount of time it takes for a backup to be created varies from 15 to 45 minutes, depending on the size of the database. Existing connections to databases \\(such as through connection pooling\\) were unaffected.\n\n# Root Cause\n\nRender Postgres Databases can be connected to by a stable internal service name \\(e.g. dpg-123abc\\) . This service name is managed by our cluster and ensures any changes to the database, such as the IP address are all reflected in the routing configuration for the database.\n\nPITR takes daily backups of the database to ensure we always have an accurate restore point to restore to if a restore is requested. This backup job was configured with a similar networking label configuration to the database. Our routing layer picked up this configuration and updated the service name to route to the running backup job as an additional IP address to route to.\n\nBecause this service was not a real database, new connections created to the database name would fail as they routed to the incorrect IP address.\n\n## Downtime When Rescheduling Backups\n\nBackups were disabled for affected databases until we could set them up to be scheduled during low traffic hours. When we enabled and rescheduled the backup, a backup job was immediately initiated causing downtime during business hours.\n\nOur scheduling system for asynchronous jobs, such as backups, immediately initiates a job outside of the scheduled window automatically if there was a recent missed run.\n\n## Time to Resolution\n\nWe had not seen an issue like this one before, so it took us time to identify the root cause. We observed changes in memory behavior, specifically the active page cache. We attempted to reproduce this behavior, but we realized we weren't taking into account other aspects of the outage, specifically that new connections were failing.\n\nGoing forward, we plan to use open source benchmarking tools that give us more information about our system, so we can debug more efficiently.\n\n# Mitigations\n\n## Completed\n\nThe network label configuration for the backup job has been updated to ensure it does not get picked up by our routing layer as an eligible service.\n\nDuring this incident some of our earlier communication indicated that problems were resolved before they were completed at our end which led to repeated issues for some users. We have tightened up the process by which we will share updates for incidents to address this.\n\n## Planned\n\n* Set up more specific network label configurations for the database routing layer that would ensure we do not add ineligible IPs to the service configuration.\n* Reschedule asynchronous jobs for the next scheduled window when a job is skipped instead of running immediately.\n* Use open source benchmarking software to benchmark and re-create customer noticed issues.",
+          "incident_id": "lvz7ycrpb5nx",
+          "created_at": "2023-05-25T20:53:41.541Z",
+          "updated_at": "2023-05-25T20:53:52.311Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "k0v47hb8yf47",
+          "status": "resolved",
+          "body": "Intermittent downtime for PITR enabled databases",
+          "incident_id": "lvz7ycrpb5nx",
+          "created_at": "2023-05-25T20:53:09.884Z",
+          "updated_at": "2023-05-25T20:53:09.884Z",
+          "display_at": "2023-04-27T21:00:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": []
     },
     {
       "id": "lgpbhdpgk29v",
@@ -5782,98 +5824,6 @@
         }
       ],
       "components": []
-    },
-    {
-      "id": "k1l75m38799k",
-      "name": "Dashboard hanging",
-      "status": "resolved",
-      "created_at": "2022-12-16T23:29:37.591Z",
-      "updated_at": "2022-12-17T00:18:55.310Z",
-      "monitoring_at": "2022-12-16T23:43:14.552Z",
-      "resolved_at": "2022-12-17T00:18:54.945Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/gdtlgm9ngg0q",
-      "started_at": "2022-12-16T23:29:37.585Z",
-      "page_id": "tyfhm2rrt1tl",
-      "incident_updates": [
-        {
-          "id": "7pkh8520l1z2",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "k1l75m38799k",
-          "created_at": "2022-12-17T00:18:54.945Z",
-          "updated_at": "2022-12-17T00:18:55.306Z",
-          "display_at": "2022-12-17T00:18:54.945Z",
-          "affected_components": [
-            {
-              "code": "j45c7rjc3n51",
-              "name": "Render Dashboard",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1603907556128489500
-        },
-        {
-          "id": "d8k101bdzlsj",
-          "status": "monitoring",
-          "body": "We are currently seeing recovery and the dashboard is now loading resources. We are monitoring the issue.",
-          "incident_id": "k1l75m38799k",
-          "created_at": "2022-12-16T23:43:14.552Z",
-          "updated_at": "2022-12-16T23:43:15.058Z",
-          "display_at": "2022-12-16T23:43:14.552Z",
-          "affected_components": [
-            {
-              "code": "j45c7rjc3n51",
-              "name": "Render Dashboard",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1603898579223220200
-        },
-        {
-          "id": "9h8h42hswsz4",
-          "status": "investigating",
-          "body": "We are aware of issues with the dashboard not loading resources. We are currently investigating.",
-          "incident_id": "k1l75m38799k",
-          "created_at": "2022-12-16T23:29:37.643Z",
-          "updated_at": "2022-12-16T23:29:37.983Z",
-          "display_at": "2022-12-16T23:29:37.643Z",
-          "affected_components": [
-            {
-              "code": "j45c7rjc3n51",
-              "name": "Render Dashboard",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1603895152271319000
-        }
-      ],
-      "components": [
-        {
-          "id": "j45c7rjc3n51",
-          "name": "Render Dashboard",
-          "status": "operational",
-          "created_at": "2019-02-08T22:32:29.843Z",
-          "updated_at": "2023-05-23T17:01:03.762Z",
-          "position": 1,
-          "description": "dashboard.render.com",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
     }
   ]
 }
