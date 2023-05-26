@@ -4,7 +4,7 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-05-25T07:21:36.375-07:00"
+    "updated_at": "2023-05-26T00:56:45.489-07:00"
   },
   "components": [
     {
@@ -205,9 +205,9 @@
     {
       "id": "821z1tygvvpf",
       "name": "Cloud Routing",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-10-28T04:32:57.526-07:00",
-      "updated_at": "2023-05-25T07:21:36.327-07:00",
+      "updated_at": "2023-05-26T00:56:45.455-07:00",
       "position": 14,
       "description": "GraphOS Cloud supergraphs hosted on Apollo infrastructure",
       "showcase": true,
@@ -218,10 +218,63 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "s9hjpnj6vl4s",
+      "name": "Cloud Router Provisioning Interruption",
+      "status": "identified",
+      "created_at": "2023-05-26T00:56:45.431-07:00",
+      "updated_at": "2023-05-26T00:56:45.487-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/c57vh9z5gt55",
+      "started_at": "2023-05-26T00:56:45.427-07:00",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "34br4wnbw456",
+          "status": "identified",
+          "body": "We are experiencing issues with the creation and update of Cloud Routers due to an upstream hosting provider interruption. Provisioned Cloud Routers are currently stable and serving traffic as usual. Endpoint availability is also not affected by this issue. Our team is closely monitoring the situation, and we will provide updates as soon as the service is stable. Thank you for your patience.",
+          "incident_id": "s9hjpnj6vl4s",
+          "created_at": "2023-05-26T00:56:45.485-07:00",
+          "updated_at": "2023-05-26T00:56:45.485-07:00",
+          "display_at": "2023-05-26T00:56:45.485-07:00",
+          "affected_components": [
+            {
+              "code": "821z1tygvvpf",
+              "name": "Cloud Routing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "821z1tygvvpf",
+          "name": "Cloud Routing",
+          "status": "degraded_performance",
+          "created_at": "2022-10-28T04:32:57.526-07:00",
+          "updated_at": "2023-05-26T00:56:45.455-07:00",
+          "position": 14,
+          "description": "GraphOS Cloud supergraphs hosted on Apollo infrastructure",
+          "showcase": true,
+          "start_date": "2022-10-03",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
