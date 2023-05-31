@@ -4,9 +4,61 @@
     "name": "Jira Software",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-05-30T03:07:47.064Z"
+    "updated_at": "2023-05-31T22:56:11.665Z"
   },
   "incidents": [
+    {
+      "id": "0sf9mc56rn97",
+      "name": "Issues with User Search for some APAC users",
+      "status": "investigating",
+      "created_at": "2023-05-31T22:56:06.845Z",
+      "updated_at": "2023-05-31T22:56:11.660Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/7glx0jkn0tm6",
+      "started_at": "2023-05-31T22:56:06.841Z",
+      "page_id": "7yh3h3y0c0x1",
+      "incident_updates": [
+        {
+          "id": "9r10q8tftcdv",
+          "status": "investigating",
+          "body": "We are investigating an issue with User Search that is impacting some APAC Jira Cloud customers. We will provide more details within the next hour.",
+          "incident_id": "0sf9mc56rn97",
+          "created_at": "2023-05-31T22:56:06.895Z",
+          "updated_at": "2023-05-31T22:56:06.895Z",
+          "display_at": "2023-05-31T22:56:06.895Z",
+          "affected_components": [
+            {
+              "code": "sv1xfn9br170",
+              "name": "Search",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "sv1xfn9br170",
+          "name": "Search",
+          "status": "partial_outage",
+          "created_at": "2019-01-07T07:51:29.410Z",
+          "updated_at": "2023-05-31T22:56:06.868Z",
+          "position": 4,
+          "description": "Problems with JQL or quick search",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "7yh3h3y0c0x1",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "2wywflq010m9",
       "name": "Unable to rank issues by drag and drop in backlog",
@@ -953,9 +1005,9 @@
         {
           "id": "sv1xfn9br170",
           "name": "Search",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2019-01-07T07:51:29.410Z",
-          "updated_at": "2023-04-13T09:14:40.850Z",
+          "updated_at": "2023-05-31T22:56:06.868Z",
           "position": 4,
           "description": "Problems with JQL or quick search",
           "showcase": false,
@@ -2958,9 +3010,9 @@
         {
           "id": "sv1xfn9br170",
           "name": "Search",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2019-01-07T07:51:29.410Z",
-          "updated_at": "2023-04-13T09:14:40.850Z",
+          "updated_at": "2023-05-31T22:56:06.868Z",
           "position": 4,
           "description": "Problems with JQL or quick search",
           "showcase": false,
@@ -4347,9 +4399,9 @@
         {
           "id": "sv1xfn9br170",
           "name": "Search",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2019-01-07T07:51:29.410Z",
-          "updated_at": "2023-04-13T09:14:40.850Z",
+          "updated_at": "2023-05-31T22:56:06.868Z",
           "position": 4,
           "description": "Problems with JQL or quick search",
           "showcase": false,
@@ -5319,196 +5371,6 @@
         }
       ],
       "components": []
-    },
-    {
-      "id": "0m3mhynf49tq",
-      "name": "Issues with incoming mail handlers duplicating",
-      "status": "postmortem",
-      "created_at": "2022-06-23T19:44:00.135Z",
-      "updated_at": "2022-07-12T03:01:19.753Z",
-      "monitoring_at": "2022-06-23T19:44:00.180Z",
-      "resolved_at": "2022-06-30T05:45:29.000Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/7wjqzq4fls15",
-      "started_at": "2022-06-23T19:44:00.128Z",
-      "page_id": "7yh3h3y0c0x1",
-      "incident_updates": [
-        {
-          "id": "9f8fqtczn7d4",
-          "status": "postmortem",
-          "body": "### **SUMMARY**\n\nOn 23 June, 2022, between 07:00 UTC and 07:45 UTC, some of our customers using Jira Service Management, Jira Software & Jira Work Management were seeing duplicate issues and comments being created by the Incoming Email Handlers feature in Jira. Incoming email handlers are configured in Jira to create issues or comments in any Jira project from emails via a cron job. Handlers are mapped with POP, IMAP and default mail servers. This incident only affected handlers mapped to IMAP mailboxes.\n\nThe incident was triggered by the introduction of a new state in emails' read status \\(“seen”\\). The Incoming Email Handlers started to process all emails that were not “deleted” or “read”, including emails marked in a “seen” state. This created duplicate issues and comments. \n\nThe incident was detected by customers and our on-call engineers responded approximately 4 hours after impact began. The team was able to identify the root cause and verified that there was no risk of ongoing impact. Over the following 7 days, our engineers monitored the situation and worked to help affected customers identify and action their duplicate issues and comments.\n\n### **IMPACT**\n\nIncoming mail handlers which were configured with IMAP mail servers reprocessed emails for the last 7 days that had been marked as \"seen\" but not \"deleted\".\n\nThe overall impact was between 23 June, 2022, 07:00 UTC and 30 June, 2022, 04:17 UTC. The incident did not cause service disruption in any region, for any customers. There was an impact to the expected behaviour of Incoming Email Handlers. Specifically, the features below were impacted during this time:\n\nAffected Products:\n\n* Jira Service Management\n* Jira Software\n* Jira Work Management\n\nImpacted Features:\n\n* Global email handlers were impacted.\n* Incoming emails were processed twice as issues.\n* Incoming emails were processed twice as comments.\n\nProject level email handlers were NOT impacted in Jira Service Management.\n\n### **ROOT CAUSE**\n\nWhile rolling back a feature that impacted the processing of attachments in incoming emails, the email-handling cron processed the mails from customers’ inboxes that had been marked as “seen” over the last 7 days, followed by marking them as “deleted”.\n\nGlobal Jira Incoming Mail Handlers configured for IMAP marked the mails as “deleted” after they had been processed. The Jira team was working on a functionality change to start marking mail processed by the Global Jira Incoming Mail Handlers as “seen” instead of “deleted”. This would allow the customers to configure IMAP connections for mail processors other than Jira as well. Due to a bug in one of the open-source libraries used by Jira to process emails, we started to notice that attachments from these emails stopped getting processed.\n\nTo mitigate the issue, it was decided to rollback the change in functionality until the attachments issue was resolved. Unfortunately, the rollback triggered the email-handling cron to reprocess the mails from customers' inboxes that had been marked as “seen” over the last 7 days, followed by marking them as “deleted”. Since this processing is not idempotent \\(such that a mail with a unique identifier is processed only once\\), we ended up creating duplicate issues and comments for all such mails processed over the last 7 days from the feature rollback. We could not immediately delete all these duplicated issues because we are not allowed to modify customer data without explicit consent and customers could have configured automation, webhooks or workflows for issue-deletion that could potentially create an unreliable or inconsistent state for the customers.\n\nWe decided to proactively create support tickets for all customers over the next few days to communicate the situation, presenting mitigation options such as:\n\n* sharing a JQL to query all the potentially duplicate issues across all the affected projects in JSW, JSM or JWM\n* a script to label the duplicated issues with \"Duplicated-issues-#-Atlassian\" that were created in their instance\n* steps for deleting issues in bulk\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe apologise to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s reliability.\n\nWhile we have a number of tests in place, we have identified multiple things we can do to prevent duplication of issues/comments creation via incoming emails. We are prioritising the following improvement actions to avoid repeating this type of incident:\n\n* Improvement to the Quality Assurance process while rolling back changes on production instances.\n* Improve monitoring of alerts for the duplication of issues and comments for automatic detection of anomalies in the Email handling process.\n* Make mail processing by incoming mails Idempotent. It should not process a mail with the same identifier \\( messageId \\) again. In this case, even if some other issues triggers the reprocessing of the email, duplication of issue or comments will be avoided.\n\nThanks,\n\nAtlassian Customer Support",
-          "incident_id": "0m3mhynf49tq",
-          "created_at": "2022-07-12T03:01:05.779Z",
-          "updated_at": "2022-07-12T03:01:19.751Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7686htddjt0j",
-          "status": "resolved",
-          "body": "We have reached out to all affected customers on this incident. For a large majority, we have provide their duplicated issue keys to identify and take corrective action. There is a small percentage of affected customers that we are in contact with to provide further analysis on their duplicated tickets.\n\nWe are continuing to assist any customers that require additional information or any related queries on this incident. Please reply through your ticket and our support team will be happy to assist you. The issue has been resolved and the service is operating normally.",
-          "incident_id": "0m3mhynf49tq",
-          "created_at": "2022-06-30T05:45:29.200Z",
-          "updated_at": "2022-06-30T06:11:49.592Z",
-          "display_at": "2022-06-30T05:45:29.000Z",
-          "affected_components": [
-            {
-              "code": "b01bgtvb4q2j",
-              "name": "Create and edit",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6rrzt9k1jfgn",
-          "status": "monitoring",
-          "body": "We continue to work with the affected customers.\n\nIf you have identified duplicated issues created via a mail handler and you need assistance deleting them, please reply through your ticket and our support team will be happy to assist you.\n\nAdditionally, If you are affected and still have not received the ticket, review your spam folder, or please reach out to our support team via https://support.atlassian.com/contact and add the tag [Mail handler duplicate] to your ticket description so we can quickly engage with you on the ticket.",
-          "incident_id": "0m3mhynf49tq",
-          "created_at": "2022-06-29T15:23:55.683Z",
-          "updated_at": "2022-06-29T15:23:55.683Z",
-          "display_at": "2022-06-29T15:23:55.683Z",
-          "affected_components": [
-            {
-              "code": "b01bgtvb4q2j",
-              "name": "Create and edit",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wl5tfkpp32yq",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues.\n\nIf you have identified duplicated issues created via a mail handler and you need assistance deleting them, please reach out to our support team so that our engineers can work with you. If possible add the tag [Mail handler duplicate] to your ticket description so we can quickly identify these tickets.\n\nIf you need assistance and have been contacted please reply through your ticket and our support team will be happy to assist you.",
-          "incident_id": "0m3mhynf49tq",
-          "created_at": "2022-06-28T19:35:21.539Z",
-          "updated_at": "2022-06-28T19:35:21.539Z",
-          "display_at": "2022-06-28T19:35:21.539Z",
-          "affected_components": [
-            {
-              "code": "b01bgtvb4q2j",
-              "name": "Create and edit",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "f82vx7dx50mg",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues.",
-          "incident_id": "0m3mhynf49tq",
-          "created_at": "2022-06-28T14:30:07.363Z",
-          "updated_at": "2022-06-28T14:30:07.363Z",
-          "display_at": "2022-06-28T14:30:07.363Z",
-          "affected_components": [
-            {
-              "code": "b01bgtvb4q2j",
-              "name": "Create and edit",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gpv47xbs2srn",
-          "status": "monitoring",
-          "body": "We have now reached out to all the affected customers, through support ticket, who are impacted by this incident.\n\nIf you have identified duplicated issues created via a mail handler and you need assistance deleting them, please reach out to your support team so that our engineers can work with you. If possible add the tag [Mail handler duplicate] to your ticket description so we can quickly identify these tickets.",
-          "incident_id": "0m3mhynf49tq",
-          "created_at": "2022-06-28T12:33:02.202Z",
-          "updated_at": "2022-06-28T12:33:02.202Z",
-          "display_at": "2022-06-28T12:33:02.202Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9h5nzw6k4wtv",
-          "status": "monitoring",
-          "body": "We have identified a way to address the issues that were duplicated before our fix was rolled out. We will be reaching out to the impacted customers.\n\nIf you have identified duplicated issues created via a mail handler and you need assistance deleting them, please reach out to your support team so that our engineers can work with you. If possible add the tag [Mail handler duplicate] to your ticket description so we can quickly identify these tickets.",
-          "incident_id": "0m3mhynf49tq",
-          "created_at": "2022-06-27T09:02:17.075Z",
-          "updated_at": "2022-06-27T09:02:17.075Z",
-          "display_at": "2022-06-27T09:02:17.075Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "x85snm6c9l86",
-          "status": "monitoring",
-          "body": "We continue to work on addressing issues that were duplicated before our fix was rolled out. We have identified the impacted customers and will be reaching out to them on priority.\n\nIf you have identified duplicated issues created via a mail handler and you need assistance deleting them, please reach out to your support team so that our engineers can work with you. If possible add the tag [Mail handler duplicate] to your ticket description so we can quickly identify these tickets.",
-          "incident_id": "0m3mhynf49tq",
-          "created_at": "2022-06-24T11:32:12.238Z",
-          "updated_at": "2022-06-24T11:32:12.238Z",
-          "display_at": "2022-06-24T11:32:12.238Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4m6kn4d1pq7x",
-          "status": "monitoring",
-          "body": "We are currently working at addressing issues that were duplicated before our fix was rolled out.\n\nIf you have identified duplicated issues created via a mail handler and you need assistance deleting them, please reach out to your support team so that our engineers can work with you. If possible add the tag [Mail handler duplicate] to your ticket description so we can quickly identify these tickets.",
-          "incident_id": "0m3mhynf49tq",
-          "created_at": "2022-06-24T01:22:15.106Z",
-          "updated_at": "2022-06-24T01:22:15.106Z",
-          "display_at": "2022-06-24T01:22:15.106Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qpm40mx810m8",
-          "status": "monitoring",
-          "body": "We are investigating an issue with incoming mail handlers creating duplicated issues that is impacting a small number of Jira Cloud and Jira Service Management customers. We have identified the root cause of this error and have mitigated the problem. We are now monitoring closely.\n\nIf you have identified duplicated issues created via a mail handler and you need assistance deleting them, please reach out to your support team so that our engineers can work with you. If possible add the tag [Mail handler duplicate] to your ticket description so we can quickly identify these tickets.",
-          "incident_id": "0m3mhynf49tq",
-          "created_at": "2022-06-23T19:44:00.180Z",
-          "updated_at": "2022-06-23T19:44:00.180Z",
-          "display_at": "2022-06-23T19:44:00.180Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "b01bgtvb4q2j",
-          "name": "Create and edit",
-          "status": "operational",
-          "created_at": "2019-01-07T07:49:50.950Z",
-          "updated_at": "2023-05-30T02:45:55.134Z",
-          "position": 2,
-          "description": "Problems creating or editing issues, projects, boards, reports, dashboards and the ability to comment, assign, and attach media.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
     }
   ]
 }
