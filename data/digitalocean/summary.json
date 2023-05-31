@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-05-30T08:01:34.566Z"
+    "updated_at": "2023-05-31T01:47:42.700Z"
   },
   "components": [
     {
@@ -85,9 +85,9 @@
     {
       "id": "p1x9rv4137gx",
       "name": "API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-03-06T18:42:45.160Z",
-      "updated_at": "2023-05-10T01:47:02.557Z",
+      "updated_at": "2023-05-31T01:05:39.951Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -565,9 +565,9 @@
     {
       "id": "tz43j53blsmy",
       "name": "NYC3",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T17:38:11.758Z",
-      "updated_at": "2023-04-21T19:11:15.619Z",
+      "updated_at": "2023-05-31T01:05:39.963Z",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -2190,9 +2190,9 @@
     {
       "id": "r59jnkcnpy5w",
       "name": "SFO2",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2023-03-28T20:58:27.200Z",
-      "updated_at": "2023-04-21T19:05:25.239Z",
+      "updated_at": "2023-05-31T01:30:18.311Z",
       "position": 11,
       "description": null,
       "showcase": false,
@@ -2775,7 +2775,7 @@
     {
       "id": "sjlhrm4vf4pr",
       "name": "Networking",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2023-02-22T19:29:09.360Z",
       "updated_at": "2023-04-21T16:18:17.261Z",
       "position": 17,
@@ -2866,7 +2866,7 @@
     {
       "id": "fdg768pfw7v3",
       "name": "Spaces",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T19:29:09.025Z",
       "updated_at": "2023-04-21T16:18:17.291Z",
       "position": 20,
@@ -2973,10 +2973,185 @@
       ]
     }
   ],
-  "incidents": [],
-  "scheduled_maintenances": [],
+  "incidents": [
+    {
+      "id": "vmxnj2vv4k9k",
+      "name": "Spaces API Availability in NYC3",
+      "status": "monitoring",
+      "created_at": "2023-05-31T01:05:39.926Z",
+      "updated_at": "2023-05-31T01:47:42.697Z",
+      "monitoring_at": "2023-05-31T01:47:42.684Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/3thw06brccr3",
+      "started_at": "2023-05-31T01:05:39.919Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "97n41rqy73wy",
+          "status": "monitoring",
+          "body": "Our Engineering team has observed recovery of availability for Spaces in our NYC3 region. \n\nAvailability returned to 100% at 00:57 UTC and since then, users should not be experiencing any issues with Spaces or App Platform. \n\nWe'll now monitor the situation for a period of time and post a final update once we confirm the incident is resolved.",
+          "incident_id": "vmxnj2vv4k9k",
+          "created_at": "2023-05-31T01:47:42.684Z",
+          "updated_at": "2023-05-31T01:47:42.684Z",
+          "display_at": "2023-05-31T01:47:42.684Z",
+          "affected_components": [
+            {
+              "code": "tz43j53blsmy",
+              "name": "Spaces - NYC3",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "p1x9rv4137gx",
+              "name": "API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "vl382hlkbk8y",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating a drop in availability for Spaces in our NYC region. During this time, some users may experience errors with API or object requests, be unable to create new buckets in NYC3, and/or see issues with loading Spaces in the Cloud Control Panel. \n\nAdditionally, users of App Platform will be unable to see bandwidth insights in their dashboards and static site users may notice errors fetching assets from Spaces buckets in NYC3. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "vmxnj2vv4k9k",
+          "created_at": "2023-05-31T01:05:40.001Z",
+          "updated_at": "2023-05-31T01:17:43.144Z",
+          "display_at": "2023-05-31T01:05:40.000Z",
+          "affected_components": [
+            {
+              "code": "tz43j53blsmy",
+              "name": "Spaces - NYC3",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "p1x9rv4137gx",
+              "name": "API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "p1x9rv4137gx",
+          "name": "API",
+          "status": "degraded_performance",
+          "created_at": "2023-03-06T18:42:45.160Z",
+          "updated_at": "2023-05-31T01:05:39.951Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "tz43j53blsmy",
+          "name": "NYC3",
+          "status": "degraded_performance",
+          "created_at": "2023-02-22T17:38:11.758Z",
+          "updated_at": "2023-05-31T01:05:39.963Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-22",
+          "group_id": "fdg768pfw7v3",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
+  "scheduled_maintenances": [
+    {
+      "id": "4rf2j2dmc382",
+      "name": "SFO2 Network Maintenance",
+      "status": "in_progress",
+      "created_at": "2023-05-31T01:26:14.709Z",
+      "updated_at": "2023-05-31T01:30:19.704Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/x7lkxkc9r3tk",
+      "started_at": "2023-05-31T01:26:14.701Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "pb29l19htfx9",
+          "status": "in_progress",
+          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
+          "incident_id": "4rf2j2dmc382",
+          "created_at": "2023-05-31T01:30:19.700Z",
+          "updated_at": "2023-05-31T01:30:19.700Z",
+          "display_at": "2023-05-31T01:30:19.700Z",
+          "affected_components": [
+            {
+              "code": "r59jnkcnpy5w",
+              "name": "Networking - SFO2",
+              "old_status": "operational",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "mbpq4zmb6hv2",
+          "status": "scheduled",
+          "body": "Start: 2023-05-31 01:00 UTC\nEnd: 2023-05-31 05:00 UTC\n\n\nDuring the above window, our Networking team will be making changes to our core networking infrastructure to improve performance and scalability in the SFO2 region. This maintenance will occur in two parts on consecutive days and we will send another maintenance notice for the second phase. \n\nExpected Impact:\n\nThese upgrades are designed and tested to be seamless and we do not expect any impact to customer traffic due to this maintenance. If an unexpected issue arises, affected Droplets and Droplet-based services may experience a temporary loss of private connectivity between VPCs. We will endeavor to keep any such impact to a minimum.\n\nIf you have any questions or concerns regarding this maintenance, please reach out to us by opening up a ticket on your account via https://cloudsupport.digitalocean.com/s/createticket .\n\nThank you,\nTeam DigitalOcean",
+          "incident_id": "4rf2j2dmc382",
+          "created_at": "2023-05-31T01:26:14.778Z",
+          "updated_at": "2023-05-31T01:26:14.778Z",
+          "display_at": "2023-05-31T01:26:14.778Z",
+          "affected_components": [
+            {
+              "code": "r59jnkcnpy5w",
+              "name": "Networking - SFO2",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "r59jnkcnpy5w",
+          "name": "SFO2",
+          "status": "under_maintenance",
+          "created_at": "2023-03-28T20:58:27.200Z",
+          "updated_at": "2023-05-31T01:30:18.311Z",
+          "position": 11,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-28",
+          "group_id": "sjlhrm4vf4pr",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2023-05-31T01:30:00.000Z",
+      "scheduled_until": "2023-05-31T05:30:00.000Z"
+    }
+  ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
