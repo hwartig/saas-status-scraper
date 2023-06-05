@@ -4,7 +4,7 @@
     "name": "Zoom",
     "url": "https://status.zoom.us",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-06-03T16:54:32.301-07:00"
+    "updated_at": "2023-06-04T21:40:40.638-07:00"
   },
   "components": [
     {
@@ -2554,7 +2554,7 @@
     {
       "id": "6np407v7v25g",
       "name": "Zoom Meetings",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-05-03T10:27:40.432-07:00",
       "updated_at": "2023-03-31T11:47:27.795-07:00",
       "position": 17,
@@ -2576,8 +2576,24 @@
         "ntdt65v1f9rv",
         "3ml2fn8g0psv",
         "gkx8x46kw77h",
-        "tj58619r2mcm"
+        "tj58619r2mcm",
+        "slryp41hcm02"
       ]
+    },
+    {
+      "id": "slryp41hcm02",
+      "name": "Offline Audio Transcription",
+      "status": "degraded_performance",
+      "created_at": "2023-06-04T21:37:15.976-07:00",
+      "updated_at": "2023-06-04T21:39:01.751-07:00",
+      "position": 17,
+      "description": null,
+      "showcase": false,
+      "start_date": "2023-06-04",
+      "group_id": "6np407v7v25g",
+      "page_id": "14qjgk812kgk",
+      "group": false,
+      "only_show_if_degraded": false
     },
     {
       "id": "fs7vxs27n4pn",
@@ -2938,7 +2954,60 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "dqg7fblzk6f8",
+      "name": "A subset of users may face issues with offline Audio transcription",
+      "status": "investigating",
+      "created_at": "2023-06-04T21:39:01.728-07:00",
+      "updated_at": "2023-06-04T21:40:40.633-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/qy9wkw61c49z",
+      "started_at": "2023-06-04T21:39:01.000-07:00",
+      "page_id": "14qjgk812kgk",
+      "incident_updates": [
+        {
+          "id": "f6tnqrgn9pmv",
+          "status": "investigating",
+          "body": "Our monitoring has detected service degradation where the Zoom's offline Audio transcription is impacted. Our engineers are currently investigating the impact and root cause. Zoom will provide updates as soon as there is more information to share.",
+          "incident_id": "dqg7fblzk6f8",
+          "created_at": "2023-06-04T21:39:01.789-07:00",
+          "updated_at": "2023-06-04T21:40:40.581-07:00",
+          "display_at": "2023-06-04T21:39:01.000-07:00",
+          "affected_components": [
+            {
+              "code": "slryp41hcm02",
+              "name": "Zoom Meetings - Offline Audio Transcription",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "slryp41hcm02",
+          "name": "Offline Audio Transcription",
+          "status": "degraded_performance",
+          "created_at": "2023-06-04T21:37:15.976-07:00",
+          "updated_at": "2023-06-04T21:39:01.751-07:00",
+          "position": 17,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-06-04",
+          "group_id": "6np407v7v25g",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "2j0f56pvt63z",
@@ -3295,7 +3364,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
