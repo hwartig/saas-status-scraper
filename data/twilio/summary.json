@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-06-05T16:22:52.068-07:00"
+    "updated_at": "2023-06-05T17:18:37.162-07:00"
   },
   "components": [
     {
@@ -855,9 +855,9 @@
     {
       "id": "llgdln3dcs6p",
       "name": "SMS, Europe",
-      "status": "under_maintenance",
+      "status": "operational",
       "created_at": "2019-01-10T08:53:50.789-08:00",
-      "updated_at": "2023-06-05T13:01:06.316-07:00",
+      "updated_at": "2023-06-05T17:00:08.086-07:00",
       "position": 9,
       "description": null,
       "showcase": false,
@@ -1472,7 +1472,7 @@
       "name": "Super SIM Network Connectivity Issues in APAC Region",
       "status": "investigating",
       "created_at": "2023-06-05T16:22:51.981-07:00",
-      "updated_at": "2023-06-05T16:22:52.065-07:00",
+      "updated_at": "2023-06-05T17:18:37.156-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -1480,6 +1480,46 @@
       "started_at": "2023-06-05T16:22:51.974-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "06kj2nl43w7p",
+          "status": "investigating",
+          "body": "Due to there being no issue with the signaling events that establish the connection between the device and the cellular networks, impacted devices connecting with Super SIM most likely will not end up in the Limited Service state required for the multi-IMSI failover process to occur. Moreover, due to the small percentage of devices identified that may be impacted, we will not be blocking connections on the impacted IMSIs across all Super SIMs to force devices into Limited Service to facilitate the IMSI failover. However, if you believe you are being actively impacted by this incident, please contact Twilio customer support to discuss account-specific changes we can put in place to help get your devices reconnected.",
+          "incident_id": "xnr7gh6h1c39",
+          "created_at": "2023-06-05T17:18:37.154-07:00",
+          "updated_at": "2023-06-05T17:18:37.154-07:00",
+          "display_at": "2023-06-05T17:18:37.154-07:00",
+          "affected_components": [
+            {
+              "code": "z5mpqfbwf2md",
+              "name": "INTERNET OF THINGS - Super SIM",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "bgsqghrchh59",
+          "status": "investigating",
+          "body": "We are investigating connectivity issues when using the 'sg1.super' APN with some Super SIM IMSIs. To be impacted, devices would need to both be configured to use the 'sg1.super' APN and be using one of the impacted IMSIs to connect to the cellular networks. The 'sg1.super' APN directs Super SIM traffic to our distributed internet breakout location in Singapore. Assuming that only devices deployed in APAC or Oceania regions would be configured to the use the 'sg1.super' APN to benefit from the lower latency offered by a closer breakout location, the countries with devices most likely to be impacted are Australia, Singapore, India, and the United Arab Emirates. For other countries throughout APAC and Oceania, other, non-impacted IMSIs are preferred. However, devices deployed elsewhere in the world that are configured to use the 'sg1.super' APN may be impacted if the impacted IMSIs are preferred in those countries. If you believe you have been impacted and are able to change the APN on your devices, you can set the APN to 'super' and your data will breakout in Virginia, USA.",
+          "incident_id": "xnr7gh6h1c39",
+          "created_at": "2023-06-05T16:52:01.049-07:00",
+          "updated_at": "2023-06-05T16:52:01.049-07:00",
+          "display_at": "2023-06-05T16:52:01.049-07:00",
+          "affected_components": [
+            {
+              "code": "z5mpqfbwf2md",
+              "name": "INTERNET OF THINGS - Super SIM",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "fxmj5fzc5bxt",
           "status": "investigating",
@@ -1638,98 +1678,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "p750yl3t5mwk",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "zmggqjwmh5wc",
-      "name": "SMS Delivery Delays/Failures to Orange network in French Guiana",
-      "status": "monitoring",
-      "created_at": "2023-06-05T12:09:48.386-07:00",
-      "updated_at": "2023-06-05T15:21:29.697-07:00",
-      "monitoring_at": "2023-06-05T15:21:29.683-07:00",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/y9xfgybnx0hd",
-      "started_at": "2023-06-05T12:09:48.378-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "wcp2n10f20pb",
-          "status": "monitoring",
-          "body": "We are observing recovery in MMS/SMS delivery delays when sending messages to Orange network in French Guiana. We will continue monitoring the service to ensure a full recovery. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "zmggqjwmh5wc",
-          "created_at": "2023-06-05T15:21:29.683-07:00",
-          "updated_at": "2023-06-05T15:21:29.683-07:00",
-          "display_at": "2023-06-05T15:21:29.683-07:00",
-          "affected_components": [
-            {
-              "code": "yvvy3vlp4djf",
-              "name": "PROGRAMMABLE MESSAGING - SMS",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "w6grk594brw3",
-          "status": "investigating",
-          "body": "We are experiencing SMS delivery delays/failures when sending messages to Orange network in French Guiana, potentially impacting 52.29% of overall Twilio Traffic within this network. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "zmggqjwmh5wc",
-          "created_at": "2023-06-05T13:09:25.276-07:00",
-          "updated_at": "2023-06-05T13:09:25.276-07:00",
-          "display_at": "2023-06-05T13:09:25.276-07:00",
-          "affected_components": [
-            {
-              "code": "yvvy3vlp4djf",
-              "name": "PROGRAMMABLE MESSAGING - SMS",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "r1mg1pxx92pl",
-          "status": "investigating",
-          "body": "We are experiencing SMS delivery delays/failures when sending messages to Orange network in French Guiana, potentially impacting 52.29% of overall Twilio Traffic within this network. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "zmggqjwmh5wc",
-          "created_at": "2023-06-05T12:09:48.477-07:00",
-          "updated_at": "2023-06-05T12:09:48.477-07:00",
-          "display_at": "2023-06-05T12:09:48.477-07:00",
-          "affected_components": [
-            {
-              "code": "yvvy3vlp4djf",
-              "name": "PROGRAMMABLE MESSAGING - SMS",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "yvvy3vlp4djf",
-          "name": "SMS",
-          "status": "operational",
-          "created_at": "2016-04-07T15:15:38.816-07:00",
-          "updated_at": "2023-06-05T15:29:35.111-07:00",
-          "position": 12,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "s2k3h0mkqnth",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
@@ -2327,7 +2275,7 @@
       "name": "Iraq SMS Carrier Maintenance - Zain",
       "status": "scheduled",
       "created_at": "2023-06-04T23:17:55.538-07:00",
-      "updated_at": "2023-06-04T23:17:55.604-07:00",
+      "updated_at": "2023-06-05T17:00:07.956-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
@@ -2335,6 +2283,19 @@
       "started_at": "2023-06-04T23:17:55.529-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "znyxl97j1jx8",
+          "status": "scheduled",
+          "body": "Maintenance will begin as scheduled in 60 minutes.",
+          "incident_id": "1lqw77wsvjyc",
+          "created_at": "2023-06-05T17:00:07.571-07:00",
+          "updated_at": "2023-06-05T17:00:07.571-07:00",
+          "display_at": "2023-06-05T17:00:07.571-07:00",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "mvmfkg4v2b44",
           "status": "scheduled",
@@ -2581,26 +2542,26 @@
       "scheduled_until": "2023-06-06T19:00:00.000-07:00"
     },
     {
-      "id": "5ct87bqnxxxj",
-      "name": "Germany Voice Carrier Partner Maintenance",
+      "id": "zr6x5sq03435",
+      "name": "Voice Carrier Partner Maintenance",
       "status": "scheduled",
-      "created_at": "2023-06-05T12:06:54.836-07:00",
-      "updated_at": "2023-06-05T12:06:54.886-07:00",
+      "created_at": "2023-05-31T09:06:52.873-07:00",
+      "updated_at": "2023-05-31T09:06:52.938-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
-      "shortlink": "https://stspg.io/1ysm1y9xbjpk",
-      "started_at": "2023-06-05T12:06:54.828-07:00",
+      "shortlink": "https://stspg.io/4w6mw8hmkssk",
+      "started_at": "2023-05-31T09:06:52.864-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
         {
-          "id": "yz4vqbj3x0tw",
+          "id": "1ylj0b7dk1qt",
           "status": "scheduled",
-          "body": "Our Voice carrier partner in Germany is conducting an emergency maintenance from 06 June 2023 at 17:00 PDT until 06 June 2023 at 21:00 PDT. During the maintenance window, there could be intermittent call disconnects and call failures for calls from and to Twilio Germany phone numbers.",
-          "incident_id": "5ct87bqnxxxj",
-          "created_at": "2023-06-05T12:06:54.883-07:00",
-          "updated_at": "2023-06-05T12:06:54.883-07:00",
-          "display_at": "2023-06-05T12:06:54.883-07:00",
+          "body": "Our Voice carrier partner in Germany and Austria is conducting a planned maintenance from 06 June 2023 at 17:00 PDT until 06 June 2023 at 21:00 PDT. During the maintenance window there could be intermittent call failures to a subset of Germany and Austria phone numbers.",
+          "incident_id": "zr6x5sq03435",
+          "created_at": "2023-05-31T09:06:52.934-07:00",
+          "updated_at": "2023-05-31T09:06:52.934-07:00",
+          "display_at": "2023-05-31T09:06:52.934-07:00",
           "affected_components": [
             {
               "code": "bnzggd37p61w",
@@ -2635,26 +2596,26 @@
       "scheduled_until": "2023-06-06T21:00:00.000-07:00"
     },
     {
-      "id": "zr6x5sq03435",
-      "name": "Voice Carrier Partner Maintenance",
+      "id": "5ct87bqnxxxj",
+      "name": "Germany Voice Carrier Partner Maintenance",
       "status": "scheduled",
-      "created_at": "2023-05-31T09:06:52.873-07:00",
-      "updated_at": "2023-05-31T09:06:52.938-07:00",
+      "created_at": "2023-06-05T12:06:54.836-07:00",
+      "updated_at": "2023-06-05T12:06:54.886-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
-      "shortlink": "https://stspg.io/4w6mw8hmkssk",
-      "started_at": "2023-05-31T09:06:52.864-07:00",
+      "shortlink": "https://stspg.io/1ysm1y9xbjpk",
+      "started_at": "2023-06-05T12:06:54.828-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
         {
-          "id": "1ylj0b7dk1qt",
+          "id": "yz4vqbj3x0tw",
           "status": "scheduled",
-          "body": "Our Voice carrier partner in Germany and Austria is conducting a planned maintenance from 06 June 2023 at 17:00 PDT until 06 June 2023 at 21:00 PDT. During the maintenance window there could be intermittent call failures to a subset of Germany and Austria phone numbers.",
-          "incident_id": "zr6x5sq03435",
-          "created_at": "2023-05-31T09:06:52.934-07:00",
-          "updated_at": "2023-05-31T09:06:52.934-07:00",
-          "display_at": "2023-05-31T09:06:52.934-07:00",
+          "body": "Our Voice carrier partner in Germany is conducting an emergency maintenance from 06 June 2023 at 17:00 PDT until 06 June 2023 at 21:00 PDT. During the maintenance window, there could be intermittent call disconnects and call failures for calls from and to Twilio Germany phone numbers.",
+          "incident_id": "5ct87bqnxxxj",
+          "created_at": "2023-06-05T12:06:54.883-07:00",
+          "updated_at": "2023-06-05T12:06:54.883-07:00",
+          "display_at": "2023-06-05T12:06:54.883-07:00",
           "affected_components": [
             {
               "code": "bnzggd37p61w",
@@ -2726,9 +2687,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2023-06-05T13:01:06.316-07:00",
+          "updated_at": "2023-06-05T17:00:08.086-07:00",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -2993,9 +2954,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2023-06-05T13:01:06.316-07:00",
+          "updated_at": "2023-06-05T17:00:08.086-07:00",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -3305,9 +3266,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2023-06-05T13:01:06.316-07:00",
+          "updated_at": "2023-06-05T17:00:08.086-07:00",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -3419,9 +3380,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2023-06-05T13:01:06.316-07:00",
+          "updated_at": "2023-06-05T17:00:08.086-07:00",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -3638,9 +3599,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2023-06-05T13:01:06.316-07:00",
+          "updated_at": "2023-06-05T17:00:08.086-07:00",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -3692,9 +3653,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2023-06-05T13:01:06.316-07:00",
+          "updated_at": "2023-06-05T17:00:08.086-07:00",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -3707,6 +3668,81 @@
       ],
       "scheduled_for": "2023-06-19T13:00:00.000-07:00",
       "scheduled_until": "2023-06-19T17:00:00.000-07:00"
+    },
+    {
+      "id": "7jcl4xgsd3r9",
+      "name": "US SMS and MMS Carrier Maintenance",
+      "status": "scheduled",
+      "created_at": "2023-06-05T16:48:57.559-07:00",
+      "updated_at": "2023-06-05T16:48:57.605-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/q0xwtk30zhwl",
+      "started_at": "2023-06-05T16:48:57.551-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "wtghn86r14hq",
+          "status": "scheduled",
+          "body": "Our carrier partner in the US is conducting a planned maintenance from 19 June 2023 at 21:00 PDT until 06 July 2023 at 21:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS and MMS to and from Verizon US handsets when sending via US shortcode<br>\n<br>\nNote, the maintenance will be carried out on each of the following dates and times:<br>\n19 June 2023 at 21:00 PDT until 20 June 2023 at 21:00 PDT\n<br>\n27 June 2023 at 21:00 PDT until 28 June 2023 at 21:00 PDT\n<br>\n05 July 2023 at 21:00 PDT until 06 July 2023 at 21:00 PDT",
+          "incident_id": "7jcl4xgsd3r9",
+          "created_at": "2023-06-05T16:48:57.603-07:00",
+          "updated_at": "2023-06-05T16:48:57.603-07:00",
+          "display_at": "2023-06-05T16:48:57.603-07:00",
+          "affected_components": [
+            {
+              "code": "39mb8cmw8y2v",
+              "name": "CARRIER NETWORK - SMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "39mb8cmw8y2v",
+          "name": "SMS Short Code, North America",
+          "status": "operational",
+          "created_at": "2016-04-07T15:07:25.830-07:00",
+          "updated_at": "2023-06-04T19:00:02.558-07:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "h0fl7prwfhvm",
+          "name": "MMS Short Code, North America",
+          "status": "operational",
+          "created_at": "2019-01-10T08:52:12.896-08:00",
+          "updated_at": "2023-05-30T02:00:12.525-07:00",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2023-06-19T21:00:00.000-07:00",
+      "scheduled_until": "2023-06-22T21:00:00.000-07:00"
     },
     {
       "id": "95qgxbp5yl48",
@@ -3746,9 +3782,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2023-06-05T13:01:06.316-07:00",
+          "updated_at": "2023-06-05T17:00:08.086-07:00",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -3800,9 +3836,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2023-06-05T13:01:06.316-07:00",
+          "updated_at": "2023-06-05T17:00:08.086-07:00",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -3854,9 +3890,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2023-06-05T13:01:06.316-07:00",
+          "updated_at": "2023-06-05T17:00:08.086-07:00",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -3934,9 +3970,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2023-06-05T13:01:06.316-07:00",
+          "updated_at": "2023-06-05T17:00:08.086-07:00",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -3949,173 +3985,6 @@
       ],
       "scheduled_for": "2023-06-05T15:00:00.000-07:00",
       "scheduled_until": "2023-06-05T20:00:00.000-07:00"
-    },
-    {
-      "id": "g7b1h9ywxhyl",
-      "name": "Russia SMS Carrier Maintenance - Megafon and Yota",
-      "status": "in_progress",
-      "created_at": "2023-06-01T07:11:52.866-07:00",
-      "updated_at": "2023-06-05T13:01:32.065-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/zxyx931yb4ph",
-      "started_at": "2023-06-01T07:11:52.860-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "cl5h4vt5dl5w",
-          "status": "in_progress",
-          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
-          "incident_id": "g7b1h9ywxhyl",
-          "created_at": "2023-06-05T13:01:32.062-07:00",
-          "updated_at": "2023-06-05T13:01:32.062-07:00",
-          "display_at": "2023-06-05T13:01:32.062-07:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "g53trxg7b0pr",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "g7b1h9ywxhyl",
-          "created_at": "2023-06-05T11:59:59.631-07:00",
-          "updated_at": "2023-06-05T11:59:59.631-07:00",
-          "display_at": "2023-06-05T11:59:59.631-07:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "djdmfttrh3tg",
-          "status": "scheduled",
-          "body": "The Megafon and Yota networks in Russia are conducting a planned maintenance from 5 June 2023 at 13:00 PDT until 5 June 2023 at 17:00 PDT. During the maintenance window. There could be intermittent delays delivering SMS to and from Megafon and Yota Russia handsets.",
-          "incident_id": "g7b1h9ywxhyl",
-          "created_at": "2023-06-01T07:11:52.904-07:00",
-          "updated_at": "2023-06-01T07:11:52.904-07:00",
-          "display_at": "2023-06-01T07:11:52.904-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "llgdln3dcs6p",
-          "name": "SMS, Europe",
-          "status": "under_maintenance",
-          "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2023-06-05T13:01:06.316-07:00",
-          "position": 9,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2023-06-05T13:00:00.000-07:00",
-      "scheduled_until": "2023-06-05T17:00:00.000-07:00"
-    },
-    {
-      "id": "1nh4wd7b57v9",
-      "name": "Russia SMS Carrier Maintenance - Tele2",
-      "status": "in_progress",
-      "created_at": "2023-06-01T03:19:29.479-07:00",
-      "updated_at": "2023-06-05T13:01:06.386-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/7sk0ksbr8v00",
-      "started_at": "2023-06-01T03:19:29.473-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "6bzrw5csprw9",
-          "status": "in_progress",
-          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
-          "incident_id": "1nh4wd7b57v9",
-          "created_at": "2023-06-05T13:01:06.382-07:00",
-          "updated_at": "2023-06-05T13:01:06.382-07:00",
-          "display_at": "2023-06-05T13:01:06.382-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "operational",
-              "new_status": "under_maintenance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0lx330cwxmdh",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "1nh4wd7b57v9",
-          "created_at": "2023-06-05T12:00:07.585-07:00",
-          "updated_at": "2023-06-05T12:00:07.585-07:00",
-          "display_at": "2023-06-05T12:00:07.585-07:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wgz8m5h14252",
-          "status": "scheduled",
-          "body": "The Tele2 Network in Russia is conducting a planned maintenance From 05 June 2023 at 13:00 PDT until 05 June 2023 at 17:00 PDT. During the maintenance window. There could be intermittent delays delivering SMS to and from Tele2 Russia handsets.",
-          "incident_id": "1nh4wd7b57v9",
-          "created_at": "2023-06-01T03:19:29.517-07:00",
-          "updated_at": "2023-06-01T03:19:29.517-07:00",
-          "display_at": "2023-06-01T03:19:29.517-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "llgdln3dcs6p",
-          "name": "SMS, Europe",
-          "status": "under_maintenance",
-          "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2023-06-05T13:01:06.316-07:00",
-          "position": 9,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2023-06-05T13:00:00.000-07:00",
-      "scheduled_until": "2023-06-05T17:00:00.000-07:00"
     }
   ],
   "status": {
