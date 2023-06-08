@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-06-08T00:59:48.586-07:00"
+    "updated_at": "2023-06-08T08:15:03.682-07:00"
   },
   "incidents": [
     {
@@ -3336,7 +3336,7 @@
       "name": "[Major] Issues with Public API and Box Notes",
       "status": "postmortem",
       "created_at": "2023-03-21T22:48:08.000-07:00",
-      "updated_at": "2023-04-04T06:30:41.438-07:00",
+      "updated_at": "2023-06-08T08:15:03.673-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-03-21T23:10:12.234-07:00",
       "impact": "major",
@@ -3347,10 +3347,10 @@
         {
           "id": "v2tkwn644xby",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn March 21, 2023 from 5:37 AM to 6:39 AM PDT and 9:37 PM to 10:39 PM PDT and on March 22, 2023 from 9:12 AM to 9:39 AM PDT, some users may have experienced difficulties while working in Box. During this time, some users may have experienced API login failures and errors when creating or deleting Box Notes. The issue occurred due to a misconfiguration on one of our caching hosts, which occasionally caused the server to terminate and become unresponsive to user traffic while it restarted. We were able to resolve the issue by replacing the bad instance with a properly configured one. In addition, we are adding observability and graceful handling of this misconfiguration in order to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting JWT logins and Box Notes. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 5:37 AM and 6:39 AM PT, 9:37 PM and 10:39 PM PT on March 21, 2023, and between 9:12 AM PT and 9:39 AM PT on March 22, 2023 some users may have experienced difficulties while working in Box. During this time, we noticed some JWT-based logins resulting in failures as well as an increase in disconnects within Box Notes while users tried to save or delete their Notes. The issue occurred because of a configuration change on one of our caching servers, specifically in one of our maintenance scripts. We were able to resolve the issue by quarantining the affected host and manually replacing it with a healthy one. In addition, we have hardened our automated checks, added better controls in these maintenance scripts and also improved observability on the impacted caching services in order to to prevent similar issues from occurring in the future. \n\n  \n**Analysis** \n\nLogins at Box are rate limited in order to control the amount of traffic or requests that can be sent to our subsystems. During the time of the issue, the caching server that enables this rate limiting was shut down because of a misconfiguration in one of our maintenance scripts tasked with keeping our caching infrastructure up-to-date with the latest software patches. The script was trying to connect to its backend using an incorrect TLS certificate, causing the script to hang and consume system memory. Since this script runs on schedule, multiple instances of this script started over time causing it to consume more and more system resources.  Eventually, this led to insufficient resources being available for Memcached service, causing it to be terminated. Additionally, a bug in our auto-healing system prevented this caching server to be replaced with a healthy one leaving the server in service even though it was unhealthy. \n\nWhen part of the cache became unavailable, rate limiting service terminated the requests that were supposed to be cached in that server, causing approximately 30% of JWT logins to fail during that time. This same caching server was also used in the generation of OAuth2 tokens used internally within the BoxNotes service. When this cache would become unavailable, Box Notes would disconnect while trying to persist or delete a Note, since it could not validate the tokens. We noticed an increase of approximately 10% in the number of disconnects during the time of cache unavailability.\n\n  \n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Validate that all necessary TLS certificates are present on the entire caching fleet.\n* Fix the maintenance script so in case of a connection error, it terminates and does not hang and hold on to memory. \n* Fix the bug in the auto-healing system that prevented the unhealthy host from being replaced.\n* Add more specific alerts in case of failures like these, so on-call engineers are better informed.\n\n  \nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n  \nSincerely,\n\nThe Box Team",
           "incident_id": "8m9nm6wwybx9",
           "created_at": "2023-04-04T06:27:05.732-07:00",
-          "updated_at": "2023-04-04T06:30:41.435-07:00",
+          "updated_at": "2023-06-08T08:15:03.670-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
