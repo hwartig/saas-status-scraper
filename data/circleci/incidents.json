@@ -4,9 +4,61 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-06-08T08:02:46.695Z"
+    "updated_at": "2023-06-08T16:24:12.267Z"
   },
   "incidents": [
+    {
+      "id": "wzrg41yzs0gl",
+      "name": "Gitlab Statuses are not Working with CircleCI",
+      "status": "investigating",
+      "created_at": "2023-06-08T16:24:11.458Z",
+      "updated_at": "2023-06-08T16:24:12.251Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/gcdr6kh10wjl",
+      "started_at": "2023-06-08T16:24:11.454Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "ztgl5mnc1f39",
+          "status": "investigating",
+          "body": "We are investigating errors setting status notifications. This is a partial outage affecting Gitlab customers.",
+          "incident_id": "wzrg41yzs0gl",
+          "created_at": "2023-06-08T16:24:11.534Z",
+          "updated_at": "2023-06-08T16:24:12.246Z",
+          "display_at": "2023-06-08T16:24:11.534Z",
+          "affected_components": [
+            {
+              "code": "rms1xkdxxqx1",
+              "name": "Notifications & Status Updates",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1666843577769681000
+        }
+      ],
+      "components": [
+        {
+          "id": "rms1xkdxxqx1",
+          "name": "Notifications & Status Updates",
+          "status": "partial_outage",
+          "created_at": "2019-01-21T21:45:43.473Z",
+          "updated_at": "2023-06-08T16:24:11.486Z",
+          "position": 11,
+          "description": "GitHub Checks, Statuses, and status badges.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "pn6jbtf1cpm4",
       "name": "Job failed due to excessive concurrency limits",
@@ -3868,9 +3920,9 @@
         {
           "id": "rms1xkdxxqx1",
           "name": "Notifications & Status Updates",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2019-01-21T21:45:43.473Z",
-          "updated_at": "2022-08-31T06:45:55.867Z",
+          "updated_at": "2023-06-08T16:24:11.486Z",
           "position": 11,
           "description": "GitHub Checks, Statuses, and status badges.",
           "showcase": false,
@@ -7697,35 +7749,6 @@
           "only_show_if_degraded": false
         }
       ]
-    },
-    {
-      "id": "7plwk3rdpv62",
-      "name": "Delays in processing incoming webhooks from Bitbucket",
-      "status": "resolved",
-      "created_at": "2022-09-05T09:22:00.000Z",
-      "updated_at": "2022-09-06T11:58:51.851Z",
-      "monitoring_at": null,
-      "resolved_at": "2022-09-05T09:22:00.000Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/d5h2yr6yjjls",
-      "started_at": "2022-09-05T09:22:00.000Z",
-      "page_id": "6w4r0ttlx5ft",
-      "incident_updates": [
-        {
-          "id": "s1pjx27f86n8",
-          "status": "resolved",
-          "body": "We observed that between September 5, 9:22 [UTC] and September 6, 8:48 [UTC], one of our services had returned `500` errors to incoming webhooks from Bitbucket.\n\nThis behaviour occurred for a very small subset of incoming webhooks from Bitbucket.\n\nAs a result, a few users may have experienced an issue where pipelines would start with a delay after pushing commits to the related Bitbucket repository(-ies).\n\nWe have since reverted changes that we believe are involved in this unexpected/unwanted behaviour, and we are currently further investigating to identify the exact cause.\n\nPlease accept our apologies for the disruption. If you have any question regarding this issue, feel free to contact CircleCI Support.",
-          "incident_id": "7plwk3rdpv62",
-          "created_at": "2022-09-06T09:41:52.368Z",
-          "updated_at": "2022-09-06T10:37:33.094Z",
-          "display_at": "2022-09-05T09:22:00.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": []
     }
   ]
 }
