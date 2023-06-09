@@ -4,7 +4,7 @@
     "name": "Stoplight",
     "url": "https://status.stoplight.io",
     "time_zone": "America/Chicago",
-    "updated_at": "2023-06-09T18:24:08.948-05:00"
+    "updated_at": "2023-06-09T18:24:19.505-05:00"
   },
   "incidents": [
     {
@@ -12,7 +12,7 @@
       "name": "Login issue for workspaces using custom domains - Use *.stoplight.io domain for workspace login",
       "status": "postmortem",
       "created_at": "2023-06-07T17:00:00.000-05:00",
-      "updated_at": "2023-06-09T18:24:08.941-05:00",
+      "updated_at": "2023-06-09T18:24:19.496-05:00",
       "monitoring_at": null,
       "resolved_at": "2023-06-07T17:00:00.000-05:00",
       "impact": "major",
@@ -23,10 +23,10 @@
         {
           "id": "djhbh787brj4",
           "status": "postmortem",
-          "body": "## **Incident Root Cause Analysis and Post-Mortem**\n\n### **Incident Summary:**\n\nIncident Date: 7 June 2023\n\nStoplight experienced an issue where workspaces with custom domains were unable to login via the custom domain URL due to a CORS error.  Workspaces were still available for login via their \\*.stoplight.io domains.  The issue was resolved 9 hours and 35 minutes after initial urgent support case escalation.\n\n### **Timeline of Events:**\n\n#### **Wednesday, June 7, 2023**\n\n* **14:22 CDT -**Stoplight released a change to production which affected login for workspaces accessed via custom domains\n* **16:41 CDT -** Initial indication of potential issue based on receipt of non-urgent support case, issue investigation begins\n* **23:41 CDT -** Initial indication of broader issue impact based on receipt of first Urgent/P1 support case\n\n**Wednesday, June 7, 2023**\n\n* **08:06 CDT -** Investigation concludes, root cause identified, Stoplight initiates release roll-back process\n* **09:16 CDT -**  Production roll-back completed, issue resolved\n\n### **Root Cause:**\n\n* Stoplight experienced an issue where workspaces with custom domains were unable to login via the custom domain URL due to a CORS error.\n* The issue was not caught before making it into production by Stoplight’s build validation testing and was not immediately caught after release to production by Stoplight’s stack and log monitoring instrumentation.\n* While Stoplight initiated incident response mechanisms to investigate and address the issue, it was not immediately clear of the broader impact to customer workspaces until urgent support cases began coming in after standard operating hours.\n\n### **Remediation Actions**\n\n* Stoplight will be adding non [stoplight.io](http://stoplight.io) and [stoplight-dev.io](http://stoplight-dev.io) custom domains for pre-release development and qa login testing\n* Stoplight is implementing additional pre-release end to end tests for service-auth CORS operations and custom domains and adding production metrics/alerts for 500s for login URLs\n* Stoplight is revising incident response mechanisms to better identify broader issue impact and improve time to resolution for non-business-hour urgent incidents.",
+          "body": "## **Incident Root Cause Analysis and Post-Mortem**\n\n### **Incident Summary:**\n\nIncident Date: 7 June 2023\n\nStoplight experienced an issue where workspaces with custom domains were unable to login via the custom domain URL due to a CORS error.  Workspaces were still available for login via their \\*.stoplight.io domains.  The issue was resolved 9 hours and 35 minutes after initial urgent support case escalation.\n\n### **Timeline of Events:**\n\n#### **Wednesday, June 7, 2023**\n\n* **14:22 CDT** - Stoplight released a change to production which affected login for workspaces accessed via custom domains\n* **16:41 CDT -** Initial indication of potential issue based on receipt of non-urgent support case, issue investigation begins\n* **23:41 CDT -** Initial indication of broader issue impact based on receipt of first Urgent/P1 support case\n\n**Wednesday, June 7, 2023**\n\n* **08:06 CDT -** Investigation concludes, root cause identified, Stoplight initiates release roll-back process\n* **09:16 CDT -**  Production roll-back completed, issue resolved\n\n### **Root Cause:**\n\n* Stoplight experienced an issue where workspaces with custom domains were unable to login via the custom domain URL due to a CORS error.\n* The issue was not caught before making it into production by Stoplight’s build validation testing and was not immediately caught after release to production by Stoplight’s stack and log monitoring instrumentation.\n* While Stoplight initiated incident response mechanisms to investigate and address the issue, it was not immediately clear of the broader impact to customer workspaces until urgent support cases began coming in after standard operating hours.\n\n### **Remediation Actions**\n\n* Stoplight will be adding non [stoplight.io](http://stoplight.io) and [stoplight-dev.io](http://stoplight-dev.io) custom domains for pre-release development and qa login testing\n* Stoplight is implementing additional pre-release end to end tests for service-auth CORS operations and custom domains and adding production metrics/alerts for 500s for login URLs\n* Stoplight is revising incident response mechanisms to better identify broader issue impact and improve time to resolution for non-business-hour urgent incidents.",
           "incident_id": "x8t8mdrlv9l4",
           "created_at": "2023-06-09T18:18:37.531-05:00",
-          "updated_at": "2023-06-09T18:24:08.939-05:00",
+          "updated_at": "2023-06-09T18:24:19.494-05:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
