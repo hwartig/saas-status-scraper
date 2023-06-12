@@ -4,7 +4,7 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-06-12T14:37:42.276Z"
+    "updated_at": "2023-06-12T15:00:34.578Z"
   },
   "components": [
     {
@@ -98,7 +98,8 @@
         "tmh50tx2nprs",
         "qgt2kv10g1yn",
         "kf0ktv29xrfy",
-        "276xk3r83js7"
+        "276xk3r83js7",
+        "bty1yz6dhh0v"
       ]
     },
     {
@@ -2359,9 +2360,9 @@
     {
       "id": "sbk2cql7ktgz",
       "name": "Mombasa, Kenya - (MBA)",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2015-08-25T23:48:50.991Z",
-      "updated_at": "2023-06-09T18:45:23.057Z",
+      "updated_at": "2023-06-12T14:42:46.647Z",
       "position": 17,
       "description": null,
       "showcase": false,
@@ -3784,9 +3785,9 @@
     {
       "id": "bss3xc7lbmgw",
       "name": "Philadelphia, United States - (PHL)",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2019-08-09T14:40:06.536Z",
-      "updated_at": "2023-06-09T20:47:28.365Z",
+      "updated_at": "2023-06-12T14:47:51.076Z",
       "position": 33,
       "description": null,
       "showcase": false,
@@ -5687,6 +5688,21 @@
       "only_show_if_degraded": false
     },
     {
+      "id": "bty1yz6dhh0v",
+      "name": "Durable Objects",
+      "status": "operational",
+      "created_at": "2023-06-12T14:55:22.631Z",
+      "updated_at": "2023-06-12T14:55:22.631Z",
+      "position": 63,
+      "description": "Durable Objects provide low-latency coordination and consistent permanent storage for the Workers platform.",
+      "showcase": false,
+      "start_date": "2023-06-12",
+      "group_id": "1km35smx8p41",
+      "page_id": "yh6f0r4529hb",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
       "id": "38w9dn5m8n4p",
       "name": "Tianjin, China - (TSN)",
       "status": "operational",
@@ -6035,10 +6051,10 @@
   "incidents": [
     {
       "id": "z4lmb920dm09",
-      "name": "Cloudflare R2 Availability Issues",
+      "name": "Cloudflare R2, Waiting Room, Durable Objects, Queues and Stream Live Availability Issues",
       "status": "investigating",
       "created_at": "2023-06-12T11:27:06.937Z",
-      "updated_at": "2023-06-12T13:21:07.494Z",
+      "updated_at": "2023-06-12T14:46:37.433Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -6046,6 +6062,38 @@
       "started_at": "2023-06-12T11:27:06.000Z",
       "page_id": "yh6f0r4529hb",
       "incident_updates": [
+        {
+          "id": "4cqblwjzj59w",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue.",
+          "incident_id": "z4lmb920dm09",
+          "created_at": "2023-06-12T14:46:37.430Z",
+          "updated_at": "2023-06-12T14:46:37.430Z",
+          "display_at": "2023-06-12T14:46:37.430Z",
+          "affected_components": [
+            {
+              "code": "hb7g5sq2zz0h",
+              "name": "Cloudflare Sites and Services - R2",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "47xg28c02lnk",
+              "name": "Cloudflare Sites and Services - Stream",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "9c7cbxnhk1dq",
+              "name": "Cloudflare Sites and Services - Waiting Room",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "0gvr2kcnf250",
           "status": "investigating",
@@ -6069,10 +6117,10 @@
         {
           "id": "py2nksn98kqq",
           "status": "investigating",
-          "body": "Cloudflare is investigating issues with R2 and Durable Objects availability. Subset of customers that use Cloudflare R2 and Durable Objects may observe HTTP 500 errors (R2) or “Network connection lost” errors (Durable Objects). This issue does not affect any other Cloudflare services.\n\nWe are working to mitigate this problem. More updates to follow shortly.",
+          "body": "Cloudflare is investigating issues with R2, Durable Objects, Queues and Stream Live availability.\n\nSubset of customers that use Cloudflare R2, Waiting Room, Stream Live or Queues may observe HTTP 500 errors or “Network connection lost” errors when making requests to Durable Objects. VOD is unimpacted.\n\nWe are working to mitigate this problem. More updates to follow shortly.",
           "incident_id": "z4lmb920dm09",
           "created_at": "2023-06-12T11:27:06.995Z",
-          "updated_at": "2023-06-12T12:19:35.545Z",
+          "updated_at": "2023-06-12T14:46:05.875Z",
           "display_at": "2023-06-12T11:27:06.000Z",
           "affected_components": [
             {
@@ -6102,85 +6150,41 @@
           "page_id": "yh6f0r4529hb",
           "group": false,
           "only_show_if_degraded": false
+        },
+        {
+          "id": "47xg28c02lnk",
+          "name": "Stream",
+          "status": "operational",
+          "created_at": "2019-01-24T16:53:34.953Z",
+          "updated_at": "2023-04-20T19:46:25.677Z",
+          "position": 49,
+          "description": "Cloudflare's on-demand end-to-end CDN video streaming service",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "9c7cbxnhk1dq",
+          "name": "Waiting Room",
+          "status": "operational",
+          "created_at": "2023-01-10T09:59:32.683Z",
+          "updated_at": "2023-05-30T14:06:12.025Z",
+          "position": 56,
+          "description": "Cloudflare Waiting Room protects websites by queueing site visitors when a website experiences unmanageable surges in legitimate traffic that may otherwise bring an application down.",
+          "showcase": false,
+          "start_date": "2023-01-10",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
         }
       ]
     }
   ],
   "scheduled_maintenances": [
-    {
-      "id": "hdddp0f8zzwq",
-      "name": "PHL (Philadelphia) on 2023-06-12",
-      "status": "scheduled",
-      "created_at": "2023-06-12T13:40:53.235Z",
-      "updated_at": "2023-06-12T14:20:51.457Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/zxmb8b8r3jj7",
-      "started_at": "2023-06-12T13:40:53.228Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "ntw6t0h479x0",
-          "status": "scheduled",
-          "body": "We will be performing scheduled maintenance in PHL (Philadelphia) datacenter on 2023-06-12 between 15:00 and 18:00 UTC. Traffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.",
-          "incident_id": "hdddp0f8zzwq",
-          "created_at": "2023-06-12T14:20:51.454Z",
-          "updated_at": "2023-06-12T14:20:51.454Z",
-          "display_at": "2023-06-12T14:20:51.454Z",
-          "affected_components": [
-            {
-              "code": "bss3xc7lbmgw",
-              "name": "North America - Philadelphia, United States - (PHL)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3y2qrgmwzk0b",
-          "status": "scheduled",
-          "body": "We will be performing scheduled maintenance in PHL (Philadelphia) datacenter on 2023-06-12 between 18:00 and 22:00 UTC. Traffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.",
-          "incident_id": "hdddp0f8zzwq",
-          "created_at": "2023-06-12T13:40:53.308Z",
-          "updated_at": "2023-06-12T13:40:53.308Z",
-          "display_at": "2023-06-12T13:40:53.308Z",
-          "affected_components": [
-            {
-              "code": "bss3xc7lbmgw",
-              "name": "North America - Philadelphia, United States - (PHL)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "bss3xc7lbmgw",
-          "name": "Philadelphia, United States - (PHL)",
-          "status": "operational",
-          "created_at": "2019-08-09T14:40:06.536Z",
-          "updated_at": "2023-06-09T20:47:28.365Z",
-          "position": 33,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "4l01sk5cdn5c",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2023-06-12T15:00:00.000Z",
-      "scheduled_until": "2023-06-12T18:00:00.000Z"
-    },
     {
       "id": "v30y2x90gtnq",
       "name": "MXP (Milan) on 2023-06-12",
@@ -6828,6 +6832,93 @@
       ],
       "scheduled_for": "2023-06-16T00:00:00.000Z",
       "scheduled_until": "2023-06-16T05:00:00.000Z"
+    },
+    {
+      "id": "hdddp0f8zzwq",
+      "name": "PHL (Philadelphia) on 2023-06-12",
+      "status": "in_progress",
+      "created_at": "2023-06-12T13:40:53.235Z",
+      "updated_at": "2023-06-12T15:00:34.287Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/zxmb8b8r3jj7",
+      "started_at": "2023-06-12T13:40:53.228Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "bgzyy7g2jmlt",
+          "status": "in_progress",
+          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
+          "incident_id": "hdddp0f8zzwq",
+          "created_at": "2023-06-12T15:00:34.281Z",
+          "updated_at": "2023-06-12T15:00:34.281Z",
+          "display_at": "2023-06-12T15:00:34.281Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "ntw6t0h479x0",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance in PHL (Philadelphia) datacenter on 2023-06-12 between 15:00 and 18:00 UTC. Traffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.",
+          "incident_id": "hdddp0f8zzwq",
+          "created_at": "2023-06-12T14:20:51.454Z",
+          "updated_at": "2023-06-12T14:20:51.454Z",
+          "display_at": "2023-06-12T14:20:51.454Z",
+          "affected_components": [
+            {
+              "code": "bss3xc7lbmgw",
+              "name": "North America - Philadelphia, United States - (PHL)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "3y2qrgmwzk0b",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance in PHL (Philadelphia) datacenter on 2023-06-12 between 18:00 and 22:00 UTC. Traffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.",
+          "incident_id": "hdddp0f8zzwq",
+          "created_at": "2023-06-12T13:40:53.308Z",
+          "updated_at": "2023-06-12T13:40:53.308Z",
+          "display_at": "2023-06-12T13:40:53.308Z",
+          "affected_components": [
+            {
+              "code": "bss3xc7lbmgw",
+              "name": "North America - Philadelphia, United States - (PHL)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "bss3xc7lbmgw",
+          "name": "Philadelphia, United States - (PHL)",
+          "status": "partial_outage",
+          "created_at": "2019-08-09T14:40:06.536Z",
+          "updated_at": "2023-06-12T14:47:51.076Z",
+          "position": 33,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "4l01sk5cdn5c",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2023-06-12T15:00:00.000Z",
+      "scheduled_until": "2023-06-12T18:00:00.000Z"
     }
   ],
   "status": {
