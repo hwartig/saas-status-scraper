@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-06-13T00:55:54.924-07:00"
+    "updated_at": "2023-06-13T06:36:24.436-07:00"
   },
   "incidents": [
     {
@@ -1692,7 +1692,7 @@
       "name": "[Major] Issues with Uploads and Downloads",
       "status": "postmortem",
       "created_at": "2023-04-26T03:03:35.540-07:00",
-      "updated_at": "2023-05-02T10:53:48.689-07:00",
+      "updated_at": "2023-06-13T06:36:24.427-07:00",
       "monitoring_at": "2023-04-26T05:22:25.244-07:00",
       "resolved_at": "2023-04-26T06:21:10.704-07:00",
       "impact": "critical",
@@ -1703,10 +1703,10 @@
         {
           "id": "v2y8fj9m342t",
           "status": "postmortem",
-          "body": "Between 11:15 pm PT on April 25, 2023 and 8:40 am PT on April 26, 2023, some users may have experienced difficulties while working in Box. During this time, some users experienced slowness and intermittent failures while performing Uploads and Downloads. This issue occurred as a result of an incident with one of our third-party cloud partners in Europe. Initial impact was limited to user of Box Zones France, however failures in that region triggered internal rate limiting which may have impacted customers in other regions. During the time of incident we mitigated impact by disabling the internal rate limiter and re-routing uploads in the affected region to a backup location.\n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting content ingress and egress. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 11:15 pm PT on April 25, 2023 and 8:40 am PT on April 26, 2023, some users may have experienced difficulties while working in Box. During this time, one of our cloud partners experienced an infrastructure malfunction that impacted one of their European regions. This impact caused the region to exhibit elevated error rates and increased request latency which caused upload and download requests in Box to backup. We were able to resolve this issue by updating storage policies in this European region to use a different but still compliant region. In addition we have taken on a number of near term and longer term remediations to to prevent similar issues from occurring in the future.   \n  \n**Analysis**   \nStarting at approximately 7:00 pm PT on April 25, 2023 one of our European partners experienced an infrastructure problem in one availability zone of their France region. At 11:15 pm PT this malfunction triggered a fire that motivated an evacuation of datacenter personnel and resulted in region wide degradation. At this time requests that utilized storage in the impacted region saw increased latency and elevated error rates. This resulted in elevated request rates due to retries and longer request times. We remediated the issue by updating the storage policies to reroute the requests to another region that was still compliant with residency requirements, and by updating the behavior of internal retry and rate limiting logic.  \n  \n**Corrective Actions**  \nThe following corrective actions have been completed or are planned:\n\n* Update internal rate limiting logic to trigger automatic scale-out sooner\n* Update monitoring for all storage locations\n* Audit request timeouts\n* Extend automated health checking and automated policy re-routing to cover additional degradation cases\n\n  \nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
           "incident_id": "j7h8z9jz0fzp",
           "created_at": "2023-05-02T10:53:44.825-07:00",
-          "updated_at": "2023-05-02T10:53:48.687-07:00",
+          "updated_at": "2023-06-13T06:36:24.425-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
