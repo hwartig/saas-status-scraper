@@ -4,7 +4,7 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2023-06-15T13:42:58.612-04:00"
+    "updated_at": "2023-06-15T16:53:24.885-04:00"
   },
   "components": [
     {
@@ -356,7 +356,62 @@
     }
   ],
   "incidents": [],
-  "scheduled_maintenances": [],
+  "scheduled_maintenances": [
+    {
+      "id": "mksvz7g3z95v",
+      "name": "Docker Upgrade",
+      "status": "scheduled",
+      "created_at": "2023-06-15T16:53:24.124-04:00",
+      "updated_at": "2023-06-15T16:53:24.875-04:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/ynkwc7x4zx78",
+      "started_at": "2023-06-15T16:53:24.120-04:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "dpw9gz21nnz8",
+          "status": "scheduled",
+          "body": "Aptible will be upgrading Docker on all Bastion hosts tonight, in order to support the recent release of Debian 12 \"Bookworm\".  There will be a 15 minute interruption for each stack during the maintenance window that will impact:\n\n* App Deploy, Restart, and Scale Operations\n* Database Tunnel Operations\n* Aptible SSH Sessions\n* Log Drain and Metric Drain delivery will be delayed\n\nRunning Apps and Databases will not be impacted.\n\nWe will close this maintenance when all Stack upgrades are completed.",
+          "incident_id": "mksvz7g3z95v",
+          "created_at": "2023-06-15T16:53:24.158-04:00",
+          "updated_at": "2023-06-15T16:53:24.867-04:00",
+          "display_at": "2023-06-15T16:53:24.158-04:00",
+          "affected_components": [
+            {
+              "code": "3f2df1dmxn4b",
+              "name": "Aptible Deploy",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1669448041978294300
+        }
+      ],
+      "components": [
+        {
+          "id": "3f2df1dmxn4b",
+          "name": "Aptible Deploy",
+          "status": "operational",
+          "created_at": "2017-07-25T12:40:40.556-04:00",
+          "updated_at": "2023-04-02T13:55:20.067-04:00",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2023-06-15T21:00:00.000-04:00",
+      "scheduled_until": "2023-06-16T01:00:00.000-04:00"
+    }
+  ],
   "status": {
     "indicator": "none",
     "description": "All Systems Operational"
