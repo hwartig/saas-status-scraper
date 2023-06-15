@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-06-14T00:49:16.866-07:00"
+    "updated_at": "2023-06-14T17:58:00.128-07:00"
   },
   "incidents": [
     {
@@ -2309,7 +2309,7 @@
       "name": "[Major] Issues with Public API, Box Relay and Box Sign",
       "status": "postmortem",
       "created_at": "2023-04-17T18:45:20.956-07:00",
-      "updated_at": "2023-05-01T08:38:03.397-07:00",
+      "updated_at": "2023-06-14T17:58:00.119-07:00",
       "monitoring_at": "2023-04-18T09:31:55.121-07:00",
       "resolved_at": "2023-04-18T10:32:16.754-07:00",
       "impact": "major",
@@ -2320,10 +2320,10 @@
         {
           "id": "sv9d21zjyzd2",
           "status": "postmortem",
-          "body": "Between 5:00 pm PT on April 16, 2023 and 1:00 am PT on April 17, 2023, as well as between 4:30 pm PT on April 17th and 2:00 am PT on April 18, 2023, some users may have experienced difficulties while working in Box. During this time, some users experienced slowness and intermittent failures interacting with certain parts of the Box webapp and public API, including while applying Box Shield Classifications and sending documents for signature via Box Sign. The issue occurred as a result of a gradual new feature rollout that overwhelmed a cache held inside one of the key middleware services. We were able to resolve the issue by deploying a code change that prevented the feature rollout framework from overwhelming the cache and restarting the impacted service to clear the cache. In addition, we are working on improving monitoring and alerting around the impacted cache to be able to detect and address similar problems before they impact our users in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting the Box webapp. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 5:00 pm PT on April 16, 2023 and 1:00 am PT on April 17, 2023, as well as between 4:30 pm PT on April 17th and 2:00 am PT on April 18, 2023, some users may have experienced difficulties while working in Box. During this time, some users experienced slowness and intermittent failures interacting with certain parts of the Box webapp and public API, including while applying Box Shield Classifications and sending documents for signature via Box Sign. The issue occurred as a result of a gradual new feature rollout that overwhelmed a cache held inside one of the key middleware services. We were able to resolve the issue by deploying a code change that prevented the feature rollout framework from overwhelming the cache and restarting the impacted service to clear the cache. In addition, we are working on improving monitoring and alerting around the impacted cache to be able to detect and address similar problems before they impact our users in the future.\n\n‌\n\n**Analysis** \n\nOur investigation shows that the incident was caused by an inefficient configuration of the experimentation framework that was used to begin gradual rollout of a new feature. This framework unexpectedly stored decision results in the cache, regarding whether the feature should be shown to the user. This decision storage overran the cache, causing other entries to be evicted. This meant that the web application ended up having to reconstitute the frequently used and expensive to compute information that would have ordinarily been in this cache. The effective capacity of our web application processing was thus dramatically reduced, which caused exhaustion and subsequent degradation of several of our latency sensitive services. The incident remediation was slowed down significantly by the lack of explicit alerting on the web application server’s cache.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Fix the experimentation framework such that it doesn’t overwhelm the web application server’s cache\n* Add explicit monitoring and alerting around the usage of the web application server’s cache\n* Implement a fast way to clear the web application server caches on the entire server fleet\n* Add explicit monitoring and alerting around expensive operations performed by the web application server that should ordinarily be performed rarely due to being cached effectively\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
           "incident_id": "9zfz771sht67",
           "created_at": "2023-05-01T08:37:55.627-07:00",
-          "updated_at": "2023-05-01T08:38:03.395-07:00",
+          "updated_at": "2023-06-14T17:58:00.117-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
