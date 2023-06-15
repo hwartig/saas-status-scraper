@@ -4,15 +4,15 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-06-14T07:49:24.050Z"
+    "updated_at": "2023-06-15T05:15:52.498Z"
   },
   "incidents": [
     {
       "id": "mn08j05ms7wx",
       "name": "SSH and HTTPS Git commands impaired, clones and git pull failing",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-06-06T06:48:22.902Z",
-      "updated_at": "2023-06-06T08:14:06.366Z",
+      "updated_at": "2023-06-15T05:15:52.496Z",
       "monitoring_at": "2023-06-06T07:38:51.223Z",
       "resolved_at": "2023-06-06T08:00:51.486Z",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2023-06-06T06:48:22.897Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "1qfsp5rs8s8c",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn June 2, 2023, between 00:07 UTC and 00:49 UTC, and again on June 6, 2023, between 06:25 UTC and 08:19 UTC, Atlassian customers using Bitbucket Cloud faced significant degradation to its website and Git functionality. This was caused by an issue with our primary database, which impaired the operation of our core services until the database was able to recover. The incidents were detected immediately by our internal monitoring and fully resolved within one hour for the initial incident and two hours for the second incident.\n\n### **IMPACT**\n\nCustomers who were impacted were unable to access the [bitbucket.org](http://bitbucket.org) website, APIs, Pipelines, and Git over HTTPS and SSH during the following times:\n\n* All Bitbucket services were impacted on June 2, 2023 between 00:07 UTC and 00:49 UTC_._ Website and API requests recovered after 7 minutes, while Git operations were not fully operational until 00:49 UTC.\n* All Bitbucket services were impacted on June 6, 2023 between 06:25 UTC and 08:19 UTC. Git operations recovered at 07:41 UTC. Website and API traffic recovered briefly from 07:16 UTC to 08:06 UTC but experienced additional instability from 08:07 UTC to 08:19 UTC.\n\n### **ROOT CAUSE**\n\nBoth incidents were triggered by database cluster restarts. The June 2, 2023 incident was caused by a bug in the version of our database engine. The June 6, 2023 incident was caused by a maintenance patch being applied to all nodes in our database cluster.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. We are prioritizing the following improvement actions to avoid repeating these types of incidents in the future and reduce recovery time:\n\n* Enhance safeguards around patch application on the database\n* Improve how our services recover from database failures\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "mn08j05ms7wx",
+          "created_at": "2023-06-15T05:15:46.191Z",
+          "updated_at": "2023-06-15T05:15:52.494Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "y8rl2vj93plq",
           "status": "resolved",
@@ -195,9 +208,9 @@
     {
       "id": "t0bwh5nky362",
       "name": "Intermitent failures on Git via SSH and HTTPS",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-06-02T00:46:28.840Z",
-      "updated_at": "2023-06-02T04:02:25.797Z",
+      "updated_at": "2023-06-15T05:15:30.595Z",
       "monitoring_at": "2023-06-02T00:58:29.788Z",
       "resolved_at": "2023-06-02T04:02:24.878Z",
       "impact": "major",
@@ -205,6 +218,19 @@
       "started_at": "2023-06-02T00:46:28.832Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "6bkpcjn5v4ks",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn June 2, 2023, between 00:07 UTC and 00:49 UTC, and again on June 6, 2023, between 06:25 UTC and 08:19 UTC, Atlassian customers using Bitbucket Cloud faced significant degradation to its website and Git functionality. This was caused by an issue with our primary database, which impaired the operation of our core services until the database was able to recover. The incidents were detected immediately by our internal monitoring and fully resolved within one hour for the initial incident and two hours for the second incident.\n\n### **IMPACT**\n\nCustomers who were impacted were unable to access the [bitbucket.org](http://bitbucket.org) website, APIs, Pipelines, and Git over HTTPS and SSH during the following times:\n\n* All Bitbucket services were impacted on June 2, 2023 between 00:07 UTC and 00:49 UTC_._ Website and API requests recovered after 7 minutes, while Git operations were not fully operational until 00:49 UTC.\n* All Bitbucket services were impacted on June 6, 2023 between 06:25 UTC and 08:19 UTC. Git operations recovered at 07:41 UTC. Website and API traffic recovered briefly from 07:16 UTC to 08:06 UTC but experienced additional instability from 08:07 UTC to 08:19 UTC.\n\n### **ROOT CAUSE**\n\nBoth incidents were triggered by database cluster restarts. The June 2, 2023 incident was caused by a bug in the version of our database engine. The June 6, 2023 incident was caused by a maintenance patch being applied to all nodes in our database cluster.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. We are prioritizing the following improvement actions to avoid repeating these types of incidents in the future and reduce recovery time:\n\n* Enhance safeguards around patch application on the database\n* Improve how our services recover from database failures\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "t0bwh5nky362",
+          "created_at": "2023-06-15T05:13:46.904Z",
+          "updated_at": "2023-06-15T05:15:30.593Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "t01rpqqtg7fl",
           "status": "resolved",
