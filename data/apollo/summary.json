@@ -4,7 +4,7 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-06-13T14:43:36.795-07:00"
+    "updated_at": "2023-06-20T10:56:11.569-07:00"
   },
   "components": [
     {
@@ -55,9 +55,9 @@
     {
       "id": "9mh4j3cltpvv",
       "name": "Schema Checks",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2021-10-01T11:15:13.566-07:00",
-      "updated_at": "2023-05-23T06:37:36.313-07:00",
+      "updated_at": "2023-06-20T10:56:11.536-07:00",
       "position": 4,
       "description": "The Schema Checks feature enabling user workflows for commands like `rover graph check`, and `rover subgraph check`.",
       "showcase": true,
@@ -218,10 +218,63 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "83z8rs45ymfw",
+      "name": "Increased Operation Check Lag",
+      "status": "investigating",
+      "created_at": "2023-06-20T10:56:11.515-07:00",
+      "updated_at": "2023-06-20T10:56:11.567-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/f30tg3w1wk2p",
+      "started_at": "2023-06-20T10:56:11.511-07:00",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "s272dcfrxqh0",
+          "status": "investigating",
+          "body": "We are seeing elevated lag in running operation checks. You might see operation checks run longer than expected or time out.",
+          "incident_id": "83z8rs45ymfw",
+          "created_at": "2023-06-20T10:56:11.566-07:00",
+          "updated_at": "2023-06-20T10:56:11.566-07:00",
+          "display_at": "2023-06-20T10:56:11.566-07:00",
+          "affected_components": [
+            {
+              "code": "9mh4j3cltpvv",
+              "name": "Schema Checks",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "9mh4j3cltpvv",
+          "name": "Schema Checks",
+          "status": "partial_outage",
+          "created_at": "2021-10-01T11:15:13.566-07:00",
+          "updated_at": "2023-06-20T10:56:11.536-07:00",
+          "position": 4,
+          "description": "The Schema Checks feature enabling user workflows for commands like `rover graph check`, and `rover subgraph check`.",
+          "showcase": true,
+          "start_date": "2021-10-01",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
