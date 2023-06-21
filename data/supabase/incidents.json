@@ -4,9 +4,87 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-06-20T11:41:19.010Z"
+    "updated_at": "2023-06-21T09:23:55.445Z"
   },
   "incidents": [
+    {
+      "id": "jlwm9sgch5t0",
+      "name": "Broken Auth email links due to encoding issue",
+      "status": "identified",
+      "created_at": "2023-06-21T09:16:31.434Z",
+      "updated_at": "2023-06-21T09:23:55.440Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/cfqzwgc33t6k",
+      "started_at": "2023-06-21T09:16:31.427Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "wkxbbtd9gn5k",
+          "status": "identified",
+          "body": "We are continuing to work on a fix for this issue.",
+          "incident_id": "jlwm9sgch5t0",
+          "created_at": "2023-06-21T09:23:55.438Z",
+          "updated_at": "2023-06-21T09:23:55.438Z",
+          "display_at": "2023-06-21T09:23:55.438Z",
+          "affected_components": [
+            {
+              "code": "fznyj00kpng2",
+              "name": "Supabase Cloud - Supabase Auth",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "8sk8trhksy8f",
+          "status": "identified",
+          "body": "We’re tracking an increased number of issues with redirects based on links contained in emails from Supabase Auth. \nUnderlying cause is double query encoded `redirect_to` parameter. \nWe are working on a fix.",
+          "incident_id": "jlwm9sgch5t0",
+          "created_at": "2023-06-21T09:23:10.305Z",
+          "updated_at": "2023-06-21T09:23:10.305Z",
+          "display_at": "2023-06-21T09:23:10.305Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "8hzd8x9z5k6w",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "jlwm9sgch5t0",
+          "created_at": "2023-06-21T09:16:31.496Z",
+          "updated_at": "2023-06-21T09:16:31.496Z",
+          "display_at": "2023-06-21T09:16:31.496Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "fznyj00kpng2",
+          "name": "Supabase Auth",
+          "status": "degraded_performance",
+          "created_at": "2023-06-21T09:23:42.781Z",
+          "updated_at": "2023-06-21T09:23:55.413Z",
+          "position": 24,
+          "description": null,
+          "showcase": true,
+          "start_date": "2023-06-21",
+          "group_id": "tspmprmfqvvn",
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "47jl9hyvfltk",
       "name": "Supabase Logs suffering degraded performance",
@@ -5313,61 +5391,6 @@
           "created_at": "2022-08-24T08:01:06.829Z",
           "updated_at": "2022-08-24T08:01:06.829Z",
           "display_at": "2022-08-24T08:01:06.829Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": []
-    },
-    {
-      "id": "ndc8s55q84jw",
-      "name": "Some users are unable to login to the dashboard",
-      "status": "resolved",
-      "created_at": "2022-08-17T10:37:40.064Z",
-      "updated_at": "2022-08-18T18:00:40.151Z",
-      "monitoring_at": "2022-08-17T11:03:38.098Z",
-      "resolved_at": "2022-08-18T18:00:40.133Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/gq37f6060fw8",
-      "started_at": "2022-08-17T10:37:40.058Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "t00lcf1l6kvy",
-          "status": "resolved",
-          "body": "We haven't seen any issues since we fixed the issue yesterday.",
-          "incident_id": "ndc8s55q84jw",
-          "created_at": "2022-08-18T18:00:40.133Z",
-          "updated_at": "2022-08-18T18:00:40.133Z",
-          "display_at": "2022-08-18T18:00:40.133Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7ykzwtmwd13t",
-          "status": "monitoring",
-          "body": "We have identified the issue and rolled back the change. We are continuing to monitor the situation.",
-          "incident_id": "ndc8s55q84jw",
-          "created_at": "2022-08-17T11:03:38.098Z",
-          "updated_at": "2022-08-17T11:03:38.098Z",
-          "display_at": "2022-08-17T11:03:38.098Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "pn66xmv9pdhg",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "ndc8s55q84jw",
-          "created_at": "2022-08-17T10:37:40.099Z",
-          "updated_at": "2022-08-17T10:37:40.099Z",
-          "display_at": "2022-08-17T10:37:40.099Z",
           "affected_components": null,
           "deliver_notifications": false,
           "custom_tweet": null,
