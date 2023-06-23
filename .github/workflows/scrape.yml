@@ -12,10 +12,13 @@ jobs:
     steps:
     - name: Check out this repo
       uses: actions/checkout@v3
+    - name: Install dependencies
+      uses: awalsh128/cache-apt-pkgs-action@v1
+      with:
+        packages: html-xml-utils
+        version: 1
     - name: Fetch latest data
-      run: |-
-        awk -v FS='\t' -v OFS='' '($4=="statuspage") {print "mkdir -p data/",$1,"; curl -f ",$3,"/api/v2/summary.json | jq > data/",$1,"/summary.json"}' companies.tsv | bash
-        awk -v FS='\t' -v OFS='' '($4=="statuspage") {print "mkdir -p data/",$1,"; curl -f ",$3,"/api/v2/incidents.json | jq > data/",$1,"/incidents.json"}' companies.tsv | bash
+      run: ./run.sh
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
