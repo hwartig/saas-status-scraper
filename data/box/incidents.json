@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-06-26T01:03:54.813-07:00"
+    "updated_at": "2023-06-26T05:44:39.069-07:00"
   },
   "incidents": [
     {
@@ -578,7 +578,7 @@
       "name": "[Major] Errors Accessing Box",
       "status": "postmortem",
       "created_at": "2023-06-01T12:06:44.000-07:00",
-      "updated_at": "2023-06-12T12:46:24.907-07:00",
+      "updated_at": "2023-06-26T05:44:39.059-07:00",
       "monitoring_at": "2023-06-01T12:50:24.348-07:00",
       "resolved_at": "2023-06-01T14:07:16.023-07:00",
       "impact": "major",
@@ -589,10 +589,10 @@
         {
           "id": "1tlxlmgt82bt",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\nOn June 1, 2023 between 11:35 AM PT and 12:42 PM PT, some users may have experienced difficulties while working in Box. During this time, some users experienced slowness and intermittent failures interacting with certain parts of the Box Web App and public API, including Logins, Uploads and Downloads. The issue occurred as a result of a recent code change in our ongoing effort to improve performance and stability. We were able to resolve the issue by rolling back the code change. In addition, we are working to improve our deployment and monitoring processes to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "body": "_We recently addressed issues affecting certain parts of the Box webapp and public API, including Logins, Uploads and Downloads. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future._  \n  \n_Between 11:35 AM PT and 12:42 PM PT on June 1, 2023, some users may have experienced difficulties while working in Box. During this time, some users experienced slowness and intermittent failures interacting with certain parts of the Box webapp and public API, including Logins, Uploads and Downloads. The issue occurred as a result of a recent code change in our ongoing effort to improve performance and stability. We were able to resolve the issue by rolling back the code change.  We are working to improve our deployment and monitoring processes to prevent similar issues from occurring in the future._   \n  \n_**Analysis **_\n\n_Just prior to the start of the issue, we deployed a change that introduced a new database query in an attempt to simplify complex legacy queries and reduce database load. This new query was more expensive than anticipated, and caused the database to overload on larger tables in the production environment.  Customers may have experienced failed logins, uploads, and downloads as a result.  This change was tested in our pre-production environments for a week prior to release.  However, our pre-production environments have different load characteristics, making it difficult to identify the problem the query would cause under production load.  We are putting additional processes in place to thoroughly validate any database query changes prior to production deployment in order to prevent this from happening again._\n\n‌\n\n_**Corrective Actions**_\n\n_The following corrective actions have been completed or are planned:_\n\n* _Rework the solution to improve expensive database queries._\n* _Improve the deployment process to include more incremental stages, streamline the verification process, and expedite rollback speed._\n* _Formalize a process that tests DB effectiveness to better assess query impact when we adjust/create them_\n\n_We are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter._ \n\n_Sincerely,_\n\n_The Box Team_",
           "incident_id": "qyt1zprzdy3y",
           "created_at": "2023-06-12T12:45:52.909-07:00",
-          "updated_at": "2023-06-12T12:46:24.905-07:00",
+          "updated_at": "2023-06-26T05:44:39.056-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
