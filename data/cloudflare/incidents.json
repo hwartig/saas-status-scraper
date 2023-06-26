@@ -4,9 +4,108 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-06-26T16:49:31.021Z"
+    "updated_at": "2023-06-26T17:25:01.059Z"
   },
   "incidents": [
+    {
+      "id": "0vjn356jz0p5",
+      "name": "Cloudflare Load Balancing & Logs Degraded",
+      "status": "identified",
+      "created_at": "2023-06-26T17:08:59.092Z",
+      "updated_at": "2023-06-26T17:20:28.110Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/wphp4k3c1yq4",
+      "started_at": "2023-06-26T17:08:59.082Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "2ljky1gw7gjb",
+          "status": "identified",
+          "body": "The issue has been identified and a fix is being implemented.",
+          "incident_id": "0vjn356jz0p5",
+          "created_at": "2023-06-26T17:20:28.107Z",
+          "updated_at": "2023-06-26T17:20:28.107Z",
+          "display_at": "2023-06-26T17:20:28.107Z",
+          "affected_components": [
+            {
+              "code": "8sn2w5kyxfnp",
+              "name": "Cloudflare Sites and Services - Load Balancing and Monitoring",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "k0mgxrls5y1b",
+              "name": "Cloudflare Sites and Services - Logs",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "dbcft8gm26xp",
+          "status": "investigating",
+          "body": "Cloudflare is investigating delayed logging for DNS, LB Analytics, Healthcheck Analytics, as well as a delay in updating latency information for Load Balancers with Dynamic Latency as steering method. This may result in Load Balancer routing CDN requests to a pool that is not the fastest for a given Cloudflare Region.\n\nWe are working to resolve the issue. More updates to follow shortly.",
+          "incident_id": "0vjn356jz0p5",
+          "created_at": "2023-06-26T17:08:59.213Z",
+          "updated_at": "2023-06-26T17:08:59.213Z",
+          "display_at": "2023-06-26T17:08:59.213Z",
+          "affected_components": [
+            {
+              "code": "8sn2w5kyxfnp",
+              "name": "Cloudflare Sites and Services - Load Balancing and Monitoring",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "k0mgxrls5y1b",
+              "name": "Cloudflare Sites and Services - Logs",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "8sn2w5kyxfnp",
+          "name": "Load Balancing and Monitoring",
+          "status": "degraded_performance",
+          "created_at": "2019-01-24T16:54:07.994Z",
+          "updated_at": "2023-06-26T17:08:59.135Z",
+          "position": 35,
+          "description": "Cloudflare's load balancing and failover service including origin server monitoring",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "k0mgxrls5y1b",
+          "name": "Logs",
+          "status": "degraded_performance",
+          "created_at": "2016-03-20T18:49:07.613Z",
+          "updated_at": "2023-06-26T17:08:59.156Z",
+          "position": 36,
+          "description": "Cloudflare's Enterprise Log pull and Log push service",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "z5ydtlhxcxf5",
       "name": "Workers KV Write Latency",
@@ -728,9 +827,9 @@
         {
           "id": "8sn2w5kyxfnp",
           "name": "Load Balancing and Monitoring",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-24T16:54:07.994Z",
-          "updated_at": "2023-06-21T15:31:15.166Z",
+          "updated_at": "2023-06-26T17:08:59.135Z",
           "position": 35,
           "description": "Cloudflare's load balancing and failover service including origin server monitoring",
           "showcase": false,
@@ -5022,9 +5121,9 @@
         {
           "id": "k0mgxrls5y1b",
           "name": "Logs",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-03-20T18:49:07.613Z",
-          "updated_at": "2023-06-15T12:33:16.644Z",
+          "updated_at": "2023-06-26T17:08:59.156Z",
           "position": 36,
           "description": "Cloudflare's Enterprise Log pull and Log push service",
           "showcase": false,
@@ -5181,138 +5280,6 @@
           "showcase": false,
           "start_date": "2023-01-13",
           "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "td0dd69y6x99",
-      "name": "Increase in 503 errors happening at the IAD (Ashburn, VA, USA) datacenter",
-      "status": "resolved",
-      "created_at": "2023-05-26T05:08:36.000Z",
-      "updated_at": "2023-05-26T05:44:57.603Z",
-      "monitoring_at": "2023-05-26T05:25:09.655Z",
-      "resolved_at": "2023-05-26T05:44:57.590Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/crp8hjlgjyp8",
-      "started_at": "2023-05-26T05:08:36.000Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "53s9g9fhp5k4",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "td0dd69y6x99",
-          "created_at": "2023-05-26T05:44:57.590Z",
-          "updated_at": "2023-05-26T05:44:57.590Z",
-          "display_at": "2023-05-26T05:44:57.590Z",
-          "affected_components": [
-            {
-              "code": "3t0npclljyyg",
-              "name": "North America - Ashburn, VA, United States - (IAD)",
-              "old_status": "under_maintenance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wyd3vmnlfh1q",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues.",
-          "incident_id": "td0dd69y6x99",
-          "created_at": "2023-05-26T05:26:16.572Z",
-          "updated_at": "2023-05-26T05:26:16.572Z",
-          "display_at": "2023-05-26T05:26:16.572Z",
-          "affected_components": [
-            {
-              "code": "3t0npclljyyg",
-              "name": "North America - Ashburn, VA, United States - (IAD)",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "z386mygfwwjw",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "td0dd69y6x99",
-          "created_at": "2023-05-26T05:25:09.655Z",
-          "updated_at": "2023-05-26T05:25:09.655Z",
-          "display_at": "2023-05-26T05:25:09.655Z",
-          "affected_components": [
-            {
-              "code": "3t0npclljyyg",
-              "name": "North America - Ashburn, VA, United States - (IAD)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "d5yxt6v13zwq",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "td0dd69y6x99",
-          "created_at": "2023-05-26T05:22:59.413Z",
-          "updated_at": "2023-05-26T05:22:59.413Z",
-          "display_at": "2023-05-26T05:22:59.413Z",
-          "affected_components": [
-            {
-              "code": "3t0npclljyyg",
-              "name": "North America - Ashburn, VA, United States - (IAD)",
-              "old_status": "under_maintenance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "lddy40h1qfsw",
-          "status": "investigating",
-          "body": "We have noticed an increase in HTTP 503 errors occuring at the IAD (Ashburn, VA, USA) datacenter.  We are currently investigating this issue.",
-          "incident_id": "td0dd69y6x99",
-          "created_at": "2023-05-26T05:08:36.262Z",
-          "updated_at": "2023-05-26T05:11:33.078Z",
-          "display_at": "2023-05-26T05:08:36.000Z",
-          "affected_components": [
-            {
-              "code": "3t0npclljyyg",
-              "name": "North America - Ashburn, VA, United States - (IAD)",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "3t0npclljyyg",
-          "name": "Ashburn, VA, United States - (IAD)",
-          "status": "operational",
-          "created_at": "2014-10-27T20:30:01.380Z",
-          "updated_at": "2023-06-14T10:50:04.619Z",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "4l01sk5cdn5c",
           "page_id": "yh6f0r4529hb",
           "group": false,
           "only_show_if_degraded": false
