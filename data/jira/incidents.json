@@ -4,7 +4,7 @@
     "name": "Jira Software",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-06-26T07:30:45.341Z"
+    "updated_at": "2023-06-27T03:06:03.824Z"
   },
   "incidents": [
     {
@@ -273,9 +273,9 @@
     {
       "id": "g84s6dz9frd0",
       "name": "Automations and rules issue",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-06-13T19:59:21.869Z",
-      "updated_at": "2023-06-14T03:02:24.065Z",
+      "updated_at": "2023-06-27T03:06:03.821Z",
       "monitoring_at": null,
       "resolved_at": "2023-06-14T03:02:24.053Z",
       "impact": "major",
@@ -283,6 +283,19 @@
       "started_at": "2023-06-13T19:59:21.864Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "534spz88f5t5",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn June 13 2023, from 6:49 PM UTC to June 14, 2023, 02:20 AM UTC, Atlassian customers using Jira Software, Jira Service Management, Jira Work Management, Confluence and Trello with services hosted in AWS us-east-1 region were impacted by Automation rule degradation. This event was triggered by an increased error rates and latencies for AWS Lambda function invocations in the us-east-1 region. Some other AWS services also experienced increased error rates and latencies as a result of degraded Lambda functions invocations.  This incident was automatically detected by multiple monitoring systems within 6 minutes, paging on-call teams. Recovery of the affected AWS Lambda service began after 116 minutes at June 13th 8:45 PM UTC.  Full recovery of all AWS services occurred at 10:37 PM UTC June 13th after the backlog of asynchronous Lambda events had been processed. Some Jira tenants with large event backlogs experienced delays in running schedule-based rule reruns. Full recovery of all Atlassian Cloud services was notified at June 14, 2023, 02:20 AM UTC.\n\n### **IMPACT**\n\nThe overall impact was between June 13, 2023, 06:49 PM UTC and June 14, 2023, 02:20 AM UTC.  Product-specific impacts are listed below.\n\n* Jira Software, Jira Service Management,  Jira Work Management - Automation rules were not executed for 2 hours between Jun 13, 06:49 PM UTC and Jun 13, 08:45 PM UTC.  Jira automation events generated during this period were unable to be rerun.  When AWS Lambda recovered delays were still experienced in our schedule-based and event-based rules for some larger tenants due to a large backlog of events. Full recovery was at June 14, 2023, 02:20 AM UTC.\n* Confluence - Automation rules were not executed for 2 hours between Jun 13, 06:49 PM UTC and Jun 13, 08:45 PM UTC.  On AWS service restoration Confluence automation recovered and Confluence automation events generated during this period were rerun and processed.  Full recovery was at June 14, 2023, 12:41 AM UTC.\n* Jira Product Discovery - Automation rules were not executed for 2 hours between Jun 13, 06:49 PM UTC and Jun 13, 08:45 PM UTC. Jira automation events generated during this period were unable to be rerun.  Sending feedback/filing a support ticket from the application did not work. \n* Trello -  Email to board delays, card covers image upload failures, attachment preview generation failures, board background upload failures, custom sticker images upload failures, custom emoji upload failures. Trello automation was unaffected. Full recovery was at June 13, 2023, 10:08 PM UTC.\n\nThe service disruption lasted for 7 hours and 1 minutes between June 13, 2023, 06:49 PM UTC and June 14, 2023, 02:20 AM UTC and caused service disruption to customers with services hosted in the US-EAST-1 region.\n\n### **ROOT CAUSE**\n\nAtlassian uses Amazon Web Services \\(AWS\\) as a cloud service provider. The root cause was an issue with a subsystem responsible for capacity management for AWS Lambda in US-EAST-1 Region, which also impacted 104 AWS services.  This impacted Automation rules as the service is hosted exclusively in this region.\n\nThere were no relevant Atlassian-driven events in the lead-up that have been identified to cause or contribute to this incident.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Increase reliability of message delivery and recoverability from Jira to Automation platform to improve recovery times. \n* Create a plan for multi-region impact mitigation for Automation.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "g84s6dz9frd0",
+          "created_at": "2023-06-27T03:05:59.010Z",
+          "updated_at": "2023-06-27T03:06:03.819Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "zv8w0zlspxvw",
           "status": "resolved",
