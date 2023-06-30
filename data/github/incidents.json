@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-06-30T08:00:35.202Z"
+    "updated_at": "2023-06-30T09:50:00.392Z"
   },
   "incidents": [
     {
@@ -12,9 +12,9 @@
       "name": "Incident On 2023-06-29",
       "status": "resolved",
       "created_at": "2023-06-29T17:52:11.477Z",
-      "updated_at": "2023-06-29T18:36:19.499Z",
+      "updated_at": "2023-06-30T09:50:00.389Z",
       "monitoring_at": null,
-      "resolved_at": "2023-06-29T18:36:19.484Z",
+      "resolved_at": "2023-06-29T18:36:19.000Z",
       "impact": "critical",
       "shortlink": "https://stspg.io/14946fbbn6n7",
       "started_at": "2023-06-29T17:52:11.466Z",
@@ -23,11 +23,11 @@
         {
           "id": "18krpgp3f309",
           "status": "resolved",
-          "body": "We have recovered and are operating normally",
+          "body": "From 17:39-18:12 UTC GitHub was down in parts of North America, particularly the US East coast, and South America. \n\nGitHub takes measures to ensure that we have redundancy in our system for various disaster scenarios. We have been working on building redundancy to an earlier single point of failure in our network architecture at a second Internet edge facility. This second Internet edge facility was completed in January and has been actively routing production traffic since then. Today we were performing a live failover test to validate that we could in fact use this second Internet edge facility if the primary were to fail. Unfortunately, during this failover we inadvertently caused a production outage.\n\nDuring the test we exposed that the secondary site had a network pathing configuration issue that prevented it from properly functioning as the primary facility. This caused issues with Internet connectivity to GitHub, ultimately resulting in an outage. We were immediately notified of the issue in our monitoring and alerting. Within two minutes of being alerted we reverted the change and brought the primary facility back online. Once online it took time for traffic to be rebalanced and for our border routers to reconverge restoring public connectivity to affected GitHub systems.\n\nThis failover test helped expose the configuration issue, and we are addressing the gaps in both configuration and our failover testing which will help make GitHub more resilient. We recognize the severity of this outage and apologize for the impact it has to our customers.",
           "incident_id": "gqx5l06jjxhp",
           "created_at": "2023-06-29T18:36:19.484Z",
-          "updated_at": "2023-06-29T18:36:19.484Z",
-          "display_at": "2023-06-29T18:36:19.484Z",
+          "updated_at": "2023-06-30T09:50:00.368Z",
+          "display_at": "2023-06-29T18:36:19.000Z",
           "affected_components": [
             {
               "code": "brv1bkgrwx7q",
