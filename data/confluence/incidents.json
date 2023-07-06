@@ -4,9 +4,38 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-06-28T21:18:32.408Z"
+    "updated_at": "2023-07-06T08:02:24.857Z"
   },
   "incidents": [
+    {
+      "id": "tszykx9pgb2q",
+      "name": "Degraded performance in Confluence Cloud",
+      "status": "investigating",
+      "created_at": "2023-07-06T08:02:24.820Z",
+      "updated_at": "2023-07-06T08:02:24.854Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/r1xg0d23rhcn",
+      "started_at": "2023-07-06T08:02:24.814Z",
+      "page_id": "4g2my7tbhjsq",
+      "incident_updates": [
+        {
+          "id": "tq4q4zv1xzw3",
+          "status": "investigating",
+          "body": "We are investigating cases of degraded performance for some Confluence Cloud customers. We will provide more details within the next hour.",
+          "incident_id": "tszykx9pgb2q",
+          "created_at": "2023-07-06T08:02:24.852Z",
+          "updated_at": "2023-07-06T08:02:24.852Z",
+          "display_at": "2023-07-06T08:02:24.852Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": []
+    },
     {
       "id": "c02ffyfst2xn",
       "name": "Customers experiencing a back-in-a-flash error",
@@ -8153,111 +8182,6 @@
           "updated_at": "2023-06-28T21:18:32.406Z",
           "position": 1,
           "description": "Viewing pages or dashboards",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "4g2my7tbhjsq",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "r334c9tzp91m",
-      "name": "Allow Access consent loop",
-      "status": "resolved",
-      "created_at": "2022-07-18T02:18:52.126Z",
-      "updated_at": "2022-07-21T07:16:30.797Z",
-      "monitoring_at": null,
-      "resolved_at": "2022-07-21T07:16:30.778Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/kljfm7l8lp0n",
-      "started_at": "2022-07-18T02:18:52.115Z",
-      "page_id": "4g2my7tbhjsq",
-      "incident_updates": [
-        {
-          "id": "lfvp58qn54dq",
-          "status": "resolved",
-          "body": "Between 07/Jul/22 8:00 PM and 19/Jul/22 3:13 AM we experienced an issue where some customers granting access to an app could have entered into a loop where the user was continually asked to grant access. This effectively blocked the user from using the app. This state was triggered for apps that modified egress permissions and did not modify scopes. Forge apps in Confluence, Jira Work Management, and Jira Software were affected. The issue has been resolved and the services are operating normally.",
-          "incident_id": "r334c9tzp91m",
-          "created_at": "2022-07-21T07:16:30.778Z",
-          "updated_at": "2022-07-21T07:16:30.778Z",
-          "display_at": "2022-07-21T07:16:30.778Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "t7k09gxd7vt9",
-          "status": "identified",
-          "body": "We have partially mitigated the issue - the condition in which user is being prompted continuously for consent and unable to use app is now less likely to happen but still possible.\r\n\r\nThe incident team is investigating this problem further to find root cause of remaining source of reliability problems.",
-          "incident_id": "r334c9tzp91m",
-          "created_at": "2022-07-18T18:39:19.540Z",
-          "updated_at": "2022-07-18T18:39:19.540Z",
-          "display_at": "2022-07-18T18:39:19.540Z",
-          "affected_components": [
-            {
-              "code": "s0zdf6p5dhv7",
-              "name": "Marketplace Apps",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "72jknzb8bzmb",
-          "status": "identified",
-          "body": "We continue to work on resolving the Forge access grant for Confluence, Jira Work Management and Jira Software. We have identified the issue is caused by caching in the browser or a front end system. \r\n\r\nA browser page refresh on the access grant page will allow the access to be granted and it will then not loop.",
-          "incident_id": "r334c9tzp91m",
-          "created_at": "2022-07-18T07:03:13.519Z",
-          "updated_at": "2022-07-18T07:03:13.519Z",
-          "display_at": "2022-07-18T07:03:13.519Z",
-          "affected_components": [
-            {
-              "code": "s0zdf6p5dhv7",
-              "name": "Marketplace Apps",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dj1k5jzzxnqj",
-          "status": "investigating",
-          "body": "We are investigating reports of a consent loop when upgrading scopes on a Forge app. We are currently trying to reproduce the issue. We will provide more details once we identify the root cause.",
-          "incident_id": "r334c9tzp91m",
-          "created_at": "2022-07-18T02:18:52.212Z",
-          "updated_at": "2022-07-18T02:18:52.212Z",
-          "display_at": "2022-07-18T02:18:52.212Z",
-          "affected_components": [
-            {
-              "code": "s0zdf6p5dhv7",
-              "name": "Marketplace Apps",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "s0zdf6p5dhv7",
-          "name": "Marketplace Apps",
-          "status": "operational",
-          "created_at": "2018-11-30T21:51:46.679Z",
-          "updated_at": "2023-06-14T21:20:32.313Z",
-          "position": 8,
-          "description": null,
           "showcase": false,
           "start_date": null,
           "group_id": null,
