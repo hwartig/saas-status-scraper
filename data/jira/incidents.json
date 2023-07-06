@@ -4,9 +4,38 @@
     "name": "Jira Software",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-07-06T09:39:45.646Z"
+    "updated_at": "2023-07-06T09:58:28.206Z"
   },
   "incidents": [
+    {
+      "id": "bwqd6myx7fvz",
+      "name": "Update to multi-select field failed from Advanced Roadmap",
+      "status": "resolved",
+      "created_at": "2023-07-06T09:58:28.156Z",
+      "updated_at": "2023-07-06T09:58:28.204Z",
+      "monitoring_at": null,
+      "resolved_at": "2023-07-06T09:58:28.194Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/487n7kn56mkh",
+      "started_at": "2023-07-06T09:58:28.152Z",
+      "page_id": "7yh3h3y0c0x1",
+      "incident_updates": [
+        {
+          "id": "n4j72y45hqch",
+          "status": "resolved",
+          "body": "Between Jul 4, 2023 11:48pm UTC to Jul 6, 2023 01:41am UTC, saves performed in Advanced Roadmaps where multi-select custom fields were updated were not saved. The issue has been resolved and the service is operating normally. In case you are still experiencing issue or need assistance with unsaved data, please reach out to Atlassian Support.",
+          "incident_id": "bwqd6myx7fvz",
+          "created_at": "2023-07-06T09:58:28.194Z",
+          "updated_at": "2023-07-06T09:58:28.194Z",
+          "display_at": "2023-07-06T09:58:28.194Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": []
+    },
     {
       "id": "kgq484ssj224",
       "name": "Intermittent errors during login for some customers",
@@ -5769,111 +5798,6 @@
         }
       ],
       "components": []
-    },
-    {
-      "id": "htz7jdrzj0m8",
-      "name": "Allow Access consent loop",
-      "status": "resolved",
-      "created_at": "2022-07-18T02:18:52.106Z",
-      "updated_at": "2022-07-21T07:16:30.807Z",
-      "monitoring_at": null,
-      "resolved_at": "2022-07-21T07:16:30.786Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/f928n7fhw5k6",
-      "started_at": "2022-07-18T02:18:52.100Z",
-      "page_id": "7yh3h3y0c0x1",
-      "incident_updates": [
-        {
-          "id": "brx57bwzltpb",
-          "status": "resolved",
-          "body": "Between 07/Jul/22 8:00 PM and 19/Jul/22 3:13 AM we experienced an issue where some customers granting access to an app could have entered into a loop where the user was continually asked to grant access. This effectively blocked the user from using the app. This state was triggered for apps that modified egress permissions and did not modify scopes. Forge apps in Confluence, Jira Work Management, and Jira Software were affected. The issue has been resolved and the services are operating normally.",
-          "incident_id": "htz7jdrzj0m8",
-          "created_at": "2022-07-21T07:16:30.786Z",
-          "updated_at": "2022-07-21T07:16:30.786Z",
-          "display_at": "2022-07-21T07:16:30.786Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jl4k6x6qcwqw",
-          "status": "identified",
-          "body": "We have partially mitigated the issue - the condition in which user is being prompted continuously for consent and unable to use app is now less likely to happen but still possible.\r\n\r\nThe incident team is investigating this problem further to find root cause of remaining source of reliability problems.",
-          "incident_id": "htz7jdrzj0m8",
-          "created_at": "2022-07-18T18:39:19.739Z",
-          "updated_at": "2022-07-18T18:39:19.739Z",
-          "display_at": "2022-07-18T18:39:19.739Z",
-          "affected_components": [
-            {
-              "code": "50wvm3nm8nd3",
-              "name": "Marketplace",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "zb2xx4v1zlwh",
-          "status": "identified",
-          "body": "We continue to work on resolving the Forge access grant for Confluence, Jira Work Management and Jira Software. We have identified the issue is caused by caching in the browser or a front end system. \r\n\r\nA browser page refresh on the access grant page will allow the access to be granted and it will then not loop.",
-          "incident_id": "htz7jdrzj0m8",
-          "created_at": "2022-07-18T07:03:13.516Z",
-          "updated_at": "2022-07-18T07:03:13.516Z",
-          "display_at": "2022-07-18T07:03:13.516Z",
-          "affected_components": [
-            {
-              "code": "50wvm3nm8nd3",
-              "name": "Marketplace",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dz1hqgqy0zy0",
-          "status": "investigating",
-          "body": "We are investigating reports of a consent loop when upgrading scopes on a Forge app. We are currently trying to reproduce the issue. We will provide more details once we identify the root cause.",
-          "incident_id": "htz7jdrzj0m8",
-          "created_at": "2022-07-18T02:18:52.168Z",
-          "updated_at": "2022-07-18T02:18:52.168Z",
-          "display_at": "2022-07-18T02:18:52.168Z",
-          "affected_components": [
-            {
-              "code": "50wvm3nm8nd3",
-              "name": "Marketplace",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "50wvm3nm8nd3",
-          "name": "Marketplace",
-          "status": "operational",
-          "created_at": "2019-01-07T07:53:34.665Z",
-          "updated_at": "2023-05-15T04:51:10.852Z",
-          "position": 7,
-          "description": "Installing and managing apps. For the status of Marketplace Developer tools, please visit status.developer.atlassian.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
     }
   ]
 }
