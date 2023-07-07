@@ -4,9 +4,61 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-07-06T19:43:18.665Z"
+    "updated_at": "2023-07-07T01:49:56.368Z"
   },
   "incidents": [
+    {
+      "id": "2zl7qv4q0b93",
+      "name": "Experimental Performance Alerts are Delayed",
+      "status": "identified",
+      "created_at": "2023-07-07T01:49:56.315Z",
+      "updated_at": "2023-07-07T01:49:56.366Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/b07bd13plchm",
+      "started_at": "2023-07-07T01:49:56.311Z",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "kb31ghhz2vxk",
+          "status": "identified",
+          "body": "Some users of the experimental performance alerts feature may find that their alerts are not firing or delayed. We believe we've identified the root cause, and are waiting on upstream services to update.",
+          "incident_id": "2zl7qv4q0b93",
+          "created_at": "2023-07-07T01:49:56.365Z",
+          "updated_at": "2023-07-07T01:49:56.365Z",
+          "display_at": "2023-07-07T01:49:56.365Z",
+          "affected_components": [
+            {
+              "code": "19fzmngq0gn2",
+              "name": "(experimental) Performance Alerts",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "19fzmngq0gn2",
+          "name": "(experimental) Performance Alerts",
+          "status": "degraded_performance",
+          "created_at": "2021-10-04T20:08:06.091Z",
+          "updated_at": "2023-07-07T01:49:56.335Z",
+          "position": 8,
+          "description": "Apollo Studio feature that supports alerting to Slack or Pagerduty based on latency, error, and request rates of operations.",
+          "showcase": true,
+          "start_date": "2021-10-04",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "g5gyblj6f2gp",
       "name": "Schema Checks degraded",
@@ -5579,158 +5631,6 @@
           "description": "The Schema Checks feature enabling user workflows for commands like `rover graph check`, and `rover subgraph check`.",
           "showcase": true,
           "start_date": "2021-10-01",
-          "group_id": null,
-          "page_id": "r56zbm15x15h",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "12zrmbkqm5c7",
-      "name": "Studio Single Sign-On (SSO) login failures",
-      "status": "resolved",
-      "created_at": "2022-08-26T09:35:42.000Z",
-      "updated_at": "2022-08-26T14:59:35.110Z",
-      "monitoring_at": "2022-08-26T14:40:32.819Z",
-      "resolved_at": "2022-08-26T14:59:35.093Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/ns5nlrw5g58l",
-      "started_at": "2022-08-26T09:35:42.000Z",
-      "page_id": "r56zbm15x15h",
-      "incident_updates": [
-        {
-          "id": "6r7gt900x6cz",
-          "status": "resolved",
-          "body": "We believe the incident preventing users from logging in with their SSO providers (like Okta or PingOne) to be resolved.  Again, no CLI or API access usage using graph tokens was impacted during this time, only login workflows through the Studio web interface.\n\nWe don't believe it is necessary but — as this was a login problem — if you continue to experience troubles logging in, please try using your browser's private browsing mode.  If the issues persist, contact our support team.\n\nWe will be taking measures on our end to reduce the potential of this happening in the future and we appreciate your patience during the outage.",
-          "incident_id": "12zrmbkqm5c7",
-          "created_at": "2022-08-26T14:59:35.093Z",
-          "updated_at": "2022-08-26T14:59:35.093Z",
-          "display_at": "2022-08-26T14:59:35.093Z",
-          "affected_components": [
-            {
-              "code": "zd63qfmtg76x",
-              "name": "Studio UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "c8sqsg96g2nb",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues.",
-          "incident_id": "12zrmbkqm5c7",
-          "created_at": "2022-08-26T14:40:43.404Z",
-          "updated_at": "2022-08-26T14:40:43.404Z",
-          "display_at": "2022-08-26T14:40:43.404Z",
-          "affected_components": [
-            {
-              "code": "zd63qfmtg76x",
-              "name": "Studio UI",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gh0v92lk0p50",
-          "status": "monitoring",
-          "body": "Thanks to a fix implemented with our upstream identity provider, our SSO login is working again as of about 20 minutes ago.  We will continue to monitor the situation.",
-          "incident_id": "12zrmbkqm5c7",
-          "created_at": "2022-08-26T14:40:32.819Z",
-          "updated_at": "2022-08-26T14:40:32.819Z",
-          "display_at": "2022-08-26T14:40:32.819Z",
-          "affected_components": [
-            {
-              "code": "zd63qfmtg76x",
-              "name": "Studio UI",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9nxjwpwmmy83",
-          "status": "identified",
-          "body": "Our identity provider has identified the reason why their systems are refusing our attempts to negotiate SSO logins for our users.\n\nWe are working with their teams to find a resolution.  We apologize for the inconvenience and appreciate your patience.",
-          "incident_id": "12zrmbkqm5c7",
-          "created_at": "2022-08-26T14:04:44.155Z",
-          "updated_at": "2022-08-26T14:04:44.155Z",
-          "display_at": "2022-08-26T14:04:44.155Z",
-          "affected_components": [
-            {
-              "code": "zd63qfmtg76x",
-              "name": "Studio UI",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ssff3yv4hw8l",
-          "status": "investigating",
-          "body": "Our users continue to experience errors when attempting to log in with SSO.  We have verified that Studio Graph tokens and CLI usage for tokens which have already been created continue to work. \n\nWe are in communication with our identity provider and we will provide more updates as soon as they are available.",
-          "incident_id": "12zrmbkqm5c7",
-          "created_at": "2022-08-26T12:20:03.350Z",
-          "updated_at": "2022-08-26T12:20:03.350Z",
-          "display_at": "2022-08-26T12:20:03.350Z",
-          "affected_components": [
-            {
-              "code": "zd63qfmtg76x",
-              "name": "Studio UI",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1cdhbrd4nf2l",
-          "status": "investigating",
-          "body": "We are currently investigating reports of problems logging in with SSO providers (e.g., Okta, PingOne, etc.).  Logins with GitHub and email/password combinations are working correctly and this only affects SSO logins.",
-          "incident_id": "12zrmbkqm5c7",
-          "created_at": "2022-08-26T11:11:42.975Z",
-          "updated_at": "2022-08-26T12:52:24.435Z",
-          "display_at": "2022-08-26T09:35:42.000Z",
-          "affected_components": [
-            {
-              "code": "zd63qfmtg76x",
-              "name": "Studio UI",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "zd63qfmtg76x",
-          "name": "Studio UI",
-          "status": "operational",
-          "created_at": "2017-11-02T23:10:13.943Z",
-          "updated_at": "2023-05-23T13:37:36.339Z",
-          "position": 12,
-          "description": "The Studio SaaS Frontend UI.",
-          "showcase": false,
-          "start_date": null,
           "group_id": null,
           "page_id": "r56zbm15x15h",
           "group": false,
