@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-07-07T09:32:19.299-07:00"
+    "updated_at": "2023-07-07T09:43:16.907-07:00"
   },
   "incidents": [
     {
@@ -627,16 +627,29 @@
     {
       "id": "cb1zzy4cr5py",
       "name": "[Major] Customers may have been experiencing issues with Admin Console",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-06-22T03:04:41.000-07:00",
-      "updated_at": "2023-06-22T03:16:38.777-07:00",
+      "updated_at": "2023-07-07T09:43:16.904-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-06-22T03:04:41.000-07:00",
-      "impact": "none",
+      "impact": "major",
       "shortlink": "https://stspg.io/4l0hkyg0v3wx",
       "started_at": "2023-06-22T03:04:41.000-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "z2gjq67zxqpn",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn June 22, 2023 between 1:33 AM PDT and 2:08 AM PDT, some users may have experienced difficulties while working in Box. During this time, some users may have experienced limited or no access to Admin Console. The issue occurred due to a recent change to our deployment pipeline which resulted in some missing files during our release. We were able to resolve the issue by reverting to a previous version. In addition**,** we are working on upgrading our deployment pipeline to prevent incomplete deployments in the future.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "cb1zzy4cr5py",
+          "created_at": "2023-07-07T09:43:02.490-07:00",
+          "updated_at": "2023-07-07T09:43:16.903-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "626vt6bc929j",
           "status": "resolved",
@@ -710,7 +723,7 @@
       "name": "[Major] Issues with Search Functionality",
       "status": "postmortem",
       "created_at": "2023-06-07T22:47:56.748-07:00",
-      "updated_at": "2023-07-07T09:32:19.296-07:00",
+      "updated_at": "2023-07-07T09:36:26.384-07:00",
       "monitoring_at": "2023-06-07T23:34:15.171-07:00",
       "resolved_at": "2023-06-08T00:51:55.173-07:00",
       "impact": "major",
@@ -721,10 +734,10 @@
         {
           "id": "475srm8rnvmx",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn June 7, 2023 between 2:04 PM PDT and 10:32 PM PDT, some users may have experienced difficulties while working in Box. During this time, some users may have experienced limited or no results when searching for files. The issue occurred due to an underlying infrastructure issue where a Search cluster was missing a portion of its index. We were able to resolve the issue by immediately routing traffic to one of our backup clusters. In addition, we are working to add restrictions and additional checks to better prevent traffic from being routed to an incomplete index in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "body": "We recently addressed issues affecting Search. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 2:04 PM PDT and 10:32 PM PDT on June 7, 2023, some users may have experienced difficulties while working in Box. During this time, some users may have received partial or no results in response to file searches. The issue occurred due to an underlying infrastructure issue where a Search cluster was missing a portion of its index. We were able to resolve the issue by immediately routing traffic to one of our backup clusters. In addition, we are working to add restrictions and additional checks to better prevent traffic from being routed to an incomplete index in the future. \n\n‌\n\n**Analysis** \n\nOn June 7th, we performed commands while troubleshooting a separate issue that inadvertently caused a Search cluster to serve customer traffic while missing a portion of its index. This resulted in some customer search queries returning with partial or no results. To remediate this issue, we routed traffic to one of our backup clusters.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Applying checks and restrictions to prevent actions that could result in an empty search index\n* Using automation to perform further checks and restrictions\n* Improving our alerting to catch situations where traffic is routed to an incomplete index\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
           "incident_id": "sghrxw6bry85",
           "created_at": "2023-07-07T09:32:01.030-07:00",
-          "updated_at": "2023-07-07T09:32:19.293-07:00",
+          "updated_at": "2023-07-07T09:36:26.380-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
