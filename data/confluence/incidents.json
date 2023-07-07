@@ -4,7 +4,7 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-07-07T15:43:16.074Z"
+    "updated_at": "2023-07-07T22:56:43.236Z"
   },
   "incidents": [
     {
@@ -707,9 +707,9 @@
     {
       "id": "c02ffyfst2xn",
       "name": "Customers experiencing a back-in-a-flash error",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-06-28T19:20:56.563Z",
-      "updated_at": "2023-06-28T19:53:26.855Z",
+      "updated_at": "2023-07-07T22:56:43.233Z",
       "monitoring_at": null,
       "resolved_at": "2023-06-28T19:53:26.837Z",
       "impact": "major",
@@ -717,6 +717,19 @@
       "started_at": "2023-06-28T19:20:56.556Z",
       "page_id": "4g2my7tbhjsq",
       "incident_updates": [
+        {
+          "id": "2rf75tkssytm",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn June 28 2023 at 17:38 UTC, a subset of Atlassian customers using Confluence were unable to access the product. The event was triggered by a continuous verification system that erroneously shut down a database due to the incorrect logic related to Bring Your Own Key \\(BYOK\\). This incident affected some customers who had their database hosted in the US West region. The incident was detected in 46 minutes by customer support responding to support tickets and mitigated by restarting the stopped database which restored access to Confluence tenants. The total time to resolution was about one hour and 51 minutes.\n\n### **IMPACT**\n\nThe overall impact was limited to June 28th, 2023 between 17:38 and 19:29 UTC for Confluence customers. The incident caused service disruption to the customers hosted in the US West region who are served by the database that was incorrectly shut down. Users accessing the site saw a page stating \"We'll be back in a flash.\" There was no impact on data integrity and only access was lost during the incident period. \n\n### **ROOT CAUSE**\n\nThe issue was caused by a change made to a continuous verification system for a service related to BYOK. More specifically, the continuous verification system runs checks to ensure that Atlassian is able to respond to BYOK customers who choose to revoke key access. In response to a key being revoked, we stop the databases for those customers in order to gracefully suspend the operation of the site. The root cause of the incident was a bug in the logic that identifies a BYOK database to be stopped and a lack of guardrails to ensure the database being stopped corresponds to a revoking customer.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Restrict the database actions by our continuous verification system to only BYOK-enabled databases.\n\nFurthermore, we deploy our changes progressively to avoid broad impact but in this case, our pre-production verification did not work as expected. To minimize the impact of breaking changes to our environments, we will implement additional preventative measures such as:\n\n* Expanded coverage of cases covered in pre-production environments, and\n* Improve monitoring to alert on unexpected database actions.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "c02ffyfst2xn",
+          "created_at": "2023-07-07T22:55:50.478Z",
+          "updated_at": "2023-07-07T22:56:43.231Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "lkmqn2qllgcn",
           "status": "resolved",
