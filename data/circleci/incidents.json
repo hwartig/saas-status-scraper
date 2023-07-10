@@ -4,9 +4,61 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-07-10T13:54:03.849Z"
+    "updated_at": "2023-07-10T15:35:24.964Z"
   },
   "incidents": [
+    {
+      "id": "hhz2n0vhk207",
+      "name": "GitHub Checks Are Not Working as Expected",
+      "status": "investigating",
+      "created_at": "2023-07-10T15:34:49.070Z",
+      "updated_at": "2023-07-10T15:35:24.959Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/fghz7xl0tnx8",
+      "started_at": "2023-07-10T15:34:49.065Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "khfgshk5c2g6",
+          "status": "investigating",
+          "body": "We are seeing an issue where GitHub Checks are not being handled by CircleCI and sent back to GitHub as expected. We are investigating the cause of this issue.",
+          "incident_id": "hhz2n0vhk207",
+          "created_at": "2023-07-10T15:34:49.146Z",
+          "updated_at": "2023-07-10T15:34:50.109Z",
+          "display_at": "2023-07-10T15:34:49.146Z",
+          "affected_components": [
+            {
+              "code": "rms1xkdxxqx1",
+              "name": "Notifications & Status Updates",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1678427565588091000
+        }
+      ],
+      "components": [
+        {
+          "id": "rms1xkdxxqx1",
+          "name": "Notifications & Status Updates",
+          "status": "major_outage",
+          "created_at": "2019-01-21T21:45:43.473Z",
+          "updated_at": "2023-07-10T15:34:49.103Z",
+          "position": 11,
+          "description": "GitHub Checks, Statuses, and status badges.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "6dl6wlc03gbl",
       "name": "Scheduled Pipelines with [ci skip] Not Running",
@@ -951,9 +1003,9 @@
         {
           "id": "rms1xkdxxqx1",
           "name": "Notifications & Status Updates",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2019-01-21T21:45:43.473Z",
-          "updated_at": "2023-06-08T17:17:06.758Z",
+          "updated_at": "2023-07-10T15:34:49.103Z",
           "position": 11,
           "description": "GitHub Checks, Statuses, and status badges.",
           "showcase": false,
@@ -4826,9 +4878,9 @@
         {
           "id": "rms1xkdxxqx1",
           "name": "Notifications & Status Updates",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2019-01-21T21:45:43.473Z",
-          "updated_at": "2023-06-08T17:17:06.758Z",
+          "updated_at": "2023-07-10T15:34:49.103Z",
           "position": 11,
           "description": "GitHub Checks, Statuses, and status badges.",
           "showcase": false,
@@ -7342,362 +7394,6 @@
           "description": null,
           "showcase": true,
           "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "7pfbzf4g9dcs",
-      "name": "Inaccessible Orbs",
-      "status": "postmortem",
-      "created_at": "2022-09-21T22:48:34.481Z",
-      "updated_at": "2022-09-29T21:57:43.162Z",
-      "monitoring_at": "2022-09-21T23:45:16.779Z",
-      "resolved_at": "2022-09-22T00:16:01.209Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/3zbsfr16g7d8",
-      "started_at": "2022-09-21T22:48:34.474Z",
-      "page_id": "6w4r0ttlx5ft",
-      "incident_updates": [
-        {
-          "id": "q9m5cwkn321l",
-          "status": "postmortem",
-          "body": "## Incident Report: Sept 22, 2022 - Major - All Orbs Inaccessible\n\n## Summary:\n\nOn September 21, 2022, at 22:29 UTC, the orb index was inadvertently deleted due to an incorrect command being issued in a production database. This resulted in all orbs being unavailable, and jobs referencing orbs to fail, for the duration of the incident. We were able to restore the majority of the contents of that database, however the most recent backup at that time was 45 minutes old and any changes to orbs during that 45 minute window were lost. We want to apologize for any disruption this might have caused and to thank our customers for their patience and understanding as we worked to restore normal service.\n\n## What Happened\n\n\\(all times UTC\\)\n\nOn September 21, 2022, for 76 minutes beginning at 22:29, any job that referenced an any orb would fail with an error stating that the referenced orb couldn’t be found. Additionally, orb pages in the registry would return a `404 Not Found` error, and orbs in the CircleCI UI and CLI were inaccessible. Jobs that did not utilize orbs were unaffected.\n\nThis issue was traced back to an incorrectly entered command being issued against all orbs in their database. In most circumstances, our teams utilize our internal administrative tools to remove orbs per a customer request. In this instance, however, an error in that tooling required an engineer to perform a manual operation to remove the requested orb. During that process, an incorrectly entered command caused the removal of all orbs from the database rather than the specific orb requested.\n\nAn incident was declared at 22:48, moving to identified at 22:50. Once identified, the team set about restoring the orbs database to a known good state. On first pass, the team restored a database snapshot from earlier that same day. At this point, 58 minutes after the incident began, functionality was restored and jobs referencing orbs began completing as expected.\n\nFollowing that, at 23:45, the team began retrieving orb changes that occurred between the snapshot time and the time of the deletion. They were able to restore all but the then most recent 45 minutes of changes and the incident was resolved at 00:16.\n\nWith that, any potential changes made to orbs on September 21, 2022 between 21:44 and 22:29 would have been lost. No other customer data, aside from orbs, was affected.\n\n## Future Prevention and Process Improvement:\n\nUltimately, human errors are system problems that we can and will solve. In this case, an error in our internal tooling led to a manual procedure that lacked sufficient guardrails to prevent a mistake from occurring. Going forward, we have removed this specific process for deleting orbs through direct access to our production database and we are improving our internal administrative tooling to appropriately handle orb removal with abundant safeguards in place.\n\nAdditionally, the time required to restore data from our backups was longer than we consider acceptable. We’re actively working to improve our backup and restore procedures and documentation to ensure that any downtime required to restore missing data in the future is minimized.",
-          "incident_id": "7pfbzf4g9dcs",
-          "created_at": "2022-09-29T21:57:02.928Z",
-          "updated_at": "2022-09-29T21:57:43.158Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": "We published a postmortem on our September 21st incident: https://stspg.io/3zbsfr16g7d8",
-          "tweet_id": null
-        },
-        {
-          "id": "9hw3v1cq7znx",
-          "status": "resolved",
-          "body": "This incident has been resolved. If you encounter issues with any specific orb versions please contact support. We appreciate your patience and understanding.",
-          "incident_id": "7pfbzf4g9dcs",
-          "created_at": "2022-09-22T00:16:01.209Z",
-          "updated_at": "2022-09-22T00:16:02.071Z",
-          "display_at": "2022-09-22T00:16:01.209Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1572741472956588000
-        },
-        {
-          "id": "468jggp02fcm",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results. Jobs utilizing orbs should begin to run as usual again. We have restored the data up until 10 hours ago. This mean that ~5 orbs have updates that haven't been restored yet. We are starting on restoring the data for those orbs now.",
-          "incident_id": "7pfbzf4g9dcs",
-          "created_at": "2022-09-21T23:45:16.779Z",
-          "updated_at": "2022-09-21T23:45:17.378Z",
-          "display_at": "2022-09-21T23:45:16.779Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1572733735715614700
-        },
-        {
-          "id": "lmwwcd2qfr3x",
-          "status": "identified",
-          "body": "As we continue working on a solution, please avoid publishing orbs. This will be a temporary ask for the duration of this incident.",
-          "incident_id": "7pfbzf4g9dcs",
-          "created_at": "2022-09-21T23:29:55.026Z",
-          "updated_at": "2022-09-21T23:29:55.513Z",
-          "display_at": "2022-09-21T23:29:55.026Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1572729869179703300
-        },
-        {
-          "id": "cwhmwd00fr5b",
-          "status": "identified",
-          "body": "We are continuing our work on deploying a fix. Customers utilizing orbs are still experiencing job failures. We deeply apologize for this inconvenience and thank you for your patience.",
-          "incident_id": "7pfbzf4g9dcs",
-          "created_at": "2022-09-21T23:18:43.246Z",
-          "updated_at": "2022-09-21T23:18:43.595Z",
-          "display_at": "2022-09-21T23:18:43.246Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1572727050938781700
-        },
-        {
-          "id": "4v6q26rt67qv",
-          "status": "identified",
-          "body": "The cause for this issue has been identified. Thank you for your patience as we are working on a solution.",
-          "incident_id": "7pfbzf4g9dcs",
-          "created_at": "2022-09-21T22:50:32.367Z",
-          "updated_at": "2022-09-21T22:50:32.886Z",
-          "display_at": "2022-09-21T22:50:32.367Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1572719959595425800
-        },
-        {
-          "id": "68hvv244w1qx",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "7pfbzf4g9dcs",
-          "created_at": "2022-09-21T22:49:01.538Z",
-          "updated_at": "2022-09-21T22:49:01.538Z",
-          "display_at": "2022-09-21T22:49:01.538Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "s0j7fkr2xzqx",
-          "status": "investigating",
-          "body": "Users are seeing jobs fail when utilizing orbs. We are investigating the cause for this disruption at this time.",
-          "incident_id": "7pfbzf4g9dcs",
-          "created_at": "2022-09-21T22:48:34.528Z",
-          "updated_at": "2022-09-21T22:48:34.879Z",
-          "display_at": "2022-09-21T22:48:34.528Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1572719464659169300
-        }
-      ],
-      "components": [
-        {
-          "id": "x1v3t5qrnlhk",
-          "name": "Docker Jobs",
-          "status": "operational",
-          "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2023-06-29T18:32:09.176Z",
-          "position": 1,
-          "description": "CircleCI jobs using the docker executor.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "0l5xn1l7qs8f",
-          "name": "Machine Jobs",
-          "status": "operational",
-          "created_at": "2019-05-02T20:42:22.366Z",
-          "updated_at": "2023-06-29T18:32:09.196Z",
-          "position": 2,
-          "description": "CircleCI jobs using the machine executor, and jobs using the setup_remote_docker step.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "bpfmy8wy8wq2",
-          "name": "macOS Jobs",
-          "status": "operational",
-          "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2023-06-29T18:32:09.217Z",
-          "position": 3,
-          "description": "CircleCI jobs using the macos executor.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "svt88btymymk",
-          "name": "Windows Jobs",
-          "status": "operational",
-          "created_at": "2020-10-23T23:37:10.052Z",
-          "updated_at": "2023-06-29T18:32:09.237Z",
-          "position": 4,
-          "description": "Jobs using the Windows executor.",
-          "showcase": true,
-          "start_date": "2020-10-23",
           "group_id": null,
           "page_id": "6w4r0ttlx5ft",
           "group": false,
