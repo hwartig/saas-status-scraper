@@ -4,15 +4,15 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2023-07-11T10:15:17.396-04:00"
+    "updated_at": "2023-07-11T12:11:28.658-04:00"
   },
   "incidents": [
     {
       "id": "qlwm4yvssmgq",
       "name": "Metric Drains Interrupted for Some Dedicated Stacks",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-06-21T11:28:11.622-04:00",
-      "updated_at": "2023-06-21T15:34:28.488-04:00",
+      "updated_at": "2023-07-11T12:11:28.651-04:00",
       "monitoring_at": "2023-06-21T11:57:19.543-04:00",
       "resolved_at": "2023-06-21T15:34:27.614-04:00",
       "impact": "none",
@@ -20,6 +20,19 @@
       "started_at": "2023-06-21T11:28:11.614-04:00",
       "page_id": "fmwgqnbnbc4r",
       "incident_updates": [
+        {
+          "id": "47bk7qp2b3hn",
+          "status": "postmortem",
+          "body": "# Incident Postmortem: Metric Drains Interrupted for Some Dedicated Stacks\n\n## Executive Summary\n\nOn June 20, 2023, our platform experienced a service degradation incident for Metric Drains while rolling out a new feature for Metric Drains. This was due to unexpected side effects of a new internal utility used to deploy the feature. Some of our customers experienced interruptions in their metric drains during this incident. All issues were subsequently addressed, and service has been fully restored.\n\n## Detailed Incident Description\n\nConfiguration Change Initiation: The rollout of the change relied on a two-step configuration process to update the software for the metric drain emitter and aggregator components within each dedicated stack. This process was initiated using a new utility that had been successfully deployed in the past but not at the scale required for this rollout.\n\nUtility Timeouts and Delays: During the rollout, the configuration utility started experiencing cascading timeouts as operations queued to perform the configuration changes. During this period of delay in having configuration uniformly updated for the rollout, this caused some customer stacks to be only partially configured for the updated metric drain software.\n\nCustomer Impact: A small number of customers who were deploying or scaling services during this period had their metric drains interrupted due to the aforementioned configuration issues.\n\nResolution: Our team immediately worked on fixing the configuration issues. By 16:24 EDT, we successfully restored the configuration state for the affected customers, and the service was resumed to its regular state.\n\nFollow-up Audit: On the following morning of June 21, a follow-up audit revealed that two additional customers still needed configuration updates for their metric drains. We immediately addressed these issues.\n\n## Root Cause Analysis\n\nThe root cause of this issue was a combination of the increased scale of the rollout and the relative novelty of the utility used for the configuration changes. Although this utility had performed successfully under previous workloads, it did not sufficiently scale to handle the increased demand of this particular rollout.\n\n## Lessons Learned and Preventative Measures\n\nTesting Deployment Tools at Scale: testing new deployment tools and utilities under maximum practical loads is crucial to ensure they can handle expected full-scope workloads without disruption.\n\nAudit Processes: Though our follow-up audit process effectively identified additional affected customers, we will make such audits more timely to catch any lingering issues sooner.\n\nWe sincerely apologize for any inconvenience caused to our customers during this incident. We take this issue seriously and are committed to ensuring that such incidents do not occur in the future.",
+          "incident_id": "qlwm4yvssmgq",
+          "created_at": "2023-07-11T12:08:20.519-04:00",
+          "updated_at": "2023-07-11T12:11:28.645-04:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our June 21st incident: https://stspg.io/xbg9syxmcycv",
+          "tweet_id": null
+        },
         {
           "id": "19xdl7np1jd1",
           "status": "resolved",
