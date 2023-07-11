@@ -4,9 +4,38 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-07-10T01:09:34.121-07:00"
+    "updated_at": "2023-07-10T20:26:11.185-07:00"
   },
   "incidents": [
+    {
+      "id": "cbxyy0zg5h7r",
+      "name": "[Major] Issues with Watermarking",
+      "status": "investigating",
+      "created_at": "2023-07-10T20:26:06.145-07:00",
+      "updated_at": "2023-07-10T20:26:11.181-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/h8hfc5g9zfbl",
+      "started_at": "2023-07-10T20:26:06.140-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "mb7v9wjqg1wy",
+          "status": "investigating",
+          "body": "We are currently investigating an ongoing issue where watermarks applied to content are not appearing during file preview or download. We will provide more information as soon as it is available.",
+          "incident_id": "cbxyy0zg5h7r",
+          "created_at": "2023-07-10T20:26:06.182-07:00",
+          "updated_at": "2023-07-10T20:26:06.182-07:00",
+          "display_at": "2023-07-10T20:26:06.182-07:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": []
+    },
     {
       "id": "cl503b9g0tpz",
       "name": "[Major] Errors in Box Sign",
@@ -8491,48 +8520,6 @@
           "created_at": "2022-10-19T12:11:03.599-07:00",
           "updated_at": "2022-10-19T12:11:03.599-07:00",
           "display_at": "2022-10-11T10:00:00.000-07:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": []
-    },
-    {
-      "id": "gx58zh35fryj",
-      "name": "[Major] Issues with Office Online",
-      "status": "postmortem",
-      "created_at": "2022-09-27T06:00:00.000-07:00",
-      "updated_at": "2022-10-19T11:09:50.493-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2022-09-27T06:00:00.000-07:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/8kv7z2khpkyv",
-      "started_at": "2022-09-27T18:54:58.234-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "syls62mq2sh6",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting Box’s Office Online integration. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nOn Tuesday, September 27th 2022 between 3:00 PM PDT and 5:09 PM PDT, some users may have experienced difficulties while working in Box. During this time, users experienced degraded performance opening and editing Office files in Box. The issue occurred as a result of a configuration change made as part of our ongoing effort to improve security. We were able to resolve the issue by provisioning more resources to the impacted Box systems. In addition, we are implementing code changes to increase the resiliency of the impacted systems to prevent similar issues from occurring in the future. \n\n**Analysis** \n\nThe issue occurred as a result of a configuration change intended to improve the security of inter-service communication at Box. This change resulted in an unexpected increase in CPU load on one of our backend services, which prevented it from readily processing Office Online requests. This issue was compounded when impacted requests were re-attempted, which ultimate resulted in performance issues across the Office Online integration. The team provisioned additional resources to the impacted services, which mitigated the increased load and allowed Box’s functionality to return to normal.\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Improving our accounting of the resource impact of similar security changes to ensure our services can handle them.\n* Improving the resiliency of the services at issue to minimize the impact of an increase in retried requests to prevent CPU issues from compounding.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
-          "incident_id": "gx58zh35fryj",
-          "created_at": "2022-10-05T11:07:33.381-07:00",
-          "updated_at": "2022-10-19T11:09:50.492-07:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "grbhqsm592fq",
-          "status": "resolved",
-          "body": "From approximately 03:00 PM to 05:10 PM US Pacific time, we had an issue impacting Office Online. Our systems automatically detected and corrected the underlying issue. There is no current impact and no further updates will be provided here. If you are currently seeing any issues, please let us know at https://support.box.com.",
-          "incident_id": "gx58zh35fryj",
-          "created_at": "2022-09-27T18:54:58.291-07:00",
-          "updated_at": "2022-09-27T18:54:58.291-07:00",
-          "display_at": "2022-09-27T06:00:00.000-07:00",
           "affected_components": null,
           "deliver_notifications": false,
           "custom_tweet": null,
