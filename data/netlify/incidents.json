@@ -4,9 +4,82 @@
     "name": "Netlify",
     "url": "https://www.netlifystatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-07-14T21:37:57.877Z"
+    "updated_at": "2023-07-15T01:43:09.190Z"
   },
   "incidents": [
+    {
+      "id": "x429d59wms7s",
+      "name": "Errors when updating DNS records or zones",
+      "status": "resolved",
+      "created_at": "2023-07-15T01:10:47.924Z",
+      "updated_at": "2023-07-15T01:10:48.958Z",
+      "monitoring_at": null,
+      "resolved_at": "2023-07-15T01:10:47.968Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/24st7pc2g0nm",
+      "started_at": "2023-07-15T01:10:47.921Z",
+      "page_id": "83dz7syz0j3x",
+      "incident_updates": [
+        {
+          "id": "kp0lgbrlgsbp",
+          "status": "resolved",
+          "body": "Between July 13 22:50 and July 14 00:16 UTC we observed elevated errors returned when attempting to create or update DNS records or zones. If you received an error during this period, you can now attempt to change DNS again.\nActions from automated systems like DNS-based certificate orders will be retried automatically. Answers to DNS queries were not affected at any point.",
+          "incident_id": "x429d59wms7s",
+          "created_at": "2023-07-15T01:10:47.968Z",
+          "updated_at": "2023-07-15T01:10:48.954Z",
+          "display_at": "2023-07-15T01:10:47.968Z",
+          "affected_components": [
+            {
+              "code": "zvf0k2ht9164",
+              "name": "Hosted DNS",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "42cdn8lcw3pr",
+              "name": "API",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1680022067373277200
+        }
+      ],
+      "components": [
+        {
+          "id": "42cdn8lcw3pr",
+          "name": "API",
+          "status": "operational",
+          "created_at": "2016-08-26T19:05:49.535Z",
+          "updated_at": "2022-12-21T11:57:14.139Z",
+          "position": 6,
+          "description": "Netlify's API configures sites and is needed to receive and process Deploys",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "83dz7syz0j3x",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "zvf0k2ht9164",
+          "name": "Hosted DNS",
+          "status": "operational",
+          "created_at": "2016-08-26T19:03:36.276Z",
+          "updated_at": "2022-02-16T16:22:25.657Z",
+          "position": 7,
+          "description": "Netlify's hosted Domain Name Service",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "83dz7syz0j3x",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "634d30hfmxgp",
       "name": "HTTP 500 Errors on Login",
@@ -4720,74 +4793,6 @@
           "only_show_if_degraded": false
         }
       ]
-    },
-    {
-      "id": "w9t39ncp59wm",
-      "name": "SSL/TLS provisioning issue",
-      "status": "resolved",
-      "created_at": "2022-10-31T05:26:11.367Z",
-      "updated_at": "2022-10-31T18:43:10.994Z",
-      "monitoring_at": "2022-10-31T16:24:38.933Z",
-      "resolved_at": "2022-10-31T18:43:10.580Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/c714v20t188s",
-      "started_at": "2022-10-31T05:26:11.359Z",
-      "page_id": "83dz7syz0j3x",
-      "incident_updates": [
-        {
-          "id": "kp6gv7861n6x",
-          "status": "resolved",
-          "body": "This incident is now resolved and all SSL/TLS provisioning is fully operational.",
-          "incident_id": "w9t39ncp59wm",
-          "created_at": "2022-10-31T18:43:10.580Z",
-          "updated_at": "2022-10-31T18:43:10.989Z",
-          "display_at": "2022-10-31T18:43:10.580Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1587153222963449900
-        },
-        {
-          "id": "5cxx9f7mhspf",
-          "status": "monitoring",
-          "body": "We are successfully provisioning a majority of new and existing SSL certificates. Additionally, we are monitoring our SSL provisioning while Let's Encrypt completes a planned network maintenance at this time.",
-          "incident_id": "w9t39ncp59wm",
-          "created_at": "2022-10-31T16:24:38.933Z",
-          "updated_at": "2022-10-31T16:24:39.279Z",
-          "display_at": "2022-10-31T16:24:38.933Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1587118361045274600
-        },
-        {
-          "id": "g4tk956628l9",
-          "status": "identified",
-          "body": "We have identified the issue and are working on a fix.",
-          "incident_id": "w9t39ncp59wm",
-          "created_at": "2022-10-31T12:13:02.854Z",
-          "updated_at": "2022-10-31T12:13:03.286Z",
-          "display_at": "2022-10-31T12:13:02.854Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1587055043886608400
-        },
-        {
-          "id": "m4xq9bhyzssj",
-          "status": "investigating",
-          "body": "We are currently investigating an issue affecting provisioning new and modifying existing SSL certificates. Existing SSL certificates are not impacted outside of not being able to be modified.",
-          "incident_id": "w9t39ncp59wm",
-          "created_at": "2022-10-31T05:26:11.416Z",
-          "updated_at": "2022-10-31T05:26:12.246Z",
-          "display_at": "2022-10-31T05:26:11.416Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1586952656563888000
-        }
-      ],
-      "components": []
     }
   ]
 }
