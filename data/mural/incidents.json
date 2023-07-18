@@ -4,15 +4,15 @@
     "name": "MURAL",
     "url": "https://status.mural.co",
     "time_zone": "America/Argentina/Buenos_Aires",
-    "updated_at": "2023-07-18T12:41:25.701-03:00"
+    "updated_at": "2023-07-18T12:56:29.502-03:00"
   },
   "incidents": [
     {
       "id": "t0gkry57dntv",
       "name": "Invalid signature error when signing in with SSO",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-07-14T08:26:02.944-03:00",
-      "updated_at": "2023-07-18T12:41:25.692-03:00",
+      "updated_at": "2023-07-18T12:56:29.499-03:00",
       "monitoring_at": "2023-07-14T09:59:40.818-03:00",
       "resolved_at": "2023-07-14T10:56:55.848-03:00",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2023-07-14T08:26:02.937-03:00",
       "page_id": "dbk70dpy3n7h",
       "incident_updates": [
+        {
+          "id": "xmc5tknv2cyb",
+          "status": "postmortem",
+          "body": "**Summary**  \nOn 13th July 2023, we implemented a change to our SAML SSO login flow. This change was released to production at 7pm UTC and we started receiving sporadic reports of login issues that were treated as isolated incidents, as the vast majority of Mural users were able to continue accessing without issues.   \n  \nBy 11am UTC on the 14th July, the volume of login issues had increased and we activated our taskforce to investigate the cause. By 11:25 UTC we identified a potential cause of the issue and started preparing a fix. At 11:45 UTC we made the decision to roll back the change from the previous day, which was completed at 12:15 UTC.  \n  \nAs of 12:15 UTC login behavior returned to normal parameters.‌  \n  \n**‌What we've done to avoid this happening again**  \nThe change we implemented on Thursday afternoon was rolled back and we are preparing a new change that will avoid impacting the SAML SSO login flow.",
+          "incident_id": "t0gkry57dntv",
+          "created_at": "2023-07-18T12:40:01.358-03:00",
+          "updated_at": "2023-07-18T12:56:29.498-03:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "rv69thrmnw45",
           "status": "resolved",
