@@ -4,9 +4,38 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-07-19T07:52:28.730Z"
+    "updated_at": "2023-07-19T14:14:42.454Z"
   },
   "incidents": [
+    {
+      "id": "t87c4gl9mblp",
+      "name": "SSH Connections on Remote Docker",
+      "status": "resolved",
+      "created_at": "2023-07-19T14:00:00.000Z",
+      "updated_at": "2023-07-19T14:14:42.452Z",
+      "monitoring_at": null,
+      "resolved_at": "2023-07-19T14:00:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/rqzrgrvbh2c0",
+      "started_at": "2023-07-19T14:14:42.408Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "1hb9tbq566fz",
+          "status": "resolved",
+          "body": "For a brief period between 13:28 UTC and 14:05 UTC we made a change on Remote Docker executors affecting `known_hosts` preventing some SSH connections, including those to GitHub, from being possible.\n\nWe have since reverted the change and are now seeing normal behaviour.",
+          "incident_id": "t87c4gl9mblp",
+          "created_at": "2023-07-19T14:14:42.444Z",
+          "updated_at": "2023-07-19T14:14:42.444Z",
+          "display_at": "2023-07-19T14:00:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": []
+    },
     {
       "id": "1zp81dvwj7yp",
       "name": "Cloudfront 421 Errors",
@@ -7007,287 +7036,6 @@
         }
       ],
       "components": []
-    },
-    {
-      "id": "cxnkq76jsxr9",
-      "name": "Test Insight Results are Delayed",
-      "status": "resolved",
-      "created_at": "2022-09-29T15:46:06.855Z",
-      "updated_at": "2022-09-30T00:32:25.351Z",
-      "monitoring_at": "2022-09-30T00:00:50.668Z",
-      "resolved_at": "2022-09-30T00:32:24.903Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/dfxsjn3bhdv9",
-      "started_at": "2022-09-29T15:46:06.849Z",
-      "page_id": "6w4r0ttlx5ft",
-      "incident_updates": [
-        {
-          "id": "hzb3w2ld79yp",
-          "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience in this matter.",
-          "incident_id": "cxnkq76jsxr9",
-          "created_at": "2022-09-30T00:32:24.903Z",
-          "updated_at": "2022-09-30T00:32:25.343Z",
-          "display_at": "2022-09-30T00:32:24.903Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "gs1qyd7g3l17",
-              "name": "CircleCI Insights",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1575644699980927000
-        },
-        {
-          "id": "frjg46ng4z67",
-          "status": "monitoring",
-          "body": "The test results processing pipelines is starting to recover. We are caught up to builds that ran within the last 15 hours and expect to be fully caught up in 2-4 hours.",
-          "incident_id": "cxnkq76jsxr9",
-          "created_at": "2022-09-30T00:00:50.668Z",
-          "updated_at": "2022-09-30T00:00:51.157Z",
-          "display_at": "2022-09-30T00:00:50.668Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "gs1qyd7g3l17",
-              "name": "CircleCI Insights",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1575636755336007700
-        },
-        {
-          "id": "b15y5r3bns6q",
-          "status": "identified",
-          "body": "We have deployed both changes to speed up test result processing.\nWe are now deploying changes to remove unprocessable events from the queues.",
-          "incident_id": "cxnkq76jsxr9",
-          "created_at": "2022-09-29T22:10:27.621Z",
-          "updated_at": "2022-09-29T22:10:28.123Z",
-          "display_at": "2022-09-29T22:10:27.621Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "gs1qyd7g3l17",
-              "name": "CircleCI Insights",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1575608976267702300
-        },
-        {
-          "id": "r9mwkwlxhgg9",
-          "status": "identified",
-          "body": "The issue with the Insights web UI has been resolved.\nEngineers are also monitoring metrics for the fix to test insights processing, once things have stabilized we will complete the rollout of the second update, at which point we believe that processing will return to normal, and we will begin to work through the backlog.",
-          "incident_id": "cxnkq76jsxr9",
-          "created_at": "2022-09-29T18:58:02.144Z",
-          "updated_at": "2022-09-29T18:58:02.678Z",
-          "display_at": "2022-09-29T18:58:02.144Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "gs1qyd7g3l17",
-              "name": "CircleCI Insights",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1575560551182499800
-        },
-        {
-          "id": "tdkhj42jfnrl",
-          "status": "identified",
-          "body": "Due to an unrelated issue with a back-end database, the Insights UI is currently unavailable. Engineers are currently working on remediation.",
-          "incident_id": "cxnkq76jsxr9",
-          "created_at": "2022-09-29T18:35:17.992Z",
-          "updated_at": "2022-09-29T18:35:18.515Z",
-          "display_at": "2022-09-29T18:35:17.992Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "gs1qyd7g3l17",
-              "name": "CircleCI Insights",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1575554829283635200
-        },
-        {
-          "id": "9r74147wyxt3",
-          "status": "identified",
-          "body": "We are working on the second of two updates at which time we expect to see accelerated processing of the backlog",
-          "incident_id": "cxnkq76jsxr9",
-          "created_at": "2022-09-29T17:55:18.005Z",
-          "updated_at": "2022-09-29T17:55:18.329Z",
-          "display_at": "2022-09-29T17:55:18.005Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "gs1qyd7g3l17",
-              "name": "CircleCI Insights",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1575544762404597800
-        },
-        {
-          "id": "0x04lnlb94m2",
-          "status": "identified",
-          "body": "Insights data for tests (flaky tests, slowest tests, most failed, etc) is currently delayed by approximately 2 days. \nHistorical data remains visible and test data has not been lost. \nWe are in the process of deploying multiple changes to accelerate processing and will update as we start to see the delay time reduce.",
-          "incident_id": "cxnkq76jsxr9",
-          "created_at": "2022-09-29T17:10:22.280Z",
-          "updated_at": "2022-09-29T17:10:23.455Z",
-          "display_at": "2022-09-29T17:10:22.280Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "gs1qyd7g3l17",
-              "name": "CircleCI Insights",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1575533459262804000
-        },
-        {
-          "id": "88kyv53qyc2r",
-          "status": "identified",
-          "body": "We are continuing to work on a fix for this issue.",
-          "incident_id": "cxnkq76jsxr9",
-          "created_at": "2022-09-29T16:46:09.532Z",
-          "updated_at": "2022-09-29T16:46:09.886Z",
-          "display_at": "2022-09-29T16:46:09.532Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "gs1qyd7g3l17",
-              "name": "CircleCI Insights",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1575527362598699000
-        },
-        {
-          "id": "5r0wq7w6k498",
-          "status": "identified",
-          "body": "We have identified an issue with Insights (affected may notice that the data shown for flaky tests, slowest tests, most failed tests, etc. are delayed). A remediation is currently in progress",
-          "incident_id": "cxnkq76jsxr9",
-          "created_at": "2022-09-29T15:46:06.963Z",
-          "updated_at": "2022-09-29T15:46:07.783Z",
-          "display_at": "2022-09-29T15:46:06.963Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "gs1qyd7g3l17",
-              "name": "CircleCI Insights",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1575512254237540400
-        }
-      ],
-      "components": [
-        {
-          "id": "sw1j7xsbdlk4",
-          "name": "CircleCI UI",
-          "status": "operational",
-          "created_at": "2017-08-11T03:29:32.538Z",
-          "updated_at": "2023-07-18T18:33:59.154Z",
-          "position": 6,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "gs1qyd7g3l17",
-          "name": "CircleCI Insights",
-          "status": "operational",
-          "created_at": "2021-09-08T16:47:55.711Z",
-          "updated_at": "2022-09-30T00:00:50.637Z",
-          "position": 10,
-          "description": "The CircleCI Insights dashboard provides an overview of the health and usage of your repository build processes.",
-          "showcase": true,
-          "start_date": "2021-09-08",
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
     }
   ]
 }
