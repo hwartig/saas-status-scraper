@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-07-20T03:07:39.334-07:00"
+    "updated_at": "2023-07-20T08:12:58.472-07:00"
   },
   "incidents": [
     {
@@ -4540,7 +4540,7 @@
       "name": "[MAJOR] Delays in Box Relay",
       "status": "postmortem",
       "created_at": "2023-04-03T23:39:47.909-07:00",
-      "updated_at": "2023-04-13T09:25:03.105-07:00",
+      "updated_at": "2023-07-20T08:12:58.461-07:00",
       "monitoring_at": "2023-04-04T06:48:04.375-07:00",
       "resolved_at": "2023-04-04T08:17:45.704-07:00",
       "impact": "minor",
@@ -4551,10 +4551,10 @@
         {
           "id": "8wq4zf8yh07t",
           "status": "postmortem",
-          "body": "On April 3, 2023 between 4:55 PM PT and April 4, 2023 12:47 AM PT, some users may have experienced difficulties while working in Box. During this time, customers may have experienced delays when using Box Relay. The issue occurred due to one of our services experiencing high latency communicating with a backend database. This caused the service to run in a degraded state. We were able to resolve the issue by routing all of the upstream traffic to another region where the service was healthy. In addition, we are working with the cloud service provider to determine the root cause of the issue to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "body": "Between April 3, 2023 4:55 PM PDT, and April 4, 2023 12:47 AM PDT, some users may have experienced difficulties while working in Box. During this time, customers may have experienced delays when using Box Relay. We would like to take this opportunity to provide an analysis of this issue and the corrective actions we have taken in response.\n\n‌\n\n**Analysis** \n\nThe issue occurred due to one of our services in a specific region experiencing high latency when communicating with a backend cloud database. This caused the service in that region to run in a degraded state. We were able to resolve the issue by routing all of the upstream traffic to another region where the service was healthy. In addition, we are working with the cloud service provider to prevent similar issues from occurring in the future. \n\n‌\n\nThe existing logs and metrics we had during the incident did not reveal any indication as to what might have caused the degradation. So, following the recommendation from our cloud provider, we temporarily enabled extensive cloud logging for that region, diverted some traffic and monitored the service for degradation. The service was not degraded during this time. While the extensive logging has since been disabled, we have continued to closely monitor the service in that region and have not observed any anomalies or further signs of degradation.  We will continue to monitor for any anomalies.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Our existing metrics promptly alert the on-call engineer when such issues occur.  We have additionally made the following changes to our runbook that the on-call follows:\n\n    * Enable the extensive cloud logging and seek immediate assistance from the cloud provider on the issue.\n    * Once adequate data is gathered, divert traffic away from the degraded region.\n    \n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
           "incident_id": "qfqsmg71jv9q",
           "created_at": "2023-04-13T09:24:41.346-07:00",
-          "updated_at": "2023-04-13T09:25:03.102-07:00",
+          "updated_at": "2023-07-20T08:12:58.457-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
