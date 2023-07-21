@@ -4,7 +4,7 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-07-21T15:28:03.209Z"
+    "updated_at": "2023-07-21T15:56:50.248Z"
   },
   "incidents": [
     {
@@ -102,9 +102,9 @@
     {
       "id": "sc930qvjwsjx",
       "name": "Degraded Bitbucket web and API performance",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-07-13T14:33:16.029Z",
-      "updated_at": "2023-07-13T16:46:06.187Z",
+      "updated_at": "2023-07-21T15:56:50.244Z",
       "monitoring_at": "2023-07-13T16:20:05.630Z",
       "resolved_at": "2023-07-13T16:46:05.311Z",
       "impact": "minor",
@@ -112,6 +112,19 @@
       "started_at": "2023-07-13T14:33:16.022Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "d24czqspxn1v",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn JUL 13, 2023, between 13:48 and 16:05 UTC, Atlassian customers using Bitbucket Cloud were experiencing degraded performance for git operations. The event was triggered by a bug that was deployed to production. The changes included the introduction of a bug that bypassed a critical cache for git operations which impacted all Bitbucket Cloud customers. The incident was detected within 10 minutes by automated monitoring and mitigated by rolling back the code changes and the redeployment of some services which put Atlassian systems into a known good state. The total time to resolution was about 2 hours & 17 minutes.\n\n### **IMPACT**\n\nThe overall impact was between JUL 13, 2023, 13:48 UTC and JUL 13, 2023, 16:05 UTC on Bitbucket Cloud products. The Incident caused service disruption to all customers where they experienced slow response times or failures when interacting with repository data. As a result of network saturation causing connections to queue, customers experienced increased latency and error rates across Bitbucket Cloud services.\n\n### **ROOT CAUSE**\n\nThe issue was caused by a change to a feature flag that contained a bug which bypassed a critical cache. As a result, more requests were directly accessing the disks which led to increased latency and eventually, degraded the performance of some operations.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. While we have a number of testing and preventative processes in place, this specific issue wasn’t identified because the impact was subtle and took approximately 48 hours to surface after initial deployment. This slow ramping was not picked up by our automated continuous test scripts because it requires significant load to reach the tipping point where systems start to become degraded.\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Alerting on cache hit/miss rates\n* Improving the monitoring of network saturation for connections to our disks\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\n‌\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "sc930qvjwsjx",
+          "created_at": "2023-07-21T15:55:10.884Z",
+          "updated_at": "2023-07-21T15:56:50.242Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our July 13th incident: https://stspg.io/dws809krpknd",
+          "tweet_id": null
+        },
         {
           "id": "5tt5ptcmkk8h",
           "status": "resolved",
