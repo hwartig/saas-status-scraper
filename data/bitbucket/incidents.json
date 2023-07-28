@@ -4,15 +4,15 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-07-28T08:43:03.165Z"
+    "updated_at": "2023-07-28T18:50:06.070Z"
   },
   "incidents": [
     {
       "id": "77l0n2p7h4b1",
       "name": "Bitbucket.org is down",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-07-25T16:47:31.705Z",
-      "updated_at": "2023-07-25T17:01:42.552Z",
+      "updated_at": "2023-07-28T18:50:06.065Z",
       "monitoring_at": "2023-07-25T16:49:46.709Z",
       "resolved_at": "2023-07-25T17:01:42.534Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2023-07-25T16:47:31.700Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "g4rf9l1zlw3g",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn July 25, 2023, between 16:29 UTC and 16:44 UTC, Atlassian customers were unable to access the Bitbucket Cloud website. This was caused by a code bug that made it to our production environment. The incident was detected immediately by our internal monitoring and fully resolved within 15 minutes by reverting the change.\n\n### **IMPACT**\n\nCustomers who were impacted were unable to access the [Bitbucket | Git solution for teams using Jira](http://bitbucket.org/) website during the duration of the incident. APIs, Bitbucket Pipelines, and Git over HTTPS and SSH were fully functional.\n\n### **ROOT CAUSE**\n\nThe incident was caused by a bug that made it into our production environment. This bug affected our ability to communicate with our caches and prevented some of our internal services from starting up to serve traffic to our website. This bug has been fixed and deployed to production.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. We are prioritizing the following improvement actions to avoid repeating these types of incidents in the future and reduce recovery time:\n\n* Improve testing in non-production environments\n* Enhance monitoring around service deployments\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "77l0n2p7h4b1",
+          "created_at": "2023-07-28T18:49:39.825Z",
+          "updated_at": "2023-07-28T18:50:06.063Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our July 25th incident: https://stspg.io/3tzgs111hfdx",
+          "tweet_id": null
+        },
         {
           "id": "q9rfy7kpj332",
           "status": "resolved",
