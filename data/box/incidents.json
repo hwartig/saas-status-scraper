@@ -4,15 +4,15 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-08-01T00:49:33.788-07:00"
+    "updated_at": "2023-08-01T09:03:25.292-07:00"
   },
   "incidents": [
     {
       "id": "gtzg5dcz21p7",
       "name": "[Critical] Issues with Multiple Box Services",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-07-26T17:49:30.975-07:00",
-      "updated_at": "2023-07-26T19:07:08.171-07:00",
+      "updated_at": "2023-08-01T09:03:25.290-07:00",
       "monitoring_at": "2023-07-26T18:43:54.414-07:00",
       "resolved_at": "2023-07-26T19:07:08.157-07:00",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2023-07-26T17:49:30.957-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "mmzb58yz1sgy",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\nOn July 26, 2023, between 5:30 and 6:20 PM PDT, some users may have experienced difficulties while working in Box. During this time, users may have degraded experience or difficulty accessing Public API, Downloads, Uploads and Sign. The issue occurred due to an outage of an internal secrets management system that failed after a rare spike in requests from other systems. We were able to resolve the issue by restarting the front ends of the secrets management system to shed connections. In addition, we are scaling up the capacity for the secrets management system as well as modifying internal clients to reduce the magnitude of future spikes to prevent similar issues from occurring in the future.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "gtzg5dcz21p7",
+          "created_at": "2023-08-01T09:03:01.900-07:00",
+          "updated_at": "2023-08-01T09:03:25.287-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "fj73l97z2s5y",
           "status": "resolved",
