@@ -4,13 +4,13 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "America/Chicago",
-    "updated_at": "2023-08-08T12:37:50.546-05:00"
+    "updated_at": "2023-08-08T14:14:31.588-05:00"
   },
   "components": [
     {
       "id": "mrcyzlkkw8z9",
       "name": "Application Hosting",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T14:19:04.424-05:00",
       "updated_at": "2020-04-01T16:53:33.511-05:00",
       "position": 1,
@@ -571,9 +571,9 @@
     {
       "id": "r8cxv07rm0h4",
       "name": "JNB - Johannesburg, South Africa",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-05-22T03:34:12.878-05:00",
-      "updated_at": "2023-08-07T16:11:49.633-05:00",
+      "updated_at": "2023-08-08T14:14:31.530-05:00",
       "position": 12,
       "description": null,
       "showcase": true,
@@ -839,10 +839,63 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "fv21w70c80g3",
+      "name": "JNB - Network issues",
+      "status": "identified",
+      "created_at": "2023-08-08T14:14:31.488-05:00",
+      "updated_at": "2023-08-08T14:14:31.584-05:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/v3jv01p90vhb",
+      "started_at": "2023-08-08T14:14:31.478-05:00",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "jnmg7v585pdm",
+          "status": "identified",
+          "body": "We are seeing partially-degraded network routes in the JNB region again today, starting from around 11:00 UTC. The root cause appears to be ongoing network congestion at an upstream Internet backbone provider. Applications hosted in JNB may be experiencing intermittent deploy failures or partial network connectivity issues to other regions.",
+          "incident_id": "fv21w70c80g3",
+          "created_at": "2023-08-08T14:14:31.580-05:00",
+          "updated_at": "2023-08-08T14:14:31.580-05:00",
+          "display_at": "2023-08-08T14:14:31.580-05:00",
+          "affected_components": [
+            {
+              "code": "r8cxv07rm0h4",
+              "name": "Application Hosting - JNB - Johannesburg, South Africa",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "r8cxv07rm0h4",
+          "name": "JNB - Johannesburg, South Africa",
+          "status": "degraded_performance",
+          "created_at": "2023-05-22T03:34:12.878-05:00",
+          "updated_at": "2023-08-08T14:14:31.530-05:00",
+          "position": 12,
+          "description": null,
+          "showcase": true,
+          "start_date": "2023-05-22",
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
