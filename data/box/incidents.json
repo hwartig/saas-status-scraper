@@ -4,9 +4,38 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-08-08T16:04:54.220-07:00"
+    "updated_at": "2023-08-08T18:53:53.349-07:00"
   },
   "incidents": [
+    {
+      "id": "qvvc5rg9mfnz",
+      "name": "[Major] Issue with Events API and Box Sign",
+      "status": "resolved",
+      "created_at": "2023-08-08T18:00:00.000-07:00",
+      "updated_at": "2023-08-08T18:53:53.346-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2023-08-08T18:53:00.000-07:00",
+      "impact": "major",
+      "shortlink": "https://stspg.io/9tmv20k42tsz",
+      "started_at": "2023-08-08T18:00:00.000-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "mlqp200h4zw8",
+          "status": "resolved",
+          "body": "From approximately 18:00 PM to 18:42 PM US Pacific time, we had an issue impacting Events API and Box Sign. Our systems automatically detected and corrected the underlying issue. There is no current impact and no further updates will be provided here. If you are currently seeing any issues, please let us know at https://support.box.com.",
+          "incident_id": "qvvc5rg9mfnz",
+          "created_at": "2023-08-08T18:52:43.304-07:00",
+          "updated_at": "2023-08-08T18:53:53.222-07:00",
+          "display_at": "2023-08-08T18:53:00.000-07:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": []
+    },
     {
       "id": "nm4l8fgxwkfh",
       "name": "[Critical] Issues with Multiple Box Services",
@@ -9076,151 +9105,6 @@
         }
       ],
       "components": []
-    },
-    {
-      "id": "5yjwbsqxykrk",
-      "name": "[Major] Issues with Shield - Admin, Classification, Manual Classification.",
-      "status": "postmortem",
-      "created_at": "2022-11-23T18:35:30.000-08:00",
-      "updated_at": "2022-12-08T13:35:02.882-08:00",
-      "monitoring_at": null,
-      "resolved_at": "2022-11-23T20:15:20.829-08:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/wkh7mfxdbwpc",
-      "started_at": "2022-11-23T18:35:30.000-08:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "4vtwjn6t0tq0",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting Shield and Classification. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 5:16 PM PDT and 7:40 PM PDT on November 23, 2022, some users may have experienced difficulties while working in Box. During this time, it was not possible to access Shield Admin pages, the Shield Admin dashboard and the Classification Label admin pages. Additionally, some users may have experienced issues manually classifying files and folders. The issue occurred as a result of an inadequate capacity configuration that prevented a service from starting gracefully after rebooting. We were able to resolve the issue by increasing the capacity of the affected service. In addition, we are working to extend our capacity guidelines and to improve our alerting capabilities to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nThe service affected by this incident recently experienced a significant increase in traffic as a result of the release of a new feature. Although the service remained stable after the feature’s release, the temporary degradation of another supporting service resulted in an increased number of retries, which in turn resulted in increased processing activity. As a result of this increased CPU usage, the impacted service eventually rebooted, but was unable to effectively reboot because the memory currently allocated for that service was inadequate during this window of increased processing activity. We were able to resolve the issue by increasing the capacity of the affected service.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Extending our capacity guidelines to provide more clarity around system restart considerations.\n* Increasing our alerting to detect early warning signs of systems running at a higher capacity than expected.\n* Improving the documentation of our existing alerts to allow us to respond more quickly to system reboot issues.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
-          "incident_id": "5yjwbsqxykrk",
-          "created_at": "2022-12-08T13:33:59.455-08:00",
-          "updated_at": "2022-12-08T13:35:02.878-08:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4zwsx2zrbgky",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. Box Shield Service has been restored to full functionality. \n\nIf you continue to experience any issues, please contact Box Support at https://support.box.com.",
-          "incident_id": "5yjwbsqxykrk",
-          "created_at": "2022-11-23T20:15:20.829-08:00",
-          "updated_at": "2022-11-23T20:15:22.400-08:00",
-          "display_at": "2022-11-23T20:15:20.829-08:00",
-          "affected_components": [
-            {
-              "code": "mbtpbpfcg6vg",
-              "name": "Box Web Application - Admin Console & Functionality",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1595632140095737900
-        },
-        {
-          "id": "q3zfr5px4c4y",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "5yjwbsqxykrk",
-          "created_at": "2022-11-23T19:38:49.890-08:00",
-          "updated_at": "2022-11-23T19:38:50.344-08:00",
-          "display_at": "2022-11-23T19:38:49.890-08:00",
-          "affected_components": [
-            {
-              "code": "mbtpbpfcg6vg",
-              "name": "Box Web Application - Admin Console & Functionality",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1595622945988436000
-        },
-        {
-          "id": "3zv6wtpd8nbn",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "5yjwbsqxykrk",
-          "created_at": "2022-11-23T19:24:50.069-08:00",
-          "updated_at": "2022-11-23T19:24:50.450-08:00",
-          "display_at": "2022-11-23T19:24:50.069-08:00",
-          "affected_components": [
-            {
-              "code": "mbtpbpfcg6vg",
-              "name": "Box Web Application - Admin Console & Functionality",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1595619423276380200
-        },
-        {
-          "id": "fd0dsv028qg6",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "5yjwbsqxykrk",
-          "created_at": "2022-11-23T18:35:49.789-08:00",
-          "updated_at": "2022-11-23T18:35:49.789-08:00",
-          "display_at": "2022-11-23T18:35:49.789-08:00",
-          "affected_components": [
-            {
-              "code": "mbtpbpfcg6vg",
-              "name": "Box Web Application - Admin Console & Functionality",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "18n8z59v20y9",
-          "status": "investigating",
-          "body": "We are investigating an ongoing issue affecting Box Shield. Any existing classifications are still enabled. Ability to create classifications labels is broken. Customers may not be able to open any classification labels.",
-          "incident_id": "5yjwbsqxykrk",
-          "created_at": "2022-11-23T18:35:30.264-08:00",
-          "updated_at": "2022-11-23T18:39:02.659-08:00",
-          "display_at": "2022-11-23T18:35:30.000-08:00",
-          "affected_components": [
-            {
-              "code": "mbtpbpfcg6vg",
-              "name": "Box Web Application - Admin Console & Functionality",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1595607012913840000
-        }
-      ],
-      "components": [
-        {
-          "id": "mbtpbpfcg6vg",
-          "name": "Admin Console & Functionality",
-          "status": "operational",
-          "created_at": "2018-10-01T20:10:42.874-07:00",
-          "updated_at": "2023-06-01T12:46:52.034-07:00",
-          "position": 8,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
     }
   ]
 }
