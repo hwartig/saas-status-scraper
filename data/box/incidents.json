@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-08-09T02:38:58.764-07:00"
+    "updated_at": "2023-08-09T07:42:42.473-07:00"
   },
   "incidents": [
     {
@@ -1322,7 +1322,7 @@
       "name": "[Major] Issues Opening Duplicated/Copied Box Notes",
       "status": "postmortem",
       "created_at": "2023-07-15T02:53:20.069-07:00",
-      "updated_at": "2023-07-27T12:28:32.957-07:00",
+      "updated_at": "2023-08-09T07:42:42.463-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-07-15T13:44:34.196-07:00",
       "impact": "major",
@@ -1333,10 +1333,10 @@
         {
           "id": "9w8fbgwkqbl3",
           "status": "postmortem",
-          "body": "Between 7/14/23 2:41PM Pacific time and 7/15/23 1:00 PM Pacific time, some users may have experienced difficulties while working in Box. During this time, users may have received an error when creating a new Box Note from a saved template. The issue occurred as a result of a recent infrastructure change that is part of an ongoing effort to improve performance and stability. We were able to resolve the issue by reverting the change. In addition, we are working to improve our infrastructure rollout processes to prevent similar issues from occurring in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n‌\n\nSincerely,\n\n‌\n\nThe Box Team",
+          "body": "We recently addressed issues affecting Box Notes. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 7/14/23 2:41PM Pacific time and 7/15/23 1:00 PM Pacific time, some users may have experienced difficulties while working in Box. During this time, users may have received an error when creating a new Box Note from a saved template. The issue occurred as a result of a recent infrastructure change that is part of an ongoing effort to improve performance and stability. We were able to resolve the issue by reverting the change. In addition, we are working to improve our infrastructure rollout processes to prevent similar issues from occurring in the future. In addition, we have added additional testing and audited service interactions to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nAs part of Box’s continual process of improvement we are migrating much of our legacy infrastructure to a modern platform. As part of this migration we had updated part of our infrastructure that handles content movement to prepare it for an update to our service discovery framework. This change revealed a divergence in behavior between our current and legacy infrastructure. This divergence prevented the creation of a new Box Note from an existing template in some scenarios.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Full audit of Notes interaction with our content stack services\n* Coordinated testing between Notes and content stack teams to ensure successful behavior in current and legacy environments\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
           "incident_id": "tkclgjblg5sk",
           "created_at": "2023-07-27T12:28:21.362-07:00",
-          "updated_at": "2023-07-27T12:28:32.955-07:00",
+          "updated_at": "2023-08-09T07:42:42.460-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
