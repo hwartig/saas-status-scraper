@@ -4,9 +4,61 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-08-08T19:43:06.660-07:00"
+    "updated_at": "2023-08-08T20:11:24.271-07:00"
   },
   "incidents": [
+    {
+      "id": "hjz7fgfbfrxv",
+      "name": "[Major] Issues with Box for Google Workspace",
+      "status": "identified",
+      "created_at": "2023-08-08T20:11:24.208-07:00",
+      "updated_at": "2023-08-08T20:11:24.269-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/y482tjh9140k",
+      "started_at": "2023-08-08T20:11:24.202-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "z1tm6rjlpl7g",
+          "status": "identified",
+          "body": "We are investigating an ongoing issue affecting access to Box for Google Workspace. Our team has identified the underlying cause of this issue and is working to take remediating steps. We will provide additional updates as they become available.",
+          "incident_id": "hjz7fgfbfrxv",
+          "created_at": "2023-08-08T20:11:24.267-07:00",
+          "updated_at": "2023-08-08T20:11:24.267-07:00",
+          "display_at": "2023-08-08T20:11:24.267-07:00",
+          "affected_components": [
+            {
+              "code": "k3b0ssj5kl3f",
+              "name": "Partners / Integrations - Google Apps",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "k3b0ssj5kl3f",
+          "name": "Google Apps",
+          "status": "partial_outage",
+          "created_at": "2019-01-15T16:02:22.555-08:00",
+          "updated_at": "2023-08-08T20:11:24.232-07:00",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "jvy3knlf7n32",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "qvvc5rg9mfnz",
       "name": "[Major] Issue with Events API and Box Sign",
@@ -9063,48 +9115,6 @@
           "only_show_if_degraded": false
         }
       ]
-    },
-    {
-      "id": "k6flcm4dls71",
-      "name": "[Minor] Issues Accessing Box",
-      "status": "postmortem",
-      "created_at": "2022-11-30T22:30:00.000-08:00",
-      "updated_at": "2022-12-28T13:15:03.407-08:00",
-      "monitoring_at": null,
-      "resolved_at": "2022-12-01T02:15:00.000-08:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/dyvpq2mk06nd",
-      "started_at": "2022-12-01T02:15:00.000-08:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "dyl9cvtxv8sp",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting access to Box for some customers. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 2:13 am PST and 2:55 am PST on December 1, 2022, some users may have experienced difficulties while working in Box. During this time. users of some enterprises with Device Trust checks enabled may have experienced intermittent 500 errors when logging in to Box or accessing the All Files page. \n\n‌\n\n**Analysis** \n\nThe issue occurred as a result of a recent code change related to Box's Device Trust feature. Due to incorrect estimates of user traffic, the authentication flow service would transiently block some users from accessing Box. We were able to revert the problematic code and correct faulty assumptions in the days following the incident.  In addition, our performance testing has been revised and new observability measures have been implemented to prevent similar issues from occurring in the future. \n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Improving Device Trust performance testing process to provide a reasonable safety buffer.\n* Improving Device Trust observability to revert faulty changes at the time of deployment.\n* Increasing Device Trust hardware resources.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
-          "incident_id": "k6flcm4dls71",
-          "created_at": "2022-12-12T09:43:07.744-08:00",
-          "updated_at": "2022-12-28T13:15:03.401-08:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "npym2x269hq4",
-          "status": "resolved",
-          "body": "From approximately 2:13AM-2:55AM PT, some users may have experienced intermittent 500 errors when logging in to Box or accessing the All Files page. This issue was automatically detected by our internal monitoring and a fix was implemented. If you are still experiencing any issues with these services, please contact Box Support via https://support.box.com.",
-          "incident_id": "k6flcm4dls71",
-          "created_at": "2022-12-01T05:18:58.710-08:00",
-          "updated_at": "2022-12-03T14:42:30.855-08:00",
-          "display_at": "2022-12-01T02:15:00.000-08:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": []
     }
   ]
 }
