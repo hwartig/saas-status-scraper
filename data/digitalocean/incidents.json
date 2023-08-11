@@ -4,22 +4,35 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-08-11T07:45:56.848Z"
+    "updated_at": "2023-08-11T23:05:15.103Z"
   },
   "incidents": [
     {
       "id": "q4b09b022nmh",
-      "name": "Networking in Multiple Regions",
-      "status": "resolved",
+      "name": "Networking in AMS3, LON1, and SFO2",
+      "status": "postmortem",
       "created_at": "2023-08-09T10:33:45.396Z",
-      "updated_at": "2023-08-09T16:01:48.414Z",
+      "updated_at": "2023-08-11T23:05:15.097Z",
       "monitoring_at": "2023-08-09T10:58:16.619Z",
       "resolved_at": "2023-08-09T16:01:48.379Z",
-      "impact": "minor",
+      "impact": "major",
       "shortlink": "https://stspg.io/hy6pxlb6pfqr",
       "started_at": "2023-08-09T10:33:45.181Z",
       "page_id": "w4cz49tckxhp",
       "incident_updates": [
+        {
+          "id": "41rtrb9zfj00",
+          "status": "postmortem",
+          "body": "## Summary\n\nBeginning 09:55 UTC, August 9th, we experienced significant network outages that impacted Internet access for our AMS3, LON1, and SFO2 datacenters. These outages occurred in three waves, each lasting 10-15 minutes with approximately an hour between them. The last wave occurred at around 12:15 UTC. While addressing the root cause of this incident, additional network disruptions happened, spanning a total of 1-2 hours. At 14:23 UTC, we completely mitigated the issue, and the network was declared stable in all datacenters.\n\n## UTC Timeline \\(By Datacenter\\)\n\n### LON1:\n\n09:55 - 10:11: Total Internet networking outage \n\n11:05 - 11:15: Second wave of total Internet networking outage\n\n12:13 - 12:21: Third wave of Internet networking outage, 90% of customer traffic impacted\n\n12:43 - 12:46: Slight loss of traffic as traffic reconverges \n\n12:52 - 12:57: Partial outage, up to 40% of customer traffic impacted\n\n13:29: Upgrades completed in LON1. Site stable\n\n### AMS3:\n\n09:50 - 09:53: Partial Internet networking outage, up to 40% of customer traffic impacted \n\n10:58 - 11:01: Partial Internet networking outage, up to 50% of customer traffic impacted \n\n11:30 - 12:05: Partial Internet networking outage, 50% of customer traffic impacted\n\n12:20 - 12:27: Partial Internet networking outage, up to 40% of customer traffic impacted\n\n12:27: Upgrades completed in AMS3. Site stable\n\n### SFO2:\n\n09:55 - 10:11: Total Internet networking outage\n\n11:02 - 11:14: Partial Internet networking outage, up to 50% of customer traffic impacted\n\n11:48 - 12:27: Second wave of total Internet networking outage\n\n12:41 - 12:51: Third wave of total Internet networking outage\n\n14:21 - 14:23: Partial networking outage, up to 50% of customer traffic impacted\n\n14:23: Upgrades completed in SFO2. Site stable\n\n## Root Cause\n\nWe discovered a bug in the operating system software version running on some of our edge routers. \n\nIn the event of receiving an RPKI-related routing update \\(more background information on RPKI here: [https://help.apnic.net/s/article/Resource-Public-Key-Infrastructure-RPKI](https://help.apnic.net/s/article/Resource-Public-Key-Infrastructure-RPKI)\\), the routers could experience a crash in their routing process. Each of the sites was redundantly connected to the Internet via multiple devices. All of the devices were running versions of software that had the bug, so when the bug was triggered it caused an impact across the entire internet edge. The routing processes automatically restarted, but reprocessing and updating the global routing tables was spread out over the next few minutes. As a result, the affected datacenters experienced multiple network outages, each lasting for around 10-15 minutes, as the routing processes recovered.   \n\nFollowing an investigation from our vendor, we decided to roll out a software update to the edge routers running the affected version. The emergency upgrade of the network devices was focused on recovering stability and added some additional reachability issues while the traffic was shifted off circuits and the edge routers rejoined the Internet.  \n\nOnce the rollout was complete, the bug was resolved for the long term, and network stability returned across all DigitalOcean datacenters.\n\n## Conclusion\n\nEnsuring redundancy is a critical priority and we continue to invest in our broad infrastructure to provide increasing levels of reliability and performance, including greater redundancy. We realize the trust our customers place in running workloads on DigitalOcean and we are focused on earning that trust.   \n\nAll global edge routers have been upgraded to mitigate the bug and we do not expect any further impact.   \n\nWe are in the midst of implementing network upgrades that will provide additional improvements to the reliability and security of our network. Locations in Asia have received these upgrades, and Europe and North America will receive them later this year and early in 2024.",
+          "incident_id": "q4b09b022nmh",
+          "created_at": "2023-08-11T23:02:47.039Z",
+          "updated_at": "2023-08-11T23:05:15.094Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our August 9th Networking in AMS3, LON1, and SFO2 incident: https://stspg.io/hy6pxlb6pfqr",
+          "tweet_id": null
+        },
         {
           "id": "s26792fqdkb6",
           "status": "resolved",
