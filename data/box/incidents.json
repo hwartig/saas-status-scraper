@@ -4,9 +4,61 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-08-11T00:44:04.629-07:00"
+    "updated_at": "2023-08-11T21:55:07.672-07:00"
   },
   "incidents": [
+    {
+      "id": "6kwyn4w5lxb6",
+      "name": "[Major] Degradation of Box for Office Online",
+      "status": "investigating",
+      "created_at": "2023-08-11T21:55:07.574-07:00",
+      "updated_at": "2023-08-11T21:55:07.668-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/264c1y16q67l",
+      "started_at": "2023-08-11T21:55:07.565-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "7sst64ffztqy",
+          "status": "investigating",
+          "body": "We are experiencing an issue with our Office Online Integration. When attempting to open Office Online Powerpoint files with the web editor users are met with a loading screen blocking the ability to make edits. Microsoft have confirmed that the issue extends beyond Box and are currently investigating.",
+          "incident_id": "6kwyn4w5lxb6",
+          "created_at": "2023-08-11T21:55:07.665-07:00",
+          "updated_at": "2023-08-11T21:55:07.665-07:00",
+          "display_at": "2023-08-11T21:55:07.665-07:00",
+          "affected_components": [
+            {
+              "code": "m9wrjsglbtpy",
+              "name": "Partners / Integrations - Microsoft Online",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "m9wrjsglbtpy",
+          "name": "Microsoft Online",
+          "status": "major_outage",
+          "created_at": "2018-10-01T20:21:36.119-07:00",
+          "updated_at": "2023-08-11T21:55:07.615-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "jvy3knlf7n32",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "qcfb2w9x7dzw",
       "name": "[Critical] Issues Logging In for some Admin Users",
@@ -8860,218 +8912,14 @@
         {
           "id": "m9wrjsglbtpy",
           "name": "Microsoft Online",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2018-10-01T20:21:36.119-07:00",
-          "updated_at": "2023-01-13T11:32:59.061-08:00",
+          "updated_at": "2023-08-11T21:55:07.615-07:00",
           "position": 1,
           "description": null,
           "showcase": false,
           "start_date": null,
           "group_id": "jvy3knlf7n32",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "c3wp7gqvymj8",
-      "name": "[Minor] Issue with Uploads, Downloads, and Public API",
-      "status": "postmortem",
-      "created_at": "2023-01-09T15:55:02.000-08:00",
-      "updated_at": "2023-01-12T11:35:01.708-08:00",
-      "monitoring_at": "2023-01-09T16:38:54.702-08:00",
-      "resolved_at": "2023-01-09T17:01:31.713-08:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/xp1lm2wnctq3",
-      "started_at": "2023-01-09T15:55:02.000-08:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "jtbqd44mc2n9",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting Desktop Applications \\(Box Sync, Box Drive\\), Box Web Application \\(Uploads/Downloads\\), and Box Platform / API \\(Uploads/Downloads\\). We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 3:30pm PDT and 4:17pm PDT on Jan 9th, 2023, some users may have experienced difficulties while working on the Box platform. During this time, users may have experienced slow login times as well as failures when attempting to upload and download files. \n\n## **Analysis**\n\nThe issue occurred as an unexpected result of a resource utilization priority conflict during the deployment process of an internal tool. Specifically, an internal service being deployed to our production environment had a higher resource utilization priority than another critical system process, which subsequently failed when affected nodes’ resources were exhausted. We were able to resolve the issue by reverting the change.\n\nIn addition, we are improving our change risk assessment criteria and health alerts for this kind of tool, and working to design a more progressive deployment process for this internal tool to prevent similar issues from occurring in the future.\n\n## **Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Improving our risk assessment criteria for deploying these types of tools. \n\n* Extending our capacity guidelines to provide more clarity around system resource consumption and better resource distribution.\n* Increasing our alerting to detect early warning signs of systems running at a higher capacity than expected.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
-          "incident_id": "c3wp7gqvymj8",
-          "created_at": "2023-01-12T11:33:50.428-08:00",
-          "updated_at": "2023-01-12T11:35:01.706-08:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cg0rywvhv4gz",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. All services have been restored to full functionality. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
-          "incident_id": "c3wp7gqvymj8",
-          "created_at": "2023-01-09T17:01:31.713-08:00",
-          "updated_at": "2023-01-09T17:01:32.500-08:00",
-          "display_at": "2023-01-09T17:01:31.713-08:00",
-          "affected_components": [
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "dl6g3rgzpbmw",
-              "name": "Box Platform / API - Uploads/Downloads",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "19ym99q18036",
-              "name": "Desktop Applications - Box Sync",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1612615590396694500
-        },
-        {
-          "id": "m14nvsq0ftqy",
-          "status": "monitoring",
-          "body": "Our team has taken steps to remediate this issue and is seeing improvement for these services. We are continuing to monitor for any additional impact.",
-          "incident_id": "c3wp7gqvymj8",
-          "created_at": "2023-01-09T16:38:54.702-08:00",
-          "updated_at": "2023-01-09T16:38:55.204-08:00",
-          "display_at": "2023-01-09T16:38:54.702-08:00",
-          "affected_components": [
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "dl6g3rgzpbmw",
-              "name": "Box Platform / API - Uploads/Downloads",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "19ym99q18036",
-              "name": "Desktop Applications - Box Sync",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1612609897522430000
-        },
-        {
-          "id": "fnjvfw3jd1c2",
-          "status": "investigating",
-          "body": "Our team is investigating an issue with Uploads, Downloads, the Public API, and Box Web Application. Users may see errors or slowness when attempting to use these services. We will provide additional information as it becomes available.",
-          "incident_id": "c3wp7gqvymj8",
-          "created_at": "2023-01-09T15:55:02.414-08:00",
-          "updated_at": "2023-01-09T16:05:37.244-08:00",
-          "display_at": "2023-01-09T15:55:02.000-08:00",
-          "affected_components": [
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "dl6g3rgzpbmw",
-              "name": "Box Platform / API - Uploads/Downloads",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "19ym99q18036",
-              "name": "Desktop Applications - Box Sync",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1612598857074081800
-        }
-      ],
-      "components": [
-        {
-          "id": "19ym99q18036",
-          "name": "Box Sync",
-          "status": "operational",
-          "created_at": "2014-06-26T08:28:58.936-07:00",
-          "updated_at": "2023-06-01T12:46:51.835-07:00",
-          "position": 2,
-          "description": "Access to Box through Sync",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "qvh7zdkvw690",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "wtcp7snm0429",
-          "name": "Uploads/Downloads",
-          "status": "operational",
-          "created_at": "2018-10-01T20:08:50.656-07:00",
-          "updated_at": "2023-07-26T19:07:08.098-07:00",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "jqkkbz8yvk8b",
-          "name": "Box Drive",
-          "status": "operational",
-          "created_at": "2018-04-16T13:21:09.799-07:00",
-          "updated_at": "2023-06-01T12:46:51.874-07:00",
-          "position": 3,
-          "description": "Access to Box through Box Drive",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "qvh7zdkvw690",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "dl6g3rgzpbmw",
-          "name": "Uploads/Downloads",
-          "status": "operational",
-          "created_at": "2018-10-01T20:15:36.651-07:00",
-          "updated_at": "2023-04-19T22:42:37.963-07:00",
-          "position": 5,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "vggytbdllrjt",
           "page_id": "208q92hckwws",
           "group": false,
           "only_show_if_degraded": false
