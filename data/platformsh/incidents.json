@@ -4,15 +4,15 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-08-14T03:58:06.618Z"
+    "updated_at": "2023-08-16T07:17:21.269Z"
   },
   "incidents": [
     {
       "id": "bd43vgkd0zgh",
       "name": "Outage on UK-1 Region",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-08-14T02:15:59.510Z",
-      "updated_at": "2023-08-14T03:58:06.616Z",
+      "updated_at": "2023-08-16T07:17:21.267Z",
       "monitoring_at": "2023-08-14T02:49:38.576Z",
       "resolved_at": "2023-08-14T03:58:06.600Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2023-08-14T02:15:59.506Z",
       "page_id": "l2x5n4czt1ph",
       "incident_updates": [
+        {
+          "id": "vfhgmzp6nc90",
+          "status": "postmortem",
+          "body": "An unknown issue occurred with the host agent on one of the hosts in the region, leading to processes being stuck which in turn lead to sites on the affected host being unavailable.\n\nTo remediate the situation, our Operations Team evacuated all projects from the host to other hosts in the region and terminated the affected host in order to free the stuck processes.\n\nMost affected sites were recovered in less than 25 minutes.\n\nUnfortunately, in terminating the affected host, any logs on the host were lost. This is because the normal termination signal was not responsive, and our Operations Team had to manually terminate the host.\n\nThis was an abnormal situation and we took this action to try get the sites back up as quickly as possible.\n\nTo prevent such situations in the future we're implementing guidelines to ensure we retain logs when we manually terminate hosts for incidents such as this.",
+          "incident_id": "bd43vgkd0zgh",
+          "created_at": "2023-08-16T07:16:50.029Z",
+          "updated_at": "2023-08-16T07:17:21.266Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "f2bjbx0xdxvz",
           "status": "resolved",
