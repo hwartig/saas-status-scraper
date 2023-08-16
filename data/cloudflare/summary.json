@@ -4,7 +4,7 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-08-16T11:35:32.064Z"
+    "updated_at": "2023-08-16T11:54:04.797Z"
   },
   "components": [
     {
@@ -2873,9 +2873,9 @@
     {
       "id": "vl0s9mnn4gfb",
       "name": "Hanoi, Vietnam - (HAN)",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2018-12-18T06:51:18.979Z",
-      "updated_at": "2023-08-16T11:25:19.465Z",
+      "updated_at": "2023-08-16T11:50:53.371Z",
       "position": 22,
       "description": null,
       "showcase": false,
@@ -4733,9 +4733,9 @@
     {
       "id": "hk5dqm69klkp",
       "name": "Page Shield",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2023-08-16T10:55:55.769Z",
-      "updated_at": "2023-08-16T10:58:19.260Z",
+      "updated_at": "2023-08-16T11:54:04.756Z",
       "position": 46,
       "description": "Page Shield simplifies external script management by tracking loaded resources like scripts and providing alerts when it detects new resources or malicious scripts. Page Shield also tracks the connections made by scripts on your domain’s pages and checks if they are malicious based on their destination.",
       "showcase": false,
@@ -4868,9 +4868,9 @@
     {
       "id": "hb7g5sq2zz0h",
       "name": "R2",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-07-05T10:55:24.503Z",
-      "updated_at": "2023-08-16T10:56:17.352Z",
+      "updated_at": "2023-08-16T11:48:30.745Z",
       "position": 48,
       "description": "High-performance storage for files and objects with zero egress charges",
       "showcase": false,
@@ -6098,70 +6098,30 @@
   ],
   "incidents": [
     {
-      "id": "z5y56d1505lw",
-      "name": "Page Shield customers experiencing a delay in receiving malicious alerts",
-      "status": "identified",
-      "created_at": "2023-08-16T10:45:36.036Z",
-      "updated_at": "2023-08-16T10:58:19.296Z",
+      "id": "vwgh3bktbx50",
+      "name": "Issues with Data Migration to R2",
+      "status": "investigating",
+      "created_at": "2023-08-16T11:48:30.719Z",
+      "updated_at": "2023-08-16T11:48:30.790Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
-      "shortlink": "https://stspg.io/pc9xz30qnkt6",
-      "started_at": "2023-08-16T10:45:36.028Z",
+      "shortlink": "https://stspg.io/4j9grrqmyf37",
+      "started_at": "2023-08-16T11:48:30.713Z",
       "page_id": "yh6f0r4529hb",
       "incident_updates": [
         {
-          "id": "r5mg8x5bq432",
-          "status": "identified",
-          "body": "Root cause has been identified, and we are preparing the fix for this issue.",
-          "incident_id": "z5y56d1505lw",
-          "created_at": "2023-08-16T10:58:19.294Z",
-          "updated_at": "2023-08-16T10:58:19.294Z",
-          "display_at": "2023-08-16T10:58:19.294Z",
+          "id": "38jv1g57w6xv",
+          "status": "investigating",
+          "body": "Cloudflare is aware of an issue with data migrations to R2 using Super Slurper. Users accessing R2 > Data Migration section of the dashboard may experience errors. \n\nR2 product itself is not affected. We are working to analyse and mitigate this problem. More updates to follow shortly.",
+          "incident_id": "vwgh3bktbx50",
+          "created_at": "2023-08-16T11:48:30.788Z",
+          "updated_at": "2023-08-16T11:48:30.788Z",
+          "display_at": "2023-08-16T11:48:30.788Z",
           "affected_components": [
             {
-              "code": "hk5dqm69klkp",
-              "name": "Cloudflare Sites and Services - Page Shield",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "h0qqvj8l6w38",
-          "status": "identified",
-          "body": "We are continuing to work on a fix for this issue.",
-          "incident_id": "z5y56d1505lw",
-          "created_at": "2023-08-16T10:48:13.485Z",
-          "updated_at": "2023-08-16T10:48:13.485Z",
-          "display_at": "2023-08-16T10:48:13.485Z",
-          "affected_components": [
-            {
-              "code": "d1r0plwsl5qb",
-              "name": "Cloudflare Sites and Services - Firewall",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rkrm2l4123hv",
-          "status": "identified",
-          "body": "Cloudflare is aware of Page Shield customers experiencing a delay in receiving malicious alerts. We have identified the issue and are working towards resolution.",
-          "incident_id": "z5y56d1505lw",
-          "created_at": "2023-08-16T10:45:36.127Z",
-          "updated_at": "2023-08-16T10:45:36.127Z",
-          "display_at": "2023-08-16T10:45:36.127Z",
-          "affected_components": [
-            {
-              "code": "g9yx473yjk9t",
-              "name": "Cloudflare Sites and Services - API Shield",
+              "code": "hb7g5sq2zz0h",
+              "name": "Cloudflare Sites and Services - R2",
               "old_status": "operational",
               "new_status": "degraded_performance"
             }
@@ -6173,15 +6133,15 @@
       ],
       "components": [
         {
-          "id": "hk5dqm69klkp",
-          "name": "Page Shield",
+          "id": "hb7g5sq2zz0h",
+          "name": "R2",
           "status": "degraded_performance",
-          "created_at": "2023-08-16T10:55:55.769Z",
-          "updated_at": "2023-08-16T10:58:19.260Z",
-          "position": 46,
-          "description": "Page Shield simplifies external script management by tracking loaded resources like scripts and providing alerts when it detects new resources or malicious scripts. Page Shield also tracks the connections made by scripts on your domain’s pages and checks if they are malicious based on their destination.",
+          "created_at": "2022-07-05T10:55:24.503Z",
+          "updated_at": "2023-08-16T11:48:30.745Z",
+          "position": 48,
+          "description": "High-performance storage for files and objects with zero egress charges",
           "showcase": false,
-          "start_date": "2023-08-16",
+          "start_date": "2022-07-05",
           "group_id": "1km35smx8p41",
           "page_id": "yh6f0r4529hb",
           "group": false,
