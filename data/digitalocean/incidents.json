@@ -4,9 +4,61 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-08-16T08:03:02.656Z"
+    "updated_at": "2023-08-17T00:22:38.815Z"
   },
   "incidents": [
+    {
+      "id": "fwqxkfl5glc1",
+      "name": "VPC Connectivity Disruption in NYC3",
+      "status": "identified",
+      "created_at": "2023-08-17T00:22:38.737Z",
+      "updated_at": "2023-08-17T00:22:38.812Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/t2wtw1y1d9m5",
+      "started_at": "2023-08-17T00:22:38.730Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "s2ghb7pzjwbn",
+          "status": "identified",
+          "body": "Our Engineering team has taken action to remediate this issue and we're seeing recovery of VPC behavior in NYC3. \n\nAt this time, users should be able to create resources in NYC3 VPC's once more and see normal communication between resources.\n\nWe're continuing to validate this fix and the situation and will post another update shortly.",
+          "incident_id": "fwqxkfl5glc1",
+          "created_at": "2023-08-17T00:22:38.810Z",
+          "updated_at": "2023-08-17T00:22:38.810Z",
+          "display_at": "2023-08-17T00:22:38.810Z",
+          "affected_components": [
+            {
+              "code": "4945q9my8ycl",
+              "name": "VPC - NYC3",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "4945q9my8ycl",
+          "name": "NYC3",
+          "status": "degraded_performance",
+          "created_at": "2023-02-22T19:25:59.204Z",
+          "updated_at": "2023-08-17T00:22:38.766Z",
+          "position": 9,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-22",
+          "group_id": "0m9zj5r96xhd",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "cst5jm8gwzsz",
       "name": "App Platform Deployments",
@@ -11522,9 +11574,9 @@
         {
           "id": "4945q9my8ycl",
           "name": "NYC3",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-02-22T19:25:59.204Z",
-          "updated_at": "2023-04-21T19:13:17.952Z",
+          "updated_at": "2023-08-17T00:22:38.766Z",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -17554,35 +17606,6 @@
           "created_at": "2023-05-09T20:00:11.782Z",
           "updated_at": "2023-05-10T03:05:43.430Z",
           "display_at": "2023-03-30T16:20:18.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": []
-    },
-    {
-      "id": "6qr2q9yc9790",
-      "name": "Network Connectivity in BLR1",
-      "status": "resolved",
-      "created_at": "2023-03-29T11:20:50.686Z",
-      "updated_at": "2023-05-10T14:25:25.040Z",
-      "monitoring_at": null,
-      "resolved_at": "2023-03-29T11:20:50.686Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/7z0m5sj9h5sn",
-      "started_at": "2023-05-09T20:00:13.137Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "xklhvs643d1x",
-          "status": "resolved",
-          "body": "Impact: minor;\nFrom 09:05 - 11:57 UTC, we experienced a networking issue in our BLR1 region. We initially believed the issue was due to the ongoing performance issues with the APAC fiber faults, but further investigation from our Network Engineering team revealed this was a separate issue.\n\nThe root cause was tracked to an unexpected hardware issue that resulted in network unavailability for a large subset of services in the BLR1 region.\n\nUser impact included being unable to reach Droplets and Droplet-based services like Kubernetes clusters, Managed Databases, and Load Balancers.\n\nUsers with Block Storage Volumes and Snapshots in BLR1 also experienced intermittent failures with CRUD (create, read, update, delete) operations. This could have resulted in API errors or errors shown in the Cloud Control Panel when working with those services.\n\nUsers utilizing App Platform also saw image pull failures and deployment latency/failures during the course of this incident.\n\nOur Network Engineering team has an open case with our upstream provider in BLR1 to determine the cause behind this hardware failure. We will also be working internally to determine quicker remediation tactics for this type of failure.\n\nIf you continue to experience problems, please open a ticket with our support team from within your Cloud Control Panel. Thank you for your patience and we apologize for any inconvenience.\n\nAffected Components: Services - API Services - App Platform Services - Block Storage Services - Droplets Services - Event Processing Services - Kubernetes Services - Load Balancers Services - Managed Databases Services - Networking Services - Spaces Regions - BLR1 \n\nStatus: resolved\n2023-03-29 12:47 UTC\n-\n\nOur Engineering team has successfully mitigated the issue impacting multiple products in BLR1. At this time, network connectivity to Droplet-based services including Droplets, Managed Kubernetes, and Managed Database in BLR1, should be operating normally. \n\nWe'll continue to monitor the situation to confirm this incident is fully resolved and will post an update soon.\n\nAffected Components: Services - API Services - App Platform Services - Block Storage Services - Droplets Services - Event Processing Services - Kubernetes Services - Load Balancers Services - Managed Databases Services - Networking Services - Spaces Regions - BLR1 \n\nStatus: monitoring\n2023-03-29 11:41 UTC\n-\n\nAs of 09:05UTC, our Engineering team is currently investigating an issue impacting multiple products in the BLR1 region. During this time, users may have experienced packet loss/latency, timeouts, and related issues with Droplet-based services in these regions, including Droplets, Managed Kubernetes, and Managed Database. We will share an update once we have further information.\n\nAffected Components: Services - API Services - App Platform Services - Block Storage Services - Droplets Services - Event Processing Services - Kubernetes Services - Load Balancers Services - Managed Databases Services - Networking Services - Spaces Regions - BLR1 \n\nStatus: investigating\n2023-03-29 11:20 UTC\n-\n\nIncident Created at: 2023-03-29 11:20 UTC Resolved at: 2023-03-29 12:47 UTC",
-          "incident_id": "6qr2q9yc9790",
-          "created_at": "2023-05-09T20:00:13.175Z",
-          "updated_at": "2023-05-09T20:00:13.175Z",
-          "display_at": "2023-03-29T11:20:50.686Z",
           "affected_components": null,
           "deliver_notifications": false,
           "custom_tweet": null,
