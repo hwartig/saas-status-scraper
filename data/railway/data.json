@@ -6,8 +6,8 @@
   "site": {
     "id": "ckp4dyswb9087339ioqfl0aidfs",
     "createdAt": "2021-05-25T18:42:43.788Z",
-    "status": "HASISSUES",
-    "mainStatus": "ONEPARTIALOUTAGE",
+    "status": "UP",
+    "mainStatus": "UP",
     "name": "Railway",
     "nameTranslation": null,
     "language": "en",
@@ -115,7 +115,7 @@
         "isCollapsed": false,
         "order": 2,
         "showUptime": true,
-        "status": "PARTIALOUTAGE",
+        "status": "OPERATIONAL",
         "archivedAt": null,
         "isThirdParty": false,
         "isParent": false,
@@ -219,56 +219,7 @@
       }
     ]
   },
-  "activeIncidents": [
-    {
-      "id": "cllfqvj0d133269ifol6kttiluf",
-      "name": "Builds may be delayed for some users",
-      "nameTranslation": null,
-      "started": "2023-08-17T22:40:08.000Z",
-      "resolved": null,
-      "status": "IDENTIFIED",
-      "duration": null,
-      "impact": "OPERATIONAL",
-      "components": [
-        {
-          "id": "ckp4dyt0s9087679ioqirunexp1",
-          "order": 2,
-          "status": "PARTIALOUTAGE",
-          "name": "Builder",
-          "nameTranslation": null
-        }
-      ],
-      "updates": [
-        {
-          "id": "cllfrv7yt5981bcob6hsuny2x",
-          "started": "2023-08-17T23:07:53.299Z",
-          "status": "MONITORING",
-          "message": "Builds are now progressing normally. Logs are now available in the UI, only the read path was affected so application and build log collection was not impacted.",
-          "messageTranslation": null,
-          "messageHtml": "<p>Builds are now progressing normally. Logs are now available in the UI, only the read path was affected so application and build log collection was not impacted.</p>",
-          "messageHtmlTranslation": null
-        },
-        {
-          "id": "cllfreprx1812157rn9vopt10ut",
-          "started": "2023-08-17T22:55:03.000Z",
-          "status": "IDENTIFIED",
-          "message": "We've identified the issue and are implementing a fix. Logs are also delayed and will soon be coming back",
-          "messageTranslation": null,
-          "messageHtml": "<p>We've identified the issue and are implementing a fix. Logs are also delayed and will soon be coming back</p>",
-          "messageHtmlTranslation": null
-        },
-        {
-          "id": "cllfqvj17133296ifol8opgm62e",
-          "started": "2023-08-17T22:40:08.000Z",
-          "status": "INVESTIGATING",
-          "message": "Builds may be delayed for some users",
-          "messageTranslation": null,
-          "messageHtml": "<p>Builds may be delayed for some users</p>",
-          "messageHtmlTranslation": null
-        }
-      ]
-    }
-  ],
+  "activeIncidents": [],
   "activeMaintenances": [],
   "dailyGroupedNotices": [
     {
@@ -280,12 +231,12 @@
           "name": "Builds may be delayed for some users",
           "nameTranslationId": null,
           "notify": true,
-          "status": "IDENTIFIED",
+          "status": "RESOLVED",
           "started": "2023-08-17T22:40:08.000Z",
-          "resolved": null,
-          "duration": null,
+          "resolved": "2023-08-17T23:28:32.934Z",
+          "duration": 48,
           "createdAt": "2023-08-17T22:40:08.701Z",
-          "updatedAt": "2023-08-17T23:19:00.346Z",
+          "updatedAt": "2023-08-17T23:28:33.577Z",
           "automated": false,
           "impact": "OPERATIONAL",
           "appId": null,
@@ -301,6 +252,24 @@
           "nameTranslation": null,
           "updates": [
             {
+              "id": "cllfslsgc10787b4oecvokswj8",
+              "message": "Builds were delayed due to a networking issue on the build hosts - we're taking action to improve the resilience of the build stack. Simultaneously, a code change for our Logging stack failed to roll out causing log reads to fail. Both these issues have now been resolved, log collection was not impacted.",
+              "messageTranslationId": null,
+              "status": "RESOLVED",
+              "notify": true,
+              "started": "2023-08-17T23:28:32.934Z",
+              "ended": null,
+              "duration": null,
+              "createdAt": "2023-08-17T23:28:33.612Z",
+              "updatedAt": "2023-08-17T23:28:33.613Z",
+              "incidentId": "cllfqvj0d133269ifol6kttiluf",
+              "messageHtml": "<p>Builds were delayed due to a networking issue on the build hosts - we're taking action to improve the resilience of the build stack. Simultaneously, a code change for our Logging stack failed to roll out causing log reads to fail. Both these issues have now been resolved, log collection was not impacted.</p>",
+              "messageHtmlTranslationId": null,
+              "importedFromStatuspage": false,
+              "messageHtmlTranslation": null,
+              "messageTranslation": null
+            },
+            {
               "id": "cllfrv7yt5981bcob6hsuny2x",
               "message": "Builds are now progressing normally. Logs are now available in the UI, only the read path was affected so application and build log collection was not impacted.",
               "messageTranslationId": null,
@@ -308,9 +277,9 @@
               "notify": true,
               "started": "2023-08-17T23:07:53.299Z",
               "ended": null,
-              "duration": null,
+              "duration": 1240,
               "createdAt": "2023-08-17T23:07:54.005Z",
-              "updatedAt": "2023-08-17T23:18:08.523Z",
+              "updatedAt": "2023-08-17T23:28:33.553Z",
               "incidentId": "cllfqvj0d133269ifol6kttiluf",
               "messageHtml": "<p>Builds are now progressing normally. Logs are now available in the UI, only the read path was affected so application and build log collection was not impacted.</p>",
               "messageHtmlTranslationId": null,
@@ -362,11 +331,11 @@
               "nameTranslationId": null,
               "description": "",
               "descriptionTranslationId": null,
-              "status": "PARTIALOUTAGE",
+              "status": "OPERATIONAL",
               "order": 2,
               "showUptime": true,
               "createdAt": "2021-05-25T18:42:43.948Z",
-              "updatedAt": "2023-08-17T23:18:08.565Z",
+              "updatedAt": "2023-08-17T23:28:33.649Z",
               "archivedAt": null,
               "siteId": "ckp4dyswb9087339ioqfl0aidfs",
               "uniqueEmail": "railway-builder-go140p1xo@automation.instatus.com",
@@ -516,11 +485,11 @@
               "nameTranslationId": null,
               "description": "",
               "descriptionTranslationId": null,
-              "status": "PARTIALOUTAGE",
+              "status": "OPERATIONAL",
               "order": 2,
               "showUptime": true,
               "createdAt": "2021-05-25T18:42:43.948Z",
-              "updatedAt": "2023-08-17T23:18:08.565Z",
+              "updatedAt": "2023-08-17T23:28:33.649Z",
               "archivedAt": null,
               "siteId": "ckp4dyswb9087339ioqfl0aidfs",
               "uniqueEmail": "railway-builder-go140p1xo@automation.instatus.com",
@@ -1875,9 +1844,9 @@
       "name": "Builds may be delayed for some users",
       "nameTranslation": null,
       "impact": "OPERATIONAL",
-      "resolved": null,
+      "resolved": "2023-08-17T23:28:32.934Z",
       "started": "2023-08-17T22:40:08.000Z",
-      "status": "IDENTIFIED",
+      "status": "RESOLVED",
       "components": [
         {
           "id": "ckp4dyt0s9087679ioqirunexp1"
