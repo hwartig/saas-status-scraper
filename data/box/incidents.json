@@ -4,9 +4,61 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-08-16T10:23:47.494-07:00"
+    "updated_at": "2023-08-16T19:40:17.009-07:00"
   },
   "incidents": [
+    {
+      "id": "gsjypgwh6ggy",
+      "name": "[Minor] Customers may have been experiencing failures when using the Public API",
+      "status": "resolved",
+      "created_at": "2023-08-16T19:38:16.851-07:00",
+      "updated_at": "2023-08-16T19:40:17.006-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2023-08-16T19:38:16.895-07:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/hp53pd6hqc8c",
+      "started_at": "2023-08-16T19:38:16.846-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "55ff90ksptd1",
+          "status": "resolved",
+          "body": "Between 6:51PM and 7:13PM PDT on August 16th, 2023, some users may have experienced failures with Public API services. No further impact has been observed and we are considering this issue to be resolved. If you are still experiencing any issues, please let us know at https://support.box.com",
+          "incident_id": "gsjypgwh6ggy",
+          "created_at": "2023-08-16T19:38:16.895-07:00",
+          "updated_at": "2023-08-16T19:38:16.895-07:00",
+          "display_at": "2023-08-16T19:38:16.895-07:00",
+          "affected_components": [
+            {
+              "code": "k9qs0mx2d5cw",
+              "name": "Box Platform / API - Content API",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "k9qs0mx2d5cw",
+          "name": "Content API",
+          "status": "operational",
+          "created_at": "2014-06-26T08:25:48.103-07:00",
+          "updated_at": "2023-07-26T19:07:08.065-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "vggytbdllrjt",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "6vzzw586srv8",
       "name": "[Major] Issues with Uploads, Downloads and Box Notes",
@@ -9044,145 +9096,6 @@
               "name": "Box Platform / API - Uploads/Downloads",
               "old_status": "operational",
               "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "k9qs0mx2d5cw",
-          "name": "Content API",
-          "status": "operational",
-          "created_at": "2014-06-26T08:25:48.103-07:00",
-          "updated_at": "2023-07-26T19:07:08.065-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "vggytbdllrjt",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "wtcp7snm0429",
-          "name": "Uploads/Downloads",
-          "status": "operational",
-          "created_at": "2018-10-01T20:08:50.656-07:00",
-          "updated_at": "2023-08-16T09:25:15.390-07:00",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "dl6g3rgzpbmw",
-          "name": "Uploads/Downloads",
-          "status": "operational",
-          "created_at": "2018-10-01T20:15:36.651-07:00",
-          "updated_at": "2023-04-19T22:42:37.963-07:00",
-          "position": 5,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "vggytbdllrjt",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
-    },
-    {
-      "id": "zhw5yctby3wx",
-      "name": "[Major] Issues with Uploads, Downloads and metadata",
-      "status": "postmortem",
-      "created_at": "2023-01-23T13:21:39.065-08:00",
-      "updated_at": "2023-02-14T09:20:47.989-08:00",
-      "monitoring_at": null,
-      "resolved_at": "2023-01-23T13:33:50.947-08:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/rpff5kbrwqjf",
-      "started_at": "2023-01-23T13:21:39.053-08:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "ppc1sz2g6pn8",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting Box activity, including Box Metadata, file uploads and downloads, Box Notes, and the public API. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nOn January 23rd from 11:48am PT to 1:07pm PT and on January 24th from 7:49am PT to 8:36am PT and 5:07pm PT to 9:02pm PT, some users may have experienced difficulties while working in Box. During this time, some users experienced higher than normal latency and/or timeouts when trying to access content in Box via one of our applications or our Public API. Specifically, some users of the Metadata Query API experienced elevated latencies and timeouts.\n\n‌\n\n**Analysis** \n\nThe issue occurred due to  an overload of a localized area of one of our datastores, resulting in the request queue backing up and causing latency degradation for Downloads, Box Notes, Metadata and other related services for some users. This additional load was induced by an internal data migration our engineering team was performing at that time. One of the changes needed to perform this migration caused an unexpected amplification of requests to a localized area of one of our datastores containing schema information. This change was tested prior to deployment, performed as expected after deployment, but caused impact at peak load.\n\n‌\n\nRequests to this server developed a backlog which affected latency of Box Metadata generally, resulting in elevated latencies and some timeouts for dependent Box services. We were able to resolve the issue by reducing load on this datastore via additional caching, shedding some load and rolling back some recent changes. We are working on process and tooling improvements to prevent similar issues from occurring in the future.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Patched a bug in our data migration code that caused read requests amplification and validated it.\n* Closed a gap in observability, in order to identify similar load increases before they reach a tipping point and cause impact.\n* Increased capacity for this localized area that holds schema information, in order to handle any future surges in traffic more gracefully.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
-          "incident_id": "zhw5yctby3wx",
-          "created_at": "2023-01-30T14:15:10.796-08:00",
-          "updated_at": "2023-02-14T09:20:47.985-08:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rzm54hjrtz3q",
-          "status": "resolved",
-          "body": "We have identified and resolved issues impacting uploads, downloads, metadata and Public API. Services should operate as normal at this time.\n\nIf you continue to experience issues with uploads, downloads, metadata and Public API, please reach out to our support team for further assistance at http://support.box.com.",
-          "incident_id": "zhw5yctby3wx",
-          "created_at": "2023-01-23T13:33:50.947-08:00",
-          "updated_at": "2023-01-23T13:33:50.947-08:00",
-          "display_at": "2023-01-23T13:33:50.947-08:00",
-          "affected_components": [
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "dl6g3rgzpbmw",
-              "name": "Box Platform / API - Uploads/Downloads",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "98ddjrmrw76p",
-          "status": "investigating",
-          "body": "At approximately 01/23/2023 11:51 AM, we have started observing issues impacting uploads, downloads, metadata and Public API. \nEngineering has identified and resolved the issue. We will continue to monitor for any further issues.",
-          "incident_id": "zhw5yctby3wx",
-          "created_at": "2023-01-23T13:21:39.118-08:00",
-          "updated_at": "2023-01-23T13:21:39.118-08:00",
-          "display_at": "2023-01-23T13:21:39.118-08:00",
-          "affected_components": [
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "dl6g3rgzpbmw",
-              "name": "Box Platform / API - Uploads/Downloads",
-              "old_status": "operational",
-              "new_status": "operational"
             }
           ],
           "deliver_notifications": true,
