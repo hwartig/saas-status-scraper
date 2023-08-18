@@ -4,7 +4,7 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-08-18T20:41:42.613Z"
+    "updated_at": "2023-08-18T23:01:25.615Z"
   },
   "incidents": [
     {
@@ -953,9 +953,9 @@
     {
       "id": "cshql6qwnldj",
       "name": "Websites and APIs on Render are unavailable due to Cloudflare network errors",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-08-11T04:06:47.748Z",
-      "updated_at": "2023-08-11T05:49:52.855Z",
+      "updated_at": "2023-08-18T23:01:25.612Z",
       "monitoring_at": "2023-08-11T05:37:50.440Z",
       "resolved_at": "2023-08-11T05:49:52.843Z",
       "impact": "major",
@@ -963,6 +963,19 @@
       "started_at": "2023-08-11T04:06:47.741Z",
       "page_id": "tyfhm2rrt1tl",
       "incident_updates": [
+        {
+          "id": "jt3w79pb2lbf",
+          "status": "postmortem",
+          "body": "# Summary\n\nRender uses Cloudflare to offer DDoS protection to all web services and as a CDN provider for static sites. A configuration change made by Cloudflare triggered a bug in Cloudflare systems, causing all Render web services and static sites to respond with a `500` HTTP error between 2023-08-11 4:00 UTC and 2023-08-11 5:26 UTC. Service was restored after Cloudflare reverted the change.\n\n# Impact\n\nBetween 4:00 UTC and 5:26 UTC, all HTTP traffic to web services and static sites hosted on Render received a Cloudflare Internal Server Error \\(HTTP error code `500`\\). Traffic to [render.com](http://render.com) and [dashboard.render.com](http://dashboard.render.com) was also impacted.\n\n# Root Cause\n\nRender uses Cloudflare for DDoS protection for all HTTP services, and as a CDN for static sites. All requests to Render are therefore proxied through the closest Cloudflare data center. At 2023-08-11 4:00 UTC, Cloudflare added a rule to place an interstitial page in front of a specific Render-hosted website in response to a verified report of phishing. The application of this rule triggered a bug in the Cloudflare request processing engine, which resulted in all Render services, our dashboard, and [render.com](http://render.com) returning HTTP `500` errors.\n\nRender's automated alerting brought the issue to our attention at 2023-08-11 4:01 UTC, and we responded by escalating the issue to Cloudflare and opening a public incident at 4:05. Given the severe and extensive impact of the outage, we coordinated with several members of the Cloudflare team while also investigating several options to restore services as quickly as possible. One of these investigations explored ways to temporarily circumvent Cloudflare's network to serve requests directly from Render's origin servers. We were able to deploy a working solution for [dashboard.render.com](http://dashboard.render.com) at 5:03 UTC; this solution was manual and specific to the [dashboard.render.com](http://dashboard.render.com) subdomain. We also began investigating ways to roll this solution out more broadly with customer assistance that would have involved updating their DNS records. Cloudflare identified the issue and rolled back the triggering rule at 5:26 UTC.\n\n# Mitigations\n\n## Completed\n\n* Over the last week, Render's engineering team worked closely with Cloudflare support and engineering teams to discuss near-term mitigations and longer-term solutions.\n* Cloudflare rolled back the original change and added validation to prevent this bug in the future.\n\n## Planned\n\n* Render will automate and test mechanisms to temporarily route HTTP requests directly to Render in similarly extreme cases.\n* Render will investigate provider redundancy options to enable faster failure recovery.\n* In their RCA, Cloudflare shared additional recommended mitigations for their systems. We will continue to work together to put these in place.",
+          "incident_id": "cshql6qwnldj",
+          "created_at": "2023-08-18T22:57:14.010Z",
+          "updated_at": "2023-08-18T23:01:25.610Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "0f163269hqx2",
           "status": "resolved",
