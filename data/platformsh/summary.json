@@ -4,7 +4,7 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-08-24T01:08:06.776Z"
+    "updated_at": "2023-08-24T17:03:35.423Z"
   },
   "components": [
     {
@@ -295,9 +295,9 @@
     {
       "id": "d82n1p257z6n",
       "name": "USA-3 (West 2) (us-3.platform.sh)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-06-23T07:51:10.456Z",
-      "updated_at": "2023-07-31T05:13:45.672Z",
+      "updated_at": "2023-08-24T17:03:35.379Z",
       "position": 16,
       "description": "us-3.platform.sh",
       "showcase": false,
@@ -374,7 +374,60 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "hzjmcpxrcj09",
+      "name": "UI/Console Outage on US-3",
+      "status": "investigating",
+      "created_at": "2023-08-24T17:03:35.350Z",
+      "updated_at": "2023-08-24T17:03:35.421Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/mkklsn3lz7ml",
+      "started_at": "2023-08-24T17:03:35.346Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "pnf3bm3pflfr",
+          "status": "investigating",
+          "body": "We have detected an issue affecting service on the US-3 regions. Our Operations team has been notified and is currently working to restore service. Projects on affected regions may experience UI and console errors.\n\nProduction sites are NOT affected. We will update you as soon as we have further information.",
+          "incident_id": "hzjmcpxrcj09",
+          "created_at": "2023-08-24T17:03:35.419Z",
+          "updated_at": "2023-08-24T17:03:35.419Z",
+          "display_at": "2023-08-24T17:03:35.419Z",
+          "affected_components": [
+            {
+              "code": "d82n1p257z6n",
+              "name": "USA-3 (West 2) (us-3.platform.sh)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "d82n1p257z6n",
+          "name": "USA-3 (West 2) (us-3.platform.sh)",
+          "status": "degraded_performance",
+          "created_at": "2020-06-23T07:51:10.456Z",
+          "updated_at": "2023-08-24T17:03:35.379Z",
+          "position": 16,
+          "description": "us-3.platform.sh",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "th1k1tg41ksk",
@@ -702,7 +755,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
