@@ -4,9 +4,38 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-08-29T07:51:49.337Z"
+    "updated_at": "2023-08-29T18:01:08.749Z"
   },
   "incidents": [
+    {
+      "id": "0cx3r8fgyznw",
+      "name": "Some databases unavailable in Singapore",
+      "status": "resolved",
+      "created_at": "2023-08-29T17:30:00.000Z",
+      "updated_at": "2023-08-29T18:01:08.746Z",
+      "monitoring_at": null,
+      "resolved_at": "2023-08-29T17:30:00.000Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/skzfypf6dzhh",
+      "started_at": "2023-08-29T18:00:39.876Z",
+      "page_id": "tyfhm2rrt1tl",
+      "incident_updates": [
+        {
+          "id": "lrx8dys74vg0",
+          "status": "resolved",
+          "body": "An underlying hardware issue caused the nodes running some databases to go offline. The workloads were rescheduled.",
+          "incident_id": "0cx3r8fgyznw",
+          "created_at": "2023-08-29T18:00:39.923Z",
+          "updated_at": "2023-08-29T18:00:39.923Z",
+          "display_at": "2023-08-29T17:30:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": []
+    },
     {
       "id": "vmtk5lc485b7",
       "name": "Some Datadog metrics are missing for Postgres databases",
@@ -6288,48 +6317,6 @@
           "only_show_if_degraded": false
         }
       ]
-    },
-    {
-      "id": "qqc8nxcsptv5",
-      "name": "Issues with triggering deploys and new resource creation in Oregon",
-      "status": "postmortem",
-      "created_at": "2023-02-27T19:30:00.000Z",
-      "updated_at": "2023-03-13T21:42:43.083Z",
-      "monitoring_at": null,
-      "resolved_at": "2023-02-27T19:30:00.000Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/jtdpvtxsfl1t",
-      "started_at": "2023-02-27T19:52:07.856Z",
-      "page_id": "tyfhm2rrt1tl",
-      "incident_updates": [
-        {
-          "id": "hmgy9tcqv19m",
-          "status": "postmortem",
-          "body": "# Summary\n\nFrom 2023-02-27 19:04 to 19:36 UTC, one of our Oregon clusters suffered a cluster-wide outage, seen in a variety of symptoms: failure to build & deploy services, failure to create new services or data stores, failure to autoscale, etc. The cause of the outage was due to a misplaced YAML key in the configuration for etcd.\n\n# Root Cause\n\nDuring an upgrade of critical infrastructure, we had an invalid YAML configuration for etcd, a core component. As a result, after performing the upgrade, etcd was unable to start up. Failure in this crucial part of our infrastructure quickly propagated through the entire cluster.\n\n# Mitigations\n\nWe're implementing validations that will run \\(and fail loudly\\) as part of future upgrades.",
-          "incident_id": "qqc8nxcsptv5",
-          "created_at": "2023-03-13T21:42:27.279Z",
-          "updated_at": "2023-03-13T21:42:43.080Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nmzt16pkz9rp",
-          "status": "resolved",
-          "body": "We are aware of issues with triggering deploys and new service and datastore creation affecting some users in the Oregon region. We have mitigated the issue and are currently monitoring.",
-          "incident_id": "qqc8nxcsptv5",
-          "created_at": "2023-02-27T19:52:07.898Z",
-          "updated_at": "2023-02-27T19:52:07.898Z",
-          "display_at": "2023-02-27T19:30:00.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": []
     }
   ]
 }
