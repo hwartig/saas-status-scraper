@@ -4,15 +4,15 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-08-30T11:43:05.235-07:00"
+    "updated_at": "2023-08-30T12:17:10.367-07:00"
   },
   "incidents": [
     {
       "id": "6hz01hkm1n4k",
       "name": "Service interruption - web app and Flag Delivery Network",
-      "status": "investigating",
+      "status": "identified",
       "created_at": "2023-08-30T11:34:39.219-07:00",
-      "updated_at": "2023-08-30T11:34:39.429-07:00",
+      "updated_at": "2023-08-30T12:17:10.358-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "critical",
@@ -20,6 +20,112 @@
       "started_at": "2023-08-30T11:34:39.202-07:00",
       "page_id": "9404kdk7lkn7",
       "incident_updates": [
+        {
+          "id": "x4x0p5qpq3r7",
+          "status": "identified",
+          "body": "We are continuing to work on a fix for this issue.",
+          "incident_id": "6hz01hkm1n4k",
+          "created_at": "2023-08-30T12:17:10.355-07:00",
+          "updated_at": "2023-08-30T12:17:10.355-07:00",
+          "display_at": "2023-08-30T12:17:10.355-07:00",
+          "affected_components": [
+            {
+              "code": "d78f8m7zkgqt",
+              "name": "Flag Delivery Network (core functionality) - Server-side streaming API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "156fh2g9b6pd",
+              "name": "Flag Delivery Network (core functionality) - Client-side streaming API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "w5565sdz2kfj",
+              "name": "Flag Delivery Network (core functionality) - Polling API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "dbc44wm7yn68",
+              "name": "Flag Delivery Network (core functionality) - Edge API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "xkfhb7ktnvb6",
+              "name": "Feature management (core functionality) - Feature workflows",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "0z3ns76sxvnf",
+              "name": "Feature management (core functionality) - Flag targeting",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "s57hhrpqqwk1",
+              "name": "Websites & REST APIs (non-core functionality) - app.launchdarkly.com",
+              "old_status": "under_maintenance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "hqdgcdrsv9tt",
+          "status": "identified",
+          "body": "We’re investigating a major outage to LaunchDarkly systems. Currently identified impact includes:\n\n- the LaunchDarkly web application and REST APIs have elevated error rates\n- the Flag Delivery Network has elevated error rates for streaming and polling SDK requests\n- the event pipeline is dropping a small portion of inbound events\n\nThe system is showing possible signs of recovering.",
+          "incident_id": "6hz01hkm1n4k",
+          "created_at": "2023-08-30T12:16:24.741-07:00",
+          "updated_at": "2023-08-30T12:16:24.741-07:00",
+          "display_at": "2023-08-30T12:16:24.741-07:00",
+          "affected_components": [
+            {
+              "code": "d78f8m7zkgqt",
+              "name": "Flag Delivery Network (core functionality) - Server-side streaming API",
+              "old_status": "major_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "156fh2g9b6pd",
+              "name": "Flag Delivery Network (core functionality) - Client-side streaming API",
+              "old_status": "major_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "w5565sdz2kfj",
+              "name": "Flag Delivery Network (core functionality) - Polling API",
+              "old_status": "major_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "dbc44wm7yn68",
+              "name": "Flag Delivery Network (core functionality) - Edge API",
+              "old_status": "major_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "xkfhb7ktnvb6",
+              "name": "Feature management (core functionality) - Feature workflows",
+              "old_status": "major_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "0z3ns76sxvnf",
+              "name": "Feature management (core functionality) - Flag targeting",
+              "old_status": "major_outage",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "jd3l9s87s30k",
           "status": "investigating",
@@ -75,9 +181,9 @@
         {
           "id": "d78f8m7zkgqt",
           "name": "Server-side streaming API",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2016-02-23T13:25:44.226-08:00",
-          "updated_at": "2023-08-30T11:34:39.275-07:00",
+          "updated_at": "2023-08-30T12:16:24.602-07:00",
           "position": 1,
           "description": "Real-time flag updates for server-side SDKs",
           "showcase": true,
@@ -90,9 +196,9 @@
         {
           "id": "xkfhb7ktnvb6",
           "name": "Feature workflows",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2022-02-28T13:47:46.907-08:00",
-          "updated_at": "2023-08-30T11:34:39.295-07:00",
+          "updated_at": "2023-08-30T12:16:24.622-07:00",
           "position": 1,
           "description": "Workflow functionality for automated features like scheduled changes and approvals",
           "showcase": true,
@@ -103,11 +209,26 @@
           "only_show_if_degraded": false
         },
         {
+          "id": "s57hhrpqqwk1",
+          "name": "app.launchdarkly.com",
+          "status": "degraded_performance",
+          "created_at": "2023-07-07T11:07:04.790-07:00",
+          "updated_at": "2023-08-30T12:17:10.321-07:00",
+          "position": 1,
+          "description": "The website app.launchdarkly.com",
+          "showcase": false,
+          "start_date": "2023-07-07",
+          "group_id": "tq6zp2bb6wgr",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
           "id": "0z3ns76sxvnf",
           "name": "Flag targeting",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2015-01-05T20:05:03.176-08:00",
-          "updated_at": "2023-08-30T11:34:39.316-07:00",
+          "updated_at": "2023-08-30T12:16:24.642-07:00",
           "position": 2,
           "description": "UI and APIs used to update flag targeting rules",
           "showcase": true,
@@ -120,9 +241,9 @@
         {
           "id": "156fh2g9b6pd",
           "name": "Client-side streaming API",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2018-03-07T17:35:49.315-08:00",
-          "updated_at": "2023-08-30T11:34:39.336-07:00",
+          "updated_at": "2023-08-30T12:16:24.662-07:00",
           "position": 2,
           "description": "Real-time flag updates for client-side SDKs",
           "showcase": true,
@@ -135,9 +256,9 @@
         {
           "id": "w5565sdz2kfj",
           "name": "Polling API",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2017-04-17T09:40:25.815-07:00",
-          "updated_at": "2023-08-30T11:34:39.357-07:00",
+          "updated_at": "2023-08-30T12:16:24.683-07:00",
           "position": 3,
           "description": "Flag updates for SDKs in polling mode",
           "showcase": true,
@@ -150,9 +271,9 @@
         {
           "id": "dbc44wm7yn68",
           "name": "Edge API",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2022-10-13T10:37:20.077-07:00",
-          "updated_at": "2023-08-30T11:34:39.377-07:00",
+          "updated_at": "2023-08-30T12:16:24.704-07:00",
           "position": 4,
           "description": "Flag updates for Edge integrations",
           "showcase": true,
@@ -683,9 +804,9 @@
         {
           "id": "0z3ns76sxvnf",
           "name": "Flag targeting",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2015-01-05T20:05:03.176-08:00",
-          "updated_at": "2023-08-30T11:34:39.316-07:00",
+          "updated_at": "2023-08-30T12:16:24.642-07:00",
           "position": 2,
           "description": "UI and APIs used to update flag targeting rules",
           "showcase": true,
@@ -999,9 +1120,9 @@
         {
           "id": "w5565sdz2kfj",
           "name": "Polling API",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2017-04-17T09:40:25.815-07:00",
-          "updated_at": "2023-08-30T11:34:39.357-07:00",
+          "updated_at": "2023-08-30T12:16:24.683-07:00",
           "position": 3,
           "description": "Flag updates for SDKs in polling mode",
           "showcase": true,
@@ -1091,9 +1212,9 @@
         {
           "id": "156fh2g9b6pd",
           "name": "Client-side streaming API",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2018-03-07T17:35:49.315-08:00",
-          "updated_at": "2023-08-30T11:34:39.336-07:00",
+          "updated_at": "2023-08-30T12:16:24.662-07:00",
           "position": 2,
           "description": "Real-time flag updates for client-side SDKs",
           "showcase": true,
@@ -1662,9 +1783,9 @@
         {
           "id": "d78f8m7zkgqt",
           "name": "Server-side streaming API",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2016-02-23T13:25:44.226-08:00",
-          "updated_at": "2023-08-30T11:34:39.275-07:00",
+          "updated_at": "2023-08-30T12:16:24.602-07:00",
           "position": 1,
           "description": "Real-time flag updates for server-side SDKs",
           "showcase": true,
@@ -1677,9 +1798,9 @@
         {
           "id": "156fh2g9b6pd",
           "name": "Client-side streaming API",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2018-03-07T17:35:49.315-08:00",
-          "updated_at": "2023-08-30T11:34:39.336-07:00",
+          "updated_at": "2023-08-30T12:16:24.662-07:00",
           "position": 2,
           "description": "Real-time flag updates for client-side SDKs",
           "showcase": true,
@@ -1692,9 +1813,9 @@
         {
           "id": "w5565sdz2kfj",
           "name": "Polling API",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2017-04-17T09:40:25.815-07:00",
-          "updated_at": "2023-08-30T11:34:39.357-07:00",
+          "updated_at": "2023-08-30T12:16:24.683-07:00",
           "position": 3,
           "description": "Flag updates for SDKs in polling mode",
           "showcase": true,
@@ -1804,9 +1925,9 @@
         {
           "id": "0z3ns76sxvnf",
           "name": "Flag targeting",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2015-01-05T20:05:03.176-08:00",
-          "updated_at": "2023-08-30T11:34:39.316-07:00",
+          "updated_at": "2023-08-30T12:16:24.642-07:00",
           "position": 2,
           "description": "UI and APIs used to update flag targeting rules",
           "showcase": true,
@@ -2246,9 +2367,9 @@
         {
           "id": "xkfhb7ktnvb6",
           "name": "Feature workflows",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2022-02-28T13:47:46.907-08:00",
-          "updated_at": "2023-08-30T11:34:39.295-07:00",
+          "updated_at": "2023-08-30T12:16:24.622-07:00",
           "position": 1,
           "description": "Workflow functionality for automated features like scheduled changes and approvals",
           "showcase": true,
@@ -2306,9 +2427,9 @@
         {
           "id": "0z3ns76sxvnf",
           "name": "Flag targeting",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2015-01-05T20:05:03.176-08:00",
-          "updated_at": "2023-08-30T11:34:39.316-07:00",
+          "updated_at": "2023-08-30T12:16:24.642-07:00",
           "position": 2,
           "description": "UI and APIs used to update flag targeting rules",
           "showcase": true,
@@ -2565,9 +2686,9 @@
         {
           "id": "d78f8m7zkgqt",
           "name": "Server-side streaming API",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2016-02-23T13:25:44.226-08:00",
-          "updated_at": "2023-08-30T11:34:39.275-07:00",
+          "updated_at": "2023-08-30T12:16:24.602-07:00",
           "position": 1,
           "description": "Real-time flag updates for server-side SDKs",
           "showcase": true,
@@ -2942,9 +3063,9 @@
         {
           "id": "0z3ns76sxvnf",
           "name": "Flag targeting",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2015-01-05T20:05:03.176-08:00",
-          "updated_at": "2023-08-30T11:34:39.316-07:00",
+          "updated_at": "2023-08-30T12:16:24.642-07:00",
           "position": 2,
           "description": "UI and APIs used to update flag targeting rules",
           "showcase": true,
@@ -3014,9 +3135,9 @@
         {
           "id": "0z3ns76sxvnf",
           "name": "Flag targeting",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2015-01-05T20:05:03.176-08:00",
-          "updated_at": "2023-08-30T11:34:39.316-07:00",
+          "updated_at": "2023-08-30T12:16:24.642-07:00",
           "position": 2,
           "description": "UI and APIs used to update flag targeting rules",
           "showcase": true,
@@ -4027,9 +4148,9 @@
         {
           "id": "0z3ns76sxvnf",
           "name": "Flag targeting",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2015-01-05T20:05:03.176-08:00",
-          "updated_at": "2023-08-30T11:34:39.316-07:00",
+          "updated_at": "2023-08-30T12:16:24.642-07:00",
           "position": 2,
           "description": "UI and APIs used to update flag targeting rules",
           "showcase": true,
@@ -4362,9 +4483,9 @@
         {
           "id": "0z3ns76sxvnf",
           "name": "Flag targeting",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2015-01-05T20:05:03.176-08:00",
-          "updated_at": "2023-08-30T11:34:39.316-07:00",
+          "updated_at": "2023-08-30T12:16:24.642-07:00",
           "position": 2,
           "description": "UI and APIs used to update flag targeting rules",
           "showcase": true,
@@ -5022,9 +5143,9 @@
         {
           "id": "0z3ns76sxvnf",
           "name": "Flag targeting",
-          "status": "major_outage",
+          "status": "degraded_performance",
           "created_at": "2015-01-05T20:05:03.176-08:00",
-          "updated_at": "2023-08-30T11:34:39.316-07:00",
+          "updated_at": "2023-08-30T12:16:24.642-07:00",
           "position": 2,
           "description": "UI and APIs used to update flag targeting rules",
           "showcase": true,
