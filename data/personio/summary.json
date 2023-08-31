@@ -4,15 +4,15 @@
     "name": "Personio SE & Co. KG",
     "url": "https://status.personio.de",
     "time_zone": "Europe/Berlin",
-    "updated_at": "2023-08-31T06:57:37.848+02:00"
+    "updated_at": "2023-08-31T14:01:38.332+02:00"
   },
   "components": [
     {
       "id": "prkxj4m6hpm1",
       "name": "System availability",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-02-27T10:31:25.271+01:00",
-      "updated_at": "2023-08-24T12:24:50.194+02:00",
+      "updated_at": "2023-08-31T14:01:38.277+02:00",
       "position": 1,
       "description": "Informationen zur allgemeinen Systemverfügbarkeit wie Serverausfälle oder Performance Probleme. (Information about general system availability such as server outages or performance issues.)",
       "showcase": false,
@@ -40,9 +40,9 @@
     {
       "id": "4nndn4nksvyx",
       "name": "Email services",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-02-27T10:31:49.928+01:00",
-      "updated_at": "2023-07-31T12:13:45.113+02:00",
+      "updated_at": "2023-08-31T14:01:38.290+02:00",
       "position": 3,
       "description": "Informationen zu E-Mail Services wie Erinnerungen, Benachrichtigungen sowie ein- und ausgehende Bewerbernachrichten. (Information about email services such as reminders, notifications as well as in- and outbound recruiting messages.)",
       "showcase": false,
@@ -98,10 +98,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "y8h8rwmq0xmz",
+      "name": "Partial performance / Loading time issues",
+      "status": "identified",
+      "created_at": "2023-08-31T14:01:38.246+02:00",
+      "updated_at": "2023-08-31T14:01:38.329+02:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/z3fvj68k6y4p",
+      "started_at": "2023-08-31T14:01:38.241+02:00",
+      "page_id": "68kf6yfjnk2d",
+      "incident_updates": [
+        {
+          "id": "wfx88sxxszxx",
+          "status": "identified",
+          "body": "We are currently experiencing a partial performance issue, which may cause delayed event processing (e.g. notifications, reminders)\nOur engineering teams are already working on a solution.\n \nWe will keep you posted with the latest information and apologize for any inconvenience this may caused.",
+          "incident_id": "y8h8rwmq0xmz",
+          "created_at": "2023-08-31T14:01:38.327+02:00",
+          "updated_at": "2023-08-31T14:01:38.327+02:00",
+          "display_at": "2023-08-31T14:01:38.327+02:00",
+          "affected_components": [
+            {
+              "code": "prkxj4m6hpm1",
+              "name": "System availability",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "4nndn4nksvyx",
+              "name": "Email services",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "prkxj4m6hpm1",
+          "name": "System availability",
+          "status": "degraded_performance",
+          "created_at": "2018-02-27T10:31:25.271+01:00",
+          "updated_at": "2023-08-31T14:01:38.277+02:00",
+          "position": 1,
+          "description": "Informationen zur allgemeinen Systemverfügbarkeit wie Serverausfälle oder Performance Probleme. (Information about general system availability such as server outages or performance issues.)",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "68kf6yfjnk2d",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "4nndn4nksvyx",
+          "name": "Email services",
+          "status": "degraded_performance",
+          "created_at": "2018-02-27T10:31:49.928+01:00",
+          "updated_at": "2023-08-31T14:01:38.290+02:00",
+          "position": 3,
+          "description": "Informationen zu E-Mail Services wie Erinnerungen, Benachrichtigungen sowie ein- und ausgehende Bewerbernachrichten. (Information about email services such as reminders, notifications as well as in- and outbound recruiting messages.)",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "68kf6yfjnk2d",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
