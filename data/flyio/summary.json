@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "America/Chicago",
-    "updated_at": "2023-09-04T07:06:15.262-05:00"
+    "updated_at": "2023-09-04T11:36:18.977-05:00"
   },
   "components": [
     {
@@ -210,7 +210,7 @@
     {
       "id": "ycm6xbpsfqvd",
       "name": "Platform and Tools",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2020-04-01T16:34:45.488-05:00",
       "updated_at": "2021-02-25T10:06:12.403-06:00",
       "position": 3,
@@ -541,9 +541,9 @@
     {
       "id": "lwp4hw3r415g",
       "name": "Docker Registry",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-05-18T07:37:57.574-05:00",
-      "updated_at": "2023-08-08T12:37:50.502-05:00",
+      "updated_at": "2023-09-04T11:36:18.930-05:00",
       "position": 11,
       "description": null,
       "showcase": true,
@@ -839,10 +839,63 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "cm80ggjkgz01",
+      "name": "Failing to pull image",
+      "status": "investigating",
+      "created_at": "2023-09-04T11:36:18.897-05:00",
+      "updated_at": "2023-09-04T11:36:18.974-05:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/6j17rnb22sqk",
+      "started_at": "2023-09-04T11:36:18.878-05:00",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "tmy04n8ryzys",
+          "status": "investigating",
+          "body": "Some customers may experience an issue deploying workloads due to failed image pulls",
+          "incident_id": "cm80ggjkgz01",
+          "created_at": "2023-09-04T11:36:18.972-05:00",
+          "updated_at": "2023-09-04T11:36:18.972-05:00",
+          "display_at": "2023-09-04T11:36:18.972-05:00",
+          "affected_components": [
+            {
+              "code": "lwp4hw3r415g",
+              "name": "Platform and Tools - Docker Registry",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "lwp4hw3r415g",
+          "name": "Docker Registry",
+          "status": "partial_outage",
+          "created_at": "2022-05-18T07:37:57.574-05:00",
+          "updated_at": "2023-09-04T11:36:18.930-05:00",
+          "position": 11,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-05-18",
+          "group_id": "ycm6xbpsfqvd",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
