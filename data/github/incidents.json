@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-05T17:01:49.923Z"
+    "updated_at": "2023-09-05T20:58:33.018Z"
   },
   "incidents": [
     {
@@ -12,9 +12,9 @@
       "name": "Incident with Actions, Pages, Pull Requests, Codespaces, API Requests, Issues, Webhooks and Packages",
       "status": "resolved",
       "created_at": "2023-09-05T16:30:39.536Z",
-      "updated_at": "2023-09-05T17:01:49.922Z",
+      "updated_at": "2023-09-05T20:58:33.016Z",
       "monitoring_at": null,
-      "resolved_at": "2023-09-05T17:01:49.910Z",
+      "resolved_at": "2023-09-05T17:01:49.000Z",
       "impact": "major",
       "shortlink": "https://stspg.io/81h9yhvjb8tw",
       "started_at": "2023-09-05T16:30:39.531Z",
@@ -23,11 +23,11 @@
         {
           "id": "pgxm9mxzh1wd",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "From 16:24-16:43 UTC, multiple GitHub services were down or degraded due to an outage in one of our primary databases. \n\nThe primary host for a shared datastore for GitHub experienced an underlying file system write error which affected availability for the majority of public-facing GitHub services. SAML login was affected, as was access to Actions, Issues, Pull Requests, Pages, API, Webhooks, Codespaces, and Packages. In this case, our automatic failover was unable to handle the partial file system failure mode. We mitigated by manually performing a forced failover, initiated 17 minutes after our first alert and completed 2 minutes later.\n\nWith the incident mitigated, we are working to assess more detailed impact and resilience improvements to each impacted service while also improving the automated failover mechanism to support this scenario.",
           "incident_id": "smdz34v7j8q0",
           "created_at": "2023-09-05T17:01:49.910Z",
-          "updated_at": "2023-09-05T17:01:49.910Z",
-          "display_at": "2023-09-05T17:01:49.910Z",
+          "updated_at": "2023-09-05T20:58:33.003Z",
+          "display_at": "2023-09-05T17:01:49.000Z",
           "affected_components": [
             {
               "code": "brv1bkgrwx7q",
@@ -1085,9 +1085,9 @@
       "name": "Incident with Git Operations and Actions",
       "status": "resolved",
       "created_at": "2023-09-05T06:59:25.351Z",
-      "updated_at": "2023-09-05T14:19:40.749Z",
+      "updated_at": "2023-09-05T20:57:33.356Z",
       "monitoring_at": null,
-      "resolved_at": "2023-09-05T14:19:40.734Z",
+      "resolved_at": "2023-09-05T14:19:40.000Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/sd77bkryrr92",
       "started_at": "2023-09-05T06:59:25.344Z",
@@ -1096,11 +1096,11 @@
         {
           "id": "yqrblsy9vx5d",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "Between 06:59 UTC to 13:18 UTC GitHub customers experienced intermittent increased latency when using our git archive and raw file downloading capability. This capability is typically used for larger CI/CD systems and bulk download of repository data.  This also caused intermittent periods of Actions workflow failures.\n\nDuring this incident we saw bursts of increased unique traffic on specific endpoints that overloaded our caching capability for this system. In addition, the traffic caused saturation of the service that exposed a bug in downloading archived files at high load which caused some archives to be downloaded with incomplete data. This caused intermittent failure of workflows for GitHub Actions, which primarily downloads actions data via these endpoints.\n\nWe mitigated this through improvements to our rate limiting and changes to get to a healthy state across our backend service and cache . We initially relied on automated communication messages during this incident and will be working to ensure future incidents have more relevant status updates with specific customer impact.",
           "incident_id": "frdfpnnt85s8",
           "created_at": "2023-09-05T14:19:40.734Z",
-          "updated_at": "2023-09-05T14:19:40.734Z",
-          "display_at": "2023-09-05T14:19:40.734Z",
+          "updated_at": "2023-09-05T20:57:33.338Z",
+          "display_at": "2023-09-05T14:19:40.000Z",
           "affected_components": [
             {
               "code": "8l4ygp009s5s",
