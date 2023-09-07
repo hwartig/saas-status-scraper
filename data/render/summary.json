@@ -4,7 +4,7 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-07T07:55:25.569Z"
+    "updated_at": "2023-09-07T12:56:27.281Z"
   },
   "components": [
     {
@@ -40,9 +40,9 @@
     {
       "id": "lqw6cbytntwp",
       "name": "Web Services",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2022-05-06T00:09:07.965Z",
-      "updated_at": "2023-08-16T22:59:32.165Z",
+      "updated_at": "2023-09-07T12:56:27.241Z",
       "position": 1,
       "description": "All public HTTP services hosted on Render.",
       "showcase": true,
@@ -455,7 +455,7 @@
     {
       "id": "wtb4wdj1f07v",
       "name": "Frankfurt",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2022-05-06T00:09:07.946Z",
       "updated_at": "2022-08-15T20:03:36.095Z",
       "position": 7,
@@ -678,10 +678,105 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "hltvz1fsj3zx",
+      "name": "Services hosted in Frankfurt are unreachable",
+      "status": "investigating",
+      "created_at": "2023-09-07T12:56:27.201Z",
+      "updated_at": "2023-09-07T12:56:27.278Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/5f9q88bzhdjt",
+      "started_at": "2023-09-07T12:56:27.189Z",
+      "page_id": "tyfhm2rrt1tl",
+      "incident_updates": [
+        {
+          "id": "jfgkqmk12vhl",
+          "status": "investigating",
+          "body": "We're seeing that services in the Frankfurt region are un-reachable, we're investigating",
+          "incident_id": "hltvz1fsj3zx",
+          "created_at": "2023-09-07T12:56:27.275Z",
+          "updated_at": "2023-09-07T12:56:27.275Z",
+          "display_at": "2023-09-07T12:56:27.275Z",
+          "affected_components": [
+            {
+              "code": "hnrs7hr1ty53",
+              "name": "Static Sites",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "j45c7rjc3n51",
+              "name": "Render Dashboard",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "lqw6cbytntwp",
+              "name": "Frankfurt - Web Services",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "j45c7rjc3n51",
+          "name": "Render Dashboard",
+          "status": "operational",
+          "created_at": "2019-02-08T22:32:29.843Z",
+          "updated_at": "2023-08-31T20:03:49.011Z",
+          "position": 1,
+          "description": "dashboard.render.com",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "lqw6cbytntwp",
+          "name": "Web Services",
+          "status": "major_outage",
+          "created_at": "2022-05-06T00:09:07.965Z",
+          "updated_at": "2023-09-07T12:56:27.241Z",
+          "position": 1,
+          "description": "All public HTTP services hosted on Render.",
+          "showcase": true,
+          "start_date": "2022-01-01",
+          "group_id": "wtb4wdj1f07v",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "hnrs7hr1ty53",
+          "name": "Static Sites",
+          "status": "operational",
+          "created_at": "2019-02-08T22:32:29.834Z",
+          "updated_at": "2023-08-11T05:49:52.807Z",
+          "position": 4,
+          "description": "Static sites hosted on Render's global anycast CDN.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "major",
+    "description": "Partial System Outage"
   }
 }
