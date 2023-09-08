@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-09-08T01:07:45.228-07:00"
+    "updated_at": "2023-09-08T09:55:11.172-07:00"
   },
   "incidents": [
     {
@@ -2865,7 +2865,7 @@
       "name": "[Major] Issues with Download, Preview and Sign",
       "status": "postmortem",
       "created_at": "2023-07-19T12:30:00.000-07:00",
-      "updated_at": "2023-07-24T21:06:51.874-07:00",
+      "updated_at": "2023-09-08T09:55:11.160-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-07-19T12:30:00.000-07:00",
       "impact": "major",
@@ -2876,10 +2876,10 @@
         {
           "id": "5xgn7430gx1t",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn July 19, 2023 between 12:19 PM PDT and 12:40 PM PDT, some users may have experienced difficulties while working in Box. During this time, users may have experienced increased latency or failures when downloading content from Box, and errors when attempting to sign documents in Box Sign. The issue occurred due to a configuration change that impacted Box’s interaction with one of our third-party cloud providers. We were able to resolve the issue by rolling back the configuration change. In addition, we are examining how to improve our resiliency to these scenarios to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n We are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting Box download performance. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween July 19, 2023 12:20PM Pacific time and 12:40PM Pacific time on July 19, 2023, some users may have experienced difficulties while working in Box. During this time, some users may have experienced longer latencies than usual for content downloads and previews. The issue occurred due to an error in the validation step conducted by one of Box’s cloud partners during a configuration change. The issue resolved when our cloud partner’s change validation eventually timed out. As a result of this issue, we are updating our change control process to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nDuring this incident Box was updating a configuration with a memory store instance used in some of the internal Box caching layers. Before applying the change, our cloud partner performs a validation test. During this test the validation encountered an error and eventually timed out. During this time, requests to the cache were hanging, causing downloads to stall for an extended time for a response.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Evaluate and adjust cache timeout values\n* Increase cache related performance metrics\n* Updated runbooks to disable caches or flip to inactive cache before making configuration changes\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
           "incident_id": "hcjzc249cpzt",
           "created_at": "2023-07-24T21:06:26.972-07:00",
-          "updated_at": "2023-07-24T21:06:51.872-07:00",
+          "updated_at": "2023-09-08T09:55:11.157-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
