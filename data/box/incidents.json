@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-09-11T01:04:48.075-07:00"
+    "updated_at": "2023-09-11T10:06:01.542-07:00"
   },
   "incidents": [
     {
@@ -831,9 +831,9 @@
     {
       "id": "gsjypgwh6ggy",
       "name": "[Minor] Customers may have been experiencing failures when using the Public API",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-08-16T19:38:16.851-07:00",
-      "updated_at": "2023-08-16T19:40:17.006-07:00",
+      "updated_at": "2023-09-11T10:03:39.061-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-08-16T19:38:16.895-07:00",
       "impact": "minor",
@@ -841,6 +841,19 @@
       "started_at": "2023-08-16T19:38:16.846-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "1f4577v5hq9z",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Box Drive. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nOn Wednesday, August 16th 2023, between 6:52pm and 7:14pm PDT, some users may have experienced difficulties while working in Box. During this time, some users may have experienced delays in Box Drive synchronizing changes. We were able to resolve the issue by allowing our automated recovery to fully complete for the affected service. In addition, we will be refining our auto-scaling tuning to ensure capacity is maintained throughout the duration to prevent similar issues from occurring in the future.  \n\n**Analysis**\n\nBox has been internally migrating services to improve both latency and availability. During this time, a service located in a region outside of its dependencies experienced a partial reduction in available capacity during a shift in traffic to a co-located region. This resulted in additional latency during the recovery that may have been noticed by Box Drive users.  \n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Migrate affected services to be co-located in a single region to minimize latency\n* Tune auto-scaler to ensure planned capacity is available during any future migrations\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "gsjypgwh6ggy",
+          "created_at": "2023-09-11T10:03:14.074-07:00",
+          "updated_at": "2023-09-11T10:03:39.059-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "55ff90ksptd1",
           "status": "resolved",
@@ -883,9 +896,9 @@
     {
       "id": "6vzzw586srv8",
       "name": "[Major] Issues with Uploads, Downloads and Box Notes",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-08-16T08:54:13.518-07:00",
-      "updated_at": "2023-08-16T10:23:47.492-07:00",
+      "updated_at": "2023-09-11T10:06:01.540-07:00",
       "monitoring_at": "2023-08-16T09:50:30.412-07:00",
       "resolved_at": "2023-08-16T10:23:47.477-07:00",
       "impact": "major",
@@ -893,6 +906,19 @@
       "started_at": "2023-08-16T08:54:13.502-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "3w3fr5zgp8dj",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn August 16th, 2023 between 6:43am PT and 9:02am PT, some users may have experienced difficulties while working in Box. During this time, users may have experienced issues when loading document previews or searching for documents. The issue occurred as a result of database latency which had downstream impacts on other services. We were able to resolve the issue by increasing duration limits for database calls from downstream services. In addition, we are working on ensuring these downstream services are more resilient in the case of database latency in order to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "6vzzw586srv8",
+          "created_at": "2023-09-11T10:05:43.408-07:00",
+          "updated_at": "2023-09-11T10:06:01.538-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "l8ld0jvrm4fy",
           "status": "resolved",
