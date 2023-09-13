@@ -4,9 +4,61 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-09-13T01:46:27.245-07:00"
+    "updated_at": "2023-09-13T03:53:27.581-07:00"
   },
   "incidents": [
+    {
+      "id": "n3bzjknxk58l",
+      "name": "[Major] Delays in Box Relay",
+      "status": "identified",
+      "created_at": "2023-09-13T03:53:27.488-07:00",
+      "updated_at": "2023-09-13T03:53:27.578-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/t7mv47fr51nf",
+      "started_at": "2023-09-13T03:53:27.483-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "5v015z0mwdng",
+          "status": "identified",
+          "body": "Users may observe delays in their Box Relay workflows. We're expecting this to be resolved within the next three hours.",
+          "incident_id": "n3bzjknxk58l",
+          "created_at": "2023-09-13T03:53:27.575-07:00",
+          "updated_at": "2023-09-13T03:53:27.575-07:00",
+          "display_at": "2023-09-13T03:53:27.575-07:00",
+          "affected_components": [
+            {
+              "code": "k577rblv57vr",
+              "name": "Box Relay",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "k577rblv57vr",
+          "name": "Box Relay",
+          "status": "partial_outage",
+          "created_at": "2020-01-02T12:05:42.075-08:00",
+          "updated_at": "2023-09-13T03:53:27.526-07:00",
+          "position": 6,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    },
     {
       "id": "xvk4hv00f99t",
       "name": "[Major] Customers may have experienced failures when using Public API",
@@ -2899,9 +2951,9 @@
         {
           "id": "k577rblv57vr",
           "name": "Box Relay",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2020-01-02T12:05:42.075-08:00",
-          "updated_at": "2023-07-20T00:00:41.170-07:00",
+          "updated_at": "2023-09-13T03:53:27.526-07:00",
           "position": 6,
           "description": null,
           "showcase": false,
@@ -6518,9 +6570,9 @@
         {
           "id": "k577rblv57vr",
           "name": "Box Relay",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2020-01-02T12:05:42.075-08:00",
-          "updated_at": "2023-07-20T00:00:41.170-07:00",
+          "updated_at": "2023-09-13T03:53:27.526-07:00",
           "position": 6,
           "description": null,
           "showcase": false,
@@ -7236,9 +7288,9 @@
         {
           "id": "k577rblv57vr",
           "name": "Box Relay",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2020-01-02T12:05:42.075-08:00",
-          "updated_at": "2023-07-20T00:00:41.170-07:00",
+          "updated_at": "2023-09-13T03:53:27.526-07:00",
           "position": 6,
           "description": null,
           "showcase": false,
@@ -8268,590 +8320,6 @@
         }
       ],
       "components": []
-    },
-    {
-      "id": "yyjybcb8bywk",
-      "name": "[Major] Degradation of Search",
-      "status": "postmortem",
-      "created_at": "2023-02-09T13:05:34.000-08:00",
-      "updated_at": "2023-03-08T15:11:05.953-08:00",
-      "monitoring_at": "2023-02-11T08:11:13.443-08:00",
-      "resolved_at": "2023-02-11T09:54:06.118-08:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/ztd7s8hvqtfw",
-      "started_at": "2023-02-09T13:05:34.000-08:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "1x353hg6b32t",
-          "status": "postmortem",
-          "body": "_We recently addressed issues affecting the Search service. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future._\n\n \n\n_Between 1:05 PM PT on February 9, 2023 and 3:00 AM PT on February 11, 2023, some users may have experienced difficulties while working in Box. During this time, some users were unable to search for items that were uploaded or changed during the impacted timeframe. The issue occurred as a result of an automation intended to optimize our messaging infrastructure. The automation put in place did not drive the optimization at a controlled rate, which caused overutilization of available resources and resulted in end-user impact. We resolved this issue by stopping the optimization automation. In addition, we have added guardrails to limit the optimization process to a subset of infrastructure to prevent similar issues from occurring in the future._ \n\n_Analysis_ \n\n_On the day of the incident, we observed increased disk activity in our messaging infrastructure. This was the result of an automated optimization process to balance out disk space evenly across the underlying hosts in our messaging infrastructure. The optimization process ran across all the hosts, resulting in increased disk activity that affected our search service. As a result of this issue, our search service temporarily failed to index any file changes made after the onset of the issue. As a result, we stopped the optimization automation, and as a result, we observed incremental recovery until all the messages were processed. The issue was completely resolved February 11, 2023 at approximately 3:00 AM PT._\n\n_Corrective Actions_\n\n_The following corrective actions have been completed or are planned:_\n\n_We have restricted our disk space optimization process to limit the hosts to process at a given time._\n\n_We have identified additional alerts and checks to detect and diagnose issues with messaging infrastructure proactively._  \n\n_We are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter._ \n\n \n\n_Sincerely,_\n\n_The Box Team_",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-17T17:58:13.450-08:00",
-          "updated_at": "2023-03-08T15:11:05.949-08:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wvtmt90slnlm",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. Search has been restored to full functionality. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-11T09:54:06.118-08:00",
-          "updated_at": "2023-02-11T09:54:06.856-08:00",
-          "display_at": "2023-02-11T09:54:06.118-08:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "xpk984wrc5z4",
-              "name": "Box Platform / API - Search",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "lp2y8210101z",
-              "name": "Mobile Applications - Search",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1624466824355274800
-        },
-        {
-          "id": "1hvhpx8jv2m2",
-          "status": "monitoring",
-          "body": "Our team has taken steps to remediate this issue and we are seeing improvement for search. We are continuing to monitor for any additional impact during this time. Will provide Next update by 9AM PST 2/12",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-11T08:11:13.443-08:00",
-          "updated_at": "2023-02-11T08:11:15.468-08:00",
-          "display_at": "2023-02-11T08:11:13.443-08:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xpk984wrc5z4",
-              "name": "Box Platform / API - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lp2y8210101z",
-              "name": "Mobile Applications - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1624440938859835400
-        },
-        {
-          "id": "qwwjx473vfk9",
-          "status": "identified",
-          "body": "Our team has identified the underlying cause of this issue and is working to take remediating steps. We will provide the next update at 9AM PST 02/11.",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-10T20:13:28.068-08:00",
-          "updated_at": "2023-02-10T20:13:29.748-08:00",
-          "display_at": "2023-02-10T20:13:28.068-08:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xpk984wrc5z4",
-              "name": "Box Platform / API - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lp2y8210101z",
-              "name": "Mobile Applications - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1624260308633276400
-        },
-        {
-          "id": "jlqnbwxsr22g",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-10T17:23:43.815-08:00",
-          "updated_at": "2023-02-10T17:23:44.135-08:00",
-          "display_at": "2023-02-10T17:23:43.815-08:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xpk984wrc5z4",
-              "name": "Box Platform / API - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lp2y8210101z",
-              "name": "Mobile Applications - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1624217587516338200
-        },
-        {
-          "id": "pcn8bx09mh2j",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-10T14:47:33.578-08:00",
-          "updated_at": "2023-02-10T14:47:34.043-08:00",
-          "display_at": "2023-02-10T14:47:33.578-08:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xpk984wrc5z4",
-              "name": "Box Platform / API - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lp2y8210101z",
-              "name": "Mobile Applications - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1624178286501961700
-        },
-        {
-          "id": "0r6brmkx3chr",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-10T10:48:29.597-08:00",
-          "updated_at": "2023-02-10T10:48:30.436-08:00",
-          "display_at": "2023-02-10T10:48:29.597-08:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xpk984wrc5z4",
-              "name": "Box Platform / API - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lp2y8210101z",
-              "name": "Mobile Applications - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1624118125049569300
-        },
-        {
-          "id": "qkvr51rnb2q7",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-10T08:47:21.496-08:00",
-          "updated_at": "2023-02-10T08:47:22.677-08:00",
-          "display_at": "2023-02-10T08:47:21.496-08:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xpk984wrc5z4",
-              "name": "Box Platform / API - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lp2y8210101z",
-              "name": "Mobile Applications - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1624087641821184000
-        },
-        {
-          "id": "hbcmf6gs2hgz",
-          "status": "investigating",
-          "body": "Our team continues to investigate an issue with Search. Users searching for content that has been created/updated/changed after 13:05 PST on 2/9 will continue to see stale results returned. Rest assured that content is safe and users can navigate through the folder path manually as a temporary workaround. We will provide additional information as soon it becomes available.",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-10T06:33:07.624-08:00",
-          "updated_at": "2023-02-10T20:17:56.754-08:00",
-          "display_at": "2023-02-10T06:33:07.000-08:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xpk984wrc5z4",
-              "name": "Box Platform / API - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lp2y8210101z",
-              "name": "Mobile Applications - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1624053859189416000
-        },
-        {
-          "id": "jmw26q3b5cjd",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue. We will provide next update by 8:00 AM PST 12/10.",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-09T21:07:36.573-08:00",
-          "updated_at": "2023-02-09T21:07:37.402-08:00",
-          "display_at": "2023-02-09T21:07:36.573-08:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xpk984wrc5z4",
-              "name": "Box Platform / API - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lp2y8210101z",
-              "name": "Mobile Applications - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1623911542831071200
-        },
-        {
-          "id": "w8ytqsn9tq5r",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-09T19:54:06.342-08:00",
-          "updated_at": "2023-02-09T19:54:08.137-08:00",
-          "display_at": "2023-02-09T19:54:06.342-08:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xpk984wrc5z4",
-              "name": "Box Platform / API - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lp2y8210101z",
-              "name": "Mobile Applications - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1623893048362160000
-        },
-        {
-          "id": "3d7lhhz4spyr",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-09T18:53:23.308-08:00",
-          "updated_at": "2023-02-09T18:53:25.174-08:00",
-          "display_at": "2023-02-09T18:53:23.308-08:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xpk984wrc5z4",
-              "name": "Box Platform / API - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lp2y8210101z",
-              "name": "Mobile Applications - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1623877768588185600
-        },
-        {
-          "id": "4pjv8p2hcwt8",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-09T17:51:59.229-08:00",
-          "updated_at": "2023-02-09T17:52:00.586-08:00",
-          "display_at": "2023-02-09T17:51:59.229-08:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xpk984wrc5z4",
-              "name": "Box Platform / API - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lp2y8210101z",
-              "name": "Mobile Applications - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1623862314977087500
-        },
-        {
-          "id": "t69111zgjjb3",
-          "status": "investigating",
-          "body": "We are currently investigating an issue with search.  Users searching for items uploaded or changed starting after 1:05 PM PST today, will not return any results. We are actively investigating and will provide more information as soon as it is available.  In the meantime, users can still access content by navigating the folder path manually.",
-          "incident_id": "yyjybcb8bywk",
-          "created_at": "2023-02-09T16:46:34.743-08:00",
-          "updated_at": "2023-02-09T16:49:50.851-08:00",
-          "display_at": "2023-02-09T13:05:34.000-08:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xpk984wrc5z4",
-              "name": "Box Platform / API - Search",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jqkkbz8yvk8b",
-              "name": "Desktop Applications - Box Drive",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lp2y8210101z",
-              "name": "Mobile Applications - Search",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1623845851125923800
-        }
-      ],
-      "components": [
-        {
-          "id": "jqkkbz8yvk8b",
-          "name": "Box Drive",
-          "status": "operational",
-          "created_at": "2018-04-16T13:21:09.799-07:00",
-          "updated_at": "2023-06-01T12:46:51.874-07:00",
-          "position": 3,
-          "description": "Access to Box through Box Drive",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "qvh7zdkvw690",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "lp2y8210101z",
-          "name": "Search",
-          "status": "operational",
-          "created_at": "2018-10-01T20:18:31.863-07:00",
-          "updated_at": "2023-06-01T12:46:51.893-07:00",
-          "position": 3,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "g58jskvcnlh8",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "4g0qfr4s03y8",
-          "name": "Search",
-          "status": "operational",
-          "created_at": "2018-10-01T20:09:16.360-07:00",
-          "updated_at": "2023-08-16T09:25:15.417-07:00",
-          "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "xpk984wrc5z4",
-          "name": "Search",
-          "status": "operational",
-          "created_at": "2018-10-01T20:15:26.120-07:00",
-          "updated_at": "2023-06-01T12:46:51.953-07:00",
-          "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "vggytbdllrjt",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ]
     }
   ]
 }
