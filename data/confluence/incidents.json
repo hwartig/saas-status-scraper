@@ -4,9 +4,38 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-13T19:50:45.617Z"
+    "updated_at": "2023-09-15T04:02:24.458Z"
   },
   "incidents": [
+    {
+      "id": "p8ctv2jhmpc0",
+      "name": "Infrastructure outage affecting attachments and Bitbucket Pipelines in all regions",
+      "status": "identified",
+      "created_at": "2023-09-15T04:02:24.414Z",
+      "updated_at": "2023-09-15T04:02:24.455Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/7x6pbg4v1np5",
+      "started_at": "2023-09-15T04:02:24.408Z",
+      "page_id": "4g2my7tbhjsq",
+      "incident_updates": [
+        {
+          "id": "1hn09hqm6x8q",
+          "status": "identified",
+          "body": "A major infrastructure outage is affecting our ability to scale up in response to customer traffic. We are pre-emptively disabling any downscaling to minimize future impact. This is primarily affecting Bitbucket Pipelines, and attachment storage for all products. All regions are affected. We will provide more details in the next hour.",
+          "incident_id": "p8ctv2jhmpc0",
+          "created_at": "2023-09-15T04:02:24.452Z",
+          "updated_at": "2023-09-15T04:02:24.452Z",
+          "display_at": "2023-09-15T04:02:24.452Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": []
+    },
     {
       "id": "0pqtgm818rw3",
       "name": "Atlassian Account login issues",
@@ -8199,61 +8228,6 @@
           "only_show_if_degraded": false
         }
       ]
-    },
-    {
-      "id": "v21nhsrq8d00",
-      "name": "Degraded confluence experience EU",
-      "status": "postmortem",
-      "created_at": "2022-11-07T10:55:10.159Z",
-      "updated_at": "2023-01-20T18:28:48.658Z",
-      "monitoring_at": null,
-      "resolved_at": "2022-11-07T11:32:08.497Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/f6gsjlhk84sw",
-      "started_at": "2022-11-07T10:55:10.153Z",
-      "page_id": "4g2my7tbhjsq",
-      "incident_updates": [
-        {
-          "id": "vp9z4qnpsxxd",
-          "status": "postmortem",
-          "body": "### **SUMMARY**\n\nOn NOV 7, 2022 between 8:10 AM and 7:26 PM UTC, Atlassian customers using Confluence experienced degraded performance. The event was triggered by database migrations which impacted customers in a single database instance in the European region. The incident was detected within 28 minutes by Atlassian’s internal automated monitoring system system and mitigated by scaling the database instance size which put Atlassian systems into a known good state. The total time to resolution was about 11 hours and 16 minutes.\n\n### **IMPACT**\n\nSome customer database instances were over provisioned and experienced intermittent slow performance, request timeouts, and complete downtime.\n\n### **ROOT CAUSE**\n\nThe issue was caused by database migrations performed for maintenance operation. The migration resulted in over provisioning and caused database CPU to spike to 100%. The CPU spike resulted in degraded performance for Confluence.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. While we have a number of testing and preventative processes in place, this specific issue wasn’t identified earlier because modeling customer usage is nuanced and even slight error in modeling will result in over provisioning or under provisioning.\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Adding more metrics used in customer usage modeling.\n* Improving automated tenant rebalancing to avoid over provisioning or under provisioning.\n\nThanks,\n\nAtlassian Customer Support",
-          "incident_id": "v21nhsrq8d00",
-          "created_at": "2023-01-20T18:28:20.143Z",
-          "updated_at": "2023-01-20T18:28:48.656Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jxvpxgqt82sj",
-          "status": "resolved",
-          "body": "We experienced degraded performance for few Confluence Cloud customers.The issue has been resolved and the service is operating normally.",
-          "incident_id": "v21nhsrq8d00",
-          "created_at": "2022-11-07T11:32:08.497Z",
-          "updated_at": "2022-11-07T11:32:08.497Z",
-          "display_at": "2022-11-07T11:32:08.497Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gkjqpk88bzyy",
-          "status": "investigating",
-          "body": "We are investigating cases of degraded performance for Confluence Cloud customers. We have identified that only tenant's from specific confluence cloud node has been affected. We will provide more details within the next hour.",
-          "incident_id": "v21nhsrq8d00",
-          "created_at": "2022-11-07T10:55:10.193Z",
-          "updated_at": "2022-11-07T10:55:10.193Z",
-          "display_at": "2022-11-07T10:55:10.193Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": []
     }
   ]
 }
