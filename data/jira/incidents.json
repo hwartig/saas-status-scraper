@@ -4,7 +4,7 @@
     "name": "Jira Software",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-15T05:19:26.161Z"
+    "updated_at": "2023-09-18T00:57:30.810Z"
   },
   "incidents": [
     {
@@ -73,14 +73,15 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "d6yfsxrfgwl3",
       "name": "Atlassian Account login issues",
       "status": "resolved",
       "created_at": "2023-09-13T14:08:51.493Z",
-      "updated_at": "2023-09-13T19:32:01.864Z",
+      "updated_at": "2023-09-18T00:57:03.185Z",
       "monitoring_at": "2023-09-13T15:21:44.168Z",
       "resolved_at": "2023-09-13T19:32:01.845Z",
       "impact": "major",
@@ -198,7 +199,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "820fn0s8vj0k",
@@ -270,7 +272,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "jj968nv0qkvf",
@@ -382,7 +385,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "f97z7dc85b5v",
@@ -547,14 +551,15 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "rzw1xlhd0b7h",
       "name": "Multiple product logins",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-08-30T05:19:00.532Z",
-      "updated_at": "2023-08-30T06:17:15.171Z",
+      "updated_at": "2023-09-18T00:57:30.808Z",
       "monitoring_at": null,
       "resolved_at": "2023-08-30T06:17:15.157Z",
       "impact": "none",
@@ -562,6 +567,19 @@
       "started_at": "2023-08-30T05:19:00.527Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "1jnlmp5frytb",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn August 30, 2023, between 4:07 and 5:30 UTC, some customers were unable to login to Atlassian's Cloud products using [id.atlassian.com](http://id.atlassian.com).  Logged-in users were also unable to switch accounts, change passwords, or log out. Users with existing sessions were not impacted.\n\nBetween 5:32 and 6:00 UTC, traffic was incrementally restored to a previous build, mitigating the impact for users.\n\nThe total time to resolution was one hour and 53 minutes.\n\n### **IMPACT**\n\nUsers were not able to login using Atlassian's shared account management system \\([id.atlassian.com](http://id.atlassian.com)\\).\n\nThis affected users who were trying to login to the following products: Jira, Confluence, Trello, Opsgenie, mobile apps and ecosystem apps.\n\nAside from the inability to login, there was no impact on other Atlassian products or features.\n\n### **ROOT CAUSE**\n\nMultiple Set-Cookie headers were unintentionally modified so that only the last Set-Cookie header remained in the response to user's browsers.  The issue was caused by a change to Network Extensions within the Edge Network. As a result, users that needed a new session could not login.  Upon login, the users were redirected to login again and no session was created for them.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. While we have a number of testing and preventative processes in place, this specific issue was not detected in Atlassian's staging environment.  End-to-end tests did not cover the use case of multiple Set-Cookie headers in the single response and therefore this bug went unnoticed.\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Automated tests to be put in place to validate that cookies are not being removed from responses.\n* Configuration of networking extensions will be guaranteed to be identical in staging and production to ensure errors are picked up earlier.\n\nFurthermore, we typically deploy our changes progressively by cloud region to avoid broad impact, but in this case, the change was not deemed risky and was deployed to all regions. To minimize the impact of breaking changes to our environments, we will implement additional preventative measures:\n\n* Changes to network extensions in the future will use progressive rollouts.\n* With staging being properly utilized, errors similar to this one will not be deployed to any production environments.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "rzw1xlhd0b7h",
+          "created_at": "2023-09-18T00:57:25.892Z",
+          "updated_at": "2023-09-18T00:57:30.806Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "f0mzx85ml75k",
           "status": "resolved",
@@ -589,7 +607,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "5vfpcwtjwvsc",
@@ -631,7 +650,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "lq646y6nr6kx",
@@ -686,7 +706,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "b2mvc4m0cbp4",
@@ -785,7 +806,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "q0qf58v56hgg",
@@ -863,7 +885,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "sbs4k02vhwhy",
@@ -892,7 +915,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "h531v0f088sz",
@@ -977,7 +1001,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "gt1rv2vs56yx",
@@ -1155,7 +1180,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "39dpwmn1vv5p",
@@ -1197,7 +1223,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "324jpl49wvqt",
@@ -1265,7 +1292,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "klfdlzhgjj7r",
@@ -1377,7 +1405,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "brrmdlm68n18",
@@ -1429,7 +1458,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "g0x88t9kbhr7",
@@ -1471,7 +1501,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "zq8sh6xc4lq5",
@@ -1526,7 +1557,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "vfy60vtnxddg",
@@ -1555,7 +1587,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "pqltf5m971qf",
@@ -1623,7 +1656,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "kgq484ssj224",
@@ -1795,7 +1829,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "bwqd6myx7fvz",
@@ -1824,7 +1859,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "y2sqxcwszyzl",
@@ -1995,7 +2031,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "gp03d3st55l2",
@@ -2087,7 +2124,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "g84s6dz9frd0",
@@ -2272,7 +2310,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "yrv286qyldpr",
@@ -2404,7 +2443,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "0hfr94prsq6z",
@@ -2516,7 +2556,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "qmgv26v06gtm",
@@ -2628,7 +2669,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "ynw94kzp71r3",
@@ -2720,7 +2762,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "0sf9mc56rn97",
@@ -2792,7 +2835,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "2wywflq010m9",
@@ -2943,7 +2987,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "0xf111gqp3n7",
@@ -3120,7 +3165,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "qhw1jvsg3zl7",
@@ -3192,7 +3238,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "b7ch86y0850g",
@@ -3363,7 +3410,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "j6ys8yh73r6h",
@@ -3435,7 +3483,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "01692vsfpxvg",
@@ -3857,7 +3906,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "jm45l1xffxxl",
@@ -3949,7 +3999,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "sywv93pwdgcf",
@@ -4035,7 +4086,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "jz02836pc5s8",
@@ -4187,7 +4239,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "xkp08y92hhfr",
@@ -4338,7 +4391,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "w9bdy401x5xh",
@@ -4410,7 +4464,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "lcqbmkyvkjyd",
@@ -4502,7 +4557,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "mcd33t08w7l4",
@@ -4567,7 +4623,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "bkdmq32rf5kg",
@@ -4648,7 +4705,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "m6wd2h8rl3qf",
@@ -4760,7 +4818,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "8zghbhgzwkh2",
@@ -4832,7 +4891,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "fmq4zlnzyqqw",
@@ -4924,7 +4984,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "q6q5df85568d",
@@ -4996,7 +5057,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "41hc0j09lr06",
@@ -5051,7 +5113,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     }
   ]
 }

@@ -4,7 +4,7 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-15T05:21:53.466Z"
+    "updated_at": "2023-09-18T00:59:45.761Z"
   },
   "incidents": [
     {
@@ -97,7 +97,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "p8ctv2jhmpc0",
@@ -165,7 +166,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "0pqtgm818rw3",
@@ -290,7 +292,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "5hpqsyz752lb",
@@ -389,7 +392,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "stqygv5mx3l8",
@@ -501,7 +505,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "2y50pg36l3xf",
@@ -618,14 +623,15 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "f80jjsg2wk0l",
       "name": "Multiple product logins",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-08-30T05:19:00.535Z",
-      "updated_at": "2023-08-30T06:17:15.185Z",
+      "updated_at": "2023-09-18T00:59:45.759Z",
       "monitoring_at": null,
       "resolved_at": "2023-08-30T06:17:15.167Z",
       "impact": "none",
@@ -633,6 +639,19 @@
       "started_at": "2023-08-30T05:19:00.529Z",
       "page_id": "4g2my7tbhjsq",
       "incident_updates": [
+        {
+          "id": "cm6spb9zl1gn",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn August 30, 2023, between 4:07 and 5:30 UTC, some customers were unable to login to Atlassian's Cloud products using [id.atlassian.com](http://id.atlassian.com).  Logged-in users were also unable to switch accounts, change passwords, or log out. Users with existing sessions were not impacted.\n\nBetween 5:32 and 6:00 UTC, traffic was incrementally restored to a previous build, mitigating the impact for users.\n\nThe total time to resolution was one hour and 53 minutes.\n\n### **IMPACT**\n\nUsers were not able to login using Atlassian's shared account management system \\([id.atlassian.com](http://id.atlassian.com)\\).\n\nThis affected users who were trying to login to the following products: Jira, Confluence, Trello, Opsgenie, mobile apps and ecosystem apps.\n\nAside from the inability to login, there was no impact on other Atlassian products or features.\n\n### **ROOT CAUSE**\n\nMultiple Set-Cookie headers were unintentionally modified so that only the last Set-Cookie header remained in the response to user's browsers.  The issue was caused by a change to Network Extensions within the Edge Network. As a result, users that needed a new session could not login.  Upon login, the users were redirected to login again and no session was created for them.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. While we have a number of testing and preventative processes in place, this specific issue was not detected in Atlassian's staging environment.  End-to-end tests did not cover the use case of multiple Set-Cookie headers in the single response and therefore this bug went unnoticed.\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Automated tests to be put in place to validate that cookies are not being removed from responses.\n* Configuration of networking extensions will be guaranteed to be identical in staging and production to ensure errors are picked up earlier.\n\nFurthermore, we typically deploy our changes progressively by cloud region to avoid broad impact, but in this case, the change was not deemed risky and was deployed to all regions. To minimize the impact of breaking changes to our environments, we will implement additional preventative measures:\n\n* Changes to network extensions in the future will use progressive rollouts.\n* With staging being properly utilized, errors similar to this one will not be deployed to any production environments.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "f80jjsg2wk0l",
+          "created_at": "2023-09-18T00:59:44.999Z",
+          "updated_at": "2023-09-18T00:59:45.757Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "3yqvwc0w86kp",
           "status": "resolved",
@@ -660,7 +679,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "hfc4zrfw1d13",
@@ -921,7 +941,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "j8l41d92kvlz",
@@ -1020,7 +1041,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "hk5wm01qr10c",
@@ -1049,7 +1071,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "sj1k1tp7rvgx",
@@ -1227,7 +1250,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "zl53kfp0g250",
@@ -1295,7 +1319,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "rg9f5q76jqdk",
@@ -1324,7 +1349,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "2fswfb2dtdgb",
@@ -1366,7 +1392,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "tdzltmrb9sk0",
@@ -1421,7 +1448,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "z8p1v1sffz42",
@@ -1819,7 +1847,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "tszykx9pgb2q",
@@ -2289,7 +2318,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "c3m87zrhg822",
@@ -2357,7 +2387,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "1xhznjqp05pg",
@@ -2529,7 +2560,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "c02ffyfst2xn",
@@ -2607,7 +2639,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "rp2kfywnwx9m",
@@ -2699,7 +2732,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "j36x59123r0w",
@@ -2791,7 +2825,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "lm7lq3wndqs1",
@@ -3267,7 +3302,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "n343wlsq6nxn",
@@ -3412,7 +3448,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "yrbwlblwyp4z",
@@ -3544,7 +3581,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "bds7y8kcv93r",
@@ -3636,7 +3674,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "j6sk9h9sj02q",
@@ -3768,7 +3807,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "mhf8k8spfb45",
@@ -3840,7 +3880,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "l8mz6nxc6byq",
@@ -3952,7 +3993,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "m261zggr372m",
@@ -4044,7 +4086,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "v42wrbgrck1q",
@@ -4136,7 +4179,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "gwz5nk5tmd5q",
@@ -4307,7 +4351,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "y5vqbs7k2fzy",
@@ -4439,7 +4484,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "h8m15tgstdzh",
@@ -4511,7 +4557,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "4r5yh795hbw1",
@@ -4623,7 +4670,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "k1shpx5hkcdj",
@@ -5078,7 +5126,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "hhmgczpk7130",
@@ -5190,7 +5239,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "rph21w8vk4t8",
@@ -5262,7 +5312,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "bg6qjntdgqfl",
@@ -5348,7 +5399,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "c352z0wryh83",
@@ -5420,7 +5472,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "c2s5jghnd3fd",
@@ -5492,7 +5545,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "z5z8gpswqz7q",
@@ -5557,7 +5611,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "6jdy2658xtky",
@@ -6025,7 +6080,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "j037n57ytq53",
@@ -6493,7 +6549,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "0kmw1yqvng95",
@@ -6535,7 +6592,8 @@
           "tweet_id": null
         }
       ],
-      "components": []
+      "components": [],
+      "reminder_intervals": null
     },
     {
       "id": "nv4x4bsk9cnj",
@@ -6621,7 +6679,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "cvzd5nf4xrdy",
@@ -6747,7 +6806,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "klkpydd14k0s",
@@ -7632,7 +7692,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "jwwx5y03pqdg",
@@ -8108,7 +8169,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     },
     {
       "id": "d5cx95md9cd1",
@@ -8200,7 +8262,8 @@
           "group": false,
           "only_show_if_degraded": false
         }
-      ]
+      ],
+      "reminder_intervals": null
     }
   ]
 }
