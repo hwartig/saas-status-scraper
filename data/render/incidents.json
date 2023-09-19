@@ -4,7 +4,7 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-18T07:59:55.108Z"
+    "updated_at": "2023-09-18T23:49:27.375Z"
   },
   "incidents": [
     {
@@ -210,9 +210,9 @@
     {
       "id": "hltvz1fsj3zx",
       "name": "Services hosted in Frankfurt are unreachable",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-09-07T12:56:27.201Z",
-      "updated_at": "2023-09-07T13:59:22.958Z",
+      "updated_at": "2023-09-18T23:49:27.370Z",
       "monitoring_at": "2023-09-07T13:50:46.109Z",
       "resolved_at": "2023-09-07T13:59:22.944Z",
       "impact": "major",
@@ -220,6 +220,19 @@
       "started_at": "2023-09-07T12:56:27.189Z",
       "page_id": "tyfhm2rrt1tl",
       "incident_updates": [
+        {
+          "id": "3l5kv25lqqwr",
+          "status": "postmortem",
+          "body": "# Summary\n\nRender uses AWS Elastic Block Store \\(EBS\\) as a storage provider in several of our clusters, and we were affected by an issue with the service:\n\n> Between 5:10 AM and 8:40 AM PDT, we experienced a performance degradation for a small number of EBS volumes in a single Availability Zone \\(euc1-az3\\) in the EU-CENTRAL-1 Region.\n\nThe issue resulted in downtime for some Postgres & Redis services, and degradation in some behaviors like autoscaling, builds, deploys, and metrics.\n\n# Impact\n\nAn estimated 3,000 managed Postgres and Redis instances experienced downtime, and even more will have experienced degraded performance.\n\nAdditionally, the Render platform in Frankfurt experienced general degradation in, but not limited to, autoscaling, builds, deploys, and metrics.\n\n# Root Cause\n\nRender's automated alerting detected ongoing issues in one of our Frankfurt clusters at 12:40 UTC. We responded by opening a public incident. As part of the response, we identified that some of our hosts were experiencing severely degraded EBS performance.\n\nRender uses AWS EBS to power storage volumes for all managed Postgres services in the Frankfurt region. Due to the outage, EBS volumes became detached from hosts. Our system automatically attempted to recover by attaching the volume to a new host, but failed to do so because of degradation in the attach/detach API. Eventually these attach operations succeeded; by 13:51 UTC, service was restored to all managed Postgres instances.\n\nEBS also provides the storage for our etcd cluster, which runs as part of the Kubernetes cluster. Because etcd's consensus algorithm requires every member to write to disk on every proposal, high disk latency for just one member can slow down the entire etcd cluster. Our Kubernetes API server, which regularly transacts with etcd, became sluggish and slow to process requests that support behaviors like autoscaling, builds, deploys, and metrics. After identifying the failure mode, at 13:25 UTC we removed the unhealthy etcd member from the cluster. This allowed most of the degraded behaviors to recover.\n\n# Mitigations\n\n* We have been in contact with the AWS team to discuss near- and long-term mitigations.\n* We have added alerting on Render's end that is targeted at identifying when etcd is experience poor disk performance. It will help us to more quickly identify and remove the slow member in the cluster.",
+          "incident_id": "hltvz1fsj3zx",
+          "created_at": "2023-09-18T23:49:03.198Z",
+          "updated_at": "2023-09-18T23:49:27.368Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our September 7th incident: https://stspg.io/5f9q88bzhdjt",
+          "tweet_id": null
+        },
         {
           "id": "2qs33tnqgbv8",
           "status": "resolved",
