@@ -4,9 +4,102 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "America/Chicago",
-    "updated_at": "2023-09-20T04:21:55.773-05:00"
+    "updated_at": "2023-09-20T04:42:23.917-05:00"
   },
   "incidents": [
+    {
+      "id": "9673hssffg8d",
+      "name": "fly-metrics.net charts and prometheus cluster not responding",
+      "status": "resolved",
+      "created_at": "2023-09-20T03:11:25.939-05:00",
+      "updated_at": "2023-09-20T04:42:23.914-05:00",
+      "monitoring_at": "2023-09-20T04:21:55.754-05:00",
+      "resolved_at": "2023-09-20T04:42:23.898-05:00",
+      "impact": "major",
+      "shortlink": "https://stspg.io/yy0ckzpcg2gs",
+      "started_at": "2023-09-20T03:11:26.000-05:00",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "252p9d08bn2n",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "9673hssffg8d",
+          "created_at": "2023-09-20T04:42:23.898-05:00",
+          "updated_at": "2023-09-20T04:42:23.898-05:00",
+          "display_at": "2023-09-20T04:42:23.898-05:00",
+          "affected_components": [
+            {
+              "code": "k2zhkw7wryv2",
+              "name": "Platform and Tools - Metrics",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "30m2qxg5gr88",
+          "status": "monitoring",
+          "body": "Our internal proxy service that marshals prometheus queries through our api was hitting hard limits with request and fly-proxy was not routing requests to the actual machines. Restarting the internal proxy service reset those limits and enabled prometheus queries to run successfully.\n\nOur monitoring shows fly-metrics.net and https://fly.io/apps/YOUR_APP_NAME/metrics both working as expected now. We'll monitor the issue for a bit to ensure this doesn't regress.",
+          "incident_id": "9673hssffg8d",
+          "created_at": "2023-09-20T04:21:55.754-05:00",
+          "updated_at": "2023-09-20T04:21:55.754-05:00",
+          "display_at": "2023-09-20T04:21:55.754-05:00",
+          "affected_components": [
+            {
+              "code": "k2zhkw7wryv2",
+              "name": "Platform and Tools - Metrics",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "pqwn50d5w8lc",
+          "status": "investigating",
+          "body": "Charts at https://fly-metrics.net/ are failing to load with error messages like this one:\n\nserver_error: server error: 503: details: &lt;html>&lt;body>&lt;h1>503 Service Unavailable&lt;/h1> No server is available to handle this request. &lt;/body>&lt;/html>\n\nThe https://fly.io/apps/YOUR_APP_NAME/metrics view is showing \"No data available\" for all charts, even when there should be data.\n\nWe are investigating a potential issue in our prometheus cluster that is causing both of those issues.",
+          "incident_id": "9673hssffg8d",
+          "created_at": "2023-09-20T03:11:26.016-05:00",
+          "updated_at": "2023-09-20T03:12:54.549-05:00",
+          "display_at": "2023-09-20T03:11:26.000-05:00",
+          "affected_components": [
+            {
+              "code": "k2zhkw7wryv2",
+              "name": "Platform and Tools - Metrics",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "k2zhkw7wryv2",
+          "name": "Metrics",
+          "status": "operational",
+          "created_at": "2021-11-30T13:14:31.480-06:00",
+          "updated_at": "2023-09-20T04:21:55.721-05:00",
+          "position": 9,
+          "description": "Customer metrics",
+          "showcase": true,
+          "start_date": "2021-11-30",
+          "group_id": "ycm6xbpsfqvd",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "ky50475tvg6m",
       "name": "Deployments fail to load metadata from docker.io",
@@ -125,79 +218,6 @@
           "description": null,
           "showcase": true,
           "start_date": "2022-05-18",
-          "group_id": "ycm6xbpsfqvd",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "9673hssffg8d",
-      "name": "fly-metrics.net charts and prometheus cluster not responding",
-      "status": "monitoring",
-      "created_at": "2023-09-20T03:11:25.939-05:00",
-      "updated_at": "2023-09-20T04:21:55.771-05:00",
-      "monitoring_at": "2023-09-20T04:21:55.754-05:00",
-      "resolved_at": null,
-      "impact": "major",
-      "shortlink": "https://stspg.io/yy0ckzpcg2gs",
-      "started_at": "2023-09-20T03:11:26.000-05:00",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "30m2qxg5gr88",
-          "status": "monitoring",
-          "body": "Our internal proxy service that marshals prometheus queries through our api was hitting hard limits with request and fly-proxy was not routing requests to the actual machines. Restarting the internal proxy service reset those limits and enabled prometheus queries to run successfully.\n\nOur monitoring shows fly-metrics.net and https://fly.io/apps/YOUR_APP_NAME/metrics both working as expected now. We'll monitor the issue for a bit to ensure this doesn't regress.",
-          "incident_id": "9673hssffg8d",
-          "created_at": "2023-09-20T04:21:55.754-05:00",
-          "updated_at": "2023-09-20T04:21:55.754-05:00",
-          "display_at": "2023-09-20T04:21:55.754-05:00",
-          "affected_components": [
-            {
-              "code": "k2zhkw7wryv2",
-              "name": "Platform and Tools - Metrics",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "pqwn50d5w8lc",
-          "status": "investigating",
-          "body": "Charts at https://fly-metrics.net/ are failing to load with error messages like this one:\n\nserver_error: server error: 503: details: &lt;html>&lt;body>&lt;h1>503 Service Unavailable&lt;/h1> No server is available to handle this request. &lt;/body>&lt;/html>\n\nThe https://fly.io/apps/YOUR_APP_NAME/metrics view is showing \"No data available\" for all charts, even when there should be data.\n\nWe are investigating a potential issue in our prometheus cluster that is causing both of those issues.",
-          "incident_id": "9673hssffg8d",
-          "created_at": "2023-09-20T03:11:26.016-05:00",
-          "updated_at": "2023-09-20T03:12:54.549-05:00",
-          "display_at": "2023-09-20T03:11:26.000-05:00",
-          "affected_components": [
-            {
-              "code": "k2zhkw7wryv2",
-              "name": "Platform and Tools - Metrics",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "k2zhkw7wryv2",
-          "name": "Metrics",
-          "status": "operational",
-          "created_at": "2021-11-30T13:14:31.480-06:00",
-          "updated_at": "2023-09-20T04:21:55.721-05:00",
-          "position": 9,
-          "description": "Customer metrics",
-          "showcase": true,
-          "start_date": "2021-11-30",
           "group_id": "ycm6xbpsfqvd",
           "page_id": "65rccr4mbblw",
           "group": false,
