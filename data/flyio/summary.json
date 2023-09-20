@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "America/Chicago",
-    "updated_at": "2023-09-20T02:13:13.683-05:00"
+    "updated_at": "2023-09-20T02:45:55.078-05:00"
   },
   "components": [
     {
@@ -116,9 +116,9 @@
     {
       "id": "49yq6v65b33l",
       "name": "Deployments",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2020-04-01T16:53:18.234-05:00",
-      "updated_at": "2023-09-20T02:12:33.878-05:00",
+      "updated_at": "2023-09-20T02:45:55.030-05:00",
       "position": 2,
       "description": null,
       "showcase": true,
@@ -210,7 +210,7 @@
     {
       "id": "ycm6xbpsfqvd",
       "name": "Platform and Tools",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2020-04-01T16:34:45.488-05:00",
       "updated_at": "2021-02-25T10:06:12.403-06:00",
       "position": 3,
@@ -541,9 +541,9 @@
     {
       "id": "lwp4hw3r415g",
       "name": "Docker Registry",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2022-05-18T07:37:57.574-05:00",
-      "updated_at": "2023-09-20T02:12:33.892-05:00",
+      "updated_at": "2023-09-20T02:45:55.043-05:00",
       "position": 11,
       "description": null,
       "showcase": true,
@@ -843,16 +843,42 @@
     {
       "id": "ky50475tvg6m",
       "name": "Deployments fail to load metadata from docker.io",
-      "status": "investigating",
+      "status": "monitoring",
       "created_at": "2023-09-20T02:12:33.848-05:00",
-      "updated_at": "2023-09-20T02:13:13.679-05:00",
-      "monitoring_at": null,
+      "updated_at": "2023-09-20T02:45:55.077-05:00",
+      "monitoring_at": "2023-09-20T02:45:55.065-05:00",
       "resolved_at": null,
       "impact": "major",
       "shortlink": "https://stspg.io/0br2xb61srdt",
       "started_at": "2023-09-20T02:12:33.841-05:00",
       "page_id": "65rccr4mbblw",
       "incident_updates": [
+        {
+          "id": "yvl8vqn6dv8z",
+          "status": "monitoring",
+          "body": "We restarted our registry mirror that proxies requests to docker.io, and that cleared up the issue. Our metrics show deployments are working again. We'll continue to monitor for a bit to make sure this doesn't recur.\n\nThis issue impacted deployments that built images and required one or more images from docker.io. This impacted deployment between 2023-09-20 4:05 UTC and 7:40 UTC.",
+          "incident_id": "ky50475tvg6m",
+          "created_at": "2023-09-20T02:45:55.065-05:00",
+          "updated_at": "2023-09-20T02:45:55.065-05:00",
+          "display_at": "2023-09-20T02:45:55.065-05:00",
+          "affected_components": [
+            {
+              "code": "49yq6v65b33l",
+              "name": "Platform and Tools - Deployments",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "lwp4hw3r415g",
+              "name": "Platform and Tools - Docker Registry",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "y5xsp16bgznz",
           "status": "investigating",
@@ -884,9 +910,9 @@
         {
           "id": "49yq6v65b33l",
           "name": "Deployments",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2020-04-01T16:53:18.234-05:00",
-          "updated_at": "2023-09-20T02:12:33.878-05:00",
+          "updated_at": "2023-09-20T02:45:55.030-05:00",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -899,9 +925,9 @@
         {
           "id": "lwp4hw3r415g",
           "name": "Docker Registry",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2022-05-18T07:37:57.574-05:00",
-          "updated_at": "2023-09-20T02:12:33.892-05:00",
+          "updated_at": "2023-09-20T02:45:55.043-05:00",
           "position": 11,
           "description": null,
           "showcase": true,
@@ -917,7 +943,7 @@
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "minor",
-    "description": "Minor Service Outage"
+    "indicator": "none",
+    "description": "All Systems Operational"
   }
 }
