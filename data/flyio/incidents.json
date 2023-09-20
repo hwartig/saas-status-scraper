@@ -4,75 +4,48 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "America/Chicago",
-    "updated_at": "2023-09-20T03:12:54.719-05:00"
+    "updated_at": "2023-09-20T03:49:24.709-05:00"
   },
   "incidents": [
     {
-      "id": "9673hssffg8d",
-      "name": "fly-metrics.net charts and prometheus cluster not responding",
-      "status": "investigating",
-      "created_at": "2023-09-20T03:11:25.939-05:00",
-      "updated_at": "2023-09-20T03:12:54.716-05:00",
-      "monitoring_at": null,
-      "resolved_at": null,
+      "id": "ky50475tvg6m",
+      "name": "Deployments fail to load metadata from docker.io",
+      "status": "resolved",
+      "created_at": "2023-09-19T23:05:33.000-05:00",
+      "updated_at": "2023-09-20T03:49:24.707-05:00",
+      "monitoring_at": "2023-09-20T02:45:55.065-05:00",
+      "resolved_at": "2023-09-20T03:48:15.943-05:00",
       "impact": "major",
-      "shortlink": "https://stspg.io/yy0ckzpcg2gs",
-      "started_at": "2023-09-20T03:11:26.000-05:00",
+      "shortlink": "https://stspg.io/0br2xb61srdt",
+      "started_at": "2023-09-19T23:05:33.000-05:00",
       "page_id": "65rccr4mbblw",
       "incident_updates": [
         {
-          "id": "pqwn50d5w8lc",
-          "status": "investigating",
-          "body": "Charts at https://fly-metrics.net/ are failing to load with error messages like this one:\n\nserver_error: server error: 503: details: &lt;html>&lt;body>&lt;h1>503 Service Unavailable&lt;/h1> No server is available to handle this request. &lt;/body>&lt;/html>\n\nThe https://fly.io/apps/YOUR_APP_NAME/metrics view is showing \"No data available\" for all charts, even when there should be data.\n\nWe are investigating a potential issue in our prometheus cluster that is causing both of those issues.",
-          "incident_id": "9673hssffg8d",
-          "created_at": "2023-09-20T03:11:26.016-05:00",
-          "updated_at": "2023-09-20T03:12:54.549-05:00",
-          "display_at": "2023-09-20T03:11:26.000-05:00",
+          "id": "qfdflgm2db9w",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "ky50475tvg6m",
+          "created_at": "2023-09-20T03:48:15.943-05:00",
+          "updated_at": "2023-09-20T03:48:15.943-05:00",
+          "display_at": "2023-09-20T03:48:15.943-05:00",
           "affected_components": [
             {
-              "code": "k2zhkw7wryv2",
-              "name": "Platform and Tools - Metrics",
+              "code": "49yq6v65b33l",
+              "name": "Platform and Tools - Deployments",
               "old_status": "operational",
-              "new_status": "partial_outage"
+              "new_status": "operational"
+            },
+            {
+              "code": "lwp4hw3r415g",
+              "name": "Platform and Tools - Docker Registry",
+              "old_status": "operational",
+              "new_status": "operational"
             }
           ],
           "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "k2zhkw7wryv2",
-          "name": "Metrics",
-          "status": "partial_outage",
-          "created_at": "2021-11-30T13:14:31.480-06:00",
-          "updated_at": "2023-09-20T03:11:25.974-05:00",
-          "position": 9,
-          "description": "Customer metrics",
-          "showcase": true,
-          "start_date": "2021-11-30",
-          "group_id": "ycm6xbpsfqvd",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "ky50475tvg6m",
-      "name": "Deployments fail to load metadata from docker.io",
-      "status": "monitoring",
-      "created_at": "2023-09-20T02:12:33.848-05:00",
-      "updated_at": "2023-09-20T02:45:55.077-05:00",
-      "monitoring_at": "2023-09-20T02:45:55.065-05:00",
-      "resolved_at": null,
-      "impact": "major",
-      "shortlink": "https://stspg.io/0br2xb61srdt",
-      "started_at": "2023-09-20T02:12:33.841-05:00",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
+        },
         {
           "id": "yvl8vqn6dv8z",
           "status": "monitoring",
@@ -105,8 +78,8 @@
           "body": "Deployments that build new images are failing with errors like:\n\nERROR [internal] load metadata for docker.io...\n\nWe're investigating the issue now.\n\nThe failed deployments do not impact existing machines and nomad allocs. They only prevent new changes from getting deployed.",
           "incident_id": "ky50475tvg6m",
           "created_at": "2023-09-20T02:12:33.926-05:00",
-          "updated_at": "2023-09-20T02:12:33.926-05:00",
-          "display_at": "2023-09-20T02:12:33.926-05:00",
+          "updated_at": "2023-09-20T03:49:24.622-05:00",
+          "display_at": "2023-09-19T23:05:33.000-05:00",
           "affected_components": [
             {
               "code": "49yq6v65b33l",
@@ -152,6 +125,59 @@
           "description": null,
           "showcase": true,
           "start_date": "2022-05-18",
+          "group_id": "ycm6xbpsfqvd",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "9673hssffg8d",
+      "name": "fly-metrics.net charts and prometheus cluster not responding",
+      "status": "investigating",
+      "created_at": "2023-09-20T03:11:25.939-05:00",
+      "updated_at": "2023-09-20T03:12:54.716-05:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/yy0ckzpcg2gs",
+      "started_at": "2023-09-20T03:11:26.000-05:00",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "pqwn50d5w8lc",
+          "status": "investigating",
+          "body": "Charts at https://fly-metrics.net/ are failing to load with error messages like this one:\n\nserver_error: server error: 503: details: &lt;html>&lt;body>&lt;h1>503 Service Unavailable&lt;/h1> No server is available to handle this request. &lt;/body>&lt;/html>\n\nThe https://fly.io/apps/YOUR_APP_NAME/metrics view is showing \"No data available\" for all charts, even when there should be data.\n\nWe are investigating a potential issue in our prometheus cluster that is causing both of those issues.",
+          "incident_id": "9673hssffg8d",
+          "created_at": "2023-09-20T03:11:26.016-05:00",
+          "updated_at": "2023-09-20T03:12:54.549-05:00",
+          "display_at": "2023-09-20T03:11:26.000-05:00",
+          "affected_components": [
+            {
+              "code": "k2zhkw7wryv2",
+              "name": "Platform and Tools - Metrics",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "k2zhkw7wryv2",
+          "name": "Metrics",
+          "status": "partial_outage",
+          "created_at": "2021-11-30T13:14:31.480-06:00",
+          "updated_at": "2023-09-20T03:11:25.974-05:00",
+          "position": 9,
+          "description": "Customer metrics",
+          "showcase": true,
+          "start_date": "2021-11-30",
           "group_id": "ycm6xbpsfqvd",
           "page_id": "65rccr4mbblw",
           "group": false,
