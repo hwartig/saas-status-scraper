@@ -4,22 +4,42 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "America/Chicago",
-    "updated_at": "2023-09-20T09:46:14.819-05:00"
+    "updated_at": "2023-09-20T10:49:09.613-05:00"
   },
   "incidents": [
     {
       "id": "ylw04bn2m1sq",
       "name": "Fly Registry Uploads Failing",
-      "status": "monitoring",
+      "status": "resolved",
       "created_at": "2023-09-20T07:00:54.231-05:00",
-      "updated_at": "2023-09-20T09:46:14.816-05:00",
+      "updated_at": "2023-09-20T10:49:09.611-05:00",
       "monitoring_at": "2023-09-20T09:46:14.798-05:00",
-      "resolved_at": null,
+      "resolved_at": "2023-09-20T10:47:07.000-05:00",
       "impact": "none",
       "shortlink": "https://stspg.io/q56f6bzlcdjq",
       "started_at": "2023-09-20T07:00:54.221-05:00",
       "page_id": "65rccr4mbblw",
       "incident_updates": [
+        {
+          "id": "p2z795fhqkzb",
+          "status": "resolved",
+          "body": "The incident has been resolved and we're not seeing any further issues with the registry.\n\nAround 14:00 UTC a litefs cluster that supports the registry began lagging due to too many open files on individual hosts. We resolved the open file issue and recovered the litefs cluster, which was completed around 14:45 UTC.\n\nBetween 14:00 and 14:45 UTC deployments may have failed to push images to the registry. This prevented machines and nomad allocs from getting updates, and did not interfere with existing machine & nomad alloc operation.",
+          "incident_id": "ylw04bn2m1sq",
+          "created_at": "2023-09-20T10:47:07.072-05:00",
+          "updated_at": "2023-09-20T10:49:09.597-05:00",
+          "display_at": "2023-09-20T10:47:07.000-05:00",
+          "affected_components": [
+            {
+              "code": "lwp4hw3r415g",
+              "name": "Platform and Tools - Docker Registry",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "c0qkypyx9zv2",
           "status": "monitoring",
