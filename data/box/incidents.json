@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-09-21T00:55:54.243-07:00"
+    "updated_at": "2023-09-21T09:56:16.632-07:00"
   },
   "incidents": [
     {
@@ -296,16 +296,29 @@
     {
       "id": "hlb90jx53dzp",
       "name": "[Major] Delay in email notifications",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-09-12T18:30:00.000-07:00",
-      "updated_at": "2023-09-15T11:41:39.001-07:00",
+      "updated_at": "2023-09-21T09:51:31.921-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-09-12T18:30:00.000-07:00",
-      "impact": "none",
+      "impact": "major",
       "shortlink": "https://stspg.io/v3bksjm95gvm",
       "started_at": "2023-09-15T11:41:38.963-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "14zsvskztp0t",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\nOn September 12, 2023 between 5:50 PM PDT and 9:40 PM PDT, some users may have experienced difficulties while working in Box. During this time, customer email notifications including password reset or 2-factor authentication code emails may have been delayed. The issue occurred as the result of networking issues in one Availability Zone after the rollback of a networking component release.  We were able to resolve the issue by reapplying network configurations. In addition, we will be improving our rollback testing processes to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "hlb90jx53dzp",
+          "created_at": "2023-09-21T09:51:04.111-07:00",
+          "updated_at": "2023-09-21T09:51:31.918-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "w95wpkbslmx5",
           "status": "resolved",
@@ -326,16 +339,29 @@
     {
       "id": "xvk4hv00f99t",
       "name": "[Major] Customers may have experienced failures when using Public API",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-09-12T02:39:22.520-07:00",
-      "updated_at": "2023-09-12T03:29:29.635-07:00",
+      "updated_at": "2023-09-21T09:50:05.347-07:00",
       "monitoring_at": "2023-09-12T02:39:22.556-07:00",
       "resolved_at": "2023-09-12T03:29:29.621-07:00",
-      "impact": "none",
+      "impact": "major",
       "shortlink": "https://stspg.io/q0xv04zmcjvy",
       "started_at": "2023-09-12T02:39:22.513-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "km0c0b5y7ryx",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn September 12, 2023 between 2:00 AM PDT and 2:21 AM PDT, some users may have experienced difficulties while working in Box. During this time, customers may have experienced delays when using Box Drive. The issue occurred due to a brief but unexpected surge in user traffic that overloaded the underlying service that powers Box Drive. It was resolved as the service was able to automatically scale up to handle the additional traffic. In addition, we are investigating ways improve the stability of the service to account for unusual traffic patterns in order to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "xvk4hv00f99t",
+          "created_at": "2023-09-21T09:49:38.166-07:00",
+          "updated_at": "2023-09-21T09:50:05.345-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "gw85882v4ly7",
           "status": "resolved",
@@ -935,9 +961,9 @@
     {
       "id": "n8k811spfvph",
       "name": "[Major] Issues with Multiple Box Services",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-08-22T17:55:38.591-07:00",
-      "updated_at": "2023-08-22T18:36:08.694-07:00",
+      "updated_at": "2023-09-21T09:54:42.478-07:00",
       "monitoring_at": "2023-08-22T18:12:30.651-07:00",
       "resolved_at": "2023-08-22T18:36:08.682-07:00",
       "impact": "major",
@@ -945,6 +971,19 @@
       "started_at": "2023-08-22T17:55:38.581-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "zrq8w6tf38br",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Uploads, Downloads, Logins, Public API and Box Sign. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 5:24 pm PDT and 5:30 pm PDT on August 22, 2023, some users may have experienced difficulties while working in Box. During this time, some Box users may have experienced increased errors or slowness when accessing [Box.com](http://Box.com), Uploads, Downloads, Public API, Logins and Box Sign.  The issue occurred due to a misconfiguration being applied during an upsize process on one of our database pods, which caused the database pod to become unhealthy when load increased during the issue.  We were able to resolve the issue by deploying the correct configuration.  In addition, we will be adding alerts to detect the misconfiguration so it can be fixed before causing impact.  \n\n**Analysis** \n\nThe database pod involved in this issue was manually upsized on August 3rd as a proactive measure in case of high load.  The upsize process used an incorrect command that misconfigured the pod such that it was not able to take advantage of the increased capacity during the issue.  During the period of time immediately after the upsize and before the issue, there was an opportunity to detect the misconfiguration and fix it before causing impact, but there is currently no alert in place for that detection.  \n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Alert when a database pod’s runtime configurations are stale  \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "n8k811spfvph",
+          "created_at": "2023-09-21T09:54:06.248-07:00",
+          "updated_at": "2023-09-21T09:54:42.476-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "vqjh9tr9rqgl",
           "status": "resolved",
@@ -1730,16 +1769,29 @@
     {
       "id": "6kwyn4w5lxb6",
       "name": "[Major] Degradation of Box for Office Online",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-08-11T21:55:07.574-07:00",
-      "updated_at": "2023-08-12T14:08:09.351-07:00",
+      "updated_at": "2023-09-21T09:56:16.630-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-08-12T14:08:09.336-07:00",
-      "impact": "critical",
+      "impact": "major",
       "shortlink": "https://stspg.io/264c1y16q67l",
       "started_at": "2023-08-11T21:55:07.565-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "6v0bxzg4ym2j",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting users’ experience with Office Online in Box. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween Aug 11, 2023 9:30 AM PT and Aug 12, 2023 4:30 AM PT, some users may have experienced difficulties while working in Box. During this time, users may have experienced infinite loading when trying to view or edit a PowerPoint file in Box with the Office Online editor. \n\n‌\n\n**Analysis** \n\nThis issue occurred as a result of a bug that was a introduced by a recent Microsoft code change. Microsoft was able to resolve the issue by releasing a bug fix, which addressed the issue for Box users. In addition, we are working to improve our early detection and communication to prevent similar issues from occurring in the future.  \n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Improved alerts and monitoring of Office Online traffic\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "6kwyn4w5lxb6",
+          "created_at": "2023-09-21T09:56:01.303-07:00",
+          "updated_at": "2023-09-21T09:56:16.628-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "d48dqkdc3lmc",
           "status": "resolved",
