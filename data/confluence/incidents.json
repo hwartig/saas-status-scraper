@@ -4,7 +4,7 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-19T07:32:25.298Z"
+    "updated_at": "2023-09-22T00:46:32.553Z"
   },
   "incidents": [
     {
@@ -692,9 +692,9 @@
     {
       "id": "0pqtgm818rw3",
       "name": "Atlassian Account login issues",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-09-13T14:08:51.193Z",
-      "updated_at": "2023-09-13T19:32:02.023Z",
+      "updated_at": "2023-09-22T00:46:32.550Z",
       "monitoring_at": "2023-09-13T15:21:44.411Z",
       "resolved_at": "2023-09-13T19:32:02.009Z",
       "impact": "major",
@@ -702,6 +702,19 @@
       "started_at": "2023-09-13T14:08:51.188Z",
       "page_id": "4g2my7tbhjsq",
       "incident_updates": [
+        {
+          "id": "050jrly0xx5x",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn Sep 13, 2023, between 12:00 PM UTC and 03: 30 PM UTC, some Atlassian users were unable to sign in to their accounts and use multiple Atlassian cloud products. The event was triggered by a misconfiguration of rate limits in an internal service which caused a cascading failure in sign-in and signup-related APIs. The incident was quickly detected by multiple automated monitoring systems. The incident was mitigated on Sep 13, 2023, 03: 30 PM UTC by the rollback of a feature and additional scaling of services which put Atlassian systems into a known good state. The total time to resolution was about 3 hours & 30 minutes.\n\n‌\n\n### **IMPACT**\n\nThe overall impact was between Sep 13, 2012, 12:00 PM UTC and Sep 13, 2023, 03: 30 PM UTC on multiple products. The Incident caused intermittent service disruption across all regions. Some users were unable to sign in for sessions. Other scenarios that temporarily failed were new user signups, profile retrieval, and password reset. During the incident we had a peak of 90% requests failing across authentication, user profile retrieval, and password reset use cases.\n\n‌\n\n### **ROOT CAUSE**\n\nThe issue was caused due to a misconfiguration of a rate limit in an internal core service. As a result, some sign-in requests over the limit received HTTP 429 errors. However, retry behavior for requests caused a multiplication of load which led to higher service degradation. As many internal services depend on each other, the call graph complexity led to a longer time to detect the actual faulty service.\n\n‌\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe are continuously improving our system's resiliency.\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Audit and improve service rate limits and client retry and backoff behavior.\n* Improve scale and load test automation for complex service interactions.\n* Audit cross-service dependencies and minimize them where possible related to sign-in flows.\n\n‌\n\nDue to the unavailability of sign-in, some customers were unable to create support tickets. We are making additional process improvements to:\n\n* Enable our unauthenticated support contact form and notify users that it should be used when standard channels are not available. \n* Create status page notifications more quickly and ensure that for severe incidents, notifications to all subscribers are enabled.\n\n‌\n\nWe apologize to users who were impacted during this incident; we are taking immediate steps to improve the platform’s reliability and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "0pqtgm818rw3",
+          "created_at": "2023-09-22T00:46:31.504Z",
+          "updated_at": "2023-09-22T00:46:32.548Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "qv6b5jhbjjwc",
           "status": "resolved",
