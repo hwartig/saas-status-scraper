@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-09-22T00:48:31.867-07:00"
+    "updated_at": "2023-09-22T10:04:17.869-07:00"
   },
   "incidents": [
     {
@@ -731,9 +731,9 @@
     {
       "id": "2rn0ymtpyhgl",
       "name": "[Minor] Issues with Box Notes",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-08-22T19:59:57.775-07:00",
-      "updated_at": "2023-08-23T08:08:05.885-07:00",
+      "updated_at": "2023-09-22T10:04:17.866-07:00",
       "monitoring_at": "2023-08-23T05:50:08.874-07:00",
       "resolved_at": "2023-08-23T08:08:05.869-07:00",
       "impact": "minor",
@@ -741,6 +741,19 @@
       "started_at": "2023-08-22T19:59:57.765-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "tww81cjkpbcd",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Box Notes. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 2:41 PM PT on August 22, 2023 and 7:30 AM PT on August 23, 2023, some users may have experienced difficulties while working in Box. During this time, some users may not have been able to view certain images embedded inside Box Notes. The issue occurred as a result of a recent code change in our ongoing effort to improve performance and stability. We were able to resolve the issue by reverting the faulty change. In addition, In addition, we are working to improve our testing and deployment processes to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nThe issue was caused by a change in the configuration of the server fleet responsible for processing Box webapp traffic. The change was aimed at consolidating configurations such that further reliability and user experience improvements can be developed and deployed faster in the future. Unfortunately, the change inadvertently impacted embedded image rendering in Box Notes, which caused some customers to experience difficulty viewing images embedded in Box Notes. Additionally, the testing conducted as part of our standard deployment process did not address this specific facet of Box Notes, and as a result, this issue was not detected prior to deployment. Additionally, incident detection and mitigation took longer than normal because there was no alert configured to escalate in case of failed embedded image renders in Box Notes.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Implement automated testing for Box Notes embedded image rendering\n* Add alerts for Box Notes embedded image render failures\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "2rn0ymtpyhgl",
+          "created_at": "2023-09-22T10:03:25.740-07:00",
+          "updated_at": "2023-09-22T10:04:17.863-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "bqrlmcxfsf14",
           "status": "resolved",
