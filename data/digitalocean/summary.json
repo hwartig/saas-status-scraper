@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-25T07:51:30.744Z"
+    "updated_at": "2023-09-26T06:45:05.475Z"
   },
   "components": [
     {
@@ -505,9 +505,9 @@
     {
       "id": "hnqx47tg75cw",
       "name": "NYC3",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-21T16:23:54.293Z",
-      "updated_at": "2023-04-21T18:54:52.010Z",
+      "updated_at": "2023-09-26T06:45:05.425Z",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -2137,7 +2137,7 @@
     {
       "id": "nmb3bbtqfgsj",
       "name": "Container Registry",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-21T17:29:22.377Z",
       "updated_at": "2023-04-21T16:02:43.593Z",
       "position": 11,
@@ -3005,10 +3005,64 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "4wyj77ll2bxl",
+      "name": "Container Registry in NYC3",
+      "status": "investigating",
+      "created_at": "2023-09-26T06:45:05.404Z",
+      "updated_at": "2023-09-26T06:45:05.473Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/kwlmnjrlxfzz",
+      "started_at": "2023-09-26T06:45:05.398Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "5t3pj310kkbl",
+          "status": "investigating",
+          "body": "Since 09:30 PM UTC, our Engineering team observed issues with the DigitalOcean Container Registry in the NYC3 region. Starting this time, users might have experienced slow responses or errors while interacting and authenticating with the DigitalOcean Container Registry, creating new container registries, and pushing/deleting images to/from registries.\n\nOur Engineering team is actively working on fixing this issue with the Container Registry in the NYC3 region. We apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "4wyj77ll2bxl",
+          "created_at": "2023-09-26T06:45:05.471Z",
+          "updated_at": "2023-09-26T06:45:05.471Z",
+          "display_at": "2023-09-26T06:45:05.471Z",
+          "affected_components": [
+            {
+              "code": "hnqx47tg75cw",
+              "name": "Container Registry - NYC3",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "hnqx47tg75cw",
+          "name": "NYC3",
+          "status": "degraded_performance",
+          "created_at": "2023-02-21T16:23:54.293Z",
+          "updated_at": "2023-09-26T06:45:05.425Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-21",
+          "group_id": "nmb3bbtqfgsj",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
