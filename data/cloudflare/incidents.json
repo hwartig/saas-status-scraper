@@ -4,9 +4,62 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-27T02:36:02.110Z"
+    "updated_at": "2023-09-27T02:47:55.266Z"
   },
   "incidents": [
+    {
+      "id": "53kr3wcg9mwc",
+      "name": "Certificate Revocation Lists not applied correctly",
+      "status": "resolved",
+      "created_at": "2023-09-27T02:47:38.656Z",
+      "updated_at": "2023-09-27T02:47:55.263Z",
+      "monitoring_at": null,
+      "resolved_at": "2023-09-27T02:47:38.711Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/2j6hv0t8bn12",
+      "started_at": "2023-09-27T02:47:38.651Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "b1m2bwtlwhm2",
+          "status": "resolved",
+          "body": "Cloudflare has discovered that it did not correctly apply Certificate Revocation Lists to Cloudflare certificates that were used to connect to origins. This issue has been remediated.\n\nCustomers with revoked certificates configured on origins may experience elevated 526 error rates since the fix rollout was completed at 21:00 UTC September 26th.",
+          "incident_id": "53kr3wcg9mwc",
+          "created_at": "2023-09-27T02:47:38.711Z",
+          "updated_at": "2023-09-27T02:47:38.711Z",
+          "display_at": "2023-09-27T02:47:38.711Z",
+          "affected_components": [
+            {
+              "code": "cghykwlwsmn5",
+              "name": "Cloudflare Sites and Services - SSL Certificate Provisioning",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "cghykwlwsmn5",
+          "name": "SSL Certificate Provisioning",
+          "status": "operational",
+          "created_at": "2016-03-17T15:27:39.778Z",
+          "updated_at": "2023-09-14T03:28:53.569Z",
+          "position": 57,
+          "description": "Cloudflare's SSL certificate provisioning service (Universal and Dedicated SSL)",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "0mvfy6sngwb6",
       "name": "Cloudflare Data Loss Prevention (DLP) Issues",
@@ -5702,99 +5755,6 @@
           "description": null,
           "showcase": false,
           "start_date": "2021-04-16",
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "kkbml5rjmyq3",
-      "name": "Issues with Wrangler remote-mode dev.",
-      "status": "resolved",
-      "created_at": "2023-09-04T13:37:56.000Z",
-      "updated_at": "2023-09-04T17:45:07.279Z",
-      "monitoring_at": null,
-      "resolved_at": "2023-09-04T17:45:07.263Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/dmjw3tkzp443",
-      "started_at": "2023-09-04T13:37:56.000Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "71xs7h9445gy",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "kkbml5rjmyq3",
-          "created_at": "2023-09-04T17:45:07.263Z",
-          "updated_at": "2023-09-04T17:45:07.263Z",
-          "display_at": "2023-09-04T17:45:07.263Z",
-          "affected_components": [
-            {
-              "code": "57srcl8zcn7c",
-              "name": "Cloudflare Sites and Services - Workers",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "86051w8ytldq",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "kkbml5rjmyq3",
-          "created_at": "2023-09-04T14:55:48.690Z",
-          "updated_at": "2023-09-04T14:55:48.690Z",
-          "display_at": "2023-09-04T14:55:48.690Z",
-          "affected_components": [
-            {
-              "code": "57srcl8zcn7c",
-              "name": "Cloudflare Sites and Services - Workers",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "h5n72tt25mj1",
-          "status": "investigating",
-          "body": "Cloudflare is investigating issues affecting a subset of users who are experiencing problems with Wrangler remote-mode dev and the debug inspector in the Cloudflare dashboard.\n\nLocal-mode dev and publishing workers via Wrangler are unaffected.\n\nWe are working to analyse and mitigate this problem. More updates to follow shortly.",
-          "incident_id": "kkbml5rjmyq3",
-          "created_at": "2023-09-04T13:37:56.231Z",
-          "updated_at": "2023-09-04T13:46:31.992Z",
-          "display_at": "2023-09-04T13:37:56.000Z",
-          "affected_components": [
-            {
-              "code": "57srcl8zcn7c",
-              "name": "Cloudflare Sites and Services - Workers",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "57srcl8zcn7c",
-          "name": "Workers",
-          "status": "operational",
-          "created_at": "2019-01-24T16:49:08.728Z",
-          "updated_at": "2023-09-19T09:07:40.703Z",
-          "position": 66,
-          "description": "Cloudflare's JavaScript and WebAssembly execution service",
-          "showcase": false,
-          "start_date": null,
           "group_id": "1km35smx8p41",
           "page_id": "yh6f0r4529hb",
           "group": false,
