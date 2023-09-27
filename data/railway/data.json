@@ -6,8 +6,8 @@
   "site": {
     "id": "ckp4dyswb9087339ioqfl0aidfs",
     "createdAt": "2021-05-25T18:42:43.788Z",
-    "status": "UP",
-    "mainStatus": "UP",
+    "status": "HASISSUES",
+    "mainStatus": "ONEPARTIALOUTAGE",
     "name": "Railway",
     "nameTranslation": null,
     "language": "en",
@@ -138,7 +138,7 @@
         "isCollapsed": false,
         "order": 3,
         "showUptime": true,
-        "status": "OPERATIONAL",
+        "status": "PARTIALOUTAGE",
         "archivedAt": null,
         "isThirdParty": false,
         "isParent": false,
@@ -320,7 +320,90 @@
     {
       "dayStr": "Wed Sep 27 2023",
       "dayKey": 1695772800000,
-      "notices": [],
+      "notices": [
+        {
+          "id": "cln27mrdl75373bbofzz3mh17l",
+          "name": "A small subset of requests ingested at our us-east edge failed with a 503 error",
+          "nameTranslationId": null,
+          "notify": false,
+          "status": "RESOLVED",
+          "started": "2023-09-27T20:39:50.586Z",
+          "resolved": "2023-09-27T20:39:50.586Z",
+          "duration": 0,
+          "createdAt": "2023-09-27T20:39:51.321Z",
+          "updatedAt": "2023-09-27T20:39:51.322Z",
+          "automated": null,
+          "impact": "PARTIALOUTAGE",
+          "appId": null,
+          "siteId": "ckp4dyswb9087339ioqfl0aidfs",
+          "importedFromStatuspage": false,
+          "visibilityState": "PUBLISHED",
+          "createdByType": "WORKSPACEMEMBER",
+          "createdByWorkspaceMemberId": "cl9naegd720437hnojypspjxzz",
+          "createdByMonitorLogId": null,
+          "createdByThirdPartyMonitorId": null,
+          "assignedWorkspaceMemberId": "cl9naegd720437hnojypspjxzz",
+          "subscribersNotified": true,
+          "nameTranslation": null,
+          "updates": [
+            {
+              "id": "cln27mrez75400bbofkx04azuy",
+              "message": "We experienced a high volume of connections from AWS directed at a single tenant via our us-east edge between 19:55 UTC and 20:20UTC. This traffic caused resource exhaustion on our proxies and led to a small subset of connections being terminated. We have mitigated this temporarily and are provisioning more proxy nodes to handle the load in us-east.",
+              "messageTranslationId": null,
+              "status": "RESOLVED",
+              "notify": false,
+              "started": "2023-09-27T20:39:50.586Z",
+              "ended": null,
+              "duration": null,
+              "createdAt": "2023-09-27T20:39:51.371Z",
+              "updatedAt": "2023-09-27T20:39:51.372Z",
+              "incidentId": "cln27mrdl75373bbofzz3mh17l",
+              "messageHtml": "<p>We experienced a high volume of connections from AWS directed at a single tenant via our us-east edge between 19:55 UTC and 20:20UTC. This traffic caused resource exhaustion on our proxies and led to a small subset of connections being terminated. We have mitigated this temporarily and are provisioning more proxy nodes to handle the load in us-east.</p>",
+              "messageHtmlTranslationId": null,
+              "importedFromStatuspage": false,
+              "messageHtmlTranslation": null,
+              "messageTranslation": null
+            }
+          ],
+          "components": [
+            {
+              "id": "ckp4dyt249087779ioqgpjxsuat",
+              "name": "Routing Layer",
+              "nameTranslationId": null,
+              "description": "",
+              "descriptionTranslationId": null,
+              "status": "PARTIALOUTAGE",
+              "order": 3,
+              "showUptime": true,
+              "createdAt": "2021-05-25T18:42:43.996Z",
+              "updatedAt": "2023-09-27T20:39:51.389Z",
+              "archivedAt": null,
+              "siteId": "ckp4dyswb9087339ioqfl0aidfs",
+              "uniqueEmail": "railway-routing-layer-sg1bjy1k1@automation.instatus.com",
+              "oldGroup": null,
+              "groupId": null,
+              "isParent": false,
+              "isCollapsed": false,
+              "monitorId": null,
+              "nameHtml": null,
+              "nameHtmlTranslationId": null,
+              "descriptionHtml": null,
+              "descriptionHtmlTranslationId": null,
+              "isThirdParty": false,
+              "thirdPartyStatus": null,
+              "thirdPartyComponentId": null,
+              "thirdPartyComponentServiceId": null,
+              "importedFromStatuspage": false,
+              "startDate": null,
+              "nameTranslation": null,
+              "nameHtmlTranslation": null,
+              "descriptionTranslation": null,
+              "descriptionHtmlTranslation": null,
+              "group": null
+            }
+          ]
+        }
+      ],
       "isLastPage": true
     },
     {
@@ -438,11 +521,11 @@
               "nameTranslationId": null,
               "description": "",
               "descriptionTranslationId": null,
-              "status": "OPERATIONAL",
+              "status": "PARTIALOUTAGE",
               "order": 3,
               "showUptime": true,
               "createdAt": "2021-05-25T18:42:43.996Z",
-              "updatedAt": "2023-09-22T21:18:01.324Z",
+              "updatedAt": "2023-09-27T20:39:51.389Z",
               "archivedAt": null,
               "siteId": "ckp4dyswb9087339ioqfl0aidfs",
               "uniqueEmail": "railway-routing-layer-sg1bjy1k1@automation.instatus.com",
@@ -1005,7 +1088,8 @@
         "cll3rflvx26388hood42ioygcb",
         "cllf8quvl3639booijpzn13iw",
         "clll4aqq29622hzoc5r8msje1",
-        "clmv3c1ew11150bemtx3gjmxju"
+        "clmv3c1ew11150bemtx3gjmxju",
+        "cln27mrdl75373bbofzz3mh17l"
       ],
       "uptime": 99.99,
       "daysDictionary": {
@@ -1045,6 +1129,12 @@
             "Fri Sep 22 2023 00:00:00 GMT+0000 (Coordinated Universal Time)": {
               "notices": [
                 "clmv3c1ew11150bemtx3gjmxju"
+              ],
+              "noticeCount": 1
+            },
+            "Wed Sep 27 2023 00:00:00 GMT+0000 (Coordinated Universal Time)": {
+              "notices": [
+                "cln27mrdl75373bbofzz3mh17l"
               ],
               "noticeCount": 1
             }
@@ -1672,6 +1762,20 @@
       "impact": "PARTIALOUTAGE",
       "resolved": "2023-09-22T21:18:00.141Z",
       "started": "2023-09-22T21:05:08.627Z",
+      "status": "RESOLVED",
+      "components": [
+        {
+          "id": "ckp4dyt249087779ioqgpjxsuat"
+        }
+      ]
+    },
+    "cln27mrdl75373bbofzz3mh17l": {
+      "id": "cln27mrdl75373bbofzz3mh17l",
+      "name": "A small subset of requests ingested at our us-east edge failed with a 503 error",
+      "nameTranslation": null,
+      "impact": "PARTIALOUTAGE",
+      "resolved": "2023-09-27T20:39:50.586Z",
+      "started": "2023-09-27T20:39:50.586Z",
       "status": "RESOLVED",
       "components": [
         {
