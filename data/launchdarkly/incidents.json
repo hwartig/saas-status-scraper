@@ -4,9 +4,62 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-09-26T00:53:42.455-07:00"
+    "updated_at": "2023-09-26T19:34:10.000-07:00"
   },
   "incidents": [
+    {
+      "id": "d1r2cqkpkg48",
+      "name": "Context Event Processing Delays",
+      "status": "monitoring",
+      "created_at": "2023-09-26T19:34:09.890-07:00",
+      "updated_at": "2023-09-26T19:34:09.997-07:00",
+      "monitoring_at": "2023-09-26T19:34:09.985-07:00",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/m7cgmn74ctvq",
+      "started_at": "2023-09-26T19:34:09.881-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "l61x611j1svn",
+          "status": "monitoring",
+          "body": "Processing for context events is currently delayed by up to 90 minutes and the following areas of the UI will not display the latest data: \nContexts dashboard\nContext attribute auto-completion in flag and segment targeting\n\nNo data has been lost and the system should be caught up shortly.",
+          "incident_id": "d1r2cqkpkg48",
+          "created_at": "2023-09-26T19:34:09.985-07:00",
+          "updated_at": "2023-09-26T19:34:09.985-07:00",
+          "display_at": "2023-09-26T19:34:09.985-07:00",
+          "affected_components": [
+            {
+              "code": "7h4z5dpj09mx",
+              "name": "Feature management (non-core functionality) - Context processing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "7h4z5dpj09mx",
+          "name": "Context processing",
+          "status": "degraded_performance",
+          "created_at": "2023-09-18T15:14:51.435-07:00",
+          "updated_at": "2023-09-26T19:34:09.934-07:00",
+          "position": 1,
+          "description": "Ingestion and recording of contexts",
+          "showcase": false,
+          "start_date": "2023-09-18",
+          "group_id": "2868qx437p9m",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "ytm8kkkcgbr4",
       "name": "Event Processing Delays",
@@ -85,9 +138,9 @@
         {
           "id": "7h4z5dpj09mx",
           "name": "Context processing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-09-18T15:14:51.435-07:00",
-          "updated_at": "2023-09-22T23:52:56.144-07:00",
+          "updated_at": "2023-09-26T19:34:09.934-07:00",
           "position": 1,
           "description": "Ingestion and recording of contexts",
           "showcase": false,
@@ -347,9 +400,9 @@
         {
           "id": "7h4z5dpj09mx",
           "name": "Context processing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-09-18T15:14:51.435-07:00",
-          "updated_at": "2023-09-22T23:52:56.144-07:00",
+          "updated_at": "2023-09-26T19:34:09.934-07:00",
           "position": 1,
           "description": "Ingestion and recording of contexts",
           "showcase": false,
@@ -5761,62 +5814,6 @@
           "deliver_notifications": false,
           "custom_tweet": null,
           "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "nndd70rszkbb",
-      "name": "Delayed Context Ingestion for Early Access Customers",
-      "status": "resolved",
-      "created_at": "2023-02-24T13:36:57.027-08:00",
-      "updated_at": "2023-02-24T20:22:56.993-08:00",
-      "monitoring_at": "2023-02-24T17:29:45.941-08:00",
-      "resolved_at": "2023-02-24T20:22:56.977-08:00",
-      "impact": "none",
-      "shortlink": "https://stspg.io/nkjds6l4k4vh",
-      "started_at": "2023-02-24T13:36:57.020-08:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "ntsqn9s9639k",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "nndd70rszkbb",
-          "created_at": "2023-02-24T20:22:56.977-08:00",
-          "updated_at": "2023-02-24T20:22:56.977-08:00",
-          "display_at": "2023-02-24T20:22:56.977-08:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xx9hpb08170b",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "nndd70rszkbb",
-          "created_at": "2023-02-24T17:29:45.941-08:00",
-          "updated_at": "2023-02-24T17:29:45.941-08:00",
-          "display_at": "2023-02-24T17:29:45.941-08:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5v9vm9xjz9kh",
-          "status": "investigating",
-          "body": "We are investigating a delay with context ingestion. During this time, the flag targeting page will not be updated in real-time with autofill context kinds.\n\nThis only affects customers enrolled in the Custom Contexts Early Access Program. (Contexts EAP)\n\nThere is no impact to the Users Services, SDKs, or applications using the LaunchDarkly service.",
-          "incident_id": "nndd70rszkbb",
-          "created_at": "2023-02-24T13:36:57.073-08:00",
-          "updated_at": "2023-02-24T13:36:57.754-08:00",
-          "display_at": "2023-02-24T13:36:57.073-08:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1629233948231602200
         }
       ],
       "components": [],
