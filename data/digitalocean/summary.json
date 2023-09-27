@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-27T16:05:43.911Z"
+    "updated_at": "2023-09-27T18:49:01.491Z"
   },
   "components": [
     {
@@ -565,9 +565,9 @@
     {
       "id": "tz43j53blsmy",
       "name": "NYC3",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2023-02-22T17:38:11.758Z",
-      "updated_at": "2023-07-20T22:31:03.089Z",
+      "updated_at": "2023-09-27T18:49:01.449Z",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -2896,7 +2896,7 @@
     {
       "id": "fdg768pfw7v3",
       "name": "Spaces",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2023-02-22T19:29:09.025Z",
       "updated_at": "2023-04-21T16:18:17.291Z",
       "position": 20,
@@ -3005,10 +3005,64 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "ygpk1jjf2pb7",
+      "name": "Spaces Creation in NYC3",
+      "status": "identified",
+      "created_at": "2023-09-27T18:49:01.426Z",
+      "updated_at": "2023-09-27T18:49:01.489Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/618v4ztqyydt",
+      "started_at": "2023-09-27T18:49:01.420Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "gdy5frmq8650",
+          "status": "identified",
+          "body": "Our Engineering team has identified an issue with creating Spaces buckets in our NYC3 region and is currently working on a fix to mitigate the issue. At this time, users will see 500 errors when attempting to create buckets in NYC3. \n\nWe'll provide an update as soon as possible.",
+          "incident_id": "ygpk1jjf2pb7",
+          "created_at": "2023-09-27T18:49:01.487Z",
+          "updated_at": "2023-09-27T18:49:01.487Z",
+          "display_at": "2023-09-27T18:49:01.487Z",
+          "affected_components": [
+            {
+              "code": "tz43j53blsmy",
+              "name": "Spaces - NYC3",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "tz43j53blsmy",
+          "name": "NYC3",
+          "status": "partial_outage",
+          "created_at": "2023-02-22T17:38:11.758Z",
+          "updated_at": "2023-09-27T18:49:01.449Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-22",
+          "group_id": "fdg768pfw7v3",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
