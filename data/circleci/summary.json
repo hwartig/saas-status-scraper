@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-28T08:05:45.196Z"
+    "updated_at": "2023-09-28T20:56:56.935Z"
   },
   "components": [
     {
@@ -220,9 +220,9 @@
     {
       "id": "x113zcvdh42r",
       "name": "Docker Hub",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-11-24T21:05:36.744Z",
-      "updated_at": "2021-12-21T04:15:11.277Z",
+      "updated_at": "2023-09-28T20:56:56.875Z",
       "position": 5,
       "description": "Docker Hub is a third-party service that provides docker images.",
       "showcase": false,
@@ -470,7 +470,7 @@
     {
       "id": "s21fdjds0k15",
       "name": "Upstream Services",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-10-23T23:23:34.529Z",
       "updated_at": "2021-09-08T16:49:09.917Z",
       "position": 14,
@@ -494,7 +494,61 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "vf6jjxnrnkp8",
+      "name": "Docker Hub Registry Timming Out",
+      "status": "investigating",
+      "created_at": "2023-09-28T20:56:56.831Z",
+      "updated_at": "2023-09-28T20:56:56.931Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/prcc5xq241hc",
+      "started_at": "2023-09-28T20:56:56.822Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "0vl3b38gl53h",
+          "status": "investigating",
+          "body": "You may be seeing an issue with downloading your Docker Hub Image.\nError pulling image <image>: Error response from daemon: Get \"https://registry-1.docker.io/v2/\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)... retrying\n\nThis is due to an active DockerHub Incident. \nMore information can be found on the Docker Hub Status Page: https://www.dockerstatus.com/pages/533c6539221ae15e3f000031",
+          "incident_id": "vf6jjxnrnkp8",
+          "created_at": "2023-09-28T20:56:56.928Z",
+          "updated_at": "2023-09-28T20:56:56.928Z",
+          "display_at": "2023-09-28T20:56:56.928Z",
+          "affected_components": [
+            {
+              "code": "x113zcvdh42r",
+              "name": "Upstream Services - Docker Hub",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "x113zcvdh42r",
+          "name": "Docker Hub",
+          "status": "degraded_performance",
+          "created_at": "2018-11-24T21:05:36.744Z",
+          "updated_at": "2023-09-28T20:56:56.875Z",
+          "position": 5,
+          "description": "Docker Hub is a third-party service that provides docker images.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s21fdjds0k15",
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "df1szkrn4cv3",
@@ -660,7 +714,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }

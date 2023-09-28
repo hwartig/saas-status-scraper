@@ -4,9 +4,39 @@
     "name": "SendGrid",
     "url": "https://status.sendgrid.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-09-28T10:42:54.556-07:00"
+    "updated_at": "2023-09-28T13:54:21.371-07:00"
   },
   "incidents": [
+    {
+      "id": "s3r325cw6jcy",
+      "name": "Connectivity Timeouts to US East SendGrid Region",
+      "status": "resolved",
+      "created_at": "2023-09-28T12:00:00.000-07:00",
+      "updated_at": "2023-09-28T13:54:21.369-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2023-09-28T12:00:00.000-07:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/nfm9wtjchmd7",
+      "started_at": "2023-09-28T13:54:12.313-07:00",
+      "page_id": "3tgl2vf85cht",
+      "incident_updates": [
+        {
+          "id": "flj1prmg3l8z",
+          "status": "resolved",
+          "body": "Beginning 12:00 PM PT on September 28, 2023, our engineers confirmed that connectivity began to fail for API calls made to api.sendgrid.com for a subset of users. This issue affected mail send as well as user interface web console functionality for the SendGrid platform. This only affected users which connected through the United States East Coast region to api.sendgrid.com. It was determined that one of the connectivity points within the region for api.sendgrid.com was unable to accept API traffic which was causing the API connections to fail. This connectivity point was fixed at 12:54 PM PT, and this change allowed new connections to successfully use api.sendgrid.com from the region. The issue has been resolved and all impacted services are now operating normally.",
+          "incident_id": "s3r325cw6jcy",
+          "created_at": "2023-09-28T13:54:12.354-07:00",
+          "updated_at": "2023-09-28T13:54:12.354-07:00",
+          "display_at": "2023-09-28T12:00:00.000-07:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "7zvwsy7cxx1s",
       "name": "Intermittent Failed Subuser Creation",
@@ -6474,99 +6504,6 @@
           "description": "Availability of SendGrid.com",
           "showcase": false,
           "start_date": null,
-          "group_id": null,
-          "page_id": "3tgl2vf85cht",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "496335qk6fzp",
-      "name": "Legacy Marketing Campaign Stats for Campaigns Sent not updated on UI",
-      "status": "resolved",
-      "created_at": "2023-03-10T05:15:49.000-08:00",
-      "updated_at": "2023-03-10T10:15:44.310-08:00",
-      "monitoring_at": "2023-03-10T07:36:33.000-08:00",
-      "resolved_at": "2023-03-10T10:15:42.455-08:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/k1941hr3wc7d",
-      "started_at": "2023-03-10T05:15:49.000-08:00",
-      "page_id": "3tgl2vf85cht",
-      "incident_updates": [
-        {
-          "id": "dfwqk7530lmg",
-          "status": "resolved",
-          "body": "Our engineers have monitored the fix and confirmed the issue with Marketing Campaigns Legacy stats not being updated has been resolved. All services are now operating normally at this time.",
-          "incident_id": "496335qk6fzp",
-          "created_at": "2023-03-10T10:15:42.455-08:00",
-          "updated_at": "2023-03-10T10:15:44.299-08:00",
-          "display_at": "2023-03-10T10:15:42.455-08:00",
-          "affected_components": [
-            {
-              "code": "ry6z0hmq55qg",
-              "name": "Statistics",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1634256738357747700
-        },
-        {
-          "id": "67wl5wlgt64p",
-          "status": "monitoring",
-          "body": "Our engineers have implemented the fix and we are monitoring system performance. We will provide another update in 1 hr or as soon as more information becomes available.",
-          "incident_id": "496335qk6fzp",
-          "created_at": "2023-03-10T07:36:33.283-08:00",
-          "updated_at": "2023-03-10T08:13:35.005-08:00",
-          "display_at": "2023-03-10T07:36:33.000-08:00",
-          "affected_components": [
-            {
-              "code": "ry6z0hmq55qg",
-              "name": "Statistics",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6frks172x3nc",
-          "status": "identified",
-          "body": "Starting at 3:15 AM PT on March 10th, our engineers began investigating a technical issue wherein the stats for the Campaigns sent using Marketing Campaigns Legacy were not being updated on the UI.\nThis only impacts stats functionality on Marketing Campaigns Legacy and does not affect mail send. \nOur engineers identified the root cause for the problem. Data is being processed correctly, but it is expected to have a delay on how the stats are being displayed.\nAdditional updates will be provided as soon as more information is available.",
-          "incident_id": "496335qk6fzp",
-          "created_at": "2023-03-10T05:45:49.075-08:00",
-          "updated_at": "2023-03-10T08:12:50.764-08:00",
-          "display_at": "2023-03-10T05:15:49.000-08:00",
-          "affected_components": [
-            {
-              "code": "ry6z0hmq55qg",
-              "name": "Statistics",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "ry6z0hmq55qg",
-          "name": "Statistics",
-          "status": "operational",
-          "created_at": "2021-03-24T12:00:44.175-07:00",
-          "updated_at": "2023-08-03T16:30:07.152-07:00",
-          "position": 6,
-          "description": "Availability of Global and Category stats",
-          "showcase": false,
-          "start_date": "2021-03-24",
           "group_id": null,
           "page_id": "3tgl2vf85cht",
           "group": false,
