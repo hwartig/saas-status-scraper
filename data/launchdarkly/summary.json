@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-09-28T01:08:51.484-07:00"
+    "updated_at": "2023-09-28T11:12:12.023-07:00"
   },
   "components": [
     {
@@ -246,9 +246,9 @@
     {
       "id": "1skhs8zvnlm6",
       "name": "Experiment metric management",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-09-16T15:25:16.137-07:00",
-      "updated_at": "2023-06-26T16:00:17.402-07:00",
+      "updated_at": "2023-09-28T11:12:11.954-07:00",
       "position": 2,
       "description": "Creating and editing metrics",
       "showcase": true,
@@ -321,7 +321,7 @@
     {
       "id": "j28fw96kw68y",
       "name": "Experimentation (core functionality)",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-09-16T15:24:04.061-07:00",
       "updated_at": "2022-09-16T15:27:28.028-07:00",
       "position": 3,
@@ -342,9 +342,9 @@
     {
       "id": "hf1r5xs02ll2",
       "name": "Experiment results processing",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-09-16T15:33:34.500-07:00",
-      "updated_at": "2023-07-24T13:24:18.923-07:00",
+      "updated_at": "2023-09-28T11:12:11.973-07:00",
       "position": 3,
       "description": "Ingestion and recording of experiment results",
       "showcase": true,
@@ -575,7 +575,82 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "mmkncvmfgk45",
+      "name": "Recently created metrics are not sending experimentation events",
+      "status": "identified",
+      "created_at": "2023-09-28T11:12:11.913-07:00",
+      "updated_at": "2023-09-28T11:12:12.020-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/z5lgfr901vh9",
+      "started_at": "2023-09-28T11:12:11.904-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "m0rq4x609g97",
+          "status": "identified",
+          "body": "We have identified an issue where metrics created through the application UI are not sending experimentation events as expected. We have fixed any issues with existing metrics and are working on a fix for UI.",
+          "incident_id": "mmkncvmfgk45",
+          "created_at": "2023-09-28T11:12:12.018-07:00",
+          "updated_at": "2023-09-28T11:12:12.018-07:00",
+          "display_at": "2023-09-28T11:12:12.018-07:00",
+          "affected_components": [
+            {
+              "code": "1skhs8zvnlm6",
+              "name": "Experimentation (core functionality) - Experiment metric management",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "hf1r5xs02ll2",
+              "name": "Experimentation (core functionality) - Experiment results processing",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "1skhs8zvnlm6",
+          "name": "Experiment metric management",
+          "status": "partial_outage",
+          "created_at": "2022-09-16T15:25:16.137-07:00",
+          "updated_at": "2023-09-28T11:12:11.954-07:00",
+          "position": 2,
+          "description": "Creating and editing metrics",
+          "showcase": true,
+          "start_date": "2022-09-16",
+          "group_id": "j28fw96kw68y",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "hf1r5xs02ll2",
+          "name": "Experiment results processing",
+          "status": "partial_outage",
+          "created_at": "2022-09-16T15:33:34.500-07:00",
+          "updated_at": "2023-09-28T11:12:11.973-07:00",
+          "position": 3,
+          "description": "Ingestion and recording of experiment results",
+          "showcase": true,
+          "start_date": "2022-09-16",
+          "group_id": "j28fw96kw68y",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "ylfdd5tzy65z",
@@ -633,7 +708,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
