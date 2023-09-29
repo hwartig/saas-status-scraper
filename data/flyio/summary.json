@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "America/Chicago",
-    "updated_at": "2023-09-26T05:32:53.543-05:00"
+    "updated_at": "2023-09-28T21:45:59.994-05:00"
   },
   "components": [
     {
@@ -116,9 +116,9 @@
     {
       "id": "49yq6v65b33l",
       "name": "Deployments",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-04-01T16:53:18.234-05:00",
-      "updated_at": "2023-09-20T02:45:55.030-05:00",
+      "updated_at": "2023-09-28T21:45:59.943-05:00",
       "position": 2,
       "description": null,
       "showcase": true,
@@ -210,7 +210,7 @@
     {
       "id": "ycm6xbpsfqvd",
       "name": "Platform and Tools",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-04-01T16:34:45.488-05:00",
       "updated_at": "2021-02-25T10:06:12.403-06:00",
       "position": 3,
@@ -541,9 +541,9 @@
     {
       "id": "lwp4hw3r415g",
       "name": "Docker Registry",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-05-18T07:37:57.574-05:00",
-      "updated_at": "2023-09-21T11:35:49.577-05:00",
+      "updated_at": "2023-09-28T21:45:59.956-05:00",
       "position": 11,
       "description": null,
       "showcase": true,
@@ -839,10 +839,85 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "mpg7b15y2kwy",
+      "name": "Docker Hub Registry Timing Out: Fly Platform Impact",
+      "status": "investigating",
+      "created_at": "2023-09-28T21:45:59.916-05:00",
+      "updated_at": "2023-09-28T21:45:59.992-05:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/bz2cg652qlby",
+      "started_at": "2023-09-28T21:45:59.908-05:00",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "rpbb2n51fjjb",
+          "status": "investigating",
+          "body": "Docker Hub has an ongoing outage with their registry: https://www.dockerstatus.com/pages/incident/533c6539221ae15e3f000031/6515dbc89fabff05350ae18d\n\nDeployments that use an image from the Docker Hub Registry—any unqualified FROM in a Dockerfile or setting an unqualified image name with `fly deploy --image`—may fail.\n\nExisting machines and allocs are not affected. Creating apps, machines, or allocs from images in the Fly Registry (registry.fly.io/APP_NAME) are working.\n\nRemote builders may fail to download the image from Docker Hub. We're working on a fix for that now.\n\nTry `fly deploy --local-only` if you experience remote builder issues as result of this issue. That will use a local docker environment on your system to build and push the image. That might work and work around the remote builder issue for now, though we understand local docker environments can be unreliable in certain cases (for example, building linux/amd64 images on macOS M1/M2 chips can seqfault with a known wontfix issue in qemu).",
+          "incident_id": "mpg7b15y2kwy",
+          "created_at": "2023-09-28T21:45:59.990-05:00",
+          "updated_at": "2023-09-28T21:45:59.990-05:00",
+          "display_at": "2023-09-28T21:45:59.990-05:00",
+          "affected_components": [
+            {
+              "code": "49yq6v65b33l",
+              "name": "Platform and Tools - Deployments",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "lwp4hw3r415g",
+              "name": "Platform and Tools - Docker Registry",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "49yq6v65b33l",
+          "name": "Deployments",
+          "status": "degraded_performance",
+          "created_at": "2020-04-01T16:53:18.234-05:00",
+          "updated_at": "2023-09-28T21:45:59.943-05:00",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": "ycm6xbpsfqvd",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "lwp4hw3r415g",
+          "name": "Docker Registry",
+          "status": "degraded_performance",
+          "created_at": "2022-05-18T07:37:57.574-05:00",
+          "updated_at": "2023-09-28T21:45:59.956-05:00",
+          "position": 11,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-05-18",
+          "group_id": "ycm6xbpsfqvd",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }

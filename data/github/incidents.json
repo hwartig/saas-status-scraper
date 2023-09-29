@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-28T21:01:31.393Z"
+    "updated_at": "2023-09-29T02:51:47.831Z"
   },
   "incidents": [
     {
@@ -12,9 +12,9 @@
       "name": "Incident with Actions",
       "status": "resolved",
       "created_at": "2023-09-27T00:23:20.629Z",
-      "updated_at": "2023-09-27T00:58:42.874Z",
+      "updated_at": "2023-09-29T02:51:47.828Z",
       "monitoring_at": null,
-      "resolved_at": "2023-09-27T00:58:42.854Z",
+      "resolved_at": "2023-09-27T00:58:42.000Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/wmyb95wf4mvk",
       "started_at": "2023-09-27T00:23:20.622Z",
@@ -23,11 +23,11 @@
         {
           "id": "krcwp6nd7783",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "On September 27, 2023 at 00:12 UTC, our alerting systems detected an increase in the time it took GitHub Actions workflow runs to start. During the incident, some customers experienced delays in starting Github Actions workflow runs and receiving status updates for in-progress runs. The root cause was identified to be a change that was deployed to an internal distributed event streaming platform which resulted in several worker nodes to go over a misconfigured memory limit. This caused these nodes to restart leading to a reduced job processing throughput. Github Actions relies on events delivered through this event streaming platform to start workflow runs and update their status. Delays in receiving these events led to run delays for about 40% of the Actions workflows.\n\t\nWe mitigated this through a rollback of the offending change at 00:18 UTC. This allowed our event streaming platform to catch up with the backlog of workflow runs that were queued during the incident. The backlog was processed by 00:44 UTC. We have additional repair items in place to prevent a recurrence in the future.",
           "incident_id": "tpykx175y6jt",
           "created_at": "2023-09-27T00:58:42.854Z",
-          "updated_at": "2023-09-27T00:58:42.854Z",
-          "display_at": "2023-09-27T00:58:42.854Z",
+          "updated_at": "2023-09-29T02:51:47.808Z",
+          "display_at": "2023-09-27T00:58:42.000Z",
           "affected_components": [
             {
               "code": "br0l2tvcx85d",
