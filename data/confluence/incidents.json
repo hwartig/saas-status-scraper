@@ -4,7 +4,7 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-22T20:43:26.024Z"
+    "updated_at": "2023-10-03T05:54:00.030Z"
   },
   "incidents": [
     {
@@ -530,9 +530,9 @@
     {
       "id": "lq3g8qf1256c",
       "name": "Customers are unable to edit pages",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-09-15T04:25:19.000Z",
-      "updated_at": "2023-09-15T05:21:53.463Z",
+      "updated_at": "2023-10-03T05:54:00.027Z",
       "monitoring_at": null,
       "resolved_at": "2023-09-15T05:21:53.448Z",
       "impact": "major",
@@ -540,6 +540,19 @@
       "started_at": "2023-09-15T04:25:19.000Z",
       "page_id": "4g2my7tbhjsq",
       "incident_updates": [
+        {
+          "id": "84ybp64lqj3y",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn September 15, 2023, between 1:39 and 5:12 UTC, we experienced an issue with a third-party tool that functions as our internal artifact management system. Although the incident was detected within one minute by our monitoring system, this issue led to the degradation of the scaling capabilities of our internal hosting platform, resulting in service degradation or outages for customers of Atlassian cloud products.\n\n### **IMPACT**\n\nThis incident affected multiple regions and products, due to the diminished scaling capabilities of our internal hosting platform. Customers using Atlassian cloud products faced reduced functionality, slower response times, and limited access to specific features.\n\n### **ROOT CAUSE**\n\nThe root cause of this incident was unexpected behavior in a third-party tool that functions as our internal artifact management system. The issue made it impossible for our artifact management system to scale to demand, and as a result, our internal hosting platform was unable to scale effectively.\n\nUpon identifying and localizing the problem, we corrected the issue and were able to restore full scaling capabilities to our artifact management system, and by extension, our internal hosting platform.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nFollowing a previous incident of this nature \\([https://jira-software.status.atlassian.com/incidents/pqltf5m971qf](https://jira-software.status.atlassian.com/incidents/pqltf5m971qf)\\), we prioritized a project to ensure that such downtime does not negatively impact the ability to scale for our other components nor cause customer impact. While this work is now complete, it was not quite ready at the time this incident occurred.\n\nFurther, we committed to a temporary freeze on non-critical upgrades and changes for the artifact management system. This freeze has been maintained - the issue in this instance was not the result of a change or upgrade, but rather an unforeseen behavior in the system.\n\nWe apologize for any inconvenience caused by this incident and appreciate your understanding. Our team is dedicated to continually improving our systems and processes to provide you with the exceptional service you deserve. Thank you for your continued support and trust in us.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "lq3g8qf1256c",
+          "created_at": "2023-10-03T05:53:25.930Z",
+          "updated_at": "2023-10-03T05:54:00.025Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "gqmthb1w67zx",
           "status": "resolved",
