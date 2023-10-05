@@ -4,9 +4,62 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-10-05T15:12:10.056Z"
+    "updated_at": "2023-10-05T16:03:11.333Z"
   },
   "incidents": [
+    {
+      "id": "rg2dhzyd780z",
+      "name": "Issues with single-file Cache Purging",
+      "status": "investigating",
+      "created_at": "2023-10-05T16:00:05.808Z",
+      "updated_at": "2023-10-05T16:00:32.779Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/rw9p5txnv1w5",
+      "started_at": "2023-10-05T16:00:05.800Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "hwwfd9kg597k",
+          "status": "investigating",
+          "body": "Cloudflare is investigating an issue that affects single-file cache purging called via the dashboard and API.\n\nWe are working to resolve this issue as soon as possible. Until then you may use other types of cache purging, including the Purge Everything feature, but do be aware it may cause a surge in traffic to your origin server(s). More updates to follow.",
+          "incident_id": "rg2dhzyd780z",
+          "created_at": "2023-10-05T16:00:05.907Z",
+          "updated_at": "2023-10-05T16:00:05.907Z",
+          "display_at": "2023-10-05T16:00:05.907Z",
+          "affected_components": [
+            {
+              "code": "fbvx0hxhhdj0",
+              "name": "Cloudflare Sites and Services - CDN Cache Purge",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "fbvx0hxhhdj0",
+          "name": "CDN Cache Purge",
+          "status": "degraded_performance",
+          "created_at": "2019-01-31T16:54:52.510Z",
+          "updated_at": "2023-10-05T16:00:05.848Z",
+          "position": 16,
+          "description": "Cloudflare's CDN single file cache purging service",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "p1sgq151pq4m",
       "name": "Magic Transit Degraded Performance in QRO (Queretaro)",
@@ -5733,99 +5786,6 @@
           "description": null,
           "showcase": false,
           "start_date": "2020-12-17",
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "m36dqthb125s",
-      "name": "WARP connectivity",
-      "status": "resolved",
-      "created_at": "2023-09-11T18:57:08.019Z",
-      "updated_at": "2023-09-12T03:04:06.064Z",
-      "monitoring_at": "2023-09-11T20:13:07.064Z",
-      "resolved_at": "2023-09-12T03:04:06.049Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/lnfg45cx1j2g",
-      "started_at": "2023-09-11T18:57:08.013Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "412684s3gsfb",
-          "status": "resolved",
-          "body": "Cloudflare has resolved the issue and services have resumed normal operation.",
-          "incident_id": "m36dqthb125s",
-          "created_at": "2023-09-12T03:04:06.049Z",
-          "updated_at": "2023-09-12T03:04:06.049Z",
-          "display_at": "2023-09-12T03:04:06.049Z",
-          "affected_components": [
-            {
-              "code": "q0dfbn0p6hyt",
-              "name": "Cloudflare Sites and Services - Browser Isolation",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4gq17c7tp4d1",
-          "status": "monitoring",
-          "body": "Cloudflare has identified that Browser Isolation performance is only degraded if experimental features are enabled in the latest versions of Google Chrome. We will continue to monitor and account for these active variations moving forward.",
-          "incident_id": "m36dqthb125s",
-          "created_at": "2023-09-11T20:13:07.064Z",
-          "updated_at": "2023-09-11T20:13:07.064Z",
-          "display_at": "2023-09-11T20:13:07.064Z",
-          "affected_components": [
-            {
-              "code": "q0dfbn0p6hyt",
-              "name": "Cloudflare Sites and Services - Browser Isolation",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gq2kctfm8qs8",
-          "status": "investigating",
-          "body": "Cloudflare is investigating issues with degraded performance of Remote Browser Isolation through the WARP agent on the most recent version of Google Chrome (116.0.5845.179) while also investigating other recently released versions for impact.",
-          "incident_id": "m36dqthb125s",
-          "created_at": "2023-09-11T18:57:08.128Z",
-          "updated_at": "2023-09-11T18:57:08.128Z",
-          "display_at": "2023-09-11T18:57:08.128Z",
-          "affected_components": [
-            {
-              "code": "q0dfbn0p6hyt",
-              "name": "Cloudflare Sites and Services - Browser Isolation",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "q0dfbn0p6hyt",
-          "name": "Browser Isolation",
-          "status": "operational",
-          "created_at": "2021-08-10T19:01:26.692Z",
-          "updated_at": "2023-09-12T03:04:06.016Z",
-          "position": 12,
-          "description": null,
-          "showcase": false,
-          "start_date": "2021-08-10",
           "group_id": "1km35smx8p41",
           "page_id": "yh6f0r4529hb",
           "group": false,
