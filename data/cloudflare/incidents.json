@@ -4,22 +4,100 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-10-05T16:43:01.312Z"
+    "updated_at": "2023-10-05T17:00:51.407Z"
   },
   "incidents": [
     {
       "id": "rg2dhzyd780z",
       "name": "Issues with Cache Reserve and single-file Cache Purging",
-      "status": "investigating",
-      "created_at": "2023-10-05T16:00:05.808Z",
-      "updated_at": "2023-10-05T16:23:31.673Z",
-      "monitoring_at": null,
-      "resolved_at": null,
+      "status": "resolved",
+      "created_at": "2023-10-05T16:00:05.000Z",
+      "updated_at": "2023-10-05T16:58:47.565Z",
+      "monitoring_at": "2023-10-05T16:52:34.993Z",
+      "resolved_at": "2023-10-05T16:56:11.066Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/rw9p5txnv1w5",
       "started_at": "2023-10-05T16:00:05.000Z",
       "page_id": "yh6f0r4529hb",
       "incident_updates": [
+        {
+          "id": "n9x4tk24rczj",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "rg2dhzyd780z",
+          "created_at": "2023-10-05T16:56:11.066Z",
+          "updated_at": "2023-10-05T16:56:11.066Z",
+          "display_at": "2023-10-05T16:56:11.066Z",
+          "affected_components": [
+            {
+              "code": "3q1jnbdbn845",
+              "name": "Cloudflare Sites and Services - Cache Reserve",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "fbvx0hxhhdj0",
+              "name": "Cloudflare Sites and Services - CDN Cache Purge",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "y8rmfm0srp18",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "rg2dhzyd780z",
+          "created_at": "2023-10-05T16:52:34.993Z",
+          "updated_at": "2023-10-05T16:52:34.993Z",
+          "display_at": "2023-10-05T16:52:34.993Z",
+          "affected_components": [
+            {
+              "code": "3q1jnbdbn845",
+              "name": "Cloudflare Sites and Services - Cache Reserve",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "fbvx0hxhhdj0",
+              "name": "Cloudflare Sites and Services - CDN Cache Purge",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "r71tmmdlkxk6",
+          "status": "identified",
+          "body": "The issue has been identified and a fix is being implemented.",
+          "incident_id": "rg2dhzyd780z",
+          "created_at": "2023-10-05T16:49:23.435Z",
+          "updated_at": "2023-10-05T16:49:23.435Z",
+          "display_at": "2023-10-05T16:49:23.435Z",
+          "affected_components": [
+            {
+              "code": "3q1jnbdbn845",
+              "name": "Cloudflare Sites and Services - Cache Reserve",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "fbvx0hxhhdj0",
+              "name": "Cloudflare Sites and Services - CDN Cache Purge",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "hhd0pbr9kbc5",
           "status": "investigating",
@@ -49,10 +127,10 @@
         {
           "id": "hwwfd9kg597k",
           "status": "investigating",
-          "body": "Cloudflare is investigating an issue with Cache Reserve, as a result single-file cache purging called via the dashboard and API may experience issues.\n\nDuring this time you may see an increased amount of cache misses.\n\nWe are working to resolve this issue as soon as possible. Until then you may use other types of cache purging, including the Purge Everything feature, but do be aware it may cause a surge in traffic to your origin server(s). More updates to follow.",
+          "body": "Cloudflare is investigating an issue with Cache Reserve, as a result single-file cache purging called via the dashboard and API may experience issues.\n\nDuring this time you may see an increased amount of cache misses if you have Cache Reserve enabled\n\nWe are working to resolve this issue as soon as possible. Until then you may use other types of cache purging, including the Purge Everything feature, but do be aware it may cause a surge in traffic to your origin server(s). More updates to follow.",
           "incident_id": "rg2dhzyd780z",
           "created_at": "2023-10-05T16:00:05.907Z",
-          "updated_at": "2023-10-05T16:22:10.576Z",
+          "updated_at": "2023-10-05T16:58:47.560Z",
           "display_at": "2023-10-05T16:00:05.000Z",
           "affected_components": [
             {
@@ -71,9 +149,9 @@
         {
           "id": "3q1jnbdbn845",
           "name": "Cache Reserve",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2023-06-12T16:52:52.754Z",
-          "updated_at": "2023-10-05T16:22:28.337Z",
+          "updated_at": "2023-10-05T16:56:11.020Z",
           "position": 14,
           "description": "Cache Reserve is a large, persistent data store implemented on top of R2. By pushing a single button in the dashboard, your website’s cacheable content will be written to Cache Reserve.",
           "showcase": false,
@@ -86,9 +164,9 @@
         {
           "id": "fbvx0hxhhdj0",
           "name": "CDN Cache Purge",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2019-01-31T16:54:52.510Z",
-          "updated_at": "2023-10-05T16:00:05.848Z",
+          "updated_at": "2023-10-05T16:56:11.035Z",
           "position": 16,
           "description": "Cloudflare's CDN single file cache purging service",
           "showcase": false,
