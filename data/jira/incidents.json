@@ -4,7 +4,7 @@
     "name": "Jira Software",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-09-28T00:38:49.230Z"
+    "updated_at": "2023-10-06T05:15:04.477Z"
   },
   "incidents": [
     {
@@ -268,9 +268,9 @@
     {
       "id": "lymlz2lg0ys7",
       "name": "Degraded performance in Cloud",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-09-19T02:53:20.738Z",
-      "updated_at": "2023-09-19T07:23:36.918Z",
+      "updated_at": "2023-10-06T05:15:04.475Z",
       "monitoring_at": "2023-09-19T04:56:32.023Z",
       "resolved_at": "2023-09-19T07:23:36.905Z",
       "impact": "minor",
@@ -278,6 +278,19 @@
       "started_at": "2023-09-19T02:53:20.726Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "vypd5gmdgwmp",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nBetween September 18 2023 5:47 PM UTC and September 19 2023 04:15 AM UTC, customers using Confluence Cloud, Jira Software, Jira Service Management, Jira Work Management, Jira Product Discovery and Trello products with services hosted in the AWS us-east-1 and us-west-2 region experienced slow performance and/or page load failures as a result of an AWS issue that began on September 18 2023, 4:00 PM UTC.\n\nThis was triggered by an underlying networking fault in our cloud provider AWS, which affected multiple AWS services in their us-west-2 and us-east-1 regions, used by Atlassian. The incident was detected within one minute by our monitoring systems. Recovery of affected Atlassian services occurred on a product-by-product basis with full recovery for all products completed by September 19 2023 04:15 AM UTC.\n\n‌\n\n### **IMPACT**\n\nProduct impact varied based on which regions and availability zones services are using, with services hosted in us-west-2 being affected more than services hosted in us-east-1.  \n\nProduct-specific impacts are listed below:\n\n* **Jira Software -** A number of Jira nodes were affected with highly elevated error rates due to Jira databases in us-east-1 and us-west-2 being impacted.  The impact was varied with some Jira nodes being unusable whilst others were in a usable but degraded state.\n* **Jira Service Management -** Some users hosted in us-east-1 and us-west-2 experienced problems when creating issues through the Help Center, viewing issues, transitioning issues, posting comments and using queues\n* **Jira Work Management -** Users based in us-west-2 experienced minor service degradation.\n* **Jira Product Discovery -** Users experienced some issues when loading insights.\n* **Confluence Cloud -** Impact was limited to customers hosted in the us-west-2 region. During this time, users attempting to load confluence pages experienced sporadic product degradation, including brief periods where Confluence was inaccessible, complete and partial page load failures, page timeouts, increased request latency.\n* **Trello -** Users had minimal service degradation - only 0.1% of Trello users had automation rules impacted.\n\n### **ROOT CAUSE**\n\nThe root cause was an issue with subsystem responsible for network mapping propagation within the Amazon Virtual Private Cloud in the us-east-1 \\(use1-az1\\) and us-west-2 \\(usw2-az1 and usw2-az2\\) regions, which impacted network connectivity for multiple AWS services which Atlassian products rely upon.\n\nThere was a delay between the AWS incident and Atlassian being affected as existing compute instances and resources were not affected by the issue. However any changes to networking state - such as scaling-up with additional compute nodes - experienced delays in the propagation of network mappings. This led to network connectivity issues until these network mappings had been fully propagated. Other AWS services that create or modify networking resources also saw impact as a result of this issue.\n\nThere were no relevant Atlassian-driven events in the lead-up that have been identified to cause or contribute to this incident.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nTo avoid repeating this type of incident, we are prioritizing documenting and evaluating ways to improve Availability Zone failure resiliency.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "lymlz2lg0ys7",
+          "created_at": "2023-10-06T05:14:43.776Z",
+          "updated_at": "2023-10-06T05:15:04.472Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "8s8nkh3f2012",
           "status": "resolved",
