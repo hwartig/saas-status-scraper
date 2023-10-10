@@ -4,7 +4,7 @@
     "name": "Checkly",
     "url": "https://is.checkly.online",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-10-10T15:38:59.389Z"
+    "updated_at": "2023-10-10T15:52:06.298Z"
   },
   "incidents": [
     {
@@ -103,9 +103,9 @@
     {
       "id": "qq1hqh1xkcb1",
       "name": "Degraded Browser Checks runs in ap-southeast-2, eu-west-1, eu-west-3, ca-central-1 and sa-east-1",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-10-09T22:18:00.000Z",
-      "updated_at": "2023-10-10T15:38:59.385Z",
+      "updated_at": "2023-10-10T15:52:06.291Z",
       "monitoring_at": "2023-10-10T02:24:22.210Z",
       "resolved_at": "2023-10-10T02:28:55.635Z",
       "impact": "major",
@@ -113,6 +113,19 @@
       "started_at": "2023-10-09T22:18:00.000Z",
       "page_id": "nq8lf8mrmvw6",
       "incident_updates": [
+        {
+          "id": "zz4404b0khkc",
+          "status": "postmortem",
+          "body": "What happened:\n\nOur alerting informed us about a bug _causing autoscaling to fail scaling up containers for some runtime/region combinations:_\n\n2023\\.09 / eu-west-1\n\n2022\\.10 / eu-west-3\n\n2022\\.10 / ap-southeast-2\n\n2022\\.10 / ca-central-1\n\n2022\\.10 / sa-east-1\n\nWe deployed a hotfix that restored services during the incident preventing further regions from being affected and restoring service. \n\nHow we will prevent this from happening:\n\nOur monitoring alerted us through a side effect of the issue. The alert was triggered because of a high scheduling delay for checks. After fixing the bug, we added monitoring for failed ECS task starts. This will drastically lower the time to detect in the future and would have prevented downtime.",
+          "incident_id": "qq1hqh1xkcb1",
+          "created_at": "2023-10-10T15:44:33.691Z",
+          "updated_at": "2023-10-10T15:52:06.288Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our October 10th incident: https://stspg.io/686y3mmx5rj5",
+          "tweet_id": null
+        },
         {
           "id": "k2sp17b7p19j",
           "status": "resolved",
