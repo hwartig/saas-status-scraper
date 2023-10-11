@@ -4,7 +4,7 @@
     "name": "AssemblyAI",
     "url": "https://status.assemblyai.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-10-11T18:39:58.715Z"
+    "updated_at": "2023-10-11T18:46:19.237Z"
   },
   "components": [
     {
@@ -30,9 +30,9 @@
     {
       "id": "kygwc83t1rfg",
       "name": "Asynchronous API",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2021-10-25T15:23:09.740Z",
-      "updated_at": "2023-10-11T18:11:05.071Z",
+      "updated_at": "2023-10-11T18:45:24.190Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -316,6 +316,99 @@
   ],
   "incidents": [
     {
+      "id": "09l25wtk5hgm",
+      "name": "Increased 500 errors with our Async endpoint",
+      "status": "monitoring",
+      "created_at": "2023-10-11T18:11:05.040Z",
+      "updated_at": "2023-10-11T18:46:19.235Z",
+      "monitoring_at": "2023-10-11T18:46:19.225Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/p68q16wvb8h1",
+      "started_at": "2023-10-11T18:11:05.033Z",
+      "page_id": "8yxng9m82rr4",
+      "incident_updates": [
+        {
+          "id": "s0ms48z39zly",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "09l25wtk5hgm",
+          "created_at": "2023-10-11T18:46:19.225Z",
+          "updated_at": "2023-10-11T18:46:19.225Z",
+          "display_at": "2023-10-11T18:46:19.225Z",
+          "affected_components": [
+            {
+              "code": "kygwc83t1rfg",
+              "name": "APIs - Asynchronous API",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "ptr5h3xw9wdr",
+          "status": "identified",
+          "body": "We have identified the root cause of these 500 errors with our Async endpoint to be a recent configuration change that was made. We have rolled back that change and are no longer seeing these increased 500 errors. Traffic is once again processing normally but we will continue to monitor the situation to ensure continued good performance.",
+          "incident_id": "09l25wtk5hgm",
+          "created_at": "2023-10-11T18:45:24.214Z",
+          "updated_at": "2023-10-11T18:45:24.214Z",
+          "display_at": "2023-10-11T18:45:24.214Z",
+          "affected_components": [
+            {
+              "code": "kygwc83t1rfg",
+              "name": "APIs - Asynchronous API",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "dld6m4ty6gkw",
+          "status": "investigating",
+          "body": "We are currently investigating an issue with our Async `/v2/transcript` endpoint. This issue is currently causing about 1% of requests to that endpoint to fail with a 500 error. We are working to identify the root cause and will provide additional updates as we learn more.",
+          "incident_id": "09l25wtk5hgm",
+          "created_at": "2023-10-11T18:11:05.109Z",
+          "updated_at": "2023-10-11T18:11:05.109Z",
+          "display_at": "2023-10-11T18:11:05.109Z",
+          "affected_components": [
+            {
+              "code": "kygwc83t1rfg",
+              "name": "APIs - Asynchronous API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "kygwc83t1rfg",
+          "name": "Asynchronous API",
+          "status": "operational",
+          "created_at": "2021-10-25T15:23:09.740Z",
+          "updated_at": "2023-10-11T18:45:24.190Z",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": "2021-10-25",
+          "group_id": "50txf4qfk2kv",
+          "page_id": "8yxng9m82rr4",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": "[]"
+    },
+    {
       "id": "kb81dv0t5yc5",
       "name": "Investigating an increase in 500 errors for LeMUR",
       "status": "identified",
@@ -400,59 +493,6 @@
           "description": null,
           "showcase": true,
           "start_date": "2023-07-29",
-          "group_id": "50txf4qfk2kv",
-          "page_id": "8yxng9m82rr4",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": "[]"
-    },
-    {
-      "id": "09l25wtk5hgm",
-      "name": "Increased 500 errors with our Async endpoint",
-      "status": "investigating",
-      "created_at": "2023-10-11T18:11:05.040Z",
-      "updated_at": "2023-10-11T18:11:05.111Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/p68q16wvb8h1",
-      "started_at": "2023-10-11T18:11:05.033Z",
-      "page_id": "8yxng9m82rr4",
-      "incident_updates": [
-        {
-          "id": "dld6m4ty6gkw",
-          "status": "investigating",
-          "body": "We are currently investigating an issue with our Async `/v2/transcript` endpoint. This issue is currently causing about 1% of requests to that endpoint to fail with a 500 error. We are working to identify the root cause and will provide additional updates as we learn more.",
-          "incident_id": "09l25wtk5hgm",
-          "created_at": "2023-10-11T18:11:05.109Z",
-          "updated_at": "2023-10-11T18:11:05.109Z",
-          "display_at": "2023-10-11T18:11:05.109Z",
-          "affected_components": [
-            {
-              "code": "kygwc83t1rfg",
-              "name": "APIs - Asynchronous API",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "kygwc83t1rfg",
-          "name": "Asynchronous API",
-          "status": "degraded_performance",
-          "created_at": "2021-10-25T15:23:09.740Z",
-          "updated_at": "2023-10-11T18:11:05.071Z",
-          "position": 1,
-          "description": null,
-          "showcase": true,
-          "start_date": "2021-10-25",
           "group_id": "50txf4qfk2kv",
           "page_id": "8yxng9m82rr4",
           "group": false,
