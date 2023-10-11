@@ -4,9 +4,39 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2023-10-11T10:55:13.028-04:00"
+    "updated_at": "2023-10-11T14:00:16.161-04:00"
   },
   "incidents": [
+    {
+      "id": "zxr8jf69yck1",
+      "name": "CVE-2023-44487 \"HTTP/2 Rapid Reset\" Response",
+      "status": "resolved",
+      "created_at": "2023-10-11T14:00:16.112-04:00",
+      "updated_at": "2023-10-11T14:00:16.158-04:00",
+      "monitoring_at": null,
+      "resolved_at": "2023-10-11T14:00:16.149-04:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/nqcgjtl2k1x4",
+      "started_at": "2023-10-11T14:00:16.108-04:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "gcwngchbb9qf",
+          "status": "resolved",
+          "body": "We are aware of the recently disclosed vulnerability CVE-2023-44487, also known as the \"HTTP/2 Rapid Reset Attack,\" which poses a potential risk of Denial of Service (DoS) attacks on HTTP/2-capable web servers.\n\nWe are actively monitoring the situation and have conducted in-house tests on our HTTPS Endpoints that utilize AWS Application Load Balancers (ALBs). Currently, there is no evidence suggesting Aptible is vulnerable to this particular security concern. AWS has put in place extra measures to mitigate this vulnerability, ensuring that our services stay secure and fully functional. More information here:\n- AWS: CVE-2023-44487 - HTTP/2 Rapid Reset Attack: https://aws.amazon.com/security/security-bulletins/AWS-2023-011/\n\nOn Endpoint Types at Aptible:\n- HTTP(S) Endpoints: these use Application Load Balancers (ALBs) and have mitigations in place to address the vulnerability. Some legacy endpoints created before 2018 use legacy Elastic Load Balancers (ELBs), which do not support HTTP/2 and are not vulnerable.\n- TLS / TCP Endpoints: if customers are exposing custom HTTP/2-capable web servers behind these Endpoints, we recommend verifying with your web server vendor to determine if you are affected and, if so, promptly install the latest patches to mitigate this issue.",
+          "incident_id": "zxr8jf69yck1",
+          "created_at": "2023-10-11T14:00:16.149-04:00",
+          "updated_at": "2023-10-11T14:00:16.149-04:00",
+          "display_at": "2023-10-11T14:00:16.149-04:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "dks7wl4vsplf",
       "name": "Host Provisioning Delays in us-east-1",
@@ -4074,99 +4104,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "79qrh9801fjy",
-      "name": "Increased Error Rate",
-      "status": "resolved",
-      "created_at": "2021-04-13T16:42:14.734-04:00",
-      "updated_at": "2021-04-13T19:22:46.741-04:00",
-      "monitoring_at": "2021-04-13T18:16:15.387-04:00",
-      "resolved_at": "2021-04-13T19:22:46.126-04:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/2hftpvvkbfyf",
-      "started_at": "2021-04-13T16:42:14.728-04:00",
-      "page_id": "fmwgqnbnbc4r",
-      "incident_updates": [
-        {
-          "id": "dvlb7g1c9gc3",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "79qrh9801fjy",
-          "created_at": "2021-04-13T19:22:46.126-04:00",
-          "updated_at": "2021-04-13T19:22:46.737-04:00",
-          "display_at": "2021-04-13T19:22:46.126-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1382112053297434600
-        },
-        {
-          "id": "svbx145xb2dp",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "79qrh9801fjy",
-          "created_at": "2021-04-13T18:16:15.387-04:00",
-          "updated_at": "2021-04-13T18:16:15.770-04:00",
-          "display_at": "2021-04-13T18:16:15.387-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1382095313998020600
-        },
-        {
-          "id": "tptlftk2jfct",
-          "status": "identified",
-          "body": "We are observing an increased error rate during some operations for App and Database operations due to an increased AWS API error rates.\n\nAWS has reported that they are aware of the issue (https://status.aws.amazon.com/).",
-          "incident_id": "79qrh9801fjy",
-          "created_at": "2021-04-13T16:42:14.828-04:00",
-          "updated_at": "2021-04-13T16:42:15.396-04:00",
-          "display_at": "2021-04-13T16:42:14.828-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1382071656730939400
-        }
-      ],
-      "components": [
-        {
-          "id": "3f2df1dmxn4b",
-          "name": "Aptible Deploy",
-          "status": "operational",
-          "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2023-10-08T02:00:13.678-04:00",
-          "position": 7,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "fmwgqnbnbc4r",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
