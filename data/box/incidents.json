@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-10-12T01:02:36.239-07:00"
+    "updated_at": "2023-10-12T11:15:31.294-07:00"
   },
   "incidents": [
     {
@@ -1089,7 +1089,7 @@
       "name": "[Critical] Issues with Multiple Box Services",
       "status": "postmortem",
       "created_at": "2023-09-28T01:16:53.685-07:00",
-      "updated_at": "2023-09-29T12:57:50.981-07:00",
+      "updated_at": "2023-10-12T11:15:31.288-07:00",
       "monitoring_at": "2023-09-28T04:33:49.788-07:00",
       "resolved_at": "2023-09-28T04:55:39.369-07:00",
       "impact": "critical",
@@ -1100,10 +1100,10 @@
         {
           "id": "xsyhkyybr3bn",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\nBetween 2023-09-28 00:38 PDT and 2023-09-28 03:15 PDT, some users may have experienced difficulties while working in Box. During this time, we experienced degradation of the service responsible for making advanced security decisions for our Shield suite of features. Our policy is to fail closed in cases of such degradation, so no security impact was observed. Shield-enabled customers would have experienced significant impact to many aspects of using Box, including the Box Web App, Box Drive, Box Notes, and Box Public API. We are still investigating to determine the root cause of this issue; however, at this time, we believe the problem is likely related to a scale limitation within the aforementioned service. We were able to remediate this issue by deploying more instances of the service. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.  \n\nSincerely,  \nThe Box Team",
+          "body": "We recently addressed an issue affecting the public API, Downloads, Uploads, Login, and Sign. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 12:40 am PDT, on September 28, 2023, and 03:20 am PDT, on September 28, 2023, some users may have experienced difficulties while working in Box. During this time, users may have had a degraded experience or difficulty accessing Public API, Downloads, Uploads, Login, and Sign. The issue occurred due to an observed latency in one of our internal services responsible for providing security recommendations to the application.  We were able to resolve the issue by deploying more instances of the impacted service. In addition, we are implementing improvements for enhanced control over the flow of traffic within our backend systems. We are also working to establish new alerts on the impacted processes that will decrease time to detect and mitigate if a similar issue take place in the future. \n\n‌\n\n**Analysis** \n\nBox services are underpinned by a common service communication layer called “Service Mesh” providing Box’s services with the abilities to securely communicate and automatically adapt the scale of the services to traffic bursts. During this incident we observed that the Service Mesh layer did not behave as expected. Specifically, the service did not auto-scale as planned and as a result, the service became overwhelmed leading to the issue. A deeper analysis of the issue demonstrated that the “Service Mesh” configuration, while optimum for the on-premise deployments, was no longer adapted to the traffic profile experienced in the public cloud.\n\n‌\n\nWe have been working with the technology vendor for our Service Mesh implementation to tune the configuration according to the new environment and have been rolling out the changes incrementally. We have also increased the capacity on the critical services while rolling out the changes to not rely on auto-scaling during that period.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Configure limits for the number of retries within internal systems to improve performance during peak traffic times.\n* Implement additional back pressure “circuit breakers” within our backend systems to protect the system from overloading in case of similar issues.\n* Improve error handling to better differentiate Service Mesh errors from application errors.\n* Improve monitoring measures to automatically detect, diagnose, and remediate such issues before customers are actually impacted.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,  \nThe Box Team",
           "incident_id": "k66wbrwbss20",
           "created_at": "2023-09-29T12:57:25.724-07:00",
-          "updated_at": "2023-09-29T12:57:50.980-07:00",
+          "updated_at": "2023-10-12T11:15:31.286-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
@@ -2612,7 +2612,7 @@
       "name": "[Major] Delay in email notifications",
       "status": "postmortem",
       "created_at": "2023-09-12T18:30:00.000-07:00",
-      "updated_at": "2023-09-21T09:51:31.921-07:00",
+      "updated_at": "2023-10-12T11:13:42.728-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-09-12T18:30:00.000-07:00",
       "impact": "major",
@@ -2623,10 +2623,10 @@
         {
           "id": "14zsvskztp0t",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\nOn September 12, 2023 between 5:50 PM PDT and 9:40 PM PDT, some users may have experienced difficulties while working in Box. During this time, customer email notifications including password reset or 2-factor authentication code emails may have been delayed. The issue occurred as the result of networking issues in one Availability Zone after the rollback of a networking component release.  We were able to resolve the issue by reapplying network configurations. In addition, we will be improving our rollback testing processes to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "body": "We recently addressed issues affecting customer email notifications including password reset or 2-factor authentication code emails. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nOn September 12, 2023 between 5:50 PM PDT and 9:40 PM PDT, some users may have experienced difficulties while working in Box. During this time, customer email notifications including password reset or 2-factor authentication code emails may have been delayed. The issue occurred due to the loss of internet access in one Availability Zone during a scheduled firewall redeployment. We were able to resolve the issue by manually updating routing configuration on the affected instances. In addition, we are working on improving our per-instance health-checks so that they do not take any traffic until they are ready.\n\n‌\n\n**Analysis** \n\nDuring our investigation, the root cause of the incident was identified as a network routing misconfiguration that occurred during the scheduled deployment. This led to loss of internet access in one Availability Zone, thereby causing latencies in customer email notifications including password reset or 2-factor authentication code emails. We have enhanced our post deployment verification by adding a check to ensure that instances are serving traffic effectively. \n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Integrate network configuration setup in the image creation workflow instead of post-creation to establish consistency.\n* Enhance the existing monitoring setup with improved alerting features to expedite issue identification and resolution.\n* Optimize our per-instance health check to prevent instances from receiving traffic until they are fully prepared.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,  \nThe Box Team",
           "incident_id": "hlb90jx53dzp",
           "created_at": "2023-09-21T09:51:04.111-07:00",
-          "updated_at": "2023-09-21T09:51:31.918-07:00",
+          "updated_at": "2023-10-12T11:13:42.725-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
