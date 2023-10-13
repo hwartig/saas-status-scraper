@@ -4,7 +4,7 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-10-13T00:07:16.696Z"
+    "updated_at": "2023-10-13T01:23:34.031Z"
   },
   "components": [
     {
@@ -25,7 +25,7 @@
     {
       "id": "1km35smx8p41",
       "name": "Cloudflare Sites and Services",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2014-10-27T21:59:30.264Z",
       "updated_at": "2020-11-11T20:12:30.167Z",
       "position": 1,
@@ -1625,7 +1625,7 @@
       "name": "Caçador, Brazil - (CFC)",
       "status": "partial_outage",
       "created_at": "2021-07-08T07:57:05.268Z",
-      "updated_at": "2023-10-13T00:07:16.695Z",
+      "updated_at": "2023-10-13T01:03:14.259Z",
       "position": 10,
       "description": null,
       "showcase": false,
@@ -3243,9 +3243,9 @@
     {
       "id": "7j656z7tqk7f",
       "name": "DNS Updates",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-24T16:50:20.772Z",
-      "updated_at": "2023-10-10T12:12:39.364Z",
+      "updated_at": "2023-10-13T01:23:33.974Z",
       "position": 26,
       "description": "DNS update service pushing customer DNS changes out to all data centers",
       "showcase": false,
@@ -6256,46 +6256,87 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
-  "scheduled_maintenances": [
+  "incidents": [
     {
-      "id": "fzfphwj3nsvc",
-      "name": "LHR (London) on 2023-10-13",
-      "status": "scheduled",
-      "created_at": "2023-10-06T08:00:33.146Z",
-      "updated_at": "2023-10-13T00:00:09.049Z",
+      "id": "5b6c5qljl02c",
+      "name": "CAA Record Propagation Delays",
+      "status": "investigating",
+      "created_at": "2023-10-13T01:23:33.942Z",
+      "updated_at": "2023-10-13T01:23:34.028Z",
       "monitoring_at": null,
       "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/mw9kghf7dsy8",
-      "started_at": "2023-10-06T08:00:33.139Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/h7076yh8cp4k",
+      "started_at": "2023-10-13T01:23:33.934Z",
       "page_id": "yh6f0r4529hb",
       "incident_updates": [
         {
-          "id": "f0820vhqc420",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "fzfphwj3nsvc",
-          "created_at": "2023-10-13T00:00:08.833Z",
-          "updated_at": "2023-10-13T00:00:08.833Z",
-          "display_at": "2023-10-13T00:00:08.833Z",
-          "affected_components": null,
+          "id": "vpgf8rhj3vl7",
+          "status": "investigating",
+          "body": "Cloudflare is aware of and investigating issues with delays in propagation of updates to CAA DNS records. We are currently working on a resolution and will provide an update as soon as possible.",
+          "incident_id": "5b6c5qljl02c",
+          "created_at": "2023-10-13T01:23:34.026Z",
+          "updated_at": "2023-10-13T01:23:34.026Z",
+          "display_at": "2023-10-13T01:23:34.026Z",
+          "affected_components": [
+            {
+              "code": "7j656z7tqk7f",
+              "name": "Cloudflare Sites and Services - DNS Updates",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
           "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": null
-        },
+        }
+      ],
+      "components": [
         {
-          "id": "r9stbythpkw5",
+          "id": "7j656z7tqk7f",
+          "name": "DNS Updates",
+          "status": "degraded_performance",
+          "created_at": "2019-01-24T16:50:20.772Z",
+          "updated_at": "2023-10-13T01:23:33.974Z",
+          "position": 26,
+          "description": "DNS update service pushing customer DNS changes out to all data centers",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
+  "scheduled_maintenances": [
+    {
+      "id": "cjtlks2vwlws",
+      "name": "EWR (Newark) on 2023-10-13",
+      "status": "scheduled",
+      "created_at": "2023-10-06T20:41:05.557Z",
+      "updated_at": "2023-10-06T20:41:05.612Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/tn816kr3mhvj",
+      "started_at": "2023-10-06T20:41:05.551Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "5jtsvrd4250z",
           "status": "scheduled",
-          "body": "We will be performing scheduled maintenance in LHR (London) datacenter on 2023-10-13 between 01:00 and 06:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
-          "incident_id": "fzfphwj3nsvc",
-          "created_at": "2023-10-06T08:00:33.248Z",
-          "updated_at": "2023-10-06T08:00:33.248Z",
-          "display_at": "2023-10-06T08:00:33.248Z",
+          "body": "We will be performing scheduled maintenance in EWR (Newark) datacenter on 2023-10-13 between 06:00 and 10:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "cjtlks2vwlws",
+          "created_at": "2023-10-06T20:41:05.610Z",
+          "updated_at": "2023-10-06T20:41:05.610Z",
+          "display_at": "2023-10-06T20:41:05.610Z",
           "affected_components": [
             {
-              "code": "shcqh0p22750",
-              "name": "Europe - London, United Kingdom - (LHR)",
+              "code": "grpnztl4pd46",
+              "name": "North America - Newark, NJ, United States - (EWR)",
               "old_status": "operational",
               "new_status": "operational"
             }
@@ -6307,23 +6348,23 @@
       ],
       "components": [
         {
-          "id": "shcqh0p22750",
-          "name": "London, United Kingdom - (LHR)",
+          "id": "grpnztl4pd46",
+          "name": "Newark, NJ, United States - (EWR)",
           "status": "operational",
-          "created_at": "2014-10-27T20:36:04.069Z",
-          "updated_at": "2023-10-06T02:27:10.135Z",
-          "position": 25,
+          "created_at": "2014-10-27T20:30:34.850Z",
+          "updated_at": "2023-09-20T14:26:03.391Z",
+          "position": 29,
           "description": null,
           "showcase": false,
           "start_date": null,
-          "group_id": "zqxhg7y54vy8",
+          "group_id": "4l01sk5cdn5c",
           "page_id": "yh6f0r4529hb",
           "group": false,
           "only_show_if_degraded": false
         }
       ],
-      "scheduled_for": "2023-10-13T01:00:00.000Z",
-      "scheduled_until": "2023-10-13T06:00:00.000Z"
+      "scheduled_for": "2023-10-13T06:00:00.000Z",
+      "scheduled_until": "2023-10-13T10:00:00.000Z"
     },
     {
       "id": "xvjqmxl223ll",
@@ -6380,30 +6421,30 @@
       "scheduled_until": "2023-10-13T13:00:00.000Z"
     },
     {
-      "id": "cjtlks2vwlws",
-      "name": "EWR (Newark) on 2023-10-13",
+      "id": "g36jnhpsktn5",
+      "name": "MXP (Milan) on 2023-10-16",
       "status": "scheduled",
-      "created_at": "2023-10-06T20:41:05.557Z",
-      "updated_at": "2023-10-06T20:41:05.612Z",
+      "created_at": "2023-10-13T01:01:03.227Z",
+      "updated_at": "2023-10-13T01:01:03.294Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
-      "shortlink": "https://stspg.io/tn816kr3mhvj",
-      "started_at": "2023-10-06T20:41:05.551Z",
+      "shortlink": "https://stspg.io/91dkxwpbk36s",
+      "started_at": "2023-10-13T01:01:03.219Z",
       "page_id": "yh6f0r4529hb",
       "incident_updates": [
         {
-          "id": "5jtsvrd4250z",
+          "id": "n3wnycqy476b",
           "status": "scheduled",
-          "body": "We will be performing scheduled maintenance in EWR (Newark) datacenter on 2023-10-13 between 06:00 and 10:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
-          "incident_id": "cjtlks2vwlws",
-          "created_at": "2023-10-06T20:41:05.610Z",
-          "updated_at": "2023-10-06T20:41:05.610Z",
-          "display_at": "2023-10-06T20:41:05.610Z",
+          "body": "We will be performing scheduled maintenance in MXP (Milan) datacenter on 2023-10-16 between 01:30 and 03:30 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "g36jnhpsktn5",
+          "created_at": "2023-10-13T01:01:03.291Z",
+          "updated_at": "2023-10-13T01:01:03.291Z",
+          "display_at": "2023-10-13T01:01:03.291Z",
           "affected_components": [
             {
-              "code": "grpnztl4pd46",
-              "name": "North America - Newark, NJ, United States - (EWR)",
+              "code": "k8q1kmz4gfms",
+              "name": "Europe - Milan, Italy - (MXP)",
               "old_status": "operational",
               "new_status": "operational"
             }
@@ -6415,23 +6456,23 @@
       ],
       "components": [
         {
-          "id": "grpnztl4pd46",
-          "name": "Newark, NJ, United States - (EWR)",
+          "id": "k8q1kmz4gfms",
+          "name": "Milan, Italy - (MXP)",
           "status": "operational",
-          "created_at": "2014-10-27T20:30:34.850Z",
-          "updated_at": "2023-09-20T14:26:03.391Z",
-          "position": 29,
+          "created_at": "2014-10-27T21:07:56.923Z",
+          "updated_at": "2023-10-11T06:26:32.212Z",
+          "position": 30,
           "description": null,
           "showcase": false,
           "start_date": null,
-          "group_id": "4l01sk5cdn5c",
+          "group_id": "zqxhg7y54vy8",
           "page_id": "yh6f0r4529hb",
           "group": false,
           "only_show_if_degraded": false
         }
       ],
-      "scheduled_for": "2023-10-13T06:00:00.000Z",
-      "scheduled_until": "2023-10-13T10:00:00.000Z"
+      "scheduled_for": "2023-10-16T01:30:00.000Z",
+      "scheduled_until": "2023-10-16T03:30:00.000Z"
     },
     {
       "id": "ys5d70f90mdz",
@@ -6486,6 +6527,60 @@
       ],
       "scheduled_for": "2023-10-16T05:00:00.000Z",
       "scheduled_until": "2023-10-16T10:00:00.000Z"
+    },
+    {
+      "id": "4tylnxbjms4c",
+      "name": "SEA (Seattle) on 2023-10-16",
+      "status": "scheduled",
+      "created_at": "2023-10-13T00:41:02.723Z",
+      "updated_at": "2023-10-13T00:41:02.785Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/l25cbvcf6t9m",
+      "started_at": "2023-10-13T00:41:02.715Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "6yzbfqkfrm2x",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance in SEA (Seattle) datacenter on 2023-10-16 between 09:00 and 14:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "4tylnxbjms4c",
+          "created_at": "2023-10-13T00:41:02.782Z",
+          "updated_at": "2023-10-13T00:41:02.782Z",
+          "display_at": "2023-10-13T00:41:02.782Z",
+          "affected_components": [
+            {
+              "code": "bvtc2f85ft3p",
+              "name": "North America - Seattle, WA, United States - (SEA)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "bvtc2f85ft3p",
+          "name": "Seattle, WA, United States - (SEA)",
+          "status": "operational",
+          "created_at": "2014-10-27T19:57:30.743Z",
+          "updated_at": "2023-09-05T11:30:54.721Z",
+          "position": 44,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "4l01sk5cdn5c",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2023-10-16T09:00:00.000Z",
+      "scheduled_until": "2023-10-16T14:00:00.000Z"
     },
     {
       "id": "g5xn5xbhpj4f",
@@ -6594,6 +6689,86 @@
       ],
       "scheduled_for": "2023-10-19T07:00:00.000Z",
       "scheduled_until": "2023-10-19T11:00:00.000Z"
+    },
+    {
+      "id": "fzfphwj3nsvc",
+      "name": "LHR (London) on 2023-10-13",
+      "status": "in_progress",
+      "created_at": "2023-10-06T08:00:33.146Z",
+      "updated_at": "2023-10-13T01:00:22.032Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/mw9kghf7dsy8",
+      "started_at": "2023-10-06T08:00:33.139Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "6c0jlwlv3j7m",
+          "status": "in_progress",
+          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
+          "incident_id": "fzfphwj3nsvc",
+          "created_at": "2023-10-13T01:00:22.024Z",
+          "updated_at": "2023-10-13T01:00:22.024Z",
+          "display_at": "2023-10-13T01:00:22.024Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "f0820vhqc420",
+          "status": "scheduled",
+          "body": "Maintenance will begin as scheduled in 60 minutes.",
+          "incident_id": "fzfphwj3nsvc",
+          "created_at": "2023-10-13T00:00:08.833Z",
+          "updated_at": "2023-10-13T00:00:08.833Z",
+          "display_at": "2023-10-13T00:00:08.833Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "r9stbythpkw5",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance in LHR (London) datacenter on 2023-10-13 between 01:00 and 06:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "fzfphwj3nsvc",
+          "created_at": "2023-10-06T08:00:33.248Z",
+          "updated_at": "2023-10-06T08:00:33.248Z",
+          "display_at": "2023-10-06T08:00:33.248Z",
+          "affected_components": [
+            {
+              "code": "shcqh0p22750",
+              "name": "Europe - London, United Kingdom - (LHR)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "shcqh0p22750",
+          "name": "London, United Kingdom - (LHR)",
+          "status": "operational",
+          "created_at": "2014-10-27T20:36:04.069Z",
+          "updated_at": "2023-10-06T02:27:10.135Z",
+          "position": 25,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "zqxhg7y54vy8",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2023-10-13T01:00:00.000Z",
+      "scheduled_until": "2023-10-13T06:00:00.000Z"
     },
     {
       "id": "4bq2l4466kdk",
