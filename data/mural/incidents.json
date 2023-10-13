@@ -4,9 +4,62 @@
     "name": "MURAL",
     "url": "https://status.mural.co",
     "time_zone": "America/Argentina/Buenos_Aires",
-    "updated_at": "2023-10-13T05:06:48.431-03:00"
+    "updated_at": "2023-10-13T07:57:01.769-03:00"
   },
   "incidents": [
+    {
+      "id": "72vt6mh13y7z",
+      "name": "Some icons will not appear when added to a mural",
+      "status": "investigating",
+      "created_at": "2023-10-13T07:56:32.189-03:00",
+      "updated_at": "2023-10-13T07:57:01.764-03:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/q4s0sq42pzrj",
+      "started_at": "2023-10-13T07:56:32.184-03:00",
+      "page_id": "dbk70dpy3n7h",
+      "incident_updates": [
+        {
+          "id": "ptlknlx90s6s",
+          "status": "investigating",
+          "body": "When some icons are added to a mural, they appear transparent and will not display. This does not apply to all icons in the library. We are investigating and will restore regular service as soon as possible.",
+          "incident_id": "72vt6mh13y7z",
+          "created_at": "2023-10-13T07:56:32.221-03:00",
+          "updated_at": "2023-10-13T07:56:32.221-03:00",
+          "display_at": "2023-10-13T07:56:32.221-03:00",
+          "affected_components": [
+            {
+              "code": "42zc4v22b21z",
+              "name": "Mural Application - Canvas",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "42zc4v22b21z",
+          "name": "Canvas",
+          "status": "operational",
+          "created_at": "2014-10-06T09:26:19.039-03:00",
+          "updated_at": "2022-08-16T14:20:53.307-03:00",
+          "position": 3,
+          "description": "The murals, sticky notes, images and other content",
+          "showcase": true,
+          "start_date": null,
+          "group_id": "mkmjnq1rb559",
+          "page_id": "dbk70dpy3n7h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "t0gkry57dntv",
       "name": "Invalid signature error when signing in with SSO",
@@ -8335,132 +8388,6 @@
               "name": "Canvas",
               "old_status": "operational",
               "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "42zc4v22b21z",
-          "name": "Canvas",
-          "status": "operational",
-          "created_at": "2014-10-06T09:26:19.039-03:00",
-          "updated_at": "2022-08-16T14:20:53.307-03:00",
-          "position": 3,
-          "description": "The murals, sticky notes, images and other content",
-          "showcase": true,
-          "start_date": null,
-          "group_id": "mkmjnq1rb559",
-          "page_id": "dbk70dpy3n7h",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "pqpr3r31hntb",
-      "name": "Elevated API response times",
-      "status": "postmortem",
-      "created_at": "2020-04-22T11:43:37.996-03:00",
-      "updated_at": "2020-04-28T10:41:48.765-03:00",
-      "monitoring_at": "2020-04-22T11:59:06.545-03:00",
-      "resolved_at": "2020-04-22T12:53:16.359-03:00",
-      "impact": "minor",
-      "shortlink": "http://stspg.io/fcx42lwfb4yq",
-      "started_at": "2020-04-22T11:43:37.991-03:00",
-      "page_id": "dbk70dpy3n7h",
-      "incident_updates": [
-        {
-          "id": "j8jv5f68jdb9",
-          "status": "postmortem",
-          "body": "At 14:19 UTC, April 22nd a part of our realtime collaboration service started to process requests a lot slower than usual, and a few minutes later our monitoring systems reported that part of our realtime collaboration service as unavailable.\n\nOur realtime service was experiencing high processing times due to increased latency in a backing service we use for synchronizing a portion of the realtime collaboration events among users on the same murals. The rest of the servers were behaving properly and most users were able to collaborate normally.\n\nThe cause for these increased response times for said pub-sub service was an unplanned server patching performed by our Cloud Provider outside of our requested maintenance window.Some API servers were affected with increased load for some requests that relied on said service.\n\nWe immediately triggered a rotation for those affected servers. As some servers were rotated our API became slow while the backing pub-sub service continued to have high latency.\n\nOnce we noticed that our cloud provider had performed unannounced patching of one of our pub-sub servers, we rotated it as well. This process takes a while but once it completed, dependent services started showing expected latency once again.\n\nWe understand your frustration if this caused any inconvenience. We are deeply sorry for this.",
-          "incident_id": "pqpr3r31hntb",
-          "created_at": "2020-04-24T19:32:20.271-03:00",
-          "updated_at": "2020-04-28T10:41:48.763-03:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "f8rwq2z7kksb",
-          "status": "resolved",
-          "body": "API latency is back to normal and all systems are behaving as expected.",
-          "incident_id": "pqpr3r31hntb",
-          "created_at": "2020-04-22T12:53:16.359-03:00",
-          "updated_at": "2020-04-22T12:53:16.359-03:00",
-          "display_at": "2020-04-22T12:53:16.359-03:00",
-          "affected_components": [
-            {
-              "code": "42zc4v22b21z",
-              "name": "Web Application",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "71z7kdygtsw9",
-          "status": "monitoring",
-          "body": "We continue to monitor service recovery and API latency being back to normal.",
-          "incident_id": "pqpr3r31hntb",
-          "created_at": "2020-04-22T12:19:23.799-03:00",
-          "updated_at": "2020-04-22T12:19:23.799-03:00",
-          "display_at": "2020-04-22T12:19:23.799-03:00",
-          "affected_components": [
-            {
-              "code": "42zc4v22b21z",
-              "name": "Web Application",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0spdyd9q4sjc",
-          "status": "monitoring",
-          "body": "We identified a cause for the increased response times and rolled out a fix. We're monitoring recovery.",
-          "incident_id": "pqpr3r31hntb",
-          "created_at": "2020-04-22T11:59:06.545-03:00",
-          "updated_at": "2020-04-22T11:59:06.545-03:00",
-          "display_at": "2020-04-22T11:59:06.545-03:00",
-          "affected_components": [
-            {
-              "code": "42zc4v22b21z",
-              "name": "Web Application",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "n8tffrd88lk5",
-          "status": "investigating",
-          "body": "We identified some of our API having increased response times. We're currently investigating.",
-          "incident_id": "pqpr3r31hntb",
-          "created_at": "2020-04-22T11:43:38.048-03:00",
-          "updated_at": "2020-04-22T11:43:38.048-03:00",
-          "display_at": "2020-04-22T11:43:38.048-03:00",
-          "affected_components": [
-            {
-              "code": "42zc4v22b21z",
-              "name": "Web Application",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
             }
           ],
           "deliver_notifications": true,
