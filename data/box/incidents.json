@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-10-13T01:05:04.595-07:00"
+    "updated_at": "2023-10-13T10:23:33.962-07:00"
   },
   "incidents": [
     {
@@ -163,9 +163,9 @@
     {
       "id": "lgwplqbbfycb",
       "name": "[MAJOR] Issues impacting all services",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-10-06T10:49:12.108-07:00",
-      "updated_at": "2023-10-06T10:55:04.071-07:00",
+      "updated_at": "2023-10-13T10:23:33.959-07:00",
       "monitoring_at": "2023-10-06T10:49:12.177-07:00",
       "resolved_at": "2023-10-06T10:55:04.049-07:00",
       "impact": "critical",
@@ -173,6 +173,19 @@
       "started_at": "2023-10-06T10:49:12.079-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "8nyv8gnf43mb",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Uploads, Web Logins, Downloads, Sign, and Public API. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 10:11AM  and 10:32AM PDT on October 6, 2023, some users may have experienced difficulties while working in Box. During this time, users may not have been able to log in, upload/download content, or interact with some components of Sign or some API endpoints. The issue occurred as the result of a configuration change affecting internal routing and DNS infrastructure. We were able to resolve the issue by restoring the original configuration. \n\n‌\n\n**Analysis** \n\nThis issue was caused by a configuration change intended to shift traffic between our cloud provider and on-premise infrastructure to a redundant path on the network. This configuration change inadvertently impacted our internal routing and DNS infrastructure, which certain Box services rely on for internal name resolution during network maintenance. The inability for services to resolve internal resources lead to a cascading effect of errors across several services.  After reviewing the incident it was discovered that the redundant path was missing the key route for our DNS infrastructure.  As such, part of the network path between the public cloud and on-premise datacenter were temporarily disrupted. \n\n‌\n\nAs part of Box’s migration to public cloud, our traditional datacenter network was connected to our public cloud vendor with multiple high-bandwidth connections.  As Box has completed its service migration to the public cloud, we are working to reduce the number of these connections being used.  In connection with this effort, we migrated traffic off of two links that were serving as a connection between the cloud and our DNS infrastructure.  Due to a missing configuration, the DNS-specific route was not being propagated throughout the network as expected; as a result, when these two links were turned off, our cloud infrastructure temporarily lost access to our DNS infrastructure.  This caused our internal services to stop being able to perform DNS lookups between each other.  At 10:32AM PDT, these links were turned back on, which allowed us to restore the original configuration and remediate this issue. However, because our configuration pipelines were also impacted by this issue and unable to connect to our DNS infrastructure, these links had to be turned back on manually, which impacted our time to remediation.\n\n‌\n\nBox has been migrating to a public cloud platform over the course of 2022-2023 to improve overall performance and reliability. Our DNS infrastructure is one of the final components that will be migrated to be hosted in public cloud. This migration is expected to be completed in the coming quarter and will give our public cloud infrastructure the ability to have this DNS locally instead of relying on these connections.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Improve change procedure for routing changes involving interim hybrid connectivity critical infrastructure.  This will provide extra oversight over changes of this type to minimize the likelihood of similar issues occurring in the future.\n* Finish the migration of DNS infrastructure into public cloud.\n* Improve resilience of our configuration pipelines so that impact to production does not also impact these pipelines. \n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,  \nThe Box Team",
+          "incident_id": "lgwplqbbfycb",
+          "created_at": "2023-10-13T10:23:20.191-07:00",
+          "updated_at": "2023-10-13T10:23:33.956-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "x9197v5llwnr",
           "status": "resolved",
