@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-10-13T08:07:55.689Z"
+    "updated_at": "2023-10-13T18:56:55.082Z"
   },
   "incidents": [
     {
@@ -518,9 +518,9 @@
     {
       "id": "fsfsv9fj43w7",
       "name": "Managed Kubernetes Service",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-10-09T07:26:39.845Z",
-      "updated_at": "2023-10-11T08:06:15.461Z",
+      "updated_at": "2023-10-13T18:56:54.965Z",
       "monitoring_at": "2023-10-09T17:49:31.291Z",
       "resolved_at": "2023-10-11T07:26:53.000Z",
       "impact": "minor",
@@ -528,6 +528,19 @@
       "started_at": "2023-10-10T06:54:24.000Z",
       "page_id": "w4cz49tckxhp",
       "incident_updates": [
+        {
+          "id": "848315glg8j8",
+          "status": "postmortem",
+          "body": "### **Incident Summary**\n\nBeginning October 8th around 06:00 UTC, we experienced an issue with a subset of Managed Kubernetes clusters having their nodes go into NotReady status, causing services and applications on these nodes to be disrupted. Due to an unexpected auto-upgrade process on the Debian image used by DigitalOcean, customers experienced downtime on worker nodes starting between 06:00 and 07:00 UTC on October 8th, 9th, and 10th. This ended up affecting users of Managed Kubernetes on cluster versions 1.27.6-do.0 and 1.28.2-do.0 across multiple regions. \n\n‌\n\n### **Incident Details**\n\n**Root Cause**: \n\nThe root cause for this incident was found to be a systemd timer in the DigitalOcean Debian image which automatically kicked off an apt-upgrade at 06:00 UTC \\(with a 60-minute randomized delay\\). The upgrade brought in unexpected/unsupported versions of various components, including systemd and the kernel on DOKS cluster versions 1.27.6-do.0 and 1.28.2-do.0. The kernel upgrade in particular could cause the upgrade process to take longer than 15 minutes, at which point systemd would abort the process ungracefully. This cancellation could leave worker nodes in a broken state.\n\n‌\n\n**Impact**: \n\nThe timeout leading to the upgrade process being canceled led to a disruption in both public and private network connectivity for the worker nodes in the majority of cases. Customers experienced their worker nodes going into NotReady status and becoming unavailable at the time of the upgrade, remaining unavailable until the nodes were replaced or rebooted. In some cases, a single replacement/reboot was not sufficient for recovery and multiple were required. This impact recurred twice more after the first event, around 06:00 UTC on October 9th and 10th.   \n\n**Response**: \n\nThe initial triaging done by the Containers Engineering team quickly scoped the problem down to the worker nodes. Unfortunately, the complete network failures dominantly faced on the affected machines impaired efforts to log into the worker nodes for in-depth troubleshooting. Managed Kubernetes worker nodes come with limited accessibility to Containers Engineering for security reasons, which required the team to provide machine access via SSH and the console while the impact was not occurring. This prolonged the time until in-depth investigations could commence.\n\nOnce nodes became accessible, it became apparent that processes running on a given machine failed to connect to remote destinations both over the VPC and the public network. Early investigations focused on trying to understand which section of the data path may have been disrupted and why. This involved running several traces across the worker nodes and the corresponding hypervisors. The results surfaced broken connectivity at the guest OS level, primarily manifesting as response packets being delivered to the machine successfully but not further relayed to the originating processes \\(including kubelet and workload pods\\). This ruled out the data path as the source of problems.\n\nAt this point, customers were actively advised to try to replace or reboot machines in order to mitigate the impact.\n\nThe investigation focus then pivoted over to the periodic aspect of the incident, which had become more clearly apparent in subsequent occurrences, always starting around the same time of the day \\(06:00 UTC\\). The limited impact on two specific Managed Kubernetes versions pointed towards a regularly executing process on the worker nodes themselves.\n\nAfter ruling out any cronjobs as the culprit, the systemd timer upgrading all packages on the Debian-based worker node was identified with a schedule of 06:00 UTC daily \\(plus a random delay of up to 60 minutes\\). The team then decided to run the timer manually on a test cluster. During that test run, it was observed how a lengthy upgrade process involving numerous system-critical OS packages was being kicked off, including systemd and the kernel. Although the effects of an expiring 15-minute timeout leading to the harsh termination of the upgrade process could not be fully validated at this point, sufficient data points were collected to consider this very timer job to be the root cause for the incident.\n\n### **Timeline of Events in UTC**\n\nOctober 8th: \n\n* 07:43 - Sporadic incoming customer reports arrive, indicating worker node failures that can be addressed by issuing node replacement\n\nOctober 9th: \n\n* 06:31 - Broader impact occurs with worker nodes affected across multiple regions\n* 07:10 - Internal incident response kicks off, investigation begins\n* 08:13 - Access is gained to logs of a previously affected worker node; machine-wide request failures are confirmed\n* 09:43 - Additional Networking teams provide support to pinpoint the guest OS as the likely root cause; Engineering access to affected nodes is still inhibited\n* 15:28 - Tooling work enabling better analysis on recurrence of the issue is completed\n\nOctober 10th: \n\n* 06:05 - Impact reoccurs with first customers\n* 06:18 - Engineering is able to access and live-debug on an affected worker node\n* 13:08 - The auto-upgrade timer is discovered\n* 14:28 - Behavior of the auto-upgrade timer is confirmed and tied to the incident\n* 14:36 - Work starts to build a DaemonSet-based mitigation fix disabling the auto-upgrade timer on each worker node\n\nOctober 11th:\n\n* 03:08 - The fix is released to all affected clusters\n* 06:00/07:00 - No new disruptions/recurrence of the issue are observed\n\n### **Remediation Actions**\n\nIn order to avoid another occurrence of the incident on October 11th or later, a quick fix was put together and released. This fix consisted of a DaemonSet workload that disabled the relevant systemd timer on a worker node. This mitigated the problem on all current and future worker nodes.\n\nThe next step in remediation involves applying the same fix during our node provisioning process so that the worker nodes no longer have the timer enabled. Once completed, the DaemonSet can and will be removed again from all clusters.\n\nAdditional validation is also added to our internal conformance test suite running on all new cluster versions ensuring that the auto-upgrade process and any other undesirable timers continue to stay disabled going forward.\n\nFinally, work is planned to support logging into worker node machines even when conventional access trajectories are impeded.",
+          "incident_id": "fsfsv9fj43w7",
+          "created_at": "2023-10-13T18:48:22.656Z",
+          "updated_at": "2023-10-13T18:56:54.792Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our October 9th incident: https://stspg.io/cvl8q9zg1mfx",
+          "tweet_id": null
+        },
         {
           "id": "g3tnhfwh9wxh",
           "status": "resolved",
