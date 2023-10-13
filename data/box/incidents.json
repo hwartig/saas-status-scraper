@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-10-13T10:23:33.962-07:00"
+    "updated_at": "2023-10-13T10:54:09.720-07:00"
   },
   "incidents": [
     {
@@ -898,7 +898,7 @@
       "name": "[MAJOR] Issues with Uploads, Downloads, Previews, Box Sign, Box Notes and SSO Logins",
       "status": "postmortem",
       "created_at": "2023-10-02T10:15:16.000-07:00",
-      "updated_at": "2023-10-06T14:48:58.065-07:00",
+      "updated_at": "2023-10-13T10:54:09.711-07:00",
       "monitoring_at": "2023-10-02T10:43:12.419-07:00",
       "resolved_at": "2023-10-02T11:56:27.183-07:00",
       "impact": "major",
@@ -909,10 +909,10 @@
         {
           "id": "vgvqgbvl5vkx",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\nBetween October 2, 2023, 09:50 PDT, and October 2, 2023, 10:27 PDT, some users may have experienced difficulties while working in Box. During this time, users may have had a degraded experience or difficulty accessing Public API, Downloads, Uploads and Sign. \n\n‌\n\nThe issue occurred as a result of one of our services experiencing resource constraints after a recent change in our infrastructure in our ongoing effort to improve performance and stability. We are still investigating to determine the root cause of this issue; however, at this time, we believe the problem is likely related to an auto-scale limitation within the aforementioned service. We were able to remediate this issue by deploying more instances of the service. In addition, we are working on improving performance and reliability of the service on the new infrastructure to prevent similar issues from occurring in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,  \nThe Box Team",
+          "body": "We recently addressed an issue affecting Public API, Downloads, Uploads, Login, and Sign. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nOn October 2, 2023, between 09:50 am PDT and 10:27 am PDT, some users may have experienced difficulties while working in Box. During this time, users may have had a degraded experience or difficulty accessing Public API, Downloads, Uploads, Login, and Sign. The issue occurred due to a change to one of our backend systems that created a bottleneck that impacted other internal services. We were able to resolve the issue by deploying more instances of the service experiencing the bottleneck. In addition, we are implementing improvements for enhanced control over the flow of traffic within our backend systems. We are also working to establish new alerts on the impacted processes that will decrease time to detect and mitigate similar issues if they occur in the future. \n\n‌\n\n**Analysis** \n\nBox services are underpinned by a common service communication layer called “Service Mesh” providing Box’s services with the abilities to securely communicate and automatically adapt the scale of the services to traffic bursts. During this incident we observed that the Service Mesh layer did not behave as expected. Specifically, the impacted service did not auto-scale as planned and, as a result, the service became overwhelmed leading to the issue. A deeper analysis of the issue demonstrated that the existing Service Mesh configuration, while optimum for the on-premise deployments, was not optimized for the traffic profile experienced in the public cloud.\n\n‌\n\nWe have been working with the technology vendor for our Service Mesh implementation to tune the configuration according to the new environment and have been rolling out the changes incrementally. We have also increased the capacity on critical services while rolling out these changes to minimize reliance on auto-scaling during that period.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Configure limits for the number of retries within internal systems to improve performance during peak traffic times.\n* Implement additional back pressure “circuit breakers” within our backend systems to protect the system from overloading in the event that similar conditions occur in the future.\n* Improve error handling to better differentiate Service Mesh errors from application errors.\n* Improve monitoring measures to automatically detect, diagnose, and remediate such issues before customers are actually impacted.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,  \nThe Box Team",
           "incident_id": "2myythq0ft4l",
           "created_at": "2023-10-06T14:48:47.261-07:00",
-          "updated_at": "2023-10-06T14:48:58.062-07:00",
+          "updated_at": "2023-10-13T10:54:09.708-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
