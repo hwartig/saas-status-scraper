@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-10-17T13:49:00.864Z"
+    "updated_at": "2023-10-17T14:59:44.994Z"
   },
   "incidents": [
     {
@@ -391,9 +391,9 @@
       "name": "Incident with Pull Requests",
       "status": "resolved",
       "created_at": "2023-10-05T14:18:13.584Z",
-      "updated_at": "2023-10-05T16:42:15.389Z",
+      "updated_at": "2023-10-17T14:59:44.991Z",
       "monitoring_at": null,
-      "resolved_at": "2023-10-05T16:42:15.374Z",
+      "resolved_at": "2023-10-05T16:42:15.000Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/1d7b0qlwsgkl",
       "started_at": "2023-10-05T14:18:13.577Z",
@@ -402,11 +402,11 @@
         {
           "id": "760wvypgznhf",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "On October 5, 2023 at 13:40 UTC, our monitoring systems observed an increase in the time it was taking for Git pushes to become visible when viewing commits in Pull Requests. Under normal operating conditions, a series of asynchronous jobs runs in response to every push and within a few seconds applies a number of side-effects in Pull Requests such as requesting reviews, marking Pull Requests as merged, and showing new commits. During the incident, jobs were entering the queue faster than we could process them, resulting in processing delays as high as 75 seconds on average, and as much as 15 minutes in the worst case. About 10% of all Pull Request page loads were showing out-of-date data during this time.\n\nWe had recently created a dedicated worker pool for processing these side-effects, with the goal of improving isolation between services and providing product teams with more direct control over critical parts of the system. We mitigated the incident by increasing capacity of the worker pool, which fully processed the backlog of delayed jobs, and returned everything to normal by 16:07 UTC. In response to this incident, we have adjusted our monitoring thresholds and improved our procedures for scaling up worker pools in response to increasing utilization.",
           "incident_id": "9fk4c2w43clz",
           "created_at": "2023-10-05T16:42:15.374Z",
-          "updated_at": "2023-10-05T16:42:15.374Z",
-          "display_at": "2023-10-05T16:42:15.374Z",
+          "updated_at": "2023-10-17T14:59:44.969Z",
+          "display_at": "2023-10-05T16:42:15.000Z",
           "affected_components": [
             {
               "code": "hhtssxt0f5v2",
