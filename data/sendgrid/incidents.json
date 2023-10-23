@@ -4,9 +4,62 @@
     "name": "SendGrid",
     "url": "https://status.sendgrid.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-10-23T00:58:59.216-07:00"
+    "updated_at": "2023-10-23T07:36:10.071-07:00"
   },
   "incidents": [
+    {
+      "id": "7z8bml7cr1ny",
+      "name": "Email Billing functionality degraded",
+      "status": "investigating",
+      "created_at": "2023-10-23T07:36:10.007-07:00",
+      "updated_at": "2023-10-23T07:36:10.069-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/2hqyfx2bdkwr",
+      "started_at": "2023-10-23T07:36:10.003-07:00",
+      "page_id": "3tgl2vf85cht",
+      "incident_updates": [
+        {
+          "id": "fzn9yzk03nft",
+          "status": "investigating",
+          "body": "Starting at 06:01 PDT on October 23, 2023, our engineers were alerted about an issue with SendGrid Billing updates, This issue is affecting account upgrades, request of invoices and payment functionality. This incident does not impact mail send. We will provide another update in an hour or as soon as more information becomes available.",
+          "incident_id": "7z8bml7cr1ny",
+          "created_at": "2023-10-23T07:36:10.067-07:00",
+          "updated_at": "2023-10-23T07:36:10.067-07:00",
+          "display_at": "2023-10-23T07:36:10.067-07:00",
+          "affected_components": [
+            {
+              "code": "9m1d2fwwqpkt",
+              "name": "Billing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "9m1d2fwwqpkt",
+          "name": "Billing",
+          "status": "degraded_performance",
+          "created_at": "2021-03-24T12:14:30.621-07:00",
+          "updated_at": "2023-10-23T07:36:10.032-07:00",
+          "position": 9,
+          "description": "Billing and Invoicing services",
+          "showcase": false,
+          "start_date": "2021-03-24",
+          "group_id": null,
+          "page_id": "3tgl2vf85cht",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "2t2305gst4lm",
       "name": "Email Validations API Inaccessible Due to Unauthorized Errors",
@@ -5926,9 +5979,9 @@
         {
           "id": "9m1d2fwwqpkt",
           "name": "Billing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2021-03-24T12:14:30.621-07:00",
-          "updated_at": "2023-04-05T11:23:02.586-07:00",
+          "updated_at": "2023-10-23T07:36:10.032-07:00",
           "position": 9,
           "description": "Billing and Invoicing services",
           "showcase": false,
@@ -6069,139 +6122,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "gl594mm3rw8t",
-      "name": "Issues with Event Webhook for a small set of users",
-      "status": "resolved",
-      "created_at": "2023-03-21T16:28:14.000-07:00",
-      "updated_at": "2023-03-21T22:34:12.057-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2023-03-21T22:34:12.041-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/7v5l5lnrkn5h",
-      "started_at": "2023-03-21T16:28:14.000-07:00",
-      "page_id": "3tgl2vf85cht",
-      "incident_updates": [
-        {
-          "id": "7x1jd6dxw9xm",
-          "status": "resolved",
-          "body": "Our engineers have implemented and monitored a fix and they confirmed that the issue with the SendGrid Event Notification Webhook has been resolved. All services are now operating normally at this time.",
-          "incident_id": "gl594mm3rw8t",
-          "created_at": "2023-03-21T22:34:12.041-07:00",
-          "updated_at": "2023-03-21T22:34:12.041-07:00",
-          "display_at": "2023-03-21T22:34:12.041-07:00",
-          "affected_components": [
-            {
-              "code": "p9560qrfxy9k",
-              "name": "Webhooks - Event Webhook",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6vj70sp6bjw4",
-          "status": "identified",
-          "body": "Our engineers have identified the issue and are working towards a fix. We expect to provide another update as soon as more information becomes available.",
-          "incident_id": "gl594mm3rw8t",
-          "created_at": "2023-03-21T18:54:16.165-07:00",
-          "updated_at": "2023-03-21T18:54:16.165-07:00",
-          "display_at": "2023-03-21T18:54:16.165-07:00",
-          "affected_components": [
-            {
-              "code": "p9560qrfxy9k",
-              "name": "Webhooks - Event Webhook",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vn5x6y6yvxby",
-          "status": "identified",
-          "body": "Our engineers have identified the issue and are working towards a fix for the users not receiving event data via the Event Notification Webhook.  We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "gl594mm3rw8t",
-          "created_at": "2023-03-21T17:35:17.651-07:00",
-          "updated_at": "2023-03-21T17:35:50.971-07:00",
-          "display_at": "2023-03-21T17:35:17.000-07:00",
-          "affected_components": [
-            {
-              "code": "p9560qrfxy9k",
-              "name": "Webhooks - Event Webhook",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gv74qfk4bqxc",
-          "status": "identified",
-          "body": "Our engineers have identified the issue and are working towards a fix for the users not receiving event data via the Event Notification Webhook.  We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "gl594mm3rw8t",
-          "created_at": "2023-03-21T17:31:18.240-07:00",
-          "updated_at": "2023-03-21T17:35:14.129-07:00",
-          "display_at": "2023-03-21T17:31:18.000-07:00",
-          "affected_components": [
-            {
-              "code": "p9560qrfxy9k",
-              "name": "Webhooks - Event Webhook",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gv31g8221hl5",
-          "status": "investigating",
-          "body": "Starting around 4:10PM PST on March 21st, 2023, our engineers began investigating an issue with the Event Notification Webhook. A small set of around 40 users are not receiving event data via the Event Notification Webhook. This does not impact mail send, nor does it impact data sent to the Email Activity Feed. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "gl594mm3rw8t",
-          "created_at": "2023-03-21T16:28:14.823-07:00",
-          "updated_at": "2023-03-21T16:33:28.000-07:00",
-          "display_at": "2023-03-21T16:28:14.000-07:00",
-          "affected_components": [
-            {
-              "code": "p9560qrfxy9k",
-              "name": "Webhooks - Event Webhook",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1638321653309640700
-        }
-      ],
-      "components": [
-        {
-          "id": "p9560qrfxy9k",
-          "name": "Event Webhook",
-          "status": "operational",
-          "created_at": "2015-11-18T06:23:17.600-08:00",
-          "updated_at": "2023-04-12T14:48:11.173-07:00",
-          "position": 1,
-          "description": "Real-time POST of event data to a provided URL.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "dcvwpwy7361c",
-          "page_id": "3tgl2vf85cht",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
