@@ -4,15 +4,15 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-10-24T15:01:52.254-07:00"
+    "updated_at": "2023-10-24T15:12:06.299-07:00"
   },
   "incidents": [
     {
       "id": "j0g48mrwx4py",
       "name": "[Major] Issues with Search Functionality",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-10-10T14:47:33.000-07:00",
-      "updated_at": "2023-10-24T15:01:52.251-07:00",
+      "updated_at": "2023-10-24T15:02:26.399-07:00",
       "monitoring_at": null,
       "resolved_at": "2023-10-10T19:07:36.000-07:00",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2023-10-10T14:47:33.000-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "j78vj660hfpp",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\n \n\nBetween 9/29/2023 9PM PDT and 10/12/2023 4:10PM PDT, some users may have experienced difficulties while working in Box. During this time, users were temporarily unable to find a small number of files that had uploaded, modified or moved during the specified period. The issue occurred due to ongoing infrastructure improvements to uniformly distribute the index across all shards in our search clusters. Specifically, a new sharding scheme was applied to our live serving search clusters resulting in recently updated documents going to the the wrong shards. As a result, at query time the documents were not searchable even though they were present on the cluster. We were able to resolve the issue by reverting to the old sharding scheme for our live serving clusters and then reindexing any documents that were updated during the degradation window. In addition, we are working on adding guardrails to prevent shard maintenance from applying mismatched schemes to live serving search clusters to avoid similar issues from occurring in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "j0g48mrwx4py",
+          "created_at": "2023-10-24T15:01:52.249-07:00",
+          "updated_at": "2023-10-24T15:02:26.397-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "vfqxy7ltsxpk",
           "status": "resolved",
@@ -5157,7 +5170,7 @@
       "name": "[Minor] Box.com Site Is Inaccessible",
       "status": "postmortem",
       "created_at": "2023-07-20T13:16:12.000-07:00",
-      "updated_at": "2023-07-26T15:55:36.502-07:00",
+      "updated_at": "2023-10-24T15:12:06.290-07:00",
       "monitoring_at": "2023-07-20T13:20:46.278-07:00",
       "resolved_at": "2023-07-20T13:52:00.030-07:00",
       "impact": "minor",
@@ -5168,10 +5181,10 @@
         {
           "id": "mmh2qtgxy1n2",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\n \n\nOn July 20, 2023 between 12:52pm PDT and 1:14pm PDT, some users may have experienced difficulties accessing Box’s marketing sites \\([www.box.com](http://www.box.com) and [box.com](http://box.com)\\). During this time, visitors to Box’s marketing sites were temporarily blocked due to a suspected DDoS attack. The issue occurred as a result of Box’s marketing site vendor mitigating a suspected DDoS attack that also impacted legitimate traffic as well. The issue was resolved once the automated mitigation was turned off. We are working on improving our false-positive detection as well as improving the DDoS mitigation overrides to unblock legitimate traffic to prevent similar issues from occurring in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting the Box marketing site \\([www.box.com](http://www.box.com)\\). We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 12:54pm PDT and 1:14pm PDT on July 20th, 2023, some visitors to Box’s marketing sites were temporarily prevented from accessing those sites. The issue occurred as a result of Box’s marketing site vendor mitigating a DDoS attack that inadvertently also impacted legitimate user traffic. The issue was resolved once the the vendor was able to push an engineering fix to identify legitimate user traffic. In addition, we are working on improving our false-positive detection as well as improving the DDoS mitigation overrides to unblock legitimate traffic to prevent similar issues from occurring in the future.\n\n‌\n\n**Analysis** \n\n‌\n\nThe cause of the issue was the DDoS attack aimed at Box’s marketing site, which kicked off an automated mitigation by Box’s marketing site vendor. This mitigation consisted of two responses:\n\n1. Blocking traffic that was malformed \\(attack traffic\\)\n2. Blocking traffic volume from a source once it crossed an internal threshold\n\n‌\n\nBecause Box proxies the marketing site traffic through our external load balancers, there is little variance in the source as seen by the vendor, which contributed to the internal threshold signals set by the vendor. This second response was responsible for blocking legitimate user traffic, and was fixed by the vendor’s engineering team. The fix rollout also coincided with a drop in the attack traffic. \n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Enable additional logging from the vendor to be able to identify mitigation responses as false positives\n* Add mitigation overrides to address false positives when needed\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,  \nThe Box Team",
           "incident_id": "9rlj725twd9f",
           "created_at": "2023-07-26T15:55:28.166-07:00",
-          "updated_at": "2023-07-26T15:55:36.499-07:00",
+          "updated_at": "2023-10-24T15:12:06.287-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
