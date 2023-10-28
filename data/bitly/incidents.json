@@ -4,9 +4,39 @@
     "name": "Bitly",
     "url": "https://status.bitly.com",
     "time_zone": "America/New_York",
-    "updated_at": "2023-10-28T04:36:08.317-04:00"
+    "updated_at": "2023-10-28T13:28:41.699-04:00"
   },
   "incidents": [
+    {
+      "id": "82f80dj7m5z5",
+      "name": "Partial Service Disruption -- Redirects, bitly.com & Link-in-Bio",
+      "status": "resolved",
+      "created_at": "2023-10-28T00:30:00.000-04:00",
+      "updated_at": "2023-10-28T13:28:41.696-04:00",
+      "monitoring_at": null,
+      "resolved_at": "2023-10-28T00:30:00.000-04:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/dn3dvsddh8xy",
+      "started_at": "2023-10-28T13:26:35.283-04:00",
+      "page_id": "hr0hbjty1ljs",
+      "incident_updates": [
+        {
+          "id": "qshpdn4pwl1z",
+          "status": "resolved",
+          "body": "An incident between 2023-10-28 04:26:00 UTC and 2023-10-28 06:36:00 UTC caused intermittent issues with redirects and bitly.com as well as a full outage of Link-in-Bio.\n\nThe incident has been resolved.",
+          "incident_id": "82f80dj7m5z5",
+          "created_at": "2023-10-28T13:26:35.327-04:00",
+          "updated_at": "2023-10-28T13:26:35.327-04:00",
+          "display_at": "2023-10-28T00:30:00.000-04:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "6gpf5z6nvp16",
       "name": "Intermitent Issues with Billing Related Actions",
@@ -5033,145 +5063,6 @@
           "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "cckw1sqv778z",
-          "name": "Website (Bitly.com)",
-          "status": "operational",
-          "created_at": "2015-06-22T23:27:42.415-04:00",
-          "updated_at": "2023-10-23T10:29:34.772-04:00",
-          "position": 3,
-          "description": "Main website and UI",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "hr0hbjty1ljs",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "5c6qd0wqd3cb",
-          "name": "API",
-          "status": "operational",
-          "created_at": "2015-06-22T23:24:01.048-04:00",
-          "updated_at": "2023-06-05T13:35:56.345-04:00",
-          "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "hr0hbjty1ljs",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "rmn9cnj9tyhq",
-      "name": "General Issues",
-      "status": "postmortem",
-      "created_at": "2019-06-21T05:23:48.240-04:00",
-      "updated_at": "2019-06-24T18:02:38.333-04:00",
-      "monitoring_at": "2019-06-21T05:32:24.899-04:00",
-      "resolved_at": "2019-06-21T06:33:28.698-04:00",
-      "impact": "major",
-      "shortlink": "http://stspg.io/200c7b6f2",
-      "started_at": "2019-06-21T05:23:48.232-04:00",
-      "page_id": "hr0hbjty1ljs",
-      "incident_updates": [
-        {
-          "id": "n9hl3jz08fx2",
-          "status": "postmortem",
-          "body": "Between 0910 and 0932 Friday 6/21 UTC, one of our data center providers had a planned maintenance window. There should have been no impact to our services, but this maintenance caused a degradation of performance for our API and Website.\n\nDuring this time redirects were completely unaffected and performed as normal. Metrics collection continued to function throughout and no data was lost.\n\nAs a result, our engineering team is accelerating existing plans to remove our production system dependency on this data center in order to prevent future outages of this type.",
-          "incident_id": "rmn9cnj9tyhq",
-          "created_at": "2019-06-24T18:01:40.204-04:00",
-          "updated_at": "2019-06-24T18:02:38.331-04:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3b3pnc0c3ksd",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "rmn9cnj9tyhq",
-          "created_at": "2019-06-21T06:33:28.698-04:00",
-          "updated_at": "2019-06-21T06:33:28.698-04:00",
-          "display_at": "2019-06-21T06:33:28.698-04:00",
-          "affected_components": [
-            {
-              "code": "5c6qd0wqd3cb",
-              "name": "API",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "cckw1sqv778z",
-              "name": "Website (Bitly.com)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "n6z258qdcffv",
-          "status": "monitoring",
-          "body": "Good news, community: if you were impacted by the earlier website and api issues, you should now be able to access our services without any problems. Thanks for bearing with us! For more info on this incident please see our status page: status.bitly.com",
-          "incident_id": "rmn9cnj9tyhq",
-          "created_at": "2019-06-21T05:32:24.899-04:00",
-          "updated_at": "2019-06-21T05:32:25.615-04:00",
-          "display_at": "2019-06-21T05:32:24.899-04:00",
-          "affected_components": [
-            {
-              "code": "5c6qd0wqd3cb",
-              "name": "API",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "cckw1sqv778z",
-              "name": "Website (Bitly.com)",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1142002321397669900
-        },
-        {
-          "id": "fs9n4z41sc16",
-          "status": "investigating",
-          "body": "Hi community. We’re seeing early indications of issues impacting the website and API for some of our user base. We’re looking into this now and will share an update within 30 minutes.",
-          "incident_id": "rmn9cnj9tyhq",
-          "created_at": "2019-06-21T05:23:48.326-04:00",
-          "updated_at": "2019-06-21T05:23:48.911-04:00",
-          "display_at": "2019-06-21T05:23:48.326-04:00",
-          "affected_components": [
-            {
-              "code": "5c6qd0wqd3cb",
-              "name": "API",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "cckw1sqv778z",
-              "name": "Website (Bitly.com)",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1142000154255298600
         }
       ],
       "components": [
