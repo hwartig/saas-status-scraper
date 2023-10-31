@@ -4,15 +4,15 @@
     "name": "HubSpot",
     "url": "https://status.hubspot.com",
     "time_zone": "America/New_York",
-    "updated_at": "2023-10-30T17:01:05.559-04:00"
+    "updated_at": "2023-10-31T19:32:45.342-04:00"
   },
   "components": [
     {
       "id": "wd2vk60brf48",
       "name": "CRM",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2019-11-06T11:21:24.567-05:00",
-      "updated_at": "2023-10-30T17:01:05.311-04:00",
+      "updated_at": "2023-10-31T19:29:00.772-04:00",
       "position": 1,
       "description": "Loading and processing of HubSpot CRM objects like contacts, companies, deals, and tasks",
       "showcase": false,
@@ -158,10 +158,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "kzdfznmk9p8b",
+      "name": "Lists data is incorrect for all customers on the EU data center",
+      "status": "identified",
+      "created_at": "2023-10-31T19:29:00.737-04:00",
+      "updated_at": "2023-10-31T19:32:45.333-04:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/jg3j7vj8v67k",
+      "started_at": "2023-10-31T19:29:00.728-04:00",
+      "page_id": "8b9w1wwq3g7d",
+      "incident_updates": [
+        {
+          "id": "1b6tk48v4yxw",
+          "status": "identified",
+          "body": "We've identified the issue that's caused lists data to be incorrect for customers on the EU data center since 4:00 PM EDT (UTC -04:00) on Oct 31, 2023. We have temporarily paused workflow enrollment in the EU to limit impact starting at 7:30 PM EDT. We are addressing the cause of this issue and will update this page when we have more information.",
+          "incident_id": "kzdfznmk9p8b",
+          "created_at": "2023-10-31T19:32:45.330-04:00",
+          "updated_at": "2023-10-31T19:32:45.330-04:00",
+          "display_at": "2023-10-31T19:32:45.330-04:00",
+          "affected_components": [
+            {
+              "code": "wd2vk60brf48",
+              "name": "CRM",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2bxhbq47ws0g",
+          "status": "identified",
+          "body": "We've identified the issue that's caused lists data to be unavailable since 4:00 PM EDT (UTC -04:00) on Oct 31, 2023. We're addressing the cause of this issue and will update this page when we have more information. You can confirm if you are on the EU data center by following the article here. https://knowledge.hubspot.com/account/hubspot-cloud-infrastructure-and-data-hosting-frequently-asked-questions \n\nPlease pause email sends and workflows if you are in the EU to limit impact.",
+          "incident_id": "kzdfznmk9p8b",
+          "created_at": "2023-10-31T19:29:00.816-04:00",
+          "updated_at": "2023-10-31T19:29:00.816-04:00",
+          "display_at": "2023-10-31T19:29:00.816-04:00",
+          "affected_components": [
+            {
+              "code": "wd2vk60brf48",
+              "name": "CRM",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "wd2vk60brf48",
+          "name": "CRM",
+          "status": "partial_outage",
+          "created_at": "2019-11-06T11:21:24.567-05:00",
+          "updated_at": "2023-10-31T19:29:00.772-04:00",
+          "position": 1,
+          "description": "Loading and processing of HubSpot CRM objects like contacts, companies, deals, and tasks",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "8b9w1wwq3g7d",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
