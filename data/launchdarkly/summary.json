@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-11-02T00:49:16.587-07:00"
+    "updated_at": "2023-11-02T05:43:04.087-07:00"
   },
   "components": [
     {
@@ -40,7 +40,7 @@
     {
       "id": "vvb9wn53mspf",
       "name": "Flag Delivery Network (core functionality)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-02-28T13:44:13.135-08:00",
       "updated_at": "2022-09-30T14:42:24.541-07:00",
       "position": 1,
@@ -151,9 +151,9 @@
     {
       "id": "7h4z5dpj09mx",
       "name": "Context processing",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-09-18T15:14:51.435-07:00",
-      "updated_at": "2023-10-22T08:07:25.864-07:00",
+      "updated_at": "2023-11-02T05:30:08.132-07:00",
       "position": 1,
       "description": "Ingestion and recording of contexts",
       "showcase": false,
@@ -402,9 +402,9 @@
     {
       "id": "dbc44wm7yn68",
       "name": "Edge API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-10-13T10:37:20.077-07:00",
-      "updated_at": "2023-08-30T15:13:57.979-07:00",
+      "updated_at": "2023-11-02T05:19:38.091-07:00",
       "position": 4,
       "description": "Flag updates for Edge integrations",
       "showcase": true,
@@ -450,7 +450,7 @@
     {
       "id": "2868qx437p9m",
       "name": "Feature management (non-core functionality)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-03-20T14:51:47.901-07:00",
       "updated_at": "2023-07-07T11:10:01.177-07:00",
       "position": 5,
@@ -575,7 +575,134 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "y12hlyrnw37p",
+      "name": "Context and user indexing delays",
+      "status": "monitoring",
+      "created_at": "2023-11-02T05:30:08.083-07:00",
+      "updated_at": "2023-11-02T05:39:58.757-07:00",
+      "monitoring_at": "2023-11-02T05:39:58.742-07:00",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/tvgc6nr084mr",
+      "started_at": "2023-11-02T05:30:08.076-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "n8ms5h6n8sc1",
+          "status": "monitoring",
+          "body": "The issue is fixed. The system is processing context and user indexing backlog. Customers may notice new contexts and users appear with a delay in their dashboards. There is no data loss. Other services are not impacted.",
+          "incident_id": "y12hlyrnw37p",
+          "created_at": "2023-11-02T05:39:58.742-07:00",
+          "updated_at": "2023-11-02T05:39:58.742-07:00",
+          "display_at": "2023-11-02T05:39:58.742-07:00",
+          "affected_components": [
+            {
+              "code": "7h4z5dpj09mx",
+              "name": "Feature management (non-core functionality) - Context processing",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "hj6kszwc6qdk",
+          "status": "identified",
+          "body": "We have identified an issue resulting in delays indexing new contexts and users.",
+          "incident_id": "y12hlyrnw37p",
+          "created_at": "2023-11-02T05:30:08.172-07:00",
+          "updated_at": "2023-11-02T05:30:08.172-07:00",
+          "display_at": "2023-11-02T05:30:08.172-07:00",
+          "affected_components": [
+            {
+              "code": "7h4z5dpj09mx",
+              "name": "Feature management (non-core functionality) - Context processing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "7h4z5dpj09mx",
+          "name": "Context processing",
+          "status": "degraded_performance",
+          "created_at": "2023-09-18T15:14:51.435-07:00",
+          "updated_at": "2023-11-02T05:30:08.132-07:00",
+          "position": 1,
+          "description": "Ingestion and recording of contexts",
+          "showcase": false,
+          "start_date": "2023-09-18",
+          "group_id": "2868qx437p9m",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "j37db1lf8bz1",
+      "name": "Delayed flag updates for Cloudflare Edge SDKs",
+      "status": "identified",
+      "created_at": "2023-11-02T05:19:38.059-07:00",
+      "updated_at": "2023-11-02T05:19:38.133-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/mf8btvw630s8",
+      "started_at": "2023-11-02T05:19:38.052-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "r1gj2bwz8hmf",
+          "status": "identified",
+          "body": "We have identified an issue resulting in possible delay in flag updates for Cloudflare Edge SDKs. This is related to Cloudflare incident https://www.cloudflarestatus.com/incidents/hm7491k53ppg",
+          "incident_id": "j37db1lf8bz1",
+          "created_at": "2023-11-02T05:19:38.131-07:00",
+          "updated_at": "2023-11-02T05:19:38.131-07:00",
+          "display_at": "2023-11-02T05:19:38.131-07:00",
+          "affected_components": [
+            {
+              "code": "dbc44wm7yn68",
+              "name": "Flag Delivery Network (core functionality) - Edge API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "dbc44wm7yn68",
+          "name": "Edge API",
+          "status": "degraded_performance",
+          "created_at": "2022-10-13T10:37:20.077-07:00",
+          "updated_at": "2023-11-02T05:19:38.091-07:00",
+          "position": 4,
+          "description": "Flag updates for Edge integrations",
+          "showcase": true,
+          "start_date": "2022-10-13",
+          "group_id": "vvb9wn53mspf",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "dr5ptq55d3cy",
@@ -633,7 +760,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
