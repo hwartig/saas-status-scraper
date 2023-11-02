@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-11-02T05:43:04.087-07:00"
+    "updated_at": "2023-11-02T06:16:16.502-07:00"
   },
   "components": [
     {
@@ -577,6 +577,79 @@
   ],
   "incidents": [
     {
+      "id": "j37db1lf8bz1",
+      "name": "Delayed flag updates for Cloudflare Edge SDKs",
+      "status": "identified",
+      "created_at": "2023-11-02T05:19:38.059-07:00",
+      "updated_at": "2023-11-02T06:16:16.494-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/mf8btvw630s8",
+      "started_at": "2023-11-02T05:19:38.052-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "cbjv9vz6hxfp",
+          "status": "identified",
+          "body": "The provider continues to work on the issue. LaunchDarkly Cloudflare SDKs and their flag evaluations will continue to work with their last known state. Customers may experience delays in observing flag updates pushed to their Cloudflare storage.",
+          "incident_id": "j37db1lf8bz1",
+          "created_at": "2023-11-02T06:16:16.491-07:00",
+          "updated_at": "2023-11-02T06:16:16.491-07:00",
+          "display_at": "2023-11-02T06:16:16.491-07:00",
+          "affected_components": [
+            {
+              "code": "dbc44wm7yn68",
+              "name": "Flag Delivery Network (core functionality) - Edge API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "r1gj2bwz8hmf",
+          "status": "identified",
+          "body": "We have identified an issue resulting in possible delay in flag updates for Cloudflare Edge SDKs. This is related to Cloudflare incident https://www.cloudflarestatus.com/incidents/hm7491k53ppg",
+          "incident_id": "j37db1lf8bz1",
+          "created_at": "2023-11-02T05:19:38.131-07:00",
+          "updated_at": "2023-11-02T05:19:38.131-07:00",
+          "display_at": "2023-11-02T05:19:38.131-07:00",
+          "affected_components": [
+            {
+              "code": "dbc44wm7yn68",
+              "name": "Flag Delivery Network (core functionality) - Edge API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "dbc44wm7yn68",
+          "name": "Edge API",
+          "status": "degraded_performance",
+          "created_at": "2022-10-13T10:37:20.077-07:00",
+          "updated_at": "2023-11-02T05:19:38.091-07:00",
+          "position": 4,
+          "description": "Flag updates for Edge integrations",
+          "showcase": true,
+          "start_date": "2022-10-13",
+          "group_id": "vvb9wn53mspf",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "y12hlyrnw37p",
       "name": "Context and user indexing delays",
       "status": "monitoring",
@@ -642,59 +715,6 @@
           "showcase": false,
           "start_date": "2023-09-18",
           "group_id": "2868qx437p9m",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "j37db1lf8bz1",
-      "name": "Delayed flag updates for Cloudflare Edge SDKs",
-      "status": "identified",
-      "created_at": "2023-11-02T05:19:38.059-07:00",
-      "updated_at": "2023-11-02T05:19:38.133-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/mf8btvw630s8",
-      "started_at": "2023-11-02T05:19:38.052-07:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "r1gj2bwz8hmf",
-          "status": "identified",
-          "body": "We have identified an issue resulting in possible delay in flag updates for Cloudflare Edge SDKs. This is related to Cloudflare incident https://www.cloudflarestatus.com/incidents/hm7491k53ppg",
-          "incident_id": "j37db1lf8bz1",
-          "created_at": "2023-11-02T05:19:38.131-07:00",
-          "updated_at": "2023-11-02T05:19:38.131-07:00",
-          "display_at": "2023-11-02T05:19:38.131-07:00",
-          "affected_components": [
-            {
-              "code": "dbc44wm7yn68",
-              "name": "Flag Delivery Network (core functionality) - Edge API",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "dbc44wm7yn68",
-          "name": "Edge API",
-          "status": "degraded_performance",
-          "created_at": "2022-10-13T10:37:20.077-07:00",
-          "updated_at": "2023-11-02T05:19:38.091-07:00",
-          "position": 4,
-          "description": "Flag updates for Edge integrations",
-          "showcase": true,
-          "start_date": "2022-10-13",
-          "group_id": "vvb9wn53mspf",
           "page_id": "9404kdk7lkn7",
           "group": false,
           "only_show_if_degraded": false
