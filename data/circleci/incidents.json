@@ -4,9 +4,62 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-11-02T07:47:23.261Z"
+    "updated_at": "2023-11-02T14:42:56.412Z"
   },
   "incidents": [
+    {
+      "id": "brlk4swglqzq",
+      "name": "Seeing Delay in GitHub Status Checks",
+      "status": "monitoring",
+      "created_at": "2023-11-02T14:42:28.483Z",
+      "updated_at": "2023-11-02T14:42:29.517Z",
+      "monitoring_at": "2023-11-02T14:42:28.561Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/xgqjmpsl0mws",
+      "started_at": "2023-11-02T14:42:28.477Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "m74jkzxm27vd",
+          "status": "monitoring",
+          "body": "We are currently seeing GitHub status checks see a delay of up to 25 minutes. We have addressed the issue and are seeing the service recover",
+          "incident_id": "brlk4swglqzq",
+          "created_at": "2023-11-02T14:42:28.561Z",
+          "updated_at": "2023-11-02T14:42:29.512Z",
+          "display_at": "2023-11-02T14:42:28.561Z",
+          "affected_components": [
+            {
+              "code": "60j1gp5j396y",
+              "name": "CircleCI Webhooks",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1720088996850897400
+        }
+      ],
+      "components": [
+        {
+          "id": "60j1gp5j396y",
+          "name": "CircleCI Webhooks",
+          "status": "degraded_performance",
+          "created_at": "2021-08-16T17:40:51.027Z",
+          "updated_at": "2023-11-02T14:42:28.516Z",
+          "position": 9,
+          "description": "Webhooks sent from CircleCI",
+          "showcase": true,
+          "start_date": "2021-07-26",
+          "group_id": null,
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "ls94zklkq12f",
       "name": "Free customers' builds on macOS resources with Xcode image 12.5.1 stuck at spin up environment",
@@ -4582,9 +4635,9 @@
         {
           "id": "60j1gp5j396y",
           "name": "CircleCI Webhooks",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2021-08-16T17:40:51.027Z",
-          "updated_at": "2023-03-23T16:15:39.126Z",
+          "updated_at": "2023-11-02T14:42:28.516Z",
           "position": 9,
           "description": "Webhooks sent from CircleCI",
           "showcase": true,
@@ -6691,99 +6744,6 @@
           "description": "CircleCI jobs using the macos executor.",
           "showcase": true,
           "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "yg25pkpdn2mb",
-      "name": "Some Windows executors pinning to `current` are failing.",
-      "status": "resolved",
-      "created_at": "2023-02-22T10:24:54.569Z",
-      "updated_at": "2023-02-22T10:42:01.193Z",
-      "monitoring_at": "2023-02-22T10:34:57.636Z",
-      "resolved_at": "2023-02-22T10:42:00.663Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/fmztb0rrqwwx",
-      "started_at": "2023-02-22T10:24:54.563Z",
-      "page_id": "6w4r0ttlx5ft",
-      "incident_updates": [
-        {
-          "id": "ht425wdn35t4",
-          "status": "resolved",
-          "body": "We have identified that the failing images were pushed at 2023-02-22 00:20 UTC and the fixed image was published at 2023-02-22 10:26 UTC. Any builds with the affected image tags between these timestamps may remain in a stalled state. Users will need to cancel and re-run these jobs if required.\n\nThe incident is now resolved.",
-          "incident_id": "yg25pkpdn2mb",
-          "created_at": "2023-02-22T10:42:00.663Z",
-          "updated_at": "2023-02-22T10:42:01.182Z",
-          "display_at": "2023-02-22T10:42:00.663Z",
-          "affected_components": [
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1628344350659989500
-        },
-        {
-          "id": "w2r2xx99cf0d",
-          "status": "monitoring",
-          "body": "We have implemented a fix and builds are now running as normal. We are continuing to monitor the status.",
-          "incident_id": "yg25pkpdn2mb",
-          "created_at": "2023-02-22T10:34:57.636Z",
-          "updated_at": "2023-02-22T10:34:58.790Z",
-          "display_at": "2023-02-22T10:34:57.636Z",
-          "affected_components": [
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1628342579090817000
-        },
-        {
-          "id": "hljwzgnxlpks",
-          "status": "identified",
-          "body": "An issue with the Windows `windows-server-2022-gui:current` and `2023.02.1` tags are causing builds to stall on `Preparing environment` step. This will also impact those using the Windows orb with `server-2022` and `default` executors. We have identified the issue and are working on a fix.",
-          "incident_id": "yg25pkpdn2mb",
-          "created_at": "2023-02-22T10:24:54.659Z",
-          "updated_at": "2023-02-22T10:24:56.670Z",
-          "display_at": "2023-02-22T10:24:54.659Z",
-          "affected_components": [
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1628340053062877200
-        }
-      ],
-      "components": [
-        {
-          "id": "svt88btymymk",
-          "name": "Windows Jobs",
-          "status": "operational",
-          "created_at": "2020-10-23T23:37:10.052Z",
-          "updated_at": "2023-10-30T05:38:36.345Z",
-          "position": 4,
-          "description": "Jobs using the Windows executor.",
-          "showcase": true,
-          "start_date": "2020-10-23",
           "group_id": null,
           "page_id": "6w4r0ttlx5ft",
           "group": false,
