@@ -4,9 +4,62 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-11-03T00:44:49.706-07:00"
+    "updated_at": "2023-11-03T14:57:52.223-07:00"
   },
   "incidents": [
+    {
+      "id": "4wmkn9s7xj4p",
+      "name": "[Critical] Issues accessing Box for Salesforce",
+      "status": "investigating",
+      "created_at": "2023-11-03T14:57:41.032-07:00",
+      "updated_at": "2023-11-03T14:57:52.217-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/cnlbm3h3qrrl",
+      "started_at": "2023-11-03T14:57:41.024-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "5n7kyzxt8j8h",
+          "status": "investigating",
+          "body": "Our team is investigating an issue with Box for Salesforce. Users may see errors using or logging into Box for Salesforce. We will provide additional information as it becomes available.",
+          "incident_id": "4wmkn9s7xj4p",
+          "created_at": "2023-11-03T14:57:41.112-07:00",
+          "updated_at": "2023-11-03T14:57:41.112-07:00",
+          "display_at": "2023-11-03T14:57:41.112-07:00",
+          "affected_components": [
+            {
+              "code": "c65jnfv7j6mj",
+              "name": "Partners / Integrations - Box for Salesforce",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "c65jnfv7j6mj",
+          "name": "Box for Salesforce",
+          "status": "partial_outage",
+          "created_at": "2018-12-17T19:09:23.007-08:00",
+          "updated_at": "2023-11-03T14:57:41.067-07:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "jvy3knlf7n32",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": "[]"
+    },
     {
       "id": "j0g48mrwx4py",
       "name": "[Major] Issues with Search Functionality",
@@ -7947,9 +8000,9 @@
         {
           "id": "c65jnfv7j6mj",
           "name": "Box for Salesforce",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2018-12-17T19:09:23.007-08:00",
-          "updated_at": "2023-06-01T12:46:51.913-07:00",
+          "updated_at": "2023-11-03T14:57:41.067-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -10070,112 +10123,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "gfsffngbfsck",
-      "name": "[Critical] Issue With File Request Links",
-      "status": "postmortem",
-      "created_at": "2023-03-24T10:23:38.804-07:00",
-      "updated_at": "2023-04-10T14:23:43.237-07:00",
-      "monitoring_at": "2023-03-24T10:40:17.600-07:00",
-      "resolved_at": "2023-03-24T11:18:15.392-07:00",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/h2kbql1032jl",
-      "started_at": "2023-03-24T10:23:38.797-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "d5ftmbkrggwn",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting File Request. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 09:23 am PDT and 10:33 am PDT on March 24, 2023, some users may have experienced difficulties while working in Box. During this time, users may have experienced failures of certain File Request operations. The issue occurred due to a scheduled change to add a new server in the service discovery cluster, which eventually impacted the File Request service. We were able to remediate this issue by reverting the change and performing a manual restart of the File Request service. Additionally, we have hardened the server deployment strategy to prevent similar issues from occurring in the future**.** \n\n‌\n\n**Analysis** \n\nFile Request transitively relies on service discovery tools via using a distributed database system. An attempt to add a new server in the service discovery cluster triggered a chain reaction that ultimately caused all the file request database operations to timeout. \n\nAfter the addition was reverted, the file request service had to be manually restarted in order to reset the primary leader information cached by the database client in the service.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Proactively upgrade service discovery tools to more stable versions.\n* Add additional server\\(s\\) to existing service discovery cluster to increase cluster fault tolerance.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
-          "incident_id": "gfsffngbfsck",
-          "created_at": "2023-03-31T09:59:25.885-07:00",
-          "updated_at": "2023-04-10T14:23:43.234-07:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6w1jjtpvw9tk",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. File Request Links have been restored to full functionality. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
-          "incident_id": "gfsffngbfsck",
-          "created_at": "2023-03-24T11:18:15.392-07:00",
-          "updated_at": "2023-03-24T11:18:15.392-07:00",
-          "display_at": "2023-03-24T11:18:15.392-07:00",
-          "affected_components": [
-            {
-              "code": "q5lzw0zgflyh",
-              "name": "Box Web Application - Collaboration",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4nw6s3gtcg7w",
-          "status": "monitoring",
-          "body": "Our team has taken steps to remediate this issue and is seeing improvement for File Request Links. We are continuing to monitor for any additional impact.",
-          "incident_id": "gfsffngbfsck",
-          "created_at": "2023-03-24T10:40:17.600-07:00",
-          "updated_at": "2023-03-24T10:40:17.600-07:00",
-          "display_at": "2023-03-24T10:40:17.600-07:00",
-          "affected_components": [
-            {
-              "code": "q5lzw0zgflyh",
-              "name": "Box Web Application - Collaboration",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "07bpjkdprqn1",
-          "status": "investigating",
-          "body": "Our team is investigating an issue with File Request Links. Users may be unable to create new File Request Links, and existing File Request Links may throw an error page. We will provide additional information as it becomes available.",
-          "incident_id": "gfsffngbfsck",
-          "created_at": "2023-03-24T10:23:38.870-07:00",
-          "updated_at": "2023-03-24T10:23:38.870-07:00",
-          "display_at": "2023-03-24T10:23:38.870-07:00",
-          "affected_components": [
-            {
-              "code": "q5lzw0zgflyh",
-              "name": "Box Web Application - Collaboration",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "q5lzw0zgflyh",
-          "name": "Collaboration",
-          "status": "operational",
-          "created_at": "2018-10-01T20:09:03.387-07:00",
-          "updated_at": "2023-09-28T04:55:39.289-07:00",
-          "position": 3,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
