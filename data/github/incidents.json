@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-11-03T19:21:48.626Z"
+    "updated_at": "2023-11-03T20:32:02.348Z"
   },
   "incidents": [
     {
@@ -12,22 +12,22 @@
       "name": "Incident with Git Operations, Issues, Pull Requests, Actions, API Requests, Codespaces, Packages, Pages and Webhooks",
       "status": "resolved",
       "created_at": "2023-11-03T16:10:45.751Z",
-      "updated_at": "2023-11-03T19:21:48.623Z",
+      "updated_at": "2023-11-03T20:32:02.341Z",
       "monitoring_at": null,
-      "resolved_at": "2023-11-03T19:21:48.601Z",
+      "resolved_at": "2023-11-03T19:21:48.000Z",
       "impact": "major",
       "shortlink": "https://stspg.io/hz26zhwl0wxj",
-      "started_at": "2023-11-03T16:10:45.739Z",
+      "started_at": "2023-11-03T19:21:48.000Z",
       "page_id": "kctbh9vrtdwd",
       "incident_updates": [
         {
           "id": "jlg7lrf5l7nz",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "A performance and resilience optimization to the authorization microservice contained a memory leak that was exposed under high traffic. This resulted in a number of pages returning 404’s that should not have. Testing the build in our canary ring did not expose the service to sufficient traffic to discover the leak, allowing it to graduate to production at 6:37 PM UTC.  The memory leak under high load caused pods to crash repeatedly starting at 6:42 PM UTC, failing authorization checks. These failures triggered alerts at 6:44 PM UTC. Rolling back the authorization service change was delayed as parts of the deployment infrastructure relied on the authorization service and required manual intervention to complete. Rollback completed at 7:08 PM UTC and all impacted GitHub features recovered after pods came back online.  We are evaluating changes to our rollout strategy to better detect this sooner and with less impact, changes to remove the dependency between authorization services and deployment rollback, and incident response improvements to reduce the overall time to recover.\n<br /><br />\nThis incident is unrelated to the Slack integration incident.  The combined status updates are a limitation of our status reporting tooling and we recognize the confusion this creates. Work to address this was already in progress and will be complete this month.",
           "incident_id": "xb30mby9fs5x",
           "created_at": "2023-11-03T19:21:48.601Z",
-          "updated_at": "2023-11-03T19:21:48.601Z",
-          "display_at": "2023-11-03T19:21:48.601Z",
+          "updated_at": "2023-11-03T20:32:02.336Z",
+          "display_at": "2023-11-03T19:21:48.000Z",
           "affected_components": [
             {
               "code": "brv1bkgrwx7q",
