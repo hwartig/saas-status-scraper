@@ -4,7 +4,7 @@
     "name": "Jira Software",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-11-07T21:48:43.790Z"
+    "updated_at": "2023-11-08T04:32:50.363Z"
   },
   "incidents": [
     {
@@ -115,7 +115,7 @@
       "name": "Email domain unverified",
       "status": "postmortem",
       "created_at": "2023-10-24T23:27:09.522Z",
-      "updated_at": "2023-11-02T07:40:06.166Z",
+      "updated_at": "2023-11-08T04:32:50.349Z",
       "monitoring_at": "2023-10-25T01:46:33.159Z",
       "resolved_at": "2023-10-26T04:37:27.323Z",
       "impact": "minor",
@@ -126,10 +126,10 @@
         {
           "id": "r48rd3lzq50v",
           "status": "postmortem",
-          "body": "### **SUMMARY**\n\nFrom 9pm UTC on October 23, 2023, until 8pm UTC on October 24, 2023, Atlassian customers using the Jira family products that have configured notifications from custom email domains experienced a degradation as email notifications were being sent from the default [atlassian.net](http://atlassian.net) domain instead of a custom domain. The incident was detected by Atlassian customers as they started to receive notifications from the [atlassian.net](http://atlassian.net) domain instead of previously configured custom domains. It was mitigated by excluding redundant validations from the custom domain verification job which put Atlassian systems into a known good state. The total time to resolution was about 23 hours.\n\n### **IMPACT**\n\nThe overall impact was between October 23, 2023 9pm UTC and October 24 8pm UTC on Jira family products, including Jira Service Management, Jira Software and Jira Work Management. The incident caused service disruption to customers who have notifications from custom email domains enabled for their Jira products as email notifications were being sent from the default [atlassian.net](http://atlassian.net) domain instead of the custom domain configured by the customer.\n\n### **ROOT CAUSE**\n\nThe issue was caused by a change to the service responsible for custom domain email notifications lifecycle that inadvertently enabled SPF record validation as part of a daily validation job. As a result, previously working custom domain configuration transitioned to an unverified state for some Atlassian customers, resulting in notifications from Jira products being sent from [atlassian.net](http://atlassian.net) domain instead of a previously configured custom domain.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe are continuously improving our system's resiliency. We are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Improve monitoring and alerting for custom domains lifecycle to detect such regressions before they reach production.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "body": "### **SUMMARY**\n\nFrom 9pm UTC on October 23, 2023, until 3am UTC on October 25, 2023, Atlassian customers using the Jira family products that have configured notifications from custom email domains experienced a degradation as email notifications were being sent from the default [atlassian.net](http://atlassian.net) domain instead of a custom domain. The incident was detected by Atlassian customers as they started to receive notifications from the [atlassian.net](http://atlassian.net) domain instead of previously configured custom domains. It was mitigated by excluding redundant validations from the custom domain verification job which put Atlassian systems into a known good state. The total time to resolution was about 30 hours.\n\nNote: the initially published timeframe of the incident was incorrect and was adjusted together with time to resolution.\n\n### **IMPACT**\n\nThe overall impact was between October 23, 2023 9pm UTC and October 25 3am UTC on Jira family products, including Jira Service Management, Jira Software and Jira Work Management. The incident caused service disruption to customers who have notifications from custom email domains enabled for their Jira products as email notifications were being sent from the default [atlassian.net](http://atlassian.net) domain instead of the custom domain configured by the customer.\n\n### **ROOT CAUSE**\n\nThe issue was caused by a change to the service responsible for custom domain email notifications lifecycle that inadvertently enabled SPF record validation as part of a daily validation job. As a result, previously working custom domain configuration transitioned to an unverified state for some Atlassian customers, resulting in notifications from Jira products being sent from [atlassian.net](http://atlassian.net) domain instead of a previously configured custom domain.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe are continuously improving our system's resiliency. We are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Improve monitoring and alerting for custom domains lifecycle to detect such regressions before they reach production.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
           "incident_id": "hcmscvb500k6",
           "created_at": "2023-11-02T06:05:48.388Z",
-          "updated_at": "2023-11-02T07:40:06.164Z",
+          "updated_at": "2023-11-08T04:32:50.346Z",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
