@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-11-08T11:15:52.555-08:00"
+    "updated_at": "2023-11-08T11:40:54.107-08:00"
   },
   "components": [
     {
@@ -171,7 +171,7 @@
     {
       "id": "j3s4w3gnsj08",
       "name": "PROGRAMMABLE VOICE",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-03-23T13:31:41.890-07:00",
       "updated_at": "2019-01-10T08:18:06.173-08:00",
       "position": 2,
@@ -369,9 +369,9 @@
     {
       "id": "x6drb5vw27bs",
       "name": "Client Web",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2016-04-08T13:26:33.462-07:00",
-      "updated_at": "2023-11-03T20:55:06.804-07:00",
+      "updated_at": "2023-11-08T11:23:14.577-08:00",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -510,9 +510,9 @@
     {
       "id": "6f5zbh4rqx3m",
       "name": "Client Mobile",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-08-28T17:43:33.290-07:00",
-      "updated_at": "2023-09-12T09:25:43.409-07:00",
+      "updated_at": "2023-11-08T11:31:26.421-08:00",
       "position": 4,
       "description": "Twilio Client Mobile SDK",
       "showcase": false,
@@ -1775,17 +1775,63 @@
   "incidents": [
     {
       "id": "98c4s8z704yh",
-      "name": "On Call Engineers Are Investigating a Potencial Issue With Voice",
+      "name": "Call Failures Due to Invalid Caller ID",
       "status": "investigating",
       "created_at": "2023-11-08T11:15:52.506-08:00",
-      "updated_at": "2023-11-08T11:15:52.552-08:00",
+      "updated_at": "2023-11-08T11:31:26.467-08:00",
       "monitoring_at": null,
       "resolved_at": null,
-      "impact": "none",
+      "impact": "minor",
       "shortlink": "https://stspg.io/7pr00m1vyvzb",
       "started_at": "2023-11-08T11:15:52.499-08:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "1j1bmw786k5x",
+          "status": "investigating",
+          "body": "We are continuing our investigation and have discovered that Client Mobile is affected too. Customers are getting errors about an invalid caller ID. We expect to provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "98c4s8z704yh",
+          "created_at": "2023-11-08T11:31:26.464-08:00",
+          "updated_at": "2023-11-08T11:31:26.464-08:00",
+          "display_at": "2023-11-08T11:31:26.464-08:00",
+          "affected_components": [
+            {
+              "code": "x6drb5vw27bs",
+              "name": "PROGRAMMABLE VOICE - Client Web",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "6f5zbh4rqx3m",
+              "name": "PROGRAMMABLE VOICE - Client Mobile",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "11bjzck86gr8",
+          "status": "investigating",
+          "body": "We are investigating a service interruption with voice showing 13214 errors increase. Customers are getting errors about an invalid caller ID. We expect to provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "98c4s8z704yh",
+          "created_at": "2023-11-08T11:23:14.628-08:00",
+          "updated_at": "2023-11-08T11:23:14.628-08:00",
+          "display_at": "2023-11-08T11:23:14.628-08:00",
+          "affected_components": [
+            {
+              "code": "x6drb5vw27bs",
+              "name": "PROGRAMMABLE VOICE - Client Web",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "83v0wc6r98dt",
           "status": "investigating",
@@ -1800,7 +1846,38 @@
           "tweet_id": null
         }
       ],
-      "components": [],
+      "components": [
+        {
+          "id": "x6drb5vw27bs",
+          "name": "Client Web",
+          "status": "degraded_performance",
+          "created_at": "2016-04-08T13:26:33.462-07:00",
+          "updated_at": "2023-11-08T11:23:14.577-08:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j3s4w3gnsj08",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "6f5zbh4rqx3m",
+          "name": "Client Mobile",
+          "status": "degraded_performance",
+          "created_at": "2015-08-28T17:43:33.290-07:00",
+          "updated_at": "2023-11-08T11:31:26.421-08:00",
+          "position": 4,
+          "description": "Twilio Client Mobile SDK",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j3s4w3gnsj08",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
       "reminder_intervals": null
     },
     {
@@ -2577,6 +2654,60 @@
       "scheduled_until": "2023-11-09T23:00:00.000-08:00"
     },
     {
+      "id": "p4dpm09tprkh",
+      "name": "Romania Messaging Carrier Maintenance - Orange",
+      "status": "scheduled",
+      "created_at": "2023-11-08T11:32:32.154-08:00",
+      "updated_at": "2023-11-08T11:40:54.101-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/ltcmgtwmrg9b",
+      "started_at": "2023-11-08T11:32:32.147-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "kzy9bs1wwvd5",
+          "status": "scheduled",
+          "body": "The Orange network in Romania is conducting a planned maintenance from 09 November 2023 at 13:00 PST until 09 November 2023 at 14:00 PST. During the maintenance window, there could be intermittent delays delivering messaging to Orange Romania handsets.",
+          "incident_id": "p4dpm09tprkh",
+          "created_at": "2023-11-08T11:32:32.194-08:00",
+          "updated_at": "2023-11-08T11:40:54.098-08:00",
+          "display_at": "2023-11-08T11:32:32.194-08:00",
+          "affected_components": [
+            {
+              "code": "llgdln3dcs6p",
+              "name": "CARRIER NETWORK - SMS, Europe",
+              "old_status": "under_maintenance",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "llgdln3dcs6p",
+          "name": "SMS, Europe",
+          "status": "under_maintenance",
+          "created_at": "2019-01-10T08:53:50.789-08:00",
+          "updated_at": "2023-11-08T10:20:10.444-08:00",
+          "position": 9,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2023-11-09T13:00:00.000-08:00",
+      "scheduled_until": "2023-11-09T14:00:00.000-08:00"
+    },
+    {
       "id": "npv5byjh0370",
       "name": "Singapore SMS Carrier Maintenance - StarHub",
       "status": "scheduled",
@@ -3105,60 +3236,6 @@
       "scheduled_until": "2023-11-16T16:00:00.000-08:00"
     },
     {
-      "id": "z39kklh2sgg6",
-      "name": "Russia SMS Carrier Maintenance - K-Telecom (WIN Mobile)",
-      "status": "scheduled",
-      "created_at": "2023-11-06T22:25:44.935-08:00",
-      "updated_at": "2023-11-06T22:25:44.996-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/p7w649yptz3k",
-      "started_at": "2023-11-06T22:25:44.925-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "c6dv9hvwc3w3",
-          "status": "scheduled",
-          "body": "The K-Telecom networks in Russia is conducting a planned maintenance from 16 November 2023 at 14:00 PST until 16 November 2023 at 16:00 PST. During the maintenance window, there could be intermittent delays delivering SMS to K-Telecom Russia handsets.",
-          "incident_id": "z39kklh2sgg6",
-          "created_at": "2023-11-06T22:25:44.993-08:00",
-          "updated_at": "2023-11-06T22:25:44.993-08:00",
-          "display_at": "2023-11-06T22:25:44.993-08:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "llgdln3dcs6p",
-          "name": "SMS, Europe",
-          "status": "under_maintenance",
-          "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2023-11-08T10:20:10.444-08:00",
-          "position": 9,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2023-11-16T14:00:00.000-08:00",
-      "scheduled_until": "2023-11-16T16:00:00.000-08:00"
-    },
-    {
       "id": "471jw2pmsp8w",
       "name": "Russia SMS Carrier Maintenance - KTK Telecom (Volna Mobile)",
       "status": "scheduled",
@@ -3200,6 +3277,60 @@
           "created_at": "2019-01-10T08:53:31.990-08:00",
           "updated_at": "2023-11-08T10:00:17.718-08:00",
           "position": 8,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2023-11-16T14:00:00.000-08:00",
+      "scheduled_until": "2023-11-16T16:00:00.000-08:00"
+    },
+    {
+      "id": "z39kklh2sgg6",
+      "name": "Russia SMS Carrier Maintenance - K-Telecom (WIN Mobile)",
+      "status": "scheduled",
+      "created_at": "2023-11-06T22:25:44.935-08:00",
+      "updated_at": "2023-11-06T22:25:44.996-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/p7w649yptz3k",
+      "started_at": "2023-11-06T22:25:44.925-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "c6dv9hvwc3w3",
+          "status": "scheduled",
+          "body": "The K-Telecom networks in Russia is conducting a planned maintenance from 16 November 2023 at 14:00 PST until 16 November 2023 at 16:00 PST. During the maintenance window, there could be intermittent delays delivering SMS to K-Telecom Russia handsets.",
+          "incident_id": "z39kklh2sgg6",
+          "created_at": "2023-11-06T22:25:44.993-08:00",
+          "updated_at": "2023-11-06T22:25:44.993-08:00",
+          "display_at": "2023-11-06T22:25:44.993-08:00",
+          "affected_components": [
+            {
+              "code": "llgdln3dcs6p",
+              "name": "CARRIER NETWORK - SMS, Europe",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "llgdln3dcs6p",
+          "name": "SMS, Europe",
+          "status": "under_maintenance",
+          "created_at": "2019-01-10T08:53:50.789-08:00",
+          "updated_at": "2023-11-08T10:20:10.444-08:00",
+          "position": 9,
           "description": null,
           "showcase": false,
           "start_date": null,
