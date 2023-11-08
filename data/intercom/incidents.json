@@ -4,7 +4,7 @@
     "name": "Intercom",
     "url": "https://www.intercomstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-11-08T15:53:51.223Z"
+    "updated_at": "2023-11-08T17:05:10.968Z"
   },
   "incidents": [
     {
@@ -201,9 +201,9 @@
     {
       "id": "wchkfj6z9h2r",
       "name": "Web App and API Degraded Performance",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-11-07T11:59:18.403Z",
-      "updated_at": "2023-11-07T12:13:05.303Z",
+      "updated_at": "2023-11-08T17:05:10.956Z",
       "monitoring_at": null,
       "resolved_at": "2023-11-07T12:13:05.285Z",
       "impact": "minor",
@@ -211,6 +211,19 @@
       "started_at": "2023-11-07T11:59:18.369Z",
       "page_id": "1m1j8k4rtldg",
       "incident_updates": [
+        {
+          "id": "t3b520y8bt0t",
+          "status": "postmortem",
+          "body": "### **Serena Fritsch, Senior Product Engineer**\n\n# Issue Summary\n\nIntercom uses MySQL as its default datastore, running on AWS’s RDS Aurora service. We are running a mix of multi-tenant database clusters, as well as sharded database clusters for high scale. The sharded database clusters contain a subset of our customers data in dedicated databases. For high availability, all the database clusters are deployed in multiple availability zones in AWS.\n\nAt approximately **11:49 UTC on the 7th of November**, we initiated a manual query against one of the sharded databases. Our aim was to determine the size of all tables within that database as part of a capacity planning exercise. We needed to establish the amount of data stored in the cluster from temporary tables. These temporary tables were created by our database schema migration process. This query was run not directly on the database itself, but by connecting to the database from our production console.\n\nThis query caused the free memory of the cluster to drop significantly.  At **11:50 UTC,** AWS, our cloud provider, initiated  an automated failover to an instance of the cluster in a different availability zone. The failover terminated the query. At the same time, latency started rising across our Ruby on Rails application.\n\nAt **11:54 UTC** the first paging alarm fired, denoting a degradation in the availability. Our on-call engineers acknowledged the alarm, and by 11:57 UTC had established that the problem was related to the failover of the particular cluster. We updated the [status page](https://www.intercomstatus.com/) at 11:59 UTC. \n\nThe fail-over itself was completed at **11:54 UTC,** and all database instances restarted at **11:55 UTC.** By that time, the Intercom app was working normally again for the majority of Intercom customers. \n\nHowever, the Intercom app was still serving errors to customers with data on the cluster that had just rebooted. A deployment of our Rails application completed at **11:56** UTC, which re-established the connections evenly to the instances in the affected cluster. All customer impact was resolved.\n\n# Evaluation\n\n## What went right\n\n* We updated the status page quickly.\n* Our detection and general operational response was fast. We had the right people involved within minutes, and narrowed down the problem quickly.\n* Our systems recovered from the database failover without manual intervention.\n\n## What could be better\n\n* We did not realize that the query was dangerous and could result in query performance degradation and ultimately a failover.\n* Our long tail recovery process is dependent on redeploying the Ruby on Rails application to reestablish connections.\n* Our schema migration process is complex and resource heavy. The reason we performed the query in question was to determine how much additional disk space was used by unused temporary migration tables.\n\n# Actions\n\n1. We are no longer running queries like that and using other methods for the capacity planning exercise.\n2. We are looking into mechanisms to remove the need for a manual redeployment of the application after this type of event.",
+          "incident_id": "wchkfj6z9h2r",
+          "created_at": "2023-11-08T16:54:43.952Z",
+          "updated_at": "2023-11-08T17:05:10.943Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our November 7th incident: https://stspg.io/38vylbn6fyrr",
+          "tweet_id": null
+        },
         {
           "id": "b3f5b5rrkmrh",
           "status": "resolved",
