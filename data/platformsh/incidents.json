@@ -4,7 +4,7 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-11-09T05:23:33.597Z"
+    "updated_at": "2023-11-09T09:03:48.727Z"
   },
   "incidents": [
     {
@@ -53,9 +53,9 @@
     {
       "id": "tfygx6pjk03f",
       "name": "Partial Outage on de-2.platform.sh",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-11-08T07:41:59.680Z",
-      "updated_at": "2023-11-08T09:14:21.260Z",
+      "updated_at": "2023-11-09T09:03:48.724Z",
       "monitoring_at": "2023-11-08T08:26:55.000Z",
       "resolved_at": "2023-11-08T09:14:21.244Z",
       "impact": "major",
@@ -63,6 +63,19 @@
       "started_at": "2023-11-08T07:41:59.676Z",
       "page_id": "l2x5n4czt1ph",
       "incident_updates": [
+        {
+          "id": "s80hzn8lrqcc",
+          "status": "postmortem",
+          "body": "**What happened**\n\nThe service handling incoming requests, on one of the [de-2.platform.sh](http://de-2.platform.sh) regional gateway, stopped processing requests. The response team switched the faulty gateway, with a freshly provisioned one. Shortly after, the faulty gateway was fully recovered.\n\n**How long customers were impacted**\n\nSome projects were affected for up to 45 minutes, however most recovered within 20 minutes.\n\n**How many customers were impacted**\n\nThe issue affected the availability of all environments for some projects.\n\n**Resolution steps**\n\nDuring the incident, a temporary gateway was added, until the faulty gateway was fully recovered.  \nOur engineers are currently investigating the root cause of the service failure.",
+          "incident_id": "tfygx6pjk03f",
+          "created_at": "2023-11-09T09:03:04.963Z",
+          "updated_at": "2023-11-09T09:03:48.722Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "qlytqjgphzpr",
           "status": "resolved",
