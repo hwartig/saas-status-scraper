@@ -4,7 +4,7 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-11-13T07:58:26.603Z"
+    "updated_at": "2023-11-14T03:39:44.171Z"
   },
   "incidents": [
     {
@@ -1459,9 +1459,9 @@
     {
       "id": "bl5yrvtrq5p4",
       "name": "Sign-ups, Product Activation, and Billing not working",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-08-02T13:41:13.456Z",
-      "updated_at": "2023-08-02T15:59:20.029Z",
+      "updated_at": "2023-11-14T03:39:44.169Z",
       "monitoring_at": "2023-08-02T14:25:40.443Z",
       "resolved_at": "2023-08-02T15:59:20.014Z",
       "impact": "none",
@@ -1469,6 +1469,19 @@
       "started_at": "2023-08-02T13:41:13.449Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "9xtrh891gckm",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn 2023-08-02, Atlassian customers were unable to perform a range of billing and cloud provisioning actions. It affected the Jira family of products, Confluence, Marketplace apps, and Bitbucket. The event started when in the normal order of operation, traffic to Atlassian billing systems increased and new nodes were supposed to be created. However, due to a prior rotation of passwords, new nodes were unable to connect to the Atlassian billing systems database. This meant that no new nodes were spun up to handle the increased traffic and the existing nodes became overloaded.\n\nThe incident was mitigated by resetting the passwords and new nodes were able to be created.\n\n### **IMPACT**\n\nThe overall impact was on 2023-08-02, on [www.atlassian.com](http://www.atlassian.com), [my.atlassian.com](http://my.atlassian.com), Billing Admin UI, Marketplace, and Bitbucket. The incident caused customers to be unable to use the aforementioned Atlassian billing systems in all regions. The outage lasted for 3 hours and 10 minutes and impacted the following products and services:\n\n[www.atlassian.com](http://www.atlassian.com)\n\n* Could not signup for new cloud accounts\n* Could not activate new products on existing cloud accounts\n* Could not create, view or pay for quotes \n\n[my.atlassian.com](http://my.atlassian.com)\n\n* Offline\n\nIn-app billing admin UI for cloud accounts\n\n* Could not view/update billing details\n* Could not provide bill estimate\n* Could not activate new products or apps\n\nMarketplace\n\n* Could not activate or deactivate apps on existing cloud accounts\n* Vendors could not update their configuration or the configuration of their apps\n* Some delay in updating vendor sales reports during the time of the incident\n\nBitbucket\n\n* Could not update billing details\n* Could not provide bill estimate\n\n### **ROOT CAUSE**\n\nFor reasons related to keeping our systems secure, passwords used for some of the Atlassian billing systems are rotated. However, the same passwords were used in other parts of the Atlassian billing infrastructure. This had the unintended side effect that it became impossible to create new nodes to handle increased traffic. Nodes that already were up and running kept functioning, but weren't able to handle the increased load.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that any outage impacts your productivity. We make every effort to keep all our systems up and running in a reliable and secure manner. Unfortunately, in this case, rotating passwords for security reasons had the unintended side effect of making our billing systems unavailable. \n\nAs a high-priority action, we have separated the passwords being used in different services across the billing systems. Furthermore, we are undertaking a comprehensive program to modernize the security infrastructure for our billing systems, significantly reducing the need to use passwords.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "bl5yrvtrq5p4",
+          "created_at": "2023-11-14T03:38:41.405Z",
+          "updated_at": "2023-11-14T03:39:44.167Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "8q1z5wgyvhtp",
           "status": "resolved",
