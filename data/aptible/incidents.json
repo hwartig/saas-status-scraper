@@ -4,9 +4,39 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2023-11-14T11:08:53.736-05:00"
+    "updated_at": "2023-11-14T16:29:39.605-05:00"
   },
   "incidents": [
+    {
+      "id": "kfb09wg72515",
+      "name": "Quay.io Registry Issues",
+      "status": "identified",
+      "created_at": "2023-11-14T16:29:39.092-05:00",
+      "updated_at": "2023-11-14T16:29:39.598-05:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/s00sdng5431v",
+      "started_at": "2023-11-14T16:29:39.085-05:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "2vsytj6tkc86",
+          "status": "identified",
+          "body": "We have identified an issue with our primary upstream registry provider which is impacting some Aptible Deploy operations. Our team is in the process of failing over to our backup provider and will update this incident when this has been completed.",
+          "incident_id": "kfb09wg72515",
+          "created_at": "2023-11-14T16:29:39.141-05:00",
+          "updated_at": "2023-11-14T16:29:39.593-05:00",
+          "display_at": "2023-11-14T16:29:39.141-05:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": 1724540119057944800
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "zxr8jf69yck1",
       "name": "CVE-2023-44487 \"HTTP/2 Rapid Reset\" Response",
@@ -4074,36 +4104,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "wm9xbxhk4774",
-      "name": "Codecov Bash Uploader Compromise",
-      "status": "resolved",
-      "created_at": "2021-04-27T09:51:51.000-04:00",
-      "updated_at": "2021-04-29T14:39:31.233-04:00",
-      "monitoring_at": null,
-      "resolved_at": "2021-04-27T09:51:51.000-04:00",
-      "impact": "none",
-      "shortlink": "https://stspg.io/1yxbn04zdhc3",
-      "started_at": "2021-04-27T09:51:51.000-04:00",
-      "page_id": "fmwgqnbnbc4r",
-      "incident_updates": [
-        {
-          "id": "vd46xq842wgc",
-          "status": "resolved",
-          "body": "On April 15, Codecov.io reported a breach [0] of their Bash Uploader script, which Aptible previously used to measure and report test coverage in 2 of its code repos, both JavaScript frontend applications.\n\nLater that day, we rotated all credentials that had been present in the environment configuration of the 2 repos on Travis CI, where the Bash Uploader script had been invoked. These credentials consisted of:\n• a GitHub access token associated with a read-only robot user\n• a robot user password for pushing Docker images to Quay.io\n• a robot user password for deploying apps on Aptible Deploy\n\nWe audited all access on Aptible Deploy and Quay, and confirmed the compromised robot user passwords were not used in either service. On April 22, with assistance from GitHub, we identified that the GitHub token *was* used to download several repos. We audited all credentials and confidential data contained within these repos. Importantly, no customer-owned data are stored in any of our code repos, and no customer-owned data were accessed or impacted by this incident.\n\nAt this time, the only potentially compromised data is a list of companies (not individual users) who use Aptible Deploy and/or Comply. No sensitive or regulated information had been committed to the downloaded repos at any time. We will provide updates if we discover any new information, but based on our investigation thus far, we are resolving this incident.\n\n[0] https://about.codecov.io/security-update/\n\nNotes:\n• Edited April 29 to clarify that no customer-owned data were impacted by this incident",
-          "incident_id": "wm9xbxhk4774",
-          "created_at": "2021-04-27T09:51:51.819-04:00",
-          "updated_at": "2021-04-29T14:39:31.229-04:00",
-          "display_at": "2021-04-27T09:51:51.000-04:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1387041809784721400
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
