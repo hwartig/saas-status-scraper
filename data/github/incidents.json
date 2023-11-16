@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-11-16T17:51:42.697Z"
+    "updated_at": "2023-11-16T21:41:15.674Z"
   },
   "incidents": [
     {
@@ -163,9 +163,9 @@
       "name": "Incident with Pages, Webhooks and Actions",
       "status": "resolved",
       "created_at": "2023-11-11T01:26:52.998Z",
-      "updated_at": "2023-11-11T02:14:08.567Z",
+      "updated_at": "2023-11-16T21:41:15.672Z",
       "monitoring_at": null,
-      "resolved_at": "2023-11-11T02:14:08.550Z",
+      "resolved_at": "2023-11-11T02:14:08.000Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/t4bqfh6wb30t",
       "started_at": "2023-11-11T01:26:52.990Z",
@@ -174,11 +174,11 @@
         {
           "id": "72znscq0llp7",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "On November 11, 2023, at 1:00 UTC, GitHub background jobs encountered delays lasting up to 50 minutes. This delay affected various services utilizing background jobs, including Actions, Webhooks, Pull Requests, and Pages. The impact persisted for approximately one hour until 2:10 UTC.\n\nDuring the incident, some customers experienced delays in starting Github Actions workflow runs and Pages builds. We estimate that about 10% of Actions workflow runs were delayed during the impact window and 99% of Pages builds failed from 1:00 UTC to 1:20 UTC. Users may have experienced a delay in seeing recent pushes reflected in pull request views. This delay averaged between 5 and 10 minutes and affected up to 30% of pull request page views during the incident. 1% of pull request page views experienced delays of up to 60 minutes. Finally, 30% of webhook deliveries in this window missed our target of being delivered within 1 minute of the triggering event.\n\nThis incident was caused by excessive rebalancing in our Kafka consumer group that feeds our background job system. We have altered our Kafka configuration to reduce the likelihood of this issue, created diagnostic tools to identify future causes, and will be breaking up this relay into multiple groups to limit the blast radius if the problem does reoccur.",
           "incident_id": "wyk0ns67krlz",
           "created_at": "2023-11-11T02:14:08.550Z",
-          "updated_at": "2023-11-11T02:14:08.550Z",
-          "display_at": "2023-11-11T02:14:08.550Z",
+          "updated_at": "2023-11-16T21:41:15.657Z",
+          "display_at": "2023-11-11T02:14:08.000Z",
           "affected_components": [
             {
               "code": "vg70hn9s2tyj",
