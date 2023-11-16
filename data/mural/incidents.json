@@ -4,15 +4,15 @@
     "name": "Mural",
     "url": "https://status.mural.co",
     "time_zone": "America/Argentina/Buenos_Aires",
-    "updated_at": "2023-11-16T09:51:53.330-03:00"
+    "updated_at": "2023-11-16T09:54:42.632-03:00"
   },
   "incidents": [
     {
       "id": "bnh7mh281bzb",
       "name": "Mural users are unable to log in",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-11-13T09:01:28.000-03:00",
-      "updated_at": "2023-11-16T09:51:53.324-03:00",
+      "updated_at": "2023-11-16T09:54:42.630-03:00",
       "monitoring_at": "2023-11-13T13:58:45.421-03:00",
       "resolved_at": "2023-11-13T19:00:31.574-03:00",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2023-11-13T09:01:28.000-03:00",
       "page_id": "dbk70dpy3n7h",
       "incident_updates": [
+        {
+          "id": "sv4qb7s1ykjx",
+          "status": "postmortem",
+          "body": "**Summary**: \n\nOn Saturday, November 11th at 03:00 UTC, Mural performed scheduled maintenance on our production clusters. Post-migration checks indicated all functions were performing as expected. On Monday, November 13th, some Mural customers reported difficulty logging into the Mural web application. Mural’s incident response team was immediately engaged in troubleshooting these reports.\n\nInitial investigations revealed that the platform upgrade over the preceding weekend had incorrect settings for the DNS infrastructure and a key backend application's auto-scaling. This resulted in unstable connections for some users.\n\nDuring the course of this investigation, we also discovered that load balancing improvements for clients with specific network and application configurations altered how the client’s IP address was interpreted by our system, preventing access for such clients. \n\nOur incident response team addressed the auto-scaling configuration, resolving DNS-related issues and restored access for the majority of users. Next, a new load-balancing configuration underwent adjustments and testing to restore stable connections for the previously-impacted users.\n\nThe total time from when our incident response team started working on this incident, to deploying the final fix, was 9 hours 40 minutes.\n\n**What we’ve done to prevent this happening again:**\n\nAs part of Mural’s post-incident procedure, our engineering teams conducted a thorough review to identify the root cause and outline necessary improvements. 8 separate changes have been identified and will be implemented in the coming weeks. These changes cover monitoring to detect this scenario sooner, enhanced post-migration checks to ensure this scenario and others are included in our use cases and reviewing our migration process to reduce the risks.\n\nWe apologize for any inconvenience this incident may have caused and sincerely thank your patience whilst we worked through this incident.",
+          "incident_id": "bnh7mh281bzb",
+          "created_at": "2023-11-16T09:50:20.664-03:00",
+          "updated_at": "2023-11-16T09:54:42.628-03:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "qcxmt4hpm176",
           "status": "resolved",
