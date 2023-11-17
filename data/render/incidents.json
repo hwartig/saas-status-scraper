@@ -4,7 +4,7 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-11-16T07:57:28.544Z"
+    "updated_at": "2023-11-16T23:52:08.078Z"
   },
   "incidents": [
     {
@@ -232,9 +232,9 @@
     {
       "id": "bz7f9zjmd665",
       "name": "Some postgres databases are experiencing downtime",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-11-09T18:08:45.526Z",
-      "updated_at": "2023-11-09T19:44:37.913Z",
+      "updated_at": "2023-11-16T23:52:08.067Z",
       "monitoring_at": "2023-11-09T18:36:52.286Z",
       "resolved_at": "2023-11-09T19:44:37.200Z",
       "impact": "critical",
@@ -242,6 +242,19 @@
       "started_at": "2023-11-09T18:08:45.510Z",
       "page_id": "tyfhm2rrt1tl",
       "incident_updates": [
+        {
+          "id": "p5w2pw3zv1ty",
+          "status": "postmortem",
+          "body": "# RCA\n\n# Summary\n\nOn Thursday November 9th, multiple databases were restarted across all regions due to unexpected restarts triggered by a code change. This code change caused databases to be unavailable for up to 8 minutes. A concurrent but unrelated bug caused some affected databases in the Ohio region to be down for up to 37 minutes.\n\n## Incident Timeline\n\n# Impact\n\nThis incident affected a subset of Point-In-Time Recovery-enabled Postgres instances which experienced an unexpected restart during this time. The event resolved itself between 3 and 8 minutes in each cluster, except for the Ohio region.\n\nIn the Ohio region, we were unable to scale up to handle the movement of databases. This extended downtime. We rolled back a separate change to resolve the issues with scale up. All affected databases became available again within 37 minutes. 2 Postgres instances in the Ohio region remained unavailable and had to be manually returned to service by an engineer.\n\n# Root Cause\n\nThis downtime was triggered by a code deploy of our database management system. The code change created an errant configuration change to specific database configurations which caused them to unexpectedly restart to pick up the new configuration.\n\n# Mitigations\n\n* We will improve monitoring and alerting to decrease our time to detection.\n* We will add additional guard rails to our database management system to prevent unintentional restarts, including those due to configuration changes. We have already developed the feature and are planning its roll out.\n* We will improve our database management system to prevent the configuration change of this incident from triggering a restart.\n* We will add additional testing to detect restart-triggering changes before we deploy them.",
+          "incident_id": "bz7f9zjmd665",
+          "created_at": "2023-11-16T23:51:41.630Z",
+          "updated_at": "2023-11-16T23:52:08.051Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our November 9th incident: https://stspg.io/cx6gz8wqkxpf",
+          "tweet_id": null
+        },
         {
           "id": "55cd4lbysc60",
           "status": "resolved",
