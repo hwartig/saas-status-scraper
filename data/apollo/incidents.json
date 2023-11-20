@@ -4,9 +4,39 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-11-17T21:10:27.147Z"
+    "updated_at": "2023-11-20T21:10:48.350Z"
   },
   "incidents": [
+    {
+      "id": "9xqwq95b9wkp",
+      "name": "Erroneous Warnings in Router Logs for Enterprise Features",
+      "status": "resolved",
+      "created_at": "2023-11-15T12:00:00.000Z",
+      "updated_at": "2023-11-20T21:10:48.347Z",
+      "monitoring_at": null,
+      "resolved_at": "2023-11-15T12:00:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/6d5rpj6vglh4",
+      "started_at": "2023-11-15T12:00:00.000Z",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "whk94vctpb4q",
+          "status": "resolved",
+          "body": "We investigated and resolved an isolated number of cases where Router users utilizing Enterprise Features (e.g., JWT Authentication, Operation Limits, Distributed Caching, Subscriptions, etc.) were receiving error messages in their Router logs (or telemetry products like Datadog, etc.) which stated “License has expired” or “Apollo license expired”, despite the fact that their Enterprise plan was active and current.  The exact error message depended on the Router version and the features used and would have started appearing on Wed, Nov 15, 2023 at 12:00:00 PM GMT.\n\nAs noted above, this is already resolved and we will follow-up on this to prevent this from occurring in the future.  All such log messages should have stopped as of Mon, Nov 20, 2023 at 21:07:00 UTC.\n\nIf you are curious, you can always verify the activeness of your Graph’s account by visiting the Graph’s “Settings > Billing” page in Studio.\n\nPlease contact Support through the Studio dashboard or reach out to your account representative if you continue to see these messages appearing in your log.\n\nPriority: Partially Degraded\nComponents: Uplink\nResolved at: Nov 20, 2023 at 21:07:00 UTC",
+          "incident_id": "9xqwq95b9wkp",
+          "created_at": "2023-11-20T21:10:12.908Z",
+          "updated_at": "2023-11-20T21:10:48.250Z",
+          "display_at": "2023-11-15T12:00:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "1h9sq93n8wbv",
       "name": "Upstream vendor networking outage is preventing GraphOS serverless routers from being created and from receiving traffic",
@@ -5444,99 +5474,6 @@
           "description": "The API that supports reading metrics, schemas, client metadata, publishing and validating schemas.",
           "showcase": true,
           "start_date": null,
-          "group_id": null,
-          "page_id": "r56zbm15x15h",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "rbpz2q9p3c52",
-      "name": "Inaccessible Cloud Router deployments",
-      "status": "resolved",
-      "created_at": "2022-11-09T13:25:33.273Z",
-      "updated_at": "2022-11-09T14:36:13.172Z",
-      "monitoring_at": null,
-      "resolved_at": "2022-11-09T14:36:13.159Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/zgqj1c3wxykk",
-      "started_at": "2022-11-09T13:25:33.269Z",
-      "page_id": "r56zbm15x15h",
-      "incident_updates": [
-        {
-          "id": "wymqfw5c1pj5",
-          "status": "resolved",
-          "body": "The Cloud Routers that were affected had been deleted by our users and not cleaned up, which threw alerts during our update task.  All traffic for running Cloud Routers was still served during this period and new Cloud Routers were able to be created, so this was a bug in our monitoring and had no real user impact.  Thanks for your patience with this new product!",
-          "incident_id": "rbpz2q9p3c52",
-          "created_at": "2022-11-09T14:36:13.159Z",
-          "updated_at": "2022-11-09T14:36:13.159Z",
-          "display_at": "2022-11-09T14:36:13.159Z",
-          "affected_components": [
-            {
-              "code": "821z1tygvvpf",
-              "name": "Cloud Routing",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vy19y7558wwt",
-          "status": "investigating",
-          "body": "We are continuing to investigate the issue and will have another update in 30 minutes or less.",
-          "incident_id": "rbpz2q9p3c52",
-          "created_at": "2022-11-09T14:11:56.059Z",
-          "updated_at": "2022-11-09T14:11:56.059Z",
-          "display_at": "2022-11-09T14:11:56.059Z",
-          "affected_components": [
-            {
-              "code": "821z1tygvvpf",
-              "name": "Cloud Routing",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bzyygf8bmk3n",
-          "status": "investigating",
-          "body": "We are currently investigating an incident which prevents some previously-deployed Cloud Routers from being accessed.  Newly created Cloud Router deployments are working correctly.   We will provide more updates as soon as they are available.",
-          "incident_id": "rbpz2q9p3c52",
-          "created_at": "2022-11-09T13:25:33.337Z",
-          "updated_at": "2022-11-09T13:25:33.337Z",
-          "display_at": "2022-11-09T13:25:33.337Z",
-          "affected_components": [
-            {
-              "code": "821z1tygvvpf",
-              "name": "Cloud Routing",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "821z1tygvvpf",
-          "name": "Cloud Routing",
-          "status": "operational",
-          "created_at": "2022-10-28T11:32:57.526Z",
-          "updated_at": "2023-11-14T03:04:05.553Z",
-          "position": 14,
-          "description": "GraphOS Cloud supergraphs hosted on Apollo infrastructure",
-          "showcase": true,
-          "start_date": "2022-10-03",
           "group_id": null,
           "page_id": "r56zbm15x15h",
           "group": false,
