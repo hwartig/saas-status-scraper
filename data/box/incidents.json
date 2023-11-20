@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-11-19T23:57:09.880-08:00"
+    "updated_at": "2023-11-20T11:03:59.361-08:00"
   },
   "incidents": [
     {
@@ -163,9 +163,9 @@
     {
       "id": "4wmkn9s7xj4p",
       "name": "[Critical] Issues accessing Box for Salesforce",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-11-03T14:57:41.032-07:00",
-      "updated_at": "2023-11-03T19:41:19.409-07:00",
+      "updated_at": "2023-11-20T11:03:59.359-08:00",
       "monitoring_at": "2023-11-03T19:31:16.136-07:00",
       "resolved_at": "2023-11-03T19:41:19.393-07:00",
       "impact": "critical",
@@ -173,6 +173,19 @@
       "started_at": "2023-11-03T14:57:41.024-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "6kxb88c6sb95",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\n‌\n\nBetween 12:17 PM PDT and 7:36 PM PDT on Friday, November 3, 2023, some users may have experienced difficulties while using our Box for Salesforce integration. During this time, customers using the integration experienced issues loading the Box Folder widgets, toolkit automation, and authentication flows. This occurred as a result of a back-end change that resulted in the integration's authentication credentials being invalidated. We were able to resolve the issue by resetting the credentials. In addition, we are updating our change control processes and software to prevent similar issues from occurring in the future.\n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\n \n\nSincerely,  \nThe Box Team",
+          "incident_id": "4wmkn9s7xj4p",
+          "created_at": "2023-11-20T11:03:47.342-08:00",
+          "updated_at": "2023-11-20T11:03:59.357-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "w22h1jhzm523",
           "status": "resolved",
@@ -431,7 +444,7 @@
       "name": "[Major] Issues with Search Functionality",
       "status": "postmortem",
       "created_at": "2023-10-10T14:47:33.000-07:00",
-      "updated_at": "2023-10-24T15:02:26.399-07:00",
+      "updated_at": "2023-11-20T11:02:43.976-08:00",
       "monitoring_at": null,
       "resolved_at": "2023-10-10T19:07:36.000-07:00",
       "impact": "major",
@@ -442,10 +455,10 @@
         {
           "id": "j78vj660hfpp",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\n \n\nBetween 9/29/2023 9PM PDT and 10/12/2023 4:10PM PDT, some users may have experienced difficulties while working in Box. During this time, users were temporarily unable to find a small number of files that had uploaded, modified or moved during the specified period. The issue occurred due to ongoing infrastructure improvements to uniformly distribute the index across all shards in our search clusters. Specifically, a new sharding scheme was applied to our live serving search clusters resulting in recently updated documents going to the the wrong shards. As a result, at query time the documents were not searchable even though they were present on the cluster. We were able to resolve the issue by reverting to the old sharding scheme for our live serving clusters and then reindexing any documents that were updated during the degradation window. In addition, we are working on adding guardrails to prevent shard maintenance from applying mismatched schemes to live serving search clusters to avoid similar issues from occurring in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting Search. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 9/29/2023 9PM PDT and 10/12/2023 4:10PM PDT, some users may have experienced difficulties while working in Box. During this time, users were unable to find some documents that were uploaded, modified or moved during the specified period. The issue occurred as a result of changes to our infrastructure to more uniformly distribute the index across all shards in our search clusters. Specifically, a new sharding scheme was applied to our live serving search clusters resulting in some recently updated documents going to the the wrong shards. We were able to resolve the issue by reverting back to the old sharding scheme for live clusters. In addition, we are working on adding mechanisms to safely alter sharding scheme for live production clusters to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nThis issue occurred due to alteration of the sharding scheme used for indexing to live serving search clusters. This change inadvertently resulted in inconsistency between the sharding scheme used to update documents and the sharding scheme used to query the cluster. As a result, a small portion of documents that were created, updated or moved on Box during the issue time window were indexed to a different shard than what the user queries were being processed on. Since the sharding scheme only impacted a small portion of content on Box \\(less than 1%\\), most documents were still searchable, and this issue only impacted a relatively small number of files.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Adding checks in the system to ensure indexing and query pipeline are using the same sharding scheme for a specific cluster\n* Adding tooling to identify if document is being indexed to the wrong shard on a cluster\n* Update procedure for changing sharding scheme to prevent unintentionally applying it to all serving clusters.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,  \nThe Box Team",
           "incident_id": "j0g48mrwx4py",
           "created_at": "2023-10-24T15:01:52.249-07:00",
-          "updated_at": "2023-10-24T15:02:26.397-07:00",
+          "updated_at": "2023-11-20T11:02:43.973-08:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
