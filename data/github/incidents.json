@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-11-28T19:40:12.242Z"
+    "updated_at": "2023-11-28T22:23:04.925Z"
   },
   "incidents": [
     {
@@ -233,22 +233,22 @@
       "name": "Incident with Pull Requests, Issues, Webhooks and Actions",
       "status": "resolved",
       "created_at": "2023-11-27T19:43:00.029Z",
-      "updated_at": "2023-11-27T21:11:04.137Z",
+      "updated_at": "2023-11-28T22:23:04.918Z",
       "monitoring_at": null,
-      "resolved_at": "2023-11-27T21:11:04.116Z",
+      "resolved_at": "2023-11-27T21:11:04.000Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/l7r357nldpzv",
-      "started_at": "2023-11-27T19:43:00.023Z",
+      "started_at": "2023-11-27T21:11:04.000Z",
       "page_id": "kctbh9vrtdwd",
       "incident_updates": [
         {
           "id": "gw5mkvtc521b",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "This incident has been resolved.\nOn November 27, 2023 at 18:46 UTC, we attempted to rotate our OpenID Connect (OIDC) authentication flow certificates. Due to an error in the certificate formatting, we uploaded an invalid certificate configuration that was not observed in our pre-production testing. Our background job servers were unable to start because a valid configuration is required at worker start up. As a result, users experienced delays in Pull Requests, Webhooks, Issues, Actions and Projects. Rollback of the change was slowed by the invalid certificate as our deployment system relied on the same certificate. Rollback was completed at 20:35 UTC. Most services recovered by 20:44 UTC. \n<br /><br />\nDelayed updates to Issues and Pull Requests were applied normally once the changes were rolled back. After the change was rolled back, a large queue of Actions-related jobs built up which included Pull Request, Pull Request review and Pull Request review comment events. About 2.3% of Actions jobs failed during the duration of the incident. Job queue times returned to normal once all remaining jobs were processed.\n<br /><br />\nWe are working to improve our certificate testing and rotation process to reduce the risk of customer-impacting errors.",
           "incident_id": "66vhjmd266r9",
           "created_at": "2023-11-27T21:11:04.116Z",
-          "updated_at": "2023-11-27T21:11:04.116Z",
-          "display_at": "2023-11-27T21:11:04.116Z",
+          "updated_at": "2023-11-28T22:23:04.915Z",
+          "display_at": "2023-11-27T21:11:04.000Z",
           "affected_components": [
             {
               "code": "kr09ddfgbfsf",
