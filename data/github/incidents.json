@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-11-30T08:06:38.144Z"
+    "updated_at": "2023-11-30T20:37:50.396Z"
   },
   "incidents": [
     {
@@ -81,9 +81,9 @@
       "name": "Incident with Actions and Webhooks",
       "status": "resolved",
       "created_at": "2023-11-28T17:24:53.273Z",
-      "updated_at": "2023-11-28T17:59:15.513Z",
+      "updated_at": "2023-11-30T20:37:50.393Z",
       "monitoring_at": null,
-      "resolved_at": "2023-11-28T17:59:15.499Z",
+      "resolved_at": "2023-11-28T17:59:15.000Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/xycyhtpd314p",
       "started_at": "2023-11-28T17:24:53.265Z",
@@ -92,11 +92,11 @@
         {
           "id": "b98cydv1cd9d",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "This incident has been resolved. An interaction between two feature flag rollouts caused us to suppress delivery of push webhooks between 16:23 and 17:11 UTC in a manner that evaded our existing observability. This affected 71,000 repositories whose users will have noted missing webhook deliveries and/or experienced Actions jobs with push triggers failing to start. During this period, around 25% of new Actions jobs were impacted. The issues were resolved by disabling one of the feature flags in question.\n\nAfter weighing various options for retroactively dispatching old push webhooks, we concluded that the risk of delivering stale data to customers with these redeliveries outweighed the possible benefit.\n\nAs follow up to this incident, we are working to improve monitoring of webhook throughput and to document a policy around webhook redelivery timelines.",
           "incident_id": "dsb3kn1zfdl7",
           "created_at": "2023-11-28T17:59:15.499Z",
-          "updated_at": "2023-11-28T17:59:15.499Z",
-          "display_at": "2023-11-28T17:59:15.499Z",
+          "updated_at": "2023-11-30T20:37:50.376Z",
+          "display_at": "2023-11-28T17:59:15.000Z",
           "affected_components": [
             {
               "code": "4230lsnqdsld",
