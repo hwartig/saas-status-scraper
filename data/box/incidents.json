@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-12-03T02:25:15.490-08:00"
+    "updated_at": "2023-12-03T13:43:16.348-08:00"
   },
   "incidents": [
     {
@@ -362,9 +362,9 @@
     {
       "id": "4103d5cqw77d",
       "name": "[Major] Customers may experience issues receiving email notifications",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-11-03T17:11:37.740-07:00",
-      "updated_at": "2023-11-03T17:26:17.896-07:00",
+      "updated_at": "2023-12-03T13:43:16.346-08:00",
       "monitoring_at": "2023-11-03T17:15:19.823-07:00",
       "resolved_at": "2023-11-03T17:26:17.883-07:00",
       "impact": "major",
@@ -372,6 +372,19 @@
       "started_at": "2023-11-03T17:11:37.730-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "w8fhsjkqmfvk",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting slow-arriving Email Notifications. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 14:32 and 16:05 on 03.11.2023 \\(PST\\), some users may have experienced difficulties while working in Box. During this time, file-related notifications were temporarily not coming out. The issue occurred due to unnoticed expired authentication token used in a production environment. We were able to resolve the issue by rotating the token, at which point entire backlog of unsent notifications was sent swiftly. In addition, we are working on putting safeguards in place to alert us beforehand in such cases earlier to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nThis issue was caused by an expired token used to distribute software within Box infrastructure. Due to a limitation in alerting mechanism in this area, the alert didn’t fire properly as a warning beforehand. As a result, there was temporary inability for affected mechanism to distribute current version of software. This has led to a number of job triggering continuously to stop triggering, since these could not obtain the current version of software due to aforementioned fault. One of these jobs was batching job for notifications, and this caused the visible effect to end users. \n\n‌\n\nOnce the problem was mitigated, the notification job started firing again and quickly sent out the historical backlog of unsent notifications. \n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Improve the token renewal alerting automation to detect and fire alerts for any expiring tokens\n* Improve the token distribution and renewal process to ensure our core infrastructure services always have valid tokens to authenticate with\n* Analyse possibility of manual trigger of the notification email batching job \\(outside of scheduled triggers\\) in such cases\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "4103d5cqw77d",
+          "created_at": "2023-12-03T13:42:32.287-08:00",
+          "updated_at": "2023-12-03T13:43:16.344-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "74sn2q06nz3s",
           "status": "resolved",
