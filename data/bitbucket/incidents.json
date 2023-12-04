@@ -4,9 +4,39 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2023-12-04T08:43:03.787Z"
+    "updated_at": "2023-12-04T16:33:13.655Z"
   },
   "incidents": [
+    {
+      "id": "39yj4pkxt6m1",
+      "name": "Egress connectivity timing out",
+      "status": "identified",
+      "created_at": "2023-12-04T16:33:13.616Z",
+      "updated_at": "2023-12-04T16:33:13.652Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/mkv70g9b6sy9",
+      "started_at": "2023-12-04T16:33:13.610Z",
+      "page_id": "bqlf8qjztdtr",
+      "incident_updates": [
+        {
+          "id": "pldnkqsknsmg",
+          "status": "identified",
+          "body": "We are currently investigating an incident that result in connection time outs on service egress proxy. This affects Jira, JSM, Confluence, BitBucket, Trello, Ecosystem products. The features affected for these products are those that require a connection to service egress.",
+          "incident_id": "39yj4pkxt6m1",
+          "created_at": "2023-12-04T16:33:13.650Z",
+          "updated_at": "2023-12-04T16:33:13.650Z",
+          "display_at": "2023-12-04T16:33:13.650Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "20f0jv7fqlfs",
       "name": "Forge Function Invocations outage impacting Smartlinks",
@@ -6133,171 +6163,6 @@
           "updated_at": "2023-06-10T19:01:13.195Z",
           "position": 11,
           "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "bqlf8qjztdtr",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "mh89krfvpv19",
-      "name": "Bitbucket website and API outage",
-      "status": "postmortem",
-      "created_at": "2022-10-04T07:36:23.462Z",
-      "updated_at": "2022-10-13T01:35:11.465Z",
-      "monitoring_at": "2022-10-04T08:16:43.905Z",
-      "resolved_at": "2022-10-04T08:39:21.805Z",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/vb7yr033kc38",
-      "started_at": "2022-10-04T07:36:23.456Z",
-      "page_id": "bqlf8qjztdtr",
-      "incident_updates": [
-        {
-          "id": "4gr9cfwt4whs",
-          "status": "postmortem",
-          "body": "### **SUMMARY**\n\nOn Oct 4th, 2022, between 7:17 AM and 8:12 AM UTC, Atlassian customers using Bitbucket Cloud were unable to access the website. The event was triggered by a configuration change that hit a bug in the envoy proxy version we are using for cluster management. [Envoy proxy](https://www.envoyproxy.io/) is a high performance, small footprint edge and service proxy and also load balancer. The incident was detected within 14 minutes by automated monitoring and on-call engineers were immediately paged. The incident was resolved by reverting the envoy config that caused the bug to be exposed, which mitigated the customer impact, getting our website into a good state. The total time to resolution was about 55 minutes.\n\n### **IMPACT**\n\nThe overall impact was between 7:17 AM and 8:12 AM UTC. The incident affected the Bitbucket Cloud website preventing users from accessing the website. Bitbucket Cloud API, Git over SSH, and Git over HTTPS were not impacted by this incident.\n\n### **ROOT CAUSE**\n\nThe issue was caused by a [bug](https://github.com/envoyproxy/envoy/issues/21587) in envoy proxy where it does not handle hostnames in the Redis cluster command. We deployed the envoy proxy config for a new Elasticache Redis cluster which was planned to be used by other microservices in the near future. The envoy configuration change that resulted in the envoy bug did not affect existing Bitbucket website instances, so they were not affected by the bug after the envoy configuration deployment. Instead, the bug was exposed by the envoy config that was applied to new instances that were created by the scale-up event, so our website could not scale as new instances were failing to start since they were dependent on the envoy proxy to be up and running. This caused existing instances to hit high CPU utilization, fail health checks and eventually crash since they could not keep up with the increase in traffic to the Bitbucket Cloud website.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. While we have a number of testing and preventative processes \\(post-deployment verification tests across all environments\\) in place, this specific issue wasn’t identified because the envoy proxy bug manifested itself only on newly provisioned instances of envoy proxy as part of the microservice, existing instances of the microservice were not affected by the bug.\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Redeploy Bitbucket Cloud service once envoy proxy config changes are deployed and run post-deployment verification tests in our pre-production environments to prevent this incident from re-occurrence. This will also ensure our post-deployment checks can run against our new configuration just after the deployment, without waiting for our website to scale to use the new configuration.\n* Upgrade envoy proxy to the[ most recent version ](https://www.envoyproxy.io/docs/envoy/v1.22.0/version_history/current)of envoy proxy that has the fix for the bug in the Redis filter.\n* Faster rollbacks for the envoy control plane service that pushes config to envoy proxy to reduce our time to recovery \\(TTR\\) in the event this occurs again.\n* Improved and faster alerting and monitoring for detecting the degradation of microservice to reduce our time to detection \\(TTD\\) in the event this occurs again.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
-          "incident_id": "mh89krfvpv19",
-          "created_at": "2022-10-13T00:05:19.713Z",
-          "updated_at": "2022-10-13T01:35:11.463Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "81n1pgmmvbn4",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "mh89krfvpv19",
-          "created_at": "2022-10-04T08:39:21.805Z",
-          "updated_at": "2022-10-04T08:39:22.715Z",
-          "display_at": "2022-10-04T08:39:21.805Z",
-          "affected_components": [
-            {
-              "code": "g0lfj4sv2fhf",
-              "name": "Website",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "k0x2yw1435v7",
-              "name": "API",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1577216798214455300
-        },
-        {
-          "id": "w75tfbhbq7yn",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "mh89krfvpv19",
-          "created_at": "2022-10-04T08:16:43.905Z",
-          "updated_at": "2022-10-04T08:16:45.174Z",
-          "display_at": "2022-10-04T08:16:43.905Z",
-          "affected_components": [
-            {
-              "code": "g0lfj4sv2fhf",
-              "name": "Website",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "k0x2yw1435v7",
-              "name": "API",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1577211104220303400
-        },
-        {
-          "id": "v2q0wtxy76xt",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "mh89krfvpv19",
-          "created_at": "2022-10-04T08:14:36.201Z",
-          "updated_at": "2022-10-04T08:14:36.615Z",
-          "display_at": "2022-10-04T08:14:36.201Z",
-          "affected_components": [
-            {
-              "code": "g0lfj4sv2fhf",
-              "name": "Website",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "k0x2yw1435v7",
-              "name": "API",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1577210565055107000
-        },
-        {
-          "id": "b9cgyr68np8p",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "mh89krfvpv19",
-          "created_at": "2022-10-04T07:36:23.573Z",
-          "updated_at": "2022-10-04T07:36:24.115Z",
-          "display_at": "2022-10-04T07:36:23.573Z",
-          "affected_components": [
-            {
-              "code": "g0lfj4sv2fhf",
-              "name": "Website",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "k0x2yw1435v7",
-              "name": "API",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1577200949609001000
-        }
-      ],
-      "components": [
-        {
-          "id": "g0lfj4sv2fhf",
-          "name": "Website",
-          "status": "operational",
-          "created_at": "2013-09-26T03:34:27.377Z",
-          "updated_at": "2023-09-25T10:42:15.858Z",
-          "position": 1,
-          "description": "Access to bitbucket.org",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "bqlf8qjztdtr",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "k0x2yw1435v7",
-          "name": "API",
-          "status": "operational",
-          "created_at": "2015-06-05T19:34:43.541Z",
-          "updated_at": "2023-11-08T05:42:49.370Z",
-          "position": 2,
-          "description": "Access to api.bitbucket.org",
           "showcase": false,
           "start_date": null,
           "group_id": null,
