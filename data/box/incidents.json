@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-12-05T11:58:44.780-08:00"
+    "updated_at": "2023-12-05T12:46:37.870-08:00"
   },
   "incidents": [
     {
@@ -178,7 +178,7 @@
       "name": "[Critical] Issues accessing Box for Salesforce",
       "status": "postmortem",
       "created_at": "2023-11-03T14:57:41.032-07:00",
-      "updated_at": "2023-11-20T11:03:59.359-08:00",
+      "updated_at": "2023-12-05T12:46:37.860-08:00",
       "monitoring_at": "2023-11-03T19:31:16.136-07:00",
       "resolved_at": "2023-11-03T19:41:19.393-07:00",
       "impact": "critical",
@@ -189,10 +189,10 @@
         {
           "id": "6kxb88c6sb95",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\n‌\n\nBetween 12:17 PM PDT and 7:36 PM PDT on Friday, November 3, 2023, some users may have experienced difficulties while using our Box for Salesforce integration. During this time, customers using the integration experienced issues loading the Box Folder widgets, toolkit automation, and authentication flows. This occurred as a result of a back-end change that resulted in the integration's authentication credentials being invalidated. We were able to resolve the issue by resetting the credentials. In addition, we are updating our change control processes and software to prevent similar issues from occurring in the future.\n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\n \n\nSincerely,  \nThe Box Team",
+          "body": "We recently addressed issues affecting the Box for Salesforce Integration. We would like to take this opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 12:17 PM PDT and 7:36 PM PDT on Friday, November 3, 2023, some users may have experienced difficulties while using our Box for Salesforce integration. During this time, customers using the integration experienced issues loading the Box Folder widgets, toolkit automation, and authentication flows. This occurred as a result of a back-end change that resulted in the integration's authentication credentials being invalidated. We were able to resolve the issue by resetting the credentials. In addition, we are updating our change control processes and software to prevent similar issues from occurring in the future.\n\n‌\n\n**Analysis** \n\n‌\n\nThe Box Developer Console is part of our main web application, and is an interface that developers use to manage their application’s properties. The console also includes functionality to reset application credentials when necessary, which is typically reserved for credential rotations or similar scenarios. In this issue, the functionality to reset the application credentials was inadvertently triggered during other, more routine updates. As a result of these invalidated credentials, some users may have temporarily experienced difficulties using the integration. The issue was detected by Box employees within minutes of the change, and we were able to resolve the issue by restoring the application’s credentials.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Restoring the Box for Salesforce integration’s credentials\n* Update tooling and processes so that routine, low risk updates to applications are separated from rare, but necessary high risk capabilities, like resetting application credentials.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here, and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
           "incident_id": "4wmkn9s7xj4p",
           "created_at": "2023-11-20T11:03:47.342-08:00",
-          "updated_at": "2023-11-20T11:03:59.357-08:00",
+          "updated_at": "2023-12-05T12:46:37.858-08:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
