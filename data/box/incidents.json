@@ -4,9 +4,39 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-12-13T00:27:02.520-08:00"
+    "updated_at": "2023-12-13T11:45:06.684-08:00"
   },
   "incidents": [
+    {
+      "id": "t0wg93z652hv",
+      "name": "[Minor] Some users unable to login",
+      "status": "resolved",
+      "created_at": "2023-12-13T08:30:00.000-08:00",
+      "updated_at": "2023-12-13T11:45:06.680-08:00",
+      "monitoring_at": null,
+      "resolved_at": "2023-12-13T10:45:00.000-08:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/c7xcsx85l6km",
+      "started_at": "2023-12-13T10:45:00.000-08:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "tbh3ryv72n9t",
+          "status": "resolved",
+          "body": "From approximately 10:45 AM to 10:50 AM US Pacific time, we had an issue impacting Logins to Box. Our systems automatically detected and corrected the underlying issue. There is no current impact and no further updates will be provided here. If you are currently seeing any issues, please let us know at https://support.box.com",
+          "incident_id": "t0wg93z652hv",
+          "created_at": "2023-12-13T11:44:51.943-08:00",
+          "updated_at": "2023-12-13T11:45:06.539-08:00",
+          "display_at": "2023-12-13T10:45:00.000-08:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "4lbs6ry9jk01",
       "name": "[Major] Customers May Experience Login Issues",
@@ -10201,152 +10231,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "vggytbdllrjt",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "18vmt4xcb687",
-      "name": "[Major] Customers may experience issues uploading new documents to Box Sign",
-      "status": "postmortem",
-      "created_at": "2023-04-07T13:05:13.999-07:00",
-      "updated_at": "2023-04-19T15:59:33.185-07:00",
-      "monitoring_at": "2023-04-07T13:27:04.005-07:00",
-      "resolved_at": "2023-04-07T14:00:48.298-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/35wwpl9x0s9l",
-      "started_at": "2023-04-07T13:05:13.991-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "c42s1zc9ybyv",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting Box Sign. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 11:00 AM PT and 1:21 PM PT on April 7, 2023, some users may have experienced difficulties while working in Box. During this time, Box Sign users were unable to start the signing process using the upload new file feature. Users were presented with an error banner when uploading new documents. The issue occurred as a result of a recent code change made to standardize error code messages, which inadvertently impacted an internal interaction. We were able to resolve the issue by rolling back the relevant change. In addition, we have identified several corrective actions, detailed below, to minimize the likelihood of similar issues occurring in the future. \n\n‌\n\n**Analysis** \n\nAs part of an effort to standardize error codes returned in API responses, we rolled out a change that updated some existing codes. This change impacted an internal interaction, in the Box Sign document upload flow, that was explicitly relying on a prior error code value. When the relevant error situation arose, the code was unable to detect and mitigate the recoverable error, resulting in it being propagated out to the end-user in the form of an error banner.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Added additional tests to prevent modifications of existing error codes until it is deemed safe to do so.\n* Started the process to deprecate custom error code values, only keeping the standardized HTTP response codes.\n* Augmenting continuous end-to-end testing on pre-production environments for increased observability around critical user journeys.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
-          "incident_id": "18vmt4xcb687",
-          "created_at": "2023-04-19T15:59:27.065-07:00",
-          "updated_at": "2023-04-19T15:59:33.183-07:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "mrnl17thh15l",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. Box Sign has been restored to full functionality. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
-          "incident_id": "18vmt4xcb687",
-          "created_at": "2023-04-07T14:00:48.298-07:00",
-          "updated_at": "2023-04-07T14:00:48.298-07:00",
-          "display_at": "2023-04-07T14:00:48.298-07:00",
-          "affected_components": [
-            {
-              "code": "63v1bg2phxrr",
-              "name": "Box Web Application - Box Sign",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9kry9qwg1md2",
-          "status": "monitoring",
-          "body": "Our team has taken steps to remediate this issue and we are seeing improvement for Sign uploads. We are continuing to monitor for any additional impact during this time. We will provide the next update by 2PM PST 4/7.",
-          "incident_id": "18vmt4xcb687",
-          "created_at": "2023-04-07T13:27:04.005-07:00",
-          "updated_at": "2023-04-07T13:27:04.005-07:00",
-          "display_at": "2023-04-07T13:27:04.005-07:00",
-          "affected_components": [
-            {
-              "code": "63v1bg2phxrr",
-              "name": "Box Web Application - Box Sign",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xnjlk9dm1syq",
-          "status": "identified",
-          "body": "Our team has identified the underlying cause of this issue and is working to take remediating steps. We will provide the next update as soon as possible.",
-          "incident_id": "18vmt4xcb687",
-          "created_at": "2023-04-07T13:22:42.686-07:00",
-          "updated_at": "2023-04-07T13:22:42.686-07:00",
-          "display_at": "2023-04-07T13:22:42.686-07:00",
-          "affected_components": [
-            {
-              "code": "63v1bg2phxrr",
-              "name": "Box Web Application - Box Sign",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cdkk0wt3jr8k",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "18vmt4xcb687",
-          "created_at": "2023-04-07T13:06:15.471-07:00",
-          "updated_at": "2023-04-07T13:06:16.306-07:00",
-          "display_at": "2023-04-07T13:06:15.471-07:00",
-          "affected_components": [
-            {
-              "code": "63v1bg2phxrr",
-              "name": "Box Web Application - Box Sign",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1644431415633907700
-        },
-        {
-          "id": "qkmd8zd6y69s",
-          "status": "investigating",
-          "body": "We are investigating an ongoing issue affecting uploading new documents to Box Sign. We will provide more information as soon as it is available.",
-          "incident_id": "18vmt4xcb687",
-          "created_at": "2023-04-07T13:05:14.083-07:00",
-          "updated_at": "2023-04-07T13:05:14.083-07:00",
-          "display_at": "2023-04-07T13:05:14.083-07:00",
-          "affected_components": [
-            {
-              "code": "63v1bg2phxrr",
-              "name": "Box Web Application - Box Sign",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "63v1bg2phxrr",
-          "name": "Box Sign",
-          "status": "operational",
-          "created_at": "2021-10-21T16:52:57.541-07:00",
-          "updated_at": "2023-10-02T10:43:12.378-07:00",
-          "position": 14,
-          "description": null,
-          "showcase": false,
-          "start_date": "2021-10-21",
-          "group_id": "l6vzpnn62cgq",
           "page_id": "208q92hckwws",
           "group": false,
           "only_show_if_degraded": false
