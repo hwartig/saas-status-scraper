@@ -4,7 +4,7 @@
     "name": "Zoom",
     "url": "https://status.zoom.us",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2023-12-19T11:10:18.727-08:00"
+    "updated_at": "2023-12-19T11:59:10.436-08:00"
   },
   "components": [
     {
@@ -3267,6 +3267,444 @@
       ],
       "scheduled_for": "2024-01-12T09:00:00.000-08:00",
       "scheduled_until": "2024-01-12T11:00:00.000-08:00"
+    },
+    {
+      "id": "358wv8b651zt",
+      "name": "Frankfurt and Singapore Zoom Phone Maintenance",
+      "status": "scheduled",
+      "created_at": "2023-12-19T11:55:31.157-08:00",
+      "updated_at": "2023-12-19T11:55:31.218-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/232gn14dql0t",
+      "started_at": "2023-12-19T11:55:31.146-08:00",
+      "page_id": "14qjgk812kgk",
+      "incident_updates": [
+        {
+          "id": "qjfp7nn6vqkv",
+          "status": "scheduled",
+          "body": "Zoom will perform service maintenance at our Europe (Frankfurt) and Asia Pacific (Singapore) data centers starting on January 12th at 17:00 GMT (09:00 PST). Zoom Phone users registered to the Europe (Frankfurt) and Asia Pacific (Singapore) data centers will be automatically registered in the alternative Europe (Amsterdam) and Asia Pacific (Tokyo) data centers. During the maintenance window, a brief disconnection may be experienced and notifications may be missed. If you get disconnected, the system will attempt to reconnect you automatically.",
+          "incident_id": "358wv8b651zt",
+          "created_at": "2023-12-19T11:55:31.215-08:00",
+          "updated_at": "2023-12-19T11:55:31.215-08:00",
+          "display_at": "2023-12-19T11:55:31.215-08:00",
+          "affected_components": [
+            {
+              "code": "773zkp1jzkgl",
+              "name": "Zoom Phone - EMEA - Zoom Phone",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "glcgf4v63241",
+              "name": "Zoom Phone - APAC - Zoom Phone",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "773zkp1jzkgl",
+          "name": "Zoom Phone",
+          "status": "operational",
+          "created_at": "2022-05-03T10:43:27.197-07:00",
+          "updated_at": "2023-03-24T05:18:12.885-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-05-03",
+          "group_id": "8sq44v6xhj9v",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "glcgf4v63241",
+          "name": "Zoom Phone",
+          "status": "operational",
+          "created_at": "2022-05-03T10:45:58.970-07:00",
+          "updated_at": "2023-06-07T21:46:21.319-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-05-03",
+          "group_id": "k4ymzkwr5c5f",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-01-12T09:00:00.000-08:00",
+      "scheduled_until": "2024-01-12T14:00:00.000-08:00"
+    },
+    {
+      "id": "dntlb3p7gwm4",
+      "name": "DigiCert Global Root G2 Transition Maintenance Notice for BYOC Customers (EMEA and US)",
+      "status": "scheduled",
+      "created_at": "2023-12-19T11:45:14.479-08:00",
+      "updated_at": "2023-12-19T11:45:14.548-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/1dfpstdjbwcw",
+      "started_at": "2023-12-19T11:45:14.461-08:00",
+      "page_id": "14qjgk812kgk",
+      "incident_updates": [
+        {
+          "id": "6j4y0s9flcgc",
+          "status": "scheduled",
+          "body": "Zoom will perform service maintenance in the following sip zones to replace BYOC/BYOP (Bring Your Own Carrier/Bring Your Own PBX) with certificates that will be signed by Digicert Global Root G2 certificate authority:\n\nEurope (Frankfurt)\nUS West (N.California)\n\nZoom had previously notified about these certificate changes as outlined here, but we rolled back the certificates on our infrastructure to Digicert Global Root CA. Zoom is currently still utilizing Digicert Global Root CA in the above sip zones:\nhttps://status.zoom.us/incidents/dmms8h3zvv6z\nhttps://status.zoom.us/incidents/b6pgx3y0mlg2\n\nZoom will be transitioning to certificates signed by Digicert Global Root G2 certificate authority on our infrastructure during this new maintenance window and this will be a permanent change. We will not be able to postpone the date any further. Customers are requested to keep both DigiCert Global Root CA and DigiCert Global Root G2 installed on their SBCs as we work through this transition.\n\nIf you have not done so please install DigiCert Global Root G2 root certificate on your BYOC-Premises Session Border Controller (SBC). You can download G2 certificate here: https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061202\n\nDuring the maintenance window, a brief disconnection of calls may be experienced while the TLS connections are being reset. Once the TLS connections are reset, the devices will attempt to use Zoom’s new certificate which is signed by Digicert Global Root G2 certificates. Customers are requested to test inbound and outbound calling using BYOC-P SBCs and generic devices to ensure that the services are functional after the certificate updates.",
+          "incident_id": "dntlb3p7gwm4",
+          "created_at": "2023-12-19T11:45:14.545-08:00",
+          "updated_at": "2023-12-19T11:45:14.545-08:00",
+          "display_at": "2023-12-19T11:45:14.545-08:00",
+          "affected_components": [
+            {
+              "code": "jh6w5p8b9yv9",
+              "name": "Zoom Phone - NORTH AMERICAS - Zoom Phone",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "773zkp1jzkgl",
+              "name": "Zoom Phone - EMEA - Zoom Phone",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "vttvjkwmdfps",
+              "name": "Zoom Contact Center - NORTH AMERICA - Zoom Contact Center",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "kmldw5k76q3v",
+              "name": "Zoom Contact Center - EMEA - Zoom Contact Center",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "jh6w5p8b9yv9",
+          "name": "Zoom Phone",
+          "status": "operational",
+          "created_at": "2019-01-23T13:28:01.376-08:00",
+          "updated_at": "2023-06-14T09:27:24.323-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "gwtd6dbkck60",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "vttvjkwmdfps",
+          "name": "Zoom Contact Center",
+          "status": "operational",
+          "created_at": "2022-03-18T10:03:55.317-07:00",
+          "updated_at": "2023-06-13T13:59:31.714-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-03-18",
+          "group_id": "pdcbftj9pg7j",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "773zkp1jzkgl",
+          "name": "Zoom Phone",
+          "status": "operational",
+          "created_at": "2022-05-03T10:43:27.197-07:00",
+          "updated_at": "2023-03-24T05:18:12.885-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-05-03",
+          "group_id": "8sq44v6xhj9v",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "kmldw5k76q3v",
+          "name": "Zoom Contact Center",
+          "status": "operational",
+          "created_at": "2023-03-22T11:11:40.011-07:00",
+          "updated_at": "2023-03-22T11:11:40.011-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-22",
+          "group_id": "7chtmmrntn4s",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-01-12T17:00:00.000-08:00",
+      "scheduled_until": "2024-01-12T19:00:00.000-08:00"
+    },
+    {
+      "id": "fqb9sl1y4201",
+      "name": "Amsterdam and Tokyo Zoom Phone Maintenance",
+      "status": "scheduled",
+      "created_at": "2023-12-19T11:59:10.353-08:00",
+      "updated_at": "2023-12-19T11:59:10.432-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/zq19tz2c3b5z",
+      "started_at": "2023-12-19T11:59:10.338-08:00",
+      "page_id": "14qjgk812kgk",
+      "incident_updates": [
+        {
+          "id": "71gzpj16rk38",
+          "status": "scheduled",
+          "body": "Zoom will perform service maintenance at our Europe (Amsterdam) and Asia Pacific (Tokyo) data centers starting on January 19th at 17:00 GMT (09:00 PST). Zoom Phone users registered to the Europe (Amsterdam) and Asia Pacific (Tokyo) data centers will be automatically registered in the alternative Europe (Frankfurt) and Asia Pacific (Osaka) data centers. During the maintenance window, a brief disconnection may be experienced and notifications may be missed. If you get disconnected, the system will attempt to reconnect you automatically.",
+          "incident_id": "fqb9sl1y4201",
+          "created_at": "2023-12-19T11:59:10.428-08:00",
+          "updated_at": "2023-12-19T11:59:10.428-08:00",
+          "display_at": "2023-12-19T11:59:10.428-08:00",
+          "affected_components": [
+            {
+              "code": "773zkp1jzkgl",
+              "name": "Zoom Phone - EMEA - Zoom Phone",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "glcgf4v63241",
+              "name": "Zoom Phone - APAC - Zoom Phone",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "773zkp1jzkgl",
+          "name": "Zoom Phone",
+          "status": "operational",
+          "created_at": "2022-05-03T10:43:27.197-07:00",
+          "updated_at": "2023-03-24T05:18:12.885-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-05-03",
+          "group_id": "8sq44v6xhj9v",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "glcgf4v63241",
+          "name": "Zoom Phone",
+          "status": "operational",
+          "created_at": "2022-05-03T10:45:58.970-07:00",
+          "updated_at": "2023-06-07T21:46:21.319-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-05-03",
+          "group_id": "k4ymzkwr5c5f",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-01-19T09:00:00.000-08:00",
+      "scheduled_until": "2024-01-19T14:00:00.000-08:00"
+    },
+    {
+      "id": "j1wjy31drc91",
+      "name": "DigiCert Global Root G2 Transition Maintenance Notice for BYOC Customers (APAC)",
+      "status": "scheduled",
+      "created_at": "2023-12-19T11:47:15.188-08:00",
+      "updated_at": "2023-12-19T11:47:15.249-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/4v8xhwr8qk6c",
+      "started_at": "2023-12-19T11:47:15.180-08:00",
+      "page_id": "14qjgk812kgk",
+      "incident_updates": [
+        {
+          "id": "t5g8q4v2t6xt",
+          "status": "scheduled",
+          "body": "Zoom will perform service maintenance in the following sip zones to replace BYOC/BYOP (Bring Your Own Carrier/Bring Your Own PBX) with certificates that will be signed by DigiCert Global Root G2 certificate authority:\n\nAsia Pacific (Tokyo)\n\nZoom had previously notified about these certificate changes as outlined here, but we rolled back the certificates on our infrastructure to DigiCert Global Root CA. Zoom is currently still utilizing Digicert Global Root CA in above sip zone:\nhttps://status.zoom.us/incidents/qyzlvh0j3d35\n\nZoom will be transitioning to certificates signed by DigiCert Global Root G2 certificate authority on our infrastructure during this new maintenance window and this will be a permanent change. We will not be able to postpone the date any further. Customers are requested to keep both DigiCert Global Root CA and DigiCert Global Root G2 installed on their SBCs as we work through this transition.\n\nIf you have not done so please install DigiCert Global Root G2 root certificate on your BYOC-Premises Session Border Controller (SBC). You can download G2 certificate here: https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061202\n\nDuring the maintenance window, a brief disconnection of calls may be experienced while the TLS connections are being reset. Once the TLS connections are reset, the devices will attempt to use Zoom’s new certificate that is signed by DigiCert Global Root G2 certificates. Customers are requested to test inbound and outbound calling using BYOC-P SBCs and generic devices to ensure that the services are functional after the certificate updates.",
+          "incident_id": "j1wjy31drc91",
+          "created_at": "2023-12-19T11:47:15.247-08:00",
+          "updated_at": "2023-12-19T11:47:15.247-08:00",
+          "display_at": "2023-12-19T11:47:15.247-08:00",
+          "affected_components": [
+            {
+              "code": "glcgf4v63241",
+              "name": "Zoom Phone - APAC - Zoom Phone",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "glcgf4v63241",
+          "name": "Zoom Phone",
+          "status": "operational",
+          "created_at": "2022-05-03T10:45:58.970-07:00",
+          "updated_at": "2023-06-07T21:46:21.319-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-05-03",
+          "group_id": "k4ymzkwr5c5f",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-01-19T09:00:00.000-08:00",
+      "scheduled_until": "2024-01-19T11:00:00.000-08:00"
+    },
+    {
+      "id": "cb37b08rvmnn",
+      "name": "DigiCert Global Root G2 Transition Maintenance Notice for BYOC Customers (EMEA, US)",
+      "status": "scheduled",
+      "created_at": "2023-12-19T11:51:32.542-08:00",
+      "updated_at": "2023-12-19T11:51:32.612-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/rzd8yx8cc15v",
+      "started_at": "2023-12-19T11:51:32.523-08:00",
+      "page_id": "14qjgk812kgk",
+      "incident_updates": [
+        {
+          "id": "v0k2153n8c9h",
+          "status": "scheduled",
+          "body": "Zoom will perform service maintenance in the following sip zones to replace BYOC/BYOP (Bring Your Own Carrier/Bring Your Own PBX) with certificates that will be signed by DigiCert Global Root G2 certificate authority:\n\nEurope (Amsterdam)\nUS Central (Colorado)\nUS East (New York)\n\nZoom had previously notified about these certificate changes as outlined here, but we rolled back the certificates on our infrastructure to DigiCert Global Root CA. Zoom is currently still utilizing DigiCert Global Root CA in above sip zones:\nhttps://status.zoom.us/incidents/dmms8h3zvv6z\nhttps://status.zoom.us/incidents/b6pgx3y0mlg2\n\nZoom will be transitioning to certificates signed by DigiCert Global Root G2 certificate authority on our infrastructure during this new maintenance window and this will be a permanent change. We will not be able to postpone the date any further. Customers are requested to keep both DigiCert Global Root CA and DigiCert Global Root G2 installed on their SBCs as we work through this transition.\n\nIf you have not done so please install DigiCert Global Root G2 root certificate on your BYOC-Premises Session Border Controller (SBC). You can download G2 certificate here: https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061202\n\nDuring the maintenance window, a brief disconnection of calls may be experienced while the TLS connections are being reset. Once the TLS connections are reset, the devices will attempt to use Zoom’s new certificate that is signed by DigiCert Global Root G2 certificates. Customers are requested to test inbound and outbound calling using BYOC-P SBCs and generic devices to ensure that the services are functional after the certificate updates.",
+          "incident_id": "cb37b08rvmnn",
+          "created_at": "2023-12-19T11:51:32.609-08:00",
+          "updated_at": "2023-12-19T11:51:32.609-08:00",
+          "display_at": "2023-12-19T11:51:32.609-08:00",
+          "affected_components": [
+            {
+              "code": "jh6w5p8b9yv9",
+              "name": "Zoom Phone - NORTH AMERICAS - Zoom Phone",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "773zkp1jzkgl",
+              "name": "Zoom Phone - EMEA - Zoom Phone",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "vttvjkwmdfps",
+              "name": "Zoom Contact Center - NORTH AMERICA - Zoom Contact Center",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "kmldw5k76q3v",
+              "name": "Zoom Contact Center - EMEA - Zoom Contact Center",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "jh6w5p8b9yv9",
+          "name": "Zoom Phone",
+          "status": "operational",
+          "created_at": "2019-01-23T13:28:01.376-08:00",
+          "updated_at": "2023-06-14T09:27:24.323-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "gwtd6dbkck60",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "vttvjkwmdfps",
+          "name": "Zoom Contact Center",
+          "status": "operational",
+          "created_at": "2022-03-18T10:03:55.317-07:00",
+          "updated_at": "2023-06-13T13:59:31.714-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-03-18",
+          "group_id": "pdcbftj9pg7j",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "773zkp1jzkgl",
+          "name": "Zoom Phone",
+          "status": "operational",
+          "created_at": "2022-05-03T10:43:27.197-07:00",
+          "updated_at": "2023-03-24T05:18:12.885-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-05-03",
+          "group_id": "8sq44v6xhj9v",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "kmldw5k76q3v",
+          "name": "Zoom Contact Center",
+          "status": "operational",
+          "created_at": "2023-03-22T11:11:40.011-07:00",
+          "updated_at": "2023-03-22T11:11:40.011-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-22",
+          "group_id": "7chtmmrntn4s",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-01-19T17:00:00.000-08:00",
+      "scheduled_until": "2024-01-19T19:00:00.000-08:00"
     },
     {
       "id": "34gblwxh0grl",
