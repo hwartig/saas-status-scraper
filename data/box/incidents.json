@@ -4,15 +4,15 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-01-11T00:26:16.246-08:00"
+    "updated_at": "2024-01-11T07:33:33.342-08:00"
   },
   "incidents": [
     {
       "id": "hj7155sn4xj4",
       "name": "[Outage] Issues with Logins, Uploads, Downloads, API calls",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-01-09T11:20:39.964-08:00",
-      "updated_at": "2024-01-09T12:57:41.435-08:00",
+      "updated_at": "2024-01-11T07:33:33.340-08:00",
       "monitoring_at": "2024-01-09T12:11:56.645-08:00",
       "resolved_at": "2024-01-09T12:57:41.421-08:00",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2024-01-09T11:20:39.950-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "rv2n79jy2nt1",
+          "status": "postmortem",
+          "body": "On January 9, 2024, between 11:10 AM PT and 12:15 PM PT, users experienced difficulties while working in Box. During this time, users experienced slowness and failures interacting with most parts of the Box webapp and public API; including Logins, Uploads and Downloads. The issue was triggered by a change that impacted Kubernetes clusters in one of our regions where we run our critical services. At 11:18 AM PT this change was rolled back. After rolling back the change, systems began to recover around 11:27 AM. Although the recovery process was designed to be gradual, the process was slower than intended and we are continuing to investigate the cause.  \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n====\n\nSincerely,\n\nThe Box Team\n\n ====",
+          "incident_id": "hj7155sn4xj4",
+          "created_at": "2024-01-11T07:33:29.470-08:00",
+          "updated_at": "2024-01-11T07:33:33.338-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "66vqgcz7vqwp",
           "status": "resolved",
