@@ -4,7 +4,7 @@
     "name": "Zoom",
     "url": "https://status.zoom.us",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-01-12T13:06:21.626-08:00"
+    "updated_at": "2024-01-12T13:38:30.060-08:00"
   },
   "components": [
     {
@@ -3440,6 +3440,60 @@
       "scheduled_until": "2024-01-14T02:00:00.000-08:00"
     },
     {
+      "id": "j1wjy31drc91",
+      "name": "DigiCert Global Root G2 Transition Maintenance Notice for BYOC Customers (APAC)",
+      "status": "scheduled",
+      "created_at": "2023-12-19T11:47:15.188-08:00",
+      "updated_at": "2023-12-19T11:47:15.249-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/4v8xhwr8qk6c",
+      "started_at": "2023-12-19T11:47:15.180-08:00",
+      "page_id": "14qjgk812kgk",
+      "incident_updates": [
+        {
+          "id": "t5g8q4v2t6xt",
+          "status": "scheduled",
+          "body": "Zoom will perform service maintenance in the following sip zones to replace BYOC/BYOP (Bring Your Own Carrier/Bring Your Own PBX) with certificates that will be signed by DigiCert Global Root G2 certificate authority:\n\nAsia Pacific (Tokyo)\n\nZoom had previously notified about these certificate changes as outlined here, but we rolled back the certificates on our infrastructure to DigiCert Global Root CA. Zoom is currently still utilizing Digicert Global Root CA in above sip zone:\nhttps://status.zoom.us/incidents/qyzlvh0j3d35\n\nZoom will be transitioning to certificates signed by DigiCert Global Root G2 certificate authority on our infrastructure during this new maintenance window and this will be a permanent change. We will not be able to postpone the date any further. Customers are requested to keep both DigiCert Global Root CA and DigiCert Global Root G2 installed on their SBCs as we work through this transition.\n\nIf you have not done so please install DigiCert Global Root G2 root certificate on your BYOC-Premises Session Border Controller (SBC). You can download G2 certificate here: https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061202\n\nDuring the maintenance window, a brief disconnection of calls may be experienced while the TLS connections are being reset. Once the TLS connections are reset, the devices will attempt to use Zoom’s new certificate that is signed by DigiCert Global Root G2 certificates. Customers are requested to test inbound and outbound calling using BYOC-P SBCs and generic devices to ensure that the services are functional after the certificate updates.",
+          "incident_id": "j1wjy31drc91",
+          "created_at": "2023-12-19T11:47:15.247-08:00",
+          "updated_at": "2023-12-19T11:47:15.247-08:00",
+          "display_at": "2023-12-19T11:47:15.247-08:00",
+          "affected_components": [
+            {
+              "code": "glcgf4v63241",
+              "name": "Zoom Phone - APAC - Zoom Phone",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "glcgf4v63241",
+          "name": "Zoom Phone",
+          "status": "operational",
+          "created_at": "2022-05-03T10:45:58.970-07:00",
+          "updated_at": "2024-01-12T11:00:04.386-08:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-05-03",
+          "group_id": "k4ymzkwr5c5f",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-01-19T09:00:00.000-08:00",
+      "scheduled_until": "2024-01-19T11:00:00.000-08:00"
+    },
+    {
       "id": "fqb9sl1y4201",
       "name": "Amsterdam and Tokyo Zoom Phone Maintenance",
       "status": "scheduled",
@@ -3513,177 +3567,6 @@
       ],
       "scheduled_for": "2024-01-19T09:00:00.000-08:00",
       "scheduled_until": "2024-01-19T14:00:00.000-08:00"
-    },
-    {
-      "id": "j1wjy31drc91",
-      "name": "DigiCert Global Root G2 Transition Maintenance Notice for BYOC Customers (APAC)",
-      "status": "scheduled",
-      "created_at": "2023-12-19T11:47:15.188-08:00",
-      "updated_at": "2023-12-19T11:47:15.249-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/4v8xhwr8qk6c",
-      "started_at": "2023-12-19T11:47:15.180-08:00",
-      "page_id": "14qjgk812kgk",
-      "incident_updates": [
-        {
-          "id": "t5g8q4v2t6xt",
-          "status": "scheduled",
-          "body": "Zoom will perform service maintenance in the following sip zones to replace BYOC/BYOP (Bring Your Own Carrier/Bring Your Own PBX) with certificates that will be signed by DigiCert Global Root G2 certificate authority:\n\nAsia Pacific (Tokyo)\n\nZoom had previously notified about these certificate changes as outlined here, but we rolled back the certificates on our infrastructure to DigiCert Global Root CA. Zoom is currently still utilizing Digicert Global Root CA in above sip zone:\nhttps://status.zoom.us/incidents/qyzlvh0j3d35\n\nZoom will be transitioning to certificates signed by DigiCert Global Root G2 certificate authority on our infrastructure during this new maintenance window and this will be a permanent change. We will not be able to postpone the date any further. Customers are requested to keep both DigiCert Global Root CA and DigiCert Global Root G2 installed on their SBCs as we work through this transition.\n\nIf you have not done so please install DigiCert Global Root G2 root certificate on your BYOC-Premises Session Border Controller (SBC). You can download G2 certificate here: https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061202\n\nDuring the maintenance window, a brief disconnection of calls may be experienced while the TLS connections are being reset. Once the TLS connections are reset, the devices will attempt to use Zoom’s new certificate that is signed by DigiCert Global Root G2 certificates. Customers are requested to test inbound and outbound calling using BYOC-P SBCs and generic devices to ensure that the services are functional after the certificate updates.",
-          "incident_id": "j1wjy31drc91",
-          "created_at": "2023-12-19T11:47:15.247-08:00",
-          "updated_at": "2023-12-19T11:47:15.247-08:00",
-          "display_at": "2023-12-19T11:47:15.247-08:00",
-          "affected_components": [
-            {
-              "code": "glcgf4v63241",
-              "name": "Zoom Phone - APAC - Zoom Phone",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "glcgf4v63241",
-          "name": "Zoom Phone",
-          "status": "operational",
-          "created_at": "2022-05-03T10:45:58.970-07:00",
-          "updated_at": "2024-01-12T11:00:04.386-08:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2022-05-03",
-          "group_id": "k4ymzkwr5c5f",
-          "page_id": "14qjgk812kgk",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2024-01-19T09:00:00.000-08:00",
-      "scheduled_until": "2024-01-19T11:00:00.000-08:00"
-    },
-    {
-      "id": "t5lb4zv98f22",
-      "name": "Zoom Chat Maintenance",
-      "status": "scheduled",
-      "created_at": "2024-01-12T13:06:21.568-08:00",
-      "updated_at": "2024-01-12T13:06:21.623-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/11m741qk5d04",
-      "started_at": "2024-01-12T13:06:21.553-08:00",
-      "page_id": "14qjgk812kgk",
-      "incident_updates": [
-        {
-          "id": "nsr0tp8vt9pj",
-          "status": "scheduled",
-          "body": "We will be performing scheduled maintenance for Zoom Chat. Users may experience a brief disconnect of Zoom Chat services during the maintenance window and will automatically reconnect.",
-          "incident_id": "t5lb4zv98f22",
-          "created_at": "2024-01-12T13:06:21.621-08:00",
-          "updated_at": "2024-01-12T13:06:21.621-08:00",
-          "display_at": "2024-01-12T13:06:21.621-08:00",
-          "affected_components": [
-            {
-              "code": "503cqbhcpvzx",
-              "name": "Zoom Website - Web Client",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "q4msk5dl4bhm",
-              "name": "Zoom Video Webinars - Zoom Video Webinars",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "t2jk6yrqbp4j",
-              "name": "Zoom Chat - Zoom Chat",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "xtgr15yv6hbn",
-              "name": "Zoom Room - Zoom Room",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "q4msk5dl4bhm",
-          "name": "Zoom Video Webinars",
-          "status": "operational",
-          "created_at": "2015-01-26T15:04:39.115-08:00",
-          "updated_at": "2023-07-05T03:08:29.158-07:00",
-          "position": 1,
-          "description": "Access to video webinars",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "63g8yydcf9ql",
-          "page_id": "14qjgk812kgk",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "t2jk6yrqbp4j",
-          "name": "Zoom Chat",
-          "status": "operational",
-          "created_at": "2015-01-26T15:08:19.770-08:00",
-          "updated_at": "2023-08-09T05:23:50.323-07:00",
-          "position": 1,
-          "description": "Access to Group Chats",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "6zvc1tw9rpfm",
-          "page_id": "14qjgk812kgk",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "xtgr15yv6hbn",
-          "name": "Zoom Room",
-          "status": "operational",
-          "created_at": "2021-05-18T07:12:19.400-07:00",
-          "updated_at": "2023-07-08T18:00:21.563-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2021-05-18",
-          "group_id": "xxngg08dxtpq",
-          "page_id": "14qjgk812kgk",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "503cqbhcpvzx",
-          "name": "Web Client",
-          "status": "operational",
-          "created_at": "2022-05-03T11:23:21.561-07:00",
-          "updated_at": "2023-02-10T13:15:26.130-08:00",
-          "position": 5,
-          "description": null,
-          "showcase": false,
-          "start_date": "2022-05-03",
-          "group_id": "1ndlrnp6r9js",
-          "page_id": "14qjgk812kgk",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2024-01-19T17:00:00.000-08:00",
-      "scheduled_until": "2024-01-20T02:00:00.000-08:00"
     },
     {
       "id": "cb37b08rvmnn",
@@ -3803,6 +3686,123 @@
       "scheduled_until": "2024-01-19T19:00:00.000-08:00"
     },
     {
+      "id": "t5lb4zv98f22",
+      "name": "Zoom Chat Maintenance",
+      "status": "scheduled",
+      "created_at": "2024-01-12T13:06:21.568-08:00",
+      "updated_at": "2024-01-12T13:06:21.623-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/11m741qk5d04",
+      "started_at": "2024-01-12T13:06:21.553-08:00",
+      "page_id": "14qjgk812kgk",
+      "incident_updates": [
+        {
+          "id": "nsr0tp8vt9pj",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance for Zoom Chat. Users may experience a brief disconnect of Zoom Chat services during the maintenance window and will automatically reconnect.",
+          "incident_id": "t5lb4zv98f22",
+          "created_at": "2024-01-12T13:06:21.621-08:00",
+          "updated_at": "2024-01-12T13:06:21.621-08:00",
+          "display_at": "2024-01-12T13:06:21.621-08:00",
+          "affected_components": [
+            {
+              "code": "503cqbhcpvzx",
+              "name": "Zoom Website - Web Client",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "q4msk5dl4bhm",
+              "name": "Zoom Video Webinars - Zoom Video Webinars",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "t2jk6yrqbp4j",
+              "name": "Zoom Chat - Zoom Chat",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "xtgr15yv6hbn",
+              "name": "Zoom Room - Zoom Room",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "q4msk5dl4bhm",
+          "name": "Zoom Video Webinars",
+          "status": "operational",
+          "created_at": "2015-01-26T15:04:39.115-08:00",
+          "updated_at": "2023-07-05T03:08:29.158-07:00",
+          "position": 1,
+          "description": "Access to video webinars",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "63g8yydcf9ql",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "t2jk6yrqbp4j",
+          "name": "Zoom Chat",
+          "status": "operational",
+          "created_at": "2015-01-26T15:08:19.770-08:00",
+          "updated_at": "2023-08-09T05:23:50.323-07:00",
+          "position": 1,
+          "description": "Access to Group Chats",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "6zvc1tw9rpfm",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "xtgr15yv6hbn",
+          "name": "Zoom Room",
+          "status": "operational",
+          "created_at": "2021-05-18T07:12:19.400-07:00",
+          "updated_at": "2023-07-08T18:00:21.563-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2021-05-18",
+          "group_id": "xxngg08dxtpq",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "503cqbhcpvzx",
+          "name": "Web Client",
+          "status": "operational",
+          "created_at": "2022-05-03T11:23:21.561-07:00",
+          "updated_at": "2023-02-10T13:15:26.130-08:00",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-05-03",
+          "group_id": "1ndlrnp6r9js",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-01-19T17:00:00.000-08:00",
+      "scheduled_until": "2024-01-20T02:00:00.000-08:00"
+    },
+    {
       "id": "34gblwxh0grl",
       "name": "Scheduled Zoom Software Quarterly Lifecycle Update (2/3/2024)",
       "status": "scheduled",
@@ -3875,6 +3875,123 @@
       ],
       "scheduled_for": "2024-02-03T17:00:00.000-08:00",
       "scheduled_until": "2024-02-03T18:00:00.000-08:00"
+    },
+    {
+      "id": "l9112tszff14",
+      "name": "Announcing additional data center (No Operational Impact)",
+      "status": "scheduled",
+      "created_at": "2024-01-12T13:38:29.986-08:00",
+      "updated_at": "2024-01-12T13:38:30.057-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/ghdsjvxjk49r",
+      "started_at": "2024-01-12T13:38:29.970-08:00",
+      "page_id": "14qjgk812kgk",
+      "incident_updates": [
+        {
+          "id": "0j7fwlr8v7ct",
+          "status": "scheduled",
+          "body": "Zoom will be adding an additional data center as a part of the global Zoom routing network. This site is already in our previously announced IP address ranges. For network administrators with Zoom specific proxy rules, please update your PAC files with the following site.\n\nNew data center:\nDamman - hof.zoom.us\n\nA complete list of data centers can be found on the Zoom Support site at: https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0067446",
+          "incident_id": "l9112tszff14",
+          "created_at": "2024-01-12T13:38:30.053-08:00",
+          "updated_at": "2024-01-12T13:38:30.053-08:00",
+          "display_at": "2024-01-12T13:38:30.053-08:00",
+          "affected_components": [
+            {
+              "code": "3z7b6jks10hm",
+              "name": "Zoom Meetings - Zoom Meetings",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "3ml2fn8g0psv",
+              "name": "Zoom Meetings - Zoom Conference Room Connector",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "q4msk5dl4bhm",
+              "name": "Zoom Video Webinars - Zoom Video Webinars",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "773zkp1jzkgl",
+              "name": "Zoom Phone - EMEA - Zoom Phone",
+              "old_status": "under_maintenance",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "3z7b6jks10hm",
+          "name": "Zoom Meetings",
+          "status": "operational",
+          "created_at": "2015-01-26T15:04:39.101-08:00",
+          "updated_at": "2024-01-06T05:46:55.942-08:00",
+          "position": 1,
+          "description": "Access to meetings",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "6np407v7v25g",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "q4msk5dl4bhm",
+          "name": "Zoom Video Webinars",
+          "status": "operational",
+          "created_at": "2015-01-26T15:04:39.115-08:00",
+          "updated_at": "2023-07-05T03:08:29.158-07:00",
+          "position": 1,
+          "description": "Access to video webinars",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "63g8yydcf9ql",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "773zkp1jzkgl",
+          "name": "Zoom Phone",
+          "status": "under_maintenance",
+          "created_at": "2022-05-03T10:43:27.197-07:00",
+          "updated_at": "2024-01-12T09:01:21.174-08:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-05-03",
+          "group_id": "8sq44v6xhj9v",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "3ml2fn8g0psv",
+          "name": "Zoom Conference Room Connector",
+          "status": "operational",
+          "created_at": "2015-01-26T15:08:04.212-08:00",
+          "updated_at": "2022-12-30T10:00:56.885-08:00",
+          "position": 14,
+          "description": "Access for H.323/SIP endpoints",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "6np407v7v25g",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-02-12T00:00:00.000-08:00",
+      "scheduled_until": "2024-02-12T00:01:00.000-08:00"
     },
     {
       "id": "vj7dd5zr6ndt",
