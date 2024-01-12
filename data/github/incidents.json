@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-01-12T08:20:35.619Z"
+    "updated_at": "2024-01-12T15:00:56.348Z"
   },
   "incidents": [
     {
@@ -12,21 +12,21 @@
       "name": "Incident with Issues, API Requests, Pull Requests, Actions, Pages, Git Operations, Webhooks, Packages and Codespaces",
       "status": "resolved",
       "created_at": "2024-01-09T13:02:32.141Z",
-      "updated_at": "2024-01-11T20:57:18.452Z",
+      "updated_at": "2024-01-12T15:00:56.345Z",
       "monitoring_at": null,
       "resolved_at": "2024-01-09T14:40:45.000Z",
       "impact": "major",
       "shortlink": "https://stspg.io/9ndfgvcm1q06",
-      "started_at": "2024-01-09T13:02:32.132Z",
+      "started_at": "2024-01-09T14:40:45.000Z",
       "page_id": "kctbh9vrtdwd",
       "incident_updates": [
         {
           "id": "5jln89lsy1gt",
           "status": "resolved",
-          "body": "On January 9 between 12:45 and 13:56 UTC, services in one of our three sites experienced elevated latency for connections. This led to a sustained period of timed out requests across a number of services, including but not limited to our git backend. First, those requests that eventually timed out were starving out other requests from executing, leading to broader failed requests.  Second, the git backend services are critical dependencies of many GitHub features, which led to broader impact to other jobs and requests. An average of 5% and max of 10% of requests failed with a 5xx response or timed out during this period. We are actively working to identify all contributing factors of this incident, including opportunities to improve resiliency across all impacted services.",
+          "body": "On January 9 between 12:45 and 13:56 UTC, services in one of our three sites experienced elevated latency for connections.  This led to a sustained period of timed out requests across a number of services, including but not limited to our git backend.  An average of 5% and max of 10% of requests failed with a 5xx response or timed out during this period.  This was caused by a combination of events that led to connection limits being hit in load balancer proxies in that site.  An upgrade of hosts was in flight, which meant a subset of proxy hosts were draining and coming offline as the upgrade rolled through the fleet.  A config change event also triggered a connection reset across all services in that site.  These events are commonplace, but led to a spike in connection establishment events that led to the online proxy hosts hitting the connection limit.  Upon further analysis, that limit was lower than it should have been.  We have increased that limit to prevent this from recurring.  We have also identified improvements to our monitoring of connection limits and behavior and changes to reduce the risk of proxy host upgrades leading to reduced capacity.",
           "incident_id": "pxg3dz4yg7lp",
           "created_at": "2024-01-09T14:40:45.566Z",
-          "updated_at": "2024-01-11T20:57:18.434Z",
+          "updated_at": "2024-01-12T15:00:56.249Z",
           "display_at": "2024-01-09T14:40:45.000Z",
           "affected_components": [
             {
