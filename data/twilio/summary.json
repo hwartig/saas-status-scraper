@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-01-12T05:42:57.297-08:00"
+    "updated_at": "2024-01-12T06:14:34.372-08:00"
   },
   "components": [
     {
@@ -1746,9 +1746,9 @@
     {
       "id": "w8qmqfr223ph",
       "name": "Studio Flows With Timer Widgets Impacted",
-      "status": "investigating",
+      "status": "identified",
       "created_at": "2024-01-12T04:50:48.565-08:00",
-      "updated_at": "2024-01-12T05:25:52.463-08:00",
+      "updated_at": "2024-01-12T06:14:34.362-08:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -1756,6 +1756,26 @@
       "started_at": "2024-01-12T04:50:48.560-08:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "kgt2nx1ftmq6",
+          "status": "identified",
+          "body": "Studio is back to normal. Any new executions relying on timers are working fine. Our engineers have identified the issue causing fraction of Studio executions that used widgets which rely on timers  created before 01:18 PT with expiration time after 01:18 PT on 01-12-2024, which would result in that execution becoming stuck, and are working to deploy a fix.  We expect to provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "w8qmqfr223ph",
+          "created_at": "2024-01-12T06:14:34.358-08:00",
+          "updated_at": "2024-01-12T06:14:34.358-08:00",
+          "display_at": "2024-01-12T06:14:34.358-08:00",
+          "affected_components": [
+            {
+              "code": "7c6yv3vctfqv",
+              "name": "SERVERLESS - Studio",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "vzl4k7267bxh",
           "status": "investigating",
@@ -1974,60 +1994,6 @@
       "scheduled_until": "2024-01-23T19:00:00.000-08:00"
     },
     {
-      "id": "2kcynbbrc3c1",
-      "name": "US SMS Carrier Partner Maintenance",
-      "status": "scheduled",
-      "created_at": "2024-01-10T04:13:12.072-08:00",
-      "updated_at": "2024-01-10T04:13:12.134-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/017n18nnf8cr",
-      "started_at": "2024-01-10T04:13:12.064-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "trfn1m24wzdh",
-          "status": "scheduled",
-          "body": "Our SMS carrier partner in the US is conducting a planned maintenance from 15 January 2024 at 21:00 PST until 16 January 2024 at 03:00 PST. During the maintenance window, there could be intermittent delays delivering SMS to and from T-Mobile US handsets via a subset of US Short Codes.",
-          "incident_id": "2kcynbbrc3c1",
-          "created_at": "2024-01-10T04:13:12.132-08:00",
-          "updated_at": "2024-01-10T04:13:12.132-08:00",
-          "display_at": "2024-01-10T04:13:12.132-08:00",
-          "affected_components": [
-            {
-              "code": "39mb8cmw8y2v",
-              "name": "CARRIER NETWORK - SMS Short Code, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "39mb8cmw8y2v",
-          "name": "SMS Short Code, North America",
-          "status": "operational",
-          "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2024-01-11T06:37:37.487-08:00",
-          "position": 3,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2024-01-15T21:00:00.000-08:00",
-      "scheduled_until": "2024-01-16T03:00:00.000-08:00"
-    },
-    {
       "id": "d4713gn4hsc2",
       "name": "US SMS Carrier Maintenance - Verizon",
       "status": "scheduled",
@@ -2101,6 +2067,114 @@
       ],
       "scheduled_for": "2024-01-15T21:00:00.000-08:00",
       "scheduled_until": "2024-01-16T03:00:00.000-08:00"
+    },
+    {
+      "id": "2kcynbbrc3c1",
+      "name": "US SMS Carrier Partner Maintenance",
+      "status": "scheduled",
+      "created_at": "2024-01-10T04:13:12.072-08:00",
+      "updated_at": "2024-01-10T04:13:12.134-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/017n18nnf8cr",
+      "started_at": "2024-01-10T04:13:12.064-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "trfn1m24wzdh",
+          "status": "scheduled",
+          "body": "Our SMS carrier partner in the US is conducting a planned maintenance from 15 January 2024 at 21:00 PST until 16 January 2024 at 03:00 PST. During the maintenance window, there could be intermittent delays delivering SMS to and from T-Mobile US handsets via a subset of US Short Codes.",
+          "incident_id": "2kcynbbrc3c1",
+          "created_at": "2024-01-10T04:13:12.132-08:00",
+          "updated_at": "2024-01-10T04:13:12.132-08:00",
+          "display_at": "2024-01-10T04:13:12.132-08:00",
+          "affected_components": [
+            {
+              "code": "39mb8cmw8y2v",
+              "name": "CARRIER NETWORK - SMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "39mb8cmw8y2v",
+          "name": "SMS Short Code, North America",
+          "status": "operational",
+          "created_at": "2016-04-07T15:07:25.830-07:00",
+          "updated_at": "2024-01-11T06:37:37.487-08:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-01-15T21:00:00.000-08:00",
+      "scheduled_until": "2024-01-16T03:00:00.000-08:00"
+    },
+    {
+      "id": "tnxx643k95gb",
+      "name": "Russia SMS Carrier Maintenance - Megafon and Yota",
+      "status": "scheduled",
+      "created_at": "2024-01-12T06:09:35.267-08:00",
+      "updated_at": "2024-01-12T06:09:35.320-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/5zm2nmgw9tqq",
+      "started_at": "2024-01-12T06:09:35.260-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "10qbpz58dd7h",
+          "status": "scheduled",
+          "body": "The Megafon and Yota networks in Russia are conducting a planned maintenance from 16 January 2024 at 12:00 PST until 16 January 2024 at 16:00 PST. During the maintenance window, there could be intermittent delays delivering SMS to Megafon and Yota Russia handsets.",
+          "incident_id": "tnxx643k95gb",
+          "created_at": "2024-01-12T06:09:35.318-08:00",
+          "updated_at": "2024-01-12T06:09:35.318-08:00",
+          "display_at": "2024-01-12T06:09:35.318-08:00",
+          "affected_components": [
+            {
+              "code": "llgdln3dcs6p",
+              "name": "CARRIER NETWORK - SMS, Europe",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "llgdln3dcs6p",
+          "name": "SMS, Europe",
+          "status": "operational",
+          "created_at": "2019-01-10T08:53:50.789-08:00",
+          "updated_at": "2024-01-10T15:45:14.311-08:00",
+          "position": 9,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-01-16T12:00:00.000-08:00",
+      "scheduled_until": "2024-01-16T16:00:00.000-08:00"
     },
     {
       "id": "pvcmnf8phwcc",
@@ -2209,6 +2283,60 @@
       ],
       "scheduled_for": "2024-01-16T16:00:00.000-08:00",
       "scheduled_until": "2024-01-16T20:30:00.000-08:00"
+    },
+    {
+      "id": "gnlmqpwshzn3",
+      "name": "Russia SMS Carrier Maintenance - Megafon and Yota",
+      "status": "scheduled",
+      "created_at": "2024-01-12T06:09:42.787-08:00",
+      "updated_at": "2024-01-12T06:09:42.827-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/jwqwxzsmm0sz",
+      "started_at": "2024-01-12T06:09:42.782-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "tz4smcsw1cm3",
+          "status": "scheduled",
+          "body": "The Megafon and Yota networks in Russia are conducting a planned maintenance from 17 January 2024 at 12:00 PST until 17 January 2024 at 16:00 PST. During the maintenance window, there could be intermittent delays delivering SMS to Megafon and Yota Russia handsets.",
+          "incident_id": "gnlmqpwshzn3",
+          "created_at": "2024-01-12T06:09:42.825-08:00",
+          "updated_at": "2024-01-12T06:09:42.825-08:00",
+          "display_at": "2024-01-12T06:09:42.825-08:00",
+          "affected_components": [
+            {
+              "code": "llgdln3dcs6p",
+              "name": "CARRIER NETWORK - SMS, Europe",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "llgdln3dcs6p",
+          "name": "SMS, Europe",
+          "status": "operational",
+          "created_at": "2019-01-10T08:53:50.789-08:00",
+          "updated_at": "2024-01-10T15:45:14.311-08:00",
+          "position": 9,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-01-17T12:00:00.000-08:00",
+      "scheduled_until": "2024-01-17T16:00:00.000-08:00"
     },
     {
       "id": "r6r3fgpx9y01",
