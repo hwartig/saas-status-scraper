@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-01-11T09:25:15.991-08:00"
+    "updated_at": "2024-01-11T17:01:21.288-08:00"
   },
   "incidents": [
     {
@@ -2345,7 +2345,7 @@
       "name": "[Major] Customers May Experience Login Issues",
       "status": "postmortem",
       "created_at": "2023-11-06T07:29:49.665-08:00",
-      "updated_at": "2023-11-28T11:17:52.808-08:00",
+      "updated_at": "2024-01-11T17:01:21.267-08:00",
       "monitoring_at": "2023-11-06T10:07:27.728-08:00",
       "resolved_at": "2023-11-06T10:56:01.252-08:00",
       "impact": "major",
@@ -2356,10 +2356,10 @@
         {
           "id": "t1xcf916wzt0",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._‌\n\nBetween 9:00 AM PST and 12:30 PM PST on November 6, 2023, users may have experienced latency and difficulty logging into Box. During this time, some impacted users may have experienced authentication issues or difficulty logging in through web and SSO. This occurred as a result of an enterprise calling one of our services at a higher than expected rate. We were able to resolve the issue by temporarily rate limiting requests to the impacted service.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,    \nThe Box Team",
+          "body": "We recently addressed an issue affecting multi-factor authentication logins. We would like to further explain the issue and action items we had taken to prevent it from happening in the future.\n\nBetween 9:00 AM PST and 12:30 PM PST on November 6, 2023, some users experienced latency and difficulty logging into Box. During this time, users logging in to Box with multi-factor authentication may have encountered slow responses or failures during the login process. Upon investigation, we determined that the cause of this issue was the result of a single enterprise repeatedly retrying programmatic session termination calls for all its users, which temporarily overburdened the multi-factor authentication service. The issue was resolved when the user was temporarily prevented from using the session termination API.\n\n**Analysis**\n\nThe issue occurred due a confluence of factors relating to our session termination API and multi-factor authentication service. Specifically, at the time of this issue, our session termination API did not have a rate limiter in place, which allowed a customer to repeatedly call the API with an excessive number of requests to the multi-factor authentication service. The multi-factor-authentication service additionally did not rate-limit the specific call made to it by the session termination API. Finally, the internal retry logic for timed-out requests continued to load the multi-factor authentication service. As a result, due to the unusually high session termination calls, our multi-factor authentication service became overburdened and resulted in the temporary impact to users.\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Adding rate limits to the session termination API and the multi-factor authentication service.\n* Enhancing dashboard and alerts related to session termination API and multi-factor authentication.\n* Optimization of the logic between the session termination API and multi-factor authentication service to improve throughput.\n* Investigation of retry logic to prevent perpetuating overload situations.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
           "incident_id": "4lbs6ry9jk01",
           "created_at": "2023-11-28T11:17:00.346-08:00",
-          "updated_at": "2023-11-28T11:17:52.805-08:00",
+          "updated_at": "2024-01-11T17:01:21.263-08:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
