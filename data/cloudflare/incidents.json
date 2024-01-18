@@ -4,9 +4,104 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-01-18T17:55:20.533Z"
+    "updated_at": "2024-01-18T18:39:12.150Z"
   },
   "incidents": [
+    {
+      "id": "cxyckjngxnqk",
+      "name": "R2 Availability Impact on object retrieval",
+      "status": "investigating",
+      "created_at": "2024-01-18T18:38:59.443Z",
+      "updated_at": "2024-01-18T18:39:12.146Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/w64r4s32md13",
+      "started_at": "2024-01-18T18:38:59.431Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "7f9c63bqhkkz",
+          "status": "investigating",
+          "body": "We have identified an issue that is causing a very small number of successful object uploads to R2 to incorrectly return HTTP 404 (Not Found) in response to GET or HEAD operations. This also impacts Stream and Images: impacted users could see playback issues for videos and 404 on images uploaded between January 16 11:00 UTC through January 17 03:00 UTC.",
+          "incident_id": "cxyckjngxnqk",
+          "created_at": "2024-01-18T18:38:59.498Z",
+          "updated_at": "2024-01-18T18:38:59.498Z",
+          "display_at": "2024-01-18T18:38:59.498Z",
+          "affected_components": [
+            {
+              "code": "3lbj8lp3d750",
+              "name": "Cloudflare Sites and Services - Images",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "hb7g5sq2zz0h",
+              "name": "Cloudflare Sites and Services - R2",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "47xg28c02lnk",
+              "name": "Cloudflare Sites and Services - Stream",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "3lbj8lp3d750",
+          "name": "Images",
+          "status": "operational",
+          "created_at": "2022-02-25T17:30:01.272Z",
+          "updated_at": "2024-01-12T21:51:08.854Z",
+          "position": 34,
+          "description": "Cloudflare service to build a scalable image pipeline to store, resize, optimize and deliver images in a fast and secure manner.",
+          "showcase": false,
+          "start_date": "2022-02-25",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "hb7g5sq2zz0h",
+          "name": "R2",
+          "status": "operational",
+          "created_at": "2022-07-05T10:55:24.503Z",
+          "updated_at": "2023-12-14T14:59:16.237Z",
+          "position": 50,
+          "description": "High-performance storage for files and objects with zero egress charges",
+          "showcase": false,
+          "start_date": "2022-07-05",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "47xg28c02lnk",
+          "name": "Stream",
+          "status": "operational",
+          "created_at": "2019-01-24T16:53:34.953Z",
+          "updated_at": "2023-12-21T08:15:59.603Z",
+          "position": 60,
+          "description": "Cloudflare Stream lets you or your end users upload, store, encode, and deliver live and on-demand video with one API, without configuring or maintaining infrastructure",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": "[]"
+    },
     {
       "id": "vy7d3z0kwrpr",
       "name": "Increased Latency and Request Errors in Houston, Texas (IAH)",
@@ -4824,59 +4919,6 @@
           "updated_at": "2023-12-22T16:48:31.222Z",
           "position": 66,
           "description": "Cloudflare Tunnel provides you with a secure way to connect your resources to Cloudflare without a publicly routable IP address",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "x5c5d7620b87",
-      "name": "Cloudflare Logs delivery Issues",
-      "status": "resolved",
-      "created_at": "2023-12-19T17:10:52.000Z",
-      "updated_at": "2023-12-19T17:13:51.266Z",
-      "monitoring_at": null,
-      "resolved_at": "2023-12-19T17:10:52.000Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/cqqy3clyf9k2",
-      "started_at": "2023-12-19T17:10:52.000Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "6zydc196v85v",
-          "status": "resolved",
-          "body": "Cloudflare Logs experienced issues with log delivery between 15:45 and 15:57 UTC today. A subset of log entries for a small number of customers has not been ingested to the Cloudflare Logs system and cannot be delivered via Logpush system. Unfortunately, these affected log entries are not recoverable.",
-          "incident_id": "x5c5d7620b87",
-          "created_at": "2023-12-19T17:10:52.470Z",
-          "updated_at": "2023-12-19T17:13:51.204Z",
-          "display_at": "2023-12-19T17:10:52.000Z",
-          "affected_components": [
-            {
-              "code": "k0mgxrls5y1b",
-              "name": "Cloudflare Sites and Services - Logs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "k0mgxrls5y1b",
-          "name": "Logs",
-          "status": "operational",
-          "created_at": "2016-03-20T18:49:07.613Z",
-          "updated_at": "2023-11-06T19:40:43.234Z",
-          "position": 38,
-          "description": "Enterprise Logpull and Logpush services",
           "showcase": false,
           "start_date": null,
           "group_id": "1km35smx8p41",
