@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-01-18T11:48:30.528-08:00"
+    "updated_at": "2024-01-18T13:51:39.242-08:00"
   },
   "incidents": [
     {
@@ -2406,9 +2406,9 @@
     {
       "id": "t0wg93z652hv",
       "name": "[Minor] Some users unable to login",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2023-12-13T08:30:00.000-08:00",
-      "updated_at": "2023-12-13T11:45:06.680-08:00",
+      "updated_at": "2024-01-18T13:51:39.240-08:00",
       "monitoring_at": null,
       "resolved_at": "2023-12-13T10:45:00.000-08:00",
       "impact": "none",
@@ -2416,6 +2416,19 @@
       "started_at": "2023-12-13T10:45:00.000-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "jxkgk0d0jtsn",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Box Webapp, Public and Uploads & Downloads. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future. \n\n‌\n\nBetween 10:28 AM PST and 10:38 AM PST on December 13, 2023 and between 4:30 AM PST and 5:05 AM PST on December 15, 2023, some users may have experienced difficulties while working in Box. During these times, some users may have experienced slowness and failures interacting  with parts of the Box Webapp and public API, including Uploads and Downloads. The issue occurred due to an issue with the deployment of a new DB Access Control service on our database fleet.  We were able to resolve the issue by temporarily disabling the problematic service. In addition, we are working to improve our testing and rollout process for services being deployed to our database fleet to prevent similar issues from occurring in the future.\n\n‌\n\n**Analysis** \n\nThe DB Access Control service is a service that enables new user access controls to be applied automatically and frequently.  This allows for faster development of new DB functionality that requires access control changes, resulting in faster team velocity and ultimately more stable and reliable infrastructure.  \n\n‌\n\nOn the morning of December 13th, an operator started the rollout of the DB Access Control service by deploying it to a single database pod. At that time, it was configured to execute its work every 10 minutes.  Approximately 10 minutes after the deployment, we saw degradation on that pod, causing the impact seen on December 13. The operator suspected that the service frequency was the cause and remediated by configuring the service to execute its work once a day at a low-traffic time. The next steps should have been to validate the changes in a way that would not result in customer impact and then deploy it again on a single pod. However, the standard process was unintentionally not adhered to in this case and the change was instead deployed across the fleet, leading to additional impact as seen on December 15.\n\n‌\n\nIn addition to optimizing the DB Access Control service to be less resource-intensive, we intend to make some process changes in response to this issue. There is already a general standard process that should be followed when deploying services to the Database fleet. However, to minimize the likelihood of similar situations occurring again, we are updating our documentation to better ensure that all operators have a comprehensive understanding of the standard process and that such process is consistently followed. \n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* The relevant DB service was temporarily disabled to remediate the issue.\n* The relevant DB service has been optimized to be less resource-intensive and will automatically refuse to run during high-traffic times\n* Rollout process for all DB services will be more thoroughly documented\n* Operators will receive additional training to ensure that they have a comprehensive understanding of the documented rollout process\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "t0wg93z652hv",
+          "created_at": "2024-01-18T13:50:30.265-08:00",
+          "updated_at": "2024-01-18T13:51:39.238-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "tbh3ryv72n9t",
           "status": "resolved",
