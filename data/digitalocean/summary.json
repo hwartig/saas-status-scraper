@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-01-23T08:14:33.141Z"
+    "updated_at": "2024-01-23T13:02:09.693Z"
   },
   "components": [
     {
@@ -535,9 +535,9 @@
     {
       "id": "566bp0vk7mwx",
       "name": "FRA1",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T17:31:21.365Z",
-      "updated_at": "2024-01-08T00:01:27.838Z",
+      "updated_at": "2024-01-23T13:02:09.648Z",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -2837,7 +2837,7 @@
     {
       "id": "gb3gs5vj7js2",
       "name": "Kubernetes",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T17:35:32.978Z",
       "updated_at": "2023-04-21T16:18:17.271Z",
       "position": 18,
@@ -3005,10 +3005,64 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "s4kt15q6xq19",
+      "name": "Managed Kubernetes Cluster in FRA1",
+      "status": "investigating",
+      "created_at": "2024-01-23T13:02:09.623Z",
+      "updated_at": "2024-01-23T13:02:09.691Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/m4hk1ybx62bs",
+      "started_at": "2024-01-23T13:02:09.616Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "594gj3mwns69",
+          "status": "investigating",
+          "body": "As of 12:18 UTC, our Engineering team is investigating an issue with Kubernetes clusters in the FRA1 region. During this time, users may experience errors while communicating with their clusters in the FRA1 region. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "s4kt15q6xq19",
+          "created_at": "2024-01-23T13:02:09.689Z",
+          "updated_at": "2024-01-23T13:02:09.689Z",
+          "display_at": "2024-01-23T13:02:09.689Z",
+          "affected_components": [
+            {
+              "code": "566bp0vk7mwx",
+              "name": "Kubernetes - FRA1",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "566bp0vk7mwx",
+          "name": "FRA1",
+          "status": "degraded_performance",
+          "created_at": "2023-02-22T17:31:21.365Z",
+          "updated_at": "2024-01-23T13:02:09.648Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-22",
+          "group_id": "gb3gs5vj7js2",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
