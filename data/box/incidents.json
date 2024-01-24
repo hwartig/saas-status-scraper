@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-01-23T00:10:58.475-08:00"
+    "updated_at": "2024-01-23T16:19:29.562-08:00"
   },
   "incidents": [
     {
@@ -200,7 +200,7 @@
       "name": "[Outage] Issues with Logins, Uploads, Downloads, API calls",
       "status": "postmortem",
       "created_at": "2024-01-09T11:20:39.964-08:00",
-      "updated_at": "2024-01-11T07:33:33.340-08:00",
+      "updated_at": "2024-01-23T16:19:29.552-08:00",
       "monitoring_at": "2024-01-09T12:11:56.645-08:00",
       "resolved_at": "2024-01-09T12:57:41.421-08:00",
       "impact": "critical",
@@ -211,10 +211,10 @@
         {
           "id": "rv2n79jy2nt1",
           "status": "postmortem",
-          "body": "On January 9, 2024, between 11:10 AM PT and 12:15 PM PT, users experienced difficulties while working in Box. During this time, users experienced slowness and failures interacting with most parts of the Box webapp and public API; including Logins, Uploads and Downloads. The issue was triggered by a change that impacted Kubernetes clusters in one of our regions where we run our critical services. At 11:18 AM PT this change was rolled back. After rolling back the change, systems began to recover around 11:27 AM. Although the recovery process was designed to be gradual, the process was slower than intended and we are continuing to investigate the cause.  \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n====\n\nSincerely,\n\nThe Box Team\n\n ====",
+          "body": "We recently addressed issues affecting most parts of the Box webapp and public API; including Logins, Uploads and Downloads. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nOn January 9, 2024, between 11:10 AM PT and 12:15 PM PT, users experienced difficulties while working in Box. During this time, users experienced slowness and failures interacting with most parts of the Box webapp and public API, including Logins, Uploads and Downloads. The issue was triggered by a change that impacted Kubernetes clusters in one of the regions where we run our critical services. At 11:18 AM PT this change was rolled back. After rolling back the change, systems began to recover around 11:27 AM. \n\n‌\n\n**Analysis** \n\nOn January 9th, 2024, we made a configuration change to deploy a new daemonset to the dedicated Kubernetes clusters running our core data services, which caused resource exhaustion and eviction of our core data services on those nodes. The daemonset deployment pipeline erroneously allowed the change to be promoted to an entire region instead of the planned gradual rollout, which resulted in service interruption impacting most of our customers. To address this issue, we rolled back the daemonset deployment. After the daemonset was rolled back, the evicted core data services began to be restored and our systems began to recover; however, in two of our three clusters, this process was delayed by a scheduler limitation, elongating the duration of impact. We adjusted the resource requests for our core data services to speed up recovery of these two clusters, restoring normal operations at 12:15pm.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* We have paused the daemonset pipeline until we can ensure it employs safe incremental rollout processes.\n* We are updating the daemonset pipeline to validate resource allocations before deployment and ensure a gradual production rollout to reduce the likelihood of similar issues occurring in the future.\n* We have adjusted the priority of our application services, including the core data services, to be higher than daemonsets to ensure their capacity is protected.\n* We are adjusting our Kubernetes configurations to enable faster restoration of service through guaranteed capacity and buffers.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,  \nThe Box Team",
           "incident_id": "hj7155sn4xj4",
           "created_at": "2024-01-11T07:33:29.470-08:00",
-          "updated_at": "2024-01-11T07:33:33.338-08:00",
+          "updated_at": "2024-01-23T16:19:29.549-08:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
