@@ -4,15 +4,15 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-01-26T07:49:54.146-08:00"
+    "updated_at": "2024-01-26T12:35:31.927-08:00"
   },
   "incidents": [
     {
       "id": "t338nyx801f7",
       "name": "[Minor] Issue with Uploads, Downloads and Public API",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-01-22T16:16:21.430-08:00",
-      "updated_at": "2024-01-22T16:16:37.083-08:00",
+      "updated_at": "2024-01-26T12:35:31.924-08:00",
       "monitoring_at": null,
       "resolved_at": "2024-01-22T16:16:21.470-08:00",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2024-01-22T16:16:21.420-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "x57cj90wg1pj",
+          "status": "postmortem",
+          "body": "On January 22, 2024, between 3:37 PM PST and 3:47 PM PST, some users may have experienced difficulties while working in Box. During this time, users may have encountered degradation around PublicAPI, Uploads and Downloads. The issue occurred as a result of an infrastructure change intended to reduce scale up time of nodes in regions where some our critical services run. Due to a pre-existing drift in infrastructure, this resulted in a disruptive change instead of an in place change. When the operation completed, services recovered automatically. In addition, we are working on improving our deployment pipelines to detect disruptive changes before going live and reducing resolution times to address pre-existing disparities to prevent similar issues from occurring in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "t338nyx801f7",
+          "created_at": "2024-01-26T12:33:41.521-08:00",
+          "updated_at": "2024-01-26T12:35:31.921-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "v1s32q9p9gsm",
           "status": "resolved",
