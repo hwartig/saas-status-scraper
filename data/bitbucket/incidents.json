@@ -4,9 +4,39 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-01-31T01:00:51.714Z"
+    "updated_at": "2024-01-31T06:03:12.905Z"
   },
   "incidents": [
+    {
+      "id": "5lmkb6lcqchl",
+      "name": "Performance degradation for Forge app invocations",
+      "status": "resolved",
+      "created_at": "2024-01-31T06:03:12.846Z",
+      "updated_at": "2024-01-31T06:03:12.901Z",
+      "monitoring_at": null,
+      "resolved_at": "2024-01-31T06:03:12.890Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/dfzr7tvstk17",
+      "started_at": "2024-01-31T06:03:12.841Z",
+      "page_id": "bqlf8qjztdtr",
+      "incident_updates": [
+        {
+          "id": "dk5rb0zbjrgt",
+          "status": "resolved",
+          "body": "At around 4am UTC, about 40 percent of Forge app invocations experienced high latency, with a portion of the requests failing, during a 15 minute time window.\n\nThe scaling of the instances was misconfigured following a new deployment of the service, which needed manual intervention which took a few minutes to resolve the issue.\n\nTimeline:\n- 2024-01-31 04:00 UTC: impact started\n- 2024-01-31 04:03 UTC: incident detected\n- 2024-01-31 04:15 UTC: the incident was resolved and the impact ended\n\nThis issue is now resolved and Forge is fully operational. We apologize for any inconveniences this may have caused to our customers, partners, and our developer community.",
+          "incident_id": "5lmkb6lcqchl",
+          "created_at": "2024-01-31T06:03:12.890Z",
+          "updated_at": "2024-01-31T06:03:12.890Z",
+          "display_at": "2024-01-31T06:03:12.890Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "c202l5z3gm41",
       "name": "Outage in Atlassian Intelligence functionality in multiple products",
@@ -5841,321 +5871,6 @@
           "updated_at": "2024-01-30T21:00:41.220Z",
           "position": 3,
           "description": "Access to Git over SSH.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "bqlf8qjztdtr",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "c1qmcrcbc5zy",
-          "name": "Git via HTTPS",
-          "status": "operational",
-          "created_at": "2013-09-26T03:33:27.652Z",
-          "updated_at": "2024-01-30T21:00:41.242Z",
-          "position": 5,
-          "description": "Access to Git repositories via HTTPS",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "bqlf8qjztdtr",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "rzh2n85q7vtt",
-          "name": "Pipelines",
-          "status": "operational",
-          "created_at": "2016-08-23T20:04:54.469Z",
-          "updated_at": "2023-12-09T23:27:01.753Z",
-          "position": 9,
-          "description": "Continuous integration and delivery for Bitbucket repos",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "bqlf8qjztdtr",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "pvcsnx2kr6fh",
-      "name": "Bitbucket Cloud website outage",
-      "status": "postmortem",
-      "created_at": "2022-11-22T20:10:38.872Z",
-      "updated_at": "2022-12-03T00:33:12.771Z",
-      "monitoring_at": "2022-11-22T23:14:29.123Z",
-      "resolved_at": "2022-11-22T23:44:47.000Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/tskg60hff1r5",
-      "started_at": "2022-11-22T20:10:38.865Z",
-      "page_id": "bqlf8qjztdtr",
-      "incident_updates": [
-        {
-          "id": "4zgg6t4bk95g",
-          "status": "postmortem",
-          "body": "### **CONTEXT**\n\nAtlassian Cloud products, applications, the customer experiences they provide, as well as supporting services and Atlassian’s own internal tooling rely on compute and data workloads deployed in Amazon Web Services \\(AWS\\) Virtual Private Cloud \\(VPC\\).\n\nCritical to the function of these applications is the network communication between them, as well as to the Internet and AWS-managed services. This communication depends on DNS resolution, which applications perform by querying a DNS server to translate service names into network addresses they can connect to.\n\nTo facilitate DNS resolution across multiple accounts and VPCs, Atlassian operates [centralized EC2 \\(Elastic Compute Cloud\\) DNS servers](https://aws.amazon.com/blogs/security/how-to-centralize-dns-management-in-a-multi-account-environment/) in each AWS region we serve customers from.\n\nAtlassian is currently in the process of migrating from this centralized infrastructure to a more resilient distributed solution that leverages [AWS-managed VPC resolver](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#AmazonDNS) in a [Shared VPC architecture](https://www.youtube.com/watch?v=S9NMA3ACZDM). However, a number of internal applications and services still rely on the EC2-based solution.\n\nThe EC2-based DNS servers utilize [security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html), which are subject to [connection tracking allowance limits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html)instrumented by AWS.\n\n### **INCIDENT SUMMARY**\n\nOn November 22, 2022, between 19:39 and 21:28 UTC, some Jira, Confluence, and Bitbucket customers experienced varying levels of degradation across our products and services, including partner apps and integrations. The incident was detected within nine minutes by an automated monitoring system and resolved within one hour and 49 minutes.\n\nThe event was triggered by Atlassian’s DNS infrastructure within the AWS us-east-1 region encountering a network connection tracking allowance limit. Despite the fault being localized to one region, there was a global impact for customers whose data resided in us-east-1, as well as Atlassian products which have unique dependencies on that region.\n\nThe issue was initially mitigated by scaling up the DNS infrastructure, which increased the connection tracking allowance limit and returned Atlassian products to a healthy state. The underlying issue has since been resolved by a configuration change and cannot reoccur.\n\nThe incident was not caused by an attack and it was not a security issue. Atlassian customer data remains secure.\n\nWe deeply value the trust placed in Atlassian and apologize to customers who were affected by the event.\n\n### **IMPACT**\n\nThe impact occurred on November 22, 2022, between 19:39 and 21:28 UTC, for a total of one hour and 49 minutes. Some Jira, Confluence, and Bitbucket customers experienced service degradation ranging from intermittent access to a complete outage. Customers experienced error pages or very slow responses in applications and browsers, as well as 5xx response codes from our APIs.\n\n### **ROOT CAUSE**\n\nThe incident occurred as connections through Atlassian’s DNS infrastructure reached a new daily peak due to steady traffic growth. As a result, [a limit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-throttling) on the number of simultaneous network connections [tracked by an AWS EC2 security group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html) was encountered. Upon reaching this limit, DNS packets were dropped, meaning services were unable to resolve network addresses which resulted in application failures. Services retried their DNS queries upon receiving a SERVFAIL response or query timeout, which created even more connections - compounding the problem.\n\nDuring the incident, Atlassian’s DNS infrastructure in the AWS us-east-1 region was unable to service up to 90% of DNS resolution requests.\n\nWe were not aware of how close our infrastructure was to the security group connection tracking limit because utilization of this allowance is not currently observable.\n\nTroubleshooting took an extended period of time because EC2 network allowance packet drops \\(as a result of encountering this limit\\) [were not actively monitored](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-network-performance-ena.html) by Atlassian.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nAtlassian acknowledges that outages like this one impact the productivity and business of our customers. Since this incident:\n\n* We have deployed an immediate change to prevent traffic through Atlassian’s EC2-based DNS infrastructure from [consuming the security group connection allowance limit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#untracked-connections). As a result of this change, this incident cannot reoccur.\n* We are investigating ways to improve our visibility into the utilization of AWS network allowance limits and will [monitor packet drops](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-network-performance-ena.html) due to them. \n* We are continuing our migration of internal services away from the EC2-based DNS infrastructure involved in this incident to a new, distributed architecture that is not subject to these network limits.\n\nAgain, we apologize to those customers whose services were impacted during this incident.\n\nThank you,  \nAtlassian Customer Support",
-          "incident_id": "pvcsnx2kr6fh",
-          "created_at": "2022-12-03T00:26:32.662Z",
-          "updated_at": "2022-12-03T00:33:12.769Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "m6lzh2639bgx",
-          "status": "resolved",
-          "body": "On Nov 22 at 20:46 UTC we identified a temporary outage with several Atlassian Cloud products. All affected products are now back online and no further impact has been observed.\nWe will publish a post incident review with details of the incident and the actions we are taking to prevent a similar problem in the future.",
-          "incident_id": "pvcsnx2kr6fh",
-          "created_at": "2022-11-22T23:44:47.391Z",
-          "updated_at": "2022-11-23T00:36:22.757Z",
-          "display_at": "2022-11-22T23:44:47.000Z",
-          "affected_components": [
-            {
-              "code": "c1qmcrcbc5zy",
-              "name": "Git via HTTPS",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "g0lfj4sv2fhf",
-              "name": "Website",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "qmh4tj8h5kbn",
-              "name": "Git via SSH",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "k0x2yw1435v7",
-              "name": "API",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "rzh2n85q7vtt",
-              "name": "Pipelines",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "qfsxh5mgnyyn",
-              "name": "Authentication and user management",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1595201659176902700
-        },
-        {
-          "id": "pmfvfhdp2zl2",
-          "status": "monitoring",
-          "body": "We have taken action to mitigate an issue within our networking services. We will continue to monitor for the next 30 minutes before marking the incident as resolved.",
-          "incident_id": "pvcsnx2kr6fh",
-          "created_at": "2022-11-22T23:14:29.123Z",
-          "updated_at": "2022-11-22T23:14:30.150Z",
-          "display_at": "2022-11-22T23:14:29.123Z",
-          "affected_components": [
-            {
-              "code": "c1qmcrcbc5zy",
-              "name": "Git via HTTPS",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "g0lfj4sv2fhf",
-              "name": "Website",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "qmh4tj8h5kbn",
-              "name": "Git via SSH",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "k0x2yw1435v7",
-              "name": "API",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "rzh2n85q7vtt",
-              "name": "Pipelines",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "qfsxh5mgnyyn",
-              "name": "Authentication and user management",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1595194035668684800
-        },
-        {
-          "id": "w3xz2tsf3tp5",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "pvcsnx2kr6fh",
-          "created_at": "2022-11-22T20:59:29.183Z",
-          "updated_at": "2022-11-22T20:59:29.756Z",
-          "display_at": "2022-11-22T20:59:29.183Z",
-          "affected_components": [
-            {
-              "code": "c1qmcrcbc5zy",
-              "name": "Git via HTTPS",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "g0lfj4sv2fhf",
-              "name": "Website",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "qmh4tj8h5kbn",
-              "name": "Git via SSH",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "k0x2yw1435v7",
-              "name": "API",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "rzh2n85q7vtt",
-              "name": "Pipelines",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "qfsxh5mgnyyn",
-              "name": "Authentication and user management",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1595160060250165200
-        },
-        {
-          "id": "xmcvwlt0j8vq",
-          "status": "investigating",
-          "body": "We're currently investigating an outage in Bitbucket Cloud and other products. We will provide more information as we work to identify the root cause.",
-          "incident_id": "pvcsnx2kr6fh",
-          "created_at": "2022-11-22T20:10:39.017Z",
-          "updated_at": "2022-11-22T20:10:39.846Z",
-          "display_at": "2022-11-22T20:10:39.017Z",
-          "affected_components": [
-            {
-              "code": "c1qmcrcbc5zy",
-              "name": "Git via HTTPS",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "g0lfj4sv2fhf",
-              "name": "Website",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "qmh4tj8h5kbn",
-              "name": "Git via SSH",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "k0x2yw1435v7",
-              "name": "API",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "qfsxh5mgnyyn",
-              "name": "Authentication and user management",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1595147771237273600
-        }
-      ],
-      "components": [
-        {
-          "id": "g0lfj4sv2fhf",
-          "name": "Website",
-          "status": "operational",
-          "created_at": "2013-09-26T03:34:27.377Z",
-          "updated_at": "2023-12-09T23:27:01.560Z",
-          "position": 1,
-          "description": "Access to bitbucket.org",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "bqlf8qjztdtr",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "k0x2yw1435v7",
-          "name": "API",
-          "status": "operational",
-          "created_at": "2015-06-05T19:34:43.541Z",
-          "updated_at": "2024-01-30T21:00:41.194Z",
-          "position": 2,
-          "description": "Access to api.bitbucket.org",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "bqlf8qjztdtr",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "qmh4tj8h5kbn",
-          "name": "Git via SSH",
-          "status": "operational",
-          "created_at": "2013-10-10T17:45:00.679Z",
-          "updated_at": "2024-01-30T21:00:41.220Z",
-          "position": 3,
-          "description": "Access to Git over SSH.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "bqlf8qjztdtr",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "qfsxh5mgnyyn",
-          "name": "Authentication and user management",
-          "status": "operational",
-          "created_at": "2019-05-02T04:19:58.553Z",
-          "updated_at": "2023-12-09T23:27:01.644Z",
-          "position": 4,
-          "description": null,
           "showcase": false,
           "start_date": null,
           "group_id": null,

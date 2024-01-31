@@ -4,9 +4,69 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-01-31T02:43:05.725Z"
+    "updated_at": "2024-01-31T06:07:22.429Z"
   },
   "incidents": [
+    {
+      "id": "x0h9rzxnr6gv",
+      "name": "Confluence Whiteboards Beta unavailable for some customers",
+      "status": "resolved",
+      "created_at": "2024-01-31T06:07:22.388Z",
+      "updated_at": "2024-01-31T06:07:22.427Z",
+      "monitoring_at": null,
+      "resolved_at": "2024-01-31T06:07:22.420Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/cg6hb6fw35s8",
+      "started_at": "2024-01-31T06:07:22.385Z",
+      "page_id": "4g2my7tbhjsq",
+      "incident_updates": [
+        {
+          "id": "z8nn9qv853p2",
+          "status": "resolved",
+          "body": "We have investigated reports of Confluence Whiteboards Beta being unavailable for some customers between the times of 01/30/2024 22:44 UTC and 01/31/2024 05:22 UTC. This issue has been resolved.",
+          "incident_id": "x0h9rzxnr6gv",
+          "created_at": "2024-01-31T06:07:22.420Z",
+          "updated_at": "2024-01-31T06:07:22.420Z",
+          "display_at": "2024-01-31T06:07:22.420Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
+    {
+      "id": "7d3vyf2rxcyd",
+      "name": "Performance degradation for Forge app invocations",
+      "status": "resolved",
+      "created_at": "2024-01-31T06:03:12.844Z",
+      "updated_at": "2024-01-31T06:03:12.892Z",
+      "monitoring_at": null,
+      "resolved_at": "2024-01-31T06:03:12.883Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/12gvvf34ynzz",
+      "started_at": "2024-01-31T06:03:12.840Z",
+      "page_id": "4g2my7tbhjsq",
+      "incident_updates": [
+        {
+          "id": "ysj5m4qx9ww9",
+          "status": "resolved",
+          "body": "At around 4am UTC, about 40 percent of Forge app invocations experienced high latency, with a portion of the requests failing, during a 15 minute time window.\n\nThe scaling of the instances was misconfigured following a new deployment of the service, which needed manual intervention which took a few minutes to resolve the issue.\n\nTimeline:\n- 2024-01-31 04:00 UTC: impact started\n- 2024-01-31 04:03 UTC: incident detected\n- 2024-01-31 04:15 UTC: the incident was resolved and the impact ended\n\nThis issue is now resolved and Forge is fully operational. We apologize for any inconveniences this may have caused to our customers, partners, and our developer community.",
+          "incident_id": "7d3vyf2rxcyd",
+          "created_at": "2024-01-31T06:03:12.883Z",
+          "updated_at": "2024-01-31T06:03:12.883Z",
+          "display_at": "2024-01-31T06:03:12.883Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "f1m74qw3d0kz",
       "name": "Service Disruptions Affecting Confluence in Asia Pacific region",
@@ -6079,285 +6139,6 @@
           "description": null,
           "showcase": false,
           "start_date": "2020-10-09",
-          "group_id": null,
-          "page_id": "4g2my7tbhjsq",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "n343wlsq6nxn",
-      "name": "Automations and rules issue",
-      "status": "postmortem",
-      "created_at": "2023-06-13T20:01:45.236Z",
-      "updated_at": "2023-06-27T03:06:55.930Z",
-      "monitoring_at": null,
-      "resolved_at": "2023-06-14T00:38:58.000Z",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/05k6hgg2b7rn",
-      "started_at": "2023-06-13T20:01:45.231Z",
-      "page_id": "4g2my7tbhjsq",
-      "incident_updates": [
-        {
-          "id": "bpd1s2t6nqrj",
-          "status": "postmortem",
-          "body": "### **SUMMARY**\n\nOn June 13 2023, from 6:49 PM UTC to June 14, 2023, 02:20 AM UTC, Atlassian customers using Jira Software, Jira Service Management, Jira Work Management, Confluence and Trello with services hosted in AWS us-east-1 region were impacted by Automation rule degradation. This event was triggered by an increased error rates and latencies for AWS Lambda function invocations in the us-east-1 region. Some other AWS services also experienced increased error rates and latencies as a result of degraded Lambda functions invocations.  This incident was automatically detected by multiple monitoring systems within 6 minutes, paging on-call teams. Recovery of the affected AWS Lambda service began after 116 minutes at June 13th 8:45 PM UTC.  Full recovery of all AWS services occurred at 10:37 PM UTC June 13th after the backlog of asynchronous Lambda events had been processed. Some Jira tenants with large event backlogs experienced delays in running schedule-based rule reruns. Full recovery of all Atlassian Cloud services was notified at June 14, 2023, 02:20 AM UTC.\n\n### **IMPACT**\n\nThe overall impact was between June 13, 2023, 06:49 PM UTC and June 14, 2023, 02:20 AM UTC.  Product-specific impacts are listed below.\n\n* Jira Software, Jira Service Management,  Jira Work Management - Automation rules were not executed for 2 hours between Jun 13, 06:49 PM UTC and Jun 13, 08:45 PM UTC.  Jira automation events generated during this period were unable to be rerun.  When AWS Lambda recovered delays were still experienced in our schedule-based and event-based rules for some larger tenants due to a large backlog of events. Full recovery was at June 14, 2023, 02:20 AM UTC.\n* Confluence - Automation rules were not executed for 2 hours between Jun 13, 06:49 PM UTC and Jun 13, 08:45 PM UTC.  On AWS service restoration Confluence automation recovered and Confluence automation events generated during this period were rerun and processed.  Full recovery was at June 14, 2023, 12:41 AM UTC.\n* Jira Product Discovery - Automation rules were not executed for 2 hours between Jun 13, 06:49 PM UTC and Jun 13, 08:45 PM UTC. Jira automation events generated during this period were unable to be rerun.  Sending feedback/filing a support ticket from the application did not work. \n* Trello -  Email to board delays, card covers image upload failures, attachment preview generation failures, board background upload failures, custom sticker images upload failures, custom emoji upload failures. Trello automation was unaffected. Full recovery was at June 13, 2023, 10:08 PM UTC.\n\nThe service disruption lasted for 7 hours and 1 minutes between June 13, 2023, 06:49 PM UTC and June 14, 2023, 02:20 AM UTC and caused service disruption to customers with services hosted in the US-EAST-1 region.\n\n### **ROOT CAUSE**\n\nAtlassian uses Amazon Web Services \\(AWS\\) as a cloud service provider. The root cause was an issue with a subsystem responsible for capacity management for AWS Lambda in US-EAST-1 Region, which also impacted 104 AWS services.  This impacted Automation rules as the service is hosted exclusively in this region.\n\nThere were no relevant Atlassian-driven events in the lead-up that have been identified to cause or contribute to this incident.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Increase reliability of message delivery and recoverability from Jira to Automation platform to improve recovery times. \n* Create a plan for multi-region impact mitigation for Automation.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
-          "incident_id": "n343wlsq6nxn",
-          "created_at": "2023-06-27T03:06:52.264Z",
-          "updated_at": "2023-06-27T03:06:55.929Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "x7nyrkmg3xb0",
-          "status": "resolved",
-          "body": "Between 6:49PM UTC to 8:45PM UTC, we experienced events from Confluence was not received by Automation impacted by the AWS outage. The issue has been resolved and the service is operating normally.",
-          "incident_id": "n343wlsq6nxn",
-          "created_at": "2023-06-14T00:38:58.292Z",
-          "updated_at": "2023-06-14T00:46:39.749Z",
-          "display_at": "2023-06-14T00:38:58.000Z",
-          "affected_components": [
-            {
-              "code": "y4z6hxpf7d7t",
-              "name": "Create and Edit",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ghd14g7sr6sy",
-          "status": "identified",
-          "body": "From 6:49PM UTC to 8:45PM UTC, AWS API Gateway and AWS Lambda were down. During this time events from Jira products and Confluence were not received by Automation. These events will not trigger automation. The AWS services have recovered from an outage at 8:45PM UTC. Since the recovery, the new executions is confirmed operating normally. Backlogged automation impacted during the incident is still in process. We will provide further updates shortly once all backlogged events are processed.",
-          "incident_id": "n343wlsq6nxn",
-          "created_at": "2023-06-14T00:30:53.338Z",
-          "updated_at": "2023-06-14T00:30:53.338Z",
-          "display_at": "2023-06-14T00:30:53.338Z",
-          "affected_components": [
-            {
-              "code": "y4z6hxpf7d7t",
-              "name": "Create and Edit",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3xr0bsxttbrp",
-          "status": "identified",
-          "body": "AWS services have recovered from an outage. Automation rules in Jira products and Confluence are now recovering as well. New executions are backlogged and will be delayed. We will provide further updates shortly.",
-          "incident_id": "n343wlsq6nxn",
-          "created_at": "2023-06-13T22:26:38.980Z",
-          "updated_at": "2023-06-13T22:26:38.980Z",
-          "display_at": "2023-06-13T22:26:38.980Z",
-          "affected_components": [
-            {
-              "code": "y4z6hxpf7d7t",
-              "name": "Create and Edit",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "260rqnsn0s1y",
-          "status": "identified",
-          "body": "AWS services are recovering from an outage. This is impacting to execution of automation rules for Jira products, Confluence, and Trello as backlogged requests are processed. We will provide further updates shortly.",
-          "incident_id": "n343wlsq6nxn",
-          "created_at": "2023-06-13T21:53:45.017Z",
-          "updated_at": "2023-06-13T21:53:45.017Z",
-          "display_at": "2023-06-13T21:53:45.017Z",
-          "affected_components": [
-            {
-              "code": "y4z6hxpf7d7t",
-              "name": "Create and Edit",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l3qvxjgs9n61",
-          "status": "investigating",
-          "body": "We are investigating an issue with automation that is impacting many Atlassian Cloud customers. We suspect that this is due to AWS lambda degradation. We will provide more details within the next hour.",
-          "incident_id": "n343wlsq6nxn",
-          "created_at": "2023-06-13T20:01:45.311Z",
-          "updated_at": "2023-06-13T20:01:45.311Z",
-          "display_at": "2023-06-13T20:01:45.311Z",
-          "affected_components": [
-            {
-              "code": "y4z6hxpf7d7t",
-              "name": "Create and Edit",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "y4z6hxpf7d7t",
-          "name": "Create and Edit",
-          "status": "operational",
-          "created_at": "2018-11-12T04:04:58.145Z",
-          "updated_at": "2024-01-26T02:56:57.937Z",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "4g2my7tbhjsq",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "yrbwlblwyp4z",
-      "name": "Issues in new product activations, user management and user imports",
-      "status": "resolved",
-      "created_at": "2023-06-13T12:04:30.862Z",
-      "updated_at": "2023-06-13T20:23:27.141Z",
-      "monitoring_at": "2023-06-13T13:21:17.837Z",
-      "resolved_at": "2023-06-13T20:23:27.127Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/4np30808xv2k",
-      "started_at": "2023-06-13T12:04:30.855Z",
-      "page_id": "4g2my7tbhjsq",
-      "incident_updates": [
-        {
-          "id": "vzmqcv210f4j",
-          "status": "resolved",
-          "body": "Between 09:00 UTC to 18:00 UTC, we experienced an issue for user management and user imports for Confluence, Jira, Jira Service Management, and Jira Work Management, and Jira Product Discovery. The issue has been resolved and the service is operating normally.",
-          "incident_id": "yrbwlblwyp4z",
-          "created_at": "2023-06-13T20:23:27.127Z",
-          "updated_at": "2023-06-13T20:23:27.127Z",
-          "display_at": "2023-06-13T20:23:27.127Z",
-          "affected_components": [
-            {
-              "code": "p8qwf8g1xjs4",
-              "name": "Administration",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "zqym1c9trgm8",
-          "status": "monitoring",
-          "body": "We are seeing some reoccurrence of the issue and have taken some mitigation actions. We are closely monitoring the issue while those actions take effect.",
-          "incident_id": "yrbwlblwyp4z",
-          "created_at": "2023-06-13T16:22:58.913Z",
-          "updated_at": "2023-06-13T16:22:58.913Z",
-          "display_at": "2023-06-13T16:22:58.913Z",
-          "affected_components": [
-            {
-              "code": "p8qwf8g1xjs4",
-              "name": "Administration",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "d4r28ttk0hp2",
-          "status": "monitoring",
-          "body": "We have identified the root cause of the product actions and user management issues.\nThe problem was now mitigated.\n\nWe are now monitoring closely.",
-          "incident_id": "yrbwlblwyp4z",
-          "created_at": "2023-06-13T13:21:17.837Z",
-          "updated_at": "2023-06-13T13:21:17.837Z",
-          "display_at": "2023-06-13T13:21:17.837Z",
-          "affected_components": [
-            {
-              "code": "p8qwf8g1xjs4",
-              "name": "Administration",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0d2qd3ls212m",
-          "status": "identified",
-          "body": "We are investigating an issue with our servers that is impacting some of our customers ability to perform:\n> New product activations;\n> User import;\n> User management.\n\nWe will provide more details within the next hour.",
-          "incident_id": "yrbwlblwyp4z",
-          "created_at": "2023-06-13T12:46:03.381Z",
-          "updated_at": "2023-06-13T12:46:03.381Z",
-          "display_at": "2023-06-13T12:46:03.381Z",
-          "affected_components": [
-            {
-              "code": "p8qwf8g1xjs4",
-              "name": "Administration",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bfrc7nssx84k",
-          "status": "identified",
-          "body": "We are investigating an issue with our servers that is impacting some of our customers ability to perform:\n> New product activations;\n> User import;\n> User management.\n\nWe will provide more details within the next hour.",
-          "incident_id": "yrbwlblwyp4z",
-          "created_at": "2023-06-13T12:04:30.927Z",
-          "updated_at": "2023-06-13T12:04:30.927Z",
-          "display_at": "2023-06-13T12:04:30.927Z",
-          "affected_components": [
-            {
-              "code": "p8qwf8g1xjs4",
-              "name": "Administration",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "p8qwf8g1xjs4",
-          "name": "Administration",
-          "status": "operational",
-          "created_at": "2018-11-30T21:50:51.221Z",
-          "updated_at": "2024-01-26T02:57:37.788Z",
-          "position": 6,
-          "description": "Site, space, and user administration",
-          "showcase": false,
-          "start_date": null,
           "group_id": null,
           "page_id": "4g2my7tbhjsq",
           "group": false,
