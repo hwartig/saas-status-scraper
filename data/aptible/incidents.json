@@ -4,9 +4,39 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2024-01-31T16:07:06.539-05:00"
+    "updated_at": "2024-01-31T19:03:17.377-05:00"
   },
   "incidents": [
+    {
+      "id": "rzx3rhwtcdfp",
+      "name": "Response to Leaky Vessels: Docker and runc container breakout vulnerabilities",
+      "status": "resolved",
+      "created_at": "2024-01-31T19:03:17.313-05:00",
+      "updated_at": "2024-01-31T19:03:17.374-05:00",
+      "monitoring_at": null,
+      "resolved_at": "2024-01-31T19:03:17.363-05:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/s89bnzcpqkx1",
+      "started_at": "2024-01-31T19:03:17.309-05:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "575hc6kw7dgx",
+          "status": "resolved",
+          "body": "We have proactively addressed a recent security vulnerability identified as \"Leaky Vessels,\" a container breakout issue affecting runc versions up to 1.1.11. This vulnerability had the potential to allow unauthorized access to the host OS from containers.\n\nOur team has promptly updated our systems, including all instances of runc to the secure version, to ensure the highest level of security for our platform and your services. This update mitigates the risks associated with this vulnerability.\n\nThe following CVEs have been addressed on our platform:\n\n- CVE-2024-21626: <a href=\"https://snyk.io/blog/cve-2024-21626-runc-process-cwd-container-breakout/\">runc process.cwd & leaked fds container breakout</a>\n- CVE-2024-23651: <a href=\"https://snyk.io/blog/cve-2024-23651-docker-buildkit-mount-cache-race/\">Buildkit Mount Cache Race</a>\n- CVE-2024-23653: <a href=\"https://snyk.io/blog/cve-2024-23653-buildkit-grpc-securitymode-privilege-check/\">Buildkit GRPC SecurityMode Privilege Check</a>\n- CVE-2024-23652: <a href=\"https://snyk.io/blog/cve-2024-23652-buildkit-build-time-container-teardown-arbitrary-delete/\">Buildkit Build-time Container Teardown Arbitrary Delete</a>\n\nWe assure you that our swift actions have kept our systems, and consequently your services, secure and unaffected by this vulnerability. We remain committed to maintaining the highest security standards and will continue to monitor and update our systems to safeguard your data and services.\n\nFor more detailed information about this topic, you can refer to the Snyk blog post: https://snyk.io/blog/leaky-vessels-docker-runc-container-breakout-vulnerabilities/",
+          "incident_id": "rzx3rhwtcdfp",
+          "created_at": "2024-01-31T19:03:17.363-05:00",
+          "updated_at": "2024-01-31T19:03:17.363-05:00",
+          "display_at": "2024-01-31T19:03:17.363-05:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "9fdmqttzs3gz",
       "name": "Missing Dashboard Metrics for Small Number of Apps and Databases",
@@ -4011,79 +4041,6 @@
           "deliver_notifications": false,
           "custom_tweet": null,
           "tweet_id": 1410111687479292000
-        }
-      ],
-      "components": [
-        {
-          "id": "3f2df1dmxn4b",
-          "name": "Aptible Deploy",
-          "status": "operational",
-          "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2023-12-20T21:11:54.230-05:00",
-          "position": 7,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "fmwgqnbnbc4r",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "gjvc7lxy4p35",
-      "name": "EC2 Host Failure",
-      "status": "resolved",
-      "created_at": "2021-06-30T00:50:46.992-04:00",
-      "updated_at": "2021-06-30T01:32:18.523-04:00",
-      "monitoring_at": null,
-      "resolved_at": "2021-06-30T01:32:17.851-04:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/7jxl085n8hhl",
-      "started_at": "2021-06-30T00:50:46.987-04:00",
-      "page_id": "fmwgqnbnbc4r",
-      "incident_updates": [
-        {
-          "id": "vn79ccjtx30y",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "gjvc7lxy4p35",
-          "created_at": "2021-06-30T01:32:17.851-04:00",
-          "updated_at": "2021-06-30T01:32:18.521-04:00",
-          "display_at": "2021-06-30T01:32:17.851-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1410108914356560000
-        },
-        {
-          "id": "t38qnlm8xt5n",
-          "status": "investigating",
-          "body": "We are investigating an EC2 dedicated host failure affecting a small number of apps. Affected apps are currently being restarted on healthy instances (apps scaled to 2 or more are automatically distributed across availability zones and will automatically failover).",
-          "incident_id": "gjvc7lxy4p35",
-          "created_at": "2021-06-30T00:50:47.105-04:00",
-          "updated_at": "2021-06-30T00:50:47.619-04:00",
-          "display_at": "2021-06-30T00:50:47.105-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1410098466701791200
         }
       ],
       "components": [
