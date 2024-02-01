@@ -4,22 +4,85 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-02-01T06:50:18.433Z"
+    "updated_at": "2024-02-01T07:18:55.221Z"
   },
   "incidents": [
     {
       "id": "50cmxjrs1v8n",
       "name": "Environment Data Sync Not Functional",
-      "status": "monitoring",
+      "status": "postmortem",
       "created_at": "2024-01-31T19:33:03.414Z",
-      "updated_at": "2024-02-01T06:50:18.431Z",
+      "updated_at": "2024-02-01T07:18:55.219Z",
       "monitoring_at": "2024-02-01T06:50:18.418Z",
-      "resolved_at": null,
+      "resolved_at": "2024-02-01T07:12:38.255Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/3c1w6spgllnp",
       "started_at": "2024-01-31T19:33:03.407Z",
       "page_id": "l2x5n4czt1ph",
       "incident_updates": [
+        {
+          "id": "m7nj5rlltykh",
+          "status": "postmortem",
+          "body": "**WHAT HAPPENED**\n\nHere is the list of affected regions:\n\n```\nau.platform.sh\nau-2.platform.sh\nca-1.platform.sh\nuk-1.platform.sh\nus.platform.sh\nus-2.platform.sh\n```\n\nAbove affected regions received recent internal upgrades having environments not functioning as expected for data synchronization activities.  \nThis also includes new environments creation requiring cloning parent environment's data.\n\n‌\n\n**CUSTOMER IMPACT**\n\nCustomers' environments were affected for up to 24 hours and 29 minutes in total.  \nFrom 2024-01-31 06:21 **UTC** to 2024-02-01 06:50 **UTC**  \n\\(based on earliest timestamp of region received the upgrade\\).\n\n‌\n\nExisting environments including live sites should NOT be affected.\n\n‌\n\n**WHAT WAS DONE TO RESOLVE THE INCIDENT**\n\nAfter extensive investigation, our engineering team implemented an emergency fix and deployed it to all the affected regions to correct that unexpected behavior.  \nThe data synchronization should now function as expected.",
+          "incident_id": "50cmxjrs1v8n",
+          "created_at": "2024-02-01T07:17:10.405Z",
+          "updated_at": "2024-02-01T07:18:55.217Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "s526w1bxk77p",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "50cmxjrs1v8n",
+          "created_at": "2024-02-01T07:12:38.255Z",
+          "updated_at": "2024-02-01T07:12:38.255Z",
+          "display_at": "2024-02-01T07:12:38.255Z",
+          "affected_components": [
+            {
+              "code": "zn912j34l6sp",
+              "name": "USA (East) (us.platform.sh)",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "by08c9v64dnf",
+              "name": "Australia (au.platform.sh)",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "qk08sqsyz837",
+              "name": "Canada (ca-1.platform.sh)",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "mhvfqpdf7nwm",
+              "name": "USA-2 (East 2) (us-2.platform.sh)",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "69kd2cds239s",
+              "name": "United Kingdom (uk-1.platform.sh)",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "kpqzr22bvvyd",
+              "name": "Australia East (au-2.platform.sh)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "30ss0k61w9zz",
           "status": "monitoring",
