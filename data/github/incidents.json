@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-02-02T14:04:52.796Z"
+    "updated_at": "2024-02-02T16:48:46.355Z"
   },
   "incidents": [
     {
@@ -107,7 +107,7 @@
       "name": "We are investigating reports of degraded performance.",
       "status": "resolved",
       "created_at": "2024-01-31T14:14:11.478Z",
-      "updated_at": "2024-01-31T14:57:16.582Z",
+      "updated_at": "2024-02-02T16:48:46.346Z",
       "monitoring_at": null,
       "resolved_at": "2024-01-31T14:57:16.570Z",
       "impact": "major",
@@ -118,10 +118,10 @@
         {
           "id": "xvnsxj3fh809",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "This incident was the result of an infrastructure change that was made to our load balancers to prepare us for IPv6 enablement of GitHub.com. This change was deployed to a subset of our global edge sites.<br /><br />The change had the unintended consequence of causing IPv4 addresses to start being passed as an IPv4-mapped IPv6-compatible address to our IP Allow List functionality.<br /><br />For example 10.1.2.3 became ::ffff:10.1.2.3. While our IP Allow List functionality was developed with IPv6 in mind, it wasn't developed to handle these mapped addresses, and hence started blocking requests as it deemed these to be not in the defined list of allowed addresses. Request error rates peaked at 0.23% of all requests.<br /><br />We have so far identified three remediation items here:<br /><br />- Update the IP Allow List functionality to handle IPv4-mapped addresses.<br />- Audit the rest of our stack to confirm there are no further places this IPv4-mapped IPv6 addresses flaw exists.<br />- Improve our testing and monitoring processes to better catch these issues in the future.",
           "incident_id": "5y8b8lsqbbyq",
           "created_at": "2024-01-31T14:57:16.570Z",
-          "updated_at": "2024-01-31T14:57:16.570Z",
+          "updated_at": "2024-02-02T16:48:46.343Z",
           "display_at": "2024-01-31T14:57:16.570Z",
           "affected_components": null,
           "deliver_notifications": true,
