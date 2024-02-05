@@ -4,9 +4,82 @@
     "name": "Glitch",
     "url": "https://status.glitch.com",
     "time_zone": "America/New_York",
-    "updated_at": "2024-02-05T13:43:21.136-05:00"
+    "updated_at": "2024-02-05T14:11:52.294-05:00"
   },
   "incidents": [
+    {
+      "id": "v9zdpbtlq1jg",
+      "name": "Puppeteer usage to be temporarily blocked while we manage an incident",
+      "status": "resolved",
+      "created_at": "2024-01-30T13:00:34.252-05:00",
+      "updated_at": "2024-02-05T14:11:52.292-05:00",
+      "monitoring_at": null,
+      "resolved_at": "2024-02-05T14:11:52.280-05:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/jk3llvd82zqk",
+      "started_at": "2024-01-30T13:00:34.247-05:00",
+      "page_id": "hz9lv5sckdkc",
+      "incident_updates": [
+        {
+          "id": "gp2b4qz63034",
+          "status": "resolved",
+          "body": "We have removed our temporary ban on the Puppeteer npm dependency. Through mitigating the incident that got us here, we realized that having Chromium on containers has been more trouble than it's worth due to its abuse, which negatively impacts the service availability for the rest of the Glitch community. In short, the vast majority of Chromium usage on Glitch is not by legitimate projects, and the result of those projects running is a worse experience for everybody else. \n\nTherefore, we will be removing Chromium from containers on Glitch on Monday, February 12 (one week from today). This unfortunately means that while Puppeteer will be initially installable, its need for Chromium on the file system will mean that it won’t be useful on Glitch. We know there are some apps that will be negatively impacted by this change, and we encourage you to share your feedback with us if your apps are affected, so we can help you find an alternate solution.\n\nIf your project has been suspended for using Puppeteer and you have not yet reached out, file a ticket at help.glitch.com with the project name and we will unsuspend it for you.",
+          "incident_id": "v9zdpbtlq1jg",
+          "created_at": "2024-02-05T14:11:52.280-05:00",
+          "updated_at": "2024-02-05T14:11:52.280-05:00",
+          "display_at": "2024-02-05T14:11:52.280-05:00",
+          "affected_components": [
+            {
+              "code": "mz7hvb42r41c",
+              "name": "Project Hosting",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "32wnhrxslqjt",
+          "status": "identified",
+          "body": "We're investigating an incident involving malicious use of the puppeteer package, it may lead to projects running puppeteer being suspended.",
+          "incident_id": "v9zdpbtlq1jg",
+          "created_at": "2024-01-30T13:00:34.306-05:00",
+          "updated_at": "2024-01-30T13:00:34.306-05:00",
+          "display_at": "2024-01-30T13:00:34.306-05:00",
+          "affected_components": [
+            {
+              "code": "mz7hvb42r41c",
+              "name": "Project Hosting",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "mz7hvb42r41c",
+          "name": "Project Hosting",
+          "status": "operational",
+          "created_at": "2016-12-12T17:24:50.880-05:00",
+          "updated_at": "2024-02-03T23:40:29.783-05:00",
+          "position": 2,
+          "description": "your-app.glitch.me",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "hz9lv5sckdkc",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "s67qwmmmhxhw",
       "name": "Issues routing requests to projects",
@@ -88,59 +161,6 @@
           "created_at": "2024-02-03T16:39:16.542-05:00",
           "updated_at": "2024-02-03T16:39:16.542-05:00",
           "display_at": "2024-02-03T16:39:16.542-05:00",
-          "affected_components": [
-            {
-              "code": "mz7hvb42r41c",
-              "name": "Project Hosting",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "mz7hvb42r41c",
-          "name": "Project Hosting",
-          "status": "operational",
-          "created_at": "2016-12-12T17:24:50.880-05:00",
-          "updated_at": "2024-02-03T23:40:29.783-05:00",
-          "position": 2,
-          "description": "your-app.glitch.me",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "hz9lv5sckdkc",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "v9zdpbtlq1jg",
-      "name": "Puppeteer usage to be temporarily blocked while we manage an incident",
-      "status": "identified",
-      "created_at": "2024-01-30T13:00:34.252-05:00",
-      "updated_at": "2024-02-03T16:39:22.188-05:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/jk3llvd82zqk",
-      "started_at": "2024-01-30T13:00:34.247-05:00",
-      "page_id": "hz9lv5sckdkc",
-      "incident_updates": [
-        {
-          "id": "32wnhrxslqjt",
-          "status": "identified",
-          "body": "We're investigating an incident involving malicious use of the puppeteer package, it may lead to projects running puppeteer being suspended.",
-          "incident_id": "v9zdpbtlq1jg",
-          "created_at": "2024-01-30T13:00:34.306-05:00",
-          "updated_at": "2024-01-30T13:00:34.306-05:00",
-          "display_at": "2024-01-30T13:00:34.306-05:00",
           "affected_components": [
             {
               "code": "mz7hvb42r41c",
