@@ -4,9 +4,39 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-02-05T13:00:04.631-08:00"
+    "updated_at": "2024-02-05T13:21:42.630-08:00"
   },
   "incidents": [
+    {
+      "id": "mllqnfnbgblf",
+      "name": "Double Encoded Numbers Issue for Lookup V1 API",
+      "status": "resolved",
+      "created_at": "2024-01-11T12:58:00.000-08:00",
+      "updated_at": "2024-02-05T13:21:42.628-08:00",
+      "monitoring_at": null,
+      "resolved_at": "2024-02-05T12:58:00.000-08:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/sc3xntg2g3gn",
+      "started_at": "2024-01-11T12:58:00.000-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "yzq5vf5fgfyj",
+          "status": "resolved",
+          "body": "Twilio Lookup V1 API was degraded from 2024-01-11 19:41:59 UTC and 2024-01-15 16:42:08. About 5% of the traffic experienced anomalous responses. After investigating it was determined that the API was performing an extra url-decoding step on top of the url-decoding performed in the downstream. This resulted in Lookups V1 accepting requests that were url-encoded multiple times. This incident affected 4.97% of the requests that included phone numbers that were url-encoded more than once.\n\nThe issue has now been resolved.",
+          "incident_id": "mllqnfnbgblf",
+          "created_at": "2024-02-05T13:00:04.617-08:00",
+          "updated_at": "2024-02-05T13:21:42.614-08:00",
+          "display_at": "2024-02-05T12:58:00.000-08:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "0lg0my9kshc6",
       "name": "Twilio SMS Delivery Failures to Multiple Countries",
@@ -7835,159 +7865,6 @@
           "description": null,
           "showcase": false,
           "start_date": "2023-03-23",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "nzy4rlpkbt69",
-      "name": "SMS Delivery Failures to DST Network in Brunei",
-      "status": "resolved",
-      "created_at": "2024-01-27T13:07:50.347-08:00",
-      "updated_at": "2024-01-27T23:09:13.139-08:00",
-      "monitoring_at": "2024-01-27T19:09:42.617-08:00",
-      "resolved_at": "2024-01-27T23:09:13.119-08:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/m5v15fc797ly",
-      "started_at": "2024-01-27T13:07:50.336-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "qzxgxc44kpf3",
-          "status": "resolved",
-          "body": "We are no longer experiencing SMS delivery failures when sending messages to DST Network in Brunei. This incident has been resolved.",
-          "incident_id": "nzy4rlpkbt69",
-          "created_at": "2024-01-27T23:09:13.119-08:00",
-          "updated_at": "2024-01-27T23:09:13.119-08:00",
-          "display_at": "2024-01-27T23:09:13.119-08:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "znk7xc8cm0l7",
-          "status": "monitoring",
-          "body": "We are still observing successful SMS delivery when sending messages to DST Network in Brunei.  We will continue to monitor to ensure full service recovery. We expect to provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "nzy4rlpkbt69",
-          "created_at": "2024-01-27T21:09:23.973-08:00",
-          "updated_at": "2024-01-27T21:09:23.973-08:00",
-          "display_at": "2024-01-27T21:09:23.973-08:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "pgbjmbqlhgkb",
-          "status": "monitoring",
-          "body": "We are observing successful SMS delivery when sending messages to DST Network in Brunei.  We will continue to monitor to ensure full service recovery. We expect to provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "nzy4rlpkbt69",
-          "created_at": "2024-01-27T19:09:42.617-08:00",
-          "updated_at": "2024-01-27T19:09:42.617-08:00",
-          "display_at": "2024-01-27T19:09:42.617-08:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cg0vpg6j9lgv",
-          "status": "investigating",
-          "body": "We are still experiencing SMS delivery failures when sending messages to DST Network in Brunei. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "nzy4rlpkbt69",
-          "created_at": "2024-01-27T15:56:10.674-08:00",
-          "updated_at": "2024-01-27T15:56:10.674-08:00",
-          "display_at": "2024-01-27T15:56:10.674-08:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l54vsnqmm5lp",
-          "status": "investigating",
-          "body": "We are experiencing SMS delivery failures when sending messages to DST Network in Brunei. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "nzy4rlpkbt69",
-          "created_at": "2024-01-27T14:03:05.884-08:00",
-          "updated_at": "2024-01-27T14:03:05.884-08:00",
-          "display_at": "2024-01-27T14:03:05.884-08:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qr1k8f49jmb4",
-          "status": "investigating",
-          "body": "We are experiencing SMS delivery failures when sending messages to DST Network in Brunei. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "nzy4rlpkbt69",
-          "created_at": "2024-01-27T13:07:50.466-08:00",
-          "updated_at": "2024-01-27T13:07:50.466-08:00",
-          "display_at": "2024-01-27T13:07:50.466-08:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "8qjql0kqnd33",
-          "name": "SMS, APAC",
-          "status": "under_maintenance",
-          "created_at": "2019-01-10T08:53:31.990-08:00",
-          "updated_at": "2024-02-05T09:00:42.412-08:00",
-          "position": 8,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
           "group_id": "j8hlnyphbbs0",
           "page_id": "gpkpyklzq55q",
           "group": false,
