@@ -4,7 +4,7 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-02-08T18:41:16.886Z"
+    "updated_at": "2024-02-12T19:00:39.298Z"
   },
   "components": [
     {
@@ -55,9 +55,9 @@
     {
       "id": "9mh4j3cltpvv",
       "name": "Schema Checks",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2021-10-01T18:15:13.566Z",
-      "updated_at": "2024-01-15T02:03:48.215Z",
+      "updated_at": "2024-02-12T18:45:01.199Z",
       "position": 4,
       "description": "The Schema Checks feature enabling user workflows for commands like `rover graph check`, and `rover subgraph check`.",
       "showcase": true,
@@ -70,9 +70,9 @@
     {
       "id": "v92rqyh4m5qz",
       "name": "GraphQL API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-11-06T01:22:42.484Z",
-      "updated_at": "2023-09-26T10:37:23.837Z",
+      "updated_at": "2024-02-12T18:45:01.211Z",
       "position": 5,
       "description": "The API that supports reading metrics, schemas, client metadata, publishing and validating schemas.",
       "showcase": true,
@@ -175,9 +175,9 @@
     {
       "id": "zd63qfmtg76x",
       "name": "Studio UI",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-11-02T23:10:13.943Z",
-      "updated_at": "2023-05-23T13:37:36.339Z",
+      "updated_at": "2024-02-12T18:45:01.223Z",
       "position": 12,
       "description": "The Studio SaaS Frontend UI.",
       "showcase": false,
@@ -218,10 +218,170 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "f11sz9c29l8y",
+      "name": "Our API is returning intermittent errors",
+      "status": "monitoring",
+      "created_at": "2024-02-12T18:45:01.161Z",
+      "updated_at": "2024-02-12T19:00:39.296Z",
+      "monitoring_at": "2024-02-12T19:00:39.279Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/dj13fmsj4kgk",
+      "started_at": "2024-02-12T18:45:01.155Z",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "m7dg4r44dpv6",
+          "status": "monitoring",
+          "body": "We have committed and reviewed a fix and are monitoring the rollout.",
+          "incident_id": "f11sz9c29l8y",
+          "created_at": "2024-02-12T19:00:39.279Z",
+          "updated_at": "2024-02-12T19:00:39.279Z",
+          "display_at": "2024-02-12T19:00:39.279Z",
+          "affected_components": [
+            {
+              "code": "zd63qfmtg76x",
+              "name": "Studio UI",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "v92rqyh4m5qz",
+              "name": "GraphQL API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "9mh4j3cltpvv",
+              "name": "Schema Checks",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "06hxfkdkq51q",
+          "status": "identified",
+          "body": "We believe we understand the problem and are applying a fix.",
+          "incident_id": "f11sz9c29l8y",
+          "created_at": "2024-02-12T18:58:07.034Z",
+          "updated_at": "2024-02-12T18:58:07.034Z",
+          "display_at": "2024-02-12T18:58:07.034Z",
+          "affected_components": [
+            {
+              "code": "zd63qfmtg76x",
+              "name": "Studio UI",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "v92rqyh4m5qz",
+              "name": "GraphQL API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "9mh4j3cltpvv",
+              "name": "Schema Checks",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2dbjs4ps7cwy",
+          "status": "investigating",
+          "body": "We are currently investigating an issue which is resulting in intermittent errors in both Studio and for those consuming from our GraphQL API.",
+          "incident_id": "f11sz9c29l8y",
+          "created_at": "2024-02-12T18:45:01.264Z",
+          "updated_at": "2024-02-12T18:45:01.264Z",
+          "display_at": "2024-02-12T18:45:01.264Z",
+          "affected_components": [
+            {
+              "code": "zd63qfmtg76x",
+              "name": "Studio UI",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "v92rqyh4m5qz",
+              "name": "GraphQL API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "9mh4j3cltpvv",
+              "name": "Schema Checks",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "9mh4j3cltpvv",
+          "name": "Schema Checks",
+          "status": "degraded_performance",
+          "created_at": "2021-10-01T18:15:13.566Z",
+          "updated_at": "2024-02-12T18:45:01.199Z",
+          "position": 4,
+          "description": "The Schema Checks feature enabling user workflows for commands like `rover graph check`, and `rover subgraph check`.",
+          "showcase": true,
+          "start_date": "2021-10-01",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "v92rqyh4m5qz",
+          "name": "GraphQL API",
+          "status": "degraded_performance",
+          "created_at": "2019-11-06T01:22:42.484Z",
+          "updated_at": "2024-02-12T18:45:01.211Z",
+          "position": 5,
+          "description": "The API that supports reading metrics, schemas, client metadata, publishing and validating schemas.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "zd63qfmtg76x",
+          "name": "Studio UI",
+          "status": "degraded_performance",
+          "created_at": "2017-11-02T23:10:13.943Z",
+          "updated_at": "2024-02-12T18:45:01.223Z",
+          "position": 12,
+          "description": "The Studio SaaS Frontend UI.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
