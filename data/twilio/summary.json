@@ -4,15 +4,15 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-02-14T13:36:22.545-08:00"
+    "updated_at": "2024-02-14T14:00:56.919-08:00"
   },
   "components": [
     {
       "id": "b9z92qjr2p04",
       "name": "TaskRouter",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2015-03-23T08:51:24.916-07:00",
-      "updated_at": "2024-02-14T13:25:17.239-08:00",
+      "updated_at": "2024-02-14T13:55:37.670-08:00",
       "position": 1,
       "description": "Twilio TaskRouter service",
       "showcase": false,
@@ -40,7 +40,7 @@
     {
       "id": "s2k3h0mkqnth",
       "name": "PROGRAMMABLE MESSAGING",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2015-03-23T13:29:44.048-07:00",
       "updated_at": "2019-01-10T08:04:05.231-08:00",
       "position": 1,
@@ -249,9 +249,9 @@
     {
       "id": "q4d7rj555ljl",
       "name": "Flex Application Platform",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2018-10-18T11:36:42.075-07:00",
-      "updated_at": "2024-02-14T13:25:17.260-08:00",
+      "updated_at": "2024-02-14T13:55:37.690-08:00",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -264,9 +264,9 @@
     {
       "id": "whldrk77jnm4",
       "name": "Verify",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2019-01-10T08:39:55.505-08:00",
-      "updated_at": "2024-02-14T13:25:17.279-08:00",
+      "updated_at": "2024-02-14T13:55:37.710-08:00",
       "position": 2,
       "description": "May be impacted by SMS delivery issues",
       "showcase": false,
@@ -384,7 +384,7 @@
     {
       "id": "vz5v126ykmgd",
       "name": "ACCOUNT SECURITY",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2019-01-10T08:20:52.106-08:00",
       "updated_at": "2023-07-03T12:59:08.717-07:00",
       "position": 3,
@@ -724,7 +724,7 @@
     {
       "id": "p750yl3t5mwk",
       "name": "FLEX",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2019-01-10T08:22:22.077-08:00",
       "updated_at": "2023-07-03T12:51:21.472-07:00",
       "position": 6,
@@ -1123,9 +1123,9 @@
     {
       "id": "yvvy3vlp4djf",
       "name": "SMS",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2016-04-07T15:15:38.816-07:00",
-      "updated_at": "2024-02-14T13:25:17.298-08:00",
+      "updated_at": "2024-02-14T13:55:37.729-08:00",
       "position": 12,
       "description": null,
       "showcase": false,
@@ -1746,16 +1746,66 @@
     {
       "id": "dhb0hj0dm9qf",
       "name": "Twilio Rest API Errors Impacting Multiple Twilio Services",
-      "status": "investigating",
+      "status": "monitoring",
       "created_at": "2024-02-14T13:04:53.962-08:00",
-      "updated_at": "2024-02-14T13:35:45.781-08:00",
-      "monitoring_at": null,
+      "updated_at": "2024-02-14T13:56:52.152-08:00",
+      "monitoring_at": "2024-02-14T13:55:37.000-08:00",
       "resolved_at": null,
       "impact": "minor",
       "shortlink": "https://stspg.io/vd9b2npdnnzv",
-      "started_at": "2024-02-14T13:04:53.956-08:00",
+      "started_at": "2024-02-14T13:25:17.000-08:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "ygd6lmg6nyf7",
+          "status": "monitoring",
+          "body": "We're seeing recovery in the Twilio Rest API, impacting multiple Twilio services. Please see impacted services as follows:\n\nTaskrouter: Customers are unable to create, update, or delete via REST API\nFlex platform: Agent Login/Inbound outbound conversation \nProgrammable Video: Unable to create and modify rooms via Rest API \nVerify: To be determined \nProgrammable Messaging (SMS): Customers may experience 5XX errors\n\nWe will be monitoring all services to ensure a full recovery and provide another update in 30 minutes or as soon as more information becomes available.",
+          "incident_id": "dhb0hj0dm9qf",
+          "created_at": "2024-02-14T13:55:37.764-08:00",
+          "updated_at": "2024-02-14T13:56:52.149-08:00",
+          "display_at": "2024-02-14T13:55:37.000-08:00",
+          "affected_components": [
+            {
+              "code": "yvvy3vlp4djf",
+              "name": "PROGRAMMABLE MESSAGING - SMS",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "ys1jhy2ys04z",
+              "name": "PROGRAMMABLE VIDEO - Group Rooms",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "q015c7mrst1s",
+              "name": "PROGRAMMABLE VIDEO - Peer-to-Peer Rooms",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "whldrk77jnm4",
+              "name": "ACCOUNT SECURITY - Verify",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "b9z92qjr2p04",
+              "name": "FLEX - TaskRouter",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "q4d7rj555ljl",
+              "name": "FLEX - Flex Application Platform",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "5j6n3l1v4ks5",
           "status": "investigating",
@@ -1812,9 +1862,9 @@
         {
           "id": "b9z92qjr2p04",
           "name": "TaskRouter",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2015-03-23T08:51:24.916-07:00",
-          "updated_at": "2024-02-14T13:25:17.239-08:00",
+          "updated_at": "2024-02-14T13:55:37.670-08:00",
           "position": 1,
           "description": "Twilio TaskRouter service",
           "showcase": false,
@@ -1825,11 +1875,41 @@
           "only_show_if_degraded": false
         },
         {
+          "id": "ys1jhy2ys04z",
+          "name": "Group Rooms",
+          "status": "operational",
+          "created_at": "2019-01-10T08:35:00.743-08:00",
+          "updated_at": "2023-12-07T05:23:20.250-08:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "31pkbykrvbwr",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "q015c7mrst1s",
+          "name": "Peer-to-Peer Rooms",
+          "status": "operational",
+          "created_at": "2016-04-07T15:26:37.046-07:00",
+          "updated_at": "2023-03-23T13:03:37.830-07:00",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "31pkbykrvbwr",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
           "id": "q4d7rj555ljl",
           "name": "Flex Application Platform",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2018-10-18T11:36:42.075-07:00",
-          "updated_at": "2024-02-14T13:25:17.260-08:00",
+          "updated_at": "2024-02-14T13:55:37.690-08:00",
           "position": 2,
           "description": null,
           "showcase": false,
@@ -1842,9 +1922,9 @@
         {
           "id": "whldrk77jnm4",
           "name": "Verify",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2019-01-10T08:39:55.505-08:00",
-          "updated_at": "2024-02-14T13:25:17.279-08:00",
+          "updated_at": "2024-02-14T13:55:37.710-08:00",
           "position": 2,
           "description": "May be impacted by SMS delivery issues",
           "showcase": false,
@@ -1857,9 +1937,9 @@
         {
           "id": "yvvy3vlp4djf",
           "name": "SMS",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2016-04-07T15:15:38.816-07:00",
-          "updated_at": "2024-02-14T13:25:17.298-08:00",
+          "updated_at": "2024-02-14T13:55:37.729-08:00",
           "position": 12,
           "description": null,
           "showcase": false,
@@ -2412,9 +2492,9 @@
         {
           "id": "whldrk77jnm4",
           "name": "Verify",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2019-01-10T08:39:55.505-08:00",
-          "updated_at": "2024-02-14T13:25:17.279-08:00",
+          "updated_at": "2024-02-14T13:55:37.710-08:00",
           "position": 2,
           "description": "May be impacted by SMS delivery issues",
           "showcase": false,
@@ -2529,9 +2609,9 @@
         {
           "id": "whldrk77jnm4",
           "name": "Verify",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2019-01-10T08:39:55.505-08:00",
-          "updated_at": "2024-02-14T13:25:17.279-08:00",
+          "updated_at": "2024-02-14T13:55:37.710-08:00",
           "position": 2,
           "description": "May be impacted by SMS delivery issues",
           "showcase": false,
@@ -2619,9 +2699,9 @@
         {
           "id": "whldrk77jnm4",
           "name": "Verify",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2019-01-10T08:39:55.505-08:00",
-          "updated_at": "2024-02-14T13:25:17.279-08:00",
+          "updated_at": "2024-02-14T13:55:37.710-08:00",
           "position": 2,
           "description": "May be impacted by SMS delivery issues",
           "showcase": false,
@@ -3477,86 +3557,6 @@
       ],
       "scheduled_for": "2024-03-09T13:00:00.000-08:00",
       "scheduled_until": "2024-03-09T17:00:00.000-08:00"
-    },
-    {
-      "id": "hn0pm8zdrnk2",
-      "name": "Russia SMS Carrier Maintenance - Beeline (VimpelCom)",
-      "status": "in_progress",
-      "created_at": "2024-02-12T15:18:12.771-08:00",
-      "updated_at": "2024-02-14T12:01:14.996-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/z9sr9kr6rlpc",
-      "started_at": "2024-02-12T15:18:12.763-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "m947pc9gzyd8",
-          "status": "in_progress",
-          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
-          "incident_id": "hn0pm8zdrnk2",
-          "created_at": "2024-02-14T12:01:14.800-08:00",
-          "updated_at": "2024-02-14T12:01:14.800-08:00",
-          "display_at": "2024-02-14T12:01:14.800-08:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "27ydnfbc77pl",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "hn0pm8zdrnk2",
-          "created_at": "2024-02-14T11:00:32.650-08:00",
-          "updated_at": "2024-02-14T11:00:32.650-08:00",
-          "display_at": "2024-02-14T11:00:32.650-08:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xcxhfts9zpbn",
-          "status": "scheduled",
-          "body": "The Beeline network in Russia is conducting a planned maintenance from 14 February 2024 at 12:00 PST until 14 February 2024 at 14:00 PST. During the maintenance window, there could be intermittent delays delivering SMS to Beeline Russia handsets.",
-          "incident_id": "hn0pm8zdrnk2",
-          "created_at": "2024-02-12T15:18:12.826-08:00",
-          "updated_at": "2024-02-12T15:18:12.826-08:00",
-          "display_at": "2024-02-12T15:18:12.826-08:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "llgdln3dcs6p",
-          "name": "SMS, Europe",
-          "status": "operational",
-          "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2024-02-14T13:20:56.923-08:00",
-          "position": 9,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2024-02-14T12:00:00.000-08:00",
-      "scheduled_until": "2024-02-14T14:00:00.000-08:00"
     },
     {
       "id": "k273q690dps5",
