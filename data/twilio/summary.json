@@ -4,15 +4,15 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-02-14T13:20:56.992-08:00"
+    "updated_at": "2024-02-14T13:36:22.545-08:00"
   },
   "components": [
     {
       "id": "b9z92qjr2p04",
       "name": "TaskRouter",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-03-23T08:51:24.916-07:00",
-      "updated_at": "2024-01-18T18:38:34.354-08:00",
+      "updated_at": "2024-02-14T13:25:17.239-08:00",
       "position": 1,
       "description": "Twilio TaskRouter service",
       "showcase": false,
@@ -40,7 +40,7 @@
     {
       "id": "s2k3h0mkqnth",
       "name": "PROGRAMMABLE MESSAGING",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-03-23T13:29:44.048-07:00",
       "updated_at": "2019-01-10T08:04:05.231-08:00",
       "position": 1,
@@ -249,9 +249,9 @@
     {
       "id": "q4d7rj555ljl",
       "name": "Flex Application Platform",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-10-18T11:36:42.075-07:00",
-      "updated_at": "2024-01-29T17:27:03.703-08:00",
+      "updated_at": "2024-02-14T13:25:17.260-08:00",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -264,9 +264,9 @@
     {
       "id": "whldrk77jnm4",
       "name": "Verify",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:39:55.505-08:00",
-      "updated_at": "2024-02-12T16:00:56.281-08:00",
+      "updated_at": "2024-02-14T13:25:17.279-08:00",
       "position": 2,
       "description": "May be impacted by SMS delivery issues",
       "showcase": false,
@@ -384,7 +384,7 @@
     {
       "id": "vz5v126ykmgd",
       "name": "ACCOUNT SECURITY",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:20:52.106-08:00",
       "updated_at": "2023-07-03T12:59:08.717-07:00",
       "position": 3,
@@ -724,7 +724,7 @@
     {
       "id": "p750yl3t5mwk",
       "name": "FLEX",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:22:22.077-08:00",
       "updated_at": "2023-07-03T12:51:21.472-07:00",
       "position": 6,
@@ -1123,9 +1123,9 @@
     {
       "id": "yvvy3vlp4djf",
       "name": "SMS",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2016-04-07T15:15:38.816-07:00",
-      "updated_at": "2024-02-13T00:58:10.573-08:00",
+      "updated_at": "2024-02-14T13:25:17.298-08:00",
       "position": 12,
       "description": null,
       "showcase": false,
@@ -1744,6 +1744,135 @@
   ],
   "incidents": [
     {
+      "id": "dhb0hj0dm9qf",
+      "name": "Twilio Rest API Errors Impacting Multiple Twilio Services",
+      "status": "investigating",
+      "created_at": "2024-02-14T13:04:53.962-08:00",
+      "updated_at": "2024-02-14T13:35:45.781-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/vd9b2npdnnzv",
+      "started_at": "2024-02-14T13:04:53.956-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "5j6n3l1v4ks5",
+          "status": "investigating",
+          "body": "We are experiencing issues with the Twilio Rest API, impacting multiple Twilio services. We're seeing impact on Verify, Programmable Messaging (SMS), Taksrouter and Flex agent login/inbound conversations. Our engineering team is actively working to resolve the issue. We expect to provide another update in 30 mins or as soon as more information becomes available.",
+          "incident_id": "dhb0hj0dm9qf",
+          "created_at": "2024-02-14T13:25:17.354-08:00",
+          "updated_at": "2024-02-14T13:35:45.776-08:00",
+          "display_at": "2024-02-14T13:25:17.000-08:00",
+          "affected_components": [
+            {
+              "code": "yvvy3vlp4djf",
+              "name": "PROGRAMMABLE MESSAGING - SMS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "whldrk77jnm4",
+              "name": "ACCOUNT SECURITY - Verify",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "b9z92qjr2p04",
+              "name": "FLEX - TaskRouter",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "q4d7rj555ljl",
+              "name": "FLEX - Flex Application Platform",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "xmx7y4t885xd",
+          "status": "investigating",
+          "body": "We are currently investigating errors for the Twilio Rest API, impacting multiple Twilio services. Our engineering team has been alerted and is actively investigating. We will update as soon as we have more information.",
+          "incident_id": "dhb0hj0dm9qf",
+          "created_at": "2024-02-14T13:04:54.004-08:00",
+          "updated_at": "2024-02-14T13:04:54.004-08:00",
+          "display_at": "2024-02-14T13:04:54.004-08:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "b9z92qjr2p04",
+          "name": "TaskRouter",
+          "status": "degraded_performance",
+          "created_at": "2015-03-23T08:51:24.916-07:00",
+          "updated_at": "2024-02-14T13:25:17.239-08:00",
+          "position": 1,
+          "description": "Twilio TaskRouter service",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "p750yl3t5mwk",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "q4d7rj555ljl",
+          "name": "Flex Application Platform",
+          "status": "degraded_performance",
+          "created_at": "2018-10-18T11:36:42.075-07:00",
+          "updated_at": "2024-02-14T13:25:17.260-08:00",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "p750yl3t5mwk",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "whldrk77jnm4",
+          "name": "Verify",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:39:55.505-08:00",
+          "updated_at": "2024-02-14T13:25:17.279-08:00",
+          "position": 2,
+          "description": "May be impacted by SMS delivery issues",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "vz5v126ykmgd",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "yvvy3vlp4djf",
+          "name": "SMS",
+          "status": "degraded_performance",
+          "created_at": "2016-04-07T15:15:38.816-07:00",
+          "updated_at": "2024-02-14T13:25:17.298-08:00",
+          "position": 12,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s2k3h0mkqnth",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "wxjlcptzmjlk",
       "name": "SMS Delivery Delays to Mauritel Network in Mauritania",
       "status": "investigating",
@@ -1987,36 +2116,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "dhb0hj0dm9qf",
-      "name": "On Call Engineers are Investigating Errors for the Twilio Rest API",
-      "status": "investigating",
-      "created_at": "2024-02-14T13:04:53.962-08:00",
-      "updated_at": "2024-02-14T13:04:54.007-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "none",
-      "shortlink": "https://stspg.io/vd9b2npdnnzv",
-      "started_at": "2024-02-14T13:04:53.956-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "xmx7y4t885xd",
-          "status": "investigating",
-          "body": "We are currently investigating errors for the Twilio Rest API, impacting multiple Twilio services. Our engineering team has been alerted and is actively investigating. We will update as soon as we have more information.",
-          "incident_id": "dhb0hj0dm9qf",
-          "created_at": "2024-02-14T13:04:54.004-08:00",
-          "updated_at": "2024-02-14T13:04:54.004-08:00",
-          "display_at": "2024-02-14T13:04:54.004-08:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     },
     {
@@ -2313,9 +2412,9 @@
         {
           "id": "whldrk77jnm4",
           "name": "Verify",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:39:55.505-08:00",
-          "updated_at": "2024-02-12T16:00:56.281-08:00",
+          "updated_at": "2024-02-14T13:25:17.279-08:00",
           "position": 2,
           "description": "May be impacted by SMS delivery issues",
           "showcase": false,
@@ -2333,81 +2432,6 @@
           "updated_at": "2024-02-12T16:00:56.344-08:00",
           "position": 3,
           "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "vz5v126ykmgd",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "xk8z50jy8hcs",
-          "name": "Lookup",
-          "status": "operational",
-          "created_at": "2015-06-09T16:09:55.243-07:00",
-          "updated_at": "2024-02-14T04:53:29.888-08:00",
-          "position": 4,
-          "description": "Twilio's phone number lookup service",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "vz5v126ykmgd",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2024-02-14T22:00:00.000-08:00",
-      "scheduled_until": "2024-02-15T01:00:00.000-08:00"
-    },
-    {
-      "id": "jc51lw4fvvlt",
-      "name": "Account Security Carrier Partner Maintenance - H3G Austria",
-      "status": "scheduled",
-      "created_at": "2024-02-07T14:03:23.842-08:00",
-      "updated_at": "2024-02-07T14:03:23.909-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/vhp99lzjwhcd",
-      "started_at": "2024-02-07T14:03:23.831-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "pmvmlfh671zb",
-          "status": "scheduled",
-          "body": "Our carrier partner H3G Austria is conducting a planned maintenance from 14 February 2024 at 22:00 PST until 15 February 2024 at 01:00 PST. During the maintenance window, there could be intermittent API request failures for H3G Austria customers.<br>\n<br>\nImpacted Products: Verify Silent Network Auth, Lookup SIM Swap",
-          "incident_id": "jc51lw4fvvlt",
-          "created_at": "2024-02-07T14:03:23.905-08:00",
-          "updated_at": "2024-02-07T14:03:23.905-08:00",
-          "display_at": "2024-02-07T14:03:23.905-08:00",
-          "affected_components": [
-            {
-              "code": "whldrk77jnm4",
-              "name": "ACCOUNT SECURITY - Verify",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xk8z50jy8hcs",
-              "name": "ACCOUNT SECURITY - Lookup",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "whldrk77jnm4",
-          "name": "Verify",
-          "status": "operational",
-          "created_at": "2019-01-10T08:39:55.505-08:00",
-          "updated_at": "2024-02-12T16:00:56.281-08:00",
-          "position": 2,
-          "description": "May be impacted by SMS delivery issues",
           "showcase": false,
           "start_date": null,
           "group_id": "vz5v126ykmgd",
@@ -2505,9 +2529,9 @@
         {
           "id": "whldrk77jnm4",
           "name": "Verify",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:39:55.505-08:00",
-          "updated_at": "2024-02-12T16:00:56.281-08:00",
+          "updated_at": "2024-02-14T13:25:17.279-08:00",
           "position": 2,
           "description": "May be impacted by SMS delivery issues",
           "showcase": false,
@@ -2525,6 +2549,81 @@
           "updated_at": "2024-02-12T16:00:56.344-08:00",
           "position": 3,
           "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "vz5v126ykmgd",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "xk8z50jy8hcs",
+          "name": "Lookup",
+          "status": "operational",
+          "created_at": "2015-06-09T16:09:55.243-07:00",
+          "updated_at": "2024-02-14T04:53:29.888-08:00",
+          "position": 4,
+          "description": "Twilio's phone number lookup service",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "vz5v126ykmgd",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-02-14T22:00:00.000-08:00",
+      "scheduled_until": "2024-02-15T01:00:00.000-08:00"
+    },
+    {
+      "id": "jc51lw4fvvlt",
+      "name": "Account Security Carrier Partner Maintenance - H3G Austria",
+      "status": "scheduled",
+      "created_at": "2024-02-07T14:03:23.842-08:00",
+      "updated_at": "2024-02-07T14:03:23.909-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/vhp99lzjwhcd",
+      "started_at": "2024-02-07T14:03:23.831-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "pmvmlfh671zb",
+          "status": "scheduled",
+          "body": "Our carrier partner H3G Austria is conducting a planned maintenance from 14 February 2024 at 22:00 PST until 15 February 2024 at 01:00 PST. During the maintenance window, there could be intermittent API request failures for H3G Austria customers.<br>\n<br>\nImpacted Products: Verify Silent Network Auth, Lookup SIM Swap",
+          "incident_id": "jc51lw4fvvlt",
+          "created_at": "2024-02-07T14:03:23.905-08:00",
+          "updated_at": "2024-02-07T14:03:23.905-08:00",
+          "display_at": "2024-02-07T14:03:23.905-08:00",
+          "affected_components": [
+            {
+              "code": "whldrk77jnm4",
+              "name": "ACCOUNT SECURITY - Verify",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "xk8z50jy8hcs",
+              "name": "ACCOUNT SECURITY - Lookup",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "whldrk77jnm4",
+          "name": "Verify",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:39:55.505-08:00",
+          "updated_at": "2024-02-14T13:25:17.279-08:00",
+          "position": 2,
+          "description": "May be impacted by SMS delivery issues",
           "showcase": false,
           "start_date": null,
           "group_id": "vz5v126ykmgd",
@@ -2765,6 +2864,102 @@
         }
       ],
       "scheduled_for": "2024-02-15T19:00:00.000-08:00",
+      "scheduled_until": "2024-02-16T04:00:00.000-08:00"
+    },
+    {
+      "id": "lbmmwg7dsyw0",
+      "name": "US SMS Carrier Maintenance - T-Mobile",
+      "status": "scheduled",
+      "created_at": "2024-02-14T13:36:22.483-08:00",
+      "updated_at": "2024-02-14T13:36:22.542-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/kfybvx05lkq1",
+      "started_at": "2024-02-14T13:36:22.473-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "kl2vrwsntknf",
+          "status": "scheduled",
+          "body": "The T-Mobile network in the US is conducting a planned maintenance from 15 February 2024 at 21:00 PST until 16 February 2024 at 04:00 PST. During the maintenance window, there could be intermittent delays delivering SMS to and from T-Mobile US handsets.",
+          "incident_id": "lbmmwg7dsyw0",
+          "created_at": "2024-02-14T13:36:22.539-08:00",
+          "updated_at": "2024-02-14T13:36:22.539-08:00",
+          "display_at": "2024-02-14T13:36:22.539-08:00",
+          "affected_components": [
+            {
+              "code": "7d8w22hqrh6s",
+              "name": "CARRIER NETWORK - SMS Long Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "39mb8cmw8y2v",
+              "name": "CARRIER NETWORK - SMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "32f2bm54nkvv",
+              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "7d8w22hqrh6s",
+          "name": "SMS Long Code, North America",
+          "status": "operational",
+          "created_at": "2019-01-10T08:24:19.107-08:00",
+          "updated_at": "2024-02-14T04:00:56.394-08:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "39mb8cmw8y2v",
+          "name": "SMS Short Code, North America",
+          "status": "operational",
+          "created_at": "2016-04-07T15:07:25.830-07:00",
+          "updated_at": "2024-02-13T14:12:34.170-08:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "32f2bm54nkvv",
+          "name": "SMS Toll-Free, North America",
+          "status": "operational",
+          "created_at": "2019-01-10T08:52:48.226-08:00",
+          "updated_at": "2024-02-06T01:00:05.849-08:00",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-02-15T21:00:00.000-08:00",
       "scheduled_until": "2024-02-16T04:00:00.000-08:00"
     },
     {
