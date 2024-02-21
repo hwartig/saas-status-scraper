@@ -4,15 +4,15 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-02-21T08:16:34.713Z"
+    "updated_at": "2024-02-21T15:43:21.934Z"
   },
   "components": [
     {
       "id": "glhj9rkw3mp8",
       "name": "AMS3",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-21T16:23:02.411Z",
-      "updated_at": "2024-01-16T12:51:36.292Z",
+      "updated_at": "2024-02-21T15:41:25.168Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -250,9 +250,9 @@
     {
       "id": "sk01cyydqy7b",
       "name": "FRA1",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-21T16:23:53.241Z",
-      "updated_at": "2024-01-16T12:51:36.343Z",
+      "updated_at": "2024-02-21T15:41:25.187Z",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -505,9 +505,9 @@
     {
       "id": "hnqx47tg75cw",
       "name": "NYC3",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-21T16:23:54.293Z",
-      "updated_at": "2024-01-16T12:51:36.385Z",
+      "updated_at": "2024-02-21T15:41:25.206Z",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -700,9 +700,9 @@
     {
       "id": "zfnbgvbvc6bd",
       "name": "SFO3",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-21T16:23:02.401Z",
-      "updated_at": "2024-01-16T12:51:36.427Z",
+      "updated_at": "2024-02-21T15:41:25.225Z",
       "position": 4,
       "description": null,
       "showcase": false,
@@ -955,9 +955,9 @@
     {
       "id": "k3xwyjfy34vw",
       "name": "SGP1",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-21T16:23:53.832Z",
-      "updated_at": "2024-01-16T12:51:36.471Z",
+      "updated_at": "2024-02-21T15:41:25.244Z",
       "position": 5,
       "description": null,
       "showcase": false,
@@ -1165,9 +1165,9 @@
     {
       "id": "7z4k9k6wgbsq",
       "name": "SYD1",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-21T16:23:53.678Z",
-      "updated_at": "2024-01-16T12:51:36.528Z",
+      "updated_at": "2024-02-21T15:41:25.262Z",
       "position": 6,
       "description": null,
       "showcase": false,
@@ -2137,7 +2137,7 @@
     {
       "id": "nmb3bbtqfgsj",
       "name": "Container Registry",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-21T17:29:22.377Z",
       "updated_at": "2023-04-21T16:02:43.593Z",
       "position": 11,
@@ -3005,7 +3005,166 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "n9211k9rmml7",
+      "name": "Container Registry Latency in Multiple Regions",
+      "status": "investigating",
+      "created_at": "2024-02-21T15:41:25.112Z",
+      "updated_at": "2024-02-21T15:41:25.322Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/7yw1q0d17tdg",
+      "started_at": "2024-02-21T15:41:25.098Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "l2l43gvssqzk",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue with the DigitalOcean Container Registry service. Beginning around 20:00 UTC on February 20, there has been an uptick in 401 errors for image pulls from the Container Registry service.\n\nDuring this time, a subset of customers may experience latency or see 401 errors while interacting with Container Registries. This issue also impacts App Platform builds and users may encounter delays while building their Apps or experience timeout errors in builds as a result. Users utilizing Container Registry for images for deployment to Managed Kubernetes clusters may also see latency or failures to deploy.\n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "n9211k9rmml7",
+          "created_at": "2024-02-21T15:41:25.318Z",
+          "updated_at": "2024-02-21T15:41:25.318Z",
+          "display_at": "2024-02-21T15:41:25.318Z",
+          "affected_components": [
+            {
+              "code": "glhj9rkw3mp8",
+              "name": "Container Registry - AMS3",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "sk01cyydqy7b",
+              "name": "Container Registry - FRA1",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "hnqx47tg75cw",
+              "name": "Container Registry - NYC3",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "zfnbgvbvc6bd",
+              "name": "Container Registry - SFO3",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "k3xwyjfy34vw",
+              "name": "Container Registry - SGP1",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "7z4k9k6wgbsq",
+              "name": "Container Registry - SYD1",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "glhj9rkw3mp8",
+          "name": "AMS3",
+          "status": "degraded_performance",
+          "created_at": "2023-02-21T16:23:02.411Z",
+          "updated_at": "2024-02-21T15:41:25.168Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-21",
+          "group_id": "nmb3bbtqfgsj",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "sk01cyydqy7b",
+          "name": "FRA1",
+          "status": "degraded_performance",
+          "created_at": "2023-02-21T16:23:53.241Z",
+          "updated_at": "2024-02-21T15:41:25.187Z",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-21",
+          "group_id": "nmb3bbtqfgsj",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "hnqx47tg75cw",
+          "name": "NYC3",
+          "status": "degraded_performance",
+          "created_at": "2023-02-21T16:23:54.293Z",
+          "updated_at": "2024-02-21T15:41:25.206Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-21",
+          "group_id": "nmb3bbtqfgsj",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "zfnbgvbvc6bd",
+          "name": "SFO3",
+          "status": "degraded_performance",
+          "created_at": "2023-02-21T16:23:02.401Z",
+          "updated_at": "2024-02-21T15:41:25.225Z",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-21",
+          "group_id": "nmb3bbtqfgsj",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "k3xwyjfy34vw",
+          "name": "SGP1",
+          "status": "degraded_performance",
+          "created_at": "2023-02-21T16:23:53.832Z",
+          "updated_at": "2024-02-21T15:41:25.244Z",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-21",
+          "group_id": "nmb3bbtqfgsj",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "7z4k9k6wgbsq",
+          "name": "SYD1",
+          "status": "degraded_performance",
+          "created_at": "2023-02-21T16:23:53.678Z",
+          "updated_at": "2024-02-21T15:41:25.262Z",
+          "position": 6,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-21",
+          "group_id": "nmb3bbtqfgsj",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "7rzlkzs0ksqs",
@@ -3063,7 +3222,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
