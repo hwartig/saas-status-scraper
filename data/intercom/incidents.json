@@ -4,22 +4,147 @@
     "name": "Intercom",
     "url": "https://www.intercomstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-02-22T17:43:50.039Z"
+    "updated_at": "2024-02-22T18:36:46.973Z"
   },
   "incidents": [
     {
+      "id": "kyd2nkssm7dw",
+      "name": "Data missing from SLA reports",
+      "status": "identified",
+      "created_at": "2024-02-22T18:35:49.758Z",
+      "updated_at": "2024-02-22T18:35:49.811Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/9586f8xzxmb4",
+      "started_at": "2024-02-22T18:35:49.752Z",
+      "page_id": "1m1j8k4rtldg",
+      "incident_updates": [
+        {
+          "id": "lkl6t2c7l7fz",
+          "status": "identified",
+          "body": "Due to a previous incident we are experiencing issues displaying a percentage of SLA events on our SLA reporting. We have identified the problem and have a fix in progress. Once fixed we will be able to backfill SLA event data from this point onwards.",
+          "incident_id": "kyd2nkssm7dw",
+          "created_at": "2024-02-22T18:35:49.808Z",
+          "updated_at": "2024-02-22T18:35:49.808Z",
+          "display_at": "2024-02-22T18:35:49.808Z",
+          "affected_components": [
+            {
+              "code": "xfj8yn0vwrrn",
+              "name": "Intercom Web Application",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "51d752rgq7w8",
+              "name": "Intercom APIs",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "xfj8yn0vwrrn",
+          "name": "Intercom Web Application",
+          "status": "degraded_performance",
+          "created_at": "2014-10-29T13:15:19.796Z",
+          "updated_at": "2024-02-22T16:53:04.164Z",
+          "position": 2,
+          "description": "app.intercom.com",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "1m1j8k4rtldg",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "51d752rgq7w8",
+          "name": "Intercom APIs",
+          "status": "degraded_performance",
+          "created_at": "2014-10-29T13:17:59.311Z",
+          "updated_at": "2024-02-22T16:53:04.183Z",
+          "position": 3,
+          "description": "api.intercom.io",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "1m1j8k4rtldg",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "15h532sk1ytv",
       "name": "Problems with conversations",
-      "status": "identified",
+      "status": "postmortem",
       "created_at": "2024-02-22T08:45:46.776Z",
-      "updated_at": "2024-02-22T17:43:50.035Z",
+      "updated_at": "2024-02-22T18:36:46.967Z",
       "monitoring_at": "2024-02-22T13:55:15.749Z",
-      "resolved_at": null,
+      "resolved_at": "2024-02-22T18:31:44.013Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/txjmjc46g80p",
       "started_at": "2024-02-22T09:12:33.000Z",
       "page_id": "1m1j8k4rtldg",
       "incident_updates": [
+        {
+          "id": "lhpklyhy5s8x",
+          "status": "postmortem",
+          "body": "**Root Cause Analysis:** Problems with conversations\n\n‌\n\nBrian Scanlan,  Senior Principal Engineer - February 22nd 2024\n\n‌\n\nEarlier today, Intercom suffered a partial outage that took a number of hours to fully recover from. We're very sorry for the problem and the impact on our customers. We take these outages very seriously, and will be doing a lot more work to understand what happened here, and how to ensure similar outages can not happen again. We are publishing this Root Cause Analysis on the day of the outage to help our customers understand what happened and how we responsed.\n\n# Summary\n\nIntercom's primary datastore for conversation data is MySQL. One of the larger tables used to store conversation metadata is the \"message\\_threads\" table. This table is used to quickly lookup messages in different states, such as priority and snooze status, and is one of the fundamental building blocks of the Intercom Inbox. This is a single table and is not sharded, meaning that all of our customers' message metadata is stored in a single table. \n\nThe primary key ID of this table was originally an unsigned integer data type \\(\"int\"\\). We have alarming in place that alerted us to upcoming key space exhaustion in the USA region \\(where the vast majority of Intercom workspaces are hosted\\), and we started migrating the database table to use a \"bigint\" ID in July 2023. The migration took a few months to complete due to the size of the table and its indexes, and was completed in September 2023.\n\nOn 22nd February 2024 at 08:13:57 UTC the ID of the message threads table grew larger than the maximum size of the \"int\" data type. Writes to this table continued to work fine however there were four tables that had columns with references to the message\\_thread ID that were still using the int data type. Writes to these tables started failing immediately as the message\\_thread ID referenced was too large for that data type.\n\nThe failed writes started causing widespread errors across Intercom. We were immediately alerted and started investigating. We prepared database migrations to update the column data types on the affected tables, however we knew that the size of the affected tables were large and would take a significant amount of time to complete, likely longer than a day. We assembled a large team of engineers to investigate other changes to work around the problem. The impact on Intercom functionality was widespread and varied depending on the features in use. Most of the time, new conversations could be started by users. However in the Inbox, functionality like assignment to teammates, closing conversations, workflows and SLAs were not working.\n\nAt 10:48 UTC we rolled out a change that bypassed writing a message\\_thread ID into the \"conversation\\_parts\" table, after verifying that it was a superfluous write and that it had no side effects. This substantially restored access back to Inbox features, though there were delays in recovery as a large backlog of conversations were processed. \n\nBy 11:21 UTC the Inbox mentions feature was fixed. The last remaining set of features with problems were Conversation SLAs and related functionality. By 12:40 UTC we disabled SLA functionality in the application to allow adjacent features such as Inbox Rules to work normally. By 13:49 UTC a database migration relating to SLAs completed and we re-enabled SLA features. There were residual issues with reporting data on SLAs and conversational insights, and we will continue to investigate these problems.\n\n# Evaluation\n\n## What went right\n\n* We were fortunate with the timing of this event. The ID could have rolled over the integer limit at any time. We were able to get a full team of engineers working on the issue very fast as it happened at the start of a working day. \n* Not writing the large ID to the affected tables worked generally well as a mitigation approach, without many side effects.\n\n## What could be better\n\n* We missed ensuring that all references to the message\\_threads ID got moved to bigint. \n* For some tables that use bigints, we ensure that all references to the ID are compatible with bigints by using very large numbers for IDs in our test suite - however we did not extend this to the message\\_threads table.\n\n# Actions\n\nWe have not completed a full review of this incident yet and this list of actions is incomplete:\n\n* Migrate all affected tables \\(in progress\\)\n* Identify and fix any other references to bigints \\(done\\)\n* Ensure test suite coverage for all bigint tables \\(in progress\\)\n* Undo temporary workarounds",
+          "incident_id": "15h532sk1ytv",
+          "created_at": "2024-02-22T18:34:26.869Z",
+          "updated_at": "2024-02-22T18:36:46.962Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our February 22nd incident: https://stspg.io/txjmjc46g80p",
+          "tweet_id": null
+        },
+        {
+          "id": "661bxckzznh8",
+          "status": "resolved",
+          "body": "We have mitigated all substantial impact here. There is a small residual impact to SLA reporting which we will track separately so we can share a post mortem report with our customers explaining the more significant impact we experienced this morning.",
+          "incident_id": "15h532sk1ytv",
+          "created_at": "2024-02-22T18:31:44.013Z",
+          "updated_at": "2024-02-22T18:31:44.471Z",
+          "display_at": "2024-02-22T18:31:44.013Z",
+          "affected_components": [
+            {
+              "code": "xfj8yn0vwrrn",
+              "name": "Intercom Web Application",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "51d752rgq7w8",
+              "name": "Intercom APIs",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "xzpq23q4ckcn",
+              "name": "Intercom Messenger - Web Messenger",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "rzmfdv3wzg45",
+              "name": "Intercom Messenger - Mobile Messenger",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1760734130873192700
+        },
         {
           "id": "j48vclxbhk8h",
           "status": "identified",
@@ -10649,187 +10774,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "hm3d7jbxgpfj",
-      "name": "Web App Degraded Performance",
-      "status": "resolved",
-      "created_at": "2023-04-12T15:30:10.363Z",
-      "updated_at": "2023-04-12T15:41:33.617Z",
-      "monitoring_at": "2023-04-12T15:30:10.504Z",
-      "resolved_at": "2023-04-12T15:41:31.924Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/bw0x14h6fc0k",
-      "started_at": "2023-04-12T15:30:10.352Z",
-      "page_id": "1m1j8k4rtldg",
-      "incident_updates": [
-        {
-          "id": "l4f9py3hcrkt",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "hm3d7jbxgpfj",
-          "created_at": "2023-04-12T15:41:31.924Z",
-          "updated_at": "2023-04-12T15:41:33.606Z",
-          "display_at": "2023-04-12T15:41:31.924Z",
-          "affected_components": [
-            {
-              "code": "xfj8yn0vwrrn",
-              "name": "Intercom Web Application",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "51d752rgq7w8",
-              "name": "Intercom APIs",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "wmcbzr998cv7",
-              "name": "Intercom Mobile APIs",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "xzpq23q4ckcn",
-              "name": "Intercom Messenger - Web Messenger",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "rzmfdv3wzg45",
-              "name": "Intercom Messenger - Mobile Messenger",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1646176737901035500
-        },
-        {
-          "id": "nply72059hbs",
-          "status": "monitoring",
-          "body": "We saw increased exceptions for a subset of customers between 15:17 UTC and 15:22 UTC. We're monitoring the recovery.",
-          "incident_id": "hm3d7jbxgpfj",
-          "created_at": "2023-04-12T15:30:10.504Z",
-          "updated_at": "2023-04-12T15:30:11.678Z",
-          "display_at": "2023-04-12T15:30:10.504Z",
-          "affected_components": [
-            {
-              "code": "xfj8yn0vwrrn",
-              "name": "Intercom Web Application",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "51d752rgq7w8",
-              "name": "Intercom APIs",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "wmcbzr998cv7",
-              "name": "Intercom Mobile APIs",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xzpq23q4ckcn",
-              "name": "Intercom Messenger - Web Messenger",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "rzmfdv3wzg45",
-              "name": "Intercom Messenger - Mobile Messenger",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1646173877779955700
-        }
-      ],
-      "components": [
-        {
-          "id": "xzpq23q4ckcn",
-          "name": "Web Messenger",
-          "status": "operational",
-          "created_at": "2017-03-15T01:13:39.307Z",
-          "updated_at": "2024-02-22T14:28:15.748Z",
-          "position": 1,
-          "description": "The Intercom messenger for web applications",
-          "showcase": true,
-          "start_date": null,
-          "group_id": "0mw0pdgvs1l3",
-          "page_id": "1m1j8k4rtldg",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "xfj8yn0vwrrn",
-          "name": "Intercom Web Application",
-          "status": "degraded_performance",
-          "created_at": "2014-10-29T13:15:19.796Z",
-          "updated_at": "2024-02-22T16:53:04.164Z",
-          "position": 2,
-          "description": "app.intercom.com",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "1m1j8k4rtldg",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "rzmfdv3wzg45",
-          "name": "Mobile Messenger",
-          "status": "operational",
-          "created_at": "2017-03-15T01:14:20.632Z",
-          "updated_at": "2024-02-22T14:28:15.776Z",
-          "position": 2,
-          "description": "The Intercom messenger for mobile integrations",
-          "showcase": true,
-          "start_date": null,
-          "group_id": "0mw0pdgvs1l3",
-          "page_id": "1m1j8k4rtldg",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "51d752rgq7w8",
-          "name": "Intercom APIs",
-          "status": "degraded_performance",
-          "created_at": "2014-10-29T13:17:59.311Z",
-          "updated_at": "2024-02-22T16:53:04.183Z",
-          "position": 3,
-          "description": "api.intercom.io",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "1m1j8k4rtldg",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "wmcbzr998cv7",
-          "name": "Intercom Mobile APIs",
-          "status": "operational",
-          "created_at": "2015-07-03T10:18:56.738Z",
-          "updated_at": "2023-11-07T12:13:05.236Z",
-          "position": 4,
-          "description": "mobileapi-v2.intercom.io.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "1m1j8k4rtldg",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
