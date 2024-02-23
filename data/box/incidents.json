@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-02-23T00:05:12.161-08:00"
+    "updated_at": "2024-02-23T11:43:22.031-08:00"
   },
   "incidents": [
     {
@@ -246,7 +246,7 @@
       "name": "[Minor] Issue with Uploads, Downloads and Public API",
       "status": "postmortem",
       "created_at": "2024-01-22T16:16:21.430-08:00",
-      "updated_at": "2024-01-26T12:35:31.924-08:00",
+      "updated_at": "2024-02-23T11:43:22.024-08:00",
       "monitoring_at": null,
       "resolved_at": "2024-01-22T16:16:21.470-08:00",
       "impact": "minor",
@@ -257,10 +257,10 @@
         {
           "id": "x57cj90wg1pj",
           "status": "postmortem",
-          "body": "On January 22, 2024, between 3:37 PM PST and 3:47 PM PST, some users may have experienced difficulties while working in Box. During this time, users may have encountered degradation around PublicAPI, Uploads and Downloads. The issue occurred as a result of an infrastructure change intended to reduce scale up time of nodes in regions where some our critical services run. Due to a pre-existing drift in infrastructure, this resulted in a disruptive change instead of an in place change. When the operation completed, services recovered automatically. In addition, we are working on improving our deployment pipelines to detect disruptive changes before going live and reducing resolution times to address pre-existing disparities to prevent similar issues from occurring in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting Uploads, Downloads and PublicAPI. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 03:37 PM and 03:47 PM PST on January 22, 2024, some users may have experienced difficulties while working in Box. During this time, an internal service was restarted, which resulted in some users experiencing degraded performance and/or intermittent errors on Box Uploads, Downloads and Public API. The issue occurred as a result of a previous infrastructure change and was automatically resolved once the impacted service successfully restarted and stabilized. We are enhancing our deployment automation and defining additional processes to minimize the risk of similar issues occurring in the future. \n\n‌\n\n**Analysis** \n\nOn January 22, 2024, a change was rolled out on an availability zone in one of our primary regions in which an internal database interaction service was running. There was a pre-existing discrepancy between the code and infrastructure originating from a previous operation performed in response to an unrelated incident. This discrepancy resulted in the impacted service restarting, which caused some users to experience degraded performance. \n\nWhen the change went live, the availability of the service dropped. That caused traffic from downstream services that directed to the service fleet in this zone to fail. As a result the top level metrics were impacted for 10 minutes. The impacted service came back up shortly after, which remediated the issue.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Enhancing automation to prevent disruptive changes from going live\n* Putting processes and internal SLAs in place that will eliminate discrepancies between our code and infrastructure\n* Adding measures in our codebase to reduce the chances of causing disruptions  \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
           "incident_id": "t338nyx801f7",
           "created_at": "2024-01-26T12:33:41.521-08:00",
-          "updated_at": "2024-01-26T12:35:31.921-08:00",
+          "updated_at": "2024-02-23T11:43:22.022-08:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
