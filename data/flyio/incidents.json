@@ -4,9 +4,39 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "America/Chicago",
-    "updated_at": "2024-02-22T16:32:08.189-06:00"
+    "updated_at": "2024-02-26T10:06:00.913-06:00"
   },
   "incidents": [
+    {
+      "id": "w6sslxbl5hgj",
+      "name": "routing issues and ECONNRESET",
+      "status": "investigating",
+      "created_at": "2024-02-26T10:06:00.865-06:00",
+      "updated_at": "2024-02-26T10:06:00.910-06:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/vhmwsmn5wv12",
+      "started_at": "2024-02-26T10:06:00.858-06:00",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "b1l67y6xknwz",
+          "status": "investigating",
+          "body": "We're investigating possible routing problems, causing reset connections (visible as ECONNRESET or \"Failed to fetch\" client side and \"client closed connection\" in server logs).",
+          "incident_id": "w6sslxbl5hgj",
+          "created_at": "2024-02-26T10:06:00.907-06:00",
+          "updated_at": "2024-02-26T10:06:00.907-06:00",
+          "display_at": "2024-02-26T10:06:00.907-06:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "pymsj625kv4v",
       "name": "API errors when creating machines",
@@ -4415,99 +4445,6 @@
               "name": "Platform and Tools - Docker Registry",
               "old_status": "operational",
               "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "lwp4hw3r415g",
-          "name": "Docker Registry",
-          "status": "operational",
-          "created_at": "2022-05-18T07:37:57.574-05:00",
-          "updated_at": "2024-01-05T15:45:00.572-06:00",
-          "position": 11,
-          "description": null,
-          "showcase": true,
-          "start_date": "2022-05-18",
-          "group_id": "ycm6xbpsfqvd",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "ylw04bn2m1sq",
-      "name": "Fly Registry Uploads Failing",
-      "status": "resolved",
-      "created_at": "2023-09-20T07:00:54.231-05:00",
-      "updated_at": "2023-09-20T10:49:09.611-05:00",
-      "monitoring_at": "2023-09-20T09:46:14.798-05:00",
-      "resolved_at": "2023-09-20T10:47:07.000-05:00",
-      "impact": "none",
-      "shortlink": "https://stspg.io/q56f6bzlcdjq",
-      "started_at": "2023-09-20T07:00:54.221-05:00",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "p2z795fhqkzb",
-          "status": "resolved",
-          "body": "The incident has been resolved and we're not seeing any further issues with the registry.\n\nAround 14:00 UTC a litefs cluster that supports the registry began lagging due to too many open files on individual hosts. We resolved the open file issue and recovered the litefs cluster, which was completed around 14:45 UTC.\n\nBetween 14:00 and 14:45 UTC deployments may have failed to push images to the registry. This prevented machines and nomad allocs from getting updates, and did not interfere with existing machine & nomad alloc operation.",
-          "incident_id": "ylw04bn2m1sq",
-          "created_at": "2023-09-20T10:47:07.072-05:00",
-          "updated_at": "2023-09-20T10:49:09.597-05:00",
-          "display_at": "2023-09-20T10:47:07.000-05:00",
-          "affected_components": [
-            {
-              "code": "lwp4hw3r415g",
-              "name": "Platform and Tools - Docker Registry",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "c0qkypyx9zv2",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "ylw04bn2m1sq",
-          "created_at": "2023-09-20T09:46:14.798-05:00",
-          "updated_at": "2023-09-20T09:46:14.798-05:00",
-          "display_at": "2023-09-20T09:46:14.798-05:00",
-          "affected_components": [
-            {
-              "code": "lwp4hw3r415g",
-              "name": "Platform and Tools - Docker Registry",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "p3xlprx3hs4s",
-          "status": "investigating",
-          "body": "We're investigating issues with the registry failing to allow new images to be uploaded.",
-          "incident_id": "ylw04bn2m1sq",
-          "created_at": "2023-09-20T07:00:54.315-05:00",
-          "updated_at": "2023-09-20T07:00:54.315-05:00",
-          "display_at": "2023-09-20T07:00:54.315-05:00",
-          "affected_components": [
-            {
-              "code": "lwp4hw3r415g",
-              "name": "Platform and Tools - Docker Registry",
-              "old_status": "operational",
-              "new_status": "partial_outage"
             }
           ],
           "deliver_notifications": false,
