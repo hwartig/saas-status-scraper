@@ -4,15 +4,15 @@
     "name": "Atlassian",
     "url": "https://status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-02-24T14:42:59.439Z"
+    "updated_at": "2024-02-27T05:43:00.749Z"
   },
   "incidents": [
     {
       "id": "gg9z8g8xsxc7",
       "name": "Service Disruptions Affecting Atlassian Products",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-02-14T21:57:44.069Z",
-      "updated_at": "2024-02-14T23:32:18.683Z",
+      "updated_at": "2024-02-27T05:41:26.778Z",
       "monitoring_at": "2024-02-14T22:55:47.246Z",
       "resolved_at": "2024-02-14T23:32:18.665Z",
       "impact": "none",
@@ -20,6 +20,19 @@
       "started_at": "2024-02-14T21:57:44.064Z",
       "page_id": "0f54fx204jpt",
       "incident_updates": [
+        {
+          "id": "2kmsbsz8jgd6",
+          "status": "postmortem",
+          "body": "### **Summary**\n\nOn February 14, 2024, between 20:05 UTC and 23:03 UTC, Atlassian customers on the following cloud products encountered a service disruption: Access, Atlas, Atlassian Analytics, Bitbucket, Compass, Confluence, Ecosystem apps, Jira Service Management, Jira Software, Jira Work Management, Jira Product Discovery, Opsgenie, StatusPage, and Trello.\n\nAs part of a security and compliance uplift, we had scheduled the deletion of unused and legacy domain names used for internal service-to-service connections. Active domain names were incorrectly deleted during this event. This impacted all cloud customers across all regions. The issue was identified and resolved through the rollback of the faulty deployment to restore the domain names and Atlassian systems to a stable state. The time to resolution was two hours and 58 minutes.\n\n### **IMPACT**\n\nExternal customers started reporting issues with Atlassian cloud products at 20:52 UTC. The impact of the failed change led to performance degradation or in some cases, complete service disruption. Symptoms experienced by end-users were unsuccessful page loads and/or failed interactions with our cloud products.\n\n### **ROOT CAUSE**\n\nAs part of a security and compliance uplift, we had scheduled the deletion of unused and legacy domain names that were being used for internal service-to-service connections. Active domain names were incorrectly deleted during this operation.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. The detection was delayed because existing testing & monitoring focused on service health rather than the entire system’s availability.\n\nTo prevent a recurrence of this type of incident, we are implementing the following improvement measures:\n\n* Canary checks to monitor the entire system availability.\n* Faster rollback procedures for this type of service impact.\n* Stricter change control procedures for infrastructure modifications.\n* Migration of all DNS records to centralised management and stricter access controls on modification to DNS records.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\n‌\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "gg9z8g8xsxc7",
+          "created_at": "2024-02-27T05:41:24.667Z",
+          "updated_at": "2024-02-27T05:41:26.776Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "7bhjfffy6tpm",
           "status": "resolved",
