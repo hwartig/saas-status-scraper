@@ -4,39 +4,9 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-02-28T01:16:16.700Z"
+    "updated_at": "2024-02-28T01:55:13.801Z"
   },
   "incidents": [
-    {
-      "id": "cbz2nf0g20jn",
-      "name": "Postgres service issues in Ohio and Frankfurt",
-      "status": "investigating",
-      "created_at": "2024-02-28T01:16:16.665Z",
-      "updated_at": "2024-02-28T01:16:16.698Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/jgdd58rr7cpf",
-      "started_at": "2024-02-28T01:16:16.659Z",
-      "page_id": "tyfhm2rrt1tl",
-      "incident_updates": [
-        {
-          "id": "c64k9b982hn3",
-          "status": "investigating",
-          "body": "We have received reports of issues connecting to Postgres services hosted in Ohio and Frankfurt, Engineering is investigating this issue.",
-          "incident_id": "cbz2nf0g20jn",
-          "created_at": "2024-02-28T01:16:16.696Z",
-          "updated_at": "2024-02-28T01:16:16.696Z",
-          "display_at": "2024-02-28T01:16:16.696Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": null
-    },
     {
       "id": "4rp9rph38lls",
       "name": "Ohio service instability",
@@ -7230,6 +7200,318 @@
           "showcase": true,
           "start_date": "2022-01-01",
           "group_id": "kvx5yy599tcf",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "hltvz1fsj3zx",
+      "name": "Services hosted in Frankfurt are unreachable",
+      "status": "postmortem",
+      "created_at": "2023-09-07T12:56:27.201Z",
+      "updated_at": "2023-09-18T23:49:27.370Z",
+      "monitoring_at": "2023-09-07T13:50:46.109Z",
+      "resolved_at": "2023-09-07T13:59:22.944Z",
+      "impact": "major",
+      "shortlink": "https://stspg.io/5f9q88bzhdjt",
+      "started_at": "2023-09-07T12:56:27.189Z",
+      "page_id": "tyfhm2rrt1tl",
+      "incident_updates": [
+        {
+          "id": "3l5kv25lqqwr",
+          "status": "postmortem",
+          "body": "# Summary\n\nRender uses AWS Elastic Block Store \\(EBS\\) as a storage provider in several of our clusters, and we were affected by an issue with the service:\n\n> Between 5:10 AM and 8:40 AM PDT, we experienced a performance degradation for a small number of EBS volumes in a single Availability Zone \\(euc1-az3\\) in the EU-CENTRAL-1 Region.\n\nThe issue resulted in downtime for some Postgres & Redis services, and degradation in some behaviors like autoscaling, builds, deploys, and metrics.\n\n# Impact\n\nAn estimated 3,000 managed Postgres and Redis instances experienced downtime, and even more will have experienced degraded performance.\n\nAdditionally, the Render platform in Frankfurt experienced general degradation in, but not limited to, autoscaling, builds, deploys, and metrics.\n\n# Root Cause\n\nRender's automated alerting detected ongoing issues in one of our Frankfurt clusters at 12:40 UTC. We responded by opening a public incident. As part of the response, we identified that some of our hosts were experiencing severely degraded EBS performance.\n\nRender uses AWS EBS to power storage volumes for all managed Postgres services in the Frankfurt region. Due to the outage, EBS volumes became detached from hosts. Our system automatically attempted to recover by attaching the volume to a new host, but failed to do so because of degradation in the attach/detach API. Eventually these attach operations succeeded; by 13:51 UTC, service was restored to all managed Postgres instances.\n\nEBS also provides the storage for our etcd cluster, which runs as part of the Kubernetes cluster. Because etcd's consensus algorithm requires every member to write to disk on every proposal, high disk latency for just one member can slow down the entire etcd cluster. Our Kubernetes API server, which regularly transacts with etcd, became sluggish and slow to process requests that support behaviors like autoscaling, builds, deploys, and metrics. After identifying the failure mode, at 13:25 UTC we removed the unhealthy etcd member from the cluster. This allowed most of the degraded behaviors to recover.\n\n# Mitigations\n\n* We have been in contact with the AWS team to discuss near- and long-term mitigations.\n* We have added alerting on Render's end that is targeted at identifying when etcd is experience poor disk performance. It will help us to more quickly identify and remove the slow member in the cluster.",
+          "incident_id": "hltvz1fsj3zx",
+          "created_at": "2023-09-18T23:49:03.198Z",
+          "updated_at": "2023-09-18T23:49:27.368Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our September 7th incident: https://stspg.io/5f9q88bzhdjt",
+          "tweet_id": null
+        },
+        {
+          "id": "2qs33tnqgbv8",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "hltvz1fsj3zx",
+          "created_at": "2023-09-07T13:59:22.944Z",
+          "updated_at": "2023-09-07T13:59:22.944Z",
+          "display_at": "2023-09-07T13:59:22.944Z",
+          "affected_components": [
+            {
+              "code": "hnrs7hr1ty53",
+              "name": "Static Sites",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "j45c7rjc3n51",
+              "name": "Render Dashboard",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "lqw6cbytntwp",
+              "name": "Frankfurt - Web Services",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "kdtx600d1lcv",
+              "name": "Frankfurt - Builds and Deploys",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "h8ft3w5z1qt9",
+              "name": "Frankfurt - PostgreSQL",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "7ty4dkd07gtg",
+              "name": "Frankfurt - Redis",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "pcndgl89n6qm",
+              "name": "Frankfurt - Web Services - Free Tier",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "qmyxm9kxzhgh",
+          "status": "monitoring",
+          "body": "We've implemented the necessary changes and are seeing progressive recovery for services and databases. We're monitoring.",
+          "incident_id": "hltvz1fsj3zx",
+          "created_at": "2023-09-07T13:50:46.109Z",
+          "updated_at": "2023-09-07T13:50:46.109Z",
+          "display_at": "2023-09-07T13:50:46.109Z",
+          "affected_components": [
+            {
+              "code": "hnrs7hr1ty53",
+              "name": "Static Sites",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "j45c7rjc3n51",
+              "name": "Render Dashboard",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "lqw6cbytntwp",
+              "name": "Frankfurt - Web Services",
+              "old_status": "major_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "kdtx600d1lcv",
+              "name": "Frankfurt - Builds and Deploys",
+              "old_status": "major_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "h8ft3w5z1qt9",
+              "name": "Frankfurt - PostgreSQL",
+              "old_status": "major_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "7ty4dkd07gtg",
+              "name": "Frankfurt - Redis",
+              "old_status": "major_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "pcndgl89n6qm",
+              "name": "Frankfurt - Web Services - Free Tier",
+              "old_status": "major_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "96pq67fwc5q3",
+          "status": "identified",
+          "body": "We have identified the degraded component and are working to restore service.",
+          "incident_id": "hltvz1fsj3zx",
+          "created_at": "2023-09-07T13:23:05.173Z",
+          "updated_at": "2023-09-07T13:23:05.173Z",
+          "display_at": "2023-09-07T13:23:05.173Z",
+          "affected_components": [
+            {
+              "code": "hnrs7hr1ty53",
+              "name": "Static Sites",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "j45c7rjc3n51",
+              "name": "Render Dashboard",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "lqw6cbytntwp",
+              "name": "Frankfurt - Web Services",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "jfgkqmk12vhl",
+          "status": "investigating",
+          "body": "We're seeing that services in the Frankfurt region are un-reachable, we're investigating",
+          "incident_id": "hltvz1fsj3zx",
+          "created_at": "2023-09-07T12:56:27.275Z",
+          "updated_at": "2023-09-07T12:56:27.275Z",
+          "display_at": "2023-09-07T12:56:27.275Z",
+          "affected_components": [
+            {
+              "code": "hnrs7hr1ty53",
+              "name": "Static Sites",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "j45c7rjc3n51",
+              "name": "Render Dashboard",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "lqw6cbytntwp",
+              "name": "Frankfurt - Web Services",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "j45c7rjc3n51",
+          "name": "Render Dashboard",
+          "status": "operational",
+          "created_at": "2019-02-08T22:32:29.843Z",
+          "updated_at": "2024-01-03T20:58:35.474Z",
+          "position": 1,
+          "description": "dashboard.render.com",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "lqw6cbytntwp",
+          "name": "Web Services",
+          "status": "operational",
+          "created_at": "2022-05-06T00:09:07.965Z",
+          "updated_at": "2024-02-06T23:24:54.617Z",
+          "position": 1,
+          "description": "All public HTTP services hosted on Render.",
+          "showcase": true,
+          "start_date": "2022-01-01",
+          "group_id": "wtb4wdj1f07v",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "hnrs7hr1ty53",
+          "name": "Static Sites",
+          "status": "operational",
+          "created_at": "2019-02-08T22:32:29.834Z",
+          "updated_at": "2024-02-09T01:10:04.072Z",
+          "position": 4,
+          "description": "Static sites hosted on our global anycast CDN.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "kdtx600d1lcv",
+          "name": "Builds and Deploys",
+          "status": "operational",
+          "created_at": "2022-05-06T00:17:50.301Z",
+          "updated_at": "2024-02-06T23:24:54.698Z",
+          "position": 4,
+          "description": "New builds and deploys for hosted services.",
+          "showcase": true,
+          "start_date": "2022-01-01",
+          "group_id": "wtb4wdj1f07v",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "h8ft3w5z1qt9",
+          "name": "PostgreSQL",
+          "status": "operational",
+          "created_at": "2022-05-06T00:20:31.427Z",
+          "updated_at": "2024-02-06T23:24:54.723Z",
+          "position": 5,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-01-01",
+          "group_id": "wtb4wdj1f07v",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "7ty4dkd07gtg",
+          "name": "Redis",
+          "status": "operational",
+          "created_at": "2022-05-06T00:22:37.663Z",
+          "updated_at": "2024-02-06T23:24:54.748Z",
+          "position": 6,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-01-01",
+          "group_id": "wtb4wdj1f07v",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "pcndgl89n6qm",
+          "name": "Web Services - Free Tier",
+          "status": "operational",
+          "created_at": "2022-05-06T00:24:55.339Z",
+          "updated_at": "2024-02-06T23:24:54.773Z",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-01-01",
+          "group_id": "wtb4wdj1f07v",
           "page_id": "tyfhm2rrt1tl",
           "group": false,
           "only_show_if_degraded": false
