@@ -4,15 +4,15 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-02-28T23:41:07.657-08:00"
+    "updated_at": "2024-02-29T12:34:26.843-08:00"
   },
   "incidents": [
     {
       "id": "bwwdlfwmp513",
       "name": "[Minor] Item Counts Not Updating",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-02-19T09:59:50.228-08:00",
-      "updated_at": "2024-02-19T18:24:08.469-08:00",
+      "updated_at": "2024-02-29T12:34:26.839-08:00",
       "monitoring_at": "2024-02-19T10:44:29.301-08:00",
       "resolved_at": "2024-02-19T18:24:08.453-08:00",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2024-02-19T09:59:50.222-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "2brctzjxhq0j",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting file and folder counts in Box. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 4:00 PM PST on February 18, 2024 and 9:10 PM PST on February 19, 2024, updates to file and folder counts displayed in Box were delayed for some customers. The issue occurred as a result of an intentional workload migration to mitigate a partial outage in one region of one of our cloud providers.  We were able to resolve the issue by adding resources to the target region to reduce the cross-region latency impact. These delays only affected the visibility of file and folder counts; the counts themselves were maintained.\n\n‌\n\n**Analysis** \n\nOn February 16th, a resource migration from one of our regions to another was performed as a mitigation effort for an unrelated issue. An increase in traffic on February 18th combined with the region shift resulted in a backlog in the file and folder counts workflow.\n\nWe addressed the issue by adding more resources to the new region. We are currently in the process of further consolidating the resources for this workflow to avoid significant delays and backlogs. Furthermore, to minimize the likelihood of similar situations occurring again, we are implementing checks and alerts to prevent future scenarios in which resource shortages could lead to delays in updating file and folder counts.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* We will implement checks and alerts to trigger if the workflow processing slows down and starts to back up.\n* We will add further documentation to our run book as references to be used in the event of similar region outages, ensuring that our service remains resilient to such incidents.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "bwwdlfwmp513",
+          "created_at": "2024-02-29T12:34:09.096-08:00",
+          "updated_at": "2024-02-29T12:34:26.836-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "r8rv5dt99cfy",
           "status": "resolved",
