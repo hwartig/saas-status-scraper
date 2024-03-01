@@ -4,15 +4,15 @@
     "name": "Intercom",
     "url": "https://www.intercomstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-03-01T17:44:40.726Z"
+    "updated_at": "2024-03-01T17:46:51.174Z"
   },
   "incidents": [
     {
       "id": "x3sq0ggjqzkv",
       "name": "Degraded Performance on Intercom Web App & Messenger",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-02-28T22:03:28.039Z",
-      "updated_at": "2024-03-01T17:44:40.716Z",
+      "updated_at": "2024-03-01T17:46:51.170Z",
       "monitoring_at": "2024-02-28T22:20:54.137Z",
       "resolved_at": "2024-02-28T22:26:14.962Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2024-02-28T22:03:28.029Z",
       "page_id": "1m1j8k4rtldg",
       "incident_updates": [
+        {
+          "id": "gtvys25vht3l",
+          "status": "postmortem",
+          "body": "**Root Cause Analysis:** Intercom down for 25% of workspaces\n\n‌\n\nBrian Scanlan, Senior Principal Engineer, 1st March 2024\n\n# Issue Summary\n\nThe primary datastore of the Intercom Ruby on Rails application is MySQL. In the USA hosting region, where the vast majority of Intercom workspaces are hosted, we run 13 distinct AWS RDS Aurora MySQL clusters, and the databases hosted on these clusters are sharded using a mix of functional and on a per-customer workspace basis. Five of these clusters contain databases sharded on a per-workspace basis, and contain many of our largest tables. Each of these clusters have many thousands of individual databases as a result.\n\n‌\n\nOn February 28th 2024 at 21:40 UTC, one of the MySQL clusters used for the sharded databases \\(\"Shard C\"\\) experienced a significant deterioration in the throughput and performance of writes being made to the database. Around 25% of Intercom workspaces are located on this cluster, and affected customers experienced high latencies and errors when using Intercom.  At 21:49 UTC the first paging alarm fired, and our full incident process was initiated. The errors persisted until 22:12:42 UTC when we initiated a failover of the primary node of the cluster. By 22:19 UTC the system was performing normally and Intercom was working normally.\n\n‌\n\nThe cause of the degradation is related to the [incident that affected Intercom on February 22nd 2024](https://www.intercomstatus.com/incidents/15h532sk1ytv). As a result of this event, we are running a large number of column data type change migrations on our databases. These are generally precautionary and Intercom's systems are not at immediate risk of further downtime, however they are important to complete in order to avoid any chance of recurrence of that incident. Running migrations on our MySQL databases is a near-constant state for Intercom, and we over time have built many layers to protect our production traffic while these expensive operations are occurring on our databases. We believe that three factors contributed to the database performance degradation that occurred this time:\n\n‌\n\n1. Column data type changes are uncommon in our environment - we have way more experience with changes such as adding or deleting columns.\n2. Our migration strategy is bimodal depending on the size of the database being migrated. In order to be able to complete migrations in a timely manner, we alter tables directly when the tables are very small, and make new copies of tables in all other cases.\n3. The large volume of databases on the sharded clusters, and volume of direct “alter” changes being made to tables.\n\nWe believe the large volume of “alter” table changes caused the database degradation - the precise mechanism here is still under investigation, but it is strongly correlated with the outage. Other sharded clusters were able to deal with these changes with no major problems, and there may be a workload-related factor on Shard C.\n\nAs a result we have changed our migration strategy to always use a new copy of tables when changing data types, regardless of the size of the table. This will slow down the overall process, and is a more expensive operation, but will avoid the chronic problems observed in this outage.\n\n# Actions\n\n1. Stop directly altering column types on tables for all migrations regardless of table size \\(done\\)\n2. Review alarm thresholds to ensure faster detection of this type of partial failure. \n3. Continue work to replace AWS RDS Aurora MySQL based architecture with a [Vitess](https://vitess.io/) based system - fundamentally addressing the limitations of our current MySQL sharding setup.",
+          "incident_id": "x3sq0ggjqzkv",
+          "created_at": "2024-03-01T17:41:45.673Z",
+          "updated_at": "2024-03-01T17:46:51.167Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our February 28th incident: https://stspg.io/kdfbjkj7lcw4",
+          "tweet_id": null
+        },
         {
           "id": "hf4291gf5wh8",
           "status": "resolved",
