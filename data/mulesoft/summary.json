@@ -4,7 +4,7 @@
     "name": "US1 - Anypoint Platform",
     "url": "https://status.mulesoft.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-03-04T16:14:51.088-08:00"
+    "updated_at": "2024-03-04T20:37:05.836-08:00"
   },
   "components": [
     {
@@ -987,9 +987,9 @@
     {
       "id": "03dy97lql13n",
       "name": "API Manager is failing to apply new policies to applications.",
-      "status": "investigating",
+      "status": "identified",
       "created_at": "2024-03-04T14:56:21.248-08:00",
-      "updated_at": "2024-03-04T16:14:51.079-08:00",
+      "updated_at": "2024-03-04T20:37:05.827-08:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "critical",
@@ -997,6 +997,26 @@
       "started_at": "2024-03-04T14:56:21.240-08:00",
       "page_id": "rl5vblzz3gbw",
       "incident_updates": [
+        {
+          "id": "3mdw5jbrzkpp",
+          "status": "identified",
+          "body": "We have addressed the backend issue causing the errors that have generated this incident, while we work on restoring the service fully, we have identified a remediation step that can be taken to restore your applications to their expected performance.\n\nIf your Mule Gateway is currently affected, proceed to restart your Mule Runtime.\n\nIf you are unsure if your gateway is currently affected, you can review the logs to see if there is any occurrence of an error message like:\n\nError deploying policy <POLICY_NAME> to application <APPLICATION_NAME>\ncom.mulesoft.mule.runtime.gw.policies.template.exception.PolicyTemplateAssetException: Unexpected error when requesting template metadata for <POLICY_NAME>\n\nIf you see occurrences of the above error message then you should proceed to restart your Mule Runtime.",
+          "incident_id": "03dy97lql13n",
+          "created_at": "2024-03-04T20:37:05.825-08:00",
+          "updated_at": "2024-03-04T20:37:05.825-08:00",
+          "display_at": "2024-03-04T20:37:05.825-08:00",
+          "affected_components": [
+            {
+              "code": "xmk1pfcwpv68",
+              "name": "Anypoint Management Center - API Manager",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "qhbdx7k91r10",
           "status": "investigating",
