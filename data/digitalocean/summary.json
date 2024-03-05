@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-03-05T09:43:17.045Z"
+    "updated_at": "2024-03-05T11:30:09.731Z"
   },
   "components": [
     {
@@ -3006,7 +3006,62 @@
     }
   ],
   "incidents": [],
-  "scheduled_maintenances": [],
+  "scheduled_maintenances": [
+    {
+      "id": "gqwgnn1x1m4z",
+      "name": "BLR1 Network Maintenance",
+      "status": "scheduled",
+      "created_at": "2024-03-05T11:30:09.679Z",
+      "updated_at": "2024-03-05T11:30:09.729Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/lk0mn4s39d86",
+      "started_at": "2024-03-05T11:30:09.672Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "cg7rgp6mv1s1",
+          "status": "scheduled",
+          "body": "Start: 2024-03-05 14:00 UTC\nEnd:  2024-03-05 15:00 UTC\n\nDuring the above window, we will be performing maintenance in our BLR1 region as part of a firewall migration. This maintenance was previously attempted on 2024-02-19 but the changes were reverted after our Engineers encountered unexpected issues, resulting from the maintenance. Our team has performed a thorough examination of the previous attempt and is confident in performing this maintenance, as well as measures to mitigate any negative outcomes. \n\nExpected impact:\n\nAs part of this maintenance, event processing in BLR1 will be delayed for a period of up to 15 minutes during the one-hour window. During this period, users will experience a delay with creating, destroying, or modifying new or existing DO services in BLR1(such as Droplets, DBaaS/DOKS clusters, etc.), existing services that are running should not be impacted.\n\nIf you have any questions related to this issue, please send us a ticket from your cloud support page. https://cloudsupport.digitalocean.com/s/createticket",
+          "incident_id": "gqwgnn1x1m4z",
+          "created_at": "2024-03-05T11:30:09.727Z",
+          "updated_at": "2024-03-05T11:30:09.727Z",
+          "display_at": "2024-03-05T11:30:09.727Z",
+          "affected_components": [
+            {
+              "code": "ytggjm2hdb5y",
+              "name": "Event Processing - BLR1",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "ytggjm2hdb5y",
+          "name": "BLR1",
+          "status": "operational",
+          "created_at": "2023-02-22T17:27:01.589Z",
+          "updated_at": "2024-02-19T17:00:56.236Z",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-22",
+          "group_id": "b3tklvcyzvh0",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-03-05T14:00:00.000Z",
+      "scheduled_until": "2024-03-05T15:00:00.000Z"
+    }
+  ],
   "status": {
     "indicator": "none",
     "description": "All Systems Operational"
