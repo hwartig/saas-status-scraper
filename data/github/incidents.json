@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-03-05T09:42:51.878Z"
+    "updated_at": "2024-03-05T23:57:02.538Z"
   },
   "incidents": [
     {
@@ -401,7 +401,7 @@
       "name": "Incident with Pull Requests, Actions and Issues",
       "status": "resolved",
       "created_at": "2024-03-01T14:39:28.505Z",
-      "updated_at": "2024-03-01T16:12:23.118Z",
+      "updated_at": "2024-03-05T23:57:02.528Z",
       "monitoring_at": null,
       "resolved_at": "2024-03-01T16:12:23.102Z",
       "impact": "minor",
@@ -412,10 +412,10 @@
         {
           "id": "hcf5kdf6m0gl",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "On March 1, 2024, between 14:17 UTC and 15:54 UTC the service that sends messages from our event stream into our background job processing service was degraded and delayed the transmission of jobs for processing.  No data or jobs were lost.  From 14:17 to 14:41 UTC, there was a partial degradation, where customers would experience intermittent delays with PRs and Actions.  From 14:41 to 15:24 UTC, 36% of PRs users saw stale data, and 100% of in progress Actions workflows did not see updates , even though the workflows were succeeding.  At 15:24 UTC, we mitigated the incident by redeploying our service and jobs began to burn down, with full job catchup by 15:54 UTC. This was due to under provisioned memory and lack of memory based back pressure in the service, which overwhelmed consumers and led to OutOfMemory crashes.<br /><br />We have adjusted memory configurations to prevent this problem, and are analyzing and adjusting our alert sensitivity to reduce our time to detection of issues like this one in the future.<br />",
           "incident_id": "wcl1sw4mzg60",
           "created_at": "2024-03-01T16:12:23.102Z",
-          "updated_at": "2024-03-01T16:12:23.102Z",
+          "updated_at": "2024-03-05T23:57:02.524Z",
           "display_at": "2024-03-01T16:12:23.102Z",
           "affected_components": [
             {
