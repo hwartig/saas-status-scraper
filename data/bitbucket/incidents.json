@@ -4,7 +4,7 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-03-12T13:33:21.882Z"
+    "updated_at": "2024-03-12T17:58:41.663Z"
   },
   "incidents": [
     {
@@ -517,9 +517,9 @@
     {
       "id": "rgwgpfyx0mpy",
       "name": "Bitbucket Cloud website performance degraded",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-02-22T08:37:58.070Z",
-      "updated_at": "2024-02-22T13:57:05.781Z",
+      "updated_at": "2024-03-12T17:58:41.661Z",
       "monitoring_at": "2024-02-22T13:39:40.802Z",
       "resolved_at": "2024-02-22T13:57:05.766Z",
       "impact": "major",
@@ -527,6 +527,19 @@
       "started_at": "2024-02-22T08:37:58.064Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "vq1h9k4n87dl",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn February 22, 2024, between 7:22 UTC and 13:30 UTC, Atlassian customers using Bitbucket Cloud faced degradation to its website and APIs. This was caused by the vacuum process not being run frequently enough on our high-traffic database tables, which impaired the database’s ability to handle requests. This resulted in connection pools becoming saturated, response times increasing, and a ramp-up of requests timing out completely.\n\nAfter the database recovered at 13:30 UTC, Bitbucket Pipelines experienced build scheduling delays as it processed the backlog of jobs. Additional resources were added to Bitbucket Pipelines and the backlog was cleared in full by 17:30 UTC.\n\n### **IMPACT**\n\nCustomers who were impacted experienced significant delays with running Bitbucket Pipelines and increased latency when accessing the [bitbucket.org](http://bitbucket.org/) website and APIs during the duration of the incident. Git requests over HTTPS and SSH were unaffected.\n\n### **ROOT CAUSE**\n\nThe incident was caused by an issue during the routine autovacuuming of our active database tables, which impaired its ability to serve requests. This led to slowdowns that impacted a variety of Bitbucket services, including the queuing of a large backlog of unscheduled pipelines.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. We are prioritizing the following improvement actions to reduce recovery time, limit impact, and avoid repeating these types of incidents in the future:\n\n* Reconfigure vacuuming threshold for high write activity database tables.\n* Adjust alert thresholds to proactively catch this behavior earlier and reduce potential impact.\n* Tuning autoscaling and load shedding behavior for Pipelines services and increasing build runner capacity.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "rgwgpfyx0mpy",
+          "created_at": "2024-03-12T17:58:31.396Z",
+          "updated_at": "2024-03-12T17:58:41.660Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "s2fj62jjzwzr",
           "status": "resolved",
