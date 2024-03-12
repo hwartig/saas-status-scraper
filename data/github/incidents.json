@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-03-12T19:56:41.965Z"
+    "updated_at": "2024-03-12T22:57:57.250Z"
   },
   "incidents": [
     {
@@ -12,7 +12,7 @@
       "name": "Incident with API Requests, Git Operations, Webhooks and Copilot",
       "status": "resolved",
       "created_at": "2024-03-11T23:01:04.013Z",
-      "updated_at": "2024-03-12T01:00:51.446Z",
+      "updated_at": "2024-03-12T22:57:57.244Z",
       "monitoring_at": null,
       "resolved_at": "2024-03-12T01:00:51.435Z",
       "impact": "major",
@@ -23,10 +23,10 @@
         {
           "id": "zb487dq95rxl",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "On March 11, 2024 starting at 22:45 UTC and ending on March 12, 2024 00:48 UTC various GitHub services were degraded and returned intermittent errors for users. During this incident, the following customer impacts occurred: API error rates as high as 1%, Copilot error rates as high as 17%, and Secret Scanning and 2FA using GitHub Mobile error rates as high as 100% followed by a drop in error rates to 30% starting at 22:55 UTC. This elevated error rate was due to a degradation of our centralized authentication service upon which many other services depend.<br /><br />The issue was caused by a deployment of network related configuration that was inadvertently applied to the incorrect environment. This error was detected within 4 minutes and a rollback was initiated. While error rates began dropping quickly at 22:55 UTC, the rollback failed in one of our data centers, leading to a longer recovery time. At this point, many failed requests succeeded upon retrying. This failure was due to an unrelated issue that had occurred earlier in the day where the datastore for our configuration service was polluted in a way that required manual intervention. The bad data in the configuration service caused the rollback in this one datacenter to fail. A manual removal of the incorrect data allowed the full rollback to complete at 00:48 UTC thereby restoring full access to services. We understand how the corrupt data was deployed and continue to investigate why the specific data caused the subsequent deployments to fail.<br /><br />We are working on various measures to ensure safety of this kind of configuration change, faster detection of the problem via better monitoring of the related subsystems, and improvements to the robustness of our underlying configuration system including prevention and automatic cleanup of polluted records such that we can automatically recover from this kind of data issue in the future.<br />",
           "incident_id": "fr6fgvdn41sw",
           "created_at": "2024-03-12T01:00:51.435Z",
-          "updated_at": "2024-03-12T01:00:51.435Z",
+          "updated_at": "2024-03-12T22:57:57.242Z",
           "display_at": "2024-03-12T01:00:51.435Z",
           "affected_components": [
             {
