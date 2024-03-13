@@ -4,15 +4,15 @@
     "name": "Intercom",
     "url": "https://www.intercomstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-03-13T18:02:15.093Z"
+    "updated_at": "2024-03-13T18:18:45.125Z"
   },
   "incidents": [
     {
       "id": "2wr5j638gr6z",
       "name": "Elevated Error Rate and Latencies on Intercom Web App",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-03-13T17:16:02.546Z",
-      "updated_at": "2024-03-13T18:02:15.086Z",
+      "updated_at": "2024-03-13T18:18:45.119Z",
       "monitoring_at": null,
       "resolved_at": "2024-03-13T17:23:41.371Z",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2024-03-13T17:16:02.541Z",
       "page_id": "1m1j8k4rtldg",
       "incident_updates": [
+        {
+          "id": "zr8681z9jxsm",
+          "status": "postmortem",
+          "body": "**Root Cause Analysis:** Intercom down for 25% of workspaces\n\n‌\n\nBrian Scanlan, Senior Principal Engineer, 13th March 2024\n\n# Issue Summary\n\nThe primary datastore of the Intercom Ruby on Rails application is MySQL. In the USA hosting region, where the vast majority of Intercom workspaces are hosted, we run 13 distinct AWS RDS Aurora MySQL clusters, and the databases hosted on these clusters are sharded using a mix of functional and on a per-customer workspace basis. Five of these clusters contain databases sharded on a per-workspace basis, and contain many of our largest tables. Each of these clusters have many thousands of individual databases as a result.\n\n‌\n\nOn March 13th 28th 2024 at 17:01 UTC, one of the MySQL clusters used for the sharded databases \\(\"Shard D\"\\) experienced a significant deterioration in the throughput and performance of writes being made to the database. Around 25% of Intercom workspaces are located on this cluster, and affected customers experienced high latencies and errors when using Intercom.  Our full incident process was initiated at 17:06 UTC. The errors persisted until 17:13:45 UTC when we initiated a failover of the primary node of the cluster. By 17:22 UTC the system was performing normally and Intercom was working normally.\n\n‌\n\nThe cause of the degradation is related to the [incident that affected Intercom on February 22nd 2024](https://www.intercomstatus.com/incidents/15h532sk1ytv). As a result of this event, we are running a large number of column data type change migrations on our databases. These are generally precautionary and Intercom's systems are not at immediate risk of further downtime, however they are important to complete in order to avoid any chance of recurrence of that incident. Running migrations on our MySQL databases is a near-constant state for Intercom, and we over time have built many layers to protect our production traffic while these expensive operations are occurring on our databases. However we have now had two similar incidents on different sharded clusters during these migrations \\(see [https://www.intercomstatus.com/incidents/x3sq0ggjqzkv](https://www.intercomstatus.com/incidents/x3sq0ggjqzkv) \\) and will continue investigating the lockup we’ve now seen twice. We will also look at detecting the lockup and failing the cluster over automatically, as in both cases we have needed a person to initiate a failover to get recovery of the system.\n\n# Actions\n\n1. Failover AWS RDS Aurora MySQL cluster primary node to be the largest instance type available \\(done\\)\n2. Open a support case with AWS.\n3. Investigate automating the detection of this specific lockup and failing over the MySQL cluster.\n4. Continue work to replace AWS RDS Aurora MySQL based architecture with a [Vitess](https://vitess.io/) based system - fundamentally addressing the limitations of our current MySQL sharding setup.",
+          "incident_id": "2wr5j638gr6z",
+          "created_at": "2024-03-13T17:58:56.687Z",
+          "updated_at": "2024-03-13T18:18:45.116Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our March 13th incident: https://stspg.io/nfdmqm0h23fw",
+          "tweet_id": null
+        },
         {
           "id": "2dq64x2y7t4m",
           "status": "resolved",
