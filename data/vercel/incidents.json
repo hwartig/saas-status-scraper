@@ -4,9 +4,83 @@
     "name": "Vercel",
     "url": "https://www.vercel-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-03-19T08:48:54.635Z"
+    "updated_at": "2024-03-19T18:59:41.989Z"
   },
   "incidents": [
+    {
+      "id": "p77z6nn8m2tb",
+      "name": "DNS Record and Wildcard Cert Issue Delays",
+      "status": "identified",
+      "created_at": "2024-03-19T18:58:58.570Z",
+      "updated_at": "2024-03-19T18:58:58.641Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/940g780qs36j",
+      "started_at": "2024-03-19T18:58:58.565Z",
+      "page_id": "lvglq8h0mdyh",
+      "incident_updates": [
+        {
+          "id": "c70dfrm1xsj1",
+          "status": "identified",
+          "body": "Our upstream provider is experiencing issues which impacts the following operations:\n- Delay in issuing wildcard certificates\n- Delay in DNS record changes (existing records are fine)",
+          "incident_id": "p77z6nn8m2tb",
+          "created_at": "2024-03-19T18:58:58.639Z",
+          "updated_at": "2024-03-19T18:58:58.639Z",
+          "display_at": "2024-03-19T18:58:58.639Z",
+          "affected_components": [
+            {
+              "code": "4byczsw70cgb",
+              "name": "DNS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "bc3cl3q4jn9m",
+              "name": "SSL Certificates",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "4byczsw70cgb",
+          "name": "DNS",
+          "status": "degraded_performance",
+          "created_at": "2020-04-21T16:09:02.544Z",
+          "updated_at": "2024-03-19T18:58:58.595Z",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "bc3cl3q4jn9m",
+          "name": "SSL Certificates",
+          "status": "degraded_performance",
+          "created_at": "2023-10-19T10:04:16.051Z",
+          "updated_at": "2024-03-19T18:58:58.606Z",
+          "position": 20,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-10-19",
+          "group_id": null,
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "3ynqlcn5s4jp",
       "name": "Delayed log drains for traffic from `cpt1` region",
@@ -6183,9 +6257,9 @@
         {
           "id": "4byczsw70cgb",
           "name": "DNS",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-04-21T16:09:02.544Z",
-          "updated_at": "2023-11-08T17:30:10.160Z",
+          "updated_at": "2024-03-19T18:58:58.595Z",
           "position": 7,
           "description": null,
           "showcase": false,
@@ -6829,179 +6903,6 @@
           "showcase": false,
           "start_date": "2023-04-06",
           "group_id": "0vb8zskdvjkm",
-          "page_id": "lvglq8h0mdyh",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "hwp9kvs86fxt",
-      "name": "Elevated EDGE_FUNCTION_INVOCATION_TIMEOUT Errors",
-      "status": "resolved",
-      "created_at": "2023-11-01T10:21:07.000Z",
-      "updated_at": "2023-11-03T04:37:03.959Z",
-      "monitoring_at": "2023-11-02T16:00:22.660Z",
-      "resolved_at": "2023-11-03T04:37:03.946Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/4y73z8b6gbd1",
-      "started_at": "2023-11-01T10:21:07.000Z",
-      "page_id": "lvglq8h0mdyh",
-      "incident_updates": [
-        {
-          "id": "9f2w1cj70zt8",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "hwp9kvs86fxt",
-          "created_at": "2023-11-03T04:37:03.946Z",
-          "updated_at": "2023-11-03T04:37:03.946Z",
-          "display_at": "2023-11-03T04:37:03.946Z",
-          "affected_components": [
-            {
-              "code": "pdnc30nkdqth",
-              "name": "Edge Functions",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nxl3kr1rqpry",
-          "status": "monitoring",
-          "body": "Our upstream provider is rolling out a fix. We are continuing to monitor the results",
-          "incident_id": "hwp9kvs86fxt",
-          "created_at": "2023-11-02T18:58:03.952Z",
-          "updated_at": "2023-11-02T18:58:03.952Z",
-          "display_at": "2023-11-02T18:58:03.952Z",
-          "affected_components": [
-            {
-              "code": "pdnc30nkdqth",
-              "name": "Edge Functions",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "lbnswyqwyrhv",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "hwp9kvs86fxt",
-          "created_at": "2023-11-02T16:00:22.660Z",
-          "updated_at": "2023-11-02T16:00:22.660Z",
-          "display_at": "2023-11-02T16:00:22.660Z",
-          "affected_components": [
-            {
-              "code": "pdnc30nkdqth",
-              "name": "Edge Functions",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4gyzyqxk2l4m",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "hwp9kvs86fxt",
-          "created_at": "2023-11-01T21:53:28.823Z",
-          "updated_at": "2023-11-01T21:53:28.823Z",
-          "display_at": "2023-11-01T21:53:28.823Z",
-          "affected_components": [
-            {
-              "code": "pdnc30nkdqth",
-              "name": "Edge Functions",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3nz92yn93mkv",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "hwp9kvs86fxt",
-          "created_at": "2023-11-01T16:07:34.329Z",
-          "updated_at": "2023-11-01T16:07:34.329Z",
-          "display_at": "2023-11-01T16:07:34.329Z",
-          "affected_components": [
-            {
-              "code": "pdnc30nkdqth",
-              "name": "Edge Functions",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xxxbz7qy3744",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "hwp9kvs86fxt",
-          "created_at": "2023-11-01T12:25:08.176Z",
-          "updated_at": "2023-11-01T12:25:08.176Z",
-          "display_at": "2023-11-01T12:25:08.176Z",
-          "affected_components": [
-            {
-              "code": "pdnc30nkdqth",
-              "name": "Edge Functions",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "290nqydh79h5",
-          "status": "investigating",
-          "body": "We are currently investigating elevated EDGE_FUNCTION_INVOCATION_TIMEOUT errors. We are working with our upstream provider to resolve this. We will provide updates as soon as they become available.",
-          "incident_id": "hwp9kvs86fxt",
-          "created_at": "2023-11-01T10:21:07.201Z",
-          "updated_at": "2023-11-01T12:42:00.006Z",
-          "display_at": "2023-11-01T10:21:07.000Z",
-          "affected_components": [
-            {
-              "code": "pdnc30nkdqth",
-              "name": "Edge Functions",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "pdnc30nkdqth",
-          "name": "Edge Functions",
-          "status": "operational",
-          "created_at": "2023-02-17T10:28:47.618Z",
-          "updated_at": "2023-12-12T05:02:36.984Z",
-          "position": 9,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-17",
-          "group_id": null,
           "page_id": "lvglq8h0mdyh",
           "group": false,
           "only_show_if_degraded": false

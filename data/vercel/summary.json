@@ -4,7 +4,7 @@
     "name": "Vercel",
     "url": "https://www.vercel-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-03-19T08:48:54.635Z"
+    "updated_at": "2024-03-19T18:59:41.989Z"
   },
   "components": [
     {
@@ -368,9 +368,9 @@
     {
       "id": "4byczsw70cgb",
       "name": "DNS",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-04-21T16:09:02.544Z",
-      "updated_at": "2023-11-08T17:30:10.160Z",
+      "updated_at": "2024-03-19T18:58:58.595Z",
       "position": 7,
       "description": null,
       "showcase": false,
@@ -814,9 +814,9 @@
     {
       "id": "bc3cl3q4jn9m",
       "name": "SSL Certificates",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-10-19T10:04:16.051Z",
-      "updated_at": "2023-12-18T11:34:13.133Z",
+      "updated_at": "2024-03-19T18:58:58.606Z",
       "position": 20,
       "description": null,
       "showcase": false,
@@ -863,10 +863,85 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "p77z6nn8m2tb",
+      "name": "DNS Record and Wildcard Cert Issue Delays",
+      "status": "identified",
+      "created_at": "2024-03-19T18:58:58.570Z",
+      "updated_at": "2024-03-19T18:58:58.641Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/940g780qs36j",
+      "started_at": "2024-03-19T18:58:58.565Z",
+      "page_id": "lvglq8h0mdyh",
+      "incident_updates": [
+        {
+          "id": "c70dfrm1xsj1",
+          "status": "identified",
+          "body": "Our upstream provider is experiencing issues which impacts the following operations:\n- Delay in issuing wildcard certificates\n- Delay in DNS record changes (existing records are fine)",
+          "incident_id": "p77z6nn8m2tb",
+          "created_at": "2024-03-19T18:58:58.639Z",
+          "updated_at": "2024-03-19T18:58:58.639Z",
+          "display_at": "2024-03-19T18:58:58.639Z",
+          "affected_components": [
+            {
+              "code": "4byczsw70cgb",
+              "name": "DNS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "bc3cl3q4jn9m",
+              "name": "SSL Certificates",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "4byczsw70cgb",
+          "name": "DNS",
+          "status": "degraded_performance",
+          "created_at": "2020-04-21T16:09:02.544Z",
+          "updated_at": "2024-03-19T18:58:58.595Z",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "bc3cl3q4jn9m",
+          "name": "SSL Certificates",
+          "status": "degraded_performance",
+          "created_at": "2023-10-19T10:04:16.051Z",
+          "updated_at": "2024-03-19T18:58:58.606Z",
+          "position": 20,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-10-19",
+          "group_id": null,
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
