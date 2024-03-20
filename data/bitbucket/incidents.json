@@ -4,15 +4,15 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-03-20T08:42:59.641Z"
+    "updated_at": "2024-03-20T18:55:05.929Z"
   },
   "incidents": [
     {
       "id": "d7hdq9bfg25l",
       "name": "Bitbucket Cloud service degradation",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-03-11T21:12:44.639Z",
-      "updated_at": "2024-03-11T21:56:34.908Z",
+      "updated_at": "2024-03-20T18:55:05.922Z",
       "monitoring_at": "2024-03-11T21:43:54.780Z",
       "resolved_at": "2024-03-11T21:56:34.451Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2024-03-11T21:12:44.634Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "bzrm44ypv8nq",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn March 11, 2024, between 20:29 UTC and 21:41 UTC, Atlassian customers using Bitbucket Cloud faced degradation to its website and APIs. This impact was caused by an issue with Bitbucket’s database, resulting in connection pools becoming saturated, increasing response times, and a ramp-up of requests timing out completely.\n\n### **IMPACT**\n\nCustomers who were impacted experienced increased latency when accessing the [bitbucket.org](http://bitbucket.org/) website and APIs during the duration of the incident. Git requests over HTTPS and SSH were also affected.\n\n### **ROOT CAUSE**\n\nThe incident was caused by a bug in the version of Amazon Aurora being used. With Bitbucket’s query patterns, if the vacuum process does not run frequently enough, discrepancies in Aurora’s visibility map can result in poor query planner performance.\n\nDue to this bug, the autovacuuming configuration on the database, which has been tuned to our specific workload previously, is no longer proving to be effective. While the appropriate tuning of autovacuuming is determined, we have implemented a process that will trigger a vacuum as soon as a discrepancy in the Aurora visibility map is detected. We are confident this will prevent a repeat incident while we determine an appropriate autovacuum threshold and cadence.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. We are prioritizing the following improvement actions to reduce recovery time, limit impact, and avoid repeating these types of incidents in the future:\n\n* Vacuuming immediately when a visibility map discrepancy is detected.\n* Appropriately tuning autovacuum settings to meet the requirements of our workload.\n* Upgrading our Aurora version as soon as the fix becomes available.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "d7hdq9bfg25l",
+          "created_at": "2024-03-20T18:54:02.499Z",
+          "updated_at": "2024-03-20T18:55:05.915Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our March 11th incident: https://stspg.io/83h94vqjlq11",
+          "tweet_id": null
+        },
         {
           "id": "79d470jkty42",
           "status": "resolved",
