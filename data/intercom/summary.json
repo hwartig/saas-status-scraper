@@ -4,7 +4,7 @@
     "name": "Intercom",
     "url": "https://www.intercomstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-03-20T08:12:45.933Z"
+    "updated_at": "2024-03-20T15:30:35.778Z"
   },
   "components": [
     {
@@ -25,7 +25,7 @@
     {
       "id": "0mw0pdgvs1l3",
       "name": "Intercom Messenger",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-03-15T01:13:39.283Z",
       "updated_at": "2017-03-15T01:14:33.690Z",
       "position": 1,
@@ -44,9 +44,9 @@
     {
       "id": "xzpq23q4ckcn",
       "name": "Web Messenger",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-03-15T01:13:39.307Z",
-      "updated_at": "2024-03-16T04:00:56.459Z",
+      "updated_at": "2024-03-20T15:30:35.731Z",
       "position": 1,
       "description": "The Intercom messenger for web applications",
       "showcase": true,
@@ -392,10 +392,64 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "kt4rrf6jjbrn",
+      "name": "Messenger errors and latencies",
+      "status": "identified",
+      "created_at": "2024-03-20T15:30:35.695Z",
+      "updated_at": "2024-03-20T15:30:35.775Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/7j155bbbm8sy",
+      "started_at": "2024-03-20T15:30:35.687Z",
+      "page_id": "1m1j8k4rtldg",
+      "incident_updates": [
+        {
+          "id": "2qklf1qbp20s",
+          "status": "identified",
+          "body": "Between 15:00 - 15:22 the Intercom messenger was experiencing high latencies and errors. We have mitigated the problem and are monitoring.",
+          "incident_id": "kt4rrf6jjbrn",
+          "created_at": "2024-03-20T15:30:35.773Z",
+          "updated_at": "2024-03-20T15:30:35.773Z",
+          "display_at": "2024-03-20T15:30:35.773Z",
+          "affected_components": [
+            {
+              "code": "xzpq23q4ckcn",
+              "name": "Intercom Messenger - Web Messenger",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "xzpq23q4ckcn",
+          "name": "Web Messenger",
+          "status": "degraded_performance",
+          "created_at": "2017-03-15T01:13:39.307Z",
+          "updated_at": "2024-03-20T15:30:35.731Z",
+          "position": 1,
+          "description": "The Intercom messenger for web applications",
+          "showcase": true,
+          "start_date": null,
+          "group_id": "0mw0pdgvs1l3",
+          "page_id": "1m1j8k4rtldg",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
