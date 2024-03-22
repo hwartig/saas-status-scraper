@@ -4,15 +4,15 @@
     "name": "Checkly",
     "url": "https://is.checkly.online",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-03-22T17:18:01.952Z"
+    "updated_at": "2024-03-22T17:31:59.545Z"
   },
   "incidents": [
     {
       "id": "nr5hwjznpvnn",
       "name": "Subset of browser checks failing",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-03-21T16:21:52.839Z",
-      "updated_at": "2024-03-21T17:50:27.906Z",
+      "updated_at": "2024-03-22T17:31:59.540Z",
       "monitoring_at": "2024-03-21T17:20:10.372Z",
       "resolved_at": "2024-03-21T17:50:27.491Z",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2024-03-21T16:21:52.833Z",
       "page_id": "nq8lf8mrmvw6",
       "incident_updates": [
+        {
+          "id": "tb2tltfbqzsk",
+          "status": "postmortem",
+          "body": "We are currently modernizing and improving our runner infrastructure. During the rollout of the new sandbox runner, we shipped a broken deployment.\n\n### Here is what happened:\n\n1. We shipped a broken deployment, which resulted in false positives in a subset of checks.\n2. Additionally, the rollback of the deployment failed, prolonging the incident.\n3. The lack of proper internal communication about the system's state and rollback led to confusion and a prolonged response even more.\n\n### The incident affected browser checks in two specific cases:\n\n1. When using Twilio in any runtime - due to `TWILIO_ACCOUNT_SID` environment variable being improperly escaped. Affected check runs failed with an error message: `accountSid must start with AC`\n2. Checks using `mocha` in runtimes 2022.02 and 2022.10 with Playwright. These checks failed with an error `Could not load reporter /checkly/functions/src/browser-check-common/src/mocha/reporter.js`: \n\n### Impact:\n\n* A total of 10 customers were affected.\n* A total of 120 browser check runs \\(0.5%\\) failed due to this incident.\n* A total of 66 different checks were affected.\n* The broken deployment was shipped at 15:30 and was rolled back at 16:10 UTC\n\nWe apologize for any problems this may have caused. **If you have any questions or concerns feel free to contact us via** [support@checklyhq.com](mailto:support@checklyhq.com)",
+          "incident_id": "nr5hwjznpvnn",
+          "created_at": "2024-03-22T17:28:29.389Z",
+          "updated_at": "2024-03-22T17:31:59.534Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our March 21st incident: https://stspg.io/bxf7ht4d5n1v",
+          "tweet_id": null
+        },
         {
           "id": "t435trzmw9x8",
           "status": "resolved",
