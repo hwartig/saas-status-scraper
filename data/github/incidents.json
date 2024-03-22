@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-03-22T08:17:16.832Z"
+    "updated_at": "2024-03-22T15:58:39.870Z"
   },
   "incidents": [
     {
@@ -12,7 +12,7 @@
       "name": "Incident with Actions and Pages",
       "status": "resolved",
       "created_at": "2024-03-15T20:07:45.726Z",
-      "updated_at": "2024-03-15T20:28:06.060Z",
+      "updated_at": "2024-03-22T15:58:39.860Z",
       "monitoring_at": null,
       "resolved_at": "2024-03-15T20:28:06.046Z",
       "impact": "minor",
@@ -23,10 +23,10 @@
         {
           "id": "rp7gpv4gc1hr",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "This incident has the same root cause as <a href=\"https://www.githubstatus.com/incidents/9ym5p2sg6w5v\">this incident.</a>. Please follow the link to view the incident summary.",
           "incident_id": "m07hfg0gly20",
           "created_at": "2024-03-15T20:28:06.046Z",
-          "updated_at": "2024-03-15T20:28:06.046Z",
+          "updated_at": "2024-03-22T15:58:39.855Z",
           "display_at": "2024-03-15T20:28:06.046Z",
           "affected_components": [
             {
@@ -158,7 +158,7 @@
       "name": "Incident with Codespaces and API Requests",
       "status": "resolved",
       "created_at": "2024-03-15T19:55:20.307Z",
-      "updated_at": "2024-03-15T20:24:44.574Z",
+      "updated_at": "2024-03-22T15:48:40.001Z",
       "monitoring_at": null,
       "resolved_at": "2024-03-15T20:24:44.561Z",
       "impact": "major",
@@ -169,10 +169,10 @@
         {
           "id": "z748vfx9c6hy",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "On March 15, 2024, between 19:42 UTC and 20:24 UTC several services were degraded due to a regression in calling the permissions system. <br /><br />New GitHub Codespaces could not be created, as were Codespaces sessions that required minting a new auth token.<br /><br />Actions saw delays and infrastructure failures due to the upstream dependency on fetching tokens for the repository for runs to successfully execute. <br /><br />GitHub Pages were affected due to the impact on Actions, resulting in 1266 page builds failing, which at the low point represented 33% of page builds failing. This resulted in page edits not being reflected on those impacted sites.<br /><br />We deployed an application update that included a newer version of our database query builder. The new version uses a newer MySQL syntax for upsert queries that is not supported by the database proxy service we use for some of our production-environment database clusters. This incompatibility impacted the permissions cluster specifically, causing requests that attempted such queries to fail.<br /><br />We responded by rolling back the deployment, restoring the previous query use, and thus mitigated the incident.<br /><br />We have identified and corrected a misconfiguration of the permissions cluster in our development and CI environments that will ensure queries utilize the proxy service to prevent future syntax additions causing issues in production.<br />",
           "incident_id": "9ym5p2sg6w5v",
           "created_at": "2024-03-15T20:24:44.561Z",
-          "updated_at": "2024-03-15T20:24:44.561Z",
+          "updated_at": "2024-03-22T15:48:39.996Z",
           "display_at": "2024-03-15T20:24:44.561Z",
           "affected_components": [
             {
