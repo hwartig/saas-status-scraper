@@ -4,15 +4,15 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-03-26T14:32:31.859Z"
+    "updated_at": "2024-03-26T14:48:45.017Z"
   },
   "incidents": [
     {
       "id": "q25jrf3xzyw2",
       "name": "Partial Outage on UK-1",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-03-26T12:07:20.283Z",
-      "updated_at": "2024-03-26T14:32:31.854Z",
+      "updated_at": "2024-03-26T14:48:45.014Z",
       "monitoring_at": "2024-03-26T12:36:12.135Z",
       "resolved_at": "2024-03-26T13:45:52.500Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2024-03-26T12:07:20.278Z",
       "page_id": "l2x5n4czt1ph",
       "incident_updates": [
+        {
+          "id": "ngntfhdb20c1",
+          "status": "postmortem",
+          "body": "## **What happened**\n\nA large increase in incoming connections to the uk-1.platform.sh region caused the gateways to become unresponsive. Availability of sites/environments in the region was impacted.\n\nThis incident did not affect Dedicated clusters.\n\n## **Customer Impact**\n\nSome sites in uk-1.platform.sh region were unavailable during the incident \\(starting at 11:43 UTC on 2024-03-26\\).\n\nMost affected sites have recovered within 25 minutes \\(by 12:07 UTC\\).\n\nThe remaining sites have recovered within 45 minutes \\(by 12:30 UTC\\).\n\n## **What was done to resolve the incident**\n\nWe have added extra gateway hosts to distribute the load and have blocked some malicious \\(DDOS\\) traffic to the region.",
+          "incident_id": "q25jrf3xzyw2",
+          "created_at": "2024-03-26T14:14:28.604Z",
+          "updated_at": "2024-03-26T14:48:45.011Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "52jp2cwzpv4h",
           "status": "resolved",
