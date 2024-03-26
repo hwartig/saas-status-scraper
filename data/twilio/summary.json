@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-03-26T06:19:53.250-07:00"
+    "updated_at": "2024-03-26T06:56:59.184-07:00"
   },
   "components": [
     {
@@ -965,9 +965,9 @@
     {
       "id": "42zx9w2kmtvf",
       "name": "SMS, Latin America",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:53:08.618-08:00",
-      "updated_at": "2024-03-25T23:00:29.425-07:00",
+      "updated_at": "2024-03-26T06:56:59.129-07:00",
       "position": 9,
       "description": null,
       "showcase": false,
@@ -1545,9 +1545,9 @@
     {
       "id": "2vs63pk0qq23",
       "name": "Conversations",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-10-18T15:30:00.580-07:00",
-      "updated_at": "2023-12-21T05:50:26.477-08:00",
+      "updated_at": "2024-03-26T06:43:57.447-07:00",
       "position": 16,
       "description": null,
       "showcase": false,
@@ -1760,11 +1760,64 @@
   ],
   "incidents": [
     {
+      "id": "sm65xhtj7kh4",
+      "name": "SMS Delivery Delays To Multiple Networks In Brazil via Short Codes and Registered Sender ID",
+      "status": "investigating",
+      "created_at": "2024-03-26T06:56:59.098-07:00",
+      "updated_at": "2024-03-26T06:56:59.181-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/swrxr8fsry42",
+      "started_at": "2024-03-26T06:56:59.092-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "tsqxqpq7fp9b",
+          "status": "investigating",
+          "body": "We are experiencing SMS delivery delays to multiple networks in Brazil via short codes and resgistered Sender ID. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "sm65xhtj7kh4",
+          "created_at": "2024-03-26T06:56:59.179-07:00",
+          "updated_at": "2024-03-26T06:56:59.179-07:00",
+          "display_at": "2024-03-26T06:56:59.179-07:00",
+          "affected_components": [
+            {
+              "code": "42zx9w2kmtvf",
+              "name": "CARRIER NETWORK - SMS, Latin America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "42zx9w2kmtvf",
+          "name": "SMS, Latin America",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:53:08.618-08:00",
+          "updated_at": "2024-03-26T06:56:59.129-07:00",
+          "position": 9,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "mvzjwgly4h25",
       "name": "SMS Outgoing Traffic Impacted",
-      "status": "monitoring",
+      "status": "investigating",
       "created_at": "2024-03-26T05:17:33.903-07:00",
-      "updated_at": "2024-03-26T06:19:53.242-07:00",
+      "updated_at": "2024-03-26T06:49:38.338-07:00",
       "monitoring_at": "2024-03-26T06:14:00.360-07:00",
       "resolved_at": null,
       "impact": "major",
@@ -1772,6 +1825,76 @@
       "started_at": "2024-03-26T05:17:33.895-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "ybfpylkcx9gp",
+          "status": "investigating",
+          "body": "We are continuing our investigation and have discovered Conversations is affected by this issue.",
+          "incident_id": "mvzjwgly4h25",
+          "created_at": "2024-03-26T06:49:38.335-07:00",
+          "updated_at": "2024-03-26T06:49:38.335-07:00",
+          "display_at": "2024-03-26T06:49:38.335-07:00",
+          "affected_components": [
+            {
+              "code": "yvvy3vlp4djf",
+              "name": "PROGRAMMABLE MESSAGING - SMS",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "2vs63pk0qq23",
+              "name": "PROGRAMMABLE MESSAGING - Conversations",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "whldrk77jnm4",
+              "name": "ACCOUNT SECURITY - Verify",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "7ypw8tsmyr78",
+              "name": "FLEX - Flex Conversations",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "7yjftvs777r5",
+          "status": "monitoring",
+          "body": "We continue observing an improvement on SMS outgoing traffic. Our engineers are still monitoring the issue. We will provide another update in 2 hours or as soon as more information is available.",
+          "incident_id": "mvzjwgly4h25",
+          "created_at": "2024-03-26T06:42:40.679-07:00",
+          "updated_at": "2024-03-26T06:42:40.679-07:00",
+          "display_at": "2024-03-26T06:42:40.679-07:00",
+          "affected_components": [
+            {
+              "code": "yvvy3vlp4djf",
+              "name": "PROGRAMMABLE MESSAGING - SMS",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "whldrk77jnm4",
+              "name": "ACCOUNT SECURITY - Verify",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "7ypw8tsmyr78",
+              "name": "FLEX - Flex Conversations",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "mnz9yhxydjd8",
           "status": "monitoring",
@@ -1903,6 +2026,21 @@
           "created_at": "2016-04-07T15:15:38.816-07:00",
           "updated_at": "2024-03-26T05:17:33.936-07:00",
           "position": 12,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s2k3h0mkqnth",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "2vs63pk0qq23",
+          "name": "Conversations",
+          "status": "degraded_performance",
+          "created_at": "2019-10-18T15:30:00.580-07:00",
+          "updated_at": "2024-03-26T06:43:57.447-07:00",
+          "position": 16,
           "description": null,
           "showcase": false,
           "start_date": null,
