@@ -4,9 +4,39 @@
     "name": "Jira Software",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-04-03T08:26:11.755Z"
+    "updated_at": "2024-04-03T09:51:10.901Z"
   },
   "incidents": [
+    {
+      "id": "mpbnwmwrz664",
+      "name": "Admin Portal Feature Access Issue",
+      "status": "identified",
+      "created_at": "2024-04-03T09:51:10.856Z",
+      "updated_at": "2024-04-03T09:51:10.898Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/3x4yr7x1hthp",
+      "started_at": "2024-04-03T09:51:10.849Z",
+      "page_id": "7yh3h3y0c0x1",
+      "incident_updates": [
+        {
+          "id": "6lpttjkdv5d7",
+          "status": "identified",
+          "body": "We are investigating an issue causing failures in accessing some features from the Admin Portal, which is impacting some of our Cloud customers. We have identified the root cause and anticipate recovery shortly.",
+          "incident_id": "mpbnwmwrz664",
+          "created_at": "2024-04-03T09:51:10.895Z",
+          "updated_at": "2024-04-03T09:51:10.895Z",
+          "display_at": "2024-04-03T09:51:10.895Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "tnr6lsd1x3ll",
       "name": "Incoming email is not working due to cipher mismatch",
@@ -5420,361 +5450,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "lymlz2lg0ys7",
-      "name": "Degraded performance in Cloud",
-      "status": "postmortem",
-      "created_at": "2023-09-19T02:53:20.738Z",
-      "updated_at": "2023-10-06T05:15:04.475Z",
-      "monitoring_at": "2023-09-19T04:56:32.023Z",
-      "resolved_at": "2023-09-19T07:23:36.905Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/8w8vl6gvh69h",
-      "started_at": "2023-09-19T02:53:20.726Z",
-      "page_id": "7yh3h3y0c0x1",
-      "incident_updates": [
-        {
-          "id": "vypd5gmdgwmp",
-          "status": "postmortem",
-          "body": "### **SUMMARY**\n\nBetween September 18 2023 5:47 PM UTC and September 19 2023 04:15 AM UTC, customers using Confluence Cloud, Jira Software, Jira Service Management, Jira Work Management, Jira Product Discovery and Trello products with services hosted in the AWS us-east-1 and us-west-2 region experienced slow performance and/or page load failures as a result of an AWS issue that began on September 18 2023, 4:00 PM UTC.\n\nThis was triggered by an underlying networking fault in our cloud provider AWS, which affected multiple AWS services in their us-west-2 and us-east-1 regions, used by Atlassian. The incident was detected within one minute by our monitoring systems. Recovery of affected Atlassian services occurred on a product-by-product basis with full recovery for all products completed by September 19 2023 04:15 AM UTC.\n\n‌\n\n### **IMPACT**\n\nProduct impact varied based on which regions and availability zones services are using, with services hosted in us-west-2 being affected more than services hosted in us-east-1.  \n\nProduct-specific impacts are listed below:\n\n* **Jira Software -** A number of Jira nodes were affected with highly elevated error rates due to Jira databases in us-east-1 and us-west-2 being impacted.  The impact was varied with some Jira nodes being unusable whilst others were in a usable but degraded state.\n* **Jira Service Management -** Some users hosted in us-east-1 and us-west-2 experienced problems when creating issues through the Help Center, viewing issues, transitioning issues, posting comments and using queues\n* **Jira Work Management -** Users based in us-west-2 experienced minor service degradation.\n* **Jira Product Discovery -** Users experienced some issues when loading insights.\n* **Confluence Cloud -** Impact was limited to customers hosted in the us-west-2 region. During this time, users attempting to load confluence pages experienced sporadic product degradation, including brief periods where Confluence was inaccessible, complete and partial page load failures, page timeouts, increased request latency.\n* **Trello -** Users had minimal service degradation - only 0.1% of Trello users had automation rules impacted.\n\n### **ROOT CAUSE**\n\nThe root cause was an issue with subsystem responsible for network mapping propagation within the Amazon Virtual Private Cloud in the us-east-1 \\(use1-az1\\) and us-west-2 \\(usw2-az1 and usw2-az2\\) regions, which impacted network connectivity for multiple AWS services which Atlassian products rely upon.\n\nThere was a delay between the AWS incident and Atlassian being affected as existing compute instances and resources were not affected by the issue. However any changes to networking state - such as scaling-up with additional compute nodes - experienced delays in the propagation of network mappings. This led to network connectivity issues until these network mappings had been fully propagated. Other AWS services that create or modify networking resources also saw impact as a result of this issue.\n\nThere were no relevant Atlassian-driven events in the lead-up that have been identified to cause or contribute to this incident.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nTo avoid repeating this type of incident, we are prioritizing documenting and evaluating ways to improve Availability Zone failure resiliency.\n\nThanks,\n\nAtlassian Customer Support",
-          "incident_id": "lymlz2lg0ys7",
-          "created_at": "2023-10-06T05:14:43.776Z",
-          "updated_at": "2023-10-06T05:15:04.472Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "8s8nkh3f2012",
-          "status": "resolved",
-          "body": "Between 09/18 10:47 UTC to 09/19 04:15 UTC, we experienced degraded performance for some Confluence, Jira Work Management, Jira Service Management, Jira Software, Trello, Atlassian Access, and Jira Product Discovery customers. The issue has been resolved and the service is operating normally.",
-          "incident_id": "lymlz2lg0ys7",
-          "created_at": "2023-09-19T07:23:36.905Z",
-          "updated_at": "2023-09-19T07:23:36.905Z",
-          "display_at": "2023-09-19T07:23:36.905Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "56xjf3tl2njt",
-          "status": "monitoring",
-          "body": "Services are confirmed to be stable. We are performing final validation checks before confirming the incident's resolution.",
-          "incident_id": "lymlz2lg0ys7",
-          "created_at": "2023-09-19T05:45:41.826Z",
-          "updated_at": "2023-09-19T05:45:41.826Z",
-          "display_at": "2023-09-19T05:45:41.826Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "csc39p2nhmsq",
-          "status": "monitoring",
-          "body": "We have identified the root cause of the downgraded performance and have mitigated the problem. We are monitoring this closely.",
-          "incident_id": "lymlz2lg0ys7",
-          "created_at": "2023-09-19T04:56:32.023Z",
-          "updated_at": "2023-09-19T04:56:32.023Z",
-          "display_at": "2023-09-19T04:56:32.023Z",
-          "affected_components": [
-            {
-              "code": "b01bgtvb4q2j",
-              "name": "Create and edit",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "sv1xfn9br170",
-              "name": "Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "yzll2534txvb",
-              "name": "Notifications",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "sftzwrxsjrry",
-              "name": "Administration",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "50wvm3nm8nd3",
-              "name": "Marketplace",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "39kyw28g27ws",
-              "name": "Mobile",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "y76gc542s6nd",
-              "name": "Authentication and User Management",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "fgq39r8cz7mj",
-              "name": "Signup",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "9hyf9lm0fswd",
-              "name": "Automation for Jira",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "t6nlpcdwhw9w",
-          "status": "investigating",
-          "body": "We are investigating cases of degraded performance for some Confluence, Jira Work Management, Jira Service Management, Jira Software, Trello, and Jira Product Discovery Cloud customers. We will provide more details within the next hour.",
-          "incident_id": "lymlz2lg0ys7",
-          "created_at": "2023-09-19T02:53:20.922Z",
-          "updated_at": "2023-09-19T02:53:20.922Z",
-          "display_at": "2023-09-19T02:53:20.922Z",
-          "affected_components": [
-            {
-              "code": "b01bgtvb4q2j",
-              "name": "Create and edit",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "sv1xfn9br170",
-              "name": "Search",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "yzll2534txvb",
-              "name": "Notifications",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "sftzwrxsjrry",
-              "name": "Administration",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "50wvm3nm8nd3",
-              "name": "Marketplace",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "39kyw28g27ws",
-              "name": "Mobile",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "y76gc542s6nd",
-              "name": "Authentication and User Management",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "fgq39r8cz7mj",
-              "name": "Signup",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "9hyf9lm0fswd",
-              "name": "Automation for Jira",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "jmgfbtr0k28j",
-          "name": "Viewing content",
-          "status": "operational",
-          "created_at": "2019-01-22T20:42:24.651Z",
-          "updated_at": "2024-03-07T14:24:11.177Z",
-          "position": 1,
-          "description": "Problems viewing issues, dashboards, boards, reports, etc.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "b01bgtvb4q2j",
-          "name": "Create and edit",
-          "status": "operational",
-          "created_at": "2019-01-07T07:49:50.950Z",
-          "updated_at": "2024-03-20T22:41:05.121Z",
-          "position": 2,
-          "description": "Problems creating or editing issues, projects, boards, reports, dashboards and the ability to comment, assign, and attach media.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "y76gc542s6nd",
-          "name": "Authentication and User Management",
-          "status": "operational",
-          "created_at": "2019-05-02T04:31:02.277Z",
-          "updated_at": "2024-02-21T04:57:17.168Z",
-          "position": 3,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "sv1xfn9br170",
-          "name": "Search",
-          "status": "operational",
-          "created_at": "2019-01-07T07:51:29.410Z",
-          "updated_at": "2023-10-18T16:06:23.064Z",
-          "position": 4,
-          "description": "Problems with JQL or quick search",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "yzll2534txvb",
-          "name": "Notifications",
-          "status": "operational",
-          "created_at": "2019-01-07T07:51:55.162Z",
-          "updated_at": "2023-11-22T09:24:11.751Z",
-          "position": 5,
-          "description": "Email and in-web-app notifications",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "sftzwrxsjrry",
-          "name": "Administration",
-          "status": "operational",
-          "created_at": "2019-01-07T07:52:42.745Z",
-          "updated_at": "2024-04-01T07:46:56.437Z",
-          "position": 6,
-          "description": "Site, project, and user administration",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "50wvm3nm8nd3",
-          "name": "Marketplace",
-          "status": "operational",
-          "created_at": "2019-01-07T07:53:34.665Z",
-          "updated_at": "2024-02-28T17:16:52.418Z",
-          "position": 7,
-          "description": "Installing and managing apps. For the status of Marketplace Developer tools, please visit status.developer.atlassian.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "39kyw28g27ws",
-          "name": "Mobile",
-          "status": "operational",
-          "created_at": "2019-01-07T07:53:59.871Z",
-          "updated_at": "2023-10-18T16:06:23.127Z",
-          "position": 8,
-          "description": "Covers any problems specific to native iOS or Android mobile apps.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "fgq39r8cz7mj",
-          "name": "Signup",
-          "status": "operational",
-          "created_at": "2020-10-09T20:37:16.295Z",
-          "updated_at": "2024-02-29T02:53:17.904Z",
-          "position": 10,
-          "description": null,
-          "showcase": false,
-          "start_date": "2020-10-09",
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "9hyf9lm0fswd",
-          "name": "Automation for Jira",
-          "status": "operational",
-          "created_at": "2020-12-23T01:40:32.378Z",
-          "updated_at": "2024-03-07T14:24:11.223Z",
-          "position": 11,
-          "description": null,
-          "showcase": false,
-          "start_date": "2020-12-23",
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
