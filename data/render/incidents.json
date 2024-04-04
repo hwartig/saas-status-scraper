@@ -4,9 +4,62 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-04-04T12:57:51.202Z"
+    "updated_at": "2024-04-04T17:52:47.223Z"
   },
   "incidents": [
+    {
+      "id": "v82t3y0vc5gx",
+      "name": "Issues with some static site rollbacks",
+      "status": "investigating",
+      "created_at": "2024-04-04T17:52:47.144Z",
+      "updated_at": "2024-04-04T17:52:47.220Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/8fr5ql187hgn",
+      "started_at": "2024-04-04T17:52:47.139Z",
+      "page_id": "tyfhm2rrt1tl",
+      "incident_updates": [
+        {
+          "id": "4zz6dfblmj3s",
+          "status": "investigating",
+          "body": "A small subset of static sites are currently unable to rollback to a previous deploy.",
+          "incident_id": "v82t3y0vc5gx",
+          "created_at": "2024-04-04T17:52:47.218Z",
+          "updated_at": "2024-04-04T17:52:47.218Z",
+          "display_at": "2024-04-04T17:52:47.218Z",
+          "affected_components": [
+            {
+              "code": "hnrs7hr1ty53",
+              "name": "Static Sites",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "hnrs7hr1ty53",
+          "name": "Static Sites",
+          "status": "degraded_performance",
+          "created_at": "2019-02-08T22:32:29.834Z",
+          "updated_at": "2024-04-04T17:52:47.175Z",
+          "position": 4,
+          "description": "Static sites hosted on our global anycast CDN.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "20dxvkl6yl4d",
       "name": "Degraded external connections to Redis with IP AllowList",
@@ -4487,9 +4540,9 @@
         {
           "id": "hnrs7hr1ty53",
           "name": "Static Sites",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-08T22:32:29.834Z",
-          "updated_at": "2024-03-26T20:55:13.375Z",
+          "updated_at": "2024-04-04T17:52:47.175Z",
           "position": 4,
           "description": "Static sites hosted on our global anycast CDN.",
           "showcase": true,
@@ -5046,9 +5099,9 @@
         {
           "id": "hnrs7hr1ty53",
           "name": "Static Sites",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-02-08T22:32:29.834Z",
-          "updated_at": "2024-03-26T20:55:13.375Z",
+          "updated_at": "2024-04-04T17:52:47.175Z",
           "position": 4,
           "description": "Static sites hosted on our global anycast CDN.",
           "showcase": true,
@@ -10171,49 +10224,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "62m9yz1rqdp2",
-      "name": "Large WebSocket messages reported to be failing",
-      "status": "postmortem",
-      "created_at": "2023-10-04T23:00:00.000Z",
-      "updated_at": "2023-10-20T22:18:23.658Z",
-      "monitoring_at": null,
-      "resolved_at": "2023-10-04T23:00:00.000Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/5rn7pz2n14qy",
-      "started_at": "2023-10-04T23:00:00.000Z",
-      "page_id": "tyfhm2rrt1tl",
-      "incident_updates": [
-        {
-          "id": "9m3f9gn7wh41",
-          "status": "postmortem",
-          "body": "# Summary\n\nRender uses Cloudflare Workers as an HTTP proxy layer, for managing caching and cached requests, for all customers. A deploy to our Cloudflare Workers introduced new behavior around WebSocket compression, that mixed compressed and uncompressed messages and caused WebSocket client errors. The regression in behavior was manually reported and then disabled.\n\n# Impact\n\nThe regression was active for 17 hours, enabled around 2023-10-04 18:46Z \\(11:46a PT\\) and disabled at 2023-10-05 12:06Z \\(05:06a PT\\). Several customers using large messages depended on this behavior and helped report and identify the issue.\n\n# Root Cause\n\nDuring a deploy to enable additional logging in the Cloudflare Workers, a new Cloudflare feature around WebSocket Compression was enabled and included in that deploy. Cloudflare Workers do offer flags to prevent new features from being enabled, but Render did not specifically block this feature from being enabled.\n\nWith the WebSocket Compression feature enabled, new WebSocket connections would attempt to use compression and mix compressed and uncompressed data. Messages over 1MB of data then resulted in WebSocket 1002 or 1009 errors on the client or server.\n\nOnce the Render support and engineering was aware of the regression, several production changes were reverted until the Cloudflare Workers deployment was identified as the cause. The previous Cloudflare Workers deployment was then rolled back.\n\n# Mitigations\n\n* Render has disabled the Cloudflare Workers feature around WebSocket Compression for the near-term\n* Render has added end to end regression testing around this WebSocket behavior with large messages\n* Render is creating an automated test suite, actively testing live WebSocket behavior",
-          "incident_id": "62m9yz1rqdp2",
-          "created_at": "2023-10-20T22:16:48.630Z",
-          "updated_at": "2023-10-20T22:18:23.655Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "305s34c6vfxq",
-          "status": "resolved",
-          "body": "Customers making large websocket requests (>1Mib) may have received errors about the message being too large. The cause has been identified and reverted.\n\nCustomer impact was between 2023-10-04 1846UTC and 2023-10-05 1206UTC",
-          "incident_id": "62m9yz1rqdp2",
-          "created_at": "2023-10-05T12:57:28.557Z",
-          "updated_at": "2023-10-05T12:59:21.585Z",
-          "display_at": "2023-10-04T23:00:00.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
