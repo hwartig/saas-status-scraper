@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-04-12T18:28:26.116Z"
+    "updated_at": "2024-04-12T20:49:51.079Z"
   },
   "incidents": [
     {
@@ -773,7 +773,7 @@
       "name": "Incident with Issues and Pull Requests",
       "status": "resolved",
       "created_at": "2024-04-10T09:22:55.689Z",
-      "updated_at": "2024-04-10T09:38:36.815Z",
+      "updated_at": "2024-04-12T20:49:51.071Z",
       "monitoring_at": null,
       "resolved_at": "2024-04-10T09:38:36.789Z",
       "impact": "major",
@@ -784,10 +784,10 @@
         {
           "id": "ny4vffq31ddd",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "Between 8:18 and 9:38 UTC on Wednesday, April 10th, customers experienced increased error rates across several services due to an overloaded primary database instance, ultimately caused by an unbounded query. We mitigated the impact by failing the instance over to more capable hardware and shipping an improved version of the query that runs against read replicas. In response to this incident, we are also working to make performance improvements to the class of queries that most frequently resulted in failed requests during this timeframe.<br /><br />Web-based repository file editing saw a 17% failure rate during the incident with other repository management operations (e.g. rule updates, web-based branch creation, repository renames) seeing failure rates between 1.5% and 8%. API failure rates for these operations were higher.<br /><br />Issue and Pull Request authoring was heavily impacted during this incident due to reliance on the impacted database primary. We are continuing work to remove our dependence on this particular primary instance from our authoring workflows for these services.<br /><br />GitHub search saw a 5% failure rate throughout this incident due to reliance on the impacted primary database when authorizing repository access. The majority of failing requests were for search bar autocomplete with a limited number of search result failures as well.",
           "incident_id": "k7bc8pkxpmbp",
           "created_at": "2024-04-10T09:38:36.789Z",
-          "updated_at": "2024-04-10T09:38:36.789Z",
+          "updated_at": "2024-04-12T20:49:51.068Z",
           "display_at": "2024-04-10T09:38:36.789Z",
           "affected_components": [
             {
