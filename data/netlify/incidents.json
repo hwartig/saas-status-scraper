@@ -4,9 +4,39 @@
     "name": "Netlify",
     "url": "https://www.netlifystatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-04-13T02:47:57.120Z"
+    "updated_at": "2024-04-13T05:57:25.230Z"
   },
   "incidents": [
+    {
+      "id": "svy8d0dhg7ky",
+      "name": "Increased latency across the CDN",
+      "status": "resolved",
+      "created_at": "2024-04-13T05:04:00.000Z",
+      "updated_at": "2024-04-13T05:57:25.229Z",
+      "monitoring_at": null,
+      "resolved_at": "2024-04-13T05:04:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/mm6qh21xxrzc",
+      "started_at": "2024-04-13T05:57:25.192Z",
+      "page_id": "83dz7syz0j3x",
+      "incident_updates": [
+        {
+          "id": "dq3hrfvf1xcf",
+          "status": "resolved",
+          "body": "From 5:04 AM UTC to 5:52 AM UTC, we saw an increase in latency for uncached content on both, the Standard Edge and the High Performance Edge Network. This issue should now be resolved.",
+          "incident_id": "svy8d0dhg7ky",
+          "created_at": "2024-04-13T05:57:25.223Z",
+          "updated_at": "2024-04-13T05:57:25.223Z",
+          "display_at": "2024-04-13T05:04:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "rc86bpf5kj2y",
       "name": "Increased edge function errors for Standard Edge Network",
@@ -3886,268 +3916,6 @@
           "description": "The system that builds your source code into websites (for git-backed deployments)",
           "showcase": false,
           "start_date": null,
-          "group_id": null,
-          "page_id": "83dz7syz0j3x",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "kx634qxqpb4g",
-      "name": "HTTP 500 errors",
-      "status": "resolved",
-      "created_at": "2023-06-13T19:04:14.319Z",
-      "updated_at": "2023-06-13T20:56:34.640Z",
-      "monitoring_at": "2023-06-13T20:45:21.930Z",
-      "resolved_at": "2023-06-13T20:56:33.745Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/wsd0fvtkvh6g",
-      "started_at": "2023-06-13T19:04:14.313Z",
-      "page_id": "83dz7syz0j3x",
-      "incident_updates": [
-        {
-          "id": "hdzzk7zfg4fg",
-          "status": "resolved",
-          "body": "We've seen full recovery in Lambda functions and AWS reports recovery as well. Our team will continue to monitor but expects no further impact.  Note that in earlier updates on our status page, we had marked our Standard and High-Performance Edge services as impacted in addition to our administrative UI and Lambda Functions.  However, upon review, those services were fully functional for the duration of this outage.",
-          "incident_id": "kx634qxqpb4g",
-          "created_at": "2023-06-13T20:56:33.745Z",
-          "updated_at": "2023-06-13T20:56:34.633Z",
-          "display_at": "2023-06-13T20:56:33.745Z",
-          "affected_components": [
-            {
-              "code": "l65dl1552383",
-              "name": "Standard Edge Network",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "8cw12qpb2n72",
-              "name": "High-Performance Edge Network",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "y7hq47ts327k",
-              "name": "Netlify Application UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "slkrr5915mm4",
-              "name": "Netlify Functions",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1668724062229762000
-        },
-        {
-          "id": "877j1cncr0pz",
-          "status": "monitoring",
-          "body": "We are seeing vast improvement in correct behavior of lambda functions, and AWS is reporting the same on their status page.  We'll continue to monitor as things develop.",
-          "incident_id": "kx634qxqpb4g",
-          "created_at": "2023-06-13T20:45:21.930Z",
-          "updated_at": "2023-06-13T20:45:22.591Z",
-          "display_at": "2023-06-13T20:45:21.930Z",
-          "affected_components": [
-            {
-              "code": "l65dl1552383",
-              "name": "Standard Edge Network",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "8cw12qpb2n72",
-              "name": "High-Performance Edge Network",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "y7hq47ts327k",
-              "name": "Netlify Application UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "slkrr5915mm4",
-              "name": "Netlify Functions",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1668721243556827100
-        },
-        {
-          "id": "k5y9l1v060b4",
-          "status": "identified",
-          "body": "We've largely repaired our administrative UI.  Some sites using lambda functions will still be impacted with HTTP 500 errors.",
-          "incident_id": "kx634qxqpb4g",
-          "created_at": "2023-06-13T19:49:02.552Z",
-          "updated_at": "2023-06-13T19:49:03.421Z",
-          "display_at": "2023-06-13T19:49:02.552Z",
-          "affected_components": [
-            {
-              "code": "l65dl1552383",
-              "name": "Standard Edge Network",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "8cw12qpb2n72",
-              "name": "High-Performance Edge Network",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "y7hq47ts327k",
-              "name": "Netlify Application UI",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "slkrr5915mm4",
-              "name": "Netlify Functions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1668707070164754400
-        },
-        {
-          "id": "2rhfbx5zqlqj",
-          "status": "identified",
-          "body": "We believe that the problems in site service are related to a failure in AWS to run lambda functions as mentioned at https://health.aws.amazon.com/health/status",
-          "incident_id": "kx634qxqpb4g",
-          "created_at": "2023-06-13T19:20:19.047Z",
-          "updated_at": "2023-06-13T19:20:19.458Z",
-          "display_at": "2023-06-13T19:20:19.047Z",
-          "affected_components": [
-            {
-              "code": "l65dl1552383",
-              "name": "Standard Edge Network",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "8cw12qpb2n72",
-              "name": "High-Performance Edge Network",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "y7hq47ts327k",
-              "name": "Netlify Application UI",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "slkrr5915mm4",
-              "name": "Netlify Functions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1668699839453098000
-        },
-        {
-          "id": "j47nngw57mrl",
-          "status": "investigating",
-          "body": "We are seeing HTTP 500 errors for some content on our HP Edge and Standard CDN's, mostly around function-backed content.  Our team is investigating.",
-          "incident_id": "kx634qxqpb4g",
-          "created_at": "2023-06-13T19:04:14.418Z",
-          "updated_at": "2023-06-13T19:04:15.037Z",
-          "display_at": "2023-06-13T19:04:14.418Z",
-          "affected_components": [
-            {
-              "code": "l65dl1552383",
-              "name": "Standard Edge Network",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "8cw12qpb2n72",
-              "name": "High-Performance Edge Network",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "slkrr5915mm4",
-              "name": "Netlify Functions",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1668695794374054000
-        }
-      ],
-      "components": [
-        {
-          "id": "8cw12qpb2n72",
-          "name": "High-Performance Edge Network",
-          "status": "operational",
-          "created_at": "2018-08-31T16:08:38.161Z",
-          "updated_at": "2024-04-09T12:04:46.007Z",
-          "position": 1,
-          "description": "The High-Performance Edge network is available for Enterprise customers to serve web content",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "83dz7syz0j3x",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "l65dl1552383",
-          "name": "Standard Edge Network",
-          "status": "operational",
-          "created_at": "2016-08-26T19:03:36.240Z",
-          "updated_at": "2024-01-03T18:08:46.092Z",
-          "position": 2,
-          "description": "The Standard Edge Network serves web pages for Starter, Pro, and Business accounts",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "83dz7syz0j3x",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "y7hq47ts327k",
-          "name": "Netlify Application UI",
-          "status": "operational",
-          "created_at": "2020-09-03T23:45:57.385Z",
-          "updated_at": "2023-11-15T22:54:41.191Z",
-          "position": 5,
-          "description": "The web UI for administering your sites at http://app.netlify.com",
-          "showcase": false,
-          "start_date": "2020-09-03",
-          "group_id": null,
-          "page_id": "83dz7syz0j3x",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "slkrr5915mm4",
-          "name": "Netlify Functions",
-          "status": "operational",
-          "created_at": "2020-12-03T18:50:03.807Z",
-          "updated_at": "2024-02-01T17:13:11.179Z",
-          "position": 10,
-          "description": "Serverless functions open a world of possibilities for running on-demand, server-side code without having to run a dedicated server.",
-          "showcase": false,
-          "start_date": "2020-12-03",
           "group_id": null,
           "page_id": "83dz7syz0j3x",
           "group": false,
