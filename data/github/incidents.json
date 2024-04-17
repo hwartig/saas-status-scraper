@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-04-17T15:41:49.328Z"
+    "updated_at": "2024-04-17T17:09:33.370Z"
   },
   "incidents": [
     {
@@ -244,7 +244,7 @@
       "name": "We are investigating reports of degraded performance.",
       "status": "resolved",
       "created_at": "2024-04-14T14:21:47.663Z",
-      "updated_at": "2024-04-14T21:53:52.836Z",
+      "updated_at": "2024-04-17T17:09:33.362Z",
       "monitoring_at": null,
       "resolved_at": "2024-04-14T21:53:52.824Z",
       "impact": "major",
@@ -255,10 +255,10 @@
         {
           "id": "bt3s4pzzfb5v",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "Beginning at 17:30 UTC on April 11th and lasting until 20:30 UTC on April 14th, github.com saw significant (up to 2 hours) delays in delivering emails. At 14:21 UTC on April 14th, community reports of this were confirmed and an incident declared. Emails most impacted by the delay were password reset and unrecognized device verification, which contain time-sensitive links or verification codes, and are required to be acted on in order for password resets or unrecognized logins to proceed. <br /><br />Users attempting to reset their password during the incident were unable to complete the reset. Users without two-factor authentication (2FA), signing in on an unrecognized device, were unable to complete device verification. Enterprise Managed Users, users with 2FA, and users on recognized devices or IP addresses were still able to sign in. This impacted 800-1000 user device verifications and 300-400 password resets. <br /><br />The mailer delays were caused by increased usage of a shared resource pool; a separate internal job queue became unhealthy and prevented the mailer queue from being worked on. <br /><br />We have made some immediate improvements to better detect and react to this type of situation again. As a short-term mitigation strategy, we have added a queue-bypass ability for  time-sensitive emails, like password reset and unrecognized device verification. We can enable this setting if we observe email delays reoccurring, which will ensure that future incidents do not affect user ability to complete critical login flows. We have paused the unhealthy job queue, to prevent impact to other queues using shared resources. And we have updated our methods of detection for anomalous email delivery, to identify this issue sooner.",
           "incident_id": "b6f4j9ljz9r6",
           "created_at": "2024-04-14T21:53:52.824Z",
-          "updated_at": "2024-04-14T21:53:52.824Z",
+          "updated_at": "2024-04-17T17:09:33.359Z",
           "display_at": "2024-04-14T21:53:52.824Z",
           "affected_components": null,
           "deliver_notifications": true,
