@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-04-29T13:18:32.538-07:00"
+    "updated_at": "2024-04-29T14:18:39.060-07:00"
   },
   "components": [
     {
@@ -1760,6 +1760,119 @@
   ],
   "incidents": [
     {
+      "id": "jxrxgtvmzqk2",
+      "name": "Change in How Super SIM Data Usage is Reported for Some Queries to the UsageRecords API",
+      "status": "investigating",
+      "created_at": "2024-04-25T12:07:35.961-07:00",
+      "updated_at": "2024-04-29T14:18:39.052-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/y64blc2bm0zr",
+      "started_at": "2024-04-25T14:12:27.000-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "1dbkw1vprkxf",
+          "status": "investigating",
+          "body": "Our engineering teams are continuing to discuss options for restoring the impacted functionality while maintaining stability in the underlying usage reporting services. We will provide another update on Tuesday, 4/30. In the meantime, it is suggested that if possible, you consider modifying usage queries for periods over 24 hours to use timestamps that fall on UTC hour boundaries to ensure that you get accurate results in case this functionality cannot be restored.",
+          "incident_id": "jxrxgtvmzqk2",
+          "created_at": "2024-04-29T14:18:39.050-07:00",
+          "updated_at": "2024-04-29T14:18:39.050-07:00",
+          "display_at": "2024-04-29T14:18:39.050-07:00",
+          "affected_components": [
+            {
+              "code": "919qx43ks4dx",
+              "name": "INTERNET OF THINGS - Super SIM",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "z82qk8hk1479",
+          "status": "investigating",
+          "body": "Our engineering teams are continuing to discuss options for restoring the impacted functionality while maintaining stability in the underlying usage reporting services. We will provide another update on Monday, 4/29. In the meantime, it is suggested that if possible, you consider modifying usage queries for periods over 24 hours to use timestamps that fall on UTC hour boundaries to ensure that you get accurate results in case this functionality cannot be restored.\"",
+          "incident_id": "jxrxgtvmzqk2",
+          "created_at": "2024-04-26T14:18:49.220-07:00",
+          "updated_at": "2024-04-26T14:18:49.220-07:00",
+          "display_at": "2024-04-26T14:18:49.220-07:00",
+          "affected_components": [
+            {
+              "code": "919qx43ks4dx",
+              "name": "INTERNET OF THINGS - Super SIM",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "h522bh940dzh",
+          "status": "investigating",
+          "body": "Beginning ~18:48 UTC today, when querying data usage for an individual SIM for a range greater than 1 day, instead of returning exact results for that range, data for the entirety of the first and last UTC hour are being included in the results. This can result in the amount being reported being higher than expected. For example, if you query usage for a single SIM from 2024-04-24 12:10 UTC - 2024-04-25 14:30 UTC you will get the same results as if you asked for 2024-04-24 12:00 -  2024-04-25 15:00 UTC. Queries with a range of 1 day (24 hours) or less for a SIM will still return results just for that range.\nThis behavior is different than the documented API behavior and what the API previously returned. Prior to 18:48 UTC, when querying data usage for a single SIM, you could provide start and end times that did not fall on a UTC hour and you would get partial hour results for the first and last hours. Now, usage for the entire first and last hour are being included, returning more usage than previously. Again, the results for periods of 24 hours or less continue to return correct, partial hour results.\nThis change was implemented due to unexpected performance issues with the underlying usage reporting system. We are investigating these issues to determine if we can restore this previous functionality. We will provide another update in 24 hours or as soon as more information becomes available.",
+          "incident_id": "jxrxgtvmzqk2",
+          "created_at": "2024-04-25T14:12:27.804-07:00",
+          "updated_at": "2024-04-25T14:29:12.823-07:00",
+          "display_at": "2024-04-25T14:12:27.000-07:00",
+          "affected_components": [
+            {
+              "code": "919qx43ks4dx",
+              "name": "INTERNET OF THINGS - Super SIM",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "5y5qn3w17j84",
+          "status": "investigating",
+          "body": "Our monitoring systems have detected a potential issue with Super Sim. Our engineering team has been alerted and is actively investigating. We will update as soon as we have more information.",
+          "incident_id": "jxrxgtvmzqk2",
+          "created_at": "2024-04-25T12:07:35.997-07:00",
+          "updated_at": "2024-04-25T12:07:35.997-07:00",
+          "display_at": "2024-04-25T12:07:35.997-07:00",
+          "affected_components": [
+            {
+              "code": "919qx43ks4dx",
+              "name": "INTERNET OF THINGS - Super SIM",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "919qx43ks4dx",
+          "name": "Super SIM",
+          "status": "operational",
+          "created_at": "2023-07-03T22:01:43.605-07:00",
+          "updated_at": "2024-04-18T13:06:05.932-07:00",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-07-03",
+          "group_id": "3pltylcdc1x6",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "1ymxv2jtwsj2",
       "name": "SMS Delivery Delays to Claro Network in Colombia Over a Subset of Short Codes",
       "status": "investigating",
@@ -2543,99 +2656,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "s2k3h0mkqnth",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "jxrxgtvmzqk2",
-      "name": "Change in How Super SIM Data Usage is Reported for Some Queries to the UsageRecords API",
-      "status": "investigating",
-      "created_at": "2024-04-25T12:07:35.961-07:00",
-      "updated_at": "2024-04-26T14:18:49.222-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/y64blc2bm0zr",
-      "started_at": "2024-04-25T14:12:27.000-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "z82qk8hk1479",
-          "status": "investigating",
-          "body": "Our engineering teams are continuing to discuss options for restoring the impacted functionality while maintaining stability in the underlying usage reporting services. We will provide another update on Monday, 4/29. In the meantime, it is suggested that if possible, you consider modifying usage queries for periods over 24 hours to use timestamps that fall on UTC hour boundaries to ensure that you get accurate results in case this functionality cannot be restored.\"",
-          "incident_id": "jxrxgtvmzqk2",
-          "created_at": "2024-04-26T14:18:49.220-07:00",
-          "updated_at": "2024-04-26T14:18:49.220-07:00",
-          "display_at": "2024-04-26T14:18:49.220-07:00",
-          "affected_components": [
-            {
-              "code": "919qx43ks4dx",
-              "name": "INTERNET OF THINGS - Super SIM",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "h522bh940dzh",
-          "status": "investigating",
-          "body": "Beginning ~18:48 UTC today, when querying data usage for an individual SIM for a range greater than 1 day, instead of returning exact results for that range, data for the entirety of the first and last UTC hour are being included in the results. This can result in the amount being reported being higher than expected. For example, if you query usage for a single SIM from 2024-04-24 12:10 UTC - 2024-04-25 14:30 UTC you will get the same results as if you asked for 2024-04-24 12:00 -  2024-04-25 15:00 UTC. Queries with a range of 1 day (24 hours) or less for a SIM will still return results just for that range.\nThis behavior is different than the documented API behavior and what the API previously returned. Prior to 18:48 UTC, when querying data usage for a single SIM, you could provide start and end times that did not fall on a UTC hour and you would get partial hour results for the first and last hours. Now, usage for the entire first and last hour are being included, returning more usage than previously. Again, the results for periods of 24 hours or less continue to return correct, partial hour results.\nThis change was implemented due to unexpected performance issues with the underlying usage reporting system. We are investigating these issues to determine if we can restore this previous functionality. We will provide another update in 24 hours or as soon as more information becomes available.",
-          "incident_id": "jxrxgtvmzqk2",
-          "created_at": "2024-04-25T14:12:27.804-07:00",
-          "updated_at": "2024-04-25T14:29:12.823-07:00",
-          "display_at": "2024-04-25T14:12:27.000-07:00",
-          "affected_components": [
-            {
-              "code": "919qx43ks4dx",
-              "name": "INTERNET OF THINGS - Super SIM",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5y5qn3w17j84",
-          "status": "investigating",
-          "body": "Our monitoring systems have detected a potential issue with Super Sim. Our engineering team has been alerted and is actively investigating. We will update as soon as we have more information.",
-          "incident_id": "jxrxgtvmzqk2",
-          "created_at": "2024-04-25T12:07:35.997-07:00",
-          "updated_at": "2024-04-25T12:07:35.997-07:00",
-          "display_at": "2024-04-25T12:07:35.997-07:00",
-          "affected_components": [
-            {
-              "code": "919qx43ks4dx",
-              "name": "INTERNET OF THINGS - Super SIM",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "919qx43ks4dx",
-          "name": "Super SIM",
-          "status": "operational",
-          "created_at": "2023-07-03T22:01:43.605-07:00",
-          "updated_at": "2024-04-18T13:06:05.932-07:00",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-07-03",
-          "group_id": "3pltylcdc1x6",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
