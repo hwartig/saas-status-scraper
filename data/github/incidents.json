@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-04-30T08:44:11.690Z"
+    "updated_at": "2024-04-30T11:36:11.484Z"
   },
   "incidents": [
     {
@@ -194,7 +194,7 @@
       "name": "Incident with Pull Requests, Git Operations, Actions, API Requests, Issues and Webhooks",
       "status": "resolved",
       "created_at": "2024-04-24T10:45:49.074Z",
-      "updated_at": "2024-04-24T16:16:34.649Z",
+      "updated_at": "2024-04-30T11:36:11.474Z",
       "monitoring_at": null,
       "resolved_at": "2024-04-24T16:16:34.627Z",
       "impact": "minor",
@@ -205,10 +205,10 @@
         {
           "id": "zp58z5pkfg6m",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "On April 24, 2024, between 10:26 and 16:30 UTC, the Pull Request page took longer than usual to enable a Pull Request to be merged. During the incident, the 75th percentile time to merge a pull request went from around 3 seconds to just over 6 minutes. We also saw slightly elevated error rates across the service, with an average error rate of 0.1%, peaking to 0.31% of requests. <br /><br />The underlying cause of the incident was a repeated problematic query that resulted in MySQL replicas crashing, which caused a back-up in the jobs that compute whether PRs can be merged.<br /><br />At 16:30 the incident self-mitigated when the volume of the problematic query decreased. Concurrent to this, we deployed a mitigation to remove the mergability polling code from the PR experience to alleviate pressure on MySQL servers. This mitigation caused the merge button to not automatically enable, but require a page refresh instead. At 17:40 we statused PRs again for this issue. We rolled back the mitigation to resolve the second incident at 18:20.<br /><br />Going forward, to improve mitigation we are investing in faster recovery from cascading read-replica crashes, improving query retry logic to more aggressively back off when read replicas are unhealthy, improving our ability to diagnose server crashes and trace them back to user activity, and making it easier to block problematic queries.<br /><br />To prevent recurrence, we are eliminating the query that caused the server to crash, improving our detection and mitigation of problematic queries, and investigating and remediating the underlying issues that caused MySQL to crash. We are also improving the merge button polling mechanism and mergeability background job to be resilient to this class of incident so customers can still merge PRs. <br />",
           "incident_id": "7txcg0j03kkg",
           "created_at": "2024-04-24T16:16:34.627Z",
-          "updated_at": "2024-04-24T16:16:34.627Z",
+          "updated_at": "2024-04-30T11:36:11.471Z",
           "display_at": "2024-04-24T16:16:34.627Z",
           "affected_components": [
             {
