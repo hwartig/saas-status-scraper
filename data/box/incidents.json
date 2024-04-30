@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-04-30T01:43:30.818-07:00"
+    "updated_at": "2024-04-30T14:10:20.709-07:00"
   },
   "incidents": [
     {
@@ -756,9 +756,9 @@
     {
       "id": "yq9q3k6qggz2",
       "name": "[Minor] Customers may have experienced issues using Public API",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-04-14T18:44:20.000-07:00",
-      "updated_at": "2024-04-14T18:45:38.609-07:00",
+      "updated_at": "2024-04-30T14:10:20.482-07:00",
       "monitoring_at": null,
       "resolved_at": "2024-04-14T18:44:20.000-07:00",
       "impact": "none",
@@ -766,6 +766,19 @@
       "started_at": "2024-04-14T18:44:20.000-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "b2vflj6ckbyd",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Box Public API. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 6:04 PM and 6:14 PM PST on April 14, 2024, some users may have experienced difficulties with Box Public APIs. During this time, some public API requests failed and there may have been a brief increase in latency. The issue occurred due to an unexpected spike in authentication requests and resolved as the traffic returned to normal. We are working on improvements to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis**\n\n‌\n\nAn unexpected spike in traffic to one of our authentication databases coupled with an inefficient query in our application caused a brief delay in data replication. The replication recovered automatically, resolving the impact. Our team has investigated this issue and will be making changes to optimize the inefficient query.\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Optimize database query by adding index\n* Avoid retrieving unnecessary metadata as part of authentication to improve performance and resilience\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "yq9q3k6qggz2",
+          "created_at": "2024-04-30T14:09:29.945-07:00",
+          "updated_at": "2024-04-30T14:10:20.475-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our April 14th incident: https://stspg.io/4xs2n3zypwpy",
+          "tweet_id": null
+        },
         {
           "id": "8z1zp8n7vp57",
           "status": "resolved",
@@ -811,7 +824,7 @@
       "name": "[Major] Issue Loading Some Box Notes",
       "status": "postmortem",
       "created_at": "2024-04-11T05:46:51.000-07:00",
-      "updated_at": "2024-04-23T07:01:58.164-07:00",
+      "updated_at": "2024-04-30T14:07:21.784-07:00",
       "monitoring_at": null,
       "resolved_at": "2024-04-11T05:56:23.571-07:00",
       "impact": "major",
@@ -822,10 +835,10 @@
         {
           "id": "42zjbbh74pr7",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn April 11, 2024 between 3:11 AM PT and 5:33 AM PT, some users may have experienced difficulties while working in Box. During this time, some users might have not been able to access Box Notes. The issue occurred as a result of a recent code change made as part of our ongoing effort to improve user experience and stability of our application. We were able to resolve the issue by releasing a missing configuration value. In addition, we are working to improve our safety and efficiency of our release process to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
+          "body": "Between 3:11 AM PT and 5:33 AM PT on April 11, 2024, some users may have experienced difficulties while working in Box. During this time, some users might have not been able to access Box Notes. The issue occurred as a result of a recent code change in our ongoing effort to improve user experience and stability of our application. We were able to resolve the issue by releasing a missing configuration value in production. In addition, we are working to improve our safety and efficiency of our release process to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\n‌\n\nThe code change responsible for the issue in object was caused by a missing configuration value in production settings. As a result, all instances of Notes using the new version image were unable to open and experienced downtime.\n\n‌\n\nDuring this incident, we identified certain gaps that contributed to this issue or resulted in longer-than-normal remediation, all of which we are working to address. First, this issue exposed a gap in our validation process for production configurations either before deployment or during server startup. Additionally, this issue did not trigger any alerts and was not visible through tracked metrics like SLO and UA graphs, which resulted in a lack of visibility of this issue. Finally, the deployment process for Notes servers does not allow for immediate rollbacks due to statefulset rollout taking approximately 45 minutes to complete, and our current incremental deployment process leaves us without a fully safe data center option as fallback.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Implementing production setting configuration safety improvements to reduce the likelihood of similar issues occurring again in the future.\n* Creating alerts on client-side JS errors to improve alerting and visibility of such issues.\n* Improving Notes incremental release safety to improve our deployment processes and facilitate more effective remediation of issues with deployments.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
           "incident_id": "26djgg4s8zs6",
           "created_at": "2024-04-23T06:59:22.897-07:00",
-          "updated_at": "2024-04-23T07:01:58.163-07:00",
+          "updated_at": "2024-04-30T14:07:21.781-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
