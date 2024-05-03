@@ -4,15 +4,15 @@
     "name": "Checkly",
     "url": "https://is.checkly.online",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-05-03T14:34:03.685Z"
+    "updated_at": "2024-05-03T17:52:56.677Z"
   },
   "incidents": [
     {
       "id": "blrnndpd2622",
       "name": "Check run infrastructure impaired",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-05-02T00:51:00.931Z",
-      "updated_at": "2024-05-02T09:58:46.361Z",
+      "updated_at": "2024-05-03T17:52:56.671Z",
       "monitoring_at": "2024-05-02T01:14:07.369Z",
       "resolved_at": "2024-05-02T05:42:21.000Z",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2024-05-02T05:42:21.000Z",
       "page_id": "nq8lf8mrmvw6",
       "incident_updates": [
+        {
+          "id": "vck3ls3366wm",
+          "status": "postmortem",
+          "body": "On May 1st, 11:15 pm UTC a buildup in memory usage in our check scheduling service started. It was caused by a user creating an extremely high number of client certificates for their checks. Over time, this caused the scheduler instances to crash until almost no checks could be scheduled from ~11 pm - 1 am UTC.\n\nAfter an initial investigation, the on-call engineer decided to declare an incident and scale up the scheduling service to handle the high memory consumption. \n\nThis partially restored service, but was not enough for full recovery. Memory usage was increasing very quickly and still causing crashes which caused some check runs to get lost. Check scheduling was still significantly impaired.\n\nAfter investigating using logs, metrics, and events stored in our data lake, we were able to identify an account with an extremely high number of client certificates. The check scheduling service executed a database query through an implicit model dependency for every check run job, which loaded all certificates into memory, leading to high memory consumption. \n\nThe incident was fully resolved when we enforced a hard limit of 10 certificates per account. The limit brought back the scheduling service' memory consumption to regular levels. After fixing the memory issues, we manually scaled up the platform to handle the build-up of queued check runs, and within ~30 minutes, the service returned to normal around 5:30 am UTC. \n\nHow we move forward:\n\n1. We have limited the amount of certificates users can create to 10 and the size to be max 50kb. Thereby preventing the same issue from happening a second time. \n2. We are adding tooling to investigate the heap usage of our NodeJS services so we can debug memory problems much faster if scaling up does not resolve them. Our current methods have proven insufficient under pressure in an incident situation. \n3. We are currently reviewing all APIs to make sure we have proper limits in place for other entities as well.",
+          "incident_id": "blrnndpd2622",
+          "created_at": "2024-05-03T17:43:06.678Z",
+          "updated_at": "2024-05-03T17:52:56.667Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our May 2nd incident: https://stspg.io/t9r4032bzgq5",
+          "tweet_id": null
+        },
         {
           "id": "hl6w4w1f2spz",
           "status": "resolved",
