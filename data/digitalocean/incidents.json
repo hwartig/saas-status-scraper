@@ -4,9 +4,62 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-05-04T08:25:39.636Z"
+    "updated_at": "2024-05-05T12:55:16.698Z"
   },
   "incidents": [
+    {
+      "id": "gkl208t787zz",
+      "name": "DNS Resolution in Multiple Regions",
+      "status": "investigating",
+      "created_at": "2024-05-05T12:55:16.572Z",
+      "updated_at": "2024-05-05T12:55:16.692Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/zwxgyzhhbsxv",
+      "started_at": "2024-05-05T12:55:16.565Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "n645t57y098s",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue with intermittent failures and increased latency in DNS resolution across multiple regions. \n\nDuring this time, users may experience issues with DNS resolution, or see errors returned when querying DNS records which are hosted on the DigitalOcean nameservers. Users may also experience DNS resolution issues while reaching out to their Managed Kubernetes Clusters. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "gkl208t787zz",
+          "created_at": "2024-05-05T12:55:16.689Z",
+          "updated_at": "2024-05-05T12:55:16.689Z",
+          "display_at": "2024-05-05T12:55:16.689Z",
+          "affected_components": [
+            {
+              "code": "qdnryq0lymfk",
+              "name": "DNS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "qdnryq0lymfk",
+          "name": "DNS",
+          "status": "degraded_performance",
+          "created_at": "2023-03-06T18:42:44.851Z",
+          "updated_at": "2024-05-05T12:55:16.617Z",
+          "position": 6,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "mysrzvnmxr3d",
       "name": "NYC2 Networking",
@@ -2031,9 +2084,9 @@
         {
           "id": "qdnryq0lymfk",
           "name": "DNS",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-03-06T18:42:44.851Z",
-          "updated_at": "2024-03-15T23:27:54.962Z",
+          "updated_at": "2024-05-05T12:55:16.617Z",
           "position": 6,
           "description": null,
           "showcase": false,
@@ -5801,9 +5854,9 @@
         {
           "id": "qdnryq0lymfk",
           "name": "DNS",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-03-06T18:42:44.851Z",
-          "updated_at": "2024-03-15T23:27:54.962Z",
+          "updated_at": "2024-05-05T12:55:16.617Z",
           "position": 6,
           "description": null,
           "showcase": false,
@@ -12673,224 +12726,6 @@
           "showcase": false,
           "start_date": "2023-02-22",
           "group_id": "sjlhrm4vf4pr",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "nwm1sn0gjfc3",
-      "name": "Object Storage - SGP1 and SFO3",
-      "status": "resolved",
-      "created_at": "2023-10-27T11:25:10.494Z",
-      "updated_at": "2023-10-27T14:47:58.724Z",
-      "monitoring_at": "2023-10-27T14:03:35.406Z",
-      "resolved_at": "2023-10-27T14:47:58.706Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/yhqs57cstcs1",
-      "started_at": "2023-10-27T11:25:10.480Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "2q3ssc0g9w05",
-          "status": "resolved",
-          "body": "As of 14:30 UTC, our Engineering team has resolved the issue impacting Spaces in our SGP1 and SFO3 regions. Users should no longer experience slowness or timeouts when trying to create or access their Spaces resources in the SGP1 and SFO3 regions. \n\nIf you continue to experience problems, please open a ticket with our support team. We apologize for any inconvenience.",
-          "incident_id": "nwm1sn0gjfc3",
-          "created_at": "2023-10-27T14:47:58.706Z",
-          "updated_at": "2023-10-27T14:47:58.706Z",
-          "display_at": "2023-10-27T14:47:58.706Z",
-          "affected_components": [
-            {
-              "code": "lf2rrgctn54t",
-              "name": "Spaces - SFO3",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "rf1h8gfz4ts6",
-              "name": "Spaces - SGP1",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "5108wr792q5m",
-              "name": "Spaces CDN - SFO3",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "23yr3tv35ld7",
-              "name": "Spaces CDN - SGP1",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cqhb246npz6b",
-          "status": "monitoring",
-          "body": "Our Engineering team has implemented a fix to resolve the issue impacting Spaces in our SGP1 and SFO3 regions and is monitoring the situation closely. We will post an update as soon as the issue is fully resolved.",
-          "incident_id": "nwm1sn0gjfc3",
-          "created_at": "2023-10-27T14:03:35.406Z",
-          "updated_at": "2023-10-27T14:03:35.406Z",
-          "display_at": "2023-10-27T14:03:35.406Z",
-          "affected_components": [
-            {
-              "code": "lf2rrgctn54t",
-              "name": "Spaces - SFO3",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "rf1h8gfz4ts6",
-              "name": "Spaces - SGP1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "5108wr792q5m",
-              "name": "Spaces CDN - SFO3",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "23yr3tv35ld7",
-              "name": "Spaces CDN - SGP1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "k97jdbg73mx9",
-          "status": "investigating",
-          "body": "Our Engineering team is continuing to investigate an issue impacting Object Storage in our SGP1 region. Additionally, we have become aware that this issue has also impacted Object Storage in the SFO3 region. During this time, users may encounter difficulties accessing Spaces, creating new buckets, and uploading files to and from Spaces buckets. Our Engineers are actively working on isolating the root cause of the issue. While we don't have an exact timeframe for a resolution yet however we will be providing updates as developments occur.\n\nWe apologize for the inconvenience and thank you for your patience and continued support.",
-          "incident_id": "nwm1sn0gjfc3",
-          "created_at": "2023-10-27T12:04:19.712Z",
-          "updated_at": "2023-10-27T12:04:19.712Z",
-          "display_at": "2023-10-27T12:04:19.712Z",
-          "affected_components": [
-            {
-              "code": "lf2rrgctn54t",
-              "name": "Spaces - SFO3",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "rf1h8gfz4ts6",
-              "name": "Spaces - SGP1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "5108wr792q5m",
-              "name": "Spaces CDN - SFO3",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "23yr3tv35ld7",
-              "name": "Spaces CDN - SGP1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dzgm4y1ssnz8",
-          "status": "investigating",
-          "body": "As of 10:22 UTC, our Engineering team is investigating an issue with Object Storage in our SGP1 region. During this time, users may encounter difficulties accessing Spaces, creating new buckets, and uploading files to and from Spaces buckets. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
-          "incident_id": "nwm1sn0gjfc3",
-          "created_at": "2023-10-27T11:25:10.590Z",
-          "updated_at": "2023-10-27T11:25:10.590Z",
-          "display_at": "2023-10-27T11:25:10.590Z",
-          "affected_components": [
-            {
-              "code": "rf1h8gfz4ts6",
-              "name": "Spaces - SGP1",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "23yr3tv35ld7",
-              "name": "Spaces CDN - SGP1",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "5108wr792q5m",
-          "name": "SFO3",
-          "status": "operational",
-          "created_at": "2023-02-22T19:28:06.018Z",
-          "updated_at": "2024-01-16T12:51:36.442Z",
-          "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "0fycrqvyvqf3",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "lf2rrgctn54t",
-          "name": "SFO3",
-          "status": "operational",
-          "created_at": "2023-02-22T17:38:11.777Z",
-          "updated_at": "2024-01-16T12:51:36.486Z",
-          "position": 5,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "fdg768pfw7v3",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "23yr3tv35ld7",
-          "name": "SGP1",
-          "status": "operational",
-          "created_at": "2023-02-22T19:26:00.224Z",
-          "updated_at": "2024-02-05T05:10:23.344Z",
-          "position": 5,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "0fycrqvyvqf3",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "rf1h8gfz4ts6",
-          "name": "SGP1",
-          "status": "operational",
-          "created_at": "2023-02-22T17:38:12.076Z",
-          "updated_at": "2024-01-16T12:51:36.542Z",
-          "position": 6,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "fdg768pfw7v3",
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
