@@ -4,15 +4,15 @@
     "name": "Intercom",
     "url": "https://www.intercomstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-05-07T21:21:39.360Z"
+    "updated_at": "2024-05-07T22:34:34.371Z"
   },
   "incidents": [
     {
       "id": "q0t7w6llrs11",
       "name": "Increased Error Rates and elevated latencies using Intercom",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-05-07T15:11:31.137Z",
-      "updated_at": "2024-05-07T16:04:34.823Z",
+      "updated_at": "2024-05-07T22:34:34.362Z",
       "monitoring_at": "2024-05-07T15:49:43.611Z",
       "resolved_at": "2024-05-07T16:04:24.000Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2024-05-07T15:11:31.120Z",
       "page_id": "1m1j8k4rtldg",
       "incident_updates": [
+        {
+          "id": "jffg0cgsx04d",
+          "status": "postmortem",
+          "body": "# **Issue Summary**\n\nThe primary datastore of the Intercom Ruby on Rails application is MySQL. In the USA hosting region, where the vast majority of Intercom workspaces are hosted, we run 13 distinct AWS RDS Aurora MySQL clusters, and the databases hosted on these clusters are sharded using a mix of functional and on a per-customer workspace basis. Five of these clusters contain databases sharded on a per-workspace basis, and contain many of our largest tables. Each of these clusters have many thousands of individual databases as a result. \n\nOn May 7th, 2024 at 14:42 UTC \"shard-e\" failed over. \"shard-e\" is the smallest sharded cluster,  used for recently created Intercom workspaces, takes a small fraction of the load compared to the other four sharded clusters and runs on smaller instances \\(db.r6i.8xlarge\\). Despite the lower load, the primary database in the cluster ran out of freeable memory, and the cluster failed over. This failover was complete by 14:48 UTC and the cluster started taking requests normally at this time.\n\nHowever, at the time of the failover, a small fraction of queries to an unrelated cluster \"shard-b\" also started to fail, and our application was reporting login failures to \"shard-b\", which is used by ~25% of Intercom workspaces hosted in the USA region. There was no failover of the cluster, or any obvious problems with the cluster metrics, which were nominal. After verifying the state of the cluster we started to investigate the health of the ProxySQL service, which is a shared service used by the Intercom Ruby on Rails application to connect to all databases. We added additional capacity to ProxySQL at 15:20 UTC, which took a few minutes to get into service, but did not immediately improve the situation. We initiated the removal of the original ProxySQL hosts from the EC2 autoscaling group. The number of failing queries to \"shard-b\" was slowly increasing during this time. While we waited for the ProxySQL hosts to be fully removed from service, we prepared to fail over \"shard-b\" to try to recover the cluster, which would cause a near complete outage for ~25% of Intercom customers. \n\nBy 15:40 all of the original ProxySQL hosts were removed from service, and all queries to the cluster recovered without initiating a failover. At the peak of the outage, just over 50% of requests made by ~25% of Intercom customers were failing, causing problems across the Intercom application, not limited to the messenger and inbox.\n\nThis outage had similarities to two outages experienced by Intercom in September and October 2023, detailed here: [https://www.intercomstatus.com/incidents/6f01d7h9zs1f](https://www.intercomstatus.com/incidents/6f01d7h9zs1f)\n\nIn this case while the specifics were different \\(impact to a single cluster, the ProxySQL version and an unusual trigger\\), our use of ProxySQL in front of our RDS Aurora clusters got into a similar metastable state, and the hosts needed to be replaced to recover connectivity to a single cluster.\n\n# **Actions**\n\nUpdate runbooks to replace ProxySQL hosts on any sign of login issues \\(done\\)\n\nInvestigate the trigger for the memory exhaustion on shard-e, upgrading the cluster size if necessary \\(in progress\\)\n\nContinue to investigate possible triggers on cluster-b and why an unrelated failover caused connectivity to get in to a bad state \\(in progress\\)\n\nContinue to remove all use of ProxySQL and RDS Aurora in the Intercom Ruby on Rails application \\(in progress\\)",
+          "incident_id": "q0t7w6llrs11",
+          "created_at": "2024-05-07T22:31:18.920Z",
+          "updated_at": "2024-05-07T22:34:34.355Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our May 7th incident: https://stspg.io/jcyx6x0j25fl",
+          "tweet_id": null
+        },
         {
           "id": "2f245503g13y",
           "status": "resolved",
