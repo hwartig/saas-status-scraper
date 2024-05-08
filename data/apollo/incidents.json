@@ -4,9 +4,39 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-05-07T22:43:25.758Z"
+    "updated_at": "2024-05-08T01:44:59.326Z"
   },
   "incidents": [
+    {
+      "id": "q9n1qcnfnqpg",
+      "name": "Missing field usage insights data",
+      "status": "resolved",
+      "created_at": "2024-05-04T22:00:00.000Z",
+      "updated_at": "2024-05-08T01:44:59.324Z",
+      "monitoring_at": null,
+      "resolved_at": "2024-05-04T22:00:00.000Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/bk4r472q5kh0",
+      "started_at": "2024-05-08T01:44:11.711Z",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "4bfdtcpphljf",
+          "status": "resolved",
+          "body": "Between 2024-05-04 18:00 UTC to 2024-05-04 22:00 UTC, one of our insights data sources containing field usage stats was not ingesting data. This affects all graphs for that time window, and a small number of graphs for up to 1 day before the start time. Within these times, you may notice missing field usage data on the Insights page. We are working on a way to limit the impact to just affecting client attribution of field usage and we will update this incident when we have updates.",
+          "incident_id": "q9n1qcnfnqpg",
+          "created_at": "2024-05-08T01:44:11.747Z",
+          "updated_at": "2024-05-08T01:44:11.747Z",
+          "display_at": "2024-05-04T22:00:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "4hq6ldvhn3lb",
       "name": "Failures in GraphQL API",
@@ -6456,99 +6486,6 @@
           "description": "GraphOS Cloud supergraphs hosted on Apollo infrastructure",
           "showcase": true,
           "start_date": "2022-10-03",
-          "group_id": null,
-          "page_id": "r56zbm15x15h",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "f3hxxf0csc0c",
-      "name": "Datadog Forwarding: Delayed metrics",
-      "status": "resolved",
-      "created_at": "2023-04-05T07:25:30.000Z",
-      "updated_at": "2023-04-05T08:24:38.761Z",
-      "monitoring_at": "2023-04-05T07:54:02.708Z",
-      "resolved_at": "2023-04-05T08:24:38.747Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/fy1wk5pg7n6c",
-      "started_at": "2023-04-05T07:25:30.000Z",
-      "page_id": "r56zbm15x15h",
-      "incident_updates": [
-        {
-          "id": "2rjbwbddz56f",
-          "status": "resolved",
-          "body": "Systems have remained stable since implementing the fix and no further delays observed. This incident is now resolved.",
-          "incident_id": "f3hxxf0csc0c",
-          "created_at": "2023-04-05T08:24:38.747Z",
-          "updated_at": "2023-04-05T08:24:38.747Z",
-          "display_at": "2023-04-05T08:24:38.747Z",
-          "affected_components": [
-            {
-              "code": "79m4wnw76gy8",
-              "name": "Datadog Forwarding",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "q6tj5tfjqvy1",
-          "status": "monitoring",
-          "body": "We have identified the issue and implemented a fix. Metrics should no longer be delayed when sent to Datadog. We will continue monitoring the situation.",
-          "incident_id": "f3hxxf0csc0c",
-          "created_at": "2023-04-05T07:54:02.708Z",
-          "updated_at": "2023-04-05T07:54:02.708Z",
-          "display_at": "2023-04-05T07:54:02.708Z",
-          "affected_components": [
-            {
-              "code": "79m4wnw76gy8",
-              "name": "Datadog Forwarding",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "g3dv2w4fn1g0",
-          "status": "investigating",
-          "body": "We are investigating a potential issue with metrics forwarded to Datadog. Customers may see delayed metrics at this time.",
-          "incident_id": "f3hxxf0csc0c",
-          "created_at": "2023-04-05T07:45:30.940Z",
-          "updated_at": "2023-04-05T07:54:22.841Z",
-          "display_at": "2023-04-05T07:25:30.000Z",
-          "affected_components": [
-            {
-              "code": "79m4wnw76gy8",
-              "name": "Datadog Forwarding",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "79m4wnw76gy8",
-          "name": "Datadog Forwarding",
-          "status": "operational",
-          "created_at": "2022-09-01T20:59:37.603Z",
-          "updated_at": "2023-04-05T08:24:38.718Z",
-          "position": 13,
-          "description": "A feature of Apollo Studio that allows users to forward metrics observed via Apollo's telemetry pipeline to their Datadog instance(s).",
-          "showcase": true,
-          "start_date": "2022-09-01",
           "group_id": null,
           "page_id": "r56zbm15x15h",
           "group": false,
