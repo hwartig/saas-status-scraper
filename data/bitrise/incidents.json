@@ -4,15 +4,15 @@
     "name": "Bitrise CI",
     "url": "https://status.bitrise.io",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-05-09T15:43:13.271Z"
+    "updated_at": "2024-05-09T16:08:45.105Z"
   },
   "incidents": [
     {
       "id": "tp898qxx9wnk",
       "name": "Degraded performance in cache system",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-05-09T15:10:23.724Z",
-      "updated_at": "2024-05-09T15:27:23.605Z",
+      "updated_at": "2024-05-09T16:08:45.099Z",
       "monitoring_at": null,
       "resolved_at": "2024-05-09T15:27:23.204Z",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2024-05-09T15:10:23.719Z",
       "page_id": "1q8r4n02vb2k",
       "incident_updates": [
+        {
+          "id": "w7fsw571hlpw",
+          "status": "postmortem",
+          "body": "We encountered elevated latency issues between our Mac environment and the Central control plane. Fortunately, we had preemptively prepared for such scenarios with necessary updates already being tested in our staging environment and other clusters. Following the deployment of these changes to the Mac environment, the issue has been successfully resolved. We do not expect this issue to arise again and have not observed any serious impact on customer builds.",
+          "incident_id": "tp898qxx9wnk",
+          "created_at": "2024-05-09T16:08:16.255Z",
+          "updated_at": "2024-05-09T16:08:45.095Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our May 9th incident: https://stspg.io/47sjgcmn3zpp",
+          "tweet_id": null
+        },
         {
           "id": "1h0jj758whny",
           "status": "resolved",
