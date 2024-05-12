@@ -4,7 +4,7 @@
     "name": "Zoom",
     "url": "https://status.zoom.us",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-05-11T17:00:08.960-07:00"
+    "updated_at": "2024-05-11T18:43:13.455-07:00"
   },
   "components": [
     {
@@ -3156,7 +3156,7 @@
       "name": "Recording",
       "status": "operational",
       "created_at": "2020-03-17T15:29:33.741-07:00",
-      "updated_at": "2023-07-05T03:08:29.175-07:00",
+      "updated_at": "2024-05-11T18:37:05.397-07:00",
       "position": 15,
       "description": null,
       "showcase": false,
@@ -3264,9 +3264,9 @@
     {
       "id": "slryp41hcm02",
       "name": "SIP Connected Audio (SCA)",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2023-06-04T21:37:15.976-07:00",
-      "updated_at": "2024-05-04T16:00:02.244-07:00",
+      "updated_at": "2024-05-11T18:00:03.224-07:00",
       "position": 17,
       "description": null,
       "showcase": false,
@@ -3639,48 +3639,74 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
-  "scheduled_maintenances": [
+  "incidents": [
     {
-      "id": "h5b97w7dq56m",
-      "name": "DigiCert Global Root G2 Transition Maintenance Notice",
-      "status": "scheduled",
-      "created_at": "2024-04-18T09:48:14.257-07:00",
-      "updated_at": "2024-05-11T17:00:08.949-07:00",
-      "monitoring_at": null,
+      "id": "mk2663g6clvl",
+      "name": "Issue with Cloud Recordings",
+      "status": "monitoring",
+      "created_at": "2024-05-11T18:11:12.322-07:00",
+      "updated_at": "2024-05-11T18:37:05.457-07:00",
+      "monitoring_at": "2024-05-11T18:37:05.439-07:00",
       "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/k6b8jfzmr19c",
-      "started_at": "2024-04-18T09:48:14.249-07:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/hshx6mcfl58z",
+      "started_at": "2024-05-11T18:11:12.314-07:00",
       "page_id": "14qjgk812kgk",
       "incident_updates": [
         {
-          "id": "94mms6mx0m0b",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "h5b97w7dq56m",
-          "created_at": "2024-05-11T17:00:08.748-07:00",
-          "updated_at": "2024-05-11T17:00:08.748-07:00",
-          "display_at": "2024-05-11T17:00:08.748-07:00",
-          "affected_components": null,
+          "id": "z1hrd4y49ftf",
+          "status": "monitoring",
+          "body": "We have resolved the issue with starting cloud recordings.  We will continue to monitor and provide updates as we have them.",
+          "incident_id": "mk2663g6clvl",
+          "created_at": "2024-05-11T18:37:05.439-07:00",
+          "updated_at": "2024-05-11T18:37:05.439-07:00",
+          "display_at": "2024-05-11T18:37:05.439-07:00",
+          "affected_components": [
+            {
+              "code": "gkx8x46kw77h",
+              "name": "Zoom Meetings - Recording",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
           "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": null
         },
         {
-          "id": "j9zhcp9hw48p",
-          "status": "scheduled",
-          "body": "Zoom will be performing an internal maintenance to transition to certificates signed by DigiCert Global Root G2 certificate authority on our infrastructure during upcoming maintenance windows below.  This will be a permanent change.  We will not be able to postpone this change as Global Root G1 certificates are no longer being used and issued by any certificate authorities.\n\nService maintenance will be performed for Zoom Services to replace the current certificate with a new certificate that is signed by DigiCert Global Root G2 certificate authority per the following maintenance schedule\n\nSCA (SIP Connected Audio)\nUS & CA Region\n\nNo service downtime is expected for this change.\n\nCustomers with older WEB clients might not be able to connect to Zoom WEB services due to the new G2 type certificates. Customers with older WEB clients that do not support G2 type server certificates will need to upgrade their Operating System or Browser that supports G2 type certificates. For a list of compliant OS and Browser please refer to this article: \nhttps://knowledge.digicert.com/general-information/compatibility-of-digicert-trusted-root-certificates\n\nPlease refer to the WEB client version from this support page, customers with older browsers must upgrade to the latest version to use WEB services based on this support doc: https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064261",
-          "incident_id": "h5b97w7dq56m",
-          "created_at": "2024-04-18T09:48:14.316-07:00",
-          "updated_at": "2024-04-18T09:48:14.316-07:00",
-          "display_at": "2024-04-18T09:48:14.316-07:00",
+          "id": "zsqx3xjpcwhy",
+          "status": "identified",
+          "body": "We have identified the issue with starting cloud recordings.  We will continue to provide updates as we have them.",
+          "incident_id": "mk2663g6clvl",
+          "created_at": "2024-05-11T18:32:13.085-07:00",
+          "updated_at": "2024-05-11T18:32:13.085-07:00",
+          "display_at": "2024-05-11T18:32:13.085-07:00",
           "affected_components": [
             {
-              "code": "slryp41hcm02",
-              "name": "Zoom Meetings - SIP Connected Audio (SCA)",
+              "code": "gkx8x46kw77h",
+              "name": "Zoom Meetings - Recording",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "c9ynwl23mmkl",
+          "status": "investigating",
+          "body": "Our monitoring has detected an issue with starting cloud recording. We are currently investigating and will provide updates as we have them.",
+          "incident_id": "mk2663g6clvl",
+          "created_at": "2024-05-11T18:11:12.404-07:00",
+          "updated_at": "2024-05-11T18:11:12.404-07:00",
+          "display_at": "2024-05-11T18:11:12.404-07:00",
+          "affected_components": [
+            {
+              "code": "gkx8x46kw77h",
+              "name": "Zoom Meetings - Recording",
               "old_status": "operational",
-              "new_status": "operational"
+              "new_status": "degraded_performance"
             }
           ],
           "deliver_notifications": true,
@@ -3690,24 +3716,25 @@
       ],
       "components": [
         {
-          "id": "slryp41hcm02",
-          "name": "SIP Connected Audio (SCA)",
+          "id": "gkx8x46kw77h",
+          "name": "Recording",
           "status": "operational",
-          "created_at": "2023-06-04T21:37:15.976-07:00",
-          "updated_at": "2024-05-04T16:00:02.244-07:00",
-          "position": 17,
+          "created_at": "2020-03-17T15:29:33.741-07:00",
+          "updated_at": "2024-05-11T18:37:05.397-07:00",
+          "position": 15,
           "description": null,
           "showcase": false,
-          "start_date": "2023-06-04",
+          "start_date": null,
           "group_id": "6np407v7v25g",
           "page_id": "14qjgk812kgk",
           "group": false,
           "only_show_if_degraded": false
         }
       ],
-      "scheduled_for": "2024-05-11T18:00:00.000-07:00",
-      "scheduled_until": "2024-05-11T22:00:00.000-07:00"
-    },
+      "reminder_intervals": null
+    }
+  ],
+  "scheduled_maintenances": [
     {
       "id": "lbgyg1wqfp8q",
       "name": "Zoom Workforce Management Update: 5/18/2024 (No Operational Impact)",
@@ -3944,6 +3971,93 @@
       ],
       "scheduled_for": "2024-08-03T17:00:00.000-07:00",
       "scheduled_until": "2024-08-03T18:00:00.000-07:00"
+    },
+    {
+      "id": "h5b97w7dq56m",
+      "name": "DigiCert Global Root G2 Transition Maintenance Notice",
+      "status": "in_progress",
+      "created_at": "2024-04-18T09:48:14.257-07:00",
+      "updated_at": "2024-05-11T18:00:03.318-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/k6b8jfzmr19c",
+      "started_at": "2024-04-18T09:48:14.249-07:00",
+      "page_id": "14qjgk812kgk",
+      "incident_updates": [
+        {
+          "id": "vv6y82ylbvdy",
+          "status": "in_progress",
+          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
+          "incident_id": "h5b97w7dq56m",
+          "created_at": "2024-05-11T18:00:03.309-07:00",
+          "updated_at": "2024-05-11T18:00:03.309-07:00",
+          "display_at": "2024-05-11T18:00:03.309-07:00",
+          "affected_components": [
+            {
+              "code": "slryp41hcm02",
+              "name": "Zoom Meetings - SIP Connected Audio (SCA)",
+              "old_status": "operational",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "94mms6mx0m0b",
+          "status": "scheduled",
+          "body": "Maintenance will begin as scheduled in 60 minutes.",
+          "incident_id": "h5b97w7dq56m",
+          "created_at": "2024-05-11T17:00:08.748-07:00",
+          "updated_at": "2024-05-11T17:00:08.748-07:00",
+          "display_at": "2024-05-11T17:00:08.748-07:00",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "j9zhcp9hw48p",
+          "status": "scheduled",
+          "body": "Zoom will be performing an internal maintenance to transition to certificates signed by DigiCert Global Root G2 certificate authority on our infrastructure during upcoming maintenance windows below.  This will be a permanent change.  We will not be able to postpone this change as Global Root G1 certificates are no longer being used and issued by any certificate authorities.\n\nService maintenance will be performed for Zoom Services to replace the current certificate with a new certificate that is signed by DigiCert Global Root G2 certificate authority per the following maintenance schedule\n\nSCA (SIP Connected Audio)\nUS & CA Region\n\nNo service downtime is expected for this change.\n\nCustomers with older WEB clients might not be able to connect to Zoom WEB services due to the new G2 type certificates. Customers with older WEB clients that do not support G2 type server certificates will need to upgrade their Operating System or Browser that supports G2 type certificates. For a list of compliant OS and Browser please refer to this article: \nhttps://knowledge.digicert.com/general-information/compatibility-of-digicert-trusted-root-certificates\n\nPlease refer to the WEB client version from this support page, customers with older browsers must upgrade to the latest version to use WEB services based on this support doc: https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064261",
+          "incident_id": "h5b97w7dq56m",
+          "created_at": "2024-04-18T09:48:14.316-07:00",
+          "updated_at": "2024-04-18T09:48:14.316-07:00",
+          "display_at": "2024-04-18T09:48:14.316-07:00",
+          "affected_components": [
+            {
+              "code": "slryp41hcm02",
+              "name": "Zoom Meetings - SIP Connected Audio (SCA)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "slryp41hcm02",
+          "name": "SIP Connected Audio (SCA)",
+          "status": "under_maintenance",
+          "created_at": "2023-06-04T21:37:15.976-07:00",
+          "updated_at": "2024-05-11T18:00:03.224-07:00",
+          "position": 17,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-06-04",
+          "group_id": "6np407v7v25g",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-05-11T18:00:00.000-07:00",
+      "scheduled_until": "2024-05-11T22:00:00.000-07:00"
     },
     {
       "id": "kzn73wc7258g",
