@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-05-15T10:00:40.968-07:00"
+    "updated_at": "2024-05-15T11:06:04.123-07:00"
   },
   "incidents": [
     {
@@ -136,16 +136,29 @@
     {
       "id": "nvq3rr6jyj8q",
       "name": "[Minor] Customers may have experienced issues using Public API",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-04-24T22:59:57.171-07:00",
-      "updated_at": "2024-04-24T22:59:57.214-07:00",
+      "updated_at": "2024-05-15T11:06:04.120-07:00",
       "monitoring_at": null,
       "resolved_at": "2024-04-24T22:59:57.207-07:00",
-      "impact": "none",
+      "impact": "minor",
       "shortlink": "https://stspg.io/hghpr7bxbtpg",
       "started_at": "2024-04-24T22:59:57.167-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "ft9t3hhl83bc",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Box API. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 10:00 PM PST and 10:23 PM PST on April 24, 2024, some users may have experienced difficulties while working in Box. During this time, some Box customers might have experienced elevated error rate or increased latency with Box API requests. The issue occurred due to an unexpected failure during a MySQL Instance failover that was executed in response to high load on one of the database instances. We were able to resolve the issue by manually executing the instance failover. In addition, we have implemented a new discovery mechanism that improves the time to detect and propagate a MySQL topology change to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nDuring the incident, a failover was executed for a MySQL leader that had high CPU usage. The failover process failed to propagate the topology change and caused the impact to Box API success rate. The issue was remediated by executing the rest of the failover steps manually and the impact recovered once the new topology was successfully propagated to other components. The root cause of high CPU usage was later determined to be organic increase in week over week traffic and the impacted instance was upsized to add more CPU cores.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* The Database instance that had high CPU Usage was scaled up to add more CPU cores\n* Additionally, we are looking into remapping the Database instances to normalize the load on the impacted instance.\n* A MySQL Topology Discovery mechanism that significantly improves time to detect and propagate topology updates has been rolled out. This new mechanism improves mean time to recovery \\(MTTR\\) for similar issues in the future.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "nvq3rr6jyj8q",
+          "created_at": "2024-05-15T11:05:33.446-07:00",
+          "updated_at": "2024-05-15T11:06:04.117-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "73fpdk837q5t",
           "status": "resolved",
