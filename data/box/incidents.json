@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-05-16T07:16:52.361-07:00"
+    "updated_at": "2024-05-16T15:06:07.220-07:00"
   },
   "incidents": [
     {
@@ -2074,7 +2074,7 @@
       "name": "[Major] Customers may experience issues with Microsoft Office integration",
       "status": "postmortem",
       "created_at": "2024-01-18T03:43:09.404-08:00",
-      "updated_at": "2024-03-04T04:44:18.474-08:00",
+      "updated_at": "2024-05-16T15:06:07.208-07:00",
       "monitoring_at": "2024-01-18T04:11:06.237-08:00",
       "resolved_at": "2024-01-18T05:08:53.525-08:00",
       "impact": "major",
@@ -2085,10 +2085,10 @@
         {
           "id": "w7sk5ns30s9k",
           "status": "postmortem",
-          "body": "_We recently addressed issues affecting the Office Online integration. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future._\n\n \n\n_Between 02:48 AM and 04:06AM PT on January 18, 2024, some users may have experienced difficulties while working in Box. During this time, Box customers were unable to open or edit Microsoft Office files via Office Online. The issue occurred as a result of network connectivity issues. We were able to resolve the issue by restoring the network connectivity. In addition, we are working to make the Office Online integration more resilient to such failures, to prevent similar issues from occurring in the future._ \n\n‌\n\n_Analysis _\n\n_The Office Online integration communicates with Microsoft servers in order to provide Office for the Web capabilities for files hosted in Box. This communication happens via the Web Application Open Platform Interface \\(WOPI\\) protocol._\n\n‌\n\n_Box performs signature validation of each WOPI command it receives. The cryptographic keys needed to perform this validation are acquired through a process called WOPI discovery. During the discovery process, Box fetches an XML file from the Microsoft servers. This file contains the keys needed to perform signature validation. The file is then cached for a period of time._\n\n‌\n\n_Prior to the outage, the discovery endpoint for one of the Office Online environments became briefly unreachable. At the same time, the cache on the Box side expired. Box then failed to refetch the discovery XML for one of the environments, which caused the signature validation to fail in a cascading way across all other environments._\n\n‌\n\n_Corrective Actions_\n\n_The following corrective actions have been completed or are planned:_\n\n* _The cache time-to-live for the discovery file will be increased, to reduce Box’s exposure to any failures to reach the discovery endpoint_\n* _Changes will be made to ensure that failures to acquire discovery information for one Office Online environment do not impact other environments_\n\n‌\n\n_We are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter._ \n\n \n\n_Sincerely,_\n\n_The Box Team_",
+          "body": "_We recently addressed issues affecting the Office Online integration. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future._\n\nBetween 02:48 AM and 04:06AM PT on January 18, 2024, some users may have experienced difficulties while working in Box. During this time, Box customers were unable to open or edit Microsoft Office files via Office Online. The issue occurred as a result of network connectivity issues. We were able to resolve the issue by restoring the network connectivity. In addition, we are working to make the Office Online integration more resilient to such failures, to prevent similar issues from occurring in the future.\n\n‌\n\nAnalysis \n\nThe Office Online integration communicates with Microsoft servers in order to provide Office for the Web capabilities for files hosted in Box. This communication happens via the Web Application Open Platform Interface \\(WOPI\\) protocol.\n\nBox performs signature validation of each WOPI command it receives. The cryptographic keys needed to perform this validation are acquired through a process called WOPI discovery. During the discovery process, Box fetches an XML file from the Microsoft servers. This file contains the keys needed to perform signature validation. The file is then cached for a period of time.\n\nPrior to the outage, the discovery endpoint for one of the Office Online environments became briefly unreachable. At the same time, the cache on the Box side expired. Box then failed to refetch the discovery XML for one of the environments, which caused the signature validation to fail in a cascading way across all other environments.\n\n‌\n\nCorrective Actions\n\nThe following corrective actions have been completed or are planned:\n\n* The cache time-to-live for the discovery file will be increased, to reduce Box’s exposure to any failures to reach the discovery endpoint\n* Changes will be made to ensure that failures to acquire discovery information for one Office Online environment do not impact other environments\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
           "incident_id": "84m9ty9g8wqt",
           "created_at": "2024-03-01T12:16:21.660-08:00",
-          "updated_at": "2024-03-01T13:47:35.855-08:00",
+          "updated_at": "2024-05-16T15:06:07.205-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
