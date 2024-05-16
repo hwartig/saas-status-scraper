@@ -4,7 +4,7 @@
     "name": "Zoom",
     "url": "https://status.zoom.us",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-05-16T00:18:45.753-07:00"
+    "updated_at": "2024-05-16T03:59:08.053-07:00"
   },
   "components": [
     {
@@ -130,7 +130,7 @@
     {
       "id": "6np407v7v25g",
       "name": "Zoom Meetings",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-05-03T10:27:40.432-07:00",
       "updated_at": "2024-04-13T12:10:25.930-07:00",
       "position": 1,
@@ -3435,9 +3435,9 @@
     {
       "id": "rsh1v3gbhtsy",
       "name": "Zoom AIC",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-09-06T17:03:37.897-07:00",
-      "updated_at": "2024-04-13T11:43:32.843-07:00",
+      "updated_at": "2024-05-16T03:46:26.915-07:00",
       "position": 21,
       "description": null,
       "showcase": false,
@@ -3639,7 +3639,81 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "rz3wj2jmr40r",
+      "name": "Issue with users experiencing issues accessing AI Companion on Zoom Meetings.",
+      "status": "identified",
+      "created_at": "2024-05-16T03:46:26.882-07:00",
+      "updated_at": "2024-05-16T03:59:08.045-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/8gpr0xv69s9h",
+      "started_at": "2024-05-16T03:46:26.875-07:00",
+      "page_id": "14qjgk812kgk",
+      "incident_updates": [
+        {
+          "id": "k9fr56x4lw5h",
+          "status": "identified",
+          "body": "We have identified the issue where a subset of users are experiencing issues accessing AI Companion on Zoom Meetings. Our engineers are currently working on the fix. Zoom will provide updates as soon as there is more information to share.",
+          "incident_id": "rz3wj2jmr40r",
+          "created_at": "2024-05-16T03:59:08.042-07:00",
+          "updated_at": "2024-05-16T03:59:08.042-07:00",
+          "display_at": "2024-05-16T03:59:08.042-07:00",
+          "affected_components": [
+            {
+              "code": "rsh1v3gbhtsy",
+              "name": "Zoom Meetings - Zoom AIC",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "yxjygzbhwty2",
+          "status": "investigating",
+          "body": "Our monitoring has detected service degradation where a subset of users are experiencing issues accessing AI Companion on Zoom Meetings. Our engineers are currently investigating the impact and root cause. Zoom will provide updates as soon as there is more information to share.",
+          "incident_id": "rz3wj2jmr40r",
+          "created_at": "2024-05-16T03:46:26.960-07:00",
+          "updated_at": "2024-05-16T03:46:26.960-07:00",
+          "display_at": "2024-05-16T03:46:26.960-07:00",
+          "affected_components": [
+            {
+              "code": "rsh1v3gbhtsy",
+              "name": "Zoom Meetings - Zoom AIC",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "rsh1v3gbhtsy",
+          "name": "Zoom AIC",
+          "status": "degraded_performance",
+          "created_at": "2023-09-06T17:03:37.897-07:00",
+          "updated_at": "2024-05-16T03:46:26.915-07:00",
+          "position": 21,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-09-06",
+          "group_id": "6np407v7v25g",
+          "page_id": "14qjgk812kgk",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "z152k45rzfbx",
@@ -4063,7 +4137,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
