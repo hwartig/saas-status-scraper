@@ -4,9 +4,62 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-05-19T15:25:41.212Z"
+    "updated_at": "2024-05-19T16:16:38.689Z"
   },
   "incidents": [
+    {
+      "id": "yg3m8yxpzh0c",
+      "name": "Upstream Issues With GitHub Causing Slow Checkout/Cloning Steps",
+      "status": "identified",
+      "created_at": "2024-05-19T16:16:38.227Z",
+      "updated_at": "2024-05-19T16:16:38.682Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/cfvds04zh6gx",
+      "started_at": "2024-05-19T16:16:38.221Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "bthb5p0d51fx",
+          "status": "identified",
+          "body": "We have received reports of slow checkout/clones of repositories from GitHub. This is not impacting all checkouts and the operations eventually succeed.",
+          "incident_id": "yg3m8yxpzh0c",
+          "created_at": "2024-05-19T16:16:38.285Z",
+          "updated_at": "2024-05-19T16:16:38.676Z",
+          "display_at": "2024-05-19T16:16:38.285Z",
+          "affected_components": [
+            {
+              "code": "h226p1vzzxxk",
+              "name": "Upstream Services - GitHub",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1792227877058150700
+        }
+      ],
+      "components": [
+        {
+          "id": "h226p1vzzxxk",
+          "name": "GitHub",
+          "status": "degraded_performance",
+          "created_at": "2013-06-14T20:26:03.081Z",
+          "updated_at": "2024-05-19T16:16:38.251Z",
+          "position": 6,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s21fdjds0k15",
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "n3ntbv4b0br2",
       "name": "Some Customers Are Seeing Issues With Slow Checkout Times",
@@ -5129,9 +5182,9 @@
         {
           "id": "h226p1vzzxxk",
           "name": "GitHub",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2013-06-14T20:26:03.081Z",
-          "updated_at": "2024-04-24T16:13:07.052Z",
+          "updated_at": "2024-05-19T16:16:38.251Z",
           "position": 6,
           "description": null,
           "showcase": false,
@@ -5629,139 +5682,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "s21fdjds0k15",
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "10j0cvht0r6m",
-      "name": "Pipelines not triggering from VCS webhooks",
-      "status": "resolved",
-      "created_at": "2023-08-17T11:47:04.396Z",
-      "updated_at": "2023-08-17T12:22:36.423Z",
-      "monitoring_at": "2023-08-17T11:52:52.160Z",
-      "resolved_at": "2023-08-17T12:22:36.409Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/h8shf898rdch",
-      "started_at": "2023-08-17T11:47:04.391Z",
-      "page_id": "6w4r0ttlx5ft",
-      "incident_updates": [
-        {
-          "id": "lw64lb6mkt8z",
-          "status": "resolved",
-          "body": "The incident is now resolved. Any PRs or commits that did not trigger a pipeline will not be re-run. Pipelines can be manually triggered in the CircleCI UI or by sending an empty commit using git's `--allow-empty` option.",
-          "incident_id": "10j0cvht0r6m",
-          "created_at": "2023-08-17T12:22:36.409Z",
-          "updated_at": "2023-08-17T12:22:36.409Z",
-          "display_at": "2023-08-17T12:22:36.409Z",
-          "affected_components": [
-            {
-              "code": "zxxnbynf4dkm",
-              "name": "Pipelines & Workflows",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dsl3j41wznwm",
-          "status": "monitoring",
-          "body": "We are continuing to see no further impact from this incident. Any PRs or commits that did not trigger a pipeline will not be re-run. Pipelines can be manually triggered in the CircleCI UI or by sending an empty commit using git's `--allow-empty` option.",
-          "incident_id": "10j0cvht0r6m",
-          "created_at": "2023-08-17T12:09:38.500Z",
-          "updated_at": "2023-08-17T12:09:38.500Z",
-          "display_at": "2023-08-17T12:09:38.500Z",
-          "affected_components": [
-            {
-              "code": "zxxnbynf4dkm",
-              "name": "Pipelines & Workflows",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "q64fq8g38mw8",
-          "status": "monitoring",
-          "body": "We have implemented a fix for the issue and we are now seeing pipelines triggering as normal. We are continuing to monitor the situation.",
-          "incident_id": "10j0cvht0r6m",
-          "created_at": "2023-08-17T11:52:52.160Z",
-          "updated_at": "2023-08-17T11:52:52.160Z",
-          "display_at": "2023-08-17T11:52:52.160Z",
-          "affected_components": [
-            {
-              "code": "zxxnbynf4dkm",
-              "name": "Pipelines & Workflows",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "z82qs0h9mxsx",
-          "status": "identified",
-          "body": "We have identified the cause of the issue and are taking measures to mitigate the impact.",
-          "incident_id": "10j0cvht0r6m",
-          "created_at": "2023-08-17T11:50:38.979Z",
-          "updated_at": "2023-08-17T11:50:38.979Z",
-          "display_at": "2023-08-17T11:50:38.979Z",
-          "affected_components": [
-            {
-              "code": "zxxnbynf4dkm",
-              "name": "Pipelines & Workflows",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "mjh1s1kskqyx",
-          "status": "investigating",
-          "body": "We have identified an issue causing VCS webhooks receiving a 500 error, causing pipelines to not be triggered in CircleCI. We are investigating to identify the cause.",
-          "incident_id": "10j0cvht0r6m",
-          "created_at": "2023-08-17T11:47:04.477Z",
-          "updated_at": "2023-08-17T11:47:04.477Z",
-          "display_at": "2023-08-17T11:47:04.477Z",
-          "affected_components": [
-            {
-              "code": "zxxnbynf4dkm",
-              "name": "Pipelines & Workflows",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "zxxnbynf4dkm",
-          "name": "Pipelines & Workflows",
-          "status": "operational",
-          "created_at": "2017-07-10T21:13:25.145Z",
-          "updated_at": "2024-05-19T14:39:00.931Z",
-          "position": 5,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
           "page_id": "6w4r0ttlx5ft",
           "group": false,
           "only_show_if_degraded": false
