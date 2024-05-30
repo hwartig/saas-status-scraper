@@ -4,15 +4,15 @@
     "name": "Checkly",
     "url": "https://is.checkly.online",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-05-30T13:41:05.166Z"
+    "updated_at": "2024-05-30T14:02:56.960Z"
   },
   "incidents": [
     {
       "id": "gz72cjqb9vl1",
       "name": "Faulty deployment affecting all browser checks using playwright",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-05-30T12:50:20.592Z",
-      "updated_at": "2024-05-30T13:41:05.142Z",
+      "updated_at": "2024-05-30T14:02:56.955Z",
       "monitoring_at": "2024-05-30T12:59:24.908Z",
       "resolved_at": "2024-05-30T13:16:21.841Z",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2024-05-30T12:50:20.587Z",
       "page_id": "nq8lf8mrmvw6",
       "incident_updates": [
+        {
+          "id": "gm3p12f53hzf",
+          "status": "postmortem",
+          "body": "A faulty deployment added the **globalTimeout** Playwright configuration option. This option used an un-parsed environment variable set in our architecture, causing the timeout to be a _string_ instead of a _number_.      \nFor a subset of checks, Playwright failed with the following error: `globalTimeout must be a non-negative number`.\n\nDue to a misconfiguration, the issue went undetected before reaching production. To mitigate and prevent this from happening again, we are leveraging our canary and test environments.",
+          "incident_id": "gz72cjqb9vl1",
+          "created_at": "2024-05-30T13:40:30.158Z",
+          "updated_at": "2024-05-30T14:02:56.951Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our May 30th incident: https://stspg.io/j68vk1kq7018",
+          "tweet_id": null
+        },
         {
           "id": "yp9h8ly98xlt",
           "status": "resolved",
