@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-06-02T08:39:56.192Z"
+    "updated_at": "2024-06-03T11:30:20.175Z"
   },
   "components": [
     {
@@ -1330,9 +1330,9 @@
     {
       "id": "qdnryq0lymfk",
       "name": "DNS",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-03-06T18:42:44.851Z",
-      "updated_at": "2024-05-05T16:50:37.909Z",
+      "updated_at": "2024-06-03T11:30:20.113Z",
       "position": 6,
       "description": null,
       "showcase": false,
@@ -3005,10 +3005,64 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "r6mcnt4vzvxw",
+      "name": "DNS Resolution in Multiple Regions",
+      "status": "investigating",
+      "created_at": "2024-06-03T11:30:20.078Z",
+      "updated_at": "2024-06-03T11:30:20.172Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/6sf10hxgc3jy",
+      "started_at": "2024-06-03T11:30:20.073Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "12wssqsgg86j",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue with intermittent failures and increased latency in DNS resolution across multiple regions. \n\nDuring this time, users may experience issues with DNS resolution, or see errors returned when querying DNS records which are hosted on the DigitalOcean nameservers. Users may also experience DNS resolution issues while reaching out to their Managed Kubernetes Clusters. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "r6mcnt4vzvxw",
+          "created_at": "2024-06-03T11:30:20.168Z",
+          "updated_at": "2024-06-03T11:30:20.168Z",
+          "display_at": "2024-06-03T11:30:20.168Z",
+          "affected_components": [
+            {
+              "code": "qdnryq0lymfk",
+              "name": "DNS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "qdnryq0lymfk",
+          "name": "DNS",
+          "status": "degraded_performance",
+          "created_at": "2023-03-06T18:42:44.851Z",
+          "updated_at": "2024-06-03T11:30:20.113Z",
+          "position": 6,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
