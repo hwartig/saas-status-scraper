@@ -4,7 +4,7 @@
     "name": "Bitly",
     "url": "https://status.bitly.com",
     "time_zone": "America/New_York",
-    "updated_at": "2024-06-05T11:13:16.882-04:00"
+    "updated_at": "2024-06-05T12:05:34.536-04:00"
   },
   "components": [
     {
@@ -40,9 +40,9 @@
     {
       "id": "cckw1sqv778z",
       "name": "Website (Bitly.com)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-06-22T23:27:42.415-04:00",
-      "updated_at": "2024-05-10T13:01:15.538-04:00",
+      "updated_at": "2024-06-05T12:05:34.486-04:00",
       "position": 3,
       "description": "Main website and UI",
       "showcase": false,
@@ -113,10 +113,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "2qk2b7jhq9bp",
+      "name": "Delayed SMS message sends for two factor authentication",
+      "status": "identified",
+      "created_at": "2024-06-05T12:05:34.453-04:00",
+      "updated_at": "2024-06-05T12:05:34.533-04:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/8nl4bstdtty3",
+      "started_at": "2024-06-05T12:05:34.448-04:00",
+      "page_id": "hr0hbjty1ljs",
+      "incident_updates": [
+        {
+          "id": "3cj20dy9kdyd",
+          "status": "identified",
+          "body": "We have identified an issue with SMS message sends impacting users attempting to sign in with two factor authentication. This issue primarily affects users on the T-Mobile network. We will be monitoring the incident with our SMS provider an will update here when the issue is resolved.",
+          "incident_id": "2qk2b7jhq9bp",
+          "created_at": "2024-06-05T12:05:34.531-04:00",
+          "updated_at": "2024-06-05T12:05:34.531-04:00",
+          "display_at": "2024-06-05T12:05:34.531-04:00",
+          "affected_components": [
+            {
+              "code": "cckw1sqv778z",
+              "name": "Website (Bitly.com)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "cckw1sqv778z",
+          "name": "Website (Bitly.com)",
+          "status": "degraded_performance",
+          "created_at": "2015-06-22T23:27:42.415-04:00",
+          "updated_at": "2024-06-05T12:05:34.486-04:00",
+          "position": 3,
+          "description": "Main website and UI",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "hr0hbjty1ljs",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
