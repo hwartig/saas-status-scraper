@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-06-06T12:01:40.580Z"
+    "updated_at": "2024-06-06T16:19:47.597Z"
   },
   "incidents": [
     {
@@ -1078,7 +1078,7 @@
       "name": "We are investigating reports of degraded performance.",
       "status": "resolved",
       "created_at": "2024-05-14T18:37:22.092Z",
-      "updated_at": "2024-05-14T21:04:49.549Z",
+      "updated_at": "2024-06-06T16:17:08.132Z",
       "monitoring_at": null,
       "resolved_at": "2024-05-14T21:04:49.533Z",
       "impact": "minor",
@@ -1089,10 +1089,10 @@
         {
           "id": "7d0cln54fsvx",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "On May 14, 2024 between 18:00 UTC and 20:10 UTC, GitHub Actions performance was degraded and larger hosted runners using <code>linux-x64</code> images (Ubuntu20, Ubuntu22, Ubuntu24-beta) experienced longer than normal job start up times. Approximately 25% of all runs targeting larger hosted runners queued during this time were slow to start, with a median wait time of 1 minute, 55 seconds.<br /><br />The issue was caused by a downstream dependency overloading, which impacted our machine setup process. Each larger hosted runner job is run on a fresh VM, and one of the setup steps is installing the Actions agent. Up to the point of this incident, we would pull the latest agent version from the GitHub release and install it on the VM. However, during this incident the speciific GitHub release for the Linux x64 Actions agent became overloaded, and our agent downloads were severely throttled. This throttling led to timeouts during the download, and caused our hosted runner system to conclude the VMs were failing to start. We need the Actions agent online to start serving jobs, and with the download timing out, our service assumed the runner wasn't starting up successfully. This failure to start up led to those VMs being reset again and again instead of serving jobs. We mitigated the issue by falling back to a cached version of the Actions agent present on our image.<br /><br />We have further refined the fallback system to automatically use the cached agent binaries, and added new functionality to allow for easier agent downloading from other locations. Both of these measures should eliminate future impacts from similar downstream impact.",
           "incident_id": "bfkxf0w61z1n",
           "created_at": "2024-05-14T21:04:49.533Z",
-          "updated_at": "2024-05-14T21:04:49.533Z",
+          "updated_at": "2024-06-06T16:17:08.127Z",
           "display_at": "2024-05-14T21:04:49.533Z",
           "affected_components": null,
           "deliver_notifications": true,
