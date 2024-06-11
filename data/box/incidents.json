@@ -4,15 +4,15 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-06-10T04:10:34.545-07:00"
+    "updated_at": "2024-06-10T17:03:39.038-07:00"
   },
   "incidents": [
     {
       "id": "41n98qhw018f",
       "name": "[Critical] Issues with Search",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-06-03T22:49:18.479-07:00",
-      "updated_at": "2024-06-04T15:12:19.997-07:00",
+      "updated_at": "2024-06-10T16:58:54.914-07:00",
       "monitoring_at": "2024-06-04T14:16:07.128-07:00",
       "resolved_at": "2024-06-04T15:12:19.353-07:00",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2024-06-03T22:49:18.471-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "8g66cytb13tn",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\n‌\n\nBetween 9:33pm PT on June 3, 2024 and 1:28pm PT on June 4, 2024, a small number of users may have experienced difficulties while working in Box. During that time, impacted users experienced increased latencies and error rates when using Box Search. The issue occurred when our Search Infrastructure entered a state that impaired its ability to handle high query load.  In particular, search shards handling high query volumes became unhealthy, leading to frequent node restarts that resulted in sporadically slow or dropped queries. Because of a unique confluence of factors, the root cause proved challenging to diagnose and mitigate, extending time to resolution.\n\n‌\n\nWe are conducting a full engineering review, and we may publish updates in the event there are additional relevant findings.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "41n98qhw018f",
+          "created_at": "2024-06-10T16:58:39.393-07:00",
+          "updated_at": "2024-06-10T16:58:54.912-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "stfrwtzc2sp4",
           "status": "resolved",
@@ -578,9 +591,9 @@
     {
       "id": "z7f2kpnlfh3k",
       "name": "[MAJOR] Issues with Logins, All Files page",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-05-29T03:32:10.592-07:00",
-      "updated_at": "2024-05-29T06:54:05.478-07:00",
+      "updated_at": "2024-06-10T17:01:18.182-07:00",
       "monitoring_at": "2024-05-29T03:35:12.438-07:00",
       "resolved_at": "2024-05-29T06:54:05.463-07:00",
       "impact": "major",
@@ -588,6 +601,19 @@
       "started_at": "2024-05-29T03:32:10.585-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "39vl2m00ywqr",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\n \n\nOn May 29, 2024, between 1:39 am and 6:40 am PDT, some users may have experienced difficulties while working in Box. Over the course of this period, there were several 60-90 second time intervals when logins and various other functionality was impaired. This issue occurred due to a recent change in our token rotation process as part of our ongoing efforts to enhance the security of our systems. We resolved the problem by overriding the process and updating the expired tokens. Additionally, we are actively working on improving our testing procedures to prevent similar issues from happening again in the future.\n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "z7f2kpnlfh3k",
+          "created_at": "2024-06-10T17:01:15.237-07:00",
+          "updated_at": "2024-06-10T17:01:18.181-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "zrwb1ks81fvd",
           "status": "resolved",
@@ -713,7 +739,7 @@
       "name": "[Minor] Issues with Box Sign",
       "status": "postmortem",
       "created_at": "2024-04-29T10:43:51.805-07:00",
-      "updated_at": "2024-05-15T10:00:40.965-07:00",
+      "updated_at": "2024-06-10T17:03:39.031-07:00",
       "monitoring_at": "2024-04-29T11:41:45.950-07:00",
       "resolved_at": "2024-04-29T12:30:09.128-07:00",
       "impact": "minor",
@@ -724,10 +750,10 @@
         {
           "id": "64vbrdpxbgnr",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\nOn April 29, 2024, between 8:20 AM and 11:20 AM PDT, some users may have experienced difficulties while working in Box Sign. During this time, the Box Sign service experienced performance slowdowns. The issue occurred as a result of a network failure with a cloud provider. We were able to resolve the issue by switching to a different network connectivity method. In addition, we are working to enhance the service reliability to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "body": "We recently addressed issues affecting Box Sign. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n‌\n\nBetween 8:20 AM and 11:20 AM PDT on April 29, 2024, some users may have experienced difficulties while working in Box Sign. During this time, the Box Sign service experienced performance slowdowns. The issue occurred as a result of a failure within the network stack, which was resolved by adjusting the network configuration. In addition, we are working to enhance service reliability to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nBox Sign backend uses a cloud-based network setup which is composed of various network components. Under increased load, some of the network components experienced scaling issues, which resulted in a network performance degradation for the app.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Update the scaling configuration of the network components\n* Update the configuration of network-intensive application dependencies\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
           "incident_id": "57m0myvjlz33",
           "created_at": "2024-05-15T10:00:19.316-07:00",
-          "updated_at": "2024-05-15T10:00:40.962-07:00",
+          "updated_at": "2024-06-10T17:03:39.029-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
