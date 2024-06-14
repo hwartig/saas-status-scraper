@@ -4,9 +4,39 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2024-06-14T04:04:52.106-04:00"
+    "updated_at": "2024-06-14T10:09:45.709-04:00"
   },
   "incidents": [
+    {
+      "id": "9jttwlv8f4n4",
+      "name": "Git-based Deploy Log Streaming Disruption on Aptible CLI for Dedicated Stacks",
+      "status": "resolved",
+      "created_at": "2024-06-14T10:09:45.647-04:00",
+      "updated_at": "2024-06-14T10:09:45.706-04:00",
+      "monitoring_at": null,
+      "resolved_at": "2024-06-14T10:09:45.692-04:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/mjjtqnx06rh3",
+      "started_at": "2024-06-14T10:09:45.639-04:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "nxvd7zx8c7h4",
+          "status": "resolved",
+          "body": "For dedicated stacks only, <a href=\"https://www.aptible.com/docs/core-concepts/apps/deploying-apps/image/deploying-with-git/overview\">git-based deployments</a> were not streaming logs about the deployment operation activity as they normally do. The deploy operations were running normally in the background but not streaming live logs to the CLI.\n\nThis incident impacted git-based deploys from the CLI between June 14th, 5:44 AM UTC, and June 14th, 1:45 PM UTC.\n\nOur team has applied a fix, which has resolved the issue. Please contact our <a href=\"https://contact.aptible.com/\">Support Team</a> if you have additional questions.",
+          "incident_id": "9jttwlv8f4n4",
+          "created_at": "2024-06-14T10:09:45.692-04:00",
+          "updated_at": "2024-06-14T10:09:45.692-04:00",
+          "display_at": "2024-06-14T10:09:45.692-04:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "74z3th96nz9n",
       "name": "Temporary Metrics Unavailability in Aptible Dashboard",
@@ -3846,119 +3876,6 @@
           "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": 1416028771027542000
-        }
-      ],
-      "components": [
-        {
-          "id": "3f2df1dmxn4b",
-          "name": "Aptible Deploy",
-          "status": "operational",
-          "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2024-06-03T14:46:57.199-04:00",
-          "position": 7,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "fmwgqnbnbc4r",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "tfty764px5ts",
-      "name": "EC2 Host Failure",
-      "status": "resolved",
-      "created_at": "2021-07-13T08:21:51.474-04:00",
-      "updated_at": "2021-07-13T11:24:32.395-04:00",
-      "monitoring_at": null,
-      "resolved_at": "2021-07-13T11:24:31.832-04:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/6gbtc7fp5rdd",
-      "started_at": "2021-07-13T08:21:51.469-04:00",
-      "page_id": "fmwgqnbnbc4r",
-      "incident_updates": [
-        {
-          "id": "8kvqbz1tchmc",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "tfty764px5ts",
-          "created_at": "2021-07-13T11:24:31.832-04:00",
-          "updated_at": "2021-07-13T11:24:32.392-04:00",
-          "display_at": "2021-07-13T11:24:31.832-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1414968996303016000
-        },
-        {
-          "id": "qz4791tt627j",
-          "status": "identified",
-          "body": "Most of the affected instances and customer services have been fully restored. A total of 4 EC2 instances, associated with databases belonging to 2 customers, are still unhealthy. We're working on restoring these databases from backup to provide customers with an option for more rapid recovery.",
-          "incident_id": "tfty764px5ts",
-          "created_at": "2021-07-13T09:35:55.780-04:00",
-          "updated_at": "2021-07-13T09:35:56.230-04:00",
-          "display_at": "2021-07-13T09:35:55.780-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1414941665580576800
-        },
-        {
-          "id": "t6lbd8jsjy09",
-          "status": "investigating",
-          "body": "We are continuing to investigate the issue. Currently, AWS is reporting an issue on their service dashboard [0]:\n\n> 5:29 AM PDT We are investigating increased error rates and latencies for the EC2 APIs and connectivity issues for some instances in a single Availability Zone in the EU-CENTRAL-1 Region\n\nThis issue is currently preventing the recovery of existing instances as well as the launching of new instances. We are continuing to explore workarounds, but the extent of the outage is currently preventing most recovery techniques. As such, we are most likely waiting on AWS to mitigate the extent of the outage before we can complete resolving the issue.\n\n[0] https://status.aws.amazon.com/#EU_block",
-          "incident_id": "tfty764px5ts",
-          "created_at": "2021-07-13T08:57:40.413-04:00",
-          "updated_at": "2021-07-13T08:57:41.734-04:00",
-          "display_at": "2021-07-13T08:57:40.413-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1414932041435541500
-        },
-        {
-          "id": "jh0r3nplzhm6",
-          "status": "investigating",
-          "body": "We are investigating an EC2 dedicated host failure affecting a small number of apps and databases in eu-central-1. Affected apps are currently being restarted on healthy instances (apps scaled to 2 or more are automatically distributed across availability zones and will automatically failover).",
-          "incident_id": "tfty764px5ts",
-          "created_at": "2021-07-13T08:21:51.570-04:00",
-          "updated_at": "2021-07-13T08:21:52.169-04:00",
-          "display_at": "2021-07-13T08:21:51.570-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1414923025883881500
         }
       ],
       "components": [
