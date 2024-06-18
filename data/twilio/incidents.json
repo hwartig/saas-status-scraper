@@ -4,15 +4,15 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-06-18T04:50:33.590-07:00"
+    "updated_at": "2024-06-18T05:34:36.941-07:00"
   },
   "incidents": [
     {
       "id": "4syxyscxmvsr",
-      "name": "Signalling outage with one of the providers",
+      "name": "Super SIM Connectivity Issues Causing Attachment Failures",
       "status": "investigating",
       "created_at": "2024-06-18T03:32:00.320-07:00",
-      "updated_at": "2024-06-18T04:50:33.579-07:00",
+      "updated_at": "2024-06-18T05:34:36.933-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -20,6 +20,26 @@
       "started_at": "2024-06-18T03:32:00.313-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "j0y5p9prxyzc",
+          "status": "investigating",
+          "body": "We continue to experience Super SIM connectivity issues causing attachment failures. Beginning at 09:45 UTC, we began to observe elevated signalling traffic from one of our downstream connectivity partners, during which new attachments to cellular networks or handoffs to other towers for non-stationary devices may have experienced issues. Devices that were already connected to a cellular network and had an active data session may not have experienced any impact. At 10:07 UTC, all signalling traffic from the impacted partner was lost. At this point, all new attachments and location updates for devices using IMSIs from the impacted parter were expected to fail. Super SIMs should have begun to fallback to other IMSIs on the SIM if devices were previously using the impacted partner IMSIs and were now failing to connect. We observed an increase in the number of new connections on IMSIs from other partners during this time. At 11:39 UTC, signalling traffic from the impacted partner resumed and new attachments were successful again. However, our engineers are working to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "4syxyscxmvsr",
+          "created_at": "2024-06-18T05:34:36.930-07:00",
+          "updated_at": "2024-06-18T05:34:36.930-07:00",
+          "display_at": "2024-06-18T05:34:36.930-07:00",
+          "affected_components": [
+            {
+              "code": "919qx43ks4dx",
+              "name": "INTERNET OF THINGS - Super SIM",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "081mqxw6yz8z",
           "status": "investigating",
@@ -1422,7 +1442,7 @@
       "name": "SMS Delivery Receipts Delays and Delivery Failures Via a Subset of Registered SenderID to DITO Network In The Philippines",
       "status": "identified",
       "created_at": "2024-06-16T19:50:12.963-07:00",
-      "updated_at": "2024-06-18T01:22:14.826-07:00",
+      "updated_at": "2024-06-18T05:13:57.918-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -1430,6 +1450,32 @@
       "started_at": "2024-06-16T19:50:12.955-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "w3fs5qgchrd1",
+          "status": "identified",
+          "body": "We continue to experience SMS delivery receipt delays and delivery failures via a subset of registered Sender ID to DITO network in Philippines. Our engineers are working with our carrier partner to resolve the issue. We expect to provide another update in 8 hours or as soon as more information becomes available.",
+          "incident_id": "5kjftpkrh898",
+          "created_at": "2024-06-18T05:13:57.916-07:00",
+          "updated_at": "2024-06-18T05:13:57.916-07:00",
+          "display_at": "2024-06-18T05:13:57.916-07:00",
+          "affected_components": [
+            {
+              "code": "yvvy3vlp4djf",
+              "name": "PROGRAMMABLE MESSAGING - SMS",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "8qjql0kqnd33",
+              "name": "CARRIER NETWORK - SMS, APAC",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "t5t40x0zh5r6",
           "status": "identified",
