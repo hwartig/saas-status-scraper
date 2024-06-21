@@ -4,9 +4,75 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-06-20T18:47:45.937Z"
+    "updated_at": "2024-06-21T08:46:48.222Z"
   },
   "incidents": [
+    {
+      "id": "bqm909t1jgbz",
+      "name": "Billing system errors",
+      "status": "identified",
+      "created_at": "2024-06-21T08:44:25.928Z",
+      "updated_at": "2024-06-21T08:46:48.215Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/fpjyhystdyjn",
+      "started_at": "2024-06-21T08:44:25.922Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "pxm3k2n73sg1",
+          "status": "identified",
+          "body": "We are continuing to work on a fix for this issue.",
+          "incident_id": "bqm909t1jgbz",
+          "created_at": "2024-06-21T08:46:48.214Z",
+          "updated_at": "2024-06-21T08:46:48.214Z",
+          "display_at": "2024-06-21T08:46:48.214Z",
+          "affected_components": [
+            {
+              "code": "vws6fvs1j3x6",
+              "name": "Billing - Billing (Usage Metrics API)",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "899mbp75f09l",
+          "status": "identified",
+          "body": "Due to an upstream outage, our billing system is experiencing a partial outage. Invoices may fail to load and/or be missing lines, and credits (including purchased credits) may fail to load.If you previously purchased credits and your credit balance is now showing $0.00, please be aware that this is a UI outage only - your credit balance will show the correct figure once the outage is resolved.",
+          "incident_id": "bqm909t1jgbz",
+          "created_at": "2024-06-21T08:44:25.964Z",
+          "updated_at": "2024-06-21T08:44:25.964Z",
+          "display_at": "2024-06-21T08:44:25.964Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "vws6fvs1j3x6",
+          "name": "Billing (Usage Metrics API)",
+          "status": "partial_outage",
+          "created_at": "2024-06-21T08:45:55.160Z",
+          "updated_at": "2024-06-21T08:46:48.181Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-06-21",
+          "group_id": "lv4hb83r5b4s",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "p8rw3t59nl0r",
       "name": "Builders are having issues being created in gru region",
@@ -5407,158 +5473,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "pymsj625kv4v",
-      "name": "API errors when creating machines",
-      "status": "resolved",
-      "created_at": "2024-02-22T21:18:22.807Z",
-      "updated_at": "2024-02-22T22:32:08.186Z",
-      "monitoring_at": "2024-02-22T22:08:58.204Z",
-      "resolved_at": "2024-02-22T22:32:08.169Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/rdvp2gfb63xq",
-      "started_at": "2024-02-22T21:18:22.796Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "yj2z473jhljy",
-          "status": "resolved",
-          "body": "This incident is resolved.",
-          "incident_id": "pymsj625kv4v",
-          "created_at": "2024-02-22T22:32:08.169Z",
-          "updated_at": "2024-02-22T22:32:08.169Z",
-          "display_at": "2024-02-22T22:32:08.169Z",
-          "affected_components": [
-            {
-              "code": "80ykv2p95qgy",
-              "name": "Platform and Tools - API",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "49yq6v65b33l",
-              "name": "Platform and Tools - Deployments",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "css2vnj1s7gy",
-          "status": "monitoring",
-          "body": "We've deployed a fix for this problem and are monitoring to ensure everything is working normally.",
-          "incident_id": "pymsj625kv4v",
-          "created_at": "2024-02-22T22:08:58.204Z",
-          "updated_at": "2024-02-22T22:08:58.204Z",
-          "display_at": "2024-02-22T22:08:58.204Z",
-          "affected_components": [
-            {
-              "code": "80ykv2p95qgy",
-              "name": "Platform and Tools - API",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "49yq6v65b33l",
-              "name": "Platform and Tools - Deployments",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cmrwpz16ym7v",
-          "status": "identified",
-          "body": "We've identified the cause of this issue. We've determined it's most likely to affect deploys of newly-created organizations and/or applications. It might affect deploys even on old applications with builder failures. A mitigation for the latter is to use --local-only when deploying. Full resolution is underway.",
-          "incident_id": "pymsj625kv4v",
-          "created_at": "2024-02-22T21:41:20.563Z",
-          "updated_at": "2024-02-22T21:41:20.563Z",
-          "display_at": "2024-02-22T21:41:20.563Z",
-          "affected_components": [
-            {
-              "code": "80ykv2p95qgy",
-              "name": "Platform and Tools - API",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "49yq6v65b33l",
-              "name": "Platform and Tools - Deployments",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "csmdj9tn7s4b",
-          "status": "investigating",
-          "body": "Machine creation operations, including deploys, currently fail with \"could not launch machine: failed to launch VM: failed to get org\". Other operations such as destroy work normally. Currently-running machines continue to work normally.",
-          "incident_id": "pymsj625kv4v",
-          "created_at": "2024-02-22T21:18:22.912Z",
-          "updated_at": "2024-02-22T21:18:22.912Z",
-          "display_at": "2024-02-22T21:18:22.912Z",
-          "affected_components": [
-            {
-              "code": "80ykv2p95qgy",
-              "name": "Platform and Tools - API",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "49yq6v65b33l",
-              "name": "Platform and Tools - Deployments",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "80ykv2p95qgy",
-          "name": "API",
-          "status": "operational",
-          "created_at": "2020-04-01T21:30:26.075Z",
-          "updated_at": "2024-06-11T19:52:47.811Z",
-          "position": 1,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": "ycm6xbpsfqvd",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "49yq6v65b33l",
-          "name": "Deployments",
-          "status": "operational",
-          "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2024-06-11T19:52:47.826Z",
-          "position": 2,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": "ycm6xbpsfqvd",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
