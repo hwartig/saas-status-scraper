@@ -4,9 +4,39 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-06-25T00:46:13.717-07:00"
+    "updated_at": "2024-06-25T10:14:45.401-07:00"
   },
   "incidents": [
+    {
+      "id": "665d43660sj5",
+      "name": "[Major] Issue Accessing Box All Files, Notes and API",
+      "status": "resolved",
+      "created_at": "2024-06-25T07:30:00.000-07:00",
+      "updated_at": "2024-06-25T10:14:45.398-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2024-06-25T09:30:00.000-07:00",
+      "impact": "major",
+      "shortlink": "https://stspg.io/08bb5chwyl6k",
+      "started_at": "2024-06-25T09:30:00.000-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "d6q96jmz43cl",
+          "status": "resolved",
+          "body": "From approximately 9:38 AM to 9:53 AM PDT on June 25th 2024, some users may have experienced issues logging in to Box, accessing Box content, and using the Public API. Our team has taken action to remediate this behavior and is seeing recovery to affected services. No further impact has been observed and we are considering this issue to be resolved. If you are still experiencing any issues, please let us know at https://support.box.com.",
+          "incident_id": "665d43660sj5",
+          "created_at": "2024-06-25T10:04:52.001-07:00",
+          "updated_at": "2024-06-25T10:14:45.272-07:00",
+          "display_at": "2024-06-25T09:30:00.000-07:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "xxkl5fwf8s5f",
       "name": "[Critical] Issues with Search",
@@ -10964,351 +10994,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "63v1bg2phxrr",
-          "name": "Box Sign",
-          "status": "operational",
-          "created_at": "2021-10-21T16:52:57.541-07:00",
-          "updated_at": "2024-04-29T12:30:09.099-07:00",
-          "position": 14,
-          "description": null,
-          "showcase": false,
-          "start_date": "2021-10-21",
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "gtzg5dcz21p7",
-      "name": "[Critical] Issues with Multiple Box Services",
-      "status": "postmortem",
-      "created_at": "2023-07-26T17:49:30.975-07:00",
-      "updated_at": "2023-08-15T20:55:30.272-07:00",
-      "monitoring_at": "2023-07-26T18:43:54.414-07:00",
-      "resolved_at": "2023-07-26T19:07:08.157-07:00",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/4qq8ghyfrh99",
-      "started_at": "2023-07-26T17:49:30.957-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "mmzb58yz1sgy",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting Public API, Downloads, Uploads and Sign. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nOn July 26, 2023 between 5:30 and 6:20 PM PDT, some users may have experienced difficulties while working in Box. During this time, users may have degraded experience or difficulty accessing Public API, Downloads, Uploads and Sign. The issue occurred due to an outage of an internal secrets management system that failed after a rare spike in requests from other systems. We were able to resolve the issue by restarting the front ends of the secrets management system to shed connections. In addition, we scaled up the capacity for the secrets management system as well as modified internal clients to reduce the magnitude of future spikes to prevent similar issues from occurring in the future.\n\n**Analysis** \n\nThe internal secrets management system’s file descriptor and connection limits had been increased two months before this issue occurred. The increases were intended to improve system performance during anomalous conditions, but the system’s TCP ephemeral port range remained too small. A request spike consumed the available ephemeral ports on the hosts, resulting in the system becoming unavailable.  \n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Tuned the system’s limits to prevent the port exhaustion condition from reoccurring\n* Improvements made to reduce the recurrence of high magnitude request spikes\n* The connection limiting front end is being replaced with an improved load balancer\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
-          "incident_id": "gtzg5dcz21p7",
-          "created_at": "2023-08-01T09:03:01.900-07:00",
-          "updated_at": "2023-08-15T20:55:30.270-07:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fj73l97z2s5y",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. Box services have been restored to full functionality. Please contact Box Support at https://support.box.com/ if you continue to experience any issues.",
-          "incident_id": "gtzg5dcz21p7",
-          "created_at": "2023-07-26T19:07:08.157-07:00",
-          "updated_at": "2023-07-26T19:07:08.157-07:00",
-          "display_at": "2023-07-26T19:07:08.157-07:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "63v1bg2phxrr",
-              "name": "Box Web Application - Box Sign",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "3072bjbcjxm4",
-              "name": "Box Notes - Web Application",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "cgbm7n2nch3h",
-              "name": "Box Notes - Desktop Client",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jdx87fy90gpq",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are currently monitoring the results.",
-          "incident_id": "gtzg5dcz21p7",
-          "created_at": "2023-07-26T18:43:54.414-07:00",
-          "updated_at": "2023-07-26T18:43:54.414-07:00",
-          "display_at": "2023-07-26T18:43:54.414-07:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "63v1bg2phxrr",
-              "name": "Box Web Application - Box Sign",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "3072bjbcjxm4",
-              "name": "Box Notes - Web Application",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "cgbm7n2nch3h",
-              "name": "Box Notes - Desktop Client",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3gx40jsk8l55",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue. We are seeing some recovery across some of the services. Some Box services are still experiencing some latency.",
-          "incident_id": "gtzg5dcz21p7",
-          "created_at": "2023-07-26T18:14:10.029-07:00",
-          "updated_at": "2023-07-26T18:14:10.029-07:00",
-          "display_at": "2023-07-26T18:14:10.029-07:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "63v1bg2phxrr",
-              "name": "Box Web Application - Box Sign",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "3072bjbcjxm4",
-              "name": "Box Notes - Web Application",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "cgbm7n2nch3h",
-              "name": "Box Notes - Desktop Client",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "p849rb9rz8yb",
-          "status": "investigating",
-          "body": "We are investigating an ongoing issue affecting Login (Web/SSO), All Files Page, Uploads, Downloads, Content API, Box Notes, and Box Sign. Users may see errors or slowness with the affected services.  We will provide more information as soon as it is available.",
-          "incident_id": "gtzg5dcz21p7",
-          "created_at": "2023-07-26T17:49:31.179-07:00",
-          "updated_at": "2023-07-26T17:49:31.179-07:00",
-          "display_at": "2023-07-26T17:49:31.179-07:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "63v1bg2phxrr",
-              "name": "Box Web Application - Box Sign",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "3072bjbcjxm4",
-              "name": "Box Notes - Web Application",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "cgbm7n2nch3h",
-              "name": "Box Notes - Desktop Client",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "k9qs0mx2d5cw",
-          "name": "Content API",
-          "status": "operational",
-          "created_at": "2014-06-26T08:25:48.103-07:00",
-          "updated_at": "2024-04-22T19:33:58.075-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "vggytbdllrjt",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "khm68x6zltbt",
-          "name": "Login/SSO",
-          "status": "operational",
-          "created_at": "2018-10-01T20:06:36.188-07:00",
-          "updated_at": "2024-05-29T06:54:05.435-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "3072bjbcjxm4",
-          "name": "Web Application",
-          "status": "operational",
-          "created_at": "2018-10-01T20:31:06.465-07:00",
-          "updated_at": "2024-04-11T05:56:23.538-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "n48wl8ns3z3w",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "wtcp7snm0429",
-          "name": "Uploads/Downloads",
-          "status": "operational",
-          "created_at": "2018-10-01T20:08:50.656-07:00",
-          "updated_at": "2024-04-22T19:33:58.162-07:00",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "t1bgldgfmgfs",
-          "name": "Box Website",
-          "status": "operational",
-          "created_at": "2018-10-01T20:25:05.195-07:00",
-          "updated_at": "2024-03-08T03:08:44.276-08:00",
-          "position": 12,
-          "description": "The primary Box marketing website which includes information about available products and services. This site also serves as the beginning destination for a customer's login to the Box Web Application and default download links to desktop and mobile client software.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
           "page_id": "208q92hckwws",
           "group": false,
           "only_show_if_degraded": false
