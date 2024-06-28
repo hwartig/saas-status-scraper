@@ -4,9 +4,52 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-06-28T16:42:59.464Z"
+    "updated_at": "2024-06-28T20:16:21.422Z"
   },
   "incidents": [
+    {
+      "id": "qf1wmhrckzss",
+      "name": "Some free services returning 502s",
+      "status": "identified",
+      "created_at": "2024-06-28T20:09:59.779Z",
+      "updated_at": "2024-06-28T20:16:21.415Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/qqsw4rh1m7sw",
+      "started_at": "2024-06-28T20:09:59.772Z",
+      "page_id": "tyfhm2rrt1tl",
+      "incident_updates": [
+        {
+          "id": "cvbd936h6d9x",
+          "status": "identified",
+          "body": "The issue has been identified and a fix is being implemented.",
+          "incident_id": "qf1wmhrckzss",
+          "created_at": "2024-06-28T20:16:21.049Z",
+          "updated_at": "2024-06-28T20:16:21.410Z",
+          "display_at": "2024-06-28T20:16:21.049Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": 1806783717215756500
+        },
+        {
+          "id": "scbh8q7478ty",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "qf1wmhrckzss",
+          "created_at": "2024-06-28T20:09:59.819Z",
+          "updated_at": "2024-06-28T20:10:00.257Z",
+          "display_at": "2024-06-28T20:09:59.819Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": 1806782118602908000
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "x8n1pryxs45v",
       "name": "Point In Time Recovery is degraded for some Postgres services",
@@ -10344,376 +10387,6 @@
           "showcase": true,
           "start_date": "2022-01-01",
           "group_id": "kvx5yy599tcf",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "9spxh4wslrht",
-      "name": "Elevated 502 errors in Oregon",
-      "status": "postmortem",
-      "created_at": "2023-12-11T20:55:21.004Z",
-      "updated_at": "2023-12-19T00:42:41.244Z",
-      "monitoring_at": "2023-12-11T21:15:59.891Z",
-      "resolved_at": "2023-12-11T21:33:14.429Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/v7ck9pgqrr2x",
-      "started_at": "2023-12-11T20:55:20.988Z",
-      "page_id": "tyfhm2rrt1tl",
-      "incident_updates": [
-        {
-          "id": "72zyy5zkhy5w",
-          "status": "postmortem",
-          "body": "Render RCA - 2023-12-11\n\n# Summary\n\nStarting at 2023-12-11 20:33 UTC a Render customer in the Oregon region was subject to a Distributed Denial of Service \\(DDoS\\) botnet attack. Render uses Cloudflare to offer DDoS protection and Cloudflare immediately began blocking some but not all of the malicious traffic. The remaining traffic overloaded some components of our infrastructure. The attack ended 15 minutes later and within 8 minutes of that, all of our systems had self-recovered and began serving traffic as normal.\n\n# Impact\n\nThis outage impacted infrastructure that serves roughly a quarter of our customers in the Oregon region. The web services for these customers were unable to receive traffic responding with a `5xx` HTTP errors. The total degraded service window was 23 minutes \\(2023-12-11 20:33 UTC to 2023-12-11 20:56 UTC\\), with the acute period \\(when no traffic was being served\\) for 11 minutes \\(2023-12-11 20:39 UTC to 2023-12-11 20:50 UTC\\).\n\n# Root Cause\n\nOur Cloudflare configuration did not fully mitigate a DDoS attack against one of our customers. Additionally, parts of our infrastructure were not able to handle the dramatically increased load.\n\n# Mitigations\n\nIn the short term, we leveraged Cloudflare's filtering tool to guard against the resumption of the same attack.\n\nWe are also working to improve our system's responsiveness to this class of problem generally. Namely, we will be:\n\n* Working with Cloudflare to better leverage their security tools so that our combined systems can respond more adaptively to attacks of this kind.\n* Improving our infrastructure to be more resilient to these scenarios.",
-          "incident_id": "9spxh4wslrht",
-          "created_at": "2023-12-19T00:37:06.493Z",
-          "updated_at": "2023-12-19T00:42:41.236Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": "We published a postmortem on our December 11th incident: https://stspg.io/v7ck9pgqrr2x",
-          "tweet_id": null
-        },
-        {
-          "id": "9q4w9952mqvx",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "9spxh4wslrht",
-          "created_at": "2023-12-11T21:33:14.429Z",
-          "updated_at": "2023-12-11T21:33:15.167Z",
-          "display_at": "2023-12-11T21:33:14.429Z",
-          "affected_components": [
-            {
-              "code": "lncp1pny4nlm",
-              "name": "Oregon - Web Services",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "dpmmfbtf6hhw",
-              "name": "Oregon - Cron Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "hf6t7bt315bg",
-              "name": "Oregon - Background Workers",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "y2phrhdzkv83",
-              "name": "Oregon - PostgreSQL",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "r20g6cn2j02h",
-              "name": "Oregon - Redis",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "wdv5w1vdp24z",
-              "name": "Oregon - Web Services - Free Tier",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "1wqcyxr2qylf",
-              "name": "Oregon - Builds and Deploys",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "7rprq9d8tzj2",
-              "name": "Oregon - Autoscaling",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "q5n6mhrn1wb0",
-              "name": "Oregon - Metrics/Logs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1734325495649718500
-        },
-        {
-          "id": "pbg09b581390",
-          "status": "monitoring",
-          "body": "Services in Oregon were partially degraded from 20:36 to 20:54 UTC. We’ve identified the cause of the issue and have taken steps to mitigate it.",
-          "incident_id": "9spxh4wslrht",
-          "created_at": "2023-12-11T21:15:59.891Z",
-          "updated_at": "2023-12-11T21:16:02.270Z",
-          "display_at": "2023-12-11T21:15:59.891Z",
-          "affected_components": [
-            {
-              "code": "lncp1pny4nlm",
-              "name": "Oregon - Web Services",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "dpmmfbtf6hhw",
-              "name": "Oregon - Cron Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "hf6t7bt315bg",
-              "name": "Oregon - Background Workers",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "y2phrhdzkv83",
-              "name": "Oregon - PostgreSQL",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "r20g6cn2j02h",
-              "name": "Oregon - Redis",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "wdv5w1vdp24z",
-              "name": "Oregon - Web Services - Free Tier",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "1wqcyxr2qylf",
-              "name": "Oregon - Builds and Deploys",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "7rprq9d8tzj2",
-              "name": "Oregon - Autoscaling",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "q5n6mhrn1wb0",
-              "name": "Oregon - Metrics/Logs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1734321163235647500
-        },
-        {
-          "id": "951qgkrff42f",
-          "status": "investigating",
-          "body": "We're investigating reports that services in Oregon are serving 502 Bad Gateway errors",
-          "incident_id": "9spxh4wslrht",
-          "created_at": "2023-12-11T20:55:21.094Z",
-          "updated_at": "2023-12-11T20:55:23.086Z",
-          "display_at": "2023-12-11T20:55:21.094Z",
-          "affected_components": [
-            {
-              "code": "lncp1pny4nlm",
-              "name": "Oregon - Web Services",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "dpmmfbtf6hhw",
-              "name": "Oregon - Cron Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "hf6t7bt315bg",
-              "name": "Oregon - Background Workers",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "y2phrhdzkv83",
-              "name": "Oregon - PostgreSQL",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "r20g6cn2j02h",
-              "name": "Oregon - Redis",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "wdv5w1vdp24z",
-              "name": "Oregon - Web Services - Free Tier",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "1wqcyxr2qylf",
-              "name": "Oregon - Builds and Deploys",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "7rprq9d8tzj2",
-              "name": "Oregon - Autoscaling",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "q5n6mhrn1wb0",
-              "name": "Oregon - Metrics/Logs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1734315965608018000
-        }
-      ],
-      "components": [
-        {
-          "id": "lncp1pny4nlm",
-          "name": "Web Services",
-          "status": "operational",
-          "created_at": "2022-05-06T00:07:58.112Z",
-          "updated_at": "2024-06-27T21:15:32.505Z",
-          "position": 1,
-          "description": "All public HTTP services hosted on Render.",
-          "showcase": true,
-          "start_date": "2022-01-01",
-          "group_id": "4r7rv784cclm",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "dpmmfbtf6hhw",
-          "name": "Cron Jobs",
-          "status": "operational",
-          "created_at": "2022-05-06T00:11:22.763Z",
-          "updated_at": "2024-05-17T00:27:51.230Z",
-          "position": 2,
-          "description": "All cron jobs hosted on Render.",
-          "showcase": true,
-          "start_date": "2022-01-01",
-          "group_id": "4r7rv784cclm",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "hf6t7bt315bg",
-          "name": "Background Workers",
-          "status": "operational",
-          "created_at": "2022-05-06T00:13:24.658Z",
-          "updated_at": "2024-05-17T00:27:51.248Z",
-          "position": 3,
-          "description": "All background workers hosted on Render.",
-          "showcase": true,
-          "start_date": "2022-01-01",
-          "group_id": "4r7rv784cclm",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "1wqcyxr2qylf",
-          "name": "Builds and Deploys",
-          "status": "operational",
-          "created_at": "2022-05-06T00:17:13.811Z",
-          "updated_at": "2024-06-03T20:50:50.974Z",
-          "position": 4,
-          "description": "New builds and deploys for hosted services.",
-          "showcase": true,
-          "start_date": "2022-01-01",
-          "group_id": "4r7rv784cclm",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "y2phrhdzkv83",
-          "name": "PostgreSQL",
-          "status": "operational",
-          "created_at": "2022-05-06T00:20:09.764Z",
-          "updated_at": "2024-06-28T16:42:58.922Z",
-          "position": 5,
-          "description": null,
-          "showcase": true,
-          "start_date": "2022-01-01",
-          "group_id": "4r7rv784cclm",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "r20g6cn2j02h",
-          "name": "Redis",
-          "status": "operational",
-          "created_at": "2022-05-06T00:22:11.830Z",
-          "updated_at": "2024-06-07T21:27:35.543Z",
-          "position": 6,
-          "description": null,
-          "showcase": true,
-          "start_date": "2022-01-01",
-          "group_id": "4r7rv784cclm",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "wdv5w1vdp24z",
-          "name": "Web Services - Free Tier",
-          "status": "operational",
-          "created_at": "2022-05-06T00:24:31.739Z",
-          "updated_at": "2024-05-10T18:24:32.985Z",
-          "position": 7,
-          "description": null,
-          "showcase": true,
-          "start_date": "2022-01-01",
-          "group_id": "4r7rv784cclm",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "7rprq9d8tzj2",
-          "name": "Autoscaling",
-          "status": "operational",
-          "created_at": "2022-10-07T21:59:55.013Z",
-          "updated_at": "2024-05-17T00:27:51.292Z",
-          "position": 8,
-          "description": null,
-          "showcase": true,
-          "start_date": "2022-10-07",
-          "group_id": "4r7rv784cclm",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "q5n6mhrn1wb0",
-          "name": "Metrics/Logs",
-          "status": "operational",
-          "created_at": "2023-10-10T21:41:59.035Z",
-          "updated_at": "2024-06-25T17:07:26.424Z",
-          "position": 9,
-          "description": "Observability into user workloads hosted on Render.",
-          "showcase": true,
-          "start_date": "2023-10-10",
-          "group_id": "4r7rv784cclm",
           "page_id": "tyfhm2rrt1tl",
           "group": false,
           "only_show_if_degraded": false
