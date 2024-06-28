@@ -4,9 +4,39 @@
     "name": "SendGrid",
     "url": "https://status.sendgrid.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-06-27T00:57:45.369-07:00"
+    "updated_at": "2024-06-27T16:57:33.947-07:00"
   },
   "incidents": [
+    {
+      "id": "64mv44tf7bcq",
+      "name": "DKIM Signature System Misconfiguration",
+      "status": "resolved",
+      "created_at": "2024-06-27T08:30:00.000-07:00",
+      "updated_at": "2024-06-27T16:57:33.944-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2024-06-27T08:30:00.000-07:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/j6075m2tbp6f",
+      "started_at": "2024-06-27T16:57:33.880-07:00",
+      "page_id": "3tgl2vf85cht",
+      "incident_updates": [
+        {
+          "id": "3rm412pqbj7k",
+          "status": "resolved",
+          "body": "Starting at approximately 9:30 AM PT on June 27th, our engineers determined that a subset of SendGrid accounts began to sign processed email messages with incorrect DKIM signatures due to a system misconfiguration. This misconfiguration of DKIM signing may have resulted in failed DMARC when being assessed by recipient servers. At approximately 3:50 PM PT the same day, the platform restored stability to the signing of DKIM signatures for the small subset of impacted accounts. Although new email messages processed after 3:50 PM PT for these same affected accounts will have proper DKIM signing, messages requested for processing during the impact period that have yet to be assessed by recipient servers will be judged based on their misconfigured DKIM signature.",
+          "incident_id": "64mv44tf7bcq",
+          "created_at": "2024-06-27T16:57:33.932-07:00",
+          "updated_at": "2024-06-27T16:57:33.932-07:00",
+          "display_at": "2024-06-27T08:30:00.000-07:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "pm9z7qf8wphz",
       "name": "Unable to Access IP Access Management within SendGrid UI",
@@ -5918,36 +5948,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "2t2305gst4lm",
-      "name": "Email Validations API Inaccessible Due to Unauthorized Errors",
-      "status": "resolved",
-      "created_at": "2023-10-17T11:55:56.000-07:00",
-      "updated_at": "2023-10-17T11:59:28.937-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2023-10-17T11:55:56.000-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/fs59cfsvjrff",
-      "started_at": "2023-10-17T11:56:41.040-07:00",
-      "page_id": "3tgl2vf85cht",
-      "incident_updates": [
-        {
-          "id": "vl84t7r6cqpj",
-          "status": "resolved",
-          "body": "Starting at 9:55 AM PT on October 17, 2023, our engineers confirmed that API calls made to the Email Validations API endpoint began to fail with unauthorized errors. However, at 11:19 AM PT, functionality was restored to the API and services began to operate normally again. Any SendGrid users attempting to access the Email Validations API during the affected period will have experienced \"403\" error code responses or failure messages relating to an invalid security token. This incident did not affect mail send directly. The issue has been resolved and all impacted services are now operating normally.",
-          "incident_id": "2t2305gst4lm",
-          "created_at": "2023-10-17T11:56:41.090-07:00",
-          "updated_at": "2023-10-17T11:56:41.090-07:00",
-          "display_at": "2023-10-17T11:55:56.000-07:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
