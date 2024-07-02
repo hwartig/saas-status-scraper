@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-07-02T01:10:09.274-07:00"
+    "updated_at": "2024-07-02T06:51:03.826-07:00"
   },
   "incidents": [
     {
@@ -500,7 +500,7 @@
       "name": "[Critical] Issues with Search",
       "status": "postmortem",
       "created_at": "2024-06-03T22:49:18.479-07:00",
-      "updated_at": "2024-06-10T16:58:54.914-07:00",
+      "updated_at": "2024-07-02T06:51:03.812-07:00",
       "monitoring_at": "2024-06-04T14:16:07.128-07:00",
       "resolved_at": "2024-06-04T15:12:19.353-07:00",
       "impact": "critical",
@@ -511,10 +511,10 @@
         {
           "id": "8g66cytb13tn",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\n‌\n\nBetween 9:33pm PT on June 3, 2024 and 1:28pm PT on June 4, 2024, a small number of users may have experienced difficulties while working in Box. During that time, impacted users experienced increased latencies and error rates when using Box Search. The issue occurred when our Search Infrastructure entered a state that impaired its ability to handle high query load.  In particular, search shards handling high query volumes became unhealthy, leading to frequent node restarts that resulted in sporadically slow or dropped queries. Because of a unique confluence of factors, the root cause proved challenging to diagnose and mitigate, extending time to resolution.\n\n‌\n\nWe are conducting a full engineering review, and we may publish updates in the event there are additional relevant findings.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\n \n\nSincerely,\n\nThe Box Team",
+          "body": "_We recently addressed issues affecting Search. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future._\n\n \n\n_Between 9:33 pm PDT on June 3, 2024 and 1:28 pm PDT on June 4, 2024 and between 6:38 pm PDT and 7:52 pm PDT on June 6, 2024, some users may have experienced difficulties while working in Box. During this time, users were intermittently unable to query Search or receive Search results. This issue impacted a very small number \\(approximately 2%\\) of enterprises. During the first period, the issue occurred as a result of a partially rolled out recent code change. This code change was part of our ongoing effort to improve performance and stability. During the second period, the issue occurred a result of a latent bug in the Search Shadow service, which was used to investigate the root cause of the initial issue. We were able to resolve the issue by fully rolling back the change in both cases. In addition, we have added alerting to detect partial rollouts of changes as well as tests in pre-production environments and addressed the latent bug in the Search Shadow service to prevent similar issues from occurring in the future._ \n\n‌\n\n_Analysis_ \n\n_On June 3, 2024, Search released a change to how backend Search nodes are queried in order to improve performance and stability. This change had an unintended effect on query patterns that dramatically increased load for a small number of queries and only manifested at scale. Although the number of such queries was small, when a backend Search node processed them it would sporadically run out of memory and impact all traffic to that particular node. The Search release mechanism partially rolled out this change to a fraction of the fleet, but did not progress further. We initiated standard rollback procedures, but we did not detect that the change remained deployed on one of the nodes. This complicated the processes of diagnosing and mitigating the impact. The issue was mitigated when the partial rollback was detected and the change was fully rolled back._\n\n‌\n\n_On June 6, 2024, as part of the investigation to identify and verify the root cause of the initial issue, the Search team utilized a so-called Shadow service in production that does not service live traffic.  However, this Shadow service contained a latent bug that allowed a small percent of queries to be issued against the live backend Search nodes. Because the issue that occurred on June 3, 2024 could be triggered with just a handful of queries, the live serving nodes were inadvertently impacted by this Shadow service. The Shadow service change was rolled back to mitigate._\n\n‌\n\n‌\n\n_Corrective Actions_\n\n_The following corrective actions have been completed or are planned:_\n\n* _Improve release mechanisms and procedures to fully rollout or rollback changes in a bounded period of time_\n* _Add tooling and alerting to determine whether a change is fully or only partially deployed_\n* _Add additional tests to pre-production environments to detect unintended Search query pattern changes that sporadically increase load on backend Search nodes_\n* _Fix latent bug in Shadow service and add additional monitoring to detect queries being routed incorrectly to live backend Search nodes_\n\n‌\n\n_We are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter._ \n\n \n\n_Sincerely,_\n\n_The Box Team_",
           "incident_id": "41n98qhw018f",
           "created_at": "2024-06-10T16:58:39.393-07:00",
-          "updated_at": "2024-06-10T16:58:54.912-07:00",
+          "updated_at": "2024-07-02T06:51:03.808-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
