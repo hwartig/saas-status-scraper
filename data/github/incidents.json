@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-07-02T19:43:01.185Z"
+    "updated_at": "2024-07-02T23:15:13.382Z"
   },
   "incidents": [
     {
@@ -311,7 +311,7 @@
       "name": "Delays in changes to organization membership",
       "status": "resolved",
       "created_at": "2024-06-28T17:34:06.897Z",
-      "updated_at": "2024-06-28T22:51:40.328Z",
+      "updated_at": "2024-07-02T23:15:13.375Z",
       "monitoring_at": null,
       "resolved_at": "2024-06-28T22:51:40.306Z",
       "impact": "minor",
@@ -322,10 +322,10 @@
         {
           "id": "m7zxt8m58n7h",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "On June 28th, 2024, at 16:06 UTC, a backend update by GitHub triggered a significant number of long-running Organization membership update jobs in our job processing system. The job queue depth rose as these update jobs consumed most of our job worker capacity. This resulted in delays for other jobs across services such as Pull Requests and PR-related Actions workflows. We mitigated the impact to Pull Requests and Actions at 19:32 UTC by pausing all Organization membership update jobs. We deployed a code change at 22:30 UTC to skip over the jobs queued by the backend change and re-enabled Organization membership update jobs. We restored the Organization membership update functionality at 22:52 UTC, including all membership changes queued during the incident.<br /><br />During the incident, about 15% of Action workflow runs experienced a delay of more than five minutes. In addition, Pull Requests had delays in determining merge eligibility and starting associated Action workflows for the duration of the incident. Organization membership updates saw delays for upwards of five hours.<br /><br />To prevent a similar event in the future from impacting our users, we are working to: improve our job management system to better manage our job worker capacity; add more precise monitoring for job delays; and strengthen our testing practices to prevent future recurrences.",
           "incident_id": "9vwllhs2w1kj",
           "created_at": "2024-06-28T22:51:40.306Z",
-          "updated_at": "2024-06-28T22:51:40.306Z",
+          "updated_at": "2024-07-02T23:15:13.371Z",
           "display_at": "2024-06-28T22:51:40.306Z",
           "affected_components": [
             {
