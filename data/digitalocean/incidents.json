@@ -4,9 +4,62 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-07-05T16:41:34.365Z"
+    "updated_at": "2024-07-05T16:43:20.760Z"
   },
   "incidents": [
+    {
+      "id": "9hk7kps7s6fz",
+      "name": "IPv6 networking in BLR1",
+      "status": "resolved",
+      "created_at": "2024-07-05T16:43:06.750Z",
+      "updated_at": "2024-07-05T16:43:06.806Z",
+      "monitoring_at": null,
+      "resolved_at": "2024-07-05T16:43:06.797Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/87bl1rsybkh2",
+      "started_at": "2024-07-05T16:43:06.745Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "9mr359fgxgsp",
+          "status": "resolved",
+          "body": "Our Engineering team identified and resolved an issue with IPv6 networking in the BLR1 region.\n\nFrom 12:15 UTC - 15:32 UTC, users may have experienced issues connecting to Droplets and Droplet-based services in the BLR1 region using IPv6 addresses.\n\nOur Engineering team quickly identified the root cause of the incident to be related to a recent maintenance in that region and implemented a fix.\n\nWe apologize for the disruption. If you continue to experience any issues, please open a Support ticket from within your account.",
+          "incident_id": "9hk7kps7s6fz",
+          "created_at": "2024-07-05T16:43:06.797Z",
+          "updated_at": "2024-07-05T16:43:06.797Z",
+          "display_at": "2024-07-05T16:43:06.797Z",
+          "affected_components": [
+            {
+              "code": "lmgn764lq04q",
+              "name": "Networking - BLR1",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "lmgn764lq04q",
+          "name": "BLR1",
+          "status": "operational",
+          "created_at": "2023-02-22T19:29:08.629Z",
+          "updated_at": "2024-06-25T16:30:02.121Z",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-22",
+          "group_id": "sjlhrm4vf4pr",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "wsqv56rmx3g0",
       "name": "Snapshots and Backups Failures in NYC3",
@@ -11865,198 +11918,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "r9w0yrbyy9ls",
-      "name": "DNS Resolution in FRA1, AMS3 and LON1 Regions",
-      "status": "resolved",
-      "created_at": "2024-01-29T17:27:23.000Z",
-      "updated_at": "2024-01-29T19:53:18.881Z",
-      "monitoring_at": "2024-01-29T18:18:06.000Z",
-      "resolved_at": "2024-01-29T18:36:45.000Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/c0rn3mwppm3m",
-      "started_at": "2024-01-29T17:27:23.000Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "w9cl76kh6yk4",
-          "status": "resolved",
-          "body": "Our Engineering team has confirmed the workaround fix is successful and all services should now be operating normally. We will now close this incident and work with the DNS provider separately on the root cause. \n\nWe appreciate your patience throughout the process and if you continue to experience problems, please open a ticket with our support team for further review.",
-          "incident_id": "r9w0yrbyy9ls",
-          "created_at": "2024-01-29T18:36:45.545Z",
-          "updated_at": "2024-01-29T19:53:18.860Z",
-          "display_at": "2024-01-29T18:36:45.000Z",
-          "affected_components": [
-            {
-              "code": "65brl8m428rn",
-              "name": "App Platform - Amsterdam",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "ttzvwy2wf0k3",
-              "name": "App Platform - Frankfurt",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "56cjsvgf3vk4",
-              "name": "App Platform - London",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "qdnryq0lymfk",
-              "name": "DNS",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "49xdsckw6hcx",
-          "status": "monitoring",
-          "body": "Our Engineering team has identified the root cause of the issue with DNS resolution. DigitalOcean resolvers in use in FRA1, AMS3, and LON1 are unable to reach an upstream DNS provider, resulting in resolution for a subset of domain names being unavailable from our resolvers. Our Engineering team is reaching out to the provider for assistance.\n\nIn the meantime, our Engineering team has been able to implement a workaround fix by filtering some incorrectly announced network routes. At this time, we are seeing recovery and resolution of hostnames returning to normal in the impacted regions. We'll continue to await an update from the DNS provider. We're now monitoring the workaround fix for stability and will post an update once we are confident it is successful.",
-          "incident_id": "r9w0yrbyy9ls",
-          "created_at": "2024-01-29T18:18:06.185Z",
-          "updated_at": "2024-01-29T19:53:02.720Z",
-          "display_at": "2024-01-29T18:18:06.000Z",
-          "affected_components": [
-            {
-              "code": "65brl8m428rn",
-              "name": "App Platform - Amsterdam",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "ttzvwy2wf0k3",
-              "name": "App Platform - Frankfurt",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "56cjsvgf3vk4",
-              "name": "App Platform - London",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "qdnryq0lymfk",
-              "name": "DNS",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "br4jdrmg4x0m",
-          "status": "investigating",
-          "body": "Our Engineering team is currently investigating issues with DNS resolution in FRA1, AMS3, and LON1. During this time, customers may experience errors trying to resolve domain names from within DigitalOcean services in those regions, including Droplets and Droplet-based services, as well as App Platform. Additionally, App Platform builds may fail or experience delays. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
-          "incident_id": "r9w0yrbyy9ls",
-          "created_at": "2024-01-29T17:27:23.437Z",
-          "updated_at": "2024-01-29T19:52:47.627Z",
-          "display_at": "2024-01-29T17:27:23.000Z",
-          "affected_components": [
-            {
-              "code": "65brl8m428rn",
-              "name": "App Platform - Amsterdam",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "ttzvwy2wf0k3",
-              "name": "App Platform - Frankfurt",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "56cjsvgf3vk4",
-              "name": "App Platform - London",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "qdnryq0lymfk",
-              "name": "DNS",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "65brl8m428rn",
-          "name": "Amsterdam",
-          "status": "operational",
-          "created_at": "2023-02-18T01:32:31.336Z",
-          "updated_at": "2024-05-06T18:43:24.532Z",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-18",
-          "group_id": "jjs48vwjlqjr",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "ttzvwy2wf0k3",
-          "name": "Frankfurt",
-          "status": "operational",
-          "created_at": "2023-02-18T01:32:31.321Z",
-          "updated_at": "2024-01-29T18:36:45.487Z",
-          "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-18",
-          "group_id": "jjs48vwjlqjr",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "56cjsvgf3vk4",
-          "name": "London",
-          "status": "operational",
-          "created_at": "2023-02-18T01:32:31.966Z",
-          "updated_at": "2024-01-29T18:36:45.501Z",
-          "position": 5,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-18",
-          "group_id": "jjs48vwjlqjr",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "qdnryq0lymfk",
-          "name": "DNS",
-          "status": "operational",
-          "created_at": "2023-03-06T18:42:44.851Z",
-          "updated_at": "2024-06-03T15:29:40.085Z",
-          "position": 6,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-03-06",
-          "group_id": null,
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
