@@ -4,7 +4,7 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-07-04T02:42:58.185Z"
+    "updated_at": "2024-07-09T20:56:08.250Z"
   },
   "components": [
     {
@@ -219,7 +219,104 @@
     }
   ],
   "incidents": [],
-  "scheduled_maintenances": [],
+  "scheduled_maintenances": [
+    {
+      "id": "rhf2fp9sszs7",
+      "name": "Notice: GraphOS IP List Updates, Monday, 2024/08/12",
+      "status": "scheduled",
+      "created_at": "2024-07-09T20:48:37.386Z",
+      "updated_at": "2024-07-09T20:56:08.241Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/bdykgl893xfb",
+      "started_at": "2024-07-09T20:48:37.433Z",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "ncf935n54s59",
+          "status": "scheduled",
+          "body": "<h6 id=\"please-note-\">Please note:</h4>\n<p><em>If you are not using IP Allow Lists for Apollo’s DNS entries, this update does not apply to you, and there will be no impact to any GraphOS features. In general, if you are using corporate proxies or safe lists, Apollo recommends doing domain-based restrictions as opposed to IP-based restrictions.</em></p>\n<h6 id=\"on-august-12-2024-\">On August 12, 2024:</h4>\n<p>Customers who use IP Allow Lists will be required to have an up to date version of IP addresses explicitly allowed in order to ensure full compliance with GraphOS. Provided customers using IP Allow Lists have these updates, there will be no downtime to any services in relation to Apollo.</p>\n<p>As announced on <a href=\"https://status.apollographql.com/incidents/xqqztjcmrr2b\">May 1st, 2023</a>, Apollo occasionally updates the IP addresses behind our APIs. Customers who use IP-based restrictions in their networks should reach out to Apollo Technical Support by going to our <a href=\"https://support.apollographql.com/hc/en-us\">Help center</a> or sending an email to <a href=\"support@apollographql.com\">support@apollographql.com</a> to get an up-to-date list of IPs before August 12, 2024.</p>\n<p>For more details, please see below and be sure to look over our announcement from <a href=\"https://status.apollographql.com/incidents/xqqztjcmrr2b\">May 1st, 2023</a>.</p>\nWe will be updating the IP addresses associated with these current Apollo API domains:\n• <code>usage-reporting.api.apollographql.com</code> (Metrics reporting from the Apollo Router (<code>v0.1.0+</code>), Apollo Server (<code>v2.18.0+</code>), and third-party API servers)\n• <code>api.apollographql.com</code> (All Rover CLI (<code>v0.6+</code>) commands that communicate with GraphOS, along with all requests to the GraphOS Platform API)\n• <code>schema-reporting.api.apollographql.com</code> (Schema registration via schema reporting in Apollo Server (<code>v2.18.0+</code>) and third-party API servers)\n</br>\nWe will also be updating the IP addresses associated with these active legacy domains:\n• <code>edge-server-reporting.api.apollographql.com</code> (Schema registration via schema reporting in Apollo Server (<code>v2.15.0-2.17.x</code>))\n• <code>engine-report.apollodata.com</code> (Metrics reporting from Apollo Server (<code>v2.0-2.17.x</code>))",
+          "incident_id": "rhf2fp9sszs7",
+          "created_at": "2024-07-09T20:48:37.433Z",
+          "updated_at": "2024-07-09T20:56:08.236Z",
+          "display_at": "2024-07-09T20:48:37.433Z",
+          "affected_components": [
+            {
+              "code": "zmt0l1mwxnw5",
+              "name": "Metrics Ingestion",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "v92rqyh4m5qz",
+              "name": "GraphQL API",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "kjtxqnqszhv8",
+              "name": "Schema Publishing",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "zmt0l1mwxnw5",
+          "name": "Metrics Ingestion",
+          "status": "operational",
+          "created_at": "2017-11-02T23:10:04.393Z",
+          "updated_at": "2024-07-04T02:28:21.047Z",
+          "position": 2,
+          "description": "The metrics ingestion pipeline that Servers and Gateways report to, enabling support of Studio analytics and features.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "kjtxqnqszhv8",
+          "name": "Schema Publishing",
+          "status": "operational",
+          "created_at": "2021-10-01T18:16:27.822Z",
+          "updated_at": "2024-05-02T14:19:13.128Z",
+          "position": 3,
+          "description": "The Schema Publishing feature which is leveraged by tools like Server auto-reporting, `rover graph publish`, and `rover subgraph publish`.",
+          "showcase": true,
+          "start_date": "2021-10-01",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "v92rqyh4m5qz",
+          "name": "GraphQL API",
+          "status": "operational",
+          "created_at": "2019-11-06T01:22:42.484Z",
+          "updated_at": "2024-05-02T14:19:13.161Z",
+          "position": 5,
+          "description": "The API that supports reading metrics, schemas, client metadata, publishing and validating schemas.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-08-12T12:00:00.000Z",
+      "scheduled_until": "2024-08-12T13:00:00.000Z"
+    }
+  ],
   "status": {
     "indicator": "none",
     "description": "All Systems Operational"
