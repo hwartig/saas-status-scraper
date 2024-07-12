@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-07-12T01:05:25.067-07:00"
+    "updated_at": "2024-07-12T10:56:28.306-07:00"
   },
   "components": [
     {
@@ -151,9 +151,9 @@
     {
       "id": "7h4z5dpj09mx",
       "name": "Context processing",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-09-18T15:14:51.435-07:00",
-      "updated_at": "2024-06-25T20:55:26.115-07:00",
+      "updated_at": "2024-07-12T10:56:02.919-07:00",
       "position": 1,
       "description": "Ingestion and recording of contexts",
       "showcase": false,
@@ -450,7 +450,7 @@
     {
       "id": "2868qx437p9m",
       "name": "Feature management (non-core functionality)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-03-20T14:51:47.901-07:00",
       "updated_at": "2023-07-07T11:10:01.177-07:00",
       "position": 5,
@@ -575,7 +575,61 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "sv46rydhyt98",
+      "name": "Delay processing contexts",
+      "status": "identified",
+      "created_at": "2024-07-12T10:56:02.878-07:00",
+      "updated_at": "2024-07-12T10:56:28.299-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/06y92b5xqnzn",
+      "started_at": "2024-07-12T10:56:02.000-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "qsk685xw9qr4",
+          "status": "identified",
+          "body": "Customers are experiencing a delay in the processing of context data.  Flag delivery is not affected. We have identified the issue and are working to resolve it.",
+          "incident_id": "sv46rydhyt98",
+          "created_at": "2024-07-12T10:56:02.968-07:00",
+          "updated_at": "2024-07-12T10:56:28.187-07:00",
+          "display_at": "2024-07-12T10:56:02.000-07:00",
+          "affected_components": [
+            {
+              "code": "7h4z5dpj09mx",
+              "name": "Feature management (non-core functionality) - Context processing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "7h4z5dpj09mx",
+          "name": "Context processing",
+          "status": "degraded_performance",
+          "created_at": "2023-09-18T15:14:51.435-07:00",
+          "updated_at": "2024-07-12T10:56:02.919-07:00",
+          "position": 1,
+          "description": "Ingestion and recording of contexts",
+          "showcase": false,
+          "start_date": "2023-09-18",
+          "group_id": "2868qx437p9m",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "cnw3fxh3lfqq",
@@ -708,7 +762,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
