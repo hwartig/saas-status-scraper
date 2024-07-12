@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-07-12T10:58:09.866Z"
+    "updated_at": "2024-07-12T11:18:34.084Z"
   },
   "components": [
     {
@@ -40,9 +40,9 @@
     {
       "id": "fznyj00kpng2",
       "name": "Auth",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-06-21T09:23:42.781Z",
-      "updated_at": "2024-06-26T10:27:48.577Z",
+      "updated_at": "2024-07-12T11:11:35.145Z",
       "position": 3,
       "description": "Authenticate and authorize users",
       "showcase": true,
@@ -161,17 +161,37 @@
   "incidents": [
     {
       "id": "fcjgr0d6cpkx",
-      "name": "in JWT Aud structure from string to ARray",
-      "status": "investigating",
+      "name": "Errors in JWT structure on Supabase auth",
+      "status": "identified",
       "created_at": "2024-07-12T10:58:09.805Z",
-      "updated_at": "2024-07-12T10:58:09.862Z",
+      "updated_at": "2024-07-12T11:18:34.078Z",
       "monitoring_at": null,
       "resolved_at": null,
-      "impact": "none",
+      "impact": "minor",
       "shortlink": "https://stspg.io/4yq0wn7rx0d5",
       "started_at": "2024-07-12T10:58:09.796Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "4m4ngjbmr2qs",
+          "status": "identified",
+          "body": "We have identified errors in some Auth projects caused by a new release, engineers are working to roll back the release and fix the issue.",
+          "incident_id": "fcjgr0d6cpkx",
+          "created_at": "2024-07-12T11:11:35.179Z",
+          "updated_at": "2024-07-12T11:18:34.074Z",
+          "display_at": "2024-07-12T11:11:35.000Z",
+          "affected_components": [
+            {
+              "code": "fznyj00kpng2",
+              "name": "Auth",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "nr8hd5370fs0",
           "status": "investigating",
@@ -186,13 +206,29 @@
           "tweet_id": null
         }
       ],
-      "components": [],
+      "components": [
+        {
+          "id": "fznyj00kpng2",
+          "name": "Auth",
+          "status": "degraded_performance",
+          "created_at": "2023-06-21T09:23:42.781Z",
+          "updated_at": "2024-07-12T11:11:35.145Z",
+          "position": 3,
+          "description": "Authenticate and authorize users",
+          "showcase": true,
+          "start_date": "2023-06-21",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
       "reminder_intervals": null
     }
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
