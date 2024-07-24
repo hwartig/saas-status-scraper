@@ -4,9 +4,62 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-07-24T14:42:58.420Z"
+    "updated_at": "2024-07-24T14:56:50.056Z"
   },
   "incidents": [
+    {
+      "id": "qpgyfrnhjt5y",
+      "name": "Partial Outage on CA-1 region",
+      "status": "investigating",
+      "created_at": "2024-07-24T14:56:49.959Z",
+      "updated_at": "2024-07-24T14:56:50.052Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/4ghjlpq5x7zy",
+      "started_at": "2024-07-24T14:56:49.952Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "jd1hj09sbz7m",
+          "status": "investigating",
+          "body": "We are investigating an issue that has resulted in outages for some sites hosted on the CA-1 region.\n\nOur Operations team has been notified and is currently working to restore service. \n\nWe will update you as soon as we have further information.",
+          "incident_id": "qpgyfrnhjt5y",
+          "created_at": "2024-07-24T14:56:50.049Z",
+          "updated_at": "2024-07-24T14:56:50.049Z",
+          "display_at": "2024-07-24T14:56:50.049Z",
+          "affected_components": [
+            {
+              "code": "qk08sqsyz837",
+              "name": "Canada (ca-1.platform.sh)",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "qk08sqsyz837",
+          "name": "Canada (ca-1.platform.sh)",
+          "status": "partial_outage",
+          "created_at": "2018-05-03T18:24:54.112Z",
+          "updated_at": "2024-07-24T14:56:49.995Z",
+          "position": 3,
+          "description": "ca-1.platform.sh",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "wwl1kn4q7vz0",
       "name": "Deployments failing on Dedicated Enterprise Gen 2 clusters",
@@ -1400,9 +1453,9 @@
         {
           "id": "qk08sqsyz837",
           "name": "Canada (ca-1.platform.sh)",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2018-05-03T18:24:54.112Z",
-          "updated_at": "2024-07-08T04:36:39.401Z",
+          "updated_at": "2024-07-24T14:56:49.995Z",
           "position": 3,
           "description": "ca-1.platform.sh",
           "showcase": false,
@@ -1506,9 +1559,9 @@
         {
           "id": "qk08sqsyz837",
           "name": "Canada (ca-1.platform.sh)",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2018-05-03T18:24:54.112Z",
-          "updated_at": "2024-07-08T04:36:39.401Z",
+          "updated_at": "2024-07-24T14:56:49.995Z",
           "position": 3,
           "description": "ca-1.platform.sh",
           "showcase": false,
@@ -4213,9 +4266,9 @@
         {
           "id": "qk08sqsyz837",
           "name": "Canada (ca-1.platform.sh)",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2018-05-03T18:24:54.112Z",
-          "updated_at": "2024-07-08T04:36:39.401Z",
+          "updated_at": "2024-07-24T14:56:49.995Z",
           "position": 3,
           "description": "ca-1.platform.sh",
           "showcase": false,
@@ -4982,9 +5035,9 @@
         {
           "id": "qk08sqsyz837",
           "name": "Canada (ca-1.platform.sh)",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2018-05-03T18:24:54.112Z",
-          "updated_at": "2024-07-08T04:36:39.401Z",
+          "updated_at": "2024-07-24T14:56:49.995Z",
           "position": 3,
           "description": "ca-1.platform.sh",
           "showcase": false,
@@ -7192,312 +7245,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "fyqkwqq92sxm",
-          "page_id": "l2x5n4czt1ph",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "vvz154sxfdlg",
-      "name": "Partial Outage on UK-1",
-      "status": "postmortem",
-      "created_at": "2023-10-31T08:07:50.209Z",
-      "updated_at": "2023-11-09T22:03:59.177Z",
-      "monitoring_at": "2023-10-31T18:02:16.460Z",
-      "resolved_at": "2023-11-01T12:24:53.540Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/9dnl3bcd5741",
-      "started_at": "2023-10-31T08:07:50.205Z",
-      "page_id": "l2x5n4czt1ph",
-      "incident_updates": [
-        {
-          "id": "89x0c1yyxydb",
-          "status": "postmortem",
-          "body": "### WHAT HAPPENED\n\nOn October 28th at 0725 our internal monitoring notified of a storage alert in the uk-1.platform.sh region. Reviewing the storage usage across all storage hosts in the region, the decision was made to rebalance the storage across the existing hosts without adding more. The alert resolved shortly afterward.\n\nOn October 31st at 0445 UTC the same alert reappeared and our operations team added 3 additional storage hosts to the region. Adding new storage hosts to an existing region requires rebalancing of the data to ensure effective data replication.\n\nDuring investigation it was found that several storage hosts in the region were exhibiting extremely high read activity \\(burst\\), leading to the read/write operations in the region being throttled. This is a limitation of the instance types being used for storage hosts on this provider. These bursts, in addition to the increased read/write activity from the rebalancing operations in the region resulted in slower than normal storage read/write rates to customer projects.\n\nAt 1800 UTC, another three additional storage hosts were added to the region to speed up the rebalance process and reduce the read/write load on the individual hosts. This immediately resolved the throttling and service returned to normal.\n\n### HOW MANY CUSTOMERS WERE IMPACTED\n\nAll projects on the UK-1 region were impacted by this incident across all environments for a period of up to 14 hours. Impact ranged from periods of downtime to slow performance. There was no data lost as a result of this incident.\n\n### WHAT WAS DONE TO RESOLVE THE INCIDENT\n\nThe addition of a further three storage hosts to the region allowed the read/write rates to return to normal levels as the system was able to balance them across more hosts. While we work to optimize the storage daemon to prevent this from reoccuring we have also changed the instance and storage types to a combination with higher read/write rates. Furthermore, we have updated our internal procedures around when to add additional storage hosts to regions to prevent overloading on regions on this infrastructure provider.",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-11-09T11:25:54.863Z",
-          "updated_at": "2023-11-09T22:03:59.174Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "670df8g0d3l2",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-11-01T12:24:53.540Z",
-          "updated_at": "2023-11-01T12:24:53.540Z",
-          "display_at": "2023-11-01T12:24:53.540Z",
-          "affected_components": [
-            {
-              "code": "69kd2cds239s",
-              "name": "United Kingdom (uk-1.platform.sh)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vn7tyr7d9t3b",
-          "status": "monitoring",
-          "body": "The data reallocation process has completed and we are continuing to monitor for any further issues.",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-11-01T10:12:07.616Z",
-          "updated_at": "2023-11-01T10:12:07.616Z",
-          "display_at": "2023-11-01T10:12:07.616Z",
-          "affected_components": [
-            {
-              "code": "69kd2cds239s",
-              "name": "United Kingdom (uk-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cxzkq0hn8sdr",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues.",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-11-01T06:01:32.692Z",
-          "updated_at": "2023-11-01T06:01:32.692Z",
-          "display_at": "2023-11-01T06:01:32.692Z",
-          "affected_components": [
-            {
-              "code": "69kd2cds239s",
-              "name": "United Kingdom (uk-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rq37s0jnsy1k",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues.",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-11-01T04:36:27.612Z",
-          "updated_at": "2023-11-01T04:36:27.612Z",
-          "display_at": "2023-11-01T04:36:27.612Z",
-          "affected_components": [
-            {
-              "code": "69kd2cds239s",
-              "name": "United Kingdom (uk-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "sy14jb2clrvf",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues.",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-11-01T03:11:22.943Z",
-          "updated_at": "2023-11-01T03:11:22.943Z",
-          "display_at": "2023-11-01T03:11:22.943Z",
-          "affected_components": [
-            {
-              "code": "69kd2cds239s",
-              "name": "United Kingdom (uk-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "p559vqgd6q61",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues.",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-11-01T01:44:19.886Z",
-          "updated_at": "2023-11-01T01:44:19.886Z",
-          "display_at": "2023-11-01T01:44:19.886Z",
-          "affected_components": [
-            {
-              "code": "69kd2cds239s",
-              "name": "United Kingdom (uk-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "mc11mt1q4f67",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues.",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-10-31T22:51:30.439Z",
-          "updated_at": "2023-10-31T22:51:30.439Z",
-          "display_at": "2023-10-31T22:51:30.439Z",
-          "affected_components": [
-            {
-              "code": "69kd2cds239s",
-              "name": "United Kingdom (uk-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "73by470q19s0",
-          "status": "monitoring",
-          "body": "We continuing to monitor for any further issues.",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-10-31T20:47:37.201Z",
-          "updated_at": "2023-10-31T20:47:37.201Z",
-          "display_at": "2023-10-31T20:47:37.201Z",
-          "affected_components": [
-            {
-              "code": "69kd2cds239s",
-              "name": "United Kingdom (uk-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "yzsp1hsg6l1h",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-10-31T18:02:16.460Z",
-          "updated_at": "2023-10-31T18:02:16.460Z",
-          "display_at": "2023-10-31T18:02:16.460Z",
-          "affected_components": [
-            {
-              "code": "69kd2cds239s",
-              "name": "United Kingdom (uk-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vbyt0hxkxth9",
-          "status": "identified",
-          "body": "We are continuing to monitor the data reallocation process. Changes have been implemented to reduce the performance impact of the ongoing procedures, but the region will continue experiencing degraded performance until this is complete. We currently estimate that the ongoing process may still take a number of hours to complete fully.",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-10-31T16:39:28.482Z",
-          "updated_at": "2023-10-31T16:39:28.482Z",
-          "display_at": "2023-10-31T16:39:28.482Z",
-          "affected_components": [
-            {
-              "code": "69kd2cds239s",
-              "name": "United Kingdom (uk-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gyp70m15l08k",
-          "status": "identified",
-          "body": "Our team is still monitoring the data reallocation while investigating ways to expedite this process. We currently cannot estimate when the process will be finished. It is important to note that your data isn't at risk during this time.",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-10-31T14:14:38.885Z",
-          "updated_at": "2023-10-31T14:14:38.885Z",
-          "display_at": "2023-10-31T14:14:38.885Z",
-          "affected_components": [
-            {
-              "code": "69kd2cds239s",
-              "name": "United Kingdom (uk-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rtkzdbkkm7mr",
-          "status": "identified",
-          "body": "We are still in the process of reallocating data, your data is not at risk - but there is a chance that you will be impacted in terms of disk performance. We cannot accurately estimate when this process will be finished",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-10-31T12:25:37.850Z",
-          "updated_at": "2023-10-31T12:25:37.850Z",
-          "display_at": "2023-10-31T12:25:37.850Z",
-          "affected_components": [
-            {
-              "code": "69kd2cds239s",
-              "name": "United Kingdom (uk-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7mg28mmn3zg2",
-          "status": "identified",
-          "body": "We have detected an issue affecting service on the UK-1 region. \n\nWe are currently adding additional storage to the region.  Due to an unforeseen issue with the way it is reallocating existing data, it is causing performance issues that will be seen as slow disk i/o.  \n\nYour data is not at risk, the only issue will be slower than desired access to it while it processes the reallocation of existing data.\n\nWe currently do not yet have an ETA for when this process will be completed.",
-          "incident_id": "vvz154sxfdlg",
-          "created_at": "2023-10-31T08:07:50.272Z",
-          "updated_at": "2023-10-31T08:07:50.272Z",
-          "display_at": "2023-10-31T08:07:50.272Z",
-          "affected_components": [
-            {
-              "code": "69kd2cds239s",
-              "name": "United Kingdom (uk-1.platform.sh)",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "69kd2cds239s",
-          "name": "United Kingdom (uk-1.platform.sh)",
-          "status": "operational",
-          "created_at": "2020-02-18T09:30:06.136Z",
-          "updated_at": "2024-07-22T19:05:07.027Z",
-          "position": 13,
-          "description": "uk-1.platform.sh",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
           "page_id": "l2x5n4czt1ph",
           "group": false,
           "only_show_if_degraded": false
