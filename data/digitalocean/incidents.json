@@ -4,15 +4,15 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-07-26T08:12:04.468Z"
+    "updated_at": "2024-07-26T20:52:57.139Z"
   },
   "incidents": [
     {
       "id": "lxghl0xl5c52",
       "name": "Networking in Multiple Regions",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-07-25T00:33:55.999Z",
-      "updated_at": "2024-07-25T05:48:17.679Z",
+      "updated_at": "2024-07-26T20:52:57.133Z",
       "monitoring_at": "2024-07-25T04:55:10.422Z",
       "resolved_at": "2024-07-25T05:48:17.666Z",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2024-07-25T00:33:55.978Z",
       "page_id": "w4cz49tckxhp",
       "incident_updates": [
+        {
+          "id": "fpbfdzj5jx1b",
+          "status": "postmortem",
+          "body": "### **Incident Summary**\n\nOn July 24, 2024, DigitalOcean experienced downtime from near-simultaneous crashes affecting multiple hypervisors \\(ref: [https://docs.digitalocean.com/glossary/hypervisor/](https://docs.digitalocean.com/glossary/hypervisor/)\\) in several regions. In total, fourteen hypervisors crashed, the majority of which were in the FRA1 and AMS3 regions, the remaining being in LON1, SGP1, and NYC1. A routine kernel fix to improve platform stability was being deployed to a subset of hypervisors across the fleet, and that kernel fix had an unexpected conflict with a separate automated maintenance routine, causing those hypervisors to experience kernel panics and become unresponsive. This led to an interruption in service for customer Droplets, and other Droplet-based services until the affected hypervisors were rebooted and restored to a functional state.\n\n### **Incident Details**\n\n* **Root Cause**: A kernel fix being rolled out to some hypervisors through an incremental process conflicted with a periodic maintenance operation which was in progress on a subset of those hypervisors.\n* **Impact**: The affected hypervisors crashed, causing Droplets \\(including other Droplet-based services\\) running on these hypervisors to become unresponsive. Customers were unable to reach them via networking, process events like power off/on, or see monitoring. \n* **Response**: After gathering diagnostic information and determining the root cause, we rebooted the affected hypervisors in order to safely restore service. Manual remediation was done on hypervisors that received the kernel fix to ensure it was applied while the maintenance operation was not in progress.\n\n### **Timeline of Events \\(UTC\\)**\n\nJuly 24 22:55 - Rollout of the kernel fix begins. \n\nJuly 24 23:10 - First hypervisor crash occurs and the Operations team begins investigating.\n\nJuly 24 23:55 - Rollout of the kernel fix ends. \n\nJuly 25 00:14 - Internal incident response begins, following further crash alerts firing. \n\nJuly 25 00:35 - Diagnostic tests are run on impacted hypervisors to gather information.\n\nJuly 25 00:47 - Kernel panic messages are observed on impacted hypervisors. Additional Engineering teams are paged for investigation.\n\nJuly 25 01:42 - Operations team begins coordinated effort to reboot all impacted hypervisors to restore customer services.\n\nJuly 25 01:50 - Root cause for the crashes is determined to be the conflict between the kernel fix and maintenance operation. \n\nJuly 25 03:22 - Reboots of all impacted hypervisors complete, all services are restored to normal operation.\n\n### **Remediation Actions**\n\n* The continued rollout of this specific kernel fix, as well as future rollouts of this type of fix, will not be done on hypervisors while the maintenance operation is in progress, to avoid any possible conflicts.\n* Further investigation will be conducted to understand how the kernel fix and the maintenance operation conflicted to cause a kernel crash to help avoid similar problems in the future.",
+          "incident_id": "lxghl0xl5c52",
+          "created_at": "2024-07-26T20:41:27.098Z",
+          "updated_at": "2024-07-26T20:52:57.126Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our July 24th incident: https://stspg.io/f09vqx8zyjg0",
+          "tweet_id": null
+        },
         {
           "id": "j78cpw8rwwfv",
           "status": "resolved",
