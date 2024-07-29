@@ -4,7 +4,7 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2024-07-29T03:42:19.340-04:00"
+    "updated_at": "2024-07-29T12:01:18.700-04:00"
   },
   "components": [
     {
@@ -341,7 +341,83 @@
     }
   ],
   "incidents": [],
-  "scheduled_maintenances": [],
+  "scheduled_maintenances": [
+    {
+      "id": "60msg4890vqx",
+      "name": "Scheduled maintenance: auth.aptible.com and api.aptible.com",
+      "status": "scheduled",
+      "created_at": "2024-07-29T12:01:18.648-04:00",
+      "updated_at": "2024-07-29T12:01:18.697-04:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/x5lvw00l9lmd",
+      "started_at": "2024-07-29T12:01:18.640-04:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "z79dhwwrjnl1",
+          "status": "scheduled",
+          "body": "We will be performing an upgrade of the databases backing auth.aptible.com and api.aptible.com between 22:00 and 23:59 EDT on August 11th. Login for Aptible Deploy will be unavailable during this time. If you are already logged in, you will not be able to make changes during this time.\n\nIn preparation for the database upgrades, all operations for Aptible Deploy, including operations triggered via the Aptible CLI Toolbelt, will be disabled starting at 21:30 EDT. Operations will remain suspended until the upgrade is complete.\n\nThe Aptible Deploy dashboard and auth.aptible.com will be read-only during the upgrade. If you were logged in prior to the upgrade beginning, you will be able to view but not change data in Aptible Deploy. If you were not logged in prior to the upgrade window, you will not be able to log in until the upgrade is complete.\n\nRunning Apps and Databases hosted on Aptible Deploy are not impacted by this upgrade.",
+          "incident_id": "60msg4890vqx",
+          "created_at": "2024-07-29T12:01:18.695-04:00",
+          "updated_at": "2024-07-29T12:01:18.695-04:00",
+          "display_at": "2024-07-29T12:01:18.695-04:00",
+          "affected_components": [
+            {
+              "code": "qb0csdk23619",
+              "name": "api.aptible.com",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "7ryvc8kmvmwc",
+              "name": "auth.aptible.com",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "qb0csdk23619",
+          "name": "api.aptible.com",
+          "status": "operational",
+          "created_at": "2014-10-24T12:00:39.142-04:00",
+          "updated_at": "2024-07-28T22:36:43.235-04:00",
+          "position": 1,
+          "description": "Aptible PaaS API Server",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "7ryvc8kmvmwc",
+          "name": "auth.aptible.com",
+          "status": "operational",
+          "created_at": "2015-09-28T10:51:05.989-04:00",
+          "updated_at": "2024-07-28T22:36:43.253-04:00",
+          "position": 2,
+          "description": "Aptible Authorization/Authentication Server",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-08-11T22:00:00.000-04:00",
+      "scheduled_until": "2024-08-11T23:59:00.000-04:00"
+    }
+  ],
   "status": {
     "indicator": "none",
     "description": "All Systems Operational"
