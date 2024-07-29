@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-07-28T07:58:28.223Z"
+    "updated_at": "2024-07-29T04:27:43.706Z"
   },
   "components": [
     {
@@ -2461,7 +2461,7 @@
     {
       "id": "b3tklvcyzvh0",
       "name": "Event Processing",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T17:31:23.459Z",
       "updated_at": "2023-04-21T16:02:43.614Z",
       "position": 13,
@@ -2684,9 +2684,9 @@
     {
       "id": "myqfd21mmbh9",
       "name": "TOR1",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T17:27:01.575Z",
-      "updated_at": "2024-05-30T22:07:37.767Z",
+      "updated_at": "2024-07-29T04:27:43.630Z",
       "position": 15,
       "description": null,
       "showcase": false,
@@ -3005,7 +3005,61 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "p2f2h8vbc23p",
+      "name": "Snapshots and Backups in TOR1",
+      "status": "investigating",
+      "created_at": "2024-07-29T04:27:43.585Z",
+      "updated_at": "2024-07-29T04:27:43.702Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/bhcxhw5d0qw7",
+      "started_at": "2024-07-29T04:27:43.573Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "9y6bscw0lbys",
+          "status": "investigating",
+          "body": "As of 03:14 UTC, our Engineering team is investigating an issue with Snapshot and Backup failures in our TOR1 region. Users may experience errors when creating or restoring Snapshots and Backups images.\n\nCreating droplets from Snapshots and Backup images in this region is also affected.\n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "p2f2h8vbc23p",
+          "created_at": "2024-07-29T04:27:43.699Z",
+          "updated_at": "2024-07-29T04:27:43.699Z",
+          "display_at": "2024-07-29T04:27:43.699Z",
+          "affected_components": [
+            {
+              "code": "myqfd21mmbh9",
+              "name": "Event Processing - TOR1",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "myqfd21mmbh9",
+          "name": "TOR1",
+          "status": "degraded_performance",
+          "created_at": "2023-02-22T17:27:01.575Z",
+          "updated_at": "2024-07-29T04:27:43.630Z",
+          "position": 15,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-22",
+          "group_id": "b3tklvcyzvh0",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "9nf3hp01tm6r",
@@ -3201,7 +3255,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
