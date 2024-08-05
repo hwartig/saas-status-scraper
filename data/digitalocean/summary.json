@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-08-04T08:07:07.756Z"
+    "updated_at": "2024-08-05T03:21:14.389Z"
   },
   "components": [
     {
@@ -505,9 +505,9 @@
     {
       "id": "hnqx47tg75cw",
       "name": "NYC3",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-21T16:23:54.293Z",
-      "updated_at": "2024-07-24T21:00:02.467Z",
+      "updated_at": "2024-08-05T03:21:14.302Z",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -1345,9 +1345,9 @@
     {
       "id": "fkf61qj12vby",
       "name": "New York",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-03-28T21:01:01.511Z",
-      "updated_at": "2024-07-24T21:00:02.782Z",
+      "updated_at": "2024-08-05T03:21:14.331Z",
       "position": 6,
       "description": null,
       "showcase": false,
@@ -1945,7 +1945,7 @@
     {
       "id": "jjs48vwjlqjr",
       "name": "App Platform",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-18T01:32:32.291Z",
       "updated_at": "2023-03-06T19:28:57.644Z",
       "position": 10,
@@ -2137,7 +2137,7 @@
     {
       "id": "nmb3bbtqfgsj",
       "name": "Container Registry",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-21T17:29:22.377Z",
       "updated_at": "2023-04-21T16:02:43.593Z",
       "position": 11,
@@ -3005,7 +3005,82 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "pdvg7yvldz8s",
+      "name": "App Platform and Container Registry in NYC",
+      "status": "investigating",
+      "created_at": "2024-08-05T03:21:14.264Z",
+      "updated_at": "2024-08-05T03:21:14.386Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/f5r2kv7kdg5x",
+      "started_at": "2024-08-05T03:21:14.252Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "d1fltwq24yz0",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue with the DigitalOcean App Platform and Container Registry in our NYC regions. At this time, users may experience delays or timeouts while pushing to Container Registries, as well as delays when working with App Platform builds. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "pdvg7yvldz8s",
+          "created_at": "2024-08-05T03:21:14.383Z",
+          "updated_at": "2024-08-05T03:21:14.383Z",
+          "display_at": "2024-08-05T03:21:14.383Z",
+          "affected_components": [
+            {
+              "code": "fkf61qj12vby",
+              "name": "App Platform - New York",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "hnqx47tg75cw",
+              "name": "Container Registry - NYC3",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "hnqx47tg75cw",
+          "name": "NYC3",
+          "status": "degraded_performance",
+          "created_at": "2023-02-21T16:23:54.293Z",
+          "updated_at": "2024-08-05T03:21:14.302Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-21",
+          "group_id": "nmb3bbtqfgsj",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "fkf61qj12vby",
+          "name": "New York",
+          "status": "degraded_performance",
+          "created_at": "2023-03-28T21:01:01.511Z",
+          "updated_at": "2024-08-05T03:21:14.331Z",
+          "position": 6,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-28",
+          "group_id": "jjs48vwjlqjr",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "w3mqd7fsn36m",
@@ -3063,7 +3138,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
