@@ -4,9 +4,39 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-08-06T18:22:31.367Z"
+    "updated_at": "2024-08-06T20:22:34.907Z"
   },
   "incidents": [
+    {
+      "id": "1kn4kywmvgz4",
+      "name": "[Retroactive] Incident with Pull Requests",
+      "status": "resolved",
+      "created_at": "2024-08-06T18:30:00.000Z",
+      "updated_at": "2024-08-06T20:22:34.904Z",
+      "monitoring_at": null,
+      "resolved_at": "2024-08-06T18:30:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/s60c7lj2lctw",
+      "started_at": "2024-08-06T20:22:34.857Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "njzhv28q56w9",
+          "status": "resolved",
+          "body": "Beginning at 6:52 PM UTC on August 8, 2024 and lasting until 6:59 PM UTC, some customers of github.com saw errors when navigating to a Pull Request. The error rate peaked at ~5% for logged in users. This was due to a change which was rolled back after alerts fired during the deployment.\n\nWe did not status before we completed the rollback, and the incident is currently resolved. We are sorry for the delayed post on githubstatus.com.",
+          "incident_id": "1kn4kywmvgz4",
+          "created_at": "2024-08-06T20:22:34.897Z",
+          "updated_at": "2024-08-06T20:22:34.897Z",
+          "display_at": "2024-08-06T18:30:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "cr44n0knc7xj",
       "name": "Disruption with some GitHub services",
@@ -540,7 +570,7 @@
       "name": "Incident with Codespaces",
       "status": "resolved",
       "created_at": "2024-07-30T13:36:52.292Z",
-      "updated_at": "2024-07-30T14:22:15.715Z",
+      "updated_at": "2024-08-06T20:10:25.610Z",
       "monitoring_at": null,
       "resolved_at": "2024-07-30T14:22:15.698Z",
       "impact": "minor",
@@ -551,10 +581,10 @@
         {
           "id": "r7rs0kmy1x6v",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "On July 30th, 2024, between 12:15 UTC and 14:22 UTC the Codespaces service was degraded in the UK South and West Europe regions. During this time, approximately 75% of attempts to create or resume Codespaces in these regions were failing.<br /><br />We mitigated the incident by resolving networking stability issues in these regions.<br /><br />We are working to improve network resiliency to reduce our time to detection and mitigation of issues like this one in the future.",
           "incident_id": "h2mghb83nt00",
           "created_at": "2024-07-30T14:22:15.698Z",
-          "updated_at": "2024-07-30T14:22:15.698Z",
+          "updated_at": "2024-08-06T20:10:25.605Z",
           "display_at": "2024-07-30T14:22:15.698Z",
           "affected_components": [
             {
@@ -8536,184 +8566,6 @@
           "description": "Orchestration and Compute for GitHub Codespaces",
           "showcase": false,
           "start_date": "2021-08-11",
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "k7bc8pkxpmbp",
-      "name": "Incident with Issues and Pull Requests",
-      "status": "resolved",
-      "created_at": "2024-04-10T09:22:55.689Z",
-      "updated_at": "2024-04-12T20:49:51.071Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-04-10T09:38:36.789Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/83ml7671mfpt",
-      "started_at": "2024-04-10T09:22:55.683Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "ny4vffq31ddd",
-          "status": "resolved",
-          "body": "Between 8:18 and 9:38 UTC on Wednesday, April 10th, customers experienced increased error rates across several services due to an overloaded primary database instance, ultimately caused by an unbounded query. We mitigated the impact by failing the instance over to more capable hardware and shipping an improved version of the query that runs against read replicas. In response to this incident, we are also working to make performance improvements to the class of queries that most frequently resulted in failed requests during this timeframe.<br /><br />Web-based repository file editing saw a 17% failure rate during the incident with other repository management operations (e.g. rule updates, web-based branch creation, repository renames) seeing failure rates between 1.5% and 8%. API failure rates for these operations were higher.<br /><br />Issue and Pull Request authoring was heavily impacted during this incident due to reliance on the impacted database primary. We are continuing work to remove our dependence on this particular primary instance from our authoring workflows for these services.<br /><br />GitHub search saw a 5% failure rate throughout this incident due to reliance on the impacted primary database when authorizing repository access. The majority of failing requests were for search bar autocomplete with a limited number of search result failures as well.",
-          "incident_id": "k7bc8pkxpmbp",
-          "created_at": "2024-04-10T09:38:36.789Z",
-          "updated_at": "2024-04-12T20:49:51.068Z",
-          "display_at": "2024-04-10T09:38:36.789Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fyfpyf7zj871",
-          "status": "investigating",
-          "body": "Issues and Pull Requests are operating normally.",
-          "incident_id": "k7bc8pkxpmbp",
-          "created_at": "2024-04-10T09:38:35.372Z",
-          "updated_at": "2024-04-10T09:38:35.372Z",
-          "display_at": "2024-04-10T09:38:35.372Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fhkkzfvknxwz",
-          "status": "investigating",
-          "body": "The mitigation rolled out has successfully resolved the issue. We have seen failure rates reduce and normal service return across all affected features.",
-          "incident_id": "k7bc8pkxpmbp",
-          "created_at": "2024-04-10T09:38:22.984Z",
-          "updated_at": "2024-04-10T09:38:22.984Z",
-          "display_at": "2024-04-10T09:38:22.984Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3v546y7ygmvb",
-          "status": "investigating",
-          "body": "We are aware of impact across a number of GitHub features. This is primarily seen to be impacting write actions for Issues, Repositories and Pull Requests. Additionally we are seeing increased failure rates for search queries.<br /><br />Our team has rolled out a mitigation and is monitoring for recovery.",
-          "incident_id": "k7bc8pkxpmbp",
-          "created_at": "2024-04-10T09:30:52.918Z",
-          "updated_at": "2024-04-10T09:30:52.918Z",
-          "display_at": "2024-04-10T09:30:52.918Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "b31qycz6bhyl",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded availability for Issues and Pull Requests",
-          "incident_id": "k7bc8pkxpmbp",
-          "created_at": "2024-04-10T09:22:55.752Z",
-          "updated_at": "2024-04-10T09:22:55.752Z",
-          "display_at": "2024-04-10T09:22:55.752Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "kr09ddfgbfsf",
-          "name": "Issues",
-          "status": "operational",
-          "created_at": "2017-01-31T20:01:46.638Z",
-          "updated_at": "2024-07-17T16:46:18.639Z",
-          "position": 5,
-          "description": "Requests for Issues on GitHub.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "hhtssxt0f5v2",
-          "name": "Pull Requests",
-          "status": "operational",
-          "created_at": "2020-09-02T15:39:06.329Z",
-          "updated_at": "2024-06-28T19:59:59.351Z",
-          "position": 6,
-          "description": "Requests for Pull Requests on GitHub.com",
-          "showcase": false,
-          "start_date": null,
           "group_id": null,
           "page_id": "kctbh9vrtdwd",
           "group": false,
