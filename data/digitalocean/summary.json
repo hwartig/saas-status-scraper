@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-08-06T08:27:28.886Z"
+    "updated_at": "2024-08-06T19:19:03.178Z"
   },
   "components": [
     {
@@ -190,9 +190,9 @@
     {
       "id": "558h1l1q0c2w",
       "name": "Global",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-03-28T21:01:23.977Z",
-      "updated_at": "2024-08-05T19:46:10.388Z",
+      "updated_at": "2024-08-06T19:19:03.126Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -2461,7 +2461,7 @@
     {
       "id": "b3tklvcyzvh0",
       "name": "Event Processing",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T17:31:23.459Z",
       "updated_at": "2023-04-21T16:02:43.614Z",
       "position": 13,
@@ -3005,7 +3005,61 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "24714nw9b7jt",
+      "name": "Droplet Rebuild and Restore Event Processing",
+      "status": "investigating",
+      "created_at": "2024-08-06T19:19:03.094Z",
+      "updated_at": "2024-08-06T19:19:03.175Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/qrtjp3zvndh5",
+      "started_at": "2024-08-06T19:19:03.086Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "cpl2b0ph2581",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue with processing of rebuild and restore events for Droplets, in all regions. During this time, users may experience long delays or errors when restoring or rebuilding a Droplet. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "24714nw9b7jt",
+          "created_at": "2024-08-06T19:19:03.172Z",
+          "updated_at": "2024-08-06T19:19:03.172Z",
+          "display_at": "2024-08-06T19:19:03.172Z",
+          "affected_components": [
+            {
+              "code": "558h1l1q0c2w",
+              "name": "Event Processing - Global",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "558h1l1q0c2w",
+          "name": "Global",
+          "status": "degraded_performance",
+          "created_at": "2023-03-28T21:01:23.977Z",
+          "updated_at": "2024-08-06T19:19:03.126Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-28",
+          "group_id": "b3tklvcyzvh0",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "b1wvddft74xr",
@@ -3063,7 +3117,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
