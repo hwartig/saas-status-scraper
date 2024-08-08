@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-08-08T13:38:32.155Z"
+    "updated_at": "2024-08-08T14:00:02.464Z"
   },
   "incidents": [
     {
@@ -103,9 +103,9 @@
     {
       "id": "222822dwq709",
       "name": "Global Impact to Events, Cloud Control Panel, and API",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-08-05T17:05:18.681Z",
-      "updated_at": "2024-08-08T13:38:32.149Z",
+      "updated_at": "2024-08-08T13:52:56.512Z",
       "monitoring_at": "2024-08-05T19:20:47.865Z",
       "resolved_at": "2024-08-05T19:46:10.566Z",
       "impact": "minor",
@@ -113,6 +113,19 @@
       "started_at": "2024-08-05T17:05:18.654Z",
       "page_id": "w4cz49tckxhp",
       "incident_updates": [
+        {
+          "id": "f6pxy7jdys44",
+          "status": "postmortem",
+          "body": "### **Incident Summary**\n\nOn August 05, 2024 at 16:30 UTC, DigitalOcean experienced a disruption to internal service discovery. Customers experienced full disruption of creates, event processing, and management of other DigitalOcean products globally. Due to an error in a replication configuration that propagated globally, internal services were unable to correctly discover other services they depended on. This did not affect the availability of existing customer resources.\n\n### **Incident Details**\n\n**Root Cause**: An incorrect replication configuration was deployed against the datastore which powers the internal service discovery service at DigitalOcean. The incorrect configuration specified a new datacenter with zero keys as 100% ownership of all keys in the datastore. This had an immediate global impact against the data storage layer and disrupted the quorum of datastore nodes across all regions. Clients of the service were unable to read/write to the datastore during this time, which had a cascading effect.‌\n\n**Impact**:\n\nThe first observable impact was a complete disruption to the I/O layer of the backing datastore.\n\n![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdU0ECDjKRvdaKFCHqMyxYzFgFPwuYW_vbTLkcqmh4-YHquKP77AjozHffhv0xPnUNrYXtRV0rPwUYKEtb4n0Dozo_bvHFHbIY986AIirTvtuyDRh_7Z0TYjnUEjd9p1NWB83mr9SDE2Lhz6Fh6eRB_O-LY?key=ADgogSsNR7W3UpxAWFv39Q)\nThe next observed impact was platform events, which depend on service discovery for message routing between publisher / consumer. Error rates escalated, while the creates graph went completely dormant for the duration of the incident.\n\n![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeXhrWQUmlgO4kI7yfvDmzeVQNT0oCdDLBi53_P2TYzm8Zk0zZ0btTlKOz4zCPUvMH13byX4GTGUODvnCICI_UQGGNK5uN_YRSHE9RZ0YbQVCV4MZSKBRA1C-heSuzPN800iamOSr8XG0EYCnfK-6Y79mKE?key=ADgogSsNR7W3UpxAWFv39Q)\nThese events are consumed by a wide variety of backing services that compose the DigitalOcean Cloud platform. This incident impacted:\n\n* Droplet Creates\n* Droplet Updates\n* Network Creates\n* Login / Authentication services\n* Block Storage Volumes Snapshot creation\n* Spaces/CDN Creates\n* Spaces Updates\n* Managed Kubernetes cluster creates\n* Managed Databases creates\n\nOther services across DigitalOcean, outside of the eventing flow, also rely on service discovery to talk to each other, so customers may have seen additional impact when attempting to manage assorted services through the Cloud Control Panel or via the API.\n\n**Response**: After gathering diagnostic information and determining the root cause, an updated / correct replication configuration was deployed. Some regions ingested the new replication configuration and started to recover. Teams identified additional regions that took longer to ingest the updated configuration and manually invoked the change directly on the nodes, and then ran local repairs on the data to ensure alignment before moving to the next region.\n\nEngineering teams cleaned up any remaining failed events and processed pending events that had not yet timed out. At the conclusion of that cleanup effort, the incident was declared resolved, and the cloud platform stabilized.\n\n### **Timeline of Events \\(UTC\\)**\n\nAug 05 16:30 - Rollout of the new datastore cluster begins.\n\nAug 05 16:35 - First report of service discovery unavailability is raised internally.\n\nAug 05 16:42 - Lack of quorum and datastore ownership is identified as the blocking issue.\n\nAug 05 17:00 - The replication configuration change, adding the new datacenter, is identified as the root cause behind the ownership change.\n\nAug 05 17:16 - The replication configuration change is reverted, and run against the region that had become the datastore owner. Some events start to fail faster at this point, changing the error from a distinct timeout to a failure to find endpoints.\n\nAug 05 17:25 - Regions that have not detected or applied the reverted configuration are identified, and engineers start manually applying the configuration and running repairs on the datastore for those regions.\n\nAug 05 18:10 - Remaining failure events resolve, and the platform stabilizes.\n\n### **Remediation Actions**\n\nThe replication configuration deployment happened outside of a normal maintenance window. Moving forward, these types of extension maintenances will be performed inside a declared maintenance window, with any potential for customer impact communicated via a maintenance notice posted on the status page.\n\nThe process documentation for this type of deployment will be updated to reflect the current requirements and clearly outline the steps and expectations for each stage of a new deployment. Additionally, the manual processes that occurred will be automated to help reduce the potential for human error.\n\nMultiple teams are also evaluating if our current topology of the internal datastore is appropriate, and if there are any regionalizations or multi-layered approaches DigitalOcean can take to help ensure our internal service discovery remains as available as possible.",
+          "incident_id": "222822dwq709",
+          "created_at": "2024-08-08T13:31:58.031Z",
+          "updated_at": "2024-08-08T13:52:56.509Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our August 5th incident: https://stspg.io/7rnxf3thk8zf",
+          "tweet_id": null
+        },
         {
           "id": "yrdvvsncznwx",
           "status": "resolved",
