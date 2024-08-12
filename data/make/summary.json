@@ -4,7 +4,7 @@
     "name": "Make",
     "url": "https://status.make.com",
     "time_zone": "Europe/Prague",
-    "updated_at": "2024-08-12T17:01:55.491+02:00"
+    "updated_at": "2024-08-12T21:46:59.882+02:00"
   },
   "components": [
     {
@@ -327,9 +327,9 @@
     {
       "id": "q69jwgrwmkgz",
       "name": "us1.make.celonis.com",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-07-14T20:23:42.490+02:00",
-      "updated_at": "2024-08-12T04:04:55.080+02:00",
+      "updated_at": "2024-08-12T21:46:59.844+02:00",
       "position": 5,
       "description": null,
       "showcase": true,
@@ -372,7 +372,7 @@
     {
       "id": "4vj3ktcpx1zn",
       "name": "Scenario Executions",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-07-14T20:20:22.767+02:00",
       "updated_at": "2023-07-14T20:20:22.767+02:00",
       "position": 6,
@@ -508,10 +508,85 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "m08q355mkc8j",
+      "name": "US1 Enterprise zone unstable",
+      "status": "investigating",
+      "created_at": "2024-08-12T21:46:59.816+02:00",
+      "updated_at": "2024-08-12T21:46:59.880+02:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/rhthgnz960rh",
+      "started_at": "2024-08-12T21:46:59.807+02:00",
+      "page_id": "y62qy4nt734y",
+      "incident_updates": [
+        {
+          "id": "k6hw7gt2sy09",
+          "status": "investigating",
+          "body": "We have identified an issue in zone us1.make.celonis.com where, due to the incident on 11.08.2024, a few scenarios got stuck in different status, affecting their schedules and executions. Our engineers are currently investigating the cause. We will provide an update within the next hour.",
+          "incident_id": "m08q355mkc8j",
+          "created_at": "2024-08-12T21:46:59.878+02:00",
+          "updated_at": "2024-08-12T21:46:59.878+02:00",
+          "display_at": "2024-08-12T21:46:59.878+02:00",
+          "affected_components": [
+            {
+              "code": "5ctgnwqtbgh7",
+              "name": "Responsive Webhooks - us1.make.celonis.com",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "q69jwgrwmkgz",
+              "name": "Scenario Executions - us1.make.celonis.com",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "5ctgnwqtbgh7",
+          "name": "us1.make.celonis.com",
+          "status": "operational",
+          "created_at": "2022-01-27T17:23:41.965+01:00",
+          "updated_at": "2024-08-12T03:39:43.452+02:00",
+          "position": 5,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-01-26",
+          "group_id": "7cxzprnnq8r3",
+          "page_id": "y62qy4nt734y",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "q69jwgrwmkgz",
+          "name": "us1.make.celonis.com",
+          "status": "degraded_performance",
+          "created_at": "2023-07-14T20:23:42.490+02:00",
+          "updated_at": "2024-08-12T21:46:59.844+02:00",
+          "position": 5,
+          "description": null,
+          "showcase": true,
+          "start_date": "2023-07-14",
+          "group_id": "4vj3ktcpx1zn",
+          "page_id": "y62qy4nt734y",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
