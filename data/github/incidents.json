@@ -4,22 +4,35 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-08-12T14:03:13.459Z"
+    "updated_at": "2024-08-12T14:15:39.293Z"
   },
   "incidents": [
     {
       "id": "fnj6l879tbtw",
       "name": "Disruption with some GitHub services",
-      "status": "investigating",
+      "status": "resolved",
       "created_at": "2024-08-12T14:03:13.415Z",
-      "updated_at": "2024-08-12T14:03:13.456Z",
+      "updated_at": "2024-08-12T14:15:39.291Z",
       "monitoring_at": null,
-      "resolved_at": null,
+      "resolved_at": "2024-08-12T14:15:39.279Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/w9d8v8rxlqlz",
       "started_at": "2024-08-12T14:03:13.409Z",
       "page_id": "kctbh9vrtdwd",
       "incident_updates": [
+        {
+          "id": "449j5fbmy2km",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "fnj6l879tbtw",
+          "created_at": "2024-08-12T14:15:39.279Z",
+          "updated_at": "2024-08-12T14:15:39.279Z",
+          "display_at": "2024-08-12T14:15:39.279Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "vyv81ymzffsr",
           "status": "investigating",
@@ -35,6 +48,59 @@
         }
       ],
       "components": [],
+      "reminder_intervals": null
+    },
+    {
+      "id": "ndlzqycv0dh8",
+      "name": "Incident with Webhooks",
+      "status": "investigating",
+      "created_at": "2024-08-12T14:09:16.691Z",
+      "updated_at": "2024-08-12T14:09:16.748Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/bdh970jr16ns",
+      "started_at": "2024-08-12T14:09:16.685Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "btps8cbll39t",
+          "status": "investigating",
+          "body": "We are investigating reports of degraded performance for Webhooks",
+          "incident_id": "ndlzqycv0dh8",
+          "created_at": "2024-08-12T14:09:16.747Z",
+          "updated_at": "2024-08-12T14:09:16.747Z",
+          "display_at": "2024-08-12T14:09:16.747Z",
+          "affected_components": [
+            {
+              "code": "4230lsnqdsld",
+              "name": "Webhooks",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "4230lsnqdsld",
+          "name": "Webhooks",
+          "status": "partial_outage",
+          "created_at": "2019-11-13T18:00:24.256Z",
+          "updated_at": "2024-08-12T14:09:16.715Z",
+          "position": 3,
+          "description": "Real time HTTP callbacks of user-generated and system events",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "kctbh9vrtdwd",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
       "reminder_intervals": null
     },
     {
@@ -3154,9 +3220,9 @@
         {
           "id": "4230lsnqdsld",
           "name": "Webhooks",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2019-11-13T18:00:24.256Z",
-          "updated_at": "2024-07-05T18:10:28.628Z",
+          "updated_at": "2024-08-12T14:09:16.715Z",
           "position": 3,
           "description": "Real time HTTP callbacks of user-generated and system events",
           "showcase": false,
@@ -7264,9 +7330,9 @@
         {
           "id": "4230lsnqdsld",
           "name": "Webhooks",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2019-11-13T18:00:24.256Z",
-          "updated_at": "2024-07-05T18:10:28.628Z",
+          "updated_at": "2024-08-12T14:09:16.715Z",
           "position": 3,
           "description": "Real time HTTP callbacks of user-generated and system events",
           "showcase": false,
@@ -7841,634 +7907,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "9zq8p50p7tkh",
-      "name": "Incident with Git Operations, API Requests, Actions, Pages, Issues and Copilot",
-      "status": "resolved",
-      "created_at": "2024-04-10T18:41:20.887Z",
-      "updated_at": "2024-04-11T19:40:59.475Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-04-10T19:03:05.691Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/tlpspr2jwz0b",
-      "started_at": "2024-04-10T18:41:20.880Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "ct0jvn1nd593",
-          "status": "investigating",
-          "body": "On April 10, 2024, between 2024-04-10 18:33 UTC and 2024-04-10 19:03 UTC, several services were degraded due to the release of a compute-intensive database query that prevented a key database cluster from serving other queries. <br /><br />GitHub Actions saw delays and failures across the entire run life cycle and had a significant increase in the number of  timeouts in API requests. All Pages deployments failed for the duration of the incident. Git Systems saw approximately 12% of raw file download requests and 16% of repository archive download requests return HTTP 50X error codes for the duration of the incident. Issues experienced increased latency for issue creation and updates. Codespaces saw roughly 500 requests to create and resume a Codespace timeout during the incident.<br /><br />We mitigated the incident by rolling back the offending query. We are working to introduce measures to automatically detect compute-intensive queries in test runs during CI to prevent an issue like this one from recurring.",
-          "incident_id": "9zq8p50p7tkh",
-          "created_at": "2024-04-10T19:03:05.797Z",
-          "updated_at": "2024-04-11T19:40:59.465Z",
-          "display_at": "2024-04-10T19:03:05.797Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qvfb5wv395fr",
-          "status": "investigating",
-          "body": "Git Operations, API Requests, Actions, Pages, Issues and Copilot are operating normally.",
-          "incident_id": "9zq8p50p7tkh",
-          "created_at": "2024-04-10T19:03:05.747Z",
-          "updated_at": "2024-04-10T19:03:05.747Z",
-          "display_at": "2024-04-10T19:03:05.747Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "454939tbbgp7",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "9zq8p50p7tkh",
-          "created_at": "2024-04-10T19:03:05.691Z",
-          "updated_at": "2024-04-10T19:03:05.691Z",
-          "display_at": "2024-04-10T19:03:05.691Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "kkbqxl2rpk9c",
-          "status": "investigating",
-          "body": "Git Operations, API Requests, Actions, Pages, Issues and Copilot are operating normally.",
-          "incident_id": "9zq8p50p7tkh",
-          "created_at": "2024-04-10T19:03:05.643Z",
-          "updated_at": "2024-04-10T19:03:05.643Z",
-          "display_at": "2024-04-10T19:03:05.643Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3hxb8kkvzg4s",
-          "status": "investigating",
-          "body": "Copilot is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "9zq8p50p7tkh",
-          "created_at": "2024-04-10T19:01:17.914Z",
-          "updated_at": "2024-04-10T19:01:17.914Z",
-          "display_at": "2024-04-10T19:01:17.914Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "major_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0ggn8bf4flgn",
-          "status": "investigating",
-          "body": "We're aware of issues impacting multiple services and have rolled back the deployment. Systems appear to be recovering and we will continue to monitor.",
-          "incident_id": "9zq8p50p7tkh",
-          "created_at": "2024-04-10T18:55:48.122Z",
-          "updated_at": "2024-04-10T18:55:48.122Z",
-          "display_at": "2024-04-10T18:55:48.122Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "tl69hpfl6zmv",
-          "status": "investigating",
-          "body": "API Requests is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "9zq8p50p7tkh",
-          "created_at": "2024-04-10T18:53:20.469Z",
-          "updated_at": "2024-04-10T18:53:20.469Z",
-          "display_at": "2024-04-10T18:53:20.469Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "major_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1wy9557sbljk",
-          "status": "investigating",
-          "body": "Copilot is experiencing degraded availability. We are continuing to investigate.",
-          "incident_id": "9zq8p50p7tkh",
-          "created_at": "2024-04-10T18:45:21.270Z",
-          "updated_at": "2024-04-10T18:45:21.270Z",
-          "display_at": "2024-04-10T18:45:21.270Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1znlqvqxwlkb",
-          "status": "investigating",
-          "body": "Issues is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "9zq8p50p7tkh",
-          "created_at": "2024-04-10T18:42:52.208Z",
-          "updated_at": "2024-04-10T18:42:52.208Z",
-          "display_at": "2024-04-10T18:42:52.208Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9xbzf65r5rw7",
-          "status": "investigating",
-          "body": "API Requests is experiencing degraded availability. We are continuing to investigate.",
-          "incident_id": "9zq8p50p7tkh",
-          "created_at": "2024-04-10T18:42:15.258Z",
-          "updated_at": "2024-04-10T18:42:15.258Z",
-          "display_at": "2024-04-10T18:42:15.258Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "partial_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "pydrcbf4bk4g",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Git Operations, API Requests, Actions and Pages",
-          "incident_id": "9zq8p50p7tkh",
-          "created_at": "2024-04-10T18:41:20.981Z",
-          "updated_at": "2024-04-10T18:41:20.981Z",
-          "display_at": "2024-04-10T18:41:20.981Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "8l4ygp009s5s",
-          "name": "Git Operations",
-          "status": "operational",
-          "created_at": "2017-01-31T20:05:05.370Z",
-          "updated_at": "2024-07-17T17:06:48.353Z",
-          "position": 1,
-          "description": "Performance of git clones, pulls, pushes, and associated operations",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "brv1bkgrwx7q",
-          "name": "API Requests",
-          "status": "operational",
-          "created_at": "2017-01-31T20:01:46.621Z",
-          "updated_at": "2024-07-02T19:24:48.645Z",
-          "position": 2,
-          "description": "Requests for GitHub APIs",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "kr09ddfgbfsf",
-          "name": "Issues",
-          "status": "operational",
-          "created_at": "2017-01-31T20:01:46.638Z",
-          "updated_at": "2024-07-17T16:46:18.639Z",
-          "position": 5,
-          "description": "Requests for Issues on GitHub.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "br0l2tvcx85d",
-          "name": "Actions",
-          "status": "operational",
-          "created_at": "2019-11-13T18:02:19.432Z",
-          "updated_at": "2024-07-31T09:20:08.998Z",
-          "position": 7,
-          "description": "Workflows, Compute and Orchestration for GitHub Actions",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "vg70hn9s2tyj",
-          "name": "Pages",
-          "status": "operational",
-          "created_at": "2017-01-31T20:04:33.923Z",
-          "updated_at": "2024-07-19T00:24:20.763Z",
-          "position": 9,
-          "description": "Frontend application and API servers for Pages builds",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "pjmpxvq2cmr2",
-          "name": "Copilot",
-          "status": "operational",
-          "created_at": "2022-06-21T16:04:33.017Z",
-          "updated_at": "2024-07-13T19:26:54.421Z",
-          "position": 11,
-          "description": null,
-          "showcase": false,
-          "start_date": "2022-06-21",
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
