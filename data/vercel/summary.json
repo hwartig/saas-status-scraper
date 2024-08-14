@@ -4,7 +4,7 @@
     "name": "Vercel",
     "url": "https://www.vercel-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-08-13T14:08:11.830Z"
+    "updated_at": "2024-08-14T18:04:03.862Z"
   },
   "components": [
     {
@@ -274,9 +274,9 @@
     {
       "id": "vpcl8brx4gzj",
       "name": "Postgres",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-05-01T16:00:47.628Z",
-      "updated_at": "2024-06-18T14:44:42.437Z",
+      "updated_at": "2024-08-14T18:04:03.809Z",
       "position": 4,
       "description": null,
       "showcase": false,
@@ -797,7 +797,7 @@
     {
       "id": "0vb8zskdvjkm",
       "name": "Storage",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-05-01T16:00:16.305Z",
       "updated_at": "2023-12-18T11:34:13.143Z",
       "position": 21,
@@ -831,10 +831,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "8xfd60mnp0j3",
+      "name": "Postgres Database unavailable for some users",
+      "status": "identified",
+      "created_at": "2024-08-14T18:04:03.772Z",
+      "updated_at": "2024-08-14T18:04:03.859Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/pg1j1qx3wmfn",
+      "started_at": "2024-08-14T18:04:03.764Z",
+      "page_id": "lvglq8h0mdyh",
+      "incident_updates": [
+        {
+          "id": "9z1wqx3kgzcr",
+          "status": "identified",
+          "body": "Neon has put up a status page indicating that their Postgres database is unavailable for some users. For more information, please visit their status page here: https://neonstatus.com/aws-us-east-n-virginia",
+          "incident_id": "8xfd60mnp0j3",
+          "created_at": "2024-08-14T18:04:03.857Z",
+          "updated_at": "2024-08-14T18:04:03.857Z",
+          "display_at": "2024-08-14T18:04:03.857Z",
+          "affected_components": [
+            {
+              "code": "vpcl8brx4gzj",
+              "name": "Storage - Postgres",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "vpcl8brx4gzj",
+          "name": "Postgres",
+          "status": "degraded_performance",
+          "created_at": "2023-05-01T16:00:47.628Z",
+          "updated_at": "2024-08-14T18:04:03.809Z",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-05-01",
+          "group_id": "0vb8zskdvjkm",
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
