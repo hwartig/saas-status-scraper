@@ -4,7 +4,7 @@
     "name": "SendGrid",
     "url": "https://status.sendgrid.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-08-15T09:24:07.161-07:00"
+    "updated_at": "2024-08-15T10:22:08.721-07:00"
   },
   "components": [
     {
@@ -30,9 +30,9 @@
     {
       "id": "0srpdt598t37",
       "name": "Marketing Campaigns",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-11-18T06:21:16.020-08:00",
-      "updated_at": "2024-07-19T10:34:01.696-07:00",
+      "updated_at": "2024-08-15T10:19:26.524-07:00",
       "position": 1,
       "description": "Website, and API access to Marketing Campaigns features.",
       "showcase": false,
@@ -90,7 +90,7 @@
     {
       "id": "1qrzrn1qxjfx",
       "name": "Marketing Campaigns",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-11-18T06:21:16.010-08:00",
       "updated_at": "2015-12-06T21:30:46.901-08:00",
       "position": 2,
@@ -157,9 +157,9 @@
     {
       "id": "vgl8t6wflyjt",
       "name": "API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-11-18T06:25:16.300-08:00",
-      "updated_at": "2024-07-13T18:00:02.426-07:00",
+      "updated_at": "2024-08-15T10:19:26.542-07:00",
       "position": 4,
       "description": "General API functionality not including mail.send calls",
       "showcase": false,
@@ -187,9 +187,9 @@
     {
       "id": "ry6z0hmq55qg",
       "name": "Statistics",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2021-03-24T12:00:44.175-07:00",
-      "updated_at": "2024-07-13T18:00:02.446-07:00",
+      "updated_at": "2024-08-15T10:19:26.558-07:00",
       "position": 6,
       "description": "Availability of Global and Category stats",
       "showcase": false,
@@ -202,9 +202,9 @@
     {
       "id": "mdt4hw660r2x",
       "name": "Email Activity",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-05-01T11:04:58.442-07:00",
-      "updated_at": "2024-06-04T10:37:54.259-07:00",
+      "updated_at": "2024-08-15T10:19:26.573-07:00",
       "position": 7,
       "description": "Email Activity Feed event data and functionality",
       "showcase": false,
@@ -264,9 +264,9 @@
     {
       "id": "0drcp8lzvryj",
       "name": "SendGrid Platform Unavailability",
-      "status": "investigating",
+      "status": "identified",
       "created_at": "2024-08-15T08:17:43.451-07:00",
-      "updated_at": "2024-08-15T09:24:07.154-07:00",
+      "updated_at": "2024-08-15T10:22:08.716-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -274,6 +274,68 @@
       "started_at": "2024-08-15T08:17:43.000-07:00",
       "page_id": "3tgl2vf85cht",
       "incident_updates": [
+        {
+          "id": "36sh74shwyyq",
+          "status": "identified",
+          "body": "Our engineers have identified the problems related to platform unavailability and problems will continue to be explored for resolution. Currently, users of the SendGrid system may experience delays in requested mail send, errors when using Marketing Campaigns, errors when using the SendGrid API and user interface, as well as delays in retrieval of statistics. This incident does impact mail send. We will provide another update in 1 hour or as soon as soon as possible.",
+          "incident_id": "0drcp8lzvryj",
+          "created_at": "2024-08-15T10:19:26.608-07:00",
+          "updated_at": "2024-08-15T10:22:08.713-07:00",
+          "display_at": "2024-08-15T10:19:26.000-07:00",
+          "affected_components": [
+            {
+              "code": "s0rtr2pvxgzq",
+              "name": "Mail Sending - API v3",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "nqgmzl9pxtd5",
+              "name": "Mail Sending - SMTP",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "q6bv40cywctx",
+              "name": "Mail Sending - API v2",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "4kpfnh9zn3cq",
+              "name": "Website",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "0srpdt598t37",
+              "name": "Marketing Campaigns - Marketing Campaigns",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "vgl8t6wflyjt",
+              "name": "API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "mdt4hw660r2x",
+              "name": "Email Activity",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "ry6z0hmq55qg",
+              "name": "Statistics",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "btcwqxzps5yj",
           "status": "investigating",
@@ -353,6 +415,21 @@
       ],
       "components": [
         {
+          "id": "0srpdt598t37",
+          "name": "Marketing Campaigns",
+          "status": "degraded_performance",
+          "created_at": "2015-11-18T06:21:16.020-08:00",
+          "updated_at": "2024-08-15T10:19:26.524-07:00",
+          "position": 1,
+          "description": "Website, and API access to Marketing Campaigns features.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1qrzrn1qxjfx",
+          "page_id": "3tgl2vf85cht",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
           "id": "s0rtr2pvxgzq",
           "name": "API v3",
           "status": "degraded_performance",
@@ -398,6 +475,21 @@
           "only_show_if_degraded": false
         },
         {
+          "id": "vgl8t6wflyjt",
+          "name": "API",
+          "status": "degraded_performance",
+          "created_at": "2015-11-18T06:25:16.300-08:00",
+          "updated_at": "2024-08-15T10:19:26.542-07:00",
+          "position": 4,
+          "description": "General API functionality not including mail.send calls",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "3tgl2vf85cht",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
           "id": "4kpfnh9zn3cq",
           "name": "Website",
           "status": "degraded_performance",
@@ -405,6 +497,36 @@
           "updated_at": "2024-08-15T08:17:43.557-07:00",
           "position": 5,
           "description": "Availability of SendGrid.com",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "3tgl2vf85cht",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "ry6z0hmq55qg",
+          "name": "Statistics",
+          "status": "degraded_performance",
+          "created_at": "2021-03-24T12:00:44.175-07:00",
+          "updated_at": "2024-08-15T10:19:26.558-07:00",
+          "position": 6,
+          "description": "Availability of Global and Category stats",
+          "showcase": false,
+          "start_date": "2021-03-24",
+          "group_id": null,
+          "page_id": "3tgl2vf85cht",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "mdt4hw660r2x",
+          "name": "Email Activity",
+          "status": "degraded_performance",
+          "created_at": "2018-05-01T11:04:58.442-07:00",
+          "updated_at": "2024-08-15T10:19:26.573-07:00",
+          "position": 7,
+          "description": "Email Activity Feed event data and functionality",
           "showcase": false,
           "start_date": null,
           "group_id": null,
