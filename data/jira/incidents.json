@@ -4,15 +4,15 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-08-13T15:34:00.988Z"
+    "updated_at": "2024-08-15T12:43:02.303Z"
   },
   "incidents": [
     {
       "id": "n2h95xyxj5kk",
       "name": "Blank screen is shown in Jira",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-08-12T15:51:13.554Z",
-      "updated_at": "2024-08-13T15:34:00.985Z",
+      "updated_at": "2024-08-15T12:16:31.722Z",
       "monitoring_at": null,
       "resolved_at": "2024-08-13T15:34:00.969Z",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2024-08-12T15:51:13.548Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "fq0hcv62tbb0",
+          "status": "postmortem",
+          "body": "### Summary\n\nFrom `12/Aug/24 10:39 UTC` to `13/Aug/24 14:38 UTC` some customers experienced degraded performance on Issue View in Jira. This was caused by a data processing compatibility problem between a cache, the underlying database, and the new deployment.\n\nDue to a slow increase in failure rate and a small initial surface area of impact, the problem didn’t immediately trigger our continuous error monitoring and alerting.\n\nOnce we identified the issue it was resolving itself through self-healing mechanisms in the infrastructure. However, in a few outlier cases, we had to intervene with tenant specific cache recalculations. All but 6 tenants were fully remediated by `12/Aug/24 21:30 UTC`.\n\nThe issue occurred on the read layer of our architecture so while customer experience was degraded, there was no data loss.\n\n### **IMPACT**\n\nAbout 1% of instances in were impacted over the lifetime of the incident. Users on those impacted instances would have experienced degradation when loading Issue View in a specific scenario. This was when a Multi Select Custom Field is enabled on an Issue and where that Custom Field also had a Default Value set.\n\n### **ROOT CAUSE**\n\nWe introduced a change in our code which caused processing of Custom Fields in specific configurations to fail. This prevented Issue View from loading issues for projects with the above specific configuration applied.\n\nThis problem occurred because of different representations of the data in the database, in the code base, and in the cache in the production environment. These multiple representations caused an exception when translating the data from one representation to the next.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nThe problem largely self healed as the cache expired and was refreshed with compatible data; however, we chose to force cache re-computation for affected tenants in order to expedite this process.   \n  \nWe chose not to roll back the deployment at that point as that would have created the reverse compatibility issue with the already healed tenants.\n\nInstead, we focussed on forward fixing with a hotfix and accelerating remediation for still affected tenants. For a small very number of tenants, forced re-computation did not immediately rectify and we had to roll forward a code hotfix to remediate.\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* The already deployed hot fix to stop this particular problem recurring.\n* A series of tests for this class of issue in our read layer.\n* A review of monitoring to detect these fine grained problems before they cause more customer impact.\n\nWe apologize for any disruption this issue may have caused and are taking steps to help ensure it does not occur again.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "n2h95xyxj5kk",
+          "created_at": "2024-08-15T12:13:05.249Z",
+          "updated_at": "2024-08-15T12:16:31.720Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "8vtgcr6350qs",
           "status": "resolved",
