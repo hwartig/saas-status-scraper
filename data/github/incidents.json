@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-08-15T21:30:08.266Z"
+    "updated_at": "2024-08-15T21:45:36.138Z"
   },
   "incidents": [
     {
@@ -105,9 +105,9 @@
       "name": "All GitHub services are experiencing significant disruptions",
       "status": "resolved",
       "created_at": "2024-08-14T23:11:43.288Z",
-      "updated_at": "2024-08-15T01:13:59.074Z",
+      "updated_at": "2024-08-15T21:45:36.135Z",
       "monitoring_at": null,
-      "resolved_at": "2024-08-15T00:30:14.638Z",
+      "resolved_at": "2024-08-15T00:30:14.000Z",
       "impact": "major",
       "shortlink": "https://stspg.io/td8mnjtxwh6z",
       "started_at": "2024-08-14T23:11:43.277Z",
@@ -116,11 +116,11 @@
         {
           "id": "httn65pv6jrv",
           "status": "resolved",
-          "body": "On August 14, 2024 between 23:02 UTC and 23:38 UTC, all GitHub services were inaccessible for all users.<br /> <br />This was due to a configuration change that impacted traffic routing within our database infrastructure, resulting in critical services unexpectedly losing database connectivity. There was no data loss or corruption during this incident.<br /><br />We mitigated the incident by reverting the change and confirming restored connectivity to our databases. At 23:38 UTC, traffic resumed and all services recovered to full health. Out of an abundance of caution, we continued to monitor before resolving the incident at 00:30 UTC on August 15th, 2024.<br /><br />We will provide more details as our investigation proceeds and will post additional updates in the coming days.<br />",
+          "body": "On August 14, 2024 between 23:02 UTC and 23:38 UTC, all GitHub services on GitHub.com were inaccessible for all users.<br /> <br />This was due to a configuration change that impacted traffic routing within our database infrastructure, resulting in critical services unexpectedly losing database connectivity. There was no data loss or corruption during this incident.<br /> <br />At 22:59 UTC an erroneous configuration change rolled out to all GitHub.com databases that impacted the ability of the database to respond to health check pings from the routing service. As a result, the routing service could not detect healthy databases to route application traffic to. This led to widespread impact on GitHub.com starting at 23:02 UTC.<br /> <br />We mitigated the incident by reverting the change and confirming restored connectivity to our databases. At 23:38 UTC, traffic resumed and all services recovered to full health. Out of an abundance of caution, we continued to monitor before resolving the incident at 00:30 UTC on August 15th, 2024.<br /> <br />To prevent recurrence we are implementing additional guardrails in our database change management process. We are also prioritizing several repair items such as faster rollback functionality and more resilience to dependency failures.<br /> <br />Given the severity of this incident, follow-up items are the highest priority work for teams at this time.",
           "incident_id": "kz4khcgdsfdv",
           "created_at": "2024-08-15T00:30:14.638Z",
-          "updated_at": "2024-08-15T01:13:59.069Z",
-          "display_at": "2024-08-15T00:30:14.638Z",
+          "updated_at": "2024-08-15T21:45:36.120Z",
+          "display_at": "2024-08-15T00:30:14.000Z",
           "affected_components": [
             {
               "code": "kr09ddfgbfsf",
