@@ -4,15 +4,15 @@
     "name": "Loggly",
     "url": "https://status.loggly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-08-21T17:19:10.849-07:00"
+    "updated_at": "2024-08-23T21:02:39.140-07:00"
   },
   "components": [
     {
       "id": "krt9jnhng80n",
       "name": "Data Collection & Storage",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-07-08T14:43:48.064-07:00",
-      "updated_at": "2024-08-21T16:20:54.203-07:00",
+      "updated_at": "2024-08-23T21:02:39.077-07:00",
       "position": 1,
       "description": "Receiving and storing log data from customers internally",
       "showcase": false,
@@ -25,9 +25,9 @@
     {
       "id": "6sgbd0vmlcw9",
       "name": "Indexing Data",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-07-08T14:43:48.084-07:00",
-      "updated_at": "2024-08-21T17:19:10.810-07:00",
+      "updated_at": "2024-08-23T21:02:39.087-07:00",
       "position": 2,
       "description": "Indexing log data in our search engine",
       "showcase": false,
@@ -55,9 +55,9 @@
     {
       "id": "p6gjj3nwcv3k",
       "name": "Search Availability",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-07-08T14:45:18.848-07:00",
-      "updated_at": "2024-08-21T16:20:54.213-07:00",
+      "updated_at": "2024-08-23T21:02:39.096-07:00",
       "position": 4,
       "description": "The search engine is returning results to display in the web interface or API",
       "showcase": false,
@@ -70,9 +70,9 @@
     {
       "id": "sfpqlt31ggfv",
       "name": "Alerts",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-11-30T17:33:35.335-08:00",
-      "updated_at": "2024-08-21T16:20:54.222-07:00",
+      "updated_at": "2024-08-23T21:02:39.105-07:00",
       "position": 5,
       "description": null,
       "showcase": true,
@@ -143,10 +143,127 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "xwr8vvhc9fq2",
+      "name": "Indexing Delay",
+      "status": "investigating",
+      "created_at": "2024-08-23T21:02:39.050-07:00",
+      "updated_at": "2024-08-23T21:02:39.138-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/kjhk2rfymlwn",
+      "started_at": "2024-08-23T21:02:39.044-07:00",
+      "page_id": "701xnxqmhdh3",
+      "incident_updates": [
+        {
+          "id": "pssxrdpq05j5",
+          "status": "investigating",
+          "body": "Our engineers have identified an issue with log ingestion starting at 20:22 PDT . All customer data continues to be collected and stored, but indexing of all customer data is being delayed. Customer data from after this time will not appear in search results until we resolve this issue.",
+          "incident_id": "xwr8vvhc9fq2",
+          "created_at": "2024-08-23T21:02:39.137-07:00",
+          "updated_at": "2024-08-23T21:02:39.137-07:00",
+          "display_at": "2024-08-23T21:02:39.137-07:00",
+          "affected_components": [
+            {
+              "code": "krt9jnhng80n",
+              "name": "Data Collection & Storage",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "6sgbd0vmlcw9",
+              "name": "Indexing Data",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "p6gjj3nwcv3k",
+              "name": "Search Availability",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "sfpqlt31ggfv",
+              "name": "Alerts",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "krt9jnhng80n",
+          "name": "Data Collection & Storage",
+          "status": "degraded_performance",
+          "created_at": "2015-07-08T14:43:48.064-07:00",
+          "updated_at": "2024-08-23T21:02:39.077-07:00",
+          "position": 1,
+          "description": "Receiving and storing log data from customers internally",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "701xnxqmhdh3",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "6sgbd0vmlcw9",
+          "name": "Indexing Data",
+          "status": "degraded_performance",
+          "created_at": "2015-07-08T14:43:48.084-07:00",
+          "updated_at": "2024-08-23T21:02:39.087-07:00",
+          "position": 2,
+          "description": "Indexing log data in our search engine",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "701xnxqmhdh3",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "p6gjj3nwcv3k",
+          "name": "Search Availability",
+          "status": "degraded_performance",
+          "created_at": "2015-07-08T14:45:18.848-07:00",
+          "updated_at": "2024-08-23T21:02:39.096-07:00",
+          "position": 4,
+          "description": "The search engine is returning results to display in the web interface or API",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "701xnxqmhdh3",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "sfpqlt31ggfv",
+          "name": "Alerts",
+          "status": "degraded_performance",
+          "created_at": "2015-11-30T17:33:35.335-08:00",
+          "updated_at": "2024-08-23T21:02:39.105-07:00",
+          "position": 5,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "701xnxqmhdh3",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
