@@ -4,7 +4,7 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-08-26T00:42:59.345Z"
+    "updated_at": "2024-08-26T05:33:15.402Z"
   },
   "components": [
     {
@@ -40,9 +40,9 @@
     {
       "id": "y76gc542s6nd",
       "name": "Authentication and User Management",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-05-02T04:31:02.277Z",
-      "updated_at": "2024-08-22T19:26:01.372Z",
+      "updated_at": "2024-08-26T05:29:47.561Z",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -173,10 +173,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "p9knt3z835nr",
+      "name": "Identity is not syncing new user and group information",
+      "status": "monitoring",
+      "created_at": "2024-08-26T05:29:47.536Z",
+      "updated_at": "2024-08-26T05:33:15.399Z",
+      "monitoring_at": "2024-08-26T05:33:15.358Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/b70hqmjn67xc",
+      "started_at": "2024-08-26T05:29:47.530Z",
+      "page_id": "7yh3h3y0c0x1",
+      "incident_updates": [
+        {
+          "id": "rbpfdlk3yv9c",
+          "status": "monitoring",
+          "body": "The bug has been identified and fixed. However, it could take up to 24 hours since 03:55 UTC for the User and Group reflected correctly.\n\nAs a workaround, you may need to perform a new User or Group change.",
+          "incident_id": "p9knt3z835nr",
+          "created_at": "2024-08-26T05:33:15.358Z",
+          "updated_at": "2024-08-26T05:33:15.358Z",
+          "display_at": "2024-08-26T05:33:15.358Z",
+          "affected_components": [
+            {
+              "code": "y76gc542s6nd",
+              "name": "Authentication and User Management",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "tnvrlt6j30rr",
+          "status": "investigating",
+          "body": "Between 02:35 UTC and 03:55 UTC, due to bugs in Identity, some changes in users' and group settings were not reflected in Jira.",
+          "incident_id": "p9knt3z835nr",
+          "created_at": "2024-08-26T05:29:47.592Z",
+          "updated_at": "2024-08-26T05:29:47.592Z",
+          "display_at": "2024-08-26T05:29:47.592Z",
+          "affected_components": [
+            {
+              "code": "y76gc542s6nd",
+              "name": "Authentication and User Management",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "y76gc542s6nd",
+          "name": "Authentication and User Management",
+          "status": "degraded_performance",
+          "created_at": "2019-05-02T04:31:02.277Z",
+          "updated_at": "2024-08-26T05:29:47.561Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "7yh3h3y0c0x1",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
