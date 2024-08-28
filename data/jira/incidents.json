@@ -4,7 +4,7 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-08-27T07:50:23.664Z"
+    "updated_at": "2024-08-28T00:14:31.293Z"
   },
   "incidents": [
     {
@@ -321,9 +321,9 @@
     {
       "id": "2shbvgzl7ljn",
       "name": "Jira Team managed projects, Boards & Backlogs not loading correctly",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-08-19T07:27:17.899Z",
-      "updated_at": "2024-08-19T10:21:06.361Z",
+      "updated_at": "2024-08-28T00:14:31.291Z",
       "monitoring_at": "2024-08-19T10:12:20.697Z",
       "resolved_at": "2024-08-19T10:21:06.344Z",
       "impact": "major",
@@ -331,6 +331,19 @@
       "started_at": "2024-08-19T07:27:17.895Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "jljrhr93qnvy",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn August 19, 2024, between 6:00 am and 9:58 am UTC, Jira customers located in the EU West 1 region experienced intermittent failures when loading boards and backlogs inside team-managed projects. These failures were triggered by a bug introduced to a backend service that increased load which then triggered downstream services to reject some requests due to rate-limiting. \n\nThe incident was detected within five minutes by automated monitoring systems and mitigated by a rollback of the faulty service which put Atlassian systems into a known good state. The total time to resolution was approximately four hours.\n\n### Impact\n\nAll customers in the EU West 1 region experienced elevated error rates when trying to access the Jira team-managed boards and backlogs on Monday, August 19, between 6:00 am UTC and 10:00 am UTC. Customers may have noticed the board and backlog views failing to load due to 429 and 500 error responses. However, they may have been able to eventually view the page after multiple retries.\n\n### Root Cause\n\nThe issue was caused by a change to a service backing the team-managed experiences. Specifically, a caching layer was accidentally removed which caused a large increase in the number of requests being sent to a downstream service.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. While we have a number of testing and preventative processes in place, this specific issue wasn’t identified because the change was related to the introduction of a feature flag that was not picked up by our automated continuous deployment suites and manual test scripts. \n\nNew feature changes are usually behind feature flags and rolled out progressively to customers to allow for increased safety when making new changes. However, in this case, the bug that caused this incident came as a result of an unintended change in behaviour when introducing this flag into our code base.\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Improving the test coverage in our services to enforce caching within the service.\n* Improving the scaling configurations of our services to allow them to handle large increases in load and make them more resilient to spikes in traffic.\n* Increasing the coverage of rate limiting within our services.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "2shbvgzl7ljn",
+          "created_at": "2024-08-27T23:48:06.641Z",
+          "updated_at": "2024-08-28T00:14:31.290Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "v4rpz2k20gbx",
           "status": "resolved",
