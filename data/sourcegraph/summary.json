@@ -4,15 +4,15 @@
     "name": "Sourcegraph",
     "url": "https://sourcegraphstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-08-29T19:49:24.151Z"
+    "updated_at": "2024-08-29T20:19:58.155Z"
   },
   "components": [
     {
       "id": "1n76q35jhhqx",
       "name": "Sourcegraph.com",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-08-17T17:30:56.546Z",
-      "updated_at": "2024-02-19T21:07:41.244Z",
+      "updated_at": "2024-08-29T20:19:58.101Z",
       "position": 1,
       "description": "Sourcegraph's public website and API for millions of open source repositories",
       "showcase": false,
@@ -74,7 +74,7 @@
       "name": "Open source repos are missing in Code Search results",
       "status": "monitoring",
       "created_at": "2024-08-29T19:07:07.243Z",
-      "updated_at": "2024-08-29T19:49:24.149Z",
+      "updated_at": "2024-08-29T20:19:58.144Z",
       "monitoring_at": "2024-08-29T19:49:24.137Z",
       "resolved_at": null,
       "impact": "major",
@@ -82,6 +82,46 @@
       "started_at": "2024-08-29T19:07:07.237Z",
       "page_id": "tjfxzbdw4c4z",
       "incident_updates": [
+        {
+          "id": "k0vwb5bqwznd",
+          "status": "monitoring",
+          "body": "We've spotted that something has gone wrong. We're currently investigating the issue, and will provide an update soon.",
+          "incident_id": "3qnkdgrpr6cn",
+          "created_at": "2024-08-29T20:19:58.141Z",
+          "updated_at": "2024-08-29T20:19:58.141Z",
+          "display_at": "2024-08-29T20:19:58.141Z",
+          "affected_components": [
+            {
+              "code": "1n76q35jhhqx",
+              "name": "Sourcegraph.com",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "24kgcky5yrfl",
+          "status": "monitoring",
+          "body": "We are currently resynchronizing the GitHub repositories. This process will take some time to complete, based on the current rate of syncing, it’ll take ~48 hours to finish syncing all the deleted repos. Time to finish indexing is unknown at this time.",
+          "incident_id": "3qnkdgrpr6cn",
+          "created_at": "2024-08-29T20:16:54.403Z",
+          "updated_at": "2024-08-29T20:16:54.403Z",
+          "display_at": "2024-08-29T20:16:54.403Z",
+          "affected_components": [
+            {
+              "code": "1n76q35jhhqx",
+              "name": "Sourcegraph.com",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "jbh34zbzk4nk",
           "status": "monitoring",
@@ -109,13 +149,29 @@
           "tweet_id": null
         }
       ],
-      "components": [],
+      "components": [
+        {
+          "id": "1n76q35jhhqx",
+          "name": "Sourcegraph.com",
+          "status": "degraded_performance",
+          "created_at": "2022-08-17T17:30:56.546Z",
+          "updated_at": "2024-08-29T20:19:58.101Z",
+          "position": 1,
+          "description": "Sourcegraph's public website and API for millions of open source repositories",
+          "showcase": false,
+          "start_date": "2022-08-17",
+          "group_id": null,
+          "page_id": "tjfxzbdw4c4z",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
       "reminder_intervals": null
     }
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
