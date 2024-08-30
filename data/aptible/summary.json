@@ -4,7 +4,7 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2024-08-30T11:24:10.652-04:00"
+    "updated_at": "2024-08-30T17:37:25.397-04:00"
   },
   "components": [
     {
@@ -341,7 +341,62 @@
     }
   ],
   "incidents": [],
-  "scheduled_maintenances": [],
+  "scheduled_maintenances": [
+    {
+      "id": "r14fsc1xcp2v",
+      "name": "Git server maintenance",
+      "status": "scheduled",
+      "created_at": "2024-08-30T17:37:25.328-04:00",
+      "updated_at": "2024-08-30T17:37:25.394-04:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/t0bs99w1mj6y",
+      "started_at": "2024-08-30T17:37:25.323-04:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "fp7dxdqm7q2d",
+          "status": "scheduled",
+          "body": "During this period we will be performing maintenance on our Git server, which is used for Dockerfile based (`git push`) deployments.\n\nThe server may be unavailable for deploying new code for a short period (2-4 minutes) during this window, and some deployments happening during this window which are being streamed via the CLI may see the deployment logs disconnected from the CLI. However, those deployment operations already running will keep running normally, and their result can be verified in the Aptible Dashboard (https://app.aptible.com/) \n\nNo other impact to running services or the Aptible platform is expected.",
+          "incident_id": "r14fsc1xcp2v",
+          "created_at": "2024-08-30T17:37:25.390-04:00",
+          "updated_at": "2024-08-30T17:37:25.390-04:00",
+          "display_at": "2024-08-30T17:37:25.390-04:00",
+          "affected_components": [
+            {
+              "code": "3f2df1dmxn4b",
+              "name": "Aptible Deploy",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "3f2df1dmxn4b",
+          "name": "Aptible Deploy",
+          "status": "operational",
+          "created_at": "2017-07-25T12:40:40.556-04:00",
+          "updated_at": "2024-07-01T11:57:39.202-04:00",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-09-03T07:30:00.000-04:00",
+      "scheduled_until": "2024-09-03T08:30:00.000-04:00"
+    }
+  ],
   "status": {
     "indicator": "none",
     "description": "All Systems Operational"
