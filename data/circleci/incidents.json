@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-08-30T08:01:04.166Z"
+    "updated_at": "2024-08-30T14:18:31.227Z"
   },
   "incidents": [
     {
@@ -426,9 +426,9 @@
     {
       "id": "63xvc5hp49yk",
       "name": "Increased latency in some workflows and jobs APIs",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-08-01T03:09:15.000Z",
-      "updated_at": "2024-08-01T05:40:49.349Z",
+      "updated_at": "2024-08-30T14:18:31.224Z",
       "monitoring_at": "2024-08-01T05:29:57.184Z",
       "resolved_at": "2024-08-01T05:40:48.953Z",
       "impact": "minor",
@@ -436,6 +436,19 @@
       "started_at": "2024-08-01T03:09:15.000Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "dknr1kzd37rz",
+          "status": "postmortem",
+          "body": "## Summary\n\nOn August 1, 2024, from 00:07 UTC to 05:20 UTC, some customers experienced delays when retrieving workflow status, rerunning workflows, and canceling jobs and workflows. This was due to a code change deployed on July 31, 2024, at 12:03 UTC, which modified how workflow status is calculated. At 00:07 UTC on August 1, 2024, specific conditions triggered an unanticipated computational demand, leading to customer impact. After investigating, we identified the issue at 04:55 UTC and reverted the faulty code. Customer impact was fully mitigated around 05:29 UTC. We appreciate our customers' patience and understanding as we worked to resolve this incident.\n\n[The original status page can be found here](https://status.circleci.com/incidents/63xvc5hp49yk).\n\n## What Happened\n\nOn July 31, 2024, at 12:03 UTC, we deployed a change to the workflow status calculation. This change passed all necessary tests to ensure that the correct statuses were calculated. However, it was unknown at the time that, under specific conditions, it could significantly increase computational demand on our system.\n\nApproximately 12 hours later, on August 1, 2024, at 00:07 UTC, these conditions were met, leading to a spike in CPU utilization across our service. As a result, the service scaled up the number of pods, which increased the number of connections used by one of our databases.\n\nAt 01:13 UTC, our database team was alerted to database connection saturation and began an initial investigation. By 02:30 UTC, after identifying the correct service and the extent of customer impact, the responsible engineering team was paged to assist with the issue.\n\nBetween 02:42 UTC and 04:30 UTC, we attempted several mitigation steps to relieve database saturation and reduce CPU utilization, including rolling the pods and reducing the number of replicas. However, these steps did not have the desired effect. At that point, we decided to perform CPU profiling on some of the pods.\n\nThe profiler revealed an issue with the workflow status calculation function, pointing to one of the recently merged commits as the source of the problem. At 04:55 UTC, we reverted that change, and the customer impact ceased around 05:29 UTC.\n\n## Future Prevention and Process Improvement\n\nWe made strategic adjustments to our Horizontal Pod Autoscaler \\(HPA\\) settings for the service, ensuring that scaling is better aligned with our database capabilities. This adjustment will further enhance the stability and reliability of the service.\n\nWe have thoroughly analyzed and addressed the underlying performance issue in the workflow status calculation, as well as identified which conditions that could potentially lead to similar issues. To prevent this we have implemented additional tests specifically designed to catch these scenarios. These tests ensure that any changes to workflow status calculation, are rigorously vetted before deployment, reducing the risk of recurrence.\n\nAdditionally,  we have also fine-tuned our monitoring systems to provide earlier notifications to our team in the event of increased latency in our read APIs. This adjustment will enable us to respond more quickly to potential issues, reducing the likelihood of significant customer impact.",
+          "incident_id": "63xvc5hp49yk",
+          "created_at": "2024-08-30T14:15:33.682Z",
+          "updated_at": "2024-08-30T14:18:31.223Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "wyzhc5qhyq97",
           "status": "resolved",
