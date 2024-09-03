@@ -4,9 +4,62 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2024-09-03T07:49:22.480-04:00"
+    "updated_at": "2024-09-03T09:04:14.307-04:00"
   },
   "incidents": [
+    {
+      "id": "73wzt7h57b7m",
+      "name": "Dockerfile based `git-push` deployments issue",
+      "status": "identified",
+      "created_at": "2024-09-03T09:04:14.243-04:00",
+      "updated_at": "2024-09-03T09:04:14.303-04:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/28bzl1wfzryb",
+      "started_at": "2024-09-03T09:04:14.237-04:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "bpmgy0f98kp6",
+          "status": "identified",
+          "body": "After the recent git server maintenance, a fallout issue was identified that affected `git push` based deployments to existing apps.\n\nA fix has been put in place, so we expect further deployments will not be affected. Please contact support if you encounter further issues.",
+          "incident_id": "73wzt7h57b7m",
+          "created_at": "2024-09-03T09:04:14.300-04:00",
+          "updated_at": "2024-09-03T09:04:14.300-04:00",
+          "display_at": "2024-09-03T09:04:14.300-04:00",
+          "affected_components": [
+            {
+              "code": "3f2df1dmxn4b",
+              "name": "Aptible Deploy",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "3f2df1dmxn4b",
+          "name": "Aptible Deploy",
+          "status": "operational",
+          "created_at": "2017-07-25T12:40:40.556-04:00",
+          "updated_at": "2024-09-03T07:49:22.424-04:00",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "9jttwlv8f4n4",
       "name": "Git-based Deploy Log Streaming Disruption on Aptible CLI for Dedicated Stacks",
@@ -3803,79 +3856,6 @@
           "deliver_notifications": false,
           "custom_tweet": null,
           "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "3f2df1dmxn4b",
-          "name": "Aptible Deploy",
-          "status": "operational",
-          "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2024-09-03T07:49:22.424-04:00",
-          "position": 7,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "fmwgqnbnbc4r",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "znqlb7h30swt",
-      "name": "CVE-2021-22555 patching",
-      "status": "resolved",
-      "created_at": "2021-07-16T09:35:41.783-04:00",
-      "updated_at": "2021-07-19T12:08:13.552-04:00",
-      "monitoring_at": null,
-      "resolved_at": "2021-07-19T12:08:12.701-04:00",
-      "impact": "none",
-      "shortlink": "https://stspg.io/bhyrzthxfb5m",
-      "started_at": "2021-07-16T09:35:41.778-04:00",
-      "page_id": "fmwgqnbnbc4r",
-      "incident_updates": [
-        {
-          "id": "y3blspy2pmbr",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "znqlb7h30swt",
-          "created_at": "2021-07-19T12:08:12.701-04:00",
-          "updated_at": "2021-07-19T12:08:13.548-04:00",
-          "display_at": "2021-07-19T12:08:12.701-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1417154317560127500
-        },
-        {
-          "id": "t4qpct8z47yz",
-          "status": "identified",
-          "body": "Recently a Linux kernel vulnerability (CVE-2021-22555), which allows for possible privilege escalation, was announced [0]. While Aptible Deploy is not impacted by the published exploits, we will still be taking steps to prevent any potential future exploits of this vulnerability.\n\nAs part of our remediation efforts, we will be restarting all App, Bastion, and Build instances in shared stacks today. This will involve restarting Bastion and Build instances, which may result in a small number of operation failures and a short disruption to outbound traffic. Operations which fail due to this outage should work on retry. App restarts will be done using Aptible's zero-downtime release process [1]. As a result, you should not see any impact from these restarts.\n\nNotifications for the patching schedule for dedicated stacks will also be sent out today (July 16). \n\n[0] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22555\n[1] https://deploy-docs.aptible.com/docs/releases",
-          "incident_id": "znqlb7h30swt",
-          "created_at": "2021-07-16T09:35:41.834-04:00",
-          "updated_at": "2021-07-16T09:35:42.332-04:00",
-          "display_at": "2021-07-16T09:35:41.834-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1416028771027542000
         }
       ],
       "components": [
