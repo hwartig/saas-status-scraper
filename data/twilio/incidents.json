@@ -4,9 +4,62 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-09-05T07:34:38.859-07:00"
+    "updated_at": "2024-09-05T08:03:46.327-07:00"
   },
   "incidents": [
+    {
+      "id": "09n0r35lxsw7",
+      "name": "SMS Delivery Issues in Countries Requiring Sender-Id Pre-Registration",
+      "status": "investigating",
+      "created_at": "2024-09-05T07:55:30.917-07:00",
+      "updated_at": "2024-09-05T07:55:31.000-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/5ng6z2f1qgbw",
+      "started_at": "2024-09-05T07:55:30.910-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "zj080qd5rzx6",
+          "status": "investigating",
+          "body": "Customers using numeric senders for sending SMS in countries requiring pre-registered sender IDs may observe a small subset of traffic failing with error code 21612 or undelivered. We will update in 1 hour or as soon as we have more information.",
+          "incident_id": "09n0r35lxsw7",
+          "created_at": "2024-09-05T07:55:30.998-07:00",
+          "updated_at": "2024-09-05T07:55:30.998-07:00",
+          "display_at": "2024-09-05T07:55:30.998-07:00",
+          "affected_components": [
+            {
+              "code": "yvvy3vlp4djf",
+              "name": "PROGRAMMABLE MESSAGING - SMS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "yvvy3vlp4djf",
+          "name": "SMS",
+          "status": "degraded_performance",
+          "created_at": "2016-04-07T15:15:38.816-07:00",
+          "updated_at": "2024-09-05T07:55:30.950-07:00",
+          "position": 12,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s2k3h0mkqnth",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "bsvnwxtf7nrn",
       "name": "SMS Delivery Delays To Google Voice Network (311-910) In US Over A Subset Of Short codes (624-02)",
@@ -3260,9 +3313,9 @@
         {
           "id": "yvvy3vlp4djf",
           "name": "SMS",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:15:38.816-07:00",
-          "updated_at": "2024-09-02T10:52:23.649-07:00",
+          "updated_at": "2024-09-05T07:55:30.950-07:00",
           "position": 12,
           "description": null,
           "showcase": false,
@@ -5888,99 +5941,6 @@
           "description": null,
           "showcase": false,
           "start_date": null,
-          "group_id": "5myw7f7x6ylm",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "9hnz1lfvpml4",
-      "name": "Event Streams Delivery Issues to Kinesis",
-      "status": "resolved",
-      "created_at": "2024-08-29T02:31:51.878-07:00",
-      "updated_at": "2024-08-29T04:30:14.355-07:00",
-      "monitoring_at": "2024-08-29T03:08:54.510-07:00",
-      "resolved_at": "2024-08-29T04:30:14.340-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/hykll5sd1d9f",
-      "started_at": "2024-08-29T02:31:51.871-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "pw0wpvltdxpf",
-          "status": "resolved",
-          "body": "The issue affecting intermittent issues in regard to Event Streams delivery issues to Kinesis has been resolved, and the service is functioning normally at this time.",
-          "incident_id": "9hnz1lfvpml4",
-          "created_at": "2024-08-29T04:30:14.340-07:00",
-          "updated_at": "2024-08-29T04:30:14.340-07:00",
-          "display_at": "2024-08-29T04:30:14.340-07:00",
-          "affected_components": [
-            {
-              "code": "zxhmy448yyn3",
-              "name": "DEVELOPER TOOLS - Event Streams",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6d4x60f90gd5",
-          "status": "monitoring",
-          "body": "Event Streams events have not been delivered to Kinesis sinks between 08:30 UTC and 09:50 UTC to customer Kinesis. The events will be delivered starting now. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "9hnz1lfvpml4",
-          "created_at": "2024-08-29T03:08:54.510-07:00",
-          "updated_at": "2024-08-29T03:08:54.510-07:00",
-          "display_at": "2024-08-29T03:08:54.510-07:00",
-          "affected_components": [
-            {
-              "code": "zxhmy448yyn3",
-              "name": "DEVELOPER TOOLS - Event Streams",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7071xdjd7ltt",
-          "status": "investigating",
-          "body": "Our monitoring systems have detected a potential issue with Event Streams delivery issues to Kinesis sinks. Our engineering team has been alerted and is actively investigating. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "9hnz1lfvpml4",
-          "created_at": "2024-08-29T02:31:51.956-07:00",
-          "updated_at": "2024-08-29T02:31:51.956-07:00",
-          "display_at": "2024-08-29T02:31:51.956-07:00",
-          "affected_components": [
-            {
-              "code": "zxhmy448yyn3",
-              "name": "DEVELOPER TOOLS - Event Streams",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "zxhmy448yyn3",
-          "name": "Event Streams",
-          "status": "degraded_performance",
-          "created_at": "2021-04-22T10:59:13.055-07:00",
-          "updated_at": "2024-09-04T06:18:51.780-07:00",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": "2021-04-22",
           "group_id": "5myw7f7x6ylm",
           "page_id": "gpkpyklzq55q",
           "group": false,
