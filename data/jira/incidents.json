@@ -4,9 +4,39 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-09-11T08:51:40.265Z"
+    "updated_at": "2024-09-11T12:43:04.578Z"
   },
   "incidents": [
+    {
+      "id": "3rx7n7lycn1j",
+      "name": "Replies to JSM and Jira email notifications are creating new Issues instead of adding as Comments",
+      "status": "investigating",
+      "created_at": "2024-09-11T12:15:54.877Z",
+      "updated_at": "2024-09-11T12:15:54.910Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/cxg87534lm7y",
+      "started_at": "2024-09-11T12:15:54.871Z",
+      "page_id": "7yh3h3y0c0x1",
+      "incident_updates": [
+        {
+          "id": "yfnlwdw2n1jb",
+          "status": "investigating",
+          "body": "We are investigating reports of intermittent errors for some Jira Service Management and Jira Cloud customers where replying to the emails are creating new Issue/Tickets instead of adding replies as comments. We will provide more details once we identify the root cause.",
+          "incident_id": "3rx7n7lycn1j",
+          "created_at": "2024-09-11T12:15:54.909Z",
+          "updated_at": "2024-09-11T12:15:54.909Z",
+          "display_at": "2024-09-11T12:15:54.909Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "ss4b9g5h9bk9",
       "name": "Jira customers won't be able to install apps from pages other than embedded marketplace.",
@@ -5035,36 +5065,6 @@
           "display_at": "2024-02-07T16:40:28.287Z",
           "affected_components": null,
           "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "ljkcs2s1dghv",
-      "name": "Drop in the success rate of Forge hosted storage API calls",
-      "status": "resolved",
-      "created_at": "2024-02-06T02:40:54.544Z",
-      "updated_at": "2024-02-06T02:40:54.604Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-02-06T02:40:54.593Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/qmfl0qjgqnk4",
-      "started_at": "2024-02-06T02:40:54.539Z",
-      "page_id": "7yh3h3y0c0x1",
-      "incident_updates": [
-        {
-          "id": "xz7yq01dqjnl",
-          "status": "resolved",
-          "body": "We identified a problem with the Forge hosted storage API calls, which resulted in a drop in invocation success rates in the developer console. The impact of this incident has been mitigated and our monitoring tools confirm that the success-rate is back to the pre-incident behaviour. It impacted 16 apps according to our logs, where these apps saw a reduced success rate of storage.get API calls, as listed in https://developer.atlassian.com/platform/forge/runtime-reference/storage-api-basic.\n\nAs part of Forge's preparation to support Data Residency, Forge hosted storage has been undergoing a platform and data migration for storing app data. As part of this migration we do comparison checks for data consistency between the old and new platform. The previous incident earlier, https://developer.status.atlassian.com/incidents/9q71ytpjhbtl, had put the data on the new platform out of sync and so comparisons of the data from the old and new platform started showing failures and the migration logic retries on failures to test for consistency issues. This retry behaviour increased latency of these requests which led to 16 apps receiving an increased number of 504 timeout errors. \n\nChecking synchronously was identified by the team as a bug and should have been async. Once the root cause was identified we moved our backing platform rollout to a previous stage. The rollout is split into several stages. The issues we were having were on our blocking stage where we make calls to both the old and new platform and wait for both to complete so we can test any performance issues in the new platform before using it as our source of truth. It was in this blocking stage where we had a bug that included waiting on comparisons when it should've been async.\n\nTo recover, we reverted back to our shadow mode stage. In this stage, all operations to the new platform are asynchronous, including comparisons that were blocking in the other stage and resulted in timeout issues and 504 errors being sent to apps. This is the state that Forge hosted storage has been in for several months without any problems.\n\nHere is the timeline of the impact:\n- On 2024-02-05 at 06:42 PM UTC, impact started with comparisons start happening on out of sync data in blocking mode\n- On 2024-02-05 at 08:57 PM UTC, impact was detected to API by our monitoring systems\n- On 2024-02-05 at 11:34 PM UTC, rollout to new platform was reverted to known stable state and impact ended\n\nWe will release a public incident review, PIR, here in the upcoming weeks for this and the incident that happened earlier, https://developer.status.atlassian.com/incidents/9q71ytpjhbtl. We will detail all that we can about what caused the issue, and what we are doing to prevent it from happening again.\n\nWe apologise for any inconveniences this may have caused our customers and the developer community and committed to preventing further issues with our hosted storage capability.",
-          "incident_id": "ljkcs2s1dghv",
-          "created_at": "2024-02-06T02:40:54.593Z",
-          "updated_at": "2024-02-06T02:40:54.593Z",
-          "display_at": "2024-02-06T02:40:54.593Z",
-          "affected_components": null,
-          "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": null
         }
