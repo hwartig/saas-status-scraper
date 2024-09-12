@@ -4,15 +4,15 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-09-12T12:43:04.913Z"
+    "updated_at": "2024-09-12T15:56:07.102Z"
   },
   "incidents": [
     {
       "id": "c0ywl3q8sb04",
       "name": "Missing Automation Rules",
-      "status": "investigating",
+      "status": "identified",
       "created_at": "2024-09-12T12:25:11.115Z",
-      "updated_at": "2024-09-12T12:25:11.182Z",
+      "updated_at": "2024-09-12T15:56:07.093Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -20,6 +20,26 @@
       "started_at": "2024-09-12T12:25:11.108Z",
       "page_id": "4g2my7tbhjsq",
       "incident_updates": [
+        {
+          "id": "fdy1tn4dbygp",
+          "status": "identified",
+          "body": "Earlier today, we experienced issues with Automation. The issue has been resolved for Jira Service Management and Jira, we are working on fixing the issue for Confluence.",
+          "incident_id": "c0ywl3q8sb04",
+          "created_at": "2024-09-12T15:56:07.090Z",
+          "updated_at": "2024-09-12T15:56:07.090Z",
+          "display_at": "2024-09-12T15:56:07.090Z",
+          "affected_components": [
+            {
+              "code": "fsg199jjm9nd",
+              "name": "Confluence Automations",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "csrb0nwq5njt",
           "status": "investigating",
@@ -262,9 +282,9 @@
     {
       "id": "7y1mrb4xln1v",
       "name": "Degredaded Experience",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-08-29T09:43:49.441Z",
-      "updated_at": "2024-08-29T11:22:24.391Z",
+      "updated_at": "2024-09-12T15:44:58.392Z",
       "monitoring_at": "2024-08-29T10:54:19.268Z",
       "resolved_at": "2024-08-29T11:22:24.375Z",
       "impact": "major",
@@ -272,6 +292,19 @@
       "started_at": "2024-08-29T09:43:49.434Z",
       "page_id": "4g2my7tbhjsq",
       "incident_updates": [
+        {
+          "id": "klqldpvtvm01",
+          "status": "postmortem",
+          "body": "### SUMMARY\n\nOn August 29, 2024, between 8:32 AM and 11:35 AM UTC, Atlassian customers experienced an unexpected disruption in service affecting Jira and Confluence cloud products. This was primarily due to connectivity issues with an external service provider, which impacted our ability to perform certain operations integral to our services. The incident was promptly identified through our monitoring systems, and our teams initiated response protocols to address the issue. The disruption resulted in increased error rates across Jira and Confluence products, temporarily affecting the experience for some of our users.\n\n### **IMPACT**\n\nOn August 29, 2024, between 8:32 AM and 11:35 AM UTC, there was an impact on Confluence and Jira cloud affecting customers in multiple regions. The total time to resolution was three hours and three minutes.\n\n### **ROOT CAUSE**\n\nThe issue was caused by an outage on our external security token provider. Services which requested security tokens experienced timeouts leading to outages for our cloud products.\n\nOur automated monitoring system detected the incident within one minute and we confirmed the external service outage with the external provider. The provider resolved the outage at 10:02 AM UTC, and full system recovery for Atlassian was completed by 11:35 AM UTC.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe are committed to reducing the risk of similar incidents in the future. To achieve this, we will enhance our system's ability to handle external service disruptions and improve our incident response strategies. Specifically, we will reduce our reliance on single points of failure by setting up fallback region support for the critical security service provider. Additionally, we will implement measures to minimize the recovery time of the Atlassian services once the external security provider has recovered.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "7y1mrb4xln1v",
+          "created_at": "2024-09-12T15:44:53.401Z",
+          "updated_at": "2024-09-12T15:44:58.390Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "g2z81n8rlgrb",
           "status": "resolved",

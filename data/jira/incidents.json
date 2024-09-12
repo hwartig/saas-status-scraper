@@ -4,15 +4,15 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-09-12T12:43:04.838Z"
+    "updated_at": "2024-09-12T15:56:07.344Z"
   },
   "incidents": [
     {
       "id": "tys7fdqnxk6l",
       "name": "Missing Automation Rules",
-      "status": "investigating",
+      "status": "identified",
       "created_at": "2024-09-12T12:25:11.115Z",
-      "updated_at": "2024-09-12T12:25:11.186Z",
+      "updated_at": "2024-09-12T15:56:07.335Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -20,6 +20,26 @@
       "started_at": "2024-09-12T12:25:11.108Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "hrbcpwh34k0g",
+          "status": "identified",
+          "body": "Earlier today, we experienced issues with Automation. The issue has been resolved for Jira Service Management and Jira, we are working on fixing the issue for Confluence.",
+          "incident_id": "tys7fdqnxk6l",
+          "created_at": "2024-09-12T15:56:07.332Z",
+          "updated_at": "2024-09-12T15:56:07.332Z",
+          "display_at": "2024-09-12T15:56:07.332Z",
+          "affected_components": [
+            {
+              "code": "9hyf9lm0fswd",
+              "name": "Automation for Jira",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "hc05v3x3tn7r",
           "status": "investigating",
@@ -45,9 +65,9 @@
         {
           "id": "9hyf9lm0fswd",
           "name": "Automation for Jira",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2020-12-23T01:40:32.378Z",
-          "updated_at": "2024-09-12T12:25:11.152Z",
+          "updated_at": "2024-09-12T15:56:07.299Z",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -404,9 +424,9 @@
     {
       "id": "sxp1qnv35rhf",
       "name": "Degraded Experience",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-08-29T09:43:49.488Z",
-      "updated_at": "2024-09-02T00:41:36.811Z",
+      "updated_at": "2024-09-12T15:44:16.270Z",
       "monitoring_at": "2024-08-29T10:53:58.284Z",
       "resolved_at": "2024-08-29T11:22:49.493Z",
       "impact": "major",
@@ -414,6 +434,19 @@
       "started_at": "2024-08-29T09:43:49.482Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "zr3n1rlsfff7",
+          "status": "postmortem",
+          "body": "### SUMMARY\n\nOn August 29, 2024, between 8:32 AM and 11:35 AM UTC, Atlassian customers experienced an unexpected disruption in service affecting Jira and Confluence cloud products. This was primarily due to connectivity issues with an external service provider, which impacted our ability to perform certain operations integral to our services. The incident was promptly identified through our monitoring systems, and our teams initiated response protocols to address the issue. The disruption resulted in increased error rates across Jira and Confluence products, temporarily affecting the experience for some of our users.\n\n### **IMPACT**\n\nOn August 29, 2024, between 8:32 AM and 11:35 AM UTC, there was an impact on Confluence and Jira cloud affecting customers in multiple regions. The total time to resolution was three hours and three minutes.\n\n### **ROOT CAUSE**\n\nThe issue was caused by an outage on our external security token provider. Services which requested security tokens experienced timeouts leading to outages for our cloud products.\n\nOur automated monitoring system detected the incident within one minute and we confirmed the external service outage with the external provider. The provider resolved the outage at 10:02 AM UTC, and full system recovery for Atlassian was completed by 11:35 AM UTC.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe are committed to reducing the risk of similar incidents in the future. To achieve this, we will enhance our system's ability to handle external service disruptions and improve our incident response strategies. Specifically, we will reduce our reliance on single points of failure by setting up fallback region support for the critical security service provider. Additionally, we will implement measures to minimize the recovery time of the Atlassian services once the external security provider has recovered.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "sxp1qnv35rhf",
+          "created_at": "2024-09-12T15:43:16.242Z",
+          "updated_at": "2024-09-12T15:44:16.268Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "wwhxpzw5tdsw",
           "status": "resolved",
@@ -775,9 +808,9 @@
         {
           "id": "9hyf9lm0fswd",
           "name": "Automation for Jira",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2020-12-23T01:40:32.378Z",
-          "updated_at": "2024-09-12T12:25:11.152Z",
+          "updated_at": "2024-09-12T15:56:07.299Z",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -2438,9 +2471,9 @@
         {
           "id": "9hyf9lm0fswd",
           "name": "Automation for Jira",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2020-12-23T01:40:32.378Z",
-          "updated_at": "2024-09-12T12:25:11.152Z",
+          "updated_at": "2024-09-12T15:56:07.299Z",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -2995,9 +3028,9 @@
         {
           "id": "9hyf9lm0fswd",
           "name": "Automation for Jira",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2020-12-23T01:40:32.378Z",
-          "updated_at": "2024-09-12T12:25:11.152Z",
+          "updated_at": "2024-09-12T15:56:07.299Z",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -3788,9 +3821,9 @@
         {
           "id": "9hyf9lm0fswd",
           "name": "Automation for Jira",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2020-12-23T01:40:32.378Z",
-          "updated_at": "2024-09-12T12:25:11.152Z",
+          "updated_at": "2024-09-12T15:56:07.299Z",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -4063,9 +4096,9 @@
         {
           "id": "9hyf9lm0fswd",
           "name": "Automation for Jira",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2020-12-23T01:40:32.378Z",
-          "updated_at": "2024-09-12T12:25:11.152Z",
+          "updated_at": "2024-09-12T15:56:07.299Z",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -4301,9 +4334,9 @@
         {
           "id": "9hyf9lm0fswd",
           "name": "Automation for Jira",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2020-12-23T01:40:32.378Z",
-          "updated_at": "2024-09-12T12:25:11.152Z",
+          "updated_at": "2024-09-12T15:56:07.299Z",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -4941,9 +4974,9 @@
         {
           "id": "9hyf9lm0fswd",
           "name": "Automation for Jira",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2020-12-23T01:40:32.378Z",
-          "updated_at": "2024-09-12T12:25:11.152Z",
+          "updated_at": "2024-09-12T15:56:07.299Z",
           "position": 11,
           "description": null,
           "showcase": false,
