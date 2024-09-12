@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-09-12T09:43:11.285-07:00"
+    "updated_at": "2024-09-12T12:31:14.700-07:00"
   },
   "incidents": [
     {
@@ -143,9 +143,9 @@
     {
       "id": "cmbh0p0vmw44",
       "name": "[Major] Issues with Uploads and Downloads",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-08-29T02:27:11.472-07:00",
-      "updated_at": "2024-08-29T04:37:53.204-07:00",
+      "updated_at": "2024-09-12T12:31:14.697-07:00",
       "monitoring_at": "2024-08-29T03:47:31.369-07:00",
       "resolved_at": "2024-08-29T04:37:53.187-07:00",
       "impact": "major",
@@ -153,6 +153,19 @@
       "started_at": "2024-08-29T02:27:11.457-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "mqgrl2g1hcvl",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Box KeySafe. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nOn Thursday, August 29, 2024, between 1:48am and 3:38am PDT, some users may have experienced difficulties while working in Box. During this time, some Box KeySafe customers experienced difficulty uploading new content to Box, as well as downloading content. Additionally, some customers encountered issues with Microsoft office co-authoring feature. The incident began due to a network connectivity issue within our cloud vendor that impacted Identity and Access Management \\(IAM\\) and access to Key Management Service \\(KMS\\). This caused a backup in requests to some of the Box services involved with Microsoft Co-Authoring. We were able to resolve the issue once normal operation with our cloud vendor was restored. In addition to implementing the recommended customer actions from the vendor-provided RCA, we're also working to enhance the resiliency of our system in related areas and improve visibility through health checks to detect and prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nA cloud vendor network incident disrupted Box's communication with Key Management Service \\(KMS\\) instances, affecting upload and download operations for KeySafe customers. This triggered a cascading effect, as requests accumulated on a backend service involved in Microsoft Office co-authoring. The increased workload on this service's Istio-proxy container led to memory and CPU spikes, causing DNS resolution errors and latency issues. These problems further hampered Microsoft Office co-authoring requests, creating a cycle of retries and failures.\n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Using regional STS endpoints as recommended by our cloud vendor’s RCA of this issue.\n* Implementing additional health checks for the impacted backend service.\n* Enhancing connection handling of the impacted backed service to prevent excessive queueing.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "cmbh0p0vmw44",
+          "created_at": "2024-09-12T12:30:48.020-07:00",
+          "updated_at": "2024-09-12T12:31:14.696-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "r76x2qthryt4",
           "status": "resolved",
