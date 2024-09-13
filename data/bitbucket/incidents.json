@@ -4,7 +4,7 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-09-13T08:42:59.020Z"
+    "updated_at": "2024-09-13T17:22:18.163Z"
   },
   "incidents": [
     {
@@ -96,9 +96,9 @@
     {
       "id": "jfhrnk0m1jc9",
       "name": "Unable to connect to Bitbucket Cloud via SSH",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-09-09T18:30:00.000Z",
-      "updated_at": "2024-09-09T20:43:06.821Z",
+      "updated_at": "2024-09-13T17:22:18.160Z",
       "monitoring_at": null,
       "resolved_at": "2024-09-09T18:30:00.000Z",
       "impact": "none",
@@ -106,6 +106,19 @@
       "started_at": "2024-09-09T18:30:00.000Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "sh9s6161qvbg",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn September 10, 2024, between 6:34 PM UTC and 7:19 PM UTC, some Atlassian customers experienced an issue preventing users from connecting to Bitbucket Cloud via SSH. The issue arose from a change in how we determined IP allow lists, which inadvertently blocked access for customers with these controls enabled. The incident was promptly identified through our monitoring systems, and our teams initiated response protocols to mitigate the issue.\n\n### **IMPACT**\n\nThe incident only affected customers who had IP whitelisting enabled on their Bitbucket Cloud accounts. These customers experienced difficulties connecting via SSH due to the unintended blocking caused by a change in the IP allow list computation. The service interruption lasted approximately 45 minutes, during which time affected users were unable to access their repositories through SSH.\n\n### **ROOT CAUSE**\n\nA change to IP allow list evaluation was incompatible with a new Bitbucket Cloud networking configuration. This inadvertently blocked SSH access for customers with specific allow lists restrictions enabled.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nTo restore the SSH service, the team quickly rolled back the release responsible for the IP allow list issue. We know that outages impact your productivity. We are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Improve monitoring coverage of IP allowlisting;\n* Add additional tests and deployment validation checks for changes to IP allowlist configurations.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nAtlassian Customer Support",
+          "incident_id": "jfhrnk0m1jc9",
+          "created_at": "2024-09-13T17:20:59.810Z",
+          "updated_at": "2024-09-13T17:22:18.158Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "3h4xncp46kjj",
           "status": "resolved",
