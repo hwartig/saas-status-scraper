@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-09-20T18:36:50.822Z"
+    "updated_at": "2024-09-20T20:54:16.790Z"
   },
   "incidents": [
     {
@@ -123,9 +123,9 @@
     {
       "id": "lsv2ry3jr16c",
       "name": "Increased wait times for machine jobs",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-09-11T14:29:58.912Z",
-      "updated_at": "2024-09-20T18:36:50.813Z",
+      "updated_at": "2024-09-20T20:54:16.786Z",
       "monitoring_at": "2024-09-11T20:36:35.199Z",
       "resolved_at": "2024-09-11T20:52:57.217Z",
       "impact": "major",
@@ -133,6 +133,19 @@
       "started_at": "2024-09-11T14:51:32.000Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "vj75hd955w3j",
+          "status": "postmortem",
+          "body": "## Summary:\n\nOn September 11, 2024, from 10:16 to 21:00 UTC CircleCI customers encountered multiple issues, including delays in starting jobs, slow processing of job outputs and task status messages \\(such as the completion of steps and tasks\\), dropped workflows, and a rise in infrastructure failures. These problems collectively affected all jobs during this time frame.\n\nTo address these issues, we worked to stabilize the service responsible for ingesting and serving the step output as well as tracking the start and end times of individual steps \\(**step service**\\) until 19:00 UTC, at which point it was determined to be in a sustainable state. Despite this progress, delays in starting Mac jobs persisted until 20:30 UTC, largely due to a backlog of jobs waiting to start and a failure to properly garbage collect \\(GC\\) old virtual machines \\(VMs\\). This combination of factors contributed to a challenging operational environment for CircleCI customers.\n\nThe original status page can be found [here](https://status.circleci.com/incidents/lsv2ry3jr16c).\n\n## What Happened\n\n\\(All times UTC\\)\n\nOn September 11, 2024, for approximately 10 hours, CircleCI experienced significant service disruptions. The incident began at 10:05 when a particularly potent configuration was executed during an internal test. By 10:14, the job ended, but efforts to generate test results led to a spike in memory usage, causing Out of Memory \\(OOM\\) errors for several internal services. This resulted in failures in processing job submissions and dispatching tasks, which impacted all customer jobs.\n\nBy 10:16, job starts across all executors had completely failed, as the service responsible for processing and storing test results, as well as handling storage of job records \\(**output service**\\) became overwhelmed and unable to service requests. An official incident declaration occurred at 10:20.\n\nWe triggered a deployment restart at 10:23, which initially allowed for some recovery before the service was again overwhelmed at approximately 10:27. To address these issues, we horizontally and vertically scaled the service. This adjustment allowed the service to stabilize and for customer jobs to start flowing again.\n\nThroughout the incident, machine jobs faced specific challenges due to timeouts. By 13:00, we detected abnormal resource utilization in step service, prompting us to monitor the situation closely. We believed the ongoing issues were related to a thundering herd effect stemming from an earlier incident.\n\nBetween 14:47 and 15:05 our efforts to stabilize the system included increasing memory for the service processing step output multiple times throughout this incident in an ongoing attempt to manage the backlog and prevent OOM kills.\n\nAt 16:21, in order to process the load of the thundering herd of built up workload, we had to raise memory limits in multiple locations in order to allow work to process without causing outages. This marked the beginning of a significant recovery. The existing Redis cluster was under heavy CPU load, prompting a decision at 16:30 to spin up a second Redis cluster to alleviate the pressure.\n\n![](https://global.discourse-cdn.com/circleci/original/3X/c/f/cfbf14664563f62c4d331c0aed80b152ccdc1d5c.png)\n`Redis Engine CPU Utilization Impact Timeline`\n\nBy 17:00, the job queue began to decrease significantly as the service stabilized. Throughout the afternoon, we continued to monitor and adjust resources, ultimately doubling Redis shards around 18:11, which had an immediate positive effect on reducing load.\n\nDuring this incident, customers experienced significantly longer response times for API calls from servers running customer workloads reporting back the output of jobs. The 95th percentile \\(p95\\) response times spiked to between 5 and 15 seconds from 14:20 to 19:50, compared to the usual expectation of around 100 milliseconds.\n\nThis led to degraded step output on the jobs page, with issues such as delays in displaying the output of the customer steps, missing output of customer steps, and, in some cases, no output of customer steps at all. These delays likely resulted in slower Task performance, as sending step output to the step receiver took longer, blocking other actions within the Tasks. While the average Task runtime increased, the specific impact varied depending on the Task's contents.\n\n![](https://global.discourse-cdn.com/circleci/original/3X/c/6/c600d16b22a0f27de0827edca9d4c55a2e56ea25.png)\n`Task Wait Time`\n\n\n_Linux:_\n\n* **12:10 - 13:05:** Wait times under 1 minute.\n* **13:40 - 15:30:** Degraded wait times, generally under 5 minutes.\n* **15:30 - 18:05:** Wait times increased to tens of minutes, with some recovery starting around 17:45.\n* **18:05 - 20:00:** Continued degraded wait times of 2-3 minutes.\n* **20:00:** Fully recovered.\n\n_Windows:_\n\n* **12:10 - 15:40:** Degraded wait times, typically under 5 minutes.\n* **15:40 - 17:15:** Wait times reached tens of minutes.\n* **17:15 - 19:35:** Returned to degraded wait times, usually under 5 minutes.\n* **19:35 - 19:55:** Wait times again increased to tens of minutes.\n* **19:55:** Fully recovered.\n\n_Mac OS:_\n\n* **12:10 - 15:30:** Degraded wait times, generally under 5 minutes.\n* **15:30 - 21:00:** Wait times escalated to tens of minutes.\n* **21:00:** Fully recovered.\n\n## Future Prevention and Process Improvement:\n\nIn response to this incident, we are implementing several key improvements to enhance service reliability. First, we will enhance how tasks are cleared during infrastructure failures, which will help streamline operations. We will put in guardrails in the system to prevent execution of pathological workloads.\n\nAdditionally, we will implement a mechanism that will allow us to temporarily prevent jobs that have failed due to infrastructure issues from being retried. We will adjust Redis health checks by moving them from liveness probes to readiness probes, and we plan to increase the number of Redis shards to better distribute load and minimize the impact of a single shard being blocked. During our investigation we identified a self-reenforcing cycle of poorly performing Redis commands \\(scans\\) that were the root cause of Redis failing, and we’re going to address this as well.\n\nTo enhance stability, we will introduce a timeout for step data based on job maximum runtime and reduce the pressure a single job can place on the S3 connection pool.\n\nWe are also looking to develop a method to pause live deployments from the CircleCI app during incidents, ensuring that delayed changes do not overwrite manual adjustments made in the interim.",
+          "incident_id": "lsv2ry3jr16c",
+          "created_at": "2024-09-20T18:29:44.795Z",
+          "updated_at": "2024-09-20T20:54:16.783Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "17r2s34pqkk0",
           "status": "resolved",
