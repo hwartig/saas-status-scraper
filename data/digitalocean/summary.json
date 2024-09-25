@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-09-25T22:59:37.469Z"
+    "updated_at": "2024-09-25T23:34:54.248Z"
   },
   "components": [
     {
@@ -1810,9 +1810,9 @@
     {
       "id": "s9txl6g88v1z",
       "name": "SFO3",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T17:31:21.752Z",
-      "updated_at": "2024-08-30T13:45:23.889Z",
+      "updated_at": "2024-09-25T23:34:54.207Z",
       "position": 9,
       "description": null,
       "showcase": false,
@@ -2930,7 +2930,7 @@
     {
       "id": "gb3gs5vj7js2",
       "name": "Kubernetes",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T17:35:32.978Z",
       "updated_at": "2023-04-21T16:18:17.271Z",
       "position": 18,
@@ -3101,7 +3101,61 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "fxvdq88ych5y",
+      "name": "Managed Kubernetes Clusters in SFO3",
+      "status": "investigating",
+      "created_at": "2024-09-25T23:34:54.182Z",
+      "updated_at": "2024-09-25T23:34:54.245Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/26z014t2rqqx",
+      "started_at": "2024-09-25T23:34:54.176Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "djc87pdkb8mr",
+          "status": "investigating",
+          "body": "Our Engineering team is currently investigating issues with network connectivity for Managed Kubernetes clusters in the SFO3 region. During this time, some users may experience difficulties connecting to their Managed Kubernetes clusters, or connecting to other services from their clusters. \n\nWe apologize for the inconvenience and will provide an update as soon as we have more information.",
+          "incident_id": "fxvdq88ych5y",
+          "created_at": "2024-09-25T23:34:54.244Z",
+          "updated_at": "2024-09-25T23:34:54.244Z",
+          "display_at": "2024-09-25T23:34:54.244Z",
+          "affected_components": [
+            {
+              "code": "s9txl6g88v1z",
+              "name": "Kubernetes - SFO3",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "s9txl6g88v1z",
+          "name": "SFO3",
+          "status": "degraded_performance",
+          "created_at": "2023-02-22T17:31:21.752Z",
+          "updated_at": "2024-09-25T23:34:54.207Z",
+          "position": 9,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-22",
+          "group_id": "gb3gs5vj7js2",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "1sf8jl4s1sp4",
@@ -3159,7 +3213,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
