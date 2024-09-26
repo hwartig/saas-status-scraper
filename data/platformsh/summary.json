@@ -4,7 +4,7 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-09-26T02:13:44.741Z"
+    "updated_at": "2024-09-26T13:42:58.291Z"
   },
   "components": [
     {
@@ -25,9 +25,9 @@
     {
       "id": "w62ktynq8s8d",
       "name": "Console",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2019-07-23T19:37:12.161Z",
-      "updated_at": "2024-09-20T13:01:43.058Z",
+      "updated_at": "2024-09-26T13:37:43.232Z",
       "position": 1,
       "description": "Project console for Platform Professional.",
       "showcase": false,
@@ -145,9 +145,9 @@
     {
       "id": "0g2jp8n1qxwr",
       "name": "Europe (France 4) (fr-4.platform.sh)",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2021-04-05T06:09:39.298Z",
-      "updated_at": "2024-09-25T01:31:03.213Z",
+      "updated_at": "2024-09-26T13:37:43.246Z",
       "position": 6,
       "description": "fr-4.platform.sh",
       "showcase": false,
@@ -340,7 +340,7 @@
     {
       "id": "fyqkwqq92sxm",
       "name": "Accounts",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2017-07-06T08:55:17.023Z",
       "updated_at": "2021-04-13T23:00:57.451Z",
       "position": 19,
@@ -374,7 +374,82 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "3j22rc1tcgq8",
+      "name": "Outage on fr-4.platform.sh",
+      "status": "investigating",
+      "created_at": "2024-09-26T13:37:43.196Z",
+      "updated_at": "2024-09-26T13:37:43.291Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/lkx136jnh9hf",
+      "started_at": "2024-09-26T13:37:43.187Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "xb8g8s15g4xy",
+          "status": "investigating",
+          "body": "We have detected an issue affecting service on the fr-4.platform.sh region.\n\nThis issue affects multiple production sites as well as development environments. Access to your site, project UI as well as Git and SSH access may be affected.\n\nThis outage does not affect Dedicated Enterprise Clusters.\n\nWe will update you as soon as we have further information.",
+          "incident_id": "3j22rc1tcgq8",
+          "created_at": "2024-09-26T13:37:43.288Z",
+          "updated_at": "2024-09-26T13:37:43.288Z",
+          "display_at": "2024-09-26T13:37:43.288Z",
+          "affected_components": [
+            {
+              "code": "w62ktynq8s8d",
+              "name": "Accounts - Console",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "0g2jp8n1qxwr",
+              "name": "Europe (France 4) (fr-4.platform.sh)",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "w62ktynq8s8d",
+          "name": "Console",
+          "status": "major_outage",
+          "created_at": "2019-07-23T19:37:12.161Z",
+          "updated_at": "2024-09-26T13:37:43.232Z",
+          "position": 1,
+          "description": "Project console for Platform Professional.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "fyqkwqq92sxm",
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "0g2jp8n1qxwr",
+          "name": "Europe (France 4) (fr-4.platform.sh)",
+          "status": "major_outage",
+          "created_at": "2021-04-05T06:09:39.298Z",
+          "updated_at": "2024-09-26T13:37:43.246Z",
+          "position": 6,
+          "description": "fr-4.platform.sh",
+          "showcase": false,
+          "start_date": "2021-04-05",
+          "group_id": null,
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "97lls61nl6k2",
@@ -864,7 +939,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "major",
+    "description": "Partial System Outage"
   }
 }
