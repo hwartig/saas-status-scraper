@@ -4,7 +4,7 @@
     "name": "US1 - Anypoint Platform",
     "url": "https://status.mulesoft.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-09-30T10:42:58.138-07:00"
+    "updated_at": "2024-09-30T12:34:52.957-07:00"
   },
   "components": [
     {
@@ -1017,7 +1017,314 @@
     }
   ],
   "incidents": [],
-  "scheduled_maintenances": [],
+  "scheduled_maintenances": [
+    {
+      "id": "4mxs89xzr64h",
+      "name": "Anypoint Platform Release and Maintenance Window",
+      "status": "scheduled",
+      "created_at": "2024-09-30T12:34:52.870-07:00",
+      "updated_at": "2024-09-30T12:34:52.954-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/ryqqg9bsghth",
+      "started_at": "2024-09-30T12:34:52.842-07:00",
+      "page_id": "rl5vblzz3gbw",
+      "incident_updates": [
+        {
+          "id": "3w0cqcc2dx94",
+          "status": "scheduled",
+          "body": "On Saturday, October 12, 2024 between 9AM and 2PM PDT (12PM - 5PM EDT, 4PM - 9PM UTC)\n\n<H6>New/Enhanced Feature Releases</H6>\n\n<H6>Bug fixes & back-end performance enhancement releases</H6>\n\n\n<H6>Customer Impacting / Downtime Announcement(s)</H6>\n\n<H6><B>*** ATTENTION: \nA 30 to 60 min service interruption is expected during this maintenance window … ***</B></H6>\nWe will be performing a scheduled upgrade on part of the platform’s underlying infrastructure.\n<B>*** Service impact details:</B>\n<B>* Applications:</B>\n- Runtime Manager\nThis interruption affects only Runtime Fabric and CloudHub 2.0. Flex Gateway and Standalone Servers are not impacted. During the service interruption, there will be no impact to the running applications.\n<B>During maintenance downtime:</B>\n<B>* Runtimes: </B> are not impacted.\n<B>* User Experience(UX):</B> On the Runtime Fabric and Private Space Status pages, RTF or Runtime Fabric clusters might show as “Degraded” status. Customers might not be able to deploy or manage applications on their existing RTF or Runtime Fabric clusters and Private Spaces. Registration of new RTF or Runtime Fabric clusters and Private Spaces will take longer than usual to achieve \"Active” status. This will be temporary and fixed after the maintenance window has been completed. Please refer to this KB Article (https://help.salesforce.com/s/articleView?id=002718168&type=1) for more information on how to troubleshoot if the Issue persists.\n<B>* API calls:</B> API calls will not be impacted\n<B>* Logs and Data: </B> log and metric display data will be updated during the service interruption.\n\n\n<H6>*** ATTENTION:  Up to 60 minutes of service interruption is expected during this maintenance window ***</H6>\nWe will be performing a scheduled upgrade of an internal database for Anypoint Secrets Manager\n<B>*** Service impact details:</B>\n<B>* Applications: </B>\n- Runtime Manager\n- API Manager\n- Partner Manager\n- Anypoint Security (All components)\n- Design Center  (API Designer and Design Center Projects)\n- Anypoint Monitoring\n- MuleSoft Composer\n\n<B>During maintenance downtime:</B>\n<B>* User Experience(UX): </B>Anypoint Secrets Manager will be unavailable. User will experience an error for the following applications:\nAnypoint Secrets Manager:  Customers will not be able to manage secret groups and secrets.\nRuntime Manager:  Customers will not be able to deploy a new mule application, create a new Runtime Fabric instance, Private Space instance and Tokenization Service.\nAPI Manager: Customers will not be able to add or update APIs using Mule Gateway or Flex Gateway.\nPartner Manager: Customers will not be able to create or update endpoints, nor they will be able to deploy new message flows. Also they won’t be able to run template upgrades.\nAnypoint Security: Customers will not be able to create or update their security-edge instance and tokenization service.\nDesign Center: Customers will not be able to perform activities involving Anypoint Secrets Manager.\nAnypoint Monitoring: Customers monitors that are using Anypoint Secrets Manager integration in their monitor will fail.\nMuleSoft Composer: Customers will not be able to activate flows. Existing flows may also be impacted if it stores or retrieves secrets from Secrets Manager.\n<B>* API calls:</B>\nInvoking Anypoint Platform APIs that use Anypoint Secrets Manager will fail.\n<B>* Existing Runtimes: </B> are not impacted.\n<B>* Following maintenance downtime:</B>\n<B> Anypoint Secrets Manager</B> will function as usual\n\n<H6><B>*** ATTENTION:  up to 45 minutes service interruption is expected during this maintenance window ***</B></H6>\nWe will be performing a scheduled upgrade on part of the platform's underlying public key infrastructure. \n<B>*** Service impact details:</B>\n<B>* Applications:</B>\n- Runtime Fabric and CH2 spaces\n- Anypoint Monitoring\n- Flex Gateway\n- RPA\n\n<B>During maintenance downtime:</B>\n\n<B>* Runtimes: </B> are not impacted.\n<B>* User Experience(UX):</B> \n   1. Existing Runtime Fabric agents cannot rotate the PKI certificate. New Runtime Fabric installation cannot be created.\n2. Anypoint monitoring agent will not be able to renew its mTLS certificate.There is no impact to the usage of existing mTLS certificate to ship the metrics to the Anypoint platform, unless the certificate expires during the maintenance window. \n3. mTLS certificate for existing Flex Gateway instances cannot be renewed. Existing Flex Gateway instances cannot be deleted. New Flex Gateway instance cannot be created.\n4. RPA manager will only be affected if its multi-tenant infrastructure needs to be expanded to fulfill a new provisioning request during the maintenance window.\n\n<B>* API calls:</B> API calls will not be impacted\n\n\n<H6>Customer Impacting / Downtime Announcement(s)</H6>\n<H6>***ATTENTION: up to 15 minutes of service interruption is expected.</H6>\nWe will be performing a scheduled upgrade of an internal database.\n<B>** Service Impact Details:</B>\n<B>* Applications:</B>\n- MuleSoft Intelligent Document Processing (IDP)\n<B>During maintenance downtime:</B>\n<B>* User Experience(UX):</B>\n- Users may not be able to create/save/edit/publish actions\n- Users may not be able to execute a document action\n- Users may not be able to review execution results\n- Editor execution may not come back after a successful submission\n<B>* API Calls: </B> Published document action may not be able to complete execution.\n\n\n<H6><B>*** ATTENTION: Up to 2 hours service interruption is expected during this maintenance window ***</B></H6>\nWe will be performing a scheduled upgrade on part of the platform’s underlying infrastructure.\n<B>*** Service impact details:</B>\n<B>* Applications:</B>\nAPI Governance: \n- Governed projects might not be updated. When an API project aspect (Spec, Instance, Documentation, etc) is updated, the changes might not be reflected in API Governance.\n- Problems while creating / updating API Governance profiles might occur. The new governed APIs might remain in “In Validation” status permanently.",
+          "incident_id": "4mxs89xzr64h",
+          "created_at": "2024-09-30T12:34:52.951-07:00",
+          "updated_at": "2024-09-30T12:34:52.951-07:00",
+          "display_at": "2024-09-30T12:34:52.951-07:00",
+          "affected_components": [
+            {
+              "code": "9swb7s15zxrh",
+              "name": "Design Center - API Designer",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "083g76y974kb",
+              "name": "Runtime Services - Runtime Fabric",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "xmk1pfcwpv68",
+              "name": "Anypoint Management Center - API Manager",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "jgvh4npnn64r",
+              "name": "Anypoint Management Center - Runtime Manager",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "1r40lc8j62b2",
+              "name": "Anypoint Management Center - API Governance",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "r0sfyt898v84",
+              "name": "Anypoint Partner Manager v2",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "lsfcbmwj751v",
+              "name": "Anypoint Security - Secrets Manager",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "xbr38cs2zhf0",
+              "name": "Anypoint Security - Security - Edge",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "1xbyp48cwpmh",
+              "name": "Anypoint Security - Tokenization",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "xby9znby6sqc",
+              "name": "MuleSoft Composer",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "7t56g66bdjpc",
+              "name": "MuleSoft RPA",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "9t1tqbwfc2dz",
+              "name": "MuleSoft Intelligent Document Processing (IDP)",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "wdjkqz1w3341",
+              "name": "Anypoint Monitoring Suite - Anypoint Monitoring",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "083g76y974kb",
+          "name": "Runtime Fabric",
+          "status": "operational",
+          "created_at": "2015-10-19T15:36:13.419-07:00",
+          "updated_at": "2024-09-28T12:30:30.883-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "m341vnt05t00",
+          "page_id": "rl5vblzz3gbw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "wdjkqz1w3341",
+          "name": "Anypoint Monitoring",
+          "status": "operational",
+          "created_at": "2018-12-01T19:17:40.768-08:00",
+          "updated_at": "2024-08-17T13:07:16.717-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "5pjv2z6x537z",
+          "page_id": "rl5vblzz3gbw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "lsfcbmwj751v",
+          "name": "Secrets Manager",
+          "status": "operational",
+          "created_at": "2021-05-06T10:07:41.350-07:00",
+          "updated_at": "2024-07-20T11:48:27.967-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2021-05-06",
+          "group_id": "pylrjnyy30nt",
+          "page_id": "rl5vblzz3gbw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "xmk1pfcwpv68",
+          "name": "API Manager",
+          "status": "operational",
+          "created_at": "2015-10-19T15:31:37.993-07:00",
+          "updated_at": "2024-09-28T12:30:30.898-07:00",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "4tfx42ks317m",
+          "page_id": "rl5vblzz3gbw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "xbr38cs2zhf0",
+          "name": "Security - Edge",
+          "status": "operational",
+          "created_at": "2021-05-06T10:08:26.092-07:00",
+          "updated_at": "2024-07-20T11:48:27.994-07:00",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": "2021-05-06",
+          "group_id": "pylrjnyy30nt",
+          "page_id": "rl5vblzz3gbw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "9swb7s15zxrh",
+          "name": "API Designer",
+          "status": "operational",
+          "created_at": "2015-10-19T15:30:29.953-07:00",
+          "updated_at": "2024-09-28T12:30:30.908-07:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "0xzf8fnzr3kr",
+          "page_id": "rl5vblzz3gbw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "jgvh4npnn64r",
+          "name": "Runtime Manager",
+          "status": "operational",
+          "created_at": "2015-10-19T15:33:41.672-07:00",
+          "updated_at": "2024-09-30T09:56:16.219-07:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "4tfx42ks317m",
+          "page_id": "rl5vblzz3gbw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "1xbyp48cwpmh",
+          "name": "Tokenization",
+          "status": "operational",
+          "created_at": "2021-05-06T10:08:51.973-07:00",
+          "updated_at": "2024-07-20T11:48:28.045-07:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": "2021-05-06",
+          "group_id": "pylrjnyy30nt",
+          "page_id": "rl5vblzz3gbw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "1r40lc8j62b2",
+          "name": "API Governance",
+          "status": "operational",
+          "created_at": "2023-06-16T13:38:23.624-07:00",
+          "updated_at": "2024-09-28T12:30:30.937-07:00",
+          "position": 7,
+          "description": "Ensure APIs conform to governance standards while enabling speed to market.  Anypoint API Governance ensures consistent API quality and security with self-service tools.",
+          "showcase": false,
+          "start_date": "2023-06-16",
+          "group_id": "4tfx42ks317m",
+          "page_id": "rl5vblzz3gbw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "r0sfyt898v84",
+          "name": "Anypoint Partner Manager v2",
+          "status": "operational",
+          "created_at": "2019-11-12T17:06:58.371-08:00",
+          "updated_at": "2024-09-03T12:20:05.202-07:00",
+          "position": 9,
+          "description": "Anypoint Partner Manager v2 accelerates customer adoption of B2B integrations by enabling easy configuration and management of their B2B flows",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "rl5vblzz3gbw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "xby9znby6sqc",
+          "name": "MuleSoft Composer",
+          "status": "operational",
+          "created_at": "2021-10-29T11:29:42.337-07:00",
+          "updated_at": "2024-08-17T13:07:16.894-07:00",
+          "position": 14,
+          "description": null,
+          "showcase": false,
+          "start_date": "2021-10-29",
+          "group_id": null,
+          "page_id": "rl5vblzz3gbw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "7t56g66bdjpc",
+          "name": "MuleSoft RPA",
+          "status": "operational",
+          "created_at": "2022-07-29T11:36:24.065-07:00",
+          "updated_at": "2024-09-28T12:30:30.963-07:00",
+          "position": 16,
+          "description": "MuleSoft Robotic Process Automation",
+          "showcase": false,
+          "start_date": "2022-07-29",
+          "group_id": null,
+          "page_id": "rl5vblzz3gbw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "9t1tqbwfc2dz",
+          "name": "MuleSoft Intelligent Document Processing (IDP)",
+          "status": "operational",
+          "created_at": "2024-06-06T12:42:11.970-07:00",
+          "updated_at": "2024-08-09T08:18:35.900-07:00",
+          "position": 17,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-06-06",
+          "group_id": null,
+          "page_id": "rl5vblzz3gbw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2024-10-12T09:00:00.000-07:00",
+      "scheduled_until": "2024-10-12T14:00:00.000-07:00"
+    }
+  ],
   "status": {
     "indicator": "none",
     "description": "All Systems Operational"
