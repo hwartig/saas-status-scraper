@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-10-04T08:00:57.025Z"
+    "updated_at": "2024-10-04T17:38:07.256Z"
   },
   "incidents": [
     {
@@ -711,9 +711,9 @@
     {
       "id": "fxvdq88ych5y",
       "name": "Network Connectivity in SFO3 Region",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-09-25T23:34:54.182Z",
-      "updated_at": "2024-09-26T02:45:02.445Z",
+      "updated_at": "2024-10-04T17:38:07.251Z",
       "monitoring_at": "2024-09-26T02:15:13.902Z",
       "resolved_at": "2024-09-26T02:45:02.427Z",
       "impact": "minor",
@@ -721,6 +721,19 @@
       "started_at": "2024-09-25T23:34:54.176Z",
       "page_id": "w4cz49tckxhp",
       "incident_updates": [
+        {
+          "id": "c8m8wrmhf8p7",
+          "status": "postmortem",
+          "body": "## **Incident Summary**\n\nOn September 25, 2024 at 22:25 UTC, DigitalOcean experienced a reduction of datacenter capacity in SFO3 and impacted the availability of select DigitalOcean services. Due to a majority of the line cards rebooting at the same time on one of our core routers in SFO3, an inter-regional traffic interruption and traffic drop to the network backbone occurred. This issue impacted users of any DigitalOcean services in the SFO3 region, with a longer impact on select Managed Kubernetes Clusters \\(DOKS\\). \n\n‌\n\n## **Incident Details**\n\n_Networking_\n\n* **Root Cause**: Several line cards rebooted at the same time on one of the core routers, due to hardware errors on the network device.\n* **Impact**: Datacenter traffic capacity to/from the backbone was reduced by half during this incident. Network connectivity to some DigitalOcean services was affected.\n* **Response**: All of the crashed line cards came online quickly, allowing network traffic to begin flowing again and the core router to become operational.\n\n_Specific Impact on DOKS_\n\n* **Root Cause:** Due to the network issues from line card reboots, a number of DOKS fleet machines became unhealthy as guest networking failed to recover from the hardware fault.\n* **Impact:** Some customer clusters experienced connectivity issues and difficulty in accessing the K8s control plane until networking for the underlying nodes was restored.\n* **Response:** All affected nodes across the SFO3 region in the DOKS fleet were recycled.\n\n## **Timeline of Events**\n\nSep 25 22:21 - Large majority of line cards rebooted on the core router.\n\nSep 25 22:24 - Line cards became online.\n\nSep 25 22:25 - Network protocols started session establishment process.\n\nSep 25 22:30 - Traffic on the affected core router was restored.\n\nSep 25 22:50 - SFO3 control plane systems all reconnected and recovered. \n\nSep 25 23:07 - DOKS API servers degraded.\n\nSep 25 23:59 - Some DOKS clusters in the SFO3 region could not be scraped. Several nodes were discovered to be in a “not ready” state.\n\nSep 26 01:40 - All impacted DOKS nodes recycled and clusters are operational. \n\n## **Remediation Actions**\n\nDigitalOcean teams are working on multiple types of remediation to help prevent a similar incident from happening in the future. \n\nDigitalOcean is working with the vendor support team for the devices to determine the root cause of the line card crash, as well as upgrading software on the core routers in the SFO3 region.. \n\nDuring the incident, engineers had to manually remediate affected nodes across the entire SFO3 DOKS fleet to restore service. Teams are exploring methods to reduce the need for manual action in the future, by increasing thresholds for automated remediation actions, such that service is restored as quickly as possible.",
+          "incident_id": "fxvdq88ych5y",
+          "created_at": "2024-10-04T17:37:18.379Z",
+          "updated_at": "2024-10-04T17:38:07.235Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our September 25th incident: https://stspg.io/26z014t2rqqx",
+          "tweet_id": null
+        },
         {
           "id": "940jlstztzvv",
           "status": "resolved",
