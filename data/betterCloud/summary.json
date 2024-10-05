@@ -4,13 +4,13 @@
     "name": "BetterCloud",
     "url": "https://status.bettercloud.com",
     "time_zone": "America/New_York",
-    "updated_at": "2024-10-03T20:42:56.327-04:00"
+    "updated_at": "2024-10-05T13:00:27.782-04:00"
   },
   "components": [
     {
       "id": "s445kqqyw694",
       "name": "BetterCloud",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-06-09T16:51:25.465-04:00",
       "updated_at": "2017-08-03T17:29:28.257-04:00",
       "position": 1,
@@ -102,9 +102,9 @@
     {
       "id": "5b825txx07cy",
       "name": "Directory",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-06-09T17:04:01.698-04:00",
-      "updated_at": "2024-09-16T14:02:09.920-04:00",
+      "updated_at": "2024-10-05T13:00:27.703-04:00",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -210,9 +210,9 @@
     {
       "id": "lzr71jp0hk8b",
       "name": "Workflows",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2013-07-30T13:37:04.236-04:00",
-      "updated_at": "2024-10-03T20:33:05.258-04:00",
+      "updated_at": "2024-10-05T13:00:27.726-04:00",
       "position": 5,
       "description": null,
       "showcase": false,
@@ -598,7 +598,82 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "qthyrhngf4t3",
+      "name": "Google Directory Syncs Delays",
+      "status": "investigating",
+      "created_at": "2024-10-05T13:00:27.657-04:00",
+      "updated_at": "2024-10-05T13:00:27.779-04:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/r795tk3dvh3y",
+      "started_at": "2024-10-05T13:00:27.645-04:00",
+      "page_id": "stbh0t87fyjr",
+      "incident_updates": [
+        {
+          "id": "jkrbq4087m77",
+          "status": "investigating",
+          "body": "We are currently investigating an issue causing delays in Google Group Full Syncs for a subset of customers. Impacted customers may experience the following: \n- Delays syncing in Dynamic Google Group membership changes\n- Delays syncing in Google Group membership changes made via groups.google.com\n- Workflows set to trigger based on Google Group membership changes if the changes were made via the two methods above\n\nNote: Group membership changes made via admin.google.com or Google's API are not affected and will still sync in within 5 minutes\n\nWe apologize for any inconvenience and will provide another update as soon as possible. If you have any questions, please contact our support team by emailing support@bettercloud.com",
+          "incident_id": "qthyrhngf4t3",
+          "created_at": "2024-10-05T13:00:27.776-04:00",
+          "updated_at": "2024-10-05T13:00:27.776-04:00",
+          "display_at": "2024-10-05T13:00:27.776-04:00",
+          "affected_components": [
+            {
+              "code": "5b825txx07cy",
+              "name": "BetterCloud - Directory",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "lzr71jp0hk8b",
+              "name": "BetterCloud - Workflows",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "5b825txx07cy",
+          "name": "Directory",
+          "status": "degraded_performance",
+          "created_at": "2017-06-09T17:04:01.698-04:00",
+          "updated_at": "2024-10-05T13:00:27.703-04:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s445kqqyw694",
+          "page_id": "stbh0t87fyjr",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "lzr71jp0hk8b",
+          "name": "Workflows",
+          "status": "degraded_performance",
+          "created_at": "2013-07-30T13:37:04.236-04:00",
+          "updated_at": "2024-10-05T13:00:27.726-04:00",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s445kqqyw694",
+          "page_id": "stbh0t87fyjr",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "b66yx9g779hj",
@@ -665,9 +740,9 @@
         {
           "id": "lzr71jp0hk8b",
           "name": "Workflows",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2013-07-30T13:37:04.236-04:00",
-          "updated_at": "2024-10-03T20:33:05.258-04:00",
+          "updated_at": "2024-10-05T13:00:27.726-04:00",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -698,7 +773,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
