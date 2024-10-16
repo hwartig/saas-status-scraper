@@ -4,9 +4,39 @@
     "name": "Apify",
     "url": "https://status.apify.com",
     "time_zone": "Europe/Prague",
-    "updated_at": "2024-10-01T09:42:59.249+02:00"
+    "updated_at": "2024-10-16T09:07:50.974+02:00"
   },
   "incidents": [
+    {
+      "id": "9j2c6lnvv7h5",
+      "name": "Small number of Actors unable to start",
+      "status": "resolved",
+      "created_at": "2024-10-15T13:00:00.000+02:00",
+      "updated_at": "2024-10-16T09:07:50.970+02:00",
+      "monitoring_at": null,
+      "resolved_at": "2024-10-15T13:00:00.000+02:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/nt5x27157tyy",
+      "started_at": "2024-10-16T09:07:42.143+02:00",
+      "page_id": "j23nkrf8p8p8",
+      "incident_updates": [
+        {
+          "id": "f6rwk5hs8rjq",
+          "status": "resolved",
+          "body": "Due to an internal misconfiguration, between October 15, 11:00 UTC and October 16, 6:30 UTC, a small number of Actors were unable to start, either when started via API, or when scheduled to run regularly. We have identified the issue and implemented a fix, and the Actors are now starting normally.\n\nThere was no data loss, and no excessive charges for the failed Actors.\n\nWe apologize for the inconvenience, and we will contact the affected users soon.",
+          "incident_id": "9j2c6lnvv7h5",
+          "created_at": "2024-10-16T09:07:42.181+02:00",
+          "updated_at": "2024-10-16T09:07:42.181+02:00",
+          "display_at": "2024-10-15T13:00:00.000+02:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "tspzk462gllt",
       "name": "Degraded residential proxy performance",
@@ -5266,376 +5296,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "zz72tf702m1y",
-      "name": "Degreaded performance of the Apify platform",
-      "status": "postmortem",
-      "created_at": "2022-02-09T18:38:22.955+01:00",
-      "updated_at": "2022-02-17T14:51:31.418+01:00",
-      "monitoring_at": "2022-02-10T02:57:36.000+01:00",
-      "resolved_at": "2022-02-10T15:04:18.000+01:00",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/yrzpdzyt9np7",
-      "started_at": "2022-02-09T21:10:10.000+01:00",
-      "page_id": "j23nkrf8p8p8",
-      "incident_updates": [
-        {
-          "id": "p0mktfdw0fcg",
-          "status": "postmortem",
-          "body": "**The root cause**\n\n* The original problem was triggered by an internal Apify user running an extreme amount of actor runs in parallel. A suboptimal DB query used in our job allocator overloaded the CPU of the database kernel, and our central database slowed down under the critical value, which caused a cascade effect.\n* After we recovered the system, the buffer used for our dataset API did not fully recover, which caused the performance issues of the dataset API endpoint that persisted until the full recovery.\n\n**Next steps and new measures**\n\n* We discovered the suboptimal query caused the database to be overloaded. This is fixed at the time of writing. We plan to publish an engineering blog post on this topic.\n* We also found the bottleneck that protected dataset API from an automated recovery, and the fix is in progress.\n* We are currently analyzing and testing other system components to ensure that they are elastic enough.\n* We will apply new platform measures and limits to beware of the original trigger of the incident. These limits will affect no users, but they are strict enough to protect workloads from accidental overload.\n\nWe are sorry for any inconvenience and problems caused by this incident.",
-          "incident_id": "zz72tf702m1y",
-          "created_at": "2022-02-17T11:43:29.825+01:00",
-          "updated_at": "2022-02-17T14:51:31.414+01:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l6h0myxdxxf6",
-          "status": "resolved",
-          "body": "We are closing the incident. We will publish an update on this issue and future measures to prevent these problems in the future.",
-          "incident_id": "zz72tf702m1y",
-          "created_at": "2022-02-10T15:04:18.346+01:00",
-          "updated_at": "2022-02-17T11:43:44.281+01:00",
-          "display_at": "2022-02-10T15:04:18.000+01:00",
-          "affected_components": [
-            {
-              "code": "ghq5ghrcl6jf",
-              "name": "API (api.apify.com)",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "27n4s2zs5vwc",
-              "name": "Web (apify.com)",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "s8cs3r4kc649",
-              "name": "Console (console.apify.com)",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "z2cl20hmyryr",
-              "name": "Actors",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "fkvxjssncmt5",
-              "name": "Proxy",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fb6skf14g64k",
-          "status": "monitoring",
-          "body": "All systems are back up and fully operational.\n\nIn summary:\n- The initial outage happened during the period 17:30 UTC and 20:00 UTC.\n- Since then, we recovered the actor runtime, but the dataset push items API endpoint had performance problems, the rest of the platform operated normally.\n- To prevent a data loss, between 0:30 and 1:00, we had to restart most of our servers during the recovery process. This caused runs to be on hold, and only the runs with a short timeout may have timed out.\n- Thanks to the recovery process, we prevented a potential data loss.\n\nThis incident is unrelated to the previous one, and the root cause is different. We consider this an incident of critical severity, and we will update you next week with detailed information on the root cause and our measures to prevent these problems in the future.",
-          "incident_id": "zz72tf702m1y",
-          "created_at": "2022-02-10T02:57:36.917+01:00",
-          "updated_at": "2022-02-11T18:25:01.255+01:00",
-          "display_at": "2022-02-10T02:57:36.000+01:00",
-          "affected_components": [
-            {
-              "code": "ghq5ghrcl6jf",
-              "name": "API (api.apify.com)",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "27n4s2zs5vwc",
-              "name": "Web (apify.com)",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "s8cs3r4kc649",
-              "name": "Console (console.apify.com)",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "z2cl20hmyryr",
-              "name": "Actors",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "fkvxjssncmt5",
-              "name": "Proxy",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dnwd6yy5mlwv",
-          "status": "identified",
-          "body": "We are currently working on full recovery of the system. Some parts have to be restarted which can make some actors run longer than usual.",
-          "incident_id": "zz72tf702m1y",
-          "created_at": "2022-02-10T02:03:07.957+01:00",
-          "updated_at": "2022-02-10T02:03:07.957+01:00",
-          "display_at": "2022-02-10T02:03:07.957+01:00",
-          "affected_components": [
-            {
-              "code": "ghq5ghrcl6jf",
-              "name": "API (api.apify.com)",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "27n4s2zs5vwc",
-              "name": "Web (apify.com)",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "s8cs3r4kc649",
-              "name": "Console (console.apify.com)",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "z2cl20hmyryr",
-              "name": "Actors",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "fkvxjssncmt5",
-              "name": "Proxy",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5jj6wpjc6j94",
-          "status": "identified",
-          "body": "We are continuing to work on a fix for this issue.",
-          "incident_id": "zz72tf702m1y",
-          "created_at": "2022-02-09T21:50:04.087+01:00",
-          "updated_at": "2022-02-09T21:50:04.087+01:00",
-          "display_at": "2022-02-09T21:50:04.087+01:00",
-          "affected_components": [
-            {
-              "code": "ghq5ghrcl6jf",
-              "name": "API (api.apify.com)",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "27n4s2zs5vwc",
-              "name": "Web (apify.com)",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "s8cs3r4kc649",
-              "name": "Console (console.apify.com)",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "z2cl20hmyryr",
-              "name": "Actors",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "fkvxjssncmt5",
-              "name": "Proxy",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rw9ybc2ry8nz",
-          "status": "identified",
-          "body": "We have identified the issue and the system has mostly recovered. The performance of datasets might still be affected.",
-          "incident_id": "zz72tf702m1y",
-          "created_at": "2022-02-09T21:48:10.198+01:00",
-          "updated_at": "2022-02-09T21:52:05.201+01:00",
-          "display_at": "2022-02-09T21:10:10.000+01:00",
-          "affected_components": [
-            {
-              "code": "ghq5ghrcl6jf",
-              "name": "API (api.apify.com)",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "27n4s2zs5vwc",
-              "name": "Web (apify.com)",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "s8cs3r4kc649",
-              "name": "Console (console.apify.com)",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "z2cl20hmyryr",
-              "name": "Actors",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "fkvxjssncmt5",
-              "name": "Proxy",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cv07z5bng5p9",
-          "status": "investigating",
-          "body": "We are experiencing issues with our database provider causing the high error rate of Apify API and Console. We are investigating the root cause and will keep you up to date. \nWe are sorry for any inconvenience caused.",
-          "incident_id": "zz72tf702m1y",
-          "created_at": "2022-02-09T18:38:23.080+01:00",
-          "updated_at": "2022-02-09T18:38:23.080+01:00",
-          "display_at": "2022-02-09T18:38:23.080+01:00",
-          "affected_components": [
-            {
-              "code": "ghq5ghrcl6jf",
-              "name": "API (api.apify.com)",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "27n4s2zs5vwc",
-              "name": "Web (apify.com)",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "s8cs3r4kc649",
-              "name": "Console (console.apify.com)",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "z2cl20hmyryr",
-              "name": "Actors",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "fkvxjssncmt5",
-              "name": "Proxy",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "27n4s2zs5vwc",
-          "name": "Web (apify.com)",
-          "status": "operational",
-          "created_at": "2016-11-15T12:08:01.924+01:00",
-          "updated_at": "2023-07-03T13:26:39.087+02:00",
-          "position": 1,
-          "description": "Main Apify website and Apify Store running at https://apify.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "j23nkrf8p8p8",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "fkvxjssncmt5",
-          "name": "Datacenter",
-          "status": "operational",
-          "created_at": "2019-08-08T10:19:55.435+02:00",
-          "updated_at": "2024-05-21T17:59:14.291+02:00",
-          "position": 1,
-          "description": "Datacenter IP addresses that are shared with other users. They represent the most cost-effective option for many target websites, although there is a chance the IPs might be blocked due to activity of other users.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "f9szcq30pwz5",
-          "page_id": "j23nkrf8p8p8",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "s8cs3r4kc649",
-          "name": "Console (console.apify.com)",
-          "status": "operational",
-          "created_at": "2017-10-09T16:15:32.548+02:00",
-          "updated_at": "2024-07-04T10:09:00.667+02:00",
-          "position": 2,
-          "description": "Application running at console.apify.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "j23nkrf8p8p8",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "ghq5ghrcl6jf",
-          "name": "API (api.apify.com)",
-          "status": "operational",
-          "created_at": "2016-11-15T11:44:46.574+01:00",
-          "updated_at": "2024-09-23T15:56:51.516+02:00",
-          "position": 3,
-          "description": "Back-end services running at https://api.apify.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "j23nkrf8p8p8",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "z2cl20hmyryr",
-          "name": "Actors",
-          "status": "operational",
-          "created_at": "2018-07-12T08:48:36.759+02:00",
-          "updated_at": "2024-09-25T02:40:37.987+02:00",
-          "position": 4,
-          "description": "Actors are serverless cloud programs running on Apify that can perform arbitrary computing jobs, such as send an email or crawl a website with millions of pages.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "j23nkrf8p8p8",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
