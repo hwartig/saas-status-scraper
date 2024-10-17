@@ -4,7 +4,7 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-10-16T22:01:03.822Z"
+    "updated_at": "2024-10-17T02:52:50.647Z"
   },
   "components": [
     {
@@ -40,9 +40,9 @@
     {
       "id": "0s9xkzzp4l49",
       "name": "User accounting",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-10-06T13:58:03.296Z",
-      "updated_at": "2024-06-24T03:50:09.213Z",
+      "updated_at": "2024-10-17T02:14:25.073Z",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -340,7 +340,7 @@
     {
       "id": "fyqkwqq92sxm",
       "name": "Accounts",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-07-06T08:55:17.023Z",
       "updated_at": "2021-04-13T23:00:57.451Z",
       "position": 19,
@@ -374,7 +374,81 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "1hnvx4x02ksk",
+      "name": "User Accounting outage",
+      "status": "monitoring",
+      "created_at": "2024-10-17T02:14:25.025Z",
+      "updated_at": "2024-10-17T02:52:50.645Z",
+      "monitoring_at": "2024-10-17T02:52:50.630Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/tjflvk011zmf",
+      "started_at": "2024-10-17T02:14:25.014Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "fpbr4nnr4987",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "1hnvx4x02ksk",
+          "created_at": "2024-10-17T02:52:50.630Z",
+          "updated_at": "2024-10-17T02:52:50.630Z",
+          "display_at": "2024-10-17T02:52:50.630Z",
+          "affected_components": [
+            {
+              "code": "0s9xkzzp4l49",
+              "name": "Accounts - User accounting",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "bx2y5mf8yx1n",
+          "status": "investigating",
+          "body": "We have detected an issue affecting User Accounting and may be affected for the next 1 hour. Our Operations team has been notified and is currently working to restore service. \n\nLive sites are not affected \n\nWe will update you as soon as we have further information.",
+          "incident_id": "1hnvx4x02ksk",
+          "created_at": "2024-10-17T02:14:25.141Z",
+          "updated_at": "2024-10-17T02:14:25.141Z",
+          "display_at": "2024-10-17T02:14:25.141Z",
+          "affected_components": [
+            {
+              "code": "0s9xkzzp4l49",
+              "name": "Accounts - User accounting",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "0s9xkzzp4l49",
+          "name": "User accounting",
+          "status": "degraded_performance",
+          "created_at": "2015-10-06T13:58:03.296Z",
+          "updated_at": "2024-10-17T02:14:25.073Z",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "fyqkwqq92sxm",
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "5gdzh3yg5fn1",
@@ -648,7 +722,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
