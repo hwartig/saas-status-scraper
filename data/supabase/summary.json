@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-10-17T14:29:21.524Z"
+    "updated_at": "2024-10-17T14:37:22.721Z"
   },
   "components": [
     {
@@ -161,17 +161,43 @@
   "incidents": [
     {
       "id": "tmrdnkhmmbks",
-      "name": "Realtime and Supavisor connectivity issue",
-      "status": "investigating",
+      "name": "Connectivity issues between Realtime and Supavisor",
+      "status": "monitoring",
       "created_at": "2024-10-17T14:29:21.467Z",
-      "updated_at": "2024-10-17T14:29:21.520Z",
-      "monitoring_at": null,
+      "updated_at": "2024-10-17T14:37:22.719Z",
+      "monitoring_at": "2024-10-17T14:37:22.707Z",
       "resolved_at": null,
       "impact": "none",
       "shortlink": "https://stspg.io/m38hcjqz9vh1",
       "started_at": "2024-10-17T14:29:21.458Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "hzlz19k977yg",
+          "status": "monitoring",
+          "body": "We observed an issue with the realtime service's ability to connect to projects via supavisor. Things are looking stable now, but we're keeping an eye out for any further trouble.\n\nNote that this only affects Realtime usage, and not general project connectivity.",
+          "incident_id": "tmrdnkhmmbks",
+          "created_at": "2024-10-17T14:37:22.707Z",
+          "updated_at": "2024-10-17T14:37:22.707Z",
+          "display_at": "2024-10-17T14:37:22.707Z",
+          "affected_components": [
+            {
+              "code": "022jctfqtj3y",
+              "name": "Connection Pooler",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "l3gnd4rfxc2y",
+              "name": "Realtime",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "yy8g4k02p81j",
           "status": "investigating",
@@ -186,37 +212,38 @@
           "tweet_id": null
         }
       ],
-      "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "wf7x07c7fw7s",
-      "name": "Realtime and Supavisor connectivity issue",
-      "status": "investigating",
-      "created_at": "2024-10-17T14:29:21.454Z",
-      "updated_at": "2024-10-17T14:29:21.500Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "none",
-      "shortlink": "https://stspg.io/2bsk2krr33l6",
-      "started_at": "2024-10-17T14:29:21.447Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
+      "components": [
         {
-          "id": "bcmqtftrlv31",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "wf7x07c7fw7s",
-          "created_at": "2024-10-17T14:29:21.497Z",
-          "updated_at": "2024-10-17T14:29:21.497Z",
-          "display_at": "2024-10-17T14:29:21.497Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
+          "id": "022jctfqtj3y",
+          "name": "Connection Pooler",
+          "status": "operational",
+          "created_at": "2024-05-02T07:16:06.672Z",
+          "updated_at": "2024-06-25T12:41:13.691Z",
+          "position": 4,
+          "description": "Supavisor is a cloud-native, multi-tenant Postgres connection pooler.",
+          "showcase": true,
+          "start_date": "2024-05-02",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "l3gnd4rfxc2y",
+          "name": "Realtime",
+          "status": "operational",
+          "created_at": "2024-05-02T07:16:45.824Z",
+          "updated_at": "2024-06-03T16:52:43.588Z",
+          "position": 9,
+          "description": "Send and receive messages to connected clients.",
+          "showcase": true,
+          "start_date": "2024-05-02",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
         }
       ],
-      "components": [],
       "reminder_intervals": null
     }
   ],
