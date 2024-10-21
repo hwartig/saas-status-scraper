@@ -4,9 +4,62 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-10-21T15:06:34.199Z"
+    "updated_at": "2024-10-21T15:38:53.596Z"
   },
   "incidents": [
+    {
+      "id": "m8st1snrknxw",
+      "name": "Outage on Orange Flexible Engine dedicated hardware",
+      "status": "investigating",
+      "created_at": "2024-10-21T15:38:53.526Z",
+      "updated_at": "2024-10-21T15:38:53.594Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/phhzs307wrtr",
+      "started_at": "2024-10-21T15:38:53.522Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "49b76s23whpz",
+          "status": "investigating",
+          "body": "Our monitoring has detected issues with our cloud infrastructure provider, which affect all sites hosted on Orange Flexible Engine dedicated hardware. \n\nOur operations team has been notified, and they are investigating the issue with our provider.\n\nProjects hosted on the underlying provider Orange Flexible Engine may experience connectivity issues to and from the cluster nodes.\n\nWe will update you as soon as we have further information.",
+          "incident_id": "m8st1snrknxw",
+          "created_at": "2024-10-21T15:38:53.592Z",
+          "updated_at": "2024-10-21T15:38:53.592Z",
+          "display_at": "2024-10-21T15:38:53.592Z",
+          "affected_components": [
+            {
+              "code": "ffkkfccdjdcg",
+              "name": "Dedicated Enterprise",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "ffkkfccdjdcg",
+          "name": "Dedicated Enterprise",
+          "status": "partial_outage",
+          "created_at": "2016-02-02T15:56:31.564Z",
+          "updated_at": "2024-10-21T15:38:53.551Z",
+          "position": 18,
+          "description": "ent.platform.sh",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "40fw2n5mkq6b",
       "name": "Degraded performance on Console",
@@ -476,9 +529,9 @@
         {
           "id": "ffkkfccdjdcg",
           "name": "Dedicated Enterprise",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2016-02-02T15:56:31.564Z",
-          "updated_at": "2024-10-03T23:17:29.476Z",
+          "updated_at": "2024-10-21T15:38:53.551Z",
           "position": 18,
           "description": "ent.platform.sh",
           "showcase": false,
@@ -2661,9 +2714,9 @@
         {
           "id": "ffkkfccdjdcg",
           "name": "Dedicated Enterprise",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2016-02-02T15:56:31.564Z",
-          "updated_at": "2024-10-03T23:17:29.476Z",
+          "updated_at": "2024-10-21T15:38:53.551Z",
           "position": 18,
           "description": "ent.platform.sh",
           "showcase": false,
@@ -7750,197 +7803,11 @@
         {
           "id": "ffkkfccdjdcg",
           "name": "Dedicated Enterprise",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2016-02-02T15:56:31.564Z",
-          "updated_at": "2024-10-03T23:17:29.476Z",
+          "updated_at": "2024-10-21T15:38:53.551Z",
           "position": 18,
           "description": "ent.platform.sh",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "l2x5n4czt1ph",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "rjkw4gpthbjx",
-      "name": "FR-1: CLI, Console UI, and deployments unavailable",
-      "status": "postmortem",
-      "created_at": "2023-12-04T16:46:51.163Z",
-      "updated_at": "2023-12-04T23:42:56.654Z",
-      "monitoring_at": "2023-12-04T21:31:36.137Z",
-      "resolved_at": "2023-12-04T22:54:31.386Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/056b2mrm9ftf",
-      "started_at": "2023-12-04T16:46:51.158Z",
-      "page_id": "l2x5n4czt1ph",
-      "incident_updates": [
-        {
-          "id": "khqq6l8q1zzw",
-          "status": "postmortem",
-          "body": "### What happened\n\nCoordinators on the FR-1 region were failing to connect with our Platform API server.\n\n### Customer Impact\n\nThe CLI, console UI, and API on FR-1 were returning 502s, and inaccessible during the outage, which lasted from 15:20 UTC to 20:51 UTC today.\n\n### What was done to resolve the incident\n\nA configuration change was implemented to resolve the connection issues, and restore service to the API on FR-1.\n\nWe are working with the associated cloud provider to determine what originally brought about the issue.",
-          "incident_id": "rjkw4gpthbjx",
-          "created_at": "2023-12-04T23:42:04.320Z",
-          "updated_at": "2023-12-04T23:42:56.652Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qx5h71l6c5mv",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "rjkw4gpthbjx",
-          "created_at": "2023-12-04T22:54:31.386Z",
-          "updated_at": "2023-12-04T22:54:31.386Z",
-          "display_at": "2023-12-04T22:54:31.386Z",
-          "affected_components": [
-            {
-              "code": "fwtfn79gybth",
-              "name": "Europe (France) (fr-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9sk2wrw2rbd9",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "rjkw4gpthbjx",
-          "created_at": "2023-12-04T21:31:36.137Z",
-          "updated_at": "2023-12-04T21:31:36.137Z",
-          "display_at": "2023-12-04T21:31:36.137Z",
-          "affected_components": [
-            {
-              "code": "fwtfn79gybth",
-              "name": "Europe (France) (fr-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "blxwzh8jnf6z",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "rjkw4gpthbjx",
-          "created_at": "2023-12-04T20:36:09.995Z",
-          "updated_at": "2023-12-04T20:36:09.995Z",
-          "display_at": "2023-12-04T20:36:09.995Z",
-          "affected_components": [
-            {
-              "code": "fwtfn79gybth",
-              "name": "Europe (France) (fr-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nbz7cjn1jhk9",
-          "status": "investigating",
-          "body": "This is still being actively investigated.",
-          "incident_id": "rjkw4gpthbjx",
-          "created_at": "2023-12-04T19:54:40.600Z",
-          "updated_at": "2023-12-04T19:54:40.600Z",
-          "display_at": "2023-12-04T19:54:40.600Z",
-          "affected_components": [
-            {
-              "code": "fwtfn79gybth",
-              "name": "Europe (France) (fr-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fnc1clqtkd5r",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "rjkw4gpthbjx",
-          "created_at": "2023-12-04T17:59:43.468Z",
-          "updated_at": "2023-12-04T17:59:43.468Z",
-          "display_at": "2023-12-04T17:59:43.468Z",
-          "affected_components": [
-            {
-              "code": "fwtfn79gybth",
-              "name": "Europe (France) (fr-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1p14cvhj8bkk",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "rjkw4gpthbjx",
-          "created_at": "2023-12-04T17:08:48.849Z",
-          "updated_at": "2023-12-04T17:08:48.849Z",
-          "display_at": "2023-12-04T17:08:48.849Z",
-          "affected_components": [
-            {
-              "code": "fwtfn79gybth",
-              "name": "Europe (France) (fr-1.platform.sh)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "87480t0xyrcj",
-          "status": "investigating",
-          "body": "CLI, Console UI, and deployments are currently unavailable on the fr-1.platform.sh region. \n\nLive sites serving traffic are not impacted.\n\nOur engineers are aware of the issue and working on the solution.",
-          "incident_id": "rjkw4gpthbjx",
-          "created_at": "2023-12-04T16:46:51.226Z",
-          "updated_at": "2023-12-04T16:46:51.226Z",
-          "display_at": "2023-12-04T16:46:51.226Z",
-          "affected_components": [
-            {
-              "code": "fwtfn79gybth",
-              "name": "Europe (France) (fr-1.platform.sh)",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "fwtfn79gybth",
-          "name": "Europe (France) (fr-1.platform.sh)",
-          "status": "operational",
-          "created_at": "2018-04-26T19:48:04.425Z",
-          "updated_at": "2024-10-14T06:01:02.098Z",
-          "position": 4,
-          "description": "fr-1.platform.sh",
           "showcase": false,
           "start_date": null,
           "group_id": null,
