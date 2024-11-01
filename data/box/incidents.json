@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-10-31T22:16:06.810-07:00"
+    "updated_at": "2024-10-31T22:52:32.275-07:00"
   },
   "incidents": [
     {
@@ -1304,9 +1304,9 @@
     {
       "id": "7n2qbvrhdxjr",
       "name": "[Major] Delays in Box Relay",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-07-21T22:31:07.340-07:00",
-      "updated_at": "2024-07-22T02:19:40.376-07:00",
+      "updated_at": "2024-10-31T22:52:32.273-07:00",
       "monitoring_at": null,
       "resolved_at": "2024-07-22T02:19:39.950-07:00",
       "impact": "major",
@@ -1314,6 +1314,19 @@
       "started_at": "2024-07-21T22:31:07.335-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "hp80nzfsmx1v",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Relay workflows. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween July 21, 2024, 3:00 PM PT and July 22, 2024, 2:00 AM PT, some users may have observed that some Relay workflows were delayed. \n\n**Analysis** \n\nRelay workflows are executed on a shared pool of compute resources. This issue occurred because the system was under unusually high load, which delayed the execution of some workflows. We were able to resolve the issue by rebalancing resources across outstanding workflows.\n\nWe are currently enhancing our monitoring and notification systems to ensure that engineers receive timely alerts about resource allocation issues. Additionally, we are focusing on improving our tools for rebalancing resources in order to proactively prevent similar issues from happening again in the future.\n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Automatic recognition of workflow causing peak load and optimizing resource utilization.\n* Reducing time to action by improving engineering troubleshooting steps to diagnose and detect resource allocation issues that cause delays.\n* Improve internal tooling to allow quicker intervention for on-support specialists.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "7n2qbvrhdxjr",
+          "created_at": "2024-10-31T22:50:04.357-07:00",
+          "updated_at": "2024-10-31T22:52:32.272-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "2zv2t6cssfmr",
           "status": "resolved",
