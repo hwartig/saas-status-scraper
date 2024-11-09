@@ -4,22 +4,72 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-11-08T20:03:40.158-08:00"
+    "updated_at": "2024-11-08T20:20:08.228-08:00"
   },
   "incidents": [
     {
-      "id": "7kqqbc2y586j",
-      "name": "Invalid Recipient Error Exceeds Threshold Impacting Twilio Messaging Channels",
-      "status": "identified",
-      "created_at": "2024-11-08T19:23:20.478-08:00",
-      "updated_at": "2024-11-08T19:56:42.559-08:00",
+      "id": "sgm80rlyzztk",
+      "name": "Profiles-cross-namespace-contamination",
+      "status": "investigating",
+      "created_at": "2024-11-08T20:10:10.008-08:00",
+      "updated_at": "2024-11-08T20:10:10.057-08:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "none",
+      "shortlink": "https://stspg.io/z463hnrp60gc",
+      "started_at": "2024-11-08T20:10:10.000-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "l15grtyvrp9w",
+          "status": "investigating",
+          "body": "We've become aware of a potential issue with Profiles Data Lake and Profiles Data Services. Our engineering team has been alerted and is actively investigating. We will update as soon as we have more information.",
+          "incident_id": "sgm80rlyzztk",
+          "created_at": "2024-11-08T20:10:10.054-08:00",
+          "updated_at": "2024-11-08T20:10:10.054-08:00",
+          "display_at": "2024-11-08T20:10:10.054-08:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
+    {
+      "id": "7kqqbc2y586j",
+      "name": "Invalid Recipient Error Exceeds Threshold Impacting Twilio Messaging Channels",
+      "status": "investigating",
+      "created_at": "2024-11-08T19:23:20.478-08:00",
+      "updated_at": "2024-11-08T20:20:08.220-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
       "shortlink": "https://stspg.io/2cwdkn964jf9",
       "started_at": "2024-11-08T19:23:20.000-08:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "gzykbjxx2dxj",
+          "status": "investigating",
+          "body": "Our engineers have identified the issue as a high volume of INBOUND_RECEIPT events with invalid remoteId values, which is causing a spike in \"Invalid recipient\" errors. They are actively working on deploying a fix. We expect to provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "7kqqbc2y586j",
+          "created_at": "2024-11-08T20:20:08.218-08:00",
+          "updated_at": "2024-11-08T20:20:08.218-08:00",
+          "display_at": "2024-11-08T20:20:08.218-08:00",
+          "affected_components": [
+            {
+              "code": "1gkv0mxhzsjv",
+              "name": "PROGRAMMABLE MESSAGING - Messaging Channels",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "980rgvs34vbm",
           "status": "identified",
@@ -34,7 +84,23 @@
           "tweet_id": null
         }
       ],
-      "components": [],
+      "components": [
+        {
+          "id": "1gkv0mxhzsjv",
+          "name": "Messaging Channels",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:29:19.563-08:00",
+          "updated_at": "2024-11-08T20:20:08.173-08:00",
+          "position": 14,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s2k3h0mkqnth",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
       "reminder_intervals": null
     },
     {
@@ -7017,199 +7083,6 @@
         }
       ],
       "reminder_intervals": null
-    },
-    {
-      "id": "t03x873ddngp",
-      "name": "SMS Delivery Receipts Delays to Movistar (Telefonica) Networks in Latin America",
-      "status": "resolved",
-      "created_at": "2024-10-31T09:02:01.494-07:00",
-      "updated_at": "2024-11-01T03:09:25.502-07:00",
-      "monitoring_at": "2024-10-31T23:34:42.485-07:00",
-      "resolved_at": "2024-11-01T03:09:25.485-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/kn1sh2vl32jz",
-      "started_at": "2024-10-31T09:02:01.475-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "655x8lz2sll4",
-          "status": "resolved",
-          "body": "We are no longer observing SMS delivery delays when sending messages to Movistar (Telefonica) Networks in Colombia, Mexico, El Salvador, Peru and Venezuela. This incident has been resolved.",
-          "incident_id": "t03x873ddngp",
-          "created_at": "2024-11-01T03:09:25.485-07:00",
-          "updated_at": "2024-11-01T03:09:25.485-07:00",
-          "display_at": "2024-11-01T03:09:25.485-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jsxdjdp0c7fy",
-          "status": "monitoring",
-          "body": "We are continuing to observe recovery in SMS delivery delays when sending messages to Movistar (Telefonica) Networks in Colombia, Mexico, El Salvador, Peru and Venezuela. We will continue to monitor the service to ensure a full recovery. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "t03x873ddngp",
-          "created_at": "2024-11-01T01:16:18.041-07:00",
-          "updated_at": "2024-11-01T01:16:18.041-07:00",
-          "display_at": "2024-11-01T01:16:18.041-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6j9hljmyj20c",
-          "status": "monitoring",
-          "body": "We are observing recovery in SMS delivery delays when sending messages to Movistar (Telefonica) Networks in Colombia, Mexico, El Salvador, Peru and Venezuela. . We will continue monitoring the service to ensure a full recovery. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "t03x873ddngp",
-          "created_at": "2024-10-31T23:34:42.485-07:00",
-          "updated_at": "2024-10-31T23:34:42.485-07:00",
-          "display_at": "2024-10-31T23:34:42.485-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "pgnd9yy01kq7",
-          "status": "investigating",
-          "body": "We are still experiencing SMS delivery report delays when sending messages to Movistar (Telefonica) Networks in Colombia, Mexico, El Salvador, Peru and Venezuela. Delivery receipts are Delayed, however message delivery is observed as successful. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 8 hours or as soon as more information becomes available.",
-          "incident_id": "t03x873ddngp",
-          "created_at": "2024-10-31T15:41:01.933-07:00",
-          "updated_at": "2024-10-31T15:41:01.933-07:00",
-          "display_at": "2024-10-31T15:41:01.933-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "lx5rjl2t8pgp",
-          "status": "investigating",
-          "body": "We continue experiencing SMS delivery report delays when sending messages to Movistar (Telefonica) Networks in Colombia, Mexico, El Salvador, Peru and Venezuela. Delivery receipts are Delayed, however message delivery is observed as successful. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "t03x873ddngp",
-          "created_at": "2024-10-31T11:41:33.813-07:00",
-          "updated_at": "2024-10-31T11:41:33.813-07:00",
-          "display_at": "2024-10-31T11:41:33.813-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l6v6d90lqsv9",
-          "status": "investigating",
-          "body": "We continue experiencing SMS delivery delays when sending messages to Movistar (Telefonica) Networks in Colombia, Mexico, El Salvador, Peru and Venezuela. Delivery receipts are Delayed, however message delivery is observed as successful. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "t03x873ddngp",
-          "created_at": "2024-10-31T10:01:06.719-07:00",
-          "updated_at": "2024-10-31T10:01:06.719-07:00",
-          "display_at": "2024-10-31T10:01:06.719-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "8vnrlfws7gsm",
-          "status": "investigating",
-          "body": "We are experiencing SMS delivery delays when sending messages to Movistar (Telefonica) Networks in Colombia, Mexico, El Salvador, Peru and Venezuela. Delivery receipts are Delayed, however message delivery is observed as successful. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "t03x873ddngp",
-          "created_at": "2024-10-31T09:21:31.317-07:00",
-          "updated_at": "2024-10-31T09:21:31.317-07:00",
-          "display_at": "2024-10-31T09:21:31.317-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1ncy1xv558h6",
-          "status": "investigating",
-          "body": "We are experiencing SMS delivery delays when sending messages to Movistar (Telefonica) Networks in Latin America. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "t03x873ddngp",
-          "created_at": "2024-10-31T09:02:01.748-07:00",
-          "updated_at": "2024-10-31T09:02:01.748-07:00",
-          "display_at": "2024-10-31T09:02:01.748-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "42zx9w2kmtvf",
-          "name": "SMS, Latin America",
-          "status": "degraded_performance",
-          "created_at": "2019-01-10T08:53:08.618-08:00",
-          "updated_at": "2024-11-08T14:14:24.615-08:00",
-          "position": 9,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": "1"
     }
   ]
 }
