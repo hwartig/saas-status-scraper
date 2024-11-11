@@ -4,15 +4,15 @@
     "name": "Checkly",
     "url": "https://is.checkly.online",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-11-11T12:06:07.769Z"
+    "updated_at": "2024-11-11T12:50:21.481Z"
   },
   "incidents": [
     {
       "id": "d8vjr050vhn7",
       "name": "Increased scheduling delay across multiple regions",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-11-11T11:42:00.223Z",
-      "updated_at": "2024-11-11T12:06:07.764Z",
+      "updated_at": "2024-11-11T12:50:21.474Z",
       "monitoring_at": "2024-11-11T11:48:54.026Z",
       "resolved_at": "2024-11-11T12:06:07.465Z",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2024-11-11T11:42:00.217Z",
       "page_id": "nq8lf8mrmvw6",
       "incident_updates": [
+        {
+          "id": "4fxt65wdgfnj",
+          "status": "postmortem",
+          "body": "### Timeline:\n\n* 11:32 UTC: Database migration caused locks on critical tables, leading to temporary API unavailability.\n\n* 11:39 UTC: Database locks were removed, and check scheduling began to recover.\n\n### Impact:\n\n* Our public API was partially unavailable.\n\n* Checks were not scheduled when the locks were effective.\n\n* Delayed checks were eventually processed across all regions.\n\n* Some high-frequency checks \\(intervals ≤ 5 minutes\\) may have skipped a check run during the incident window.\n\n### Root Cause:\n\nThe issue stemmed from a database migration that inadvertently locked critical tables, impacting API and scheduling functionality.\n\n### Resolution:\n\nOnce the database locks were removed, system recovery began immediately, with checks processing resuming across all regions.\n\n### Next Steps:\n\nWe are reviewing our database migration procedures to minimize locking risks and implementing additional safeguards to ensure API and check scheduling resilience during similar operations.\n\nFeel free to reach out to support if you have any questions. We apologize for the inconvenience and appreciate your understanding as we work to improve our systems.",
+          "incident_id": "d8vjr050vhn7",
+          "created_at": "2024-11-11T12:40:48.110Z",
+          "updated_at": "2024-11-11T12:50:21.468Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our November 11th incident: https://stspg.io/b4dx5cbwrfss",
+          "tweet_id": null
+        },
         {
           "id": "7p5jlkswcd8r",
           "status": "resolved",
