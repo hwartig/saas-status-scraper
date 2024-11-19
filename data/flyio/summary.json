@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-11-19T17:54:20.725Z"
+    "updated_at": "2024-11-19T18:46:12.275Z"
   },
   "components": [
     {
@@ -373,9 +373,9 @@
     {
       "id": "6sckg8qmrnzz",
       "name": "Logs",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2020-06-30T20:19:10.241Z",
-      "updated_at": "2024-09-19T19:33:58.179Z",
+      "updated_at": "2024-11-19T18:46:12.218Z",
       "position": 8,
       "description": null,
       "showcase": false,
@@ -879,10 +879,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "l2g3bg6rs7w6",
+      "name": "Log Search unavailable",
+      "status": "investigating",
+      "created_at": "2024-11-19T18:46:12.178Z",
+      "updated_at": "2024-11-19T18:46:12.272Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/zdxmlptzw1qw",
+      "started_at": "2024-11-19T18:46:12.172Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "gf56lr9fbmhw",
+          "status": "investigating",
+          "body": "We are investigating an issue causing application log search to be unavailable. This is affecting the Fly Metrics log search panels, and historical application logs initially returned from the `fly logs` command.\n\nStreaming logs using `fly logs`, the Live Logs page in the dashboard, and Fly Log Shipper services continue to work as expected.",
+          "incident_id": "l2g3bg6rs7w6",
+          "created_at": "2024-11-19T18:46:12.269Z",
+          "updated_at": "2024-11-19T18:46:12.269Z",
+          "display_at": "2024-11-19T18:46:12.269Z",
+          "affected_components": [
+            {
+              "code": "6sckg8qmrnzz",
+              "name": "Logs",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "6sckg8qmrnzz",
+          "name": "Logs",
+          "status": "partial_outage",
+          "created_at": "2020-06-30T20:19:10.241Z",
+          "updated_at": "2024-11-19T18:46:12.218Z",
+          "position": 8,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
