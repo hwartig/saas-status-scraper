@@ -4,7 +4,7 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-11-22T16:22:00.396Z"
+    "updated_at": "2024-11-22T22:23:07.750Z"
   },
   "incidents": [
     {
@@ -118,6 +118,49 @@
           "only_show_if_degraded": false
         }
       ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "5f8wxvyq3z22",
+      "name": "Confluence Outage",
+      "status": "postmortem",
+      "created_at": "2024-11-21T09:30:00.000Z",
+      "updated_at": "2024-11-22T22:23:07.748Z",
+      "monitoring_at": null,
+      "resolved_at": "2024-11-21T21:11:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/y7cvt1nxdq0k",
+      "started_at": "2024-11-21T21:11:00.000Z",
+      "page_id": "4g2my7tbhjsq",
+      "incident_updates": [
+        {
+          "id": "r1y85hlc2mmv",
+          "status": "postmortem",
+          "body": "Here is the root cause analysis of the incident. \n\nOn November 21, 2024 9:11pm UTC, we deployed a production release of a Confluence service to one of the regions, using a new rollout technology. During the deployment, the team encountered an issue that necessitated a manual rollback. The rollback reverted the region to use the previous nodes, which weren’t pre-scaled to handle existing traffic at the time. Consequently, this caused stress on the service. In response, the team immediately scaled up the nodes in the region. By 9:24 PM UTC, the service was fully restored, resulting in an outage that lasted for 13 minutes.\n\nAtlassian is conducting an internal post-incident review and will take the required actions to prevent this kind of incident from happening again.\n\nWe sincerely apologize for the inconvenience.",
+          "incident_id": "5f8wxvyq3z22",
+          "created_at": "2024-11-22T22:18:17.858Z",
+          "updated_at": "2024-11-22T22:19:24.129Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "m2s32p8xcztn",
+          "status": "resolved",
+          "body": "There was Confluence outage in one of the regions on November 21, 2024 9:11pm UTC. By 9:24 PM UTC, the service was fully restored, resulting in an outage that lasted for 13 minutes.",
+          "incident_id": "5f8wxvyq3z22",
+          "created_at": "2024-11-22T22:17:16.983Z",
+          "updated_at": "2024-11-22T22:23:07.696Z",
+          "display_at": "2024-11-21T21:11:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
       "reminder_intervals": null
     },
     {
@@ -5949,36 +5992,6 @@
           "display_at": "2024-02-06T02:40:54.267Z",
           "affected_components": null,
           "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "x0h9rzxnr6gv",
-      "name": "Confluence Whiteboards Beta unavailable for some customers",
-      "status": "resolved",
-      "created_at": "2024-01-31T06:07:22.388Z",
-      "updated_at": "2024-01-31T06:07:22.427Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-01-31T06:07:22.420Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/cg6hb6fw35s8",
-      "started_at": "2024-01-31T06:07:22.385Z",
-      "page_id": "4g2my7tbhjsq",
-      "incident_updates": [
-        {
-          "id": "z8nn9qv853p2",
-          "status": "resolved",
-          "body": "We have investigated reports of Confluence Whiteboards Beta being unavailable for some customers between the times of 01/30/2024 22:44 UTC and 01/31/2024 05:22 UTC. This issue has been resolved.",
-          "incident_id": "x0h9rzxnr6gv",
-          "created_at": "2024-01-31T06:07:22.420Z",
-          "updated_at": "2024-01-31T06:07:22.420Z",
-          "display_at": "2024-01-31T06:07:22.420Z",
-          "affected_components": null,
-          "deliver_notifications": false,
           "custom_tweet": null,
           "tweet_id": null
         }
