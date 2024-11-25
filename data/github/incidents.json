@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-11-25T08:30:10.461Z"
+    "updated_at": "2024-11-25T11:00:26.746Z"
   },
   "incidents": [
+    {
+      "id": "nbscbkxwxjrx",
+      "name": "Disruption with some GitHub services",
+      "status": "investigating",
+      "created_at": "2024-11-25T10:51:56.536Z",
+      "updated_at": "2024-11-25T11:00:26.738Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/pwl54vdh4b5r",
+      "started_at": "2024-11-25T10:51:56.530Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "q3cbtb5hwmzc",
+          "status": "investigating",
+          "body": "Users cannot use the Claude 3.5 Sonnet model in GitHub Copilot currently, in both VS Code and GitHub.com chat.  The team is investigating.",
+          "incident_id": "nbscbkxwxjrx",
+          "created_at": "2024-11-25T11:00:26.735Z",
+          "updated_at": "2024-11-25T11:00:26.735Z",
+          "display_at": "2024-11-25T11:00:26.735Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "w3flbv0s1rgg",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "nbscbkxwxjrx",
+          "created_at": "2024-11-25T10:51:56.578Z",
+          "updated_at": "2024-11-25T10:51:56.578Z",
+          "display_at": "2024-11-25T10:51:56.578Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "dnq4lp93t62f",
       "name": "Repository searches not working for some users",
@@ -9570,334 +9613,6 @@
           "updated_at": "2024-09-25T16:03:30.193Z",
           "position": 1,
           "description": "Performance of git clones, pulls, pushes, and associated operations",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "9vwllhs2w1kj",
-      "name": "Delays in changes to organization membership",
-      "status": "resolved",
-      "created_at": "2024-06-28T17:34:06.897Z",
-      "updated_at": "2024-07-02T23:15:13.375Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-06-28T22:51:40.306Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/t42wqyxb056r",
-      "started_at": "2024-06-28T17:34:06.887Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "m7zxt8m58n7h",
-          "status": "resolved",
-          "body": "On June 28th, 2024, at 16:06 UTC, a backend update by GitHub triggered a significant number of long-running Organization membership update jobs in our job processing system. The job queue depth rose as these update jobs consumed most of our job worker capacity. This resulted in delays for other jobs across services such as Pull Requests and PR-related Actions workflows. We mitigated the impact to Pull Requests and Actions at 19:32 UTC by pausing all Organization membership update jobs. We deployed a code change at 22:30 UTC to skip over the jobs queued by the backend change and re-enabled Organization membership update jobs. We restored the Organization membership update functionality at 22:52 UTC, including all membership changes queued during the incident.<br /><br />During the incident, about 15% of Action workflow runs experienced a delay of more than five minutes. In addition, Pull Requests had delays in determining merge eligibility and starting associated Action workflows for the duration of the incident. Organization membership updates saw delays for upwards of five hours.<br /><br />To prevent a similar event in the future from impacting our users, we are working to: improve our job management system to better manage our job worker capacity; add more precise monitoring for job delays; and strengthen our testing practices to prevent future recurrences.",
-          "incident_id": "9vwllhs2w1kj",
-          "created_at": "2024-06-28T22:51:40.306Z",
-          "updated_at": "2024-07-02T23:15:13.371Z",
-          "display_at": "2024-06-28T22:51:40.306Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "63j5klqgz5k7",
-          "status": "investigating",
-          "body": "We are continuing to work to mitigate delays in organization membership changes.",
-          "incident_id": "9vwllhs2w1kj",
-          "created_at": "2024-06-28T22:18:06.812Z",
-          "updated_at": "2024-06-28T22:18:06.812Z",
-          "display_at": "2024-06-28T22:18:06.812Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gjlzp1pjkk1g",
-          "status": "investigating",
-          "body": "We are still actively working to mitigate delays in organization membership changes.",
-          "incident_id": "9vwllhs2w1kj",
-          "created_at": "2024-06-28T21:45:37.702Z",
-          "updated_at": "2024-06-28T21:45:37.702Z",
-          "display_at": "2024-06-28T21:45:37.702Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "835x6wp7qd2k",
-          "status": "investigating",
-          "body": "We are actively working to mitigate delays in organization membership changes. Actions and Pull Requests are both functioning normally now.",
-          "incident_id": "9vwllhs2w1kj",
-          "created_at": "2024-06-28T20:46:02.636Z",
-          "updated_at": "2024-06-28T20:46:02.636Z",
-          "display_at": "2024-06-28T20:46:02.636Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "mzkj12l7q6hx",
-          "status": "investigating",
-          "body": "Actions is operating normally.",
-          "incident_id": "9vwllhs2w1kj",
-          "created_at": "2024-06-28T20:00:21.611Z",
-          "updated_at": "2024-06-28T20:00:21.611Z",
-          "display_at": "2024-06-28T20:00:21.611Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "s97mmb1x22lq",
-          "status": "investigating",
-          "body": "Pull Requests is operating normally.",
-          "incident_id": "9vwllhs2w1kj",
-          "created_at": "2024-06-28T19:59:59.379Z",
-          "updated_at": "2024-06-28T19:59:59.379Z",
-          "display_at": "2024-06-28T19:59:59.379Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "j219n6yxmnq0",
-          "status": "investigating",
-          "body": "We are continuing to apply mitigations and are seeing improvement in creating pull request merge commits and Actions runs for pull request events. Applying changes to organization members remains delayed.",
-          "incident_id": "9vwllhs2w1kj",
-          "created_at": "2024-06-28T19:51:43.502Z",
-          "updated_at": "2024-06-28T19:51:43.502Z",
-          "display_at": "2024-06-28T19:51:43.502Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "zkcl6dxh7ly4",
-          "status": "investigating",
-          "body": "We are continuing to work on mitigating delays creating pull request merge commits, Actions runs for pull request events, and changes to organization members.",
-          "incident_id": "9vwllhs2w1kj",
-          "created_at": "2024-06-28T19:03:04.561Z",
-          "updated_at": "2024-06-28T19:03:04.561Z",
-          "display_at": "2024-06-28T19:03:04.561Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "sx2qv46mngg4",
-          "status": "investigating",
-          "body": "Actions runs triggered by pull requests are experiencing start delays. We have engaged the appropriate teams and are investigating the issue.",
-          "incident_id": "9vwllhs2w1kj",
-          "created_at": "2024-06-28T17:59:19.105Z",
-          "updated_at": "2024-06-28T17:59:19.105Z",
-          "display_at": "2024-06-28T17:59:19.105Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jqb5rhd7wwk7",
-          "status": "investigating",
-          "body": "Pull Requests is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "9vwllhs2w1kj",
-          "created_at": "2024-06-28T17:58:27.796Z",
-          "updated_at": "2024-06-28T17:58:27.796Z",
-          "display_at": "2024-06-28T17:58:27.796Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gl9zv20l8wct",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Actions",
-          "incident_id": "9vwllhs2w1kj",
-          "created_at": "2024-06-28T17:34:07.000Z",
-          "updated_at": "2024-06-28T17:34:07.000Z",
-          "display_at": "2024-06-28T17:34:07.000Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "hhtssxt0f5v2",
-          "name": "Pull Requests",
-          "status": "operational",
-          "created_at": "2020-09-02T15:39:06.329Z",
-          "updated_at": "2024-09-14T22:43:03.345Z",
-          "position": 6,
-          "description": "Requests for Pull Requests on GitHub.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "br0l2tvcx85d",
-          "name": "Actions",
-          "status": "operational",
-          "created_at": "2019-11-13T18:02:19.432Z",
-          "updated_at": "2024-10-30T09:42:30.709Z",
-          "position": 7,
-          "description": "Workflows, Compute and Orchestration for GitHub Actions",
           "showcase": false,
           "start_date": null,
           "group_id": null,
