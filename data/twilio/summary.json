@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-11-29T06:21:12.262-08:00"
+    "updated_at": "2024-11-29T07:04:04.393-08:00"
   },
   "components": [
     {
@@ -340,9 +340,9 @@
     {
       "id": "39mb8cmw8y2v",
       "name": "SMS Short Code, North America",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2016-04-07T15:07:25.830-07:00",
-      "updated_at": "2024-11-28T19:07:18.030-08:00",
+      "updated_at": "2024-11-29T06:51:06.249-08:00",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -661,9 +661,9 @@
     {
       "id": "32f2bm54nkvv",
       "name": "SMS Toll-Free, North America",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:52:48.226-08:00",
-      "updated_at": "2024-11-27T03:00:24.730-08:00",
+      "updated_at": "2024-11-29T06:50:00.634-08:00",
       "position": 5,
       "description": null,
       "showcase": false,
@@ -1807,6 +1807,112 @@
   ],
   "incidents": [
     {
+      "id": "mbhf009r1x31",
+      "name": "SMS Delivery Delays From Twilio Short-Code Numbers to US Carriers",
+      "status": "investigating",
+      "created_at": "2024-11-29T06:51:06.198-08:00",
+      "updated_at": "2024-11-29T06:51:06.352-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/7gvw72v86vll",
+      "started_at": "2024-11-29T06:51:06.187-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "4nq9qbrscmtb",
+          "status": "investigating",
+          "body": "Due to sustained high traffic on the US carrier networks, we are currently experiencing SMS delivery delays from Twilio Short-Code numbers. Messages are queued due to capacity shortage, and customers may see delays when sending to certain US carriers.\n\nPlease find the current delivery status for the major carriers below:\n\nFor US Networks, use the following:\nAT&T (status - Operational)\nT-Mobile (status -  Operational)\nVerizon (status -  Operational)\nMetroPCS (status -  Operational)\nUS Cellular (status -  Operational)\nAltice (status -  Delayed) - Small US Carrier\n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "mbhf009r1x31",
+          "created_at": "2024-11-29T06:51:06.348-08:00",
+          "updated_at": "2024-11-29T06:51:06.348-08:00",
+          "display_at": "2024-11-29T06:51:06.348-08:00",
+          "affected_components": [
+            {
+              "code": "39mb8cmw8y2v",
+              "name": "CARRIER NETWORK - SMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "39mb8cmw8y2v",
+          "name": "SMS Short Code, North America",
+          "status": "degraded_performance",
+          "created_at": "2016-04-07T15:07:25.830-07:00",
+          "updated_at": "2024-11-29T06:51:06.249-08:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "4mdcs52mxdgp",
+      "name": "SMS Delivery Delays From Twilio Toll-Free Numbers to Small US Carriers",
+      "status": "investigating",
+      "created_at": "2024-11-29T06:50:00.605-08:00",
+      "updated_at": "2024-11-29T06:50:00.683-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/7b6h83pm8nkc",
+      "started_at": "2024-11-29T06:50:00.599-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "p26fpgr36dck",
+          "status": "investigating",
+          "body": "Due to sustained high traffic on the US carrier networks, we are currently experiencing SMS delivery delays from Twilio Toll-Free numbers. Messages are queued due to capacity shortage, and customers may see delays when sending to certain US carriers.\n\nPlease find the current delivery status for the major carriers below:\n\nFor US Networks, use the following:\n\nAT&T (status - Operational)\nT-Mobile (status -  Operational)\nVerizon (status -  Operational)\nMetroPCS (status -  Operational)\nUS Cellular (status -  Operational)\nAltice (status - Delayed) - Small US Carrier\n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "4mdcs52mxdgp",
+          "created_at": "2024-11-29T06:50:00.680-08:00",
+          "updated_at": "2024-11-29T06:50:00.680-08:00",
+          "display_at": "2024-11-29T06:50:00.680-08:00",
+          "affected_components": [
+            {
+              "code": "32f2bm54nkvv",
+              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "32f2bm54nkvv",
+          "name": "SMS Toll-Free, North America",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:52:48.226-08:00",
+          "updated_at": "2024-11-29T06:50:00.634-08:00",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "z6w7gktx8y2p",
       "name": "SMS Delivery Delays to Eritel Network in Eritrea",
       "status": "monitoring",
@@ -2352,232 +2458,6 @@
           "created_at": "2024-11-29T02:10:47.391-08:00",
           "updated_at": "2024-11-29T02:10:47.391-08:00",
           "display_at": "2024-11-29T02:10:47.391-08:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "llgdln3dcs6p",
-          "name": "SMS, Europe",
-          "status": "degraded_performance",
-          "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2024-11-28T20:31:07.208-08:00",
-          "position": 14,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "dtbnx4rncwjd",
-      "name": "SMS Delivery Delays to Telstra in Australia",
-      "status": "monitoring",
-      "created_at": "2024-11-28T15:27:05.297-08:00",
-      "updated_at": "2024-11-29T05:01:52.167-08:00",
-      "monitoring_at": "2024-11-29T05:01:52.149-08:00",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/wgbhnn264668",
-      "started_at": "2024-11-28T15:27:05.291-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "03hcln0y6hfh",
-          "status": "monitoring",
-          "body": "We are observing recovery in SMS delivery delays to Telstra in Australia. We will continue monitoring the service to ensure a full recovery. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "dtbnx4rncwjd",
-          "created_at": "2024-11-29T05:01:52.149-08:00",
-          "updated_at": "2024-11-29T05:01:52.149-08:00",
-          "display_at": "2024-11-29T05:01:52.149-08:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "s6nhs0ftmmq7",
-          "status": "investigating",
-          "body": "We continue to experience SMS delivery delays to Telstra in Australia. Our engineers continue working with our carrier partner to resolve the issue. We will provide another update in 8 hours or as soon as more information becomes available.",
-          "incident_id": "dtbnx4rncwjd",
-          "created_at": "2024-11-28T22:27:11.343-08:00",
-          "updated_at": "2024-11-28T22:27:11.343-08:00",
-          "display_at": "2024-11-28T22:27:11.343-08:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "kbj6fjc5rckf",
-          "status": "investigating",
-          "body": "We continue to experience SMS delivery delays to Telstra in Australia. Our engineers continue working with our carrier partner to resolve the issue. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "dtbnx4rncwjd",
-          "created_at": "2024-11-28T18:27:26.619-08:00",
-          "updated_at": "2024-11-28T18:27:26.619-08:00",
-          "display_at": "2024-11-28T18:27:26.619-08:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "k99m18qtxv28",
-          "status": "investigating",
-          "body": "We continue to experience SMS delivery delays to Telstra in Australia. Our engineers continue working with our carrier partner to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "dtbnx4rncwjd",
-          "created_at": "2024-11-28T16:27:39.990-08:00",
-          "updated_at": "2024-11-28T16:27:39.990-08:00",
-          "display_at": "2024-11-28T16:27:39.990-08:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "c706dgnpqxd9",
-          "status": "investigating",
-          "body": "We are experiencing SMS delivery delays to Telstra in Australia. Our engineers are working with our carrier partner to resolve the issue. We will provide an update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "dtbnx4rncwjd",
-          "created_at": "2024-11-28T15:27:05.336-08:00",
-          "updated_at": "2024-11-28T15:27:05.336-08:00",
-          "display_at": "2024-11-28T15:27:05.336-08:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "8qjql0kqnd33",
-          "name": "SMS, APAC",
-          "status": "degraded_performance",
-          "created_at": "2019-01-10T08:53:31.990-08:00",
-          "updated_at": "2024-11-28T20:09:28.158-08:00",
-          "position": 11,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "2h2352cvmg22",
-      "name": "SMS Delivery Delays to MTS Network in Russia",
-      "status": "monitoring",
-      "created_at": "2024-11-29T01:44:56.000-08:00",
-      "updated_at": "2024-11-29T04:44:05.890-08:00",
-      "monitoring_at": "2024-11-29T04:44:05.875-08:00",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/5nmlvtympcmh",
-      "started_at": "2024-11-29T01:44:56.000-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "p8jtx7b2sxbr",
-          "status": "monitoring",
-          "body": "We are observing recovery in SMS delivery delays when sending messages to MTS network in Russia. We will continue monitoring the service to ensure a full recovery. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "2h2352cvmg22",
-          "created_at": "2024-11-29T04:44:05.875-08:00",
-          "updated_at": "2024-11-29T04:44:05.875-08:00",
-          "display_at": "2024-11-29T04:44:05.875-08:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fn4kw5s9z5rz",
-          "status": "investigating",
-          "body": "We continue to experience SMS delivery delays when sending messages to MTS network in Russia. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "2h2352cvmg22",
-          "created_at": "2024-11-29T02:44:06.810-08:00",
-          "updated_at": "2024-11-29T02:44:06.810-08:00",
-          "display_at": "2024-11-29T02:44:06.810-08:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6y4hhx3kt1zv",
-          "status": "investigating",
-          "body": "We are experiencing SMS delivery delays when sending messages to MTS network in Russia. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "2h2352cvmg22",
-          "created_at": "2024-11-29T01:44:56.909-08:00",
-          "updated_at": "2024-11-29T02:32:59.757-08:00",
-          "display_at": "2024-11-29T01:44:56.000-08:00",
           "affected_components": [
             {
               "code": "llgdln3dcs6p",
@@ -4535,9 +4415,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2024-11-28T19:07:18.030-08:00",
+          "updated_at": "2024-11-29T06:51:06.249-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -4550,9 +4430,9 @@
         {
           "id": "32f2bm54nkvv",
           "name": "SMS Toll-Free, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:52:48.226-08:00",
-          "updated_at": "2024-11-27T03:00:24.730-08:00",
+          "updated_at": "2024-11-29T06:50:00.634-08:00",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -4664,9 +4544,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2024-11-28T19:07:18.030-08:00",
+          "updated_at": "2024-11-29T06:51:06.249-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -4694,9 +4574,9 @@
         {
           "id": "32f2bm54nkvv",
           "name": "SMS Toll-Free, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:52:48.226-08:00",
-          "updated_at": "2024-11-27T03:00:24.730-08:00",
+          "updated_at": "2024-11-29T06:50:00.634-08:00",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -4790,9 +4670,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2024-11-28T19:07:18.030-08:00",
+          "updated_at": "2024-11-29T06:51:06.249-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -4805,9 +4685,9 @@
         {
           "id": "32f2bm54nkvv",
           "name": "SMS Toll-Free, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:52:48.226-08:00",
-          "updated_at": "2024-11-27T03:00:24.730-08:00",
+          "updated_at": "2024-11-29T06:50:00.634-08:00",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -4859,9 +4739,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2024-11-28T19:07:18.030-08:00",
+          "updated_at": "2024-11-29T06:51:06.249-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -4940,9 +4820,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2024-11-28T19:07:18.030-08:00",
+          "updated_at": "2024-11-29T06:51:06.249-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -4955,9 +4835,9 @@
         {
           "id": "32f2bm54nkvv",
           "name": "SMS Toll-Free, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:52:48.226-08:00",
-          "updated_at": "2024-11-27T03:00:24.730-08:00",
+          "updated_at": "2024-11-29T06:50:00.634-08:00",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -5144,9 +5024,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2024-11-28T19:07:18.030-08:00",
+          "updated_at": "2024-11-29T06:51:06.249-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -5174,9 +5054,9 @@
         {
           "id": "32f2bm54nkvv",
           "name": "SMS Toll-Free, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:52:48.226-08:00",
-          "updated_at": "2024-11-27T03:00:24.730-08:00",
+          "updated_at": "2024-11-29T06:50:00.634-08:00",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -5335,9 +5215,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2024-11-28T19:07:18.030-08:00",
+          "updated_at": "2024-11-29T06:51:06.249-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -5365,9 +5245,9 @@
         {
           "id": "32f2bm54nkvv",
           "name": "SMS Toll-Free, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:52:48.226-08:00",
-          "updated_at": "2024-11-27T03:00:24.730-08:00",
+          "updated_at": "2024-11-29T06:50:00.634-08:00",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -5665,9 +5545,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2024-11-28T19:07:18.030-08:00",
+          "updated_at": "2024-11-29T06:51:06.249-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -5695,9 +5575,9 @@
         {
           "id": "32f2bm54nkvv",
           "name": "SMS Toll-Free, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:52:48.226-08:00",
-          "updated_at": "2024-11-27T03:00:24.730-08:00",
+          "updated_at": "2024-11-29T06:50:00.634-08:00",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -5932,9 +5812,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2024-11-28T19:07:18.030-08:00",
+          "updated_at": "2024-11-29T06:51:06.249-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -5962,9 +5842,9 @@
         {
           "id": "32f2bm54nkvv",
           "name": "SMS Toll-Free, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:52:48.226-08:00",
-          "updated_at": "2024-11-27T03:00:24.730-08:00",
+          "updated_at": "2024-11-29T06:50:00.634-08:00",
           "position": 5,
           "description": null,
           "showcase": false,
