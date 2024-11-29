@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-11-29T03:04:47.920Z"
+    "updated_at": "2024-11-29T03:51:19.905Z"
   },
   "components": [
     {
@@ -55,9 +55,9 @@
     {
       "id": "txysr8r0gn1n",
       "name": "Global",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-03-28T21:01:12.838Z",
-      "updated_at": "2024-11-18T19:33:02.720Z",
+      "updated_at": "2024-11-29T03:36:48.488Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -130,9 +130,9 @@
     {
       "id": "ctwhml01vvw1",
       "name": "Global",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-08-16T11:30:05.343Z",
-      "updated_at": "2024-11-06T18:10:51.546Z",
+      "updated_at": "2024-11-29T03:36:48.502Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -145,9 +145,9 @@
     {
       "id": "k96xfyczckzw",
       "name": "Global",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-08-16T11:32:38.234Z",
-      "updated_at": "2024-08-16T11:32:53.983Z",
+      "updated_at": "2024-11-29T03:47:22.592Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -2065,7 +2065,7 @@
     {
       "id": "jjs48vwjlqjr",
       "name": "App Platform",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-18T01:32:32.291Z",
       "updated_at": "2023-03-06T19:28:57.644Z",
       "position": 10,
@@ -2827,7 +2827,7 @@
     {
       "id": "q6r6dg0ss2js",
       "name": "Functions",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T19:30:13.001Z",
       "updated_at": "2023-04-21T16:18:17.230Z",
       "position": 14,
@@ -3102,7 +3102,7 @@
     {
       "id": "jg6pzd84p7bn",
       "name": "Load Balancers",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T17:38:13.208Z",
       "updated_at": "2024-10-01T15:38:18.882Z",
       "position": 20,
@@ -3249,10 +3249,10 @@
   "incidents": [
     {
       "id": "jm44h02t22ck",
-      "name": "Cloud Control Panel Multiple Services",
+      "name": "Spaces, Spaces CDN, DOCR, LBaaS, App Platform, Functions and Mongo Backups.",
       "status": "identified",
       "created_at": "2024-11-29T00:21:30.334Z",
-      "updated_at": "2024-11-29T03:04:47.669Z",
+      "updated_at": "2024-11-29T03:51:19.902Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -3260,6 +3260,388 @@
       "started_at": "2024-11-29T00:21:30.322Z",
       "page_id": "w4cz49tckxhp",
       "incident_updates": [
+        {
+          "id": "mbpkxzpvxl4j",
+          "status": "identified",
+          "body": "Our Engineering team has identified additional downstream services seeing elevated failure rates and broken functionality. At this time, the following services are impacted: \n\n- Spaces object accessibility in all regions with objects hosted under digitaloceanspaces.com. \n\n- Requests to create, push, or pull to/from Container Registries\n\n- Backups for the Mongo Managed Databases product are not successfully uploading, so users attempting to use those backups will see errors. \n\n- Creates and resizes for Load Balancers in all regions\n\n- New builds for App Platform in all regions\n\n- Create or updating Functions in all regions\n\nWe are in active contact with our vendor to resolve this as quickly as possible. Any DNS record under digitaloceanspaces.com will continue to fail until this incident is resolved.\n\nWe will continue to provide updates as we have new information.",
+          "incident_id": "jm44h02t22ck",
+          "created_at": "2024-11-29T03:47:22.640Z",
+          "updated_at": "2024-11-29T03:47:22.999Z",
+          "display_at": "2024-11-29T03:47:22.640Z",
+          "affected_components": [
+            {
+              "code": "txysr8r0gn1n",
+              "name": "App Platform - Global",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "3xz669qnng8n",
+              "name": "Container Registry - Global",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "glhj9rkw3mp8",
+              "name": "Container Registry - AMS3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "ggjq7y0mqt4y",
+              "name": "Container Registry - BLR1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "sk01cyydqy7b",
+              "name": "Container Registry - FRA1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "hnqx47tg75cw",
+              "name": "Container Registry - NYC3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "8pntc51v5prb",
+              "name": "Container Registry - SFO2",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "zfnbgvbvc6bd",
+              "name": "Container Registry - SFO3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "k3xwyjfy34vw",
+              "name": "Container Registry - SGP1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "7z4k9k6wgbsq",
+              "name": "Container Registry - SYD1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "ctwhml01vvw1",
+              "name": "Load Balancers - Global",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "nkx0nmdx9vrs",
+              "name": "Spaces - Global",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "z2cshz8pdgwj",
+              "name": "Spaces - AMS3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "66wjtpd8ngvx",
+              "name": "Spaces - FRA1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "tz43j53blsmy",
+              "name": "Spaces - NYC3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "w4m98sdz3szn",
+              "name": "Spaces - SFO2",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "lf2rrgctn54t",
+              "name": "Spaces - SFO3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "rf1h8gfz4ts6",
+              "name": "Spaces - SGP1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "bpchszdrvvc5",
+              "name": "Spaces - SYD1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "b44h3yhj3jy5",
+              "name": "Spaces - BLR1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "mzkgffp35tq4",
+              "name": "Managed Databases - Global",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "8cp93lvtlh32",
+              "name": "Spaces CDN - Global",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "vpsyj9648bv2",
+              "name": "Spaces CDN - AMS3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "gpcbys3n2v21",
+              "name": "Spaces CDN - FRA1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "ydgcz5twlr1m",
+              "name": "Spaces CDN - NYC3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "5108wr792q5m",
+              "name": "Spaces CDN - SFO3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "23yr3tv35ld7",
+              "name": "Spaces CDN - SGP1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "mv6lb3084t43",
+              "name": "Spaces CDN - SYD1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "k96xfyczckzw",
+              "name": "Functions - Global",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "czck17wcspr5",
+              "name": "Cloud Control Panel",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1862342565288452400
+        },
+        {
+          "id": "df3t1p800g0l",
+          "status": "identified",
+          "body": "Our Engineering team has identified additional downstream services seeing elevated failure rates and broken functionality. At this time, the following services are impacted: \n\n- Spaces object accessibility in all regions with objects hosted under digitaloceanspaces.com. \n\n- Requests to create, push, or pull to/from Container Registries\n\n- Backups for the Mongo Managed Databases product are not successfully uploading, so users attempting to use those backups will see errors. \n\n- Creates and resizes for Load Balancers in all regions\n\n- New builds for the App Platform in all regions\n\nWe are in active contact with our vendor to resolve this as quickly as possible. Any DNS record under digitaloceanspaces.com will continue to fail until this incident is resolved.\n\nWe will continue to provide updates as we have new information.",
+          "incident_id": "jm44h02t22ck",
+          "created_at": "2024-11-29T03:36:48.534Z",
+          "updated_at": "2024-11-29T03:36:48.934Z",
+          "display_at": "2024-11-29T03:36:48.534Z",
+          "affected_components": [
+            {
+              "code": "txysr8r0gn1n",
+              "name": "App Platform - Global",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "3xz669qnng8n",
+              "name": "Container Registry - Global",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "glhj9rkw3mp8",
+              "name": "Container Registry - AMS3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "ggjq7y0mqt4y",
+              "name": "Container Registry - BLR1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "sk01cyydqy7b",
+              "name": "Container Registry - FRA1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "hnqx47tg75cw",
+              "name": "Container Registry - NYC3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "8pntc51v5prb",
+              "name": "Container Registry - SFO2",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "zfnbgvbvc6bd",
+              "name": "Container Registry - SFO3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "k3xwyjfy34vw",
+              "name": "Container Registry - SGP1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "7z4k9k6wgbsq",
+              "name": "Container Registry - SYD1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "ctwhml01vvw1",
+              "name": "Load Balancers - Global",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "nkx0nmdx9vrs",
+              "name": "Spaces - Global",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "z2cshz8pdgwj",
+              "name": "Spaces - AMS3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "66wjtpd8ngvx",
+              "name": "Spaces - FRA1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "tz43j53blsmy",
+              "name": "Spaces - NYC3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "w4m98sdz3szn",
+              "name": "Spaces - SFO2",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "lf2rrgctn54t",
+              "name": "Spaces - SFO3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "rf1h8gfz4ts6",
+              "name": "Spaces - SGP1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "bpchszdrvvc5",
+              "name": "Spaces - SYD1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "b44h3yhj3jy5",
+              "name": "Spaces - BLR1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "mzkgffp35tq4",
+              "name": "Managed Databases - Global",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "8cp93lvtlh32",
+              "name": "Spaces CDN - Global",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "vpsyj9648bv2",
+              "name": "Spaces CDN - AMS3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "gpcbys3n2v21",
+              "name": "Spaces CDN - FRA1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "ydgcz5twlr1m",
+              "name": "Spaces CDN - NYC3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "5108wr792q5m",
+              "name": "Spaces CDN - SFO3",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "23yr3tv35ld7",
+              "name": "Spaces CDN - SGP1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "mv6lb3084t43",
+              "name": "Spaces CDN - SYD1",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "czck17wcspr5",
+              "name": "Cloud Control Panel",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1862339905776746500
+        },
         {
           "id": "80zs8yqcpz54",
           "status": "identified",
@@ -3637,6 +4019,21 @@
       ],
       "components": [
         {
+          "id": "txysr8r0gn1n",
+          "name": "Global",
+          "status": "degraded_performance",
+          "created_at": "2023-03-28T21:01:12.838Z",
+          "updated_at": "2024-11-29T03:36:48.488Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-28",
+          "group_id": "jjs48vwjlqjr",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
           "id": "mzkgffp35tq4",
           "name": "Global",
           "status": "degraded_performance",
@@ -3647,6 +4044,36 @@
           "showcase": false,
           "start_date": "2024-08-16",
           "group_id": "kl8qv98c9brp",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "ctwhml01vvw1",
+          "name": "Global",
+          "status": "degraded_performance",
+          "created_at": "2024-08-16T11:30:05.343Z",
+          "updated_at": "2024-11-29T03:36:48.502Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-08-16",
+          "group_id": "jg6pzd84p7bn",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "k96xfyczckzw",
+          "name": "Global",
+          "status": "degraded_performance",
+          "created_at": "2024-08-16T11:32:38.234Z",
+          "updated_at": "2024-11-29T03:47:22.592Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-08-16",
+          "group_id": "q6r6dg0ss2js",
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
