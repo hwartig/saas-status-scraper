@@ -4,9 +4,39 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-12-03T07:08:47.951Z"
+    "updated_at": "2024-12-03T11:04:14.471Z"
   },
   "incidents": [
+    {
+      "id": "g0chyv0fkzzz",
+      "name": "Jira Loading slow / Inaccessible with 5XX errors",
+      "status": "investigating",
+      "created_at": "2024-12-03T11:04:14.435Z",
+      "updated_at": "2024-12-03T11:04:14.469Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/gftg5dlrqs0k",
+      "started_at": "2024-12-03T11:04:14.430Z",
+      "page_id": "7yh3h3y0c0x1",
+      "incident_updates": [
+        {
+          "id": "vqmv423jsj27",
+          "status": "investigating",
+          "body": "We are investigating cases of degraded performance for some Jira Service Management and Jira Cloud customers in the EMEA region. We will provide more details within the next hour.",
+          "incident_id": "g0chyv0fkzzz",
+          "created_at": "2024-12-03T11:04:14.468Z",
+          "updated_at": "2024-12-03T11:04:14.468Z",
+          "display_at": "2024-12-03T11:04:14.468Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "g0ssjm9rr6y7",
       "name": "Automation match() smart value with regex is not working",
@@ -4631,301 +4661,6 @@
           "updated_at": "2024-11-06T10:02:02.116Z",
           "position": 2,
           "description": "Problems creating or editing issues, projects, boards, reports, dashboards and the ability to comment, assign, and attach media.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "n2h95xyxj5kk",
-      "name": "Blank screen is shown in Jira",
-      "status": "postmortem",
-      "created_at": "2024-08-12T15:51:13.554Z",
-      "updated_at": "2024-08-15T12:16:31.722Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-08-13T15:34:00.969Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/frbrntwzj6by",
-      "started_at": "2024-08-12T15:51:13.548Z",
-      "page_id": "7yh3h3y0c0x1",
-      "incident_updates": [
-        {
-          "id": "fq0hcv62tbb0",
-          "status": "postmortem",
-          "body": "### Summary\n\nFrom `12/Aug/24 10:39 UTC` to `13/Aug/24 14:38 UTC` some customers experienced degraded performance on Issue View in Jira. This was caused by a data processing compatibility problem between a cache, the underlying database, and the new deployment.\n\nDue to a slow increase in failure rate and a small initial surface area of impact, the problem didn’t immediately trigger our continuous error monitoring and alerting.\n\nOnce we identified the issue it was resolving itself through self-healing mechanisms in the infrastructure. However, in a few outlier cases, we had to intervene with tenant specific cache recalculations. All but 6 tenants were fully remediated by `12/Aug/24 21:30 UTC`.\n\nThe issue occurred on the read layer of our architecture so while customer experience was degraded, there was no data loss.\n\n### **IMPACT**\n\nAbout 1% of instances in were impacted over the lifetime of the incident. Users on those impacted instances would have experienced degradation when loading Issue View in a specific scenario. This was when a Multi Select Custom Field is enabled on an Issue and where that Custom Field also had a Default Value set.\n\n### **ROOT CAUSE**\n\nWe introduced a change in our code which caused processing of Custom Fields in specific configurations to fail. This prevented Issue View from loading issues for projects with the above specific configuration applied.\n\nThis problem occurred because of different representations of the data in the database, in the code base, and in the cache in the production environment. These multiple representations caused an exception when translating the data from one representation to the next.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nThe problem largely self healed as the cache expired and was refreshed with compatible data; however, we chose to force cache re-computation for affected tenants in order to expedite this process.   \n  \nWe chose not to roll back the deployment at that point as that would have created the reverse compatibility issue with the already healed tenants.\n\nInstead, we focussed on forward fixing with a hotfix and accelerating remediation for still affected tenants. For a small very number of tenants, forced re-computation did not immediately rectify and we had to roll forward a code hotfix to remediate.\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* The already deployed hot fix to stop this particular problem recurring.\n* A series of tests for this class of issue in our read layer.\n* A review of monitoring to detect these fine grained problems before they cause more customer impact.\n\nWe apologize for any disruption this issue may have caused and are taking steps to help ensure it does not occur again.\n\nThanks,\n\nAtlassian Customer Support",
-          "incident_id": "n2h95xyxj5kk",
-          "created_at": "2024-08-15T12:13:05.249Z",
-          "updated_at": "2024-08-15T12:16:31.720Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "8vtgcr6350qs",
-          "status": "resolved",
-          "body": "The fix for the incident has been deployed and the issue has been resolved.",
-          "incident_id": "n2h95xyxj5kk",
-          "created_at": "2024-08-13T15:34:00.969Z",
-          "updated_at": "2024-08-13T15:34:00.969Z",
-          "display_at": "2024-08-13T15:34:00.969Z",
-          "affected_components": [
-            {
-              "code": "sv1xfn9br170",
-              "name": "Search",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2t1dkm50js4w",
-          "status": "identified",
-          "body": "The root cause has been identified, and the hotfix is currently being deployed. It is estimated that the process will be completed for all tenants within the next 2 hours.",
-          "incident_id": "n2h95xyxj5kk",
-          "created_at": "2024-08-13T12:55:37.160Z",
-          "updated_at": "2024-08-13T12:55:37.160Z",
-          "display_at": "2024-08-13T12:55:37.160Z",
-          "affected_components": [
-            {
-              "code": "sv1xfn9br170",
-              "name": "Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2gvpcm6fvq1d",
-          "status": "identified",
-          "body": "The root cause was identified and the hotfix is being deployed.",
-          "incident_id": "n2h95xyxj5kk",
-          "created_at": "2024-08-13T07:07:53.038Z",
-          "updated_at": "2024-08-13T07:07:53.038Z",
-          "display_at": "2024-08-13T07:07:53.038Z",
-          "affected_components": [
-            {
-              "code": "sv1xfn9br170",
-              "name": "Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "hbm6nr014zx4",
-          "status": "investigating",
-          "body": "The issue was largely remediated. Team is working on fixing on a few remaining tenants.",
-          "incident_id": "n2h95xyxj5kk",
-          "created_at": "2024-08-13T00:49:39.803Z",
-          "updated_at": "2024-08-13T00:49:39.803Z",
-          "display_at": "2024-08-13T00:49:39.803Z",
-          "affected_components": [
-            {
-              "code": "sv1xfn9br170",
-              "name": "Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bk3g1rgqwrpd",
-          "status": "investigating",
-          "body": "Team is investigating a potential root cause for the issue. Fix is yet to be rolled out.",
-          "incident_id": "n2h95xyxj5kk",
-          "created_at": "2024-08-12T19:00:08.533Z",
-          "updated_at": "2024-08-12T19:00:08.533Z",
-          "display_at": "2024-08-12T19:00:08.533Z",
-          "affected_components": [
-            {
-              "code": "sv1xfn9br170",
-              "name": "Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wz16cg0hdtd6",
-          "status": "investigating",
-          "body": "Team is actively working on a fix to mitigate the issue. Root cause is still to be determined.",
-          "incident_id": "n2h95xyxj5kk",
-          "created_at": "2024-08-12T18:15:28.378Z",
-          "updated_at": "2024-08-12T18:15:28.378Z",
-          "display_at": "2024-08-12T18:15:28.378Z",
-          "affected_components": [
-            {
-              "code": "sv1xfn9br170",
-              "name": "Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "x06ftxylvd0q",
-          "status": "investigating",
-          "body": "Team is still working on a potential fix to mitigate the issue while investigation into root cause continues.",
-          "incident_id": "n2h95xyxj5kk",
-          "created_at": "2024-08-12T17:46:51.295Z",
-          "updated_at": "2024-08-12T17:46:51.295Z",
-          "display_at": "2024-08-12T17:46:51.295Z",
-          "affected_components": [
-            {
-              "code": "sv1xfn9br170",
-              "name": "Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l7mqz5vfmdc2",
-          "status": "investigating",
-          "body": "The issue is still ongoing at the moment, across multiple products. The team is actively working on a fix.",
-          "incident_id": "n2h95xyxj5kk",
-          "created_at": "2024-08-12T17:09:06.575Z",
-          "updated_at": "2024-08-12T17:09:06.575Z",
-          "display_at": "2024-08-12T17:09:06.575Z",
-          "affected_components": [
-            {
-              "code": "sv1xfn9br170",
-              "name": "Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qnv4w117hwcz",
-          "status": "investigating",
-          "body": "We've identified an issue in Jira where, upon loading issues in multiple projects, a blank screen is shown.\n\nThe team is currently working on identifying the root cause and resolving it.",
-          "incident_id": "n2h95xyxj5kk",
-          "created_at": "2024-08-12T15:51:13.649Z",
-          "updated_at": "2024-08-12T15:51:13.649Z",
-          "display_at": "2024-08-12T15:51:13.649Z",
-          "affected_components": [
-            {
-              "code": "sv1xfn9br170",
-              "name": "Search",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "jmgfbtr0k28j",
-          "name": "Viewing content",
-          "status": "operational",
-          "created_at": "2019-01-22T20:42:24.651Z",
-          "updated_at": "2024-11-22T16:22:00.358Z",
-          "position": 1,
-          "description": "Problems viewing issues, dashboards, boards, reports, etc.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "sv1xfn9br170",
-          "name": "Search",
-          "status": "operational",
-          "created_at": "2019-01-07T07:51:29.410Z",
-          "updated_at": "2024-10-29T10:25:07.124Z",
-          "position": 4,
-          "description": "Problems with JQL or quick search",
           "showcase": false,
           "start_date": null,
           "group_id": null,
