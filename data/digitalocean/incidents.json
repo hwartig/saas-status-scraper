@@ -4,15 +4,15 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-12-04T09:10:28.068Z"
+    "updated_at": "2024-12-05T01:39:52.709Z"
   },
   "incidents": [
     {
       "id": "jm44h02t22ck",
       "name": "Spaces, Spaces CDN, DOCR, LBaaS, App Platform, Functions and Mongo Backups.",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-11-29T00:21:30.334Z",
-      "updated_at": "2024-11-29T05:35:24.052Z",
+      "updated_at": "2024-12-05T01:39:52.698Z",
       "monitoring_at": "2024-11-29T04:24:53.649Z",
       "resolved_at": "2024-11-29T05:35:22.043Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2024-11-29T00:21:30.322Z",
       "page_id": "w4cz49tckxhp",
       "incident_updates": [
+        {
+          "id": "ltxqqg0wrkch",
+          "status": "postmortem",
+          "body": "# Incident Summary\n\nOn Thursday, November 28, 2024, our domain registrar, Network Solutions, made an update to our [digitaloceanspaces.com](http://digitaloceanspaces.com) domain. The change made at 22:38 UTC \\(5:38:40PM ET\\) added an Extensible Provisioning Protocol \\(EPP\\) [clientHold](https://icann.org/epp#clientHold) status code to our domain.\n\nThe code prevents DNS resolution until a customer contacts Network Solutions to clear the hold. The impact of the hold resulted in DigitalOcean customers being unable to sign-up/log-in via the Cloud Control Panel at the beginning of the incident and experiencing errors with Spaces buckets and dependent services, such as DigitalOcean Container Registry, App Platform, Functions, Load Balancers, and Mongo Managed Database Backups for the duration of the incident. \n\n# Incident Summary\n\n**Root Cause:** Domain registrar erroneously placed a clientHold on the [digitaloceanspaces.com](http://digitaloceanspaces.com) domain, impacting DNS resolution and causing an outage.\n\n**Impact:** Traffic to DigitalOcean products \\(e.g. Cloud Control Panel, Spaces, App Platform, etc.\\) began to see intermittent failures between 11/28 22:38 UTC and 04:03 UTC, with the worst failures happening between 03:00 and 04:03 UTC as DNS cache and TTLs began expiring.\n\n**Response:** DigitalOcean escalated to the domain registrar, as well as Verisign \\(as the authoritative domain registry for .com domains\\), to have the clientHold removed. \n\n# Timeline of Events\n\nNovember 28, 2024 \\(UTC\\)\n\n* 22:38 - Incident declared based on monitoring and customer reports of our Cloud Control Panel not loading.\n* 22:44 -  Issue detected by an internal alert\n* 22:57 - 1st customer contact regarding Cloud Control Panel impact\n* 23:57 - We noticed that our whois information for the domain had been updated on November 28 22:38 UTC.\n\nNovember 29, 2024 \\(UTC\\)\n\n* 01:06 - We identified the clientHold status in the EPP section of our whois for [digitaloceanspaces.com](http://digitaloceanspaces.com) and confirmed in our Network Solutions account that the domain had been marked inactive.\n* 01:08 - We initiated contact with Network Solutions to have the clientHold removed.\n* 01:30 - Reached out to Verisign executives to assistance \n* 01:42 - **Cloud Control Panel functionality restored**. \n* 02:40 - Conference call with Verisign executive to brief them on the issue\\(s\\) we have encountered attempting to resolve the clientHold status.\n* 02:44 - Email chain established with Verisign executives. A recap of all work done, problems, and a clear issue resolution request were sent.\n* 02:44 - 04:03 - Multiple escalations between Verisign executives leading to clientHold being removed.\n* 03:00 - As DNS caches and recursive DNS server TTLs began to expire, we saw the most severe service disruptions to our customers until resolution\n* 04:03 - clientHold removed from domain\n* 04:03 - 5:38:40 - Monitoring all infrastructure to ensure healthy and full recovery. **DigitalOcean functionality fully restored.**\n\n# Remediation Actions\n\nDigitalOcean teams are working on multiple types of remediation to prevent a similar incident from happening.\n\nDigitalOcean is working with Network Solutions to understand what happened on their end that resulted in the clientHold being applied to our domain incorrectly.\n\nIn addition, we are reviewing other domain registrars as possible new homes for our domains.\n\nTeams are also reviewing our monitoring and alerting to reduce our time to detect incidents related to registrar imposed changes and/or DNS resolution.",
+          "incident_id": "jm44h02t22ck",
+          "created_at": "2024-12-05T01:36:06.231Z",
+          "updated_at": "2024-12-05T01:39:52.690Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our November 28th incident: https://stspg.io/3dkfn29f6jgr",
+          "tweet_id": null
+        },
         {
           "id": "4wkbp8yqscp4",
           "status": "resolved",
