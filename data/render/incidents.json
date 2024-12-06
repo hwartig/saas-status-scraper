@@ -4,15 +4,15 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-12-06T00:18:16.576Z"
+    "updated_at": "2024-12-06T01:10:21.372Z"
   },
   "incidents": [
     {
       "id": "k0dv2zzpthlx",
       "name": "Partial service disruption for web services and static sites",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-12-03T18:25:54.654Z",
-      "updated_at": "2024-12-06T00:18:16.568Z",
+      "updated_at": "2024-12-06T01:10:21.368Z",
       "monitoring_at": "2024-12-03T18:38:57.158Z",
       "resolved_at": "2024-12-03T19:33:43.462Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2024-12-03T18:25:54.635Z",
       "page_id": "tyfhm2rrt1tl",
       "incident_updates": [
+        {
+          "id": "h1zgz7kqyp1p",
+          "status": "postmortem",
+          "body": "# Summary\n\nBeginning at 10:03 PST on December 3, 2024, Render's routing service was unable to reach newly deployed user services, resulting in 404 errors for end users. Some routing service instances also restarted automatically, which abruptly terminated HTTP connections and reduced capacity for all web traffic. The root cause was expiring TLS certificates on internal Render components, which created inconsistent internal state for Render's routing service.\n\nThe affected certificates were refreshed and the routing service was restarted beginning at 10:24 PST and was fully recovered by 10:37 PST.\n\n# Impact\n\n_Impact 1. Starting at 10:03 PST, many services that deployed in this time period experienced full downtime. Clients to those services received 404 errors with the header no-server._\n\n_Impact 2. Starting at 10:08 PST, the routing service started abruptly terminating connections, but was otherwise able to continue serving traffic normally._\n\n_Recovery. By 10:37 PST, all routing service instances were reconnected to the metadata service and full service was restored._\n\n# Timeline \\(PST\\)\n\n* 10:03 - Certificates in some clusters begin to expire resulting in Impact 1.\n* 10:08 - Some routing service instances begin to restart resulting in Impact 2.\n* 10:15 - An internal Render web service becomes unavailable after a deploy and an internal incident is opened.\n* 10:18 - Render engineers are paged because the routing service has stopped getting updates in some clusters\n* 10:20 - Render engineers identify routing service is failing to connect to metadata service\n* 10:24 - Render engineers restart the metadata service to refresh the mTLS certificate, routing service begins to recover\n* 10:37 - Restarts are completed and routing services in all clusters are recovered\n\n# Root Cause\n\n![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXef1PHnbrcmO9Zk0hXPewPE3suRSs5oo2s6rgl1tj1ef3TAjMTIAvjQ6Lj1YgGKd-C-O_fgxps2JRUKbqpS35JLhZKGjdKucnuTSb-egpCbJM1qb2csJfhkj1-0m0v9bTgkzk4cTw?key=9lzD6B69oZMukipDXCVY5A)\nThe Render HTTP routing service uses an in-memory metadata cache to route traffic to user services. It relies on the Render metadata service for updates to this cache when changes are made to user services.\n\nThis incident was triggered when certificates for this metadata service expired. The certificates were previously refreshed on restarts. But, as the metadata service has stabilized, we have been redeploying it less frequently.\n\nAlthough the system is designed to continue serving traffic when the metadata service is unavailable, it failed to account for partial connectivity failure. The certificates expiring caused a partial connectivity failure where updates for newly deployed services were only partially processed, reconciling to an inconsistent state that was unable to route traffic.\n\nIn an attempt to fail fast, the routing service is designed to crash and restart to resolve any client-side connectivity issues after several minutes of stale data. These restarts did not solve the issue and long-lived connections or in-flight requests to those instances were abruptly terminated.\n\n# Mitigations\n\n## Completed\n\n* Restart all metadata services to refresh certificates\n\n## Planned\n\n* Automatically refresh metadata service TLS certificates.\n* Update our alert on missing metadata updates to fire sooner.\n* Add an alert monitoring reachability of the metadata service.\n* Increase the threshold to tolerate stale metadata before intentionally restarting the HTTP routing service.\n* Update the routing service metadata cache logic to handle this mixed connectivity state correctly.",
+          "incident_id": "k0dv2zzpthlx",
+          "created_at": "2024-12-05T23:00:57.827Z",
+          "updated_at": "2024-12-06T01:10:21.365Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our December 3rd incident: https://stspg.io/2w0yb0pt8qjl",
+          "tweet_id": null
+        },
         {
           "id": "cdrqnd33c2hn",
           "status": "resolved",
