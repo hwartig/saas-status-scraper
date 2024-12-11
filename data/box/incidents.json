@@ -4,9 +4,39 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-12-10T00:07:39.481-08:00"
+    "updated_at": "2024-12-10T16:33:56.813-08:00"
   },
   "incidents": [
+    {
+      "id": "c1mf5rpf0z2k",
+      "name": "[Critical] Issues with the Admin Console",
+      "status": "resolved",
+      "created_at": "2024-12-10T16:00:00.000-08:00",
+      "updated_at": "2024-12-10T16:33:56.810-08:00",
+      "monitoring_at": null,
+      "resolved_at": "2024-12-10T16:00:00.000-08:00",
+      "impact": "critical",
+      "shortlink": "https://stspg.io/j337vc9xlwsw",
+      "started_at": "2024-12-10T16:33:31.564-08:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "ybhh5zqc4211",
+          "status": "resolved",
+          "body": "Between 4:01PM and 4:26PM on 12/10/24, we experienced an issue with the Box Admin Console. During this time, users may have experienced an issue with the Admin Console failing to load.",
+          "incident_id": "c1mf5rpf0z2k",
+          "created_at": "2024-12-10T16:33:31.610-08:00",
+          "updated_at": "2024-12-10T16:33:31.610-08:00",
+          "display_at": "2024-12-10T16:00:00.000-08:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "r90cdvr1mz3w",
       "name": "[Major] Issues with Shared Link Report",
@@ -11031,112 +11061,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "vggytbdllrjt",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "sp676hwlhj9s",
-      "name": "[Major] Issues with SSO Logins",
-      "status": "postmortem",
-      "created_at": "2023-09-06T21:05:16.000-07:00",
-      "updated_at": "2023-10-06T14:51:39.833-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2023-09-06T21:24:48.316-07:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/xzgzn1sd6059",
-      "started_at": "2023-09-06T21:05:16.000-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "9lvpbp0zxn4m",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting SSO login. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 8:52 PM PT and 9:19 PM PT on September 6th, some users may have experienced difficulties while working in Box. During this time, some users may have been unable to login to Box using SSO. The issue occurred due to resource constraints after migrating SSO service as part of cloud migration efforts. We were able to resolve the issue by to increasing our capacity to handle traffic spikes. In addition, we have improved our metrics for better monitoring of our service to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nWe migrated the SSO login service to cloud on September 6th at 11 AM PT. This migration was performed during a maintenance window scheduled between September 5th and 8th. As part of this migration, we modified the architecture of the service to match our standard engineering practices. However, during the peak traffic in Japan on the same day, the SSO service was limited by resources and failed to detect the issue. As a result, some users were unable to log in to Box.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Improve monitoring \n* Improve load testing process\n* Performance tuning to enhance resiliency\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,  \nThe Box Team",
-          "incident_id": "sp676hwlhj9s",
-          "created_at": "2023-10-06T14:51:32.369-07:00",
-          "updated_at": "2023-10-06T14:51:39.831-07:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gjcgscs7r3hl",
-          "status": "resolved",
-          "body": "A fix has been implemented and after monitoring the results, this incident is now considered resolved. Box services have been restored to full functionality. Please contact Box Support at https://support.box.com/ if you continue to experience any issues.",
-          "incident_id": "sp676hwlhj9s",
-          "created_at": "2023-09-06T21:24:48.316-07:00",
-          "updated_at": "2023-09-06T21:24:48.316-07:00",
-          "display_at": "2023-09-06T21:24:48.316-07:00",
-          "affected_components": [
-            {
-              "code": "w0l4pg7zrc66",
-              "name": "Desktop Applications - Login/SSO",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "n59nzh54m3td",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "sp676hwlhj9s",
-          "created_at": "2023-09-06T21:18:25.900-07:00",
-          "updated_at": "2023-09-06T21:18:25.900-07:00",
-          "display_at": "2023-09-06T21:18:25.900-07:00",
-          "affected_components": [
-            {
-              "code": "w0l4pg7zrc66",
-              "name": "Desktop Applications - Login/SSO",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "06m49g6lh0dw",
-          "status": "investigating",
-          "body": "We are investigating an ongoing issue affecting SSO logins. Users may experience login failures. We will provide more information as soon as it is available.",
-          "incident_id": "sp676hwlhj9s",
-          "created_at": "2023-09-06T21:05:16.216-07:00",
-          "updated_at": "2023-09-06T21:12:15.577-07:00",
-          "display_at": "2023-09-06T21:05:16.000-07:00",
-          "affected_components": [
-            {
-              "code": "w0l4pg7zrc66",
-              "name": "Desktop Applications - Login/SSO",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "w0l4pg7zrc66",
-          "name": "Login/SSO",
-          "status": "operational",
-          "created_at": "2018-10-01T20:17:00.031-07:00",
-          "updated_at": "2024-04-22T19:33:58.119-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "qvh7zdkvw690",
           "page_id": "208q92hckwws",
           "group": false,
           "only_show_if_degraded": false
