@@ -4,9 +4,62 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-12-10T21:54:50.749Z"
+    "updated_at": "2024-12-11T05:35:29.542Z"
   },
   "incidents": [
+    {
+      "id": "80wj8120yhk5",
+      "name": "Partial Outage on EU-5 region",
+      "status": "investigating",
+      "created_at": "2024-12-11T05:35:29.443Z",
+      "updated_at": "2024-12-11T05:35:29.540Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/w5f8ntqlkvwf",
+      "started_at": "2024-12-11T05:35:29.438Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "rd6c0cwjglvt",
+          "status": "investigating",
+          "body": "We have detected degraded performance due to updates to storage infrastructure affecting service on the EU-5 region. \n\nOur Operations team has been notified and is currently investigating. Projects on the region may experience web request time-outs.\n\nWe will update you as soon as we have further information.",
+          "incident_id": "80wj8120yhk5",
+          "created_at": "2024-12-11T05:35:29.538Z",
+          "updated_at": "2024-12-11T05:35:29.538Z",
+          "display_at": "2024-12-11T05:35:29.538Z",
+          "affected_components": [
+            {
+              "code": "90rq2dvnrl2f",
+              "name": "Europe (North 1) (eu-5.platform.sh)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "90rq2dvnrl2f",
+          "name": "Europe (North 1) (eu-5.platform.sh)",
+          "status": "degraded_performance",
+          "created_at": "2021-02-04T02:41:07.164Z",
+          "updated_at": "2024-12-11T05:35:29.490Z",
+          "position": 12,
+          "description": "eu-5.platform.sh",
+          "showcase": false,
+          "start_date": "2021-02-04",
+          "group_id": null,
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "b9lvq10t9sz7",
       "name": "Console issues when creating variables.",
@@ -327,9 +380,9 @@
         {
           "id": "90rq2dvnrl2f",
           "name": "Europe (North 1) (eu-5.platform.sh)",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2021-02-04T02:41:07.164Z",
-          "updated_at": "2024-12-05T20:42:31.464Z",
+          "updated_at": "2024-12-11T05:35:29.490Z",
           "position": 12,
           "description": "eu-5.platform.sh",
           "showcase": false,
@@ -1882,9 +1935,9 @@
         {
           "id": "90rq2dvnrl2f",
           "name": "Europe (North 1) (eu-5.platform.sh)",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2021-02-04T02:41:07.164Z",
-          "updated_at": "2024-12-05T20:42:31.464Z",
+          "updated_at": "2024-12-11T05:35:29.490Z",
           "position": 12,
           "description": "eu-5.platform.sh",
           "showcase": false,
@@ -3897,9 +3950,9 @@
         {
           "id": "90rq2dvnrl2f",
           "name": "Europe (North 1) (eu-5.platform.sh)",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2021-02-04T02:41:07.164Z",
-          "updated_at": "2024-12-05T20:42:31.464Z",
+          "updated_at": "2024-12-11T05:35:29.490Z",
           "position": 12,
           "description": "eu-5.platform.sh",
           "showcase": false,
@@ -6755,132 +6808,6 @@
           "description": "eu-4.platform.sh",
           "showcase": false,
           "start_date": null,
-          "group_id": null,
-          "page_id": "l2x5n4czt1ph",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "ltgtbhrv0lqq",
-      "name": "Partial Outage on fr-3.platform.sh",
-      "status": "postmortem",
-      "created_at": "2024-02-23T05:36:29.907Z",
-      "updated_at": "2024-02-23T06:49:00.554Z",
-      "monitoring_at": "2024-02-23T06:14:33.814Z",
-      "resolved_at": "2024-02-23T06:45:15.714Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/7nlyhwd21tjr",
-      "started_at": "2024-02-23T05:36:29.902Z",
-      "page_id": "l2x5n4czt1ph",
-      "incident_updates": [
-        {
-          "id": "mv4cj40fxbsj",
-          "status": "postmortem",
-          "body": "# What happened\n\nUpstream storage issue causing multiple live sites having slow operations and Read-only errors in region [FR-3.platform.sh](http://FR-3.platform.sh) , partial outage.\n\n‌\n\n# Customer Impact\n\nSome customers were affected for up to 2 hours and 49 in total.  \ni.e. 2024-02-23 03:06 to 05:55 **UTC**\n\nAffected environments may experience very slow responses and intermittent outages when using the CLI / console and SSH features. Live environments may also be negatively impacted by the slow storage operations and/or storage being mounted as read-only.  \n\\(e.g. database and Git repository services \\)\n\n‌\n\n# What was done to resolve the incident\n\nSubmitted assistance request to our upstream service provider to correct the managed storage service issue.",
-          "incident_id": "ltgtbhrv0lqq",
-          "created_at": "2024-02-23T06:47:49.936Z",
-          "updated_at": "2024-02-23T06:49:00.552Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9mgqljlqpwkb",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "ltgtbhrv0lqq",
-          "created_at": "2024-02-23T06:45:15.714Z",
-          "updated_at": "2024-02-23T06:45:15.714Z",
-          "display_at": "2024-02-23T06:45:15.714Z",
-          "affected_components": [
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "yhp0ykjkkny1",
-          "status": "monitoring",
-          "body": "The storage service managed by our upstream provider is now functioning as expected.",
-          "incident_id": "ltgtbhrv0lqq",
-          "created_at": "2024-02-23T06:14:33.814Z",
-          "updated_at": "2024-02-23T06:14:33.814Z",
-          "display_at": "2024-02-23T06:14:33.814Z",
-          "affected_components": [
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nxhf935pd3hn",
-          "status": "identified",
-          "body": "We have notified our upstream provider to correct the underlying storage issue.",
-          "incident_id": "ltgtbhrv0lqq",
-          "created_at": "2024-02-23T05:40:22.801Z",
-          "updated_at": "2024-02-23T05:40:22.801Z",
-          "display_at": "2024-02-23T05:40:22.801Z",
-          "affected_components": [
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wjm7rn4hy48z",
-          "status": "identified",
-          "body": "We have detected an issue affecting service on the fr-3.platform.sh region.\nOur Operations team has been notified and is currently working to restore service.\n\nProjects on affected region may experience slow disks issues and/or mounted as Read-only.\nWe will update you as soon as we have further information.",
-          "incident_id": "ltgtbhrv0lqq",
-          "created_at": "2024-02-23T05:36:30.014Z",
-          "updated_at": "2024-02-23T05:36:30.014Z",
-          "display_at": "2024-02-23T05:36:30.014Z",
-          "affected_components": [
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "gzncjfm5zxp6",
-          "name": "Europe (France 3) (fr-3.platform.sh)",
-          "status": "operational",
-          "created_at": "2021-04-06T15:26:41.226Z",
-          "updated_at": "2024-11-28T00:39:14.039Z",
-          "position": 5,
-          "description": "fr-3.platform.sh",
-          "showcase": false,
-          "start_date": "2021-04-06",
           "group_id": null,
           "page_id": "l2x5n4czt1ph",
           "group": false,
