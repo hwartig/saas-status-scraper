@@ -4,9 +4,39 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-12-05T11:41:28.821Z"
+    "updated_at": "2024-12-12T03:20:28.386Z"
   },
   "incidents": [
+    {
+      "id": "gqdwbh51npkn",
+      "name": "Errors on AI features",
+      "status": "investigating",
+      "created_at": "2024-12-12T03:03:51.338Z",
+      "updated_at": "2024-12-12T03:03:51.380Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/y2xrzrxt70cy",
+      "started_at": "2024-12-12T03:03:51.332Z",
+      "page_id": "7yh3h3y0c0x1",
+      "incident_updates": [
+        {
+          "id": "yc04twl14zsb",
+          "status": "investigating",
+          "body": "We are actively communicating with the affected AI Service provider and closely monitoring the ongoing outage situation. While we have observed some signs of recovery, the majority of API calls are still resulting in errors.\n\nWe have successfully restored the Smart Answers in Search feature by rerouting requests to an alternative model.\n\nAll other Atlassian Intelligence capabilities and Rovo remain unavailable at this time due to the ongoing AI Service provider outage.",
+          "incident_id": "gqdwbh51npkn",
+          "created_at": "2024-12-12T03:03:51.378Z",
+          "updated_at": "2024-12-12T03:03:51.378Z",
+          "display_at": "2024-12-12T03:03:51.378Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "jvtlybvvr6zb",
       "name": "AI features degraded",
@@ -4491,152 +4521,6 @@
           "updated_at": "2024-11-04T12:02:08.979Z",
           "position": 3,
           "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "7yh3h3y0c0x1",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "2shbvgzl7ljn",
-      "name": "Jira Team managed projects, Boards & Backlogs not loading correctly",
-      "status": "postmortem",
-      "created_at": "2024-08-19T07:27:17.899Z",
-      "updated_at": "2024-08-28T00:14:31.291Z",
-      "monitoring_at": "2024-08-19T10:12:20.697Z",
-      "resolved_at": "2024-08-19T10:21:06.344Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/v75x29w89c6r",
-      "started_at": "2024-08-19T07:27:17.895Z",
-      "page_id": "7yh3h3y0c0x1",
-      "incident_updates": [
-        {
-          "id": "jljrhr93qnvy",
-          "status": "postmortem",
-          "body": "### Summary\n\nOn August 19, 2024, between 6:00 am and 9:58 am UTC, Jira customers located in the EU West 1 region experienced intermittent failures when loading boards and backlogs inside team-managed projects. These failures were triggered by a bug introduced to a backend service that increased load which then triggered downstream services to reject some requests due to rate-limiting. \n\nThe incident was detected within five minutes by automated monitoring systems and mitigated by a rollback of the faulty service which put Atlassian systems into a known good state. The total time to resolution was approximately four hours.\n\n### Impact\n\nAll customers in the EU West 1 region experienced elevated error rates when trying to access the Jira team-managed boards and backlogs on Monday, August 19, between 6:00 am UTC and 10:00 am UTC. Customers may have noticed the board and backlog views failing to load due to 429 and 500 error responses. However, they may have been able to eventually view the page after multiple retries.\n\n### Root Cause\n\nThe issue was caused by a change to a service backing the team-managed experiences. Specifically, a caching layer was accidentally removed which caused a large increase in the number of requests being sent to a downstream service.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. While we have a number of testing and preventative processes in place, this specific issue wasn’t identified because the change was related to the introduction of a feature flag that was not picked up by our automated continuous deployment suites and manual test scripts. \n\nNew feature changes are usually behind feature flags and rolled out progressively to customers to allow for increased safety when making new changes. However, in this case, the bug that caused this incident came as a result of an unintended change in behaviour when introducing this flag into our code base.\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Improving the test coverage in our services to enforce caching within the service.\n* Improving the scaling configurations of our services to allow them to handle large increases in load and make them more resilient to spikes in traffic.\n* Increasing the coverage of rate limiting within our services.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
-          "incident_id": "2shbvgzl7ljn",
-          "created_at": "2024-08-27T23:48:06.641Z",
-          "updated_at": "2024-08-28T00:14:31.290Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "v4rpz2k20gbx",
-          "status": "resolved",
-          "body": "Between 19 Aug 2024 - 06:00 UTC to 19 Aug 2024 - 10:00 UTC, boards and backlogs were not loading for Team Managed projects. The issue has been resolved and the service is operating normally.\nIf you face any challenges please reach out to us via a support ticket.",
-          "incident_id": "2shbvgzl7ljn",
-          "created_at": "2024-08-19T10:21:06.344Z",
-          "updated_at": "2024-08-19T10:21:06.344Z",
-          "display_at": "2024-08-19T10:21:06.344Z",
-          "affected_components": [
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "688mw2mxh6hw",
-          "status": "monitoring",
-          "body": "We've identified the root cause and rolled out a fix. We're currently monitoring the behavior.",
-          "incident_id": "2shbvgzl7ljn",
-          "created_at": "2024-08-19T10:12:20.697Z",
-          "updated_at": "2024-08-19T10:12:20.697Z",
-          "display_at": "2024-08-19T10:12:20.697Z",
-          "affected_components": [
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "mtc5zz2np8kd",
-          "status": "investigating",
-          "body": "We are continuing to investigate the issue and identify the root cause. JSW and JSM team managed projects are affected.",
-          "incident_id": "2shbvgzl7ljn",
-          "created_at": "2024-08-19T09:29:19.095Z",
-          "updated_at": "2024-08-19T09:29:19.095Z",
-          "display_at": "2024-08-19T09:29:19.095Z",
-          "affected_components": [
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "86zxqqxsztk8",
-          "status": "investigating",
-          "body": "We are continuing to investigate the issue and identify the root cause.",
-          "incident_id": "2shbvgzl7ljn",
-          "created_at": "2024-08-19T08:27:31.698Z",
-          "updated_at": "2024-08-19T08:27:31.698Z",
-          "display_at": "2024-08-19T08:27:31.698Z",
-          "affected_components": [
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "x7ts5cgy3pw7",
-          "status": "investigating",
-          "body": "We are currently investigating an issue where boards and backlogs are not loading for Team Managed projects. The team is currently working on identifying the root cause and resolving it.",
-          "incident_id": "2shbvgzl7ljn",
-          "created_at": "2024-08-19T07:27:17.955Z",
-          "updated_at": "2024-08-19T07:27:17.955Z",
-          "display_at": "2024-08-19T07:27:17.955Z",
-          "affected_components": [
-            {
-              "code": "jmgfbtr0k28j",
-              "name": "Viewing content",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "jmgfbtr0k28j",
-          "name": "Viewing content",
-          "status": "operational",
-          "created_at": "2019-01-22T20:42:24.651Z",
-          "updated_at": "2024-11-22T16:22:00.358Z",
-          "position": 1,
-          "description": "Problems viewing issues, dashboards, boards, reports, etc.",
           "showcase": false,
           "start_date": null,
           "group_id": null,

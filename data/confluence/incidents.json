@@ -4,9 +4,39 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-12-06T05:30:02.518Z"
+    "updated_at": "2024-12-12T03:20:28.558Z"
   },
   "incidents": [
+    {
+      "id": "8jwgf1g1wc4x",
+      "name": "Errors on AI features",
+      "status": "investigating",
+      "created_at": "2024-12-12T03:03:51.979Z",
+      "updated_at": "2024-12-12T03:03:52.021Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/dcg3xxm2j4fm",
+      "started_at": "2024-12-12T03:03:51.972Z",
+      "page_id": "4g2my7tbhjsq",
+      "incident_updates": [
+        {
+          "id": "pvktqr9hk95l",
+          "status": "investigating",
+          "body": "We are actively communicating with the affected AI Service provider and closely monitoring the ongoing outage situation. While we have observed some signs of recovery, the majority of API calls are still resulting in errors.\n\nWe have successfully restored the Smart Answers in Search feature by rerouting requests to an alternative model.\n\nAll other Atlassian Intelligence capabilities and Rovo remain unavailable at this time due to the ongoing AI Service provider outage.",
+          "incident_id": "8jwgf1g1wc4x",
+          "created_at": "2024-12-12T03:03:52.018Z",
+          "updated_at": "2024-12-12T03:03:52.018Z",
+          "display_at": "2024-12-12T03:03:52.018Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "dklhk42lhb0p",
       "name": "App upgrades intermittently failing causing uninstallation with inability to reinstall",
@@ -5844,146 +5874,6 @@
           "created_at": "2019-05-02T04:25:15.382Z",
           "updated_at": "2024-11-04T12:02:09.239Z",
           "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "4g2my7tbhjsq",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "qbj8mj03nqt0",
-      "name": "Service Disruptions Affecting Confluence",
-      "status": "postmortem",
-      "created_at": "2024-02-12T14:24:31.197Z",
-      "updated_at": "2024-03-07T18:53:29.222Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-02-12T15:07:58.260Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/8ym6n8ytbxhp",
-      "started_at": "2024-02-12T14:24:31.189Z",
-      "page_id": "4g2my7tbhjsq",
-      "incident_updates": [
-        {
-          "id": "pq690kn7cpnj",
-          "status": "postmortem",
-          "body": "### Summary\n\nOn February 12, 2024, between 1:45pm and 2:54pm UTC, some Atlassian customers were unable to access Confluence Cloud. The event was triggered by a Redis \\(cache\\) failure causing a spike in the retries to connect to Redis \\(Cache\\). The connection spike along with synching data from multiple nodes to Redis caused the threadpool depletion. This impacted some customers in US East and EU regions. The incident was detected within two minutes by monitoring and mitigated by scaling up the webserver nodes which put Atlassian systems into a known good state. The total time to resolution was about one hour and nine minutes.\n\n### **IMPACT**\n\nThe overall impact was on February 12, 2024, between 1:45pm and 2:54pm UTC. This caused service disruption to some customers in US East and EU regions where they were unable to access Confluence.  \n\n### **ROOT CAUSE**\n\nConfluence has a set of data controlling features that are stored locally in all nodes, and in a Redis cache as a persistent store. A Redis failover from primary to read replica triggered a process across all nodes to sync data from the local cache to Redis with a large payload. This resulted in spikes in connections with multiple retries resulting in spikes in CPU and threadpool depletion. As a result, Confluence was unavailable or with degraded experience \\(very slow on load\\).\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. We are prioritizing the following improvement actions to avoid repeating this type of incident.\n\n* Rely on streaming to sync local cache to Redis that prevents connections from being held for a long duration.\n* Increase the Redis instance type from t3.micros to t3.medium that provides a larger memory to accommodate a write-a-storm scenario\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
-          "incident_id": "qbj8mj03nqt0",
-          "created_at": "2024-03-07T18:53:26.949Z",
-          "updated_at": "2024-03-07T18:53:29.219Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "s3bml9br2cx6",
-          "status": "resolved",
-          "body": "Between 13:36 UTC to 14:36 UTC, we experienced degraded performance in Confluence Cloud. The issue has been resolved and the service is operating normally.",
-          "incident_id": "qbj8mj03nqt0",
-          "created_at": "2024-02-12T15:07:58.260Z",
-          "updated_at": "2024-02-12T15:07:58.260Z",
-          "display_at": "2024-02-12T15:07:58.260Z",
-          "affected_components": [
-            {
-              "code": "bl9mxbb582vk",
-              "name": "View Content",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "y4z6hxpf7d7t",
-              "name": "Create and Edit",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "snpbn00x0g0k",
-              "name": "Comments",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qxp66q3yf5fy",
-          "status": "investigating",
-          "body": "We are investigating cases of degraded performance/accessibility for some Confluence Cloud customers. We will provide more details within the next 2 hours.",
-          "incident_id": "qbj8mj03nqt0",
-          "created_at": "2024-02-12T14:24:31.301Z",
-          "updated_at": "2024-02-12T14:24:31.301Z",
-          "display_at": "2024-02-12T14:24:31.301Z",
-          "affected_components": [
-            {
-              "code": "bl9mxbb582vk",
-              "name": "View Content",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "y4z6hxpf7d7t",
-              "name": "Create and Edit",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "snpbn00x0g0k",
-              "name": "Comments",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "bl9mxbb582vk",
-          "name": "View Content",
-          "status": "operational",
-          "created_at": "2018-11-12T04:04:58.123Z",
-          "updated_at": "2024-11-22T16:22:00.347Z",
-          "position": 1,
-          "description": "Viewing pages or dashboards",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "4g2my7tbhjsq",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "y4z6hxpf7d7t",
-          "name": "Create and Edit",
-          "status": "operational",
-          "created_at": "2018-11-12T04:04:58.145Z",
-          "updated_at": "2024-11-21T02:46:08.709Z",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "4g2my7tbhjsq",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "snpbn00x0g0k",
-          "name": "Comments",
-          "status": "operational",
-          "created_at": "2018-11-30T21:50:37.850Z",
-          "updated_at": "2024-10-29T10:25:06.414Z",
-          "position": 3,
           "description": null,
           "showcase": false,
           "start_date": null,
