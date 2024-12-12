@@ -4,9 +4,62 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-12-12T22:03:12.752Z"
+    "updated_at": "2024-12-12T23:20:44.095Z"
   },
   "incidents": [
+    {
+      "id": "ndhzmhvjpy80",
+      "name": "DNS Resolution in NYC1",
+      "status": "investigating",
+      "created_at": "2024-12-12T23:20:34.858Z",
+      "updated_at": "2024-12-12T23:20:34.930Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/knsbw3fw57qf",
+      "started_at": "2024-12-12T23:20:34.854Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "zy0lgr60hjcn",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue with intermittent failures and increased latency in DNS resolution in NYC1. \n\nDuring this time, a subset of users may experience issues with DNS resolution, or see errors returned when querying DNS records which are hosted on the DigitalOcean authoritative DNS infrastructure. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "ndhzmhvjpy80",
+          "created_at": "2024-12-12T23:20:34.928Z",
+          "updated_at": "2024-12-12T23:20:34.928Z",
+          "display_at": "2024-12-12T23:20:34.928Z",
+          "affected_components": [
+            {
+              "code": "qdnryq0lymfk",
+              "name": "DNS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "qdnryq0lymfk",
+          "name": "DNS",
+          "status": "degraded_performance",
+          "created_at": "2023-03-06T18:42:44.851Z",
+          "updated_at": "2024-12-12T23:20:34.884Z",
+          "position": 6,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "1926b8zs7tst",
       "name": "Managed Database Operations",
@@ -2759,9 +2812,9 @@
         {
           "id": "qdnryq0lymfk",
           "name": "DNS",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-03-06T18:42:44.851Z",
-          "updated_at": "2024-11-18T21:42:00.393Z",
+          "updated_at": "2024-12-12T23:20:34.884Z",
           "position": 6,
           "description": null,
           "showcase": false,
@@ -8557,257 +8610,6 @@
           "showcase": false,
           "start_date": "2023-02-22",
           "group_id": "sjlhrm4vf4pr",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "24p130g20tff",
-      "name": "Event processing and Droplet Creates in TOR1",
-      "status": "resolved",
-      "created_at": "2024-08-15T04:29:06.645Z",
-      "updated_at": "2024-08-15T05:40:22.541Z",
-      "monitoring_at": "2024-08-15T05:11:39.769Z",
-      "resolved_at": "2024-08-15T05:40:22.524Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/rwsz4cjy97tg",
-      "started_at": "2024-08-15T04:29:06.636Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "x95nnk9x3b8p",
-          "status": "resolved",
-          "body": "Our Engineering team has resolved the issue with Droplet creates and Snapshots. As of 05:30 UTC, users should be able to create Droplets, Snapshots and process events. Droplet backed services should also be operating normally. \n\nIf you continue to experience problems, please open a ticket with our support team. We apologize for any inconvenience.",
-          "incident_id": "24p130g20tff",
-          "created_at": "2024-08-15T05:40:22.524Z",
-          "updated_at": "2024-08-15T05:40:22.524Z",
-          "display_at": "2024-08-15T05:40:22.524Z",
-          "affected_components": [
-            {
-              "code": "h4ktbyxsxssg",
-              "name": "Droplets - TOR1",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "myqfd21mmbh9",
-              "name": "Event Processing - TOR1",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "xr6mrvgw7q9c",
-              "name": "Kubernetes - TOR1",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "3k1h85kh76zy",
-              "name": "Load Balancers - TOR1",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "5v01jvb2gwjz",
-              "name": "Managed Databases - TOR1",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1sysfshgsxry",
-          "status": "monitoring",
-          "body": "Our Engineering team has identified the cause of the issue with Droplet creates and Snapshots, and has implemented a fix. We are currently monitoring the situation and will post an update as soon as the issue is fully resolved.",
-          "incident_id": "24p130g20tff",
-          "created_at": "2024-08-15T05:11:39.769Z",
-          "updated_at": "2024-08-15T05:11:39.769Z",
-          "display_at": "2024-08-15T05:11:39.769Z",
-          "affected_components": [
-            {
-              "code": "h4ktbyxsxssg",
-              "name": "Droplets - TOR1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "myqfd21mmbh9",
-              "name": "Event Processing - TOR1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "xr6mrvgw7q9c",
-              "name": "Kubernetes - TOR1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "3k1h85kh76zy",
-              "name": "Load Balancers - TOR1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "5v01jvb2gwjz",
-              "name": "Managed Databases - TOR1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "25vyz18ntt51",
-          "status": "investigating",
-          "body": "Our Engineering team is continuing to investigate the issue with Droplet creates and Snapshots. A subset of users may also encounter errors with creating Droplet based products such as Managed Databases, Load Balancers, Managed Kubernetes in TOR1 region\n\nWe will post another update once we have more information.",
-          "incident_id": "24p130g20tff",
-          "created_at": "2024-08-15T04:47:12.024Z",
-          "updated_at": "2024-08-15T04:47:12.024Z",
-          "display_at": "2024-08-15T04:47:12.024Z",
-          "affected_components": [
-            {
-              "code": "h4ktbyxsxssg",
-              "name": "Droplets - TOR1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "myqfd21mmbh9",
-              "name": "Event Processing - TOR1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "xr6mrvgw7q9c",
-              "name": "Kubernetes - TOR1",
-              "old_status": "under_maintenance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "3k1h85kh76zy",
-              "name": "Load Balancers - TOR1",
-              "old_status": "under_maintenance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "5v01jvb2gwjz",
-              "name": "Managed Databases - TOR1",
-              "old_status": "under_maintenance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6g0j2bn78rwv",
-          "status": "investigating",
-          "body": "As of 02:11 UTC, our Engineering team is investigating an issue with creation failure of Droplet and Snapshots in TOR1 region. Users may experience errors when rebuilding or restoring Droplets and Snapshots. Creating Droplets from Snapshots is also affected.\n\nWe apologize for the inconvenience and will share an update once we have more information.",
-          "incident_id": "24p130g20tff",
-          "created_at": "2024-08-15T04:29:06.728Z",
-          "updated_at": "2024-08-15T04:29:06.728Z",
-          "display_at": "2024-08-15T04:29:06.728Z",
-          "affected_components": [
-            {
-              "code": "h4ktbyxsxssg",
-              "name": "Droplets - TOR1",
-              "old_status": "under_maintenance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "myqfd21mmbh9",
-              "name": "Event Processing - TOR1",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "xr6mrvgw7q9c",
-          "name": "TOR1",
-          "status": "operational",
-          "created_at": "2023-02-22T17:31:21.756Z",
-          "updated_at": "2024-08-16T11:33:52.746Z",
-          "position": 12,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "gb3gs5vj7js2",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "5v01jvb2gwjz",
-          "name": "TOR1",
-          "status": "operational",
-          "created_at": "2023-02-22T19:27:02.972Z",
-          "updated_at": "2024-08-16T11:22:17.192Z",
-          "position": 13,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "kl8qv98c9brp",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "h4ktbyxsxssg",
-          "name": "TOR1",
-          "status": "operational",
-          "created_at": "2023-02-21T16:23:02.409Z",
-          "updated_at": "2024-08-16T11:19:17.606Z",
-          "position": 15,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-21",
-          "group_id": "4rgs7bbljl8d",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "myqfd21mmbh9",
-          "name": "TOR1",
-          "status": "operational",
-          "created_at": "2023-02-22T17:27:01.575Z",
-          "updated_at": "2024-08-15T05:11:39.735Z",
-          "position": 15,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "b3tklvcyzvh0",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "3k1h85kh76zy",
-          "name": "TOR1",
-          "status": "operational",
-          "created_at": "2023-02-24T20:11:22.571Z",
-          "updated_at": "2024-08-16T11:30:27.036Z",
-          "position": 15,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-24",
-          "group_id": "jg6pzd84p7bn",
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
