@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2024-12-17T00:00:40.766-08:00"
+    "updated_at": "2024-12-17T15:48:40.481-08:00"
   },
   "incidents": [
     {
@@ -259,9 +259,9 @@
     {
       "id": "k992jw1090rw",
       "name": "[Major] Issues loading Embed Widget in Integrations",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2024-11-21T09:06:08.908-08:00",
-      "updated_at": "2024-11-21T09:48:44.133-08:00",
+      "updated_at": "2024-12-17T15:48:40.478-08:00",
       "monitoring_at": "2024-11-21T09:06:08.960-08:00",
       "resolved_at": "2024-11-21T09:48:44.118-08:00",
       "impact": "none",
@@ -269,6 +269,19 @@
       "started_at": "2024-11-21T09:06:08.899-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "7f7mr3yhxk5v",
+          "status": "postmortem",
+          "body": "Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed.\n\n‌\n\n‌\n\nWe recently addressed issues affecting the Box for Salesforce and Box for NetSuite integrations. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 2:28 AM PT and 8:42 AM PT on Thursday, November 21, 2024, some users may have experienced difficulties while using Box for Salesforce or Box for NetSuite integrations. During this time, a small subset of customers were unable to use Box Embed Widget components in some of their Box for Salesforce integrations and, to a lesser extent, the Box for NetSuite v1 integration. The issue occurred as a result of a recent code change released to some enterprises in our ongoing effort to improve performance and stability. We were able to resolve the issue by rolling back this change**.** In addition, we are working to improve our testing processes to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\n‌\n\nWe are working on refactoring and modernizing the Box Embed codebase. As part of this process we released updated code to a small percentage of client enterprises. After the release, it was discovered that some components of our Salesforce Integration \\(Box Lightning Components\\) and an older version of our Oracle NetSuite Integration \\(V1\\) were using endpoints that were not compatible with this update. Given that the code was only released to a subset of users and only some of them were using these specific integrations, it took some time before the issue could be detected and resolved.\n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Working on improved monitoring for the services affected.\n* Working on updates to legacy endpoints affected by the code change.\n* Improved testing procedures for Box Embed releases and the services affected.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "k992jw1090rw",
+          "created_at": "2024-12-17T15:47:39.371-08:00",
+          "updated_at": "2024-12-17T15:48:40.476-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "00j7pw84lv25",
           "status": "resolved",
