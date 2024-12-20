@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-12-20T08:37:50.637Z"
+    "updated_at": "2024-12-20T16:20:45.384Z"
   },
   "incidents": [
+    {
+      "id": "5hjghvwvqztc",
+      "name": "Disruption with some GitHub services",
+      "status": "investigating",
+      "created_at": "2024-12-20T16:18:14.793Z",
+      "updated_at": "2024-12-20T16:20:45.374Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/22g95l0l89l0",
+      "started_at": "2024-12-20T16:18:14.788Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "q0gbqx16x3fy",
+          "status": "investigating",
+          "body": "We're seeing issues related to some of our marketing pages. We are investigating.",
+          "incident_id": "5hjghvwvqztc",
+          "created_at": "2024-12-20T16:20:45.371Z",
+          "updated_at": "2024-12-20T16:20:45.371Z",
+          "display_at": "2024-12-20T16:20:45.371Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "djsy3v084kbc",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "5hjghvwvqztc",
+          "created_at": "2024-12-20T16:18:14.840Z",
+          "updated_at": "2024-12-20T16:18:14.840Z",
+          "display_at": "2024-12-20T16:18:14.840Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "fnq063tqh7cc",
       "name": "Live updates on pages not loading reliably",
@@ -8606,328 +8649,6 @@
           "description": "Orchestration and Compute for GitHub Codespaces",
           "showcase": false,
           "start_date": "2021-08-11",
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "m70hk23gx3nx",
-      "name": "Issues enabling actions and running jobs on GitHub",
-      "status": "resolved",
-      "created_at": "2024-07-18T22:47:24.734Z",
-      "updated_at": "2024-07-22T19:10:44.934Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-07-19T02:38:10.201Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/myph9fsgjcxm",
-      "started_at": "2024-07-18T22:47:24.725Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "j0ydqzms4452",
-          "status": "resolved",
-          "body": "Beginning on July 18, 2024 at 22:38 UTC, network issues within an upstream provider led to degraded experiences across Actions, Copilot, and Pages services.<br /><br />Up to 50% of Actions workflow jobs were stuck in the queuing state, including Pages deployments.  Users were also not able to enable Actions or register self-hosted runners. This was caused by an unreachable backend resource in the Central US region. That resource is configured for geo-replication, but the replication configuration prevented resiliency when one region was unavailable. Updating the replication configuration mitigated the impact by allowing successful requests while one region was unavailable. By July 19 00:12 UTC, users saw some improvement in Actions jobs and full recovery of Pages. Standard hosted runners and self-hosted Actions workflows were healthy by 2:10 UTC and large hosted runners fully recovered at 2:38.<br /><br />Copilot requests were also impacted with up to 2% of Copilot Chat requests and 0.5% of Copilot Completions requests resulting in errors. Chat requests were routed to other regions after 20 minutes while Completions requests took 45 minutes to reroute. <br /><br />We have identified improvements to detection to reduce the time to engage all impacted on-call teams and improvements to our replication configuration and failover workflows to be more resilient to unhealthy dependencies and reduce our time to failover and mitigate customer impact.",
-          "incident_id": "m70hk23gx3nx",
-          "created_at": "2024-07-19T02:38:10.201Z",
-          "updated_at": "2024-07-22T19:10:44.930Z",
-          "display_at": "2024-07-19T02:38:10.201Z",
-          "affected_components": [
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jvsxvsxv1t4v",
-          "status": "investigating",
-          "body": "Actions is operating normally.",
-          "incident_id": "m70hk23gx3nx",
-          "created_at": "2024-07-19T02:38:08.440Z",
-          "updated_at": "2024-07-19T02:38:08.440Z",
-          "display_at": "2024-07-19T02:38:08.440Z",
-          "affected_components": [
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "238hw5b42zy4",
-          "status": "investigating",
-          "body": "We have continued to apply mitigations to work around the outage. Customers may still experience run start delays for larger runners.",
-          "incident_id": "m70hk23gx3nx",
-          "created_at": "2024-07-19T02:25:56.690Z",
-          "updated_at": "2024-07-19T02:25:56.690Z",
-          "display_at": "2024-07-19T02:25:56.690Z",
-          "affected_components": [
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "c0pgv2x2qmtb",
-          "status": "investigating",
-          "body": "We've applied a mitigation to work around the outage. Customers may still experience run start delays.",
-          "incident_id": "m70hk23gx3nx",
-          "created_at": "2024-07-19T01:50:21.415Z",
-          "updated_at": "2024-07-19T01:50:21.415Z",
-          "display_at": "2024-07-19T01:50:21.415Z",
-          "affected_components": [
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5xlf5gtffbgs",
-          "status": "investigating",
-          "body": "We are making progress failing over to a different region to mitigate an outage.",
-          "incident_id": "m70hk23gx3nx",
-          "created_at": "2024-07-19T01:04:48.545Z",
-          "updated_at": "2024-07-19T01:04:48.545Z",
-          "display_at": "2024-07-19T01:04:48.545Z",
-          "affected_components": [
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "zy5v9mhly5l4",
-          "status": "investigating",
-          "body": "We continue to mitigate an outage by failing over to a different region.",
-          "incident_id": "m70hk23gx3nx",
-          "created_at": "2024-07-19T00:30:51.530Z",
-          "updated_at": "2024-07-19T00:30:51.530Z",
-          "display_at": "2024-07-19T00:30:51.530Z",
-          "affected_components": [
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6ftfyb1687j3",
-          "status": "investigating",
-          "body": "Pages is operating normally.",
-          "incident_id": "m70hk23gx3nx",
-          "created_at": "2024-07-19T00:24:20.791Z",
-          "updated_at": "2024-07-19T00:24:20.791Z",
-          "display_at": "2024-07-19T00:24:20.791Z",
-          "affected_components": [
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "q7mvtsr2p46j",
-          "status": "investigating",
-          "body": "We are working to mitigate an outage by failing over to a different region.",
-          "incident_id": "m70hk23gx3nx",
-          "created_at": "2024-07-18T23:57:08.822Z",
-          "updated_at": "2024-07-18T23:57:08.822Z",
-          "display_at": "2024-07-18T23:57:08.822Z",
-          "affected_components": [
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "hfv8zbpgsf1s",
-          "status": "investigating",
-          "body": "Pages is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "m70hk23gx3nx",
-          "created_at": "2024-07-18T23:23:09.765Z",
-          "updated_at": "2024-07-18T23:23:09.765Z",
-          "display_at": "2024-07-18T23:23:09.765Z",
-          "affected_components": [
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ddk457m12c3f",
-          "status": "investigating",
-          "body": "Some actions customers may experience delays or failures in their runs. We continuing to investigate.",
-          "incident_id": "m70hk23gx3nx",
-          "created_at": "2024-07-18T23:22:05.656Z",
-          "updated_at": "2024-07-18T23:22:05.656Z",
-          "display_at": "2024-07-18T23:22:05.656Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "36zkvtctqqcb",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Actions",
-          "incident_id": "m70hk23gx3nx",
-          "created_at": "2024-07-18T22:47:24.815Z",
-          "updated_at": "2024-07-18T22:47:24.815Z",
-          "display_at": "2024-07-18T22:47:24.815Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "br0l2tvcx85d",
-          "name": "Actions",
-          "status": "operational",
-          "created_at": "2019-11-13T18:02:19.432Z",
-          "updated_at": "2024-12-03T20:04:59.230Z",
-          "position": 7,
-          "description": "Workflows, Compute and Orchestration for GitHub Actions",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "vg70hn9s2tyj",
-          "name": "Pages",
-          "status": "operational",
-          "created_at": "2017-01-31T20:04:33.923Z",
-          "updated_at": "2024-09-25T19:19:01.237Z",
-          "position": 9,
-          "description": "Frontend application and API servers for Pages builds",
-          "showcase": false,
-          "start_date": null,
           "group_id": null,
           "page_id": "kctbh9vrtdwd",
           "group": false,
