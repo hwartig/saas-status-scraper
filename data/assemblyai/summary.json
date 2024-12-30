@@ -4,13 +4,13 @@
     "name": "AssemblyAI",
     "url": "https://status.assemblyai.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2024-12-30T04:43:47.566Z"
+    "updated_at": "2024-12-30T04:59:41.384Z"
   },
   "components": [
     {
       "id": "50txf4qfk2kv",
       "name": "APIs",
-      "status": "degraded_performance",
+      "status": "partial_outage",
       "created_at": "2021-10-25T15:23:09.725Z",
       "updated_at": "2023-07-29T17:52:35.503Z",
       "position": 1,
@@ -30,9 +30,9 @@
     {
       "id": "kygwc83t1rfg",
       "name": "Asynchronous API",
-      "status": "degraded_performance",
+      "status": "partial_outage",
       "created_at": "2021-10-25T15:23:09.740Z",
-      "updated_at": "2024-12-30T04:41:34.518Z",
+      "updated_at": "2024-12-30T04:49:10.978Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -318,16 +318,56 @@
     {
       "id": "4yzpxhsxyy57",
       "name": "Degraded performance: some requests not successfully processed",
-      "status": "investigating",
+      "status": "identified",
       "created_at": "2024-12-30T04:41:34.474Z",
-      "updated_at": "2024-12-30T04:41:34.561Z",
+      "updated_at": "2024-12-30T04:59:41.376Z",
       "monitoring_at": null,
       "resolved_at": null,
-      "impact": "minor",
+      "impact": "major",
       "shortlink": "https://stspg.io/cjd6lp02lpg4",
       "started_at": "2024-12-30T04:41:34.467Z",
       "page_id": "8yxng9m82rr4",
       "incident_updates": [
+        {
+          "id": "26dkndk3vfgy",
+          "status": "identified",
+          "body": "We have identified that the service degradation is specifically affecting English transcription requests for audio files between 25 and 600 minutes in duration. Our engineering team is actively deploying a fix.",
+          "incident_id": "4yzpxhsxyy57",
+          "created_at": "2024-12-30T04:59:41.373Z",
+          "updated_at": "2024-12-30T04:59:41.373Z",
+          "display_at": "2024-12-30T04:59:41.373Z",
+          "affected_components": [
+            {
+              "code": "kygwc83t1rfg",
+              "name": "APIs - Asynchronous API",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "vs800y1wvks6",
+          "status": "investigating",
+          "body": "We are experiencing a service degradation affecting the completion rate of English transcription requests through our Asynchronous API.",
+          "incident_id": "4yzpxhsxyy57",
+          "created_at": "2024-12-30T04:49:11.015Z",
+          "updated_at": "2024-12-30T04:49:11.015Z",
+          "display_at": "2024-12-30T04:49:11.015Z",
+          "affected_components": [
+            {
+              "code": "kygwc83t1rfg",
+              "name": "APIs - Asynchronous API",
+              "old_status": "degraded_performance",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "w6hz52mkfy0p",
           "status": "investigating",
@@ -353,9 +393,9 @@
         {
           "id": "kygwc83t1rfg",
           "name": "Asynchronous API",
-          "status": "degraded_performance",
+          "status": "partial_outage",
           "created_at": "2021-10-25T15:23:09.740Z",
-          "updated_at": "2024-12-30T04:41:34.518Z",
+          "updated_at": "2024-12-30T04:49:10.978Z",
           "position": 1,
           "description": null,
           "showcase": true,
@@ -372,6 +412,6 @@
   "scheduled_maintenances": [],
   "status": {
     "indicator": "minor",
-    "description": "Partially Degraded Service"
+    "description": "Minor Service Outage"
   }
 }
