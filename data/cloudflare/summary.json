@@ -4,7 +4,7 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-01-08T19:14:13.485Z"
+    "updated_at": "2025-01-08T19:38:20.375Z"
   },
   "components": [
     {
@@ -25,7 +25,7 @@
     {
       "id": "1km35smx8p41",
       "name": "Cloudflare Sites and Services",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2014-10-27T21:59:30.264Z",
       "updated_at": "2020-11-11T20:12:30.167Z",
       "position": 1,
@@ -4788,9 +4788,9 @@
     {
       "id": "gyx2yygg7lmd",
       "name": "Gateway",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-01-10T09:28:36.367Z",
-      "updated_at": "2024-12-11T22:18:35.993Z",
+      "updated_at": "2025-01-08T19:38:20.312Z",
       "position": 45,
       "description": "Cloudflare’s secure web gateway keeps your data safe from malware, ransomware, phishing, command & control, Shadow IT, and other Internet risks over all ports and protocols. Log every user interaction with rich details.",
       "showcase": false,
@@ -7457,6 +7457,59 @@
     }
   ],
   "incidents": [
+    {
+      "id": "0xkgdjvnxbhh",
+      "name": "Gateway File Sandboxing Issue",
+      "status": "monitoring",
+      "created_at": "2025-01-08T19:38:20.282Z",
+      "updated_at": "2025-01-08T19:38:20.373Z",
+      "monitoring_at": "2025-01-08T19:38:20.366Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/6mnqw4c8sk37",
+      "started_at": "2025-01-08T19:38:20.275Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "7gsvdyw19wb2",
+          "status": "monitoring",
+          "body": "Cloudflare has identified and applied a fix for an issue where Gateway File Sandboxing was not being applied as expected.  We are currently monitoring the results.\n\nThe observed impact of this issue is that Sandboxing account setting are applied, if your account is set to fail open users will be able to download a file without Sandboxing applied. If set to fail closed, users will not be able to download the file.",
+          "incident_id": "0xkgdjvnxbhh",
+          "created_at": "2025-01-08T19:38:20.366Z",
+          "updated_at": "2025-01-08T19:38:20.366Z",
+          "display_at": "2025-01-08T19:38:20.366Z",
+          "affected_components": [
+            {
+              "code": "gyx2yygg7lmd",
+              "name": "Cloudflare Sites and Services - Gateway",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "gyx2yygg7lmd",
+          "name": "Gateway",
+          "status": "degraded_performance",
+          "created_at": "2023-01-10T09:28:36.367Z",
+          "updated_at": "2025-01-08T19:38:20.312Z",
+          "position": 45,
+          "description": "Cloudflare’s secure web gateway keeps your data safe from malware, ransomware, phishing, command & control, Shadow IT, and other Internet risks over all ports and protocols. Log every user interaction with rich details.",
+          "showcase": false,
+          "start_date": "2023-01-10",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "r2drfccs8mp5",
       "name": "Start Up Program Billing Issue",
