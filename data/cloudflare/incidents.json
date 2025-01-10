@@ -4,9 +4,62 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-01-10T21:48:39.871Z"
+    "updated_at": "2025-01-10T22:20:31.744Z"
   },
   "incidents": [
+    {
+      "id": "61471l0pmx7x",
+      "name": "Workers AI API Incorrect HTTP Status Response Codes",
+      "status": "investigating",
+      "created_at": "2025-01-10T22:20:31.644Z",
+      "updated_at": "2025-01-10T22:20:31.742Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/0fptyyc4t2zt",
+      "started_at": "2025-01-10T22:20:31.636Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "23lwzxcwxp24",
+          "status": "investigating",
+          "body": "We are currently investigating an issue where requests to Workers AI performed via api.cloudflare.com may have incorrect HTTP status codes returned. Response status may be reported as 500 instead of other status codes e.g. 400, 401, 429, etc. in some cases.",
+          "incident_id": "61471l0pmx7x",
+          "created_at": "2025-01-10T22:20:31.739Z",
+          "updated_at": "2025-01-10T22:20:31.739Z",
+          "display_at": "2025-01-10T22:20:31.739Z",
+          "affected_components": [
+            {
+              "code": "zvm7mqn92xzc",
+              "name": "Cloudflare Sites and Services - Workers AI",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "zvm7mqn92xzc",
+          "name": "Workers AI",
+          "status": "degraded_performance",
+          "created_at": "2024-02-14T15:05:51.274Z",
+          "updated_at": "2025-01-10T22:20:31.683Z",
+          "position": 93,
+          "description": "Workers AI allows you to run machine learning models, on the Cloudflare network, from your own code – whether that be from Workers, Pages, or anywhere via REST API.",
+          "showcase": false,
+          "start_date": "2024-02-14",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "k23zjzz5595s",
       "name": "Cloudflare Access - Audit Logs Availability Issues",
@@ -1665,9 +1718,9 @@
         {
           "id": "zvm7mqn92xzc",
           "name": "Workers AI",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2024-02-14T15:05:51.274Z",
-          "updated_at": "2025-01-02T23:40:03.528Z",
+          "updated_at": "2025-01-10T22:20:31.683Z",
           "position": 93,
           "description": "Workers AI allows you to run machine learning models, on the Cloudflare network, from your own code – whether that be from Workers, Pages, or anywhere via REST API.",
           "showcase": false,
@@ -5468,36 +5521,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "5kbx7j815lgn",
-      "name": "Load Balancing Session Affinity Issues",
-      "status": "resolved",
-      "created_at": "2024-12-06T18:00:00.000Z",
-      "updated_at": "2024-12-08T00:21:36.385Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-12-06T18:00:00.000Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/31163jj6xj15",
-      "started_at": "2024-12-06T18:00:00.000Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "pcr17yrw3rpr",
-          "status": "resolved",
-          "body": "Cloudflare is investigating intermittent issues with Load Balancing Session Affinity. Users may see requests not respect the selected Session Affinity setting and be directed to an alternate origin. \n\nLoad Balancing Services were affected from 18:00 UTC December 6th to 00:15 UTC December 8th.",
-          "incident_id": "5kbx7j815lgn",
-          "created_at": "2024-12-08T00:20:13.118Z",
-          "updated_at": "2024-12-08T00:21:36.337Z",
-          "display_at": "2024-12-06T18:00:00.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
