@@ -4,15 +4,15 @@
     "name": "AssemblyAI",
     "url": "https://status.assemblyai.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-01-09T03:36:39.836Z"
+    "updated_at": "2025-01-12T17:20:49.908Z"
   },
   "incidents": [
     {
       "id": "y5w38jv4thnj",
       "name": "Transcription Failing To Complete",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-01-08T13:10:26.379Z",
-      "updated_at": "2025-01-09T03:36:39.832Z",
+      "updated_at": "2025-01-12T17:19:51.876Z",
       "monitoring_at": "2025-01-08T13:57:54.268Z",
       "resolved_at": "2025-01-08T18:30:47.000Z",
       "impact": "none",
@@ -20,6 +20,19 @@
       "started_at": "2025-01-08T18:23:37.000Z",
       "page_id": "8yxng9m82rr4",
       "incident_updates": [
+        {
+          "id": "235z2791wsyf",
+          "status": "postmortem",
+          "body": "On January 3th, 2025 and on January 8th, 2025, we experienced two incidents that resulted in service disruptions and performance degradation for our asynchronous API.\n\n**Root Cause Analysis**  \nIncreased demand for the AssemblyAI asynchronous API has required changes to our datastore infrastructure to maintain performance and reliability.\n\n* **January 3th:** Transcription Record Service system did not scale out aggressively enough to properly service the traffic. We identified a misconfiguration in the scaling policies that constrained the service’s ability to scale out. This resulted in degraded performance for and high latency time for all requests during the 1 hour window.\n* **January 8th:** Our team deployed a configuration update to our infrastructure that unexpectedly caused a redeployment of the transcription record service. This resulted in failures for all customer requests during the 20-minute window while the transcription record service was redeployed and scaled back out to handle current traffic.\n\nWhile both of these incidents impacted the same service, the underlying cause of each incident was different.\n\n**Resolution and Next Steps**  \nTo prevent similar incidents in the future, we have:\n\n* Adjusted the auto-scaling rules of the Transcription Record Service to scale more aggressively with additional performance metrics\n* Implemented additional pre-deployment validation checks on infrastructure code changes\n* Strengthening our infrastructure configuration management processes\n* Improving the communication cadence to the [status page](https://status.assemblyai.com/) throughout the incident lifecycle\n\n**Customer Commitment**  \nWe apologize for any inconvenience or disruption these incidents may have caused. We are committed to providing a reliable and high-performing service and are taking steps to prevent similar incidents from occurring in the future. As always, you can rely on the [status page](https://status.assemblyai.com/) for up to date API information on our current status and health.",
+          "incident_id": "y5w38jv4thnj",
+          "created_at": "2025-01-12T17:18:02.656Z",
+          "updated_at": "2025-01-12T17:19:51.873Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "7r34v3k6ng1v",
           "status": "resolved",
@@ -260,9 +273,9 @@
     {
       "id": "nxcrkxbn7xlq",
       "name": "Slowdown in transcription completions",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-01-03T16:38:26.872Z",
-      "updated_at": "2025-01-03T17:57:43.647Z",
+      "updated_at": "2025-01-12T17:20:49.906Z",
       "monitoring_at": "2025-01-03T17:46:55.076Z",
       "resolved_at": "2025-01-03T17:57:43.629Z",
       "impact": "minor",
@@ -270,6 +283,19 @@
       "started_at": "2025-01-03T16:42:36.000Z",
       "page_id": "8yxng9m82rr4",
       "incident_updates": [
+        {
+          "id": "ccp7mxz1j6v7",
+          "status": "postmortem",
+          "body": "On January 3th, 2025 and on January 8th, 2025, we experienced two incidents that resulted in service disruptions and performance degradation for our asynchronous API.\n\n**Root Cause Analysis**  \nIncreased demand for the AssemblyAI asynchronous API has required changes to our datastore infrastructure to maintain performance and reliability.\n\n* **January 3th:** Transcription Record Service system did not scale out aggressively enough to properly service the traffic. We identified a misconfiguration in the scaling policies that constrained the service’s ability to scale out. This resulted in degraded performance for and high latency time for all requests during the 1 hour window.\n* **January 8th:** Our team deployed a configuration update to our infrastructure that unexpectedly caused a redeployment of the transcription record service. This resulted in failures for all customer requests during the 20-minute window while the transcription record service was redeployed and scaled back out to handle current traffic.\n\nWhile both of these incidents impacted the same service, the underlying cause of each incident was different.\n\n**Resolution and Next Steps**  \nTo prevent similar incidents in the future, we have:\n\n* Adjusted the auto-scaling rules of the Transcription Record Service to scale more aggressively with additional performance metrics\n* Implemented additional pre-deployment validation checks on infrastructure code changes\n* Strengthening our infrastructure configuration management processes\n* Improving the communication cadence to the [status page](https://status.assemblyai.com/) throughout the incident lifecycle\n\n**Customer Commitment**  \nWe apologize for any inconvenience or disruption these incidents may have caused. We are committed to providing a reliable and high-performing service and are taking steps to prevent similar incidents from occurring in the future. As always, you can rely on the [status page](https://status.assemblyai.com/) for up to date API information on our current status and health.",
+          "incident_id": "nxcrkxbn7xlq",
+          "created_at": "2025-01-12T17:20:31.284Z",
+          "updated_at": "2025-01-12T17:20:49.904Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "lh75qtkglp16",
           "status": "resolved",
