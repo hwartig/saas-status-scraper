@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-01-13T08:06:32.272Z"
+    "updated_at": "2025-01-13T16:47:57.878Z"
   },
   "components": [
     {
@@ -115,9 +115,9 @@
     {
       "id": "bpfmy8wy8wq2",
       "name": "macOS Jobs",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-11-09T08:22:00.885Z",
-      "updated_at": "2024-12-12T22:43:43.408Z",
+      "updated_at": "2025-01-13T16:43:10.890Z",
       "position": 3,
       "description": "CircleCI jobs using the macos executor.",
       "showcase": true,
@@ -589,10 +589,64 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "gpvvfsd1px4c",
+      "name": "M2-Pro Medium jobs delayed",
+      "status": "identified",
+      "created_at": "2025-01-13T16:43:10.863Z",
+      "updated_at": "2025-01-13T16:47:57.873Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/51zzy1jc0y54",
+      "started_at": "2025-01-13T16:43:10.859Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "ygp075nk9w49",
+          "status": "identified",
+          "body": "Our engineers have identified an issue where builds using m2pro.medium resource class are facing delays of up to 6-8 minutes. We are actively working to mitigate the issue and increase the capacity to resolve this delay.\n\nWe appreciate your patience and understanding as we work to enhance our service. We will keep you updated on our progress.",
+          "incident_id": "gpvvfsd1px4c",
+          "created_at": "2025-01-13T16:43:10.928Z",
+          "updated_at": "2025-01-13T16:43:11.285Z",
+          "display_at": "2025-01-13T16:43:10.928Z",
+          "affected_components": [
+            {
+              "code": "bpfmy8wy8wq2",
+              "name": "macOS Jobs",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1878845256885772453
+        }
+      ],
+      "components": [
+        {
+          "id": "bpfmy8wy8wq2",
+          "name": "macOS Jobs",
+          "status": "degraded_performance",
+          "created_at": "2017-11-09T08:22:00.885Z",
+          "updated_at": "2025-01-13T16:43:10.890Z",
+          "position": 3,
+          "description": "CircleCI jobs using the macos executor.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
