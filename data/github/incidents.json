@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-01-24T07:52:45.201Z"
+    "updated_at": "2025-01-24T20:09:09.069Z"
   },
   "incidents": [
     {
@@ -12,7 +12,7 @@
       "name": "Incident with Actions",
       "status": "resolved",
       "created_at": "2025-01-23T10:25:31.315Z",
-      "updated_at": "2025-01-23T17:27:02.116Z",
+      "updated_at": "2025-01-24T20:09:09.059Z",
       "monitoring_at": null,
       "resolved_at": "2025-01-23T17:27:02.098Z",
       "impact": "minor",
@@ -23,10 +23,10 @@
         {
           "id": "6l9ct7hq5j5y",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "On January 23, 2025, between 9:49 and 17:00 UTC, the available capacity of large hosted runners was degraded.  On average, 26% of jobs requiring large runners had a >5min delay getting a runner assigned.  This was caused by the rollback of a configuration change and a latent bug in event processing, which was triggered by the mixed data shape that resulted from the rollback.  The processing would reprocess the same events unnecessarily and cause the background job that manages large runner creation and deletion to run out of resources.  It would automatically restart and continue processing, but the jobs were not able to keep up with production traffic.  We mitigated the impact by using a feature flag to bypass the problematic event processing logic.  While these changes had been rolling out in stages over the last few months and had been safely rolled back previously, an unrelated change prevented rollback from causing this problem in earlier stages.<br /><br />We are reviewing and updating the feature flags in this event processing workflow to ensure that we have high confidence in rollback in all rollout stages.  We are also improving observability of the event processing to reduce the time to diagnose and mitigate similar issues going forward.",
           "incident_id": "gszmt35n7k20",
           "created_at": "2025-01-23T17:27:02.098Z",
-          "updated_at": "2025-01-23T17:27:02.098Z",
+          "updated_at": "2025-01-24T20:09:09.053Z",
           "display_at": "2025-01-23T17:27:02.098Z",
           "affected_components": [
             {
