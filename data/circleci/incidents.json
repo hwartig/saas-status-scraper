@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-01-31T21:20:21.994Z"
+    "updated_at": "2025-01-31T21:39:23.068Z"
   },
   "incidents": [
     {
@@ -83,9 +83,9 @@
     {
       "id": "yr50qd5pw3b8",
       "name": "Some commit status updates were not updated",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-01-23T20:30:00.000Z",
-      "updated_at": "2025-01-31T19:45:08.712Z",
+      "updated_at": "2025-01-31T21:39:23.065Z",
       "monitoring_at": null,
       "resolved_at": "2025-01-23T20:30:00.000Z",
       "impact": "minor",
@@ -93,6 +93,19 @@
       "started_at": "2025-01-23T20:30:00.000Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "m0pgb86ll4z9",
+          "status": "postmortem",
+          "body": "## Summary\n\nOn January 23, 2025, from 19:48 UTC to 20:43 UTC, customers using CircleCI GitHub OAuth and Bitbucket projects stopped receiving commit status updates. This was due to a code change deployed at 19:48 UTC that negatively impacted the service responsible for sending commit statuses to the Version Control System \\(VCS\\) provider.\n\n## What Happened\n\nOn January 23, 2025, at 19:48 UTC, we deployed a change in how we send events from our service that orchestrates workflows. This change inadvertently modified the value of a key field used by a downstream service responsible for setting commit statuses.\n\nAt 20:03 UTC, the team responsible for the downstream service was alerted to an increase in errors when setting commit statuses. This alert auto-resolved without intervention, delaying our response time.\n\nAt 20:12 UTC, our support team notified us that customers were experiencing issues with commit status updates. This prompted an investigation. By 20:40 UTC, we had identified and reverted the faulty code change, with customer impact ceasing at 20:43 UTC.\n\n## Future Prevention and Process Improvement\n\nWe will add more comprehensive testing to cover the events sent by our orchestration service. Additionally, we will implement synthetic tests to catch failures in setting proper commit status updates.\n\nWe are also investigating why the alert auto-resolved to ensure similar issues are actioned sooner.\n\nWhile investigation and remediation started promptly after being notified of the issue, there was a delay in initializing our incident protocol, which delayed the creation of a status page update and limited the information available to provide clear timing on the published update. We are revisiting our incident declaration procedures and tool configuration to provide further clarity around incident declaration and improve response time.",
+          "incident_id": "yr50qd5pw3b8",
+          "created_at": "2025-01-31T21:38:54.613Z",
+          "updated_at": "2025-01-31T21:39:23.063Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "40xm39nmtq81",
           "status": "resolved",
@@ -113,9 +126,9 @@
     {
       "id": "ym5vldzgvxv5",
       "name": "Customers may be seeing delays with their workflows starting and may notice issues viewing their workflows through our UI",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-01-21T23:24:38.000Z",
-      "updated_at": "2025-01-31T00:48:59.317Z",
+      "updated_at": "2025-01-31T21:27:16.544Z",
       "monitoring_at": "2025-01-22T00:09:41.287Z",
       "resolved_at": "2025-01-22T01:26:30.000Z",
       "impact": "major",
@@ -123,6 +136,19 @@
       "started_at": "2025-01-21T23:24:38.000Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "jjdbp4qr2tgx",
+          "status": "postmortem",
+          "body": "## Summary\n\nFrom January 21, 2025 at 23:50 UTC to January 22, 2025 at 00:56 UTC, CircleCI customers experienced increased latency with starting and canceling workflows and jobs, and experienced delays and difficulty viewing workflows in the UI. We appreciate your patience and understanding as we worked to resolve this incident.\n\n## What Happened\n\n\\(all times UTC\\)\n\nAt approximately 23:00 on January 21, an automated alert indicated that a database instance responsible for holding archived data was almost out of free storage space. At 23:09, the team halted a blue/green deployment on the database to free a logical replication slot, thinking that may have been the cause, but that did not help the database recover.\n\nThe archival service is called synchronously by the service responsible for orchestrating workflows. When the archival service’s database reached capacity, these requests started timing out, which impacted the overall performance of the workflows service. At 23:26, the workflows queue began to grow, leading to increased latency starting workflows and jobs, canceling jobs, and viewing workflows in the UI. This was not immediately attributed to the archival database issues in part because there was a separate alert at approximately the same time related to request volume, but when the queue continued to grow after that issue resolved, a separate team began to investigate workflows further and scaled up the event consumer responsible for processing the queue at 23:44.\n\nThe team investigating the unhealthy database instance promoted a read replica to a standalone primary at 23:55. By 00:03, the workflows queue depth returned to normal, which resolved workflow latency and UI impacts. However, at around the same time, Linux machine jobs began to queue downstream due to errors trying to provision instances with our cloud provider, which was actively investigating increased API error rates to the provisioning endpoint in our region. Requests began to be fulfilled around 00:32, but due to the volume of requests being processed, we also experienced rate limiting that extended the length of impact. Our queues returned to normal levels at 00:56, and the incident resolved at 01:26 after confirming there was no further impact.\n\nPost-incident, the team continued to investigate. The root cause was determined to be a code change made to a function in the impacted database on January 16th, which unintentionally created an excessive number of log messages. The function has been updated to fix this behavior.\n\n## Future Prevention and Process Improvement\n\nWe have added a max duration to the workflows retry policy for archiving workflows to allow it to fail earlier than the default timeout, limiting the potential impact on the workflows service should there be a future issue with the archival service. Longer-term, we intend to shift the workflow archival process to an event-based model to decouple the services.\n\nWhile alerting did indicate an issue with the archival database, the team did not have much time to address the problem before it caused customer impact because the database was filling significantly more quickly than previously forecasted. We will be implementing forecast and anomaly monitoring for our databases to alert us of unusual activity before it reaches critical levels.",
+          "incident_id": "ym5vldzgvxv5",
+          "created_at": "2025-01-31T21:26:28.589Z",
+          "updated_at": "2025-01-31T21:27:16.541Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "248dxpfhmx9l",
           "status": "resolved",
