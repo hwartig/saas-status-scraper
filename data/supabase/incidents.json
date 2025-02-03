@@ -4,15 +4,15 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-01-30T04:48:16.249Z"
+    "updated_at": "2025-02-03T22:02:17.592Z"
   },
   "incidents": [
     {
       "id": "zk493yyz17hy",
       "name": "Supavisor pooler and Storage connectivity issues in US-East-1",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-01-29T16:13:17.000Z",
-      "updated_at": "2025-01-29T17:55:53.668Z",
+      "updated_at": "2025-02-03T22:02:17.589Z",
       "monitoring_at": "2025-01-29T17:07:09.191Z",
       "resolved_at": "2025-01-29T17:55:53.651Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2025-01-29T16:13:17.000Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "88mj6zlcwhdq",
+          "status": "postmortem",
+          "body": "## Incident Summary\n\n**Date:** January 29, 2025  \n**Service Impacted:** Supavisor – Postgres connection pooler  \n**Affected Region:** us-east-1  \n**Duration:** ~1 hour\n\n## Background\n\nSupavisor is responsible for managing Postgres connections. The team scheduled a major upgrade to Supavisor 2.0 across 10 regions. The new version had already been successfully deployed in 9 smaller regions over the past few weeks, offering improvements in query latency and availability zone awareness.\n\n## Timeline of Events\n\n* **13:00 UTC** – Maintenance began, and Supavisor 2.0 was successfully deployed to 9 regions with minimal downtime, requiring only client connection restarts.\n* **14:46 UTC** – Deployment to `us-east-1` was completed successfully with clients reconnected and throughput stable. \n* **16:05 UTC** – A majority of clients disconnected and failed to reconnect reliably.\n* **16:11 UTC** – Incident was declared, and rollback initiated.\n* **16:53 UTC** – Rollback completed, restoring stability.\n\n## Root Cause Analysis\n\n### Primary Cause\n\nThe failure stemmed from an ETS \\(Erlang Term Storage\\) table corruption, affecting critical components:\n\n* **16:05:50 UTC** – An `:ets.select_delete` operation failed, causing corruption.\n* **16:05:56 UTC** – Process registry lookups, backed by ETS, in `Syn` and `Cachex` libraries began failing and prevented tenants from reconnecting.\n* **16:06:00 UTC** – Processes managed by the affected process registry crashed, dropping connections for ~80% of tenants.\n\n## Resolution\n\n* Rollback to the previous Supavisor version was initiated.\n* The previous stable version restored normal operation.\n\n## Action Items\n\n* **Faster rollbacks** – Reduce rollback time from 40 minutes to under 90 seconds.\n* **Improved alerting** – Detect client disconnections within 2 minutes.\n\n## Conclusion\n\nThe incident highlighted weaknesses in rollback speed and resiliency to unforeseen failures under load. Future improvements will focus on rollback efficiency to reduce the impact of similar deployment failures.",
+          "incident_id": "zk493yyz17hy",
+          "created_at": "2025-02-03T21:48:03.341Z",
+          "updated_at": "2025-02-03T22:02:17.586Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "f65xhk344r9y",
           "status": "resolved",
