@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-02-04T19:30:47.003-08:00"
+    "updated_at": "2025-02-04T20:01:22.892-08:00"
   },
   "components": [
     {
@@ -1086,9 +1086,9 @@
     {
       "id": "42zx9w2kmtvf",
       "name": "SMS, Latin America",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:53:08.618-08:00",
-      "updated_at": "2025-01-31T22:17:05.508-08:00",
+      "updated_at": "2025-02-04T19:45:26.736-08:00",
       "position": 9,
       "description": null,
       "showcase": false,
@@ -1230,9 +1230,9 @@
     {
       "id": "8qjql0kqnd33",
       "name": "SMS, APAC",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:53:31.990-08:00",
-      "updated_at": "2025-02-03T05:29:10.899-08:00",
+      "updated_at": "2025-02-04T19:54:30.262-08:00",
       "position": 11,
       "description": null,
       "showcase": false,
@@ -1477,9 +1477,9 @@
     {
       "id": "llgdln3dcs6p",
       "name": "SMS, Europe",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2019-01-10T08:53:50.789-08:00",
-      "updated_at": "2025-02-04T18:29:51.227-08:00",
+      "updated_at": "2025-02-04T20:01:22.836-08:00",
       "position": 14,
       "description": null,
       "showcase": false,
@@ -1628,7 +1628,7 @@
     {
       "id": "j8hlnyphbbs0",
       "name": "CARRIER NETWORK",
-      "status": "under_maintenance",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:24:19.092-08:00",
       "updated_at": "2023-07-03T12:51:21.552-07:00",
       "position": 16,
@@ -1742,9 +1742,9 @@
     {
       "id": "trrz5ztt7pl8",
       "name": "Verify Silent Network Auth",
-      "status": "under_maintenance",
+      "status": "operational",
       "created_at": "2022-12-06T16:20:09.238-08:00",
-      "updated_at": "2025-02-04T08:20:21.426-08:00",
+      "updated_at": "2025-02-04T20:00:21.411-08:00",
       "position": 17,
       "description": null,
       "showcase": false,
@@ -1757,9 +1757,9 @@
     {
       "id": "fsxs9n9yf4m7",
       "name": "Lookup Identity Match",
-      "status": "under_maintenance",
+      "status": "operational",
       "created_at": "2022-12-06T16:21:46.337-08:00",
-      "updated_at": "2025-02-04T14:00:21.747-08:00",
+      "updated_at": "2025-02-04T20:00:21.464-08:00",
       "position": 18,
       "description": null,
       "showcase": false,
@@ -1903,9 +1903,9 @@
     {
       "id": "q0hp6vfr4vvh",
       "name": "Lookup SIM Swap",
-      "status": "under_maintenance",
+      "status": "operational",
       "created_at": "2022-12-06T16:22:32.133-08:00",
-      "updated_at": "2025-02-04T14:00:21.821-08:00",
+      "updated_at": "2025-02-04T20:00:21.508-08:00",
       "position": 21,
       "description": null,
       "showcase": false,
@@ -1954,17 +1954,37 @@
   "incidents": [
     {
       "id": "p2pz5w4hv7fq",
-      "name": "Multiple Binds Down Twilio US & Twilio Sweden Providers",
+      "name": "SMS Delivery Delays To a subset of Twilio Australia Phone Numbers",
       "status": "investigating",
       "created_at": "2025-02-04T19:30:46.944-08:00",
-      "updated_at": "2025-02-04T19:30:46.999-08:00",
+      "updated_at": "2025-02-04T19:54:30.311-08:00",
       "monitoring_at": null,
       "resolved_at": null,
-      "impact": "none",
+      "impact": "minor",
       "shortlink": "https://stspg.io/nlqkzr8fvqvc",
       "started_at": "2025-02-04T19:30:46.933-08:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "63hqvpwhvq9r",
+          "status": "investigating",
+          "body": "We are experiencing SMS Delivery Delays To a subset of Twilio Australia Phone Numbers. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "p2pz5w4hv7fq",
+          "created_at": "2025-02-04T19:54:30.309-08:00",
+          "updated_at": "2025-02-04T19:54:30.309-08:00",
+          "display_at": "2025-02-04T19:54:30.309-08:00",
+          "affected_components": [
+            {
+              "code": "8qjql0kqnd33",
+              "name": "CARRIER NETWORK - SMS, APAC",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "g4w0msx8lx93",
           "status": "investigating",
@@ -1979,7 +1999,76 @@
           "tweet_id": null
         }
       ],
-      "components": [],
+      "components": [
+        {
+          "id": "8qjql0kqnd33",
+          "name": "SMS, APAC",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:53:31.990-08:00",
+          "updated_at": "2025-02-04T19:54:30.262-08:00",
+          "position": 11,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "8s19cc9pf5pd",
+      "name": "SMS Delivery Delays to Telefonica Network in Chile",
+      "status": "investigating",
+      "created_at": "2025-02-04T19:45:26.690-08:00",
+      "updated_at": "2025-02-04T19:45:26.798-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/2f0x0qg74k9l",
+      "started_at": "2025-02-04T19:45:26.678-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "8rbbfs2ng9bk",
+          "status": "investigating",
+          "body": "We are experiencing SMS Delivery Delays to Telefonica Network in Chile. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "8s19cc9pf5pd",
+          "created_at": "2025-02-04T19:45:26.795-08:00",
+          "updated_at": "2025-02-04T19:45:26.795-08:00",
+          "display_at": "2025-02-04T19:45:26.795-08:00",
+          "affected_components": [
+            {
+              "code": "42zx9w2kmtvf",
+              "name": "CARRIER NETWORK - SMS, Latin America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "42zx9w2kmtvf",
+          "name": "SMS, Latin America",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:53:08.618-08:00",
+          "updated_at": "2025-02-04T19:45:26.736-08:00",
+          "position": 9,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
       "reminder_intervals": null
     },
     {
@@ -2277,73 +2366,6 @@
   ],
   "scheduled_maintenances": [
     {
-      "id": "j68sf4ttw5vk",
-      "name": "Spain SMS Carrier Partner Maintenance",
-      "status": "scheduled",
-      "created_at": "2025-01-29T12:15:43.039-08:00",
-      "updated_at": "2025-02-04T19:00:38.675-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/jp082cf0n2b3",
-      "started_at": "2025-01-29T12:15:43.030-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "s5g8kmt7f61q",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "j68sf4ttw5vk",
-          "created_at": "2025-02-04T19:00:38.055-08:00",
-          "updated_at": "2025-02-04T19:00:38.055-08:00",
-          "display_at": "2025-02-04T19:00:38.055-08:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wrncx56r1g3d",
-          "status": "scheduled",
-          "body": "Our SMS carrier partner in Spain is conducting a planned maintenance from 04 February 2025 at 20:00 PST until 04 February 2025 at 22:00 PST. During the maintenance window, there could be intermittent delays delivering SMS to and from Spain handsets.",
-          "incident_id": "j68sf4ttw5vk",
-          "created_at": "2025-01-29T12:15:43.095-08:00",
-          "updated_at": "2025-01-29T12:15:43.095-08:00",
-          "display_at": "2025-01-29T12:15:43.095-08:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "under_maintenance",
-              "new_status": "under_maintenance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "llgdln3dcs6p",
-          "name": "SMS, Europe",
-          "status": "operational",
-          "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2025-02-04T18:29:51.227-08:00",
-          "position": 14,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2025-02-04T20:00:00.000-08:00",
-      "scheduled_until": "2025-02-04T22:00:00.000-08:00"
-    },
-    {
       "id": "2jkd86brtwrx",
       "name": "Russia SMS Carrier Maintenance - MTT",
       "status": "scheduled",
@@ -2381,9 +2403,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2025-02-04T18:29:51.227-08:00",
+          "updated_at": "2025-02-04T20:01:22.836-08:00",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -2435,9 +2457,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2025-02-04T18:29:51.227-08:00",
+          "updated_at": "2025-02-04T20:01:22.836-08:00",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -2845,60 +2867,6 @@
       "scheduled_until": "2025-02-06T03:00:00.000-08:00"
     },
     {
-      "id": "zdm4vqqzsgwc",
-      "name": "Afghanistan SMS Carrier Maintenance - AWCC",
-      "status": "scheduled",
-      "created_at": "2025-02-04T16:02:41.261-08:00",
-      "updated_at": "2025-02-04T16:02:41.311-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/tb56d140h6bj",
-      "started_at": "2025-02-04T16:02:41.252-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "z3zywxnmxq3c",
-          "status": "scheduled",
-          "body": "The AWCC network in Afghanistan is conducting a planned maintenance from 06 February 2025 at 07:00 PST until 06 February 2025 at 09:00 PST. During the maintenance window, there could be intermittent delays delivering SMS to AWCC Afghanistan handsets.",
-          "incident_id": "zdm4vqqzsgwc",
-          "created_at": "2025-02-04T16:02:41.308-08:00",
-          "updated_at": "2025-02-04T16:02:41.308-08:00",
-          "display_at": "2025-02-04T16:02:41.308-08:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "8qjql0kqnd33",
-          "name": "SMS, APAC",
-          "status": "operational",
-          "created_at": "2019-01-10T08:53:31.990-08:00",
-          "updated_at": "2025-02-03T05:29:10.899-08:00",
-          "position": 11,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2025-02-06T07:00:00.000-08:00",
-      "scheduled_until": "2025-02-06T09:00:00.000-08:00"
-    },
-    {
       "id": "c34qszs3l8vj",
       "name": "Senegal SMS Carrier Maintenance - Expresso",
       "status": "scheduled",
@@ -2943,6 +2911,60 @@
           "description": null,
           "showcase": false,
           "start_date": "2023-03-23",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-02-06T07:00:00.000-08:00",
+      "scheduled_until": "2025-02-06T09:00:00.000-08:00"
+    },
+    {
+      "id": "zdm4vqqzsgwc",
+      "name": "Afghanistan SMS Carrier Maintenance - AWCC",
+      "status": "scheduled",
+      "created_at": "2025-02-04T16:02:41.261-08:00",
+      "updated_at": "2025-02-04T16:02:41.311-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/tb56d140h6bj",
+      "started_at": "2025-02-04T16:02:41.252-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "z3zywxnmxq3c",
+          "status": "scheduled",
+          "body": "The AWCC network in Afghanistan is conducting a planned maintenance from 06 February 2025 at 07:00 PST until 06 February 2025 at 09:00 PST. During the maintenance window, there could be intermittent delays delivering SMS to AWCC Afghanistan handsets.",
+          "incident_id": "zdm4vqqzsgwc",
+          "created_at": "2025-02-04T16:02:41.308-08:00",
+          "updated_at": "2025-02-04T16:02:41.308-08:00",
+          "display_at": "2025-02-04T16:02:41.308-08:00",
+          "affected_components": [
+            {
+              "code": "8qjql0kqnd33",
+              "name": "CARRIER NETWORK - SMS, APAC",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "8qjql0kqnd33",
+          "name": "SMS, APAC",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:53:31.990-08:00",
+          "updated_at": "2025-02-04T19:54:30.262-08:00",
+          "position": 11,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
           "group_id": "j8hlnyphbbs0",
           "page_id": "gpkpyklzq55q",
           "group": false,
@@ -3152,9 +3174,9 @@
         {
           "id": "trrz5ztt7pl8",
           "name": "Verify Silent Network Auth",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2022-12-06T16:20:09.238-08:00",
-          "updated_at": "2025-02-04T08:20:21.426-08:00",
+          "updated_at": "2025-02-04T20:00:21.411-08:00",
           "position": 17,
           "description": null,
           "showcase": false,
@@ -3167,9 +3189,9 @@
         {
           "id": "fsxs9n9yf4m7",
           "name": "Lookup Identity Match",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2022-12-06T16:21:46.337-08:00",
-          "updated_at": "2025-02-04T14:00:21.747-08:00",
+          "updated_at": "2025-02-04T20:00:21.464-08:00",
           "position": 18,
           "description": null,
           "showcase": false,
@@ -3182,9 +3204,9 @@
         {
           "id": "q0hp6vfr4vvh",
           "name": "Lookup SIM Swap",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2022-12-06T16:22:32.133-08:00",
-          "updated_at": "2025-02-04T14:00:21.821-08:00",
+          "updated_at": "2025-02-04T20:00:21.508-08:00",
           "position": 21,
           "description": null,
           "showcase": false,
@@ -3467,9 +3489,9 @@
         {
           "id": "trrz5ztt7pl8",
           "name": "Verify Silent Network Auth",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2022-12-06T16:20:09.238-08:00",
-          "updated_at": "2025-02-04T08:20:21.426-08:00",
+          "updated_at": "2025-02-04T20:00:21.411-08:00",
           "position": 17,
           "description": null,
           "showcase": false,
@@ -3482,9 +3504,9 @@
         {
           "id": "fsxs9n9yf4m7",
           "name": "Lookup Identity Match",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2022-12-06T16:21:46.337-08:00",
-          "updated_at": "2025-02-04T14:00:21.747-08:00",
+          "updated_at": "2025-02-04T20:00:21.464-08:00",
           "position": 18,
           "description": null,
           "showcase": false,
@@ -3497,9 +3519,9 @@
         {
           "id": "q0hp6vfr4vvh",
           "name": "Lookup SIM Swap",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2022-12-06T16:22:32.133-08:00",
-          "updated_at": "2025-02-04T14:00:21.821-08:00",
+          "updated_at": "2025-02-04T20:00:21.508-08:00",
           "position": 21,
           "description": null,
           "showcase": false,
@@ -3572,9 +3594,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2025-02-04T18:29:51.227-08:00",
+          "updated_at": "2025-02-04T20:01:22.836-08:00",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -3803,9 +3825,9 @@
         {
           "id": "fsxs9n9yf4m7",
           "name": "Lookup Identity Match",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2022-12-06T16:21:46.337-08:00",
-          "updated_at": "2025-02-04T14:00:21.747-08:00",
+          "updated_at": "2025-02-04T20:00:21.464-08:00",
           "position": 18,
           "description": null,
           "showcase": false,
@@ -3818,9 +3840,9 @@
         {
           "id": "q0hp6vfr4vvh",
           "name": "Lookup SIM Swap",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2022-12-06T16:22:32.133-08:00",
-          "updated_at": "2025-02-04T14:00:21.821-08:00",
+          "updated_at": "2025-02-04T20:00:21.508-08:00",
           "position": 21,
           "description": null,
           "showcase": false,
@@ -3902,6 +3924,93 @@
       ],
       "scheduled_for": "2025-02-19T14:00:00.000-08:00",
       "scheduled_until": "2025-02-19T19:00:00.000-08:00"
+    },
+    {
+      "id": "j68sf4ttw5vk",
+      "name": "Spain SMS Carrier Partner Maintenance",
+      "status": "in_progress",
+      "created_at": "2025-01-29T12:15:43.039-08:00",
+      "updated_at": "2025-02-04T20:01:22.882-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/jp082cf0n2b3",
+      "started_at": "2025-01-29T12:15:43.030-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "sls1pxyjlr8b",
+          "status": "in_progress",
+          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
+          "incident_id": "j68sf4ttw5vk",
+          "created_at": "2025-02-04T20:01:22.878-08:00",
+          "updated_at": "2025-02-04T20:01:22.878-08:00",
+          "display_at": "2025-02-04T20:01:22.878-08:00",
+          "affected_components": [
+            {
+              "code": "llgdln3dcs6p",
+              "name": "CARRIER NETWORK - SMS, Europe",
+              "old_status": "operational",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "s5g8kmt7f61q",
+          "status": "scheduled",
+          "body": "Maintenance will begin as scheduled in 60 minutes.",
+          "incident_id": "j68sf4ttw5vk",
+          "created_at": "2025-02-04T19:00:38.055-08:00",
+          "updated_at": "2025-02-04T19:00:38.055-08:00",
+          "display_at": "2025-02-04T19:00:38.055-08:00",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "wrncx56r1g3d",
+          "status": "scheduled",
+          "body": "Our SMS carrier partner in Spain is conducting a planned maintenance from 04 February 2025 at 20:00 PST until 04 February 2025 at 22:00 PST. During the maintenance window, there could be intermittent delays delivering SMS to and from Spain handsets.",
+          "incident_id": "j68sf4ttw5vk",
+          "created_at": "2025-01-29T12:15:43.095-08:00",
+          "updated_at": "2025-01-29T12:15:43.095-08:00",
+          "display_at": "2025-01-29T12:15:43.095-08:00",
+          "affected_components": [
+            {
+              "code": "llgdln3dcs6p",
+              "name": "CARRIER NETWORK - SMS, Europe",
+              "old_status": "under_maintenance",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "llgdln3dcs6p",
+          "name": "SMS, Europe",
+          "status": "under_maintenance",
+          "created_at": "2019-01-10T08:53:50.789-08:00",
+          "updated_at": "2025-02-04T20:01:22.836-08:00",
+          "position": 14,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-02-04T20:00:00.000-08:00",
+      "scheduled_until": "2025-02-04T22:00:00.000-08:00"
     },
     {
       "id": "bygpjvp3tys2",
@@ -4018,141 +4127,6 @@
       "scheduled_until": "2025-02-06T05:00:00.000-08:00"
     },
     {
-      "id": "j5mml03812r1",
-      "name": "United Kingdom Account Security Carrier Partner Maintenance - EE",
-      "status": "in_progress",
-      "created_at": "2025-01-31T04:35:10.959-08:00",
-      "updated_at": "2025-02-04T14:00:21.962-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/5cjcxfvnc9r8",
-      "started_at": "2025-01-31T04:35:10.950-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "xjw4x2dwjq27",
-          "status": "in_progress",
-          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
-          "incident_id": "j5mml03812r1",
-          "created_at": "2025-02-04T14:00:21.949-08:00",
-          "updated_at": "2025-02-04T14:00:21.949-08:00",
-          "display_at": "2025-02-04T14:00:21.949-08:00",
-          "affected_components": [
-            {
-              "code": "fsxs9n9yf4m7",
-              "name": "CARRIER NETWORK - Lookup Identity Match",
-              "old_status": "operational",
-              "new_status": "under_maintenance"
-            },
-            {
-              "code": "q0hp6vfr4vvh",
-              "name": "CARRIER NETWORK - Lookup SIM Swap",
-              "old_status": "operational",
-              "new_status": "under_maintenance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5981dw1d5g49",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "j5mml03812r1",
-          "created_at": "2025-02-04T13:00:21.901-08:00",
-          "updated_at": "2025-02-04T13:00:21.901-08:00",
-          "display_at": "2025-02-04T13:00:21.901-08:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2ty4n9bhjdw5",
-          "status": "scheduled",
-          "body": "Our carrier partner EE United Kingdom is conducting a planned maintenance from 04 February 2025 at 14:00 PST until 04 February 2025 at 20:00 PST. During the maintenance window, there could be intermittent API request failures for EE United Kingdom customers.<BR>\n<BR>\nImpacted Products: Verify Silent Network Auth, Lookup Identity Match, Lookup SIM Swap,  Legacy Identity MatchAndAttributes",
-          "incident_id": "j5mml03812r1",
-          "created_at": "2025-01-31T04:35:11.016-08:00",
-          "updated_at": "2025-01-31T04:35:11.016-08:00",
-          "display_at": "2025-01-31T04:35:11.016-08:00",
-          "affected_components": [
-            {
-              "code": "trrz5ztt7pl8",
-              "name": "CARRIER NETWORK - Verify Silent Network Auth",
-              "old_status": "under_maintenance",
-              "new_status": "under_maintenance"
-            },
-            {
-              "code": "fsxs9n9yf4m7",
-              "name": "CARRIER NETWORK - Lookup Identity Match",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "q0hp6vfr4vvh",
-              "name": "CARRIER NETWORK - Lookup SIM Swap",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "trrz5ztt7pl8",
-          "name": "Verify Silent Network Auth",
-          "status": "under_maintenance",
-          "created_at": "2022-12-06T16:20:09.238-08:00",
-          "updated_at": "2025-02-04T08:20:21.426-08:00",
-          "position": 17,
-          "description": null,
-          "showcase": false,
-          "start_date": "2022-12-06",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "fsxs9n9yf4m7",
-          "name": "Lookup Identity Match",
-          "status": "under_maintenance",
-          "created_at": "2022-12-06T16:21:46.337-08:00",
-          "updated_at": "2025-02-04T14:00:21.747-08:00",
-          "position": 18,
-          "description": null,
-          "showcase": false,
-          "start_date": "2022-12-06",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "q0hp6vfr4vvh",
-          "name": "Lookup SIM Swap",
-          "status": "under_maintenance",
-          "created_at": "2022-12-06T16:22:32.133-08:00",
-          "updated_at": "2025-02-04T14:00:21.821-08:00",
-          "position": 21,
-          "description": null,
-          "showcase": false,
-          "start_date": "2022-12-06",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2025-02-04T14:00:00.000-08:00",
-      "scheduled_until": "2025-02-04T20:00:00.000-08:00"
-    },
-    {
       "id": "l6xt53x1ngbq",
       "name": "United States Account Security Carrier Partner Maintenance - AT&T",
       "status": "in_progress",
@@ -4210,9 +4184,9 @@
         {
           "id": "trrz5ztt7pl8",
           "name": "Verify Silent Network Auth",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2022-12-06T16:20:09.238-08:00",
-          "updated_at": "2025-02-04T08:20:21.426-08:00",
+          "updated_at": "2025-02-04T20:00:21.411-08:00",
           "position": 17,
           "description": null,
           "showcase": false,
@@ -4297,9 +4271,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2025-02-04T18:29:51.227-08:00",
+          "updated_at": "2025-02-04T20:01:22.836-08:00",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -4315,7 +4289,7 @@
     }
   ],
   "status": {
-    "indicator": "maintenance",
-    "description": "Service Under Maintenance"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
