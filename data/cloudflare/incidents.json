@@ -4,9 +4,83 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-02-05T19:43:37.618Z"
+    "updated_at": "2025-02-05T21:01:21.171Z"
   },
   "incidents": [
+    {
+      "id": "d4zfptnw15pf",
+      "name": "Magic Tunnel Health Checks Analytics Delayed",
+      "status": "identified",
+      "created_at": "2025-02-05T20:51:02.074Z",
+      "updated_at": "2025-02-05T20:51:02.219Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/ql5642jfvjkl",
+      "started_at": "2025-02-05T20:51:02.061Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "q22ftb79ktm6",
+          "status": "identified",
+          "body": "We have identified and are working to fix an issue where Tunnel Health Check Analytics for some tunnels are delayed in the UI. No data has been lost and data plane behavior is unaffected.",
+          "incident_id": "d4zfptnw15pf",
+          "created_at": "2025-02-05T20:51:02.215Z",
+          "updated_at": "2025-02-05T20:51:02.215Z",
+          "display_at": "2025-02-05T20:51:02.215Z",
+          "affected_components": [
+            {
+              "code": "bjlxcss20fsl",
+              "name": "Cloudflare Sites and Services - Magic Transit",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "qgnxz00j1f2v",
+              "name": "Cloudflare Sites and Services - Magic WAN",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "bjlxcss20fsl",
+          "name": "Magic Transit",
+          "status": "degraded_performance",
+          "created_at": "2020-12-17T09:48:10.912Z",
+          "updated_at": "2025-02-05T20:51:02.121Z",
+          "position": 56,
+          "description": null,
+          "showcase": false,
+          "start_date": "2020-12-17",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "qgnxz00j1f2v",
+          "name": "Magic WAN",
+          "status": "degraded_performance",
+          "created_at": "2022-12-22T09:51:36.130Z",
+          "updated_at": "2025-02-05T20:51:02.148Z",
+          "position": 57,
+          "description": "Magic WAN replaces legacy WAN architectures with Cloudflare’s network, providing global connectivity, cloud-based security, performance, and control through one simple user interface.",
+          "showcase": false,
+          "start_date": "2022-12-22",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "m90shgg0k4dd",
       "name": "Network Performance Issues",
@@ -4402,79 +4476,6 @@
           "updated_at": "2025-01-03T01:26:42.319Z",
           "position": 52,
           "description": "Load balancing and failover service, including origin server monitoring",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "ly9k9qqpk5hn",
-      "name": "Some Low Cache TTL values not being respected",
-      "status": "resolved",
-      "created_at": "2025-01-13T20:15:14.968Z",
-      "updated_at": "2025-01-14T04:47:19.770Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-01-14T04:47:19.759Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/pvwrmksgxtz2",
-      "started_at": "2025-01-13T20:15:14.961Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "20dkd840rytw",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "ly9k9qqpk5hn",
-          "created_at": "2025-01-14T04:47:19.759Z",
-          "updated_at": "2025-01-14T04:47:19.759Z",
-          "display_at": "2025-01-14T04:47:19.759Z",
-          "affected_components": [
-            {
-              "code": "5wnz34mhfhrk",
-              "name": "Cloudflare Sites and Services - CDN/Cache",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "81pdrsfm5qq3",
-          "status": "identified",
-          "body": "Cloudflare has identified an issue with Low Edge Cache TTL during assets revalidation. Cached requests TTL might intermittently not be respected.",
-          "incident_id": "ly9k9qqpk5hn",
-          "created_at": "2025-01-13T20:15:15.056Z",
-          "updated_at": "2025-01-13T20:15:15.056Z",
-          "display_at": "2025-01-13T20:15:15.056Z",
-          "affected_components": [
-            {
-              "code": "5wnz34mhfhrk",
-              "name": "Cloudflare Sites and Services - CDN/Cache",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "5wnz34mhfhrk",
-          "name": "CDN/Cache",
-          "status": "operational",
-          "created_at": "2020-03-25T19:03:33.850Z",
-          "updated_at": "2025-01-14T04:47:19.724Z",
-          "position": 21,
-          "description": null,
           "showcase": false,
           "start_date": null,
           "group_id": "1km35smx8p41",
