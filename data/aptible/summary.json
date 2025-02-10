@@ -4,7 +4,7 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2025-02-10T12:25:56.297-05:00"
+    "updated_at": "2025-02-10T17:49:41.931-05:00"
   },
   "components": [
     {
@@ -341,7 +341,170 @@
     }
   ],
   "incidents": [],
-  "scheduled_maintenances": [],
+  "scheduled_maintenances": [
+    {
+      "id": "0r3sbvx4d8l5",
+      "name": "Database SSL Certificate Rotation - Shared Stacks Database restarted automatically",
+      "status": "scheduled",
+      "created_at": "2025-02-10T17:49:36.211-05:00",
+      "updated_at": "2025-02-10T17:49:36.589-05:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/csgxfpd5hlpq",
+      "started_at": "2025-02-10T17:49:36.206-05:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "lzt3sxz00ktw",
+          "status": "scheduled",
+          "body": "Impacted database types: Elasticsearch, Redis, InfluxDB, MongoDB, RabbitMQ, CouchDB\n\nThe above listed database types will need to be restarted to update load a newly issued *.aptible.in certificate. The current certificate is set to expire March 15, 2025.\n\nAptible will restart the impacted Databases on Shared Stacks for you on Friday February 16th.\n\nAdditional maintenance periods will be scheduled for updating Databases hosted on Dedicated Stacks.\n\n--------\n\nThis notice pertains to one of three windows scheduled. The full timeline for Database certificate updates process process is as follows:\n\nFeb 10 : New Database Certificate will be available on Shared Stacks. You may restart your database at any time before the maintenance time to complete the update on your own schedule.\n\nFeb 16 : All Shared Stack databases will be restarted to load the new certificate\n\nFeb 18 4:00 PM EST : The new certificate will be available for all Dedicated Stacks.\n\nFeb 18 through March 9: Customers should restart impacted Databases on their Dedicated Stacks at their convenience to update the certificate.\n\nMarch 9: Aptible's SRE team will identify any and all databases using the expiring certificate, and restart them between 8:00 PM and 11:59 PM Eastern\n\n--------\n\nFAQ: \n\nQ: Do I need to test anything?\nA: While we do not expect any compatibility issues (we're using the same issuer as the past several year), we have seen in rare occasions client applications may also need to be restarted after a database due to issues unrelated to the certificate. \n\nQ: Do I need to \"restart\", or can I \"reload\" my databases?\nA: Please use  the command `aptible db:restart`.  If you need to restart your database for any reason, either to scale the disk size or container size, the certificate will be updated.\n\nQ: How do I tell if my Database needs to be, and can be, restarted to update the certificate?\nA: During the maintenance window for Dedicated stacks, you should us the Aptible CLI command `aptible maintenance:dbs` to track which databases are required to be restarted. Please note that you need at least \"read\" permissions to see the databases requiring a restart. To ensure you are viewing information for all environments, its best this is reviewed by an Account Owner, Aptible Deploy Owner, or any user with privileges to all environments. \n\nQ: What happens if I don't take any action, or miss restarting a Database?\nA: Aptible's SRE team will identify any remaining Databases on March 9th, and restart them between 8:00PM and 11:59PM Eastern.\n\nQ: What about PostgreSQL and MySQL?\nA: PostgreSQL and MySQL Databases hosted on Aptible use self-signed certificates, and no action is required for them at this time. https://deploy-docs.aptible.com/docs/database-encryption-in-transit",
+          "incident_id": "0r3sbvx4d8l5",
+          "created_at": "2025-02-10T17:49:36.271-05:00",
+          "updated_at": "2025-02-10T17:49:36.587-05:00",
+          "display_at": "2025-02-10T17:49:36.271-05:00",
+          "affected_components": [
+            {
+              "code": "3f2df1dmxn4b",
+              "name": "Aptible Deploy",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1889084330145984783
+        }
+      ],
+      "components": [
+        {
+          "id": "3f2df1dmxn4b",
+          "name": "Aptible Deploy",
+          "status": "operational",
+          "created_at": "2017-07-25T12:40:40.556-04:00",
+          "updated_at": "2025-02-05T15:13:51.218-05:00",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-02-16T20:00:00.000-05:00",
+      "scheduled_until": "2025-02-17T00:00:00.000-05:00"
+    },
+    {
+      "id": "8cn5hv3k78sh",
+      "name": "Database SSL Certificate Rotation - Dedicated Stack Database self-service window",
+      "status": "scheduled",
+      "created_at": "2025-02-10T17:49:39.202-05:00",
+      "updated_at": "2025-02-10T17:49:39.562-05:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/16y0jrvmpgc7",
+      "started_at": "2025-02-10T17:49:39.198-05:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "7cl2bzpzfccl",
+          "status": "scheduled",
+          "body": "Impacted database types: Elasticsearch, Redis, InfluxDB, MongoDB, RabbitMQ, CouchDB\n\nThe above listed database types will need to be restarted to update load a newly issued *.aptible.in certificate. The current certificate is set to expire March 15, 2025.\n\nThe new certificate will be available on Dedicated Stacks starting Tuesday Feb 18th at 4:00 PM Eastern.  After this time, customers may restart impacted Databases on their Dedicated Stacks at their convenience to update the certificate.\n\nDuring this window you should us the Aptible CLI command `aptible maintenance:dbs` to track which databases are required to be restarted.\n\nPlease note that you need at least \"read\" permissions to see the databases requiring a restart. To ensure you are viewing information for all environments, its best this is reviewed by an Account Owner, Aptible Deploy Owner, or any user with privileges to all environments. \n\nIf you choose to take no action, Aptible's SRE team will identify any and all databases using the expiring certificate, and restart them on March 9th between 8:00 PM and 11:59 PM Eastern.\n\n\n--------\n\nThis notice pertains to one of three windows scheduled. The full timeline for Database certificate updates process process is as follows:\n\nFeb 10 : New Database Certificate will be available on Shared Stacks. You may restart your database at any time before the maintenance time to complete the update on your own schedule.\n\nFeb 16 : All Shared Stack databases will be restarted to load the new certificate\n\nFeb 18 4:00 PM EST : The new certificate will be available for all Dedicated Stacks.\n\nFeb 18 through March 9: Customers should restart impacted Databases on their Dedicated Stacks at their convenience to update the certificate.\n\nMarch 9: Aptible's SRE team will identify any and all databases using the expiring certificate, and restart them between 8:00 PM and 11:59 PM Eastern\n\n--------\n\nFAQ: \n\nQ: Do I need to test anything?\nA: While we do not expect any compatibility issues (we're using the same issuer as the past several year), we have seen in rare occasions client applications may also need to be restarted after a database due to issues unrelated to the certificate. \n\nQ: Do I need to \"restart\", or can I \"reload\" my databases?\nA: Please use  the command `aptible db:restart`.  If you need to restart your database for any reason, either to scale the disk size or container size, the certificate will be updated.\n\nQ: How do I tell if my Database needs to be, and can be, restarted to update the certificate?\nA: During the maintenance window for Dedicated stacks, you should us the Aptible CLI command `aptible maintenance:dbs` to track which databases are required to be restarted. Please note that you need at least \"read\" permissions to see the databases requiring a restart. To ensure you are viewing information for all environments, its best this is reviewed by an Account Owner, Aptible Deploy Owner, or any user with privileges to all environments. \n\nQ: What happens if I don't take any action, or miss restarting a Database?\nA: Aptible's SRE team will identify any remaining Databases on March 9th, and restart them between 8:00PM and 11:59PM Eastern.\n\nQ: What about PostgreSQL and MySQL?\nA: PostgreSQL and MySQL Databases hosted on Aptible use self-signed certificates, and no action is required for them at this time. https://deploy-docs.aptible.com/docs/database-encryption-in-transit",
+          "incident_id": "8cn5hv3k78sh",
+          "created_at": "2025-02-10T17:49:39.254-05:00",
+          "updated_at": "2025-02-10T17:49:39.560-05:00",
+          "display_at": "2025-02-10T17:49:39.254-05:00",
+          "affected_components": [
+            {
+              "code": "3f2df1dmxn4b",
+              "name": "Aptible Deploy",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1889084342632358204
+        }
+      ],
+      "components": [
+        {
+          "id": "3f2df1dmxn4b",
+          "name": "Aptible Deploy",
+          "status": "operational",
+          "created_at": "2017-07-25T12:40:40.556-04:00",
+          "updated_at": "2025-02-05T15:13:51.218-05:00",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-02-18T16:00:00.000-05:00",
+      "scheduled_until": "2025-03-09T17:00:00.000-04:00"
+    },
+    {
+      "id": "q5mv2l4fsrfd",
+      "name": "Database SSL Certificate Rotation - Dedicated Stack Database restarts",
+      "status": "scheduled",
+      "created_at": "2025-02-10T17:49:41.581-05:00",
+      "updated_at": "2025-02-10T17:49:41.927-05:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/wnsl4dtd8gn6",
+      "started_at": "2025-02-10T17:49:41.576-05:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "c1lm71fx1v92",
+          "status": "scheduled",
+          "body": "Impacted database types: Elasticsearch, Redis, InfluxDB, MongoDB, RabbitMQ, CouchDB\n\nThe above listed database types will need to be restarted to update load a newly issued *.aptible.in certificate. The current certificate is set to expire March 15, 2025.\n\nAptible's SRE team will identify any and all databases sill using the expiring certificate, and restart them on March 9th between 8:00 PM and 11:59 PM Eastern.\n\nYou may of course restart the database at any time of your choosing after Feb 18th in order to avoid this automated restart.\n\n--------\n\nThis notice pertains to one of three windows scheduled. The full timeline for Database certificate updates process process is as follows:\n\nFeb 10 : New Database Certificate will be available on Shared Stacks. You may restart your database at any time before the maintenance time to complete the update on your own schedule.\n\nFeb 16 : All Shared Stack databases will be restarted to load the new certificate\n\nFeb 18 4:00 PM EST : The new certificate will be available for all Dedicated Stacks.\n\nFeb 18 through March 9: Customers should restart impacted Databases on their Dedicated Stacks at their convenience to update the certificate.\n\nMarch 9: Aptible's SRE team will identify any and all databases using the expiring certificate, and restart them between 8:00 PM and 11:59 PM Eastern\n\n--------\n\nFAQ: \n\nQ: Do I need to test anything?\nA: While we do not expect any compatibility issues (we're using the same issuer as the past several year), we have seen in rare occasions client applications may also need to be restarted after a database due to issues unrelated to the certificate. \n\nQ: Do I need to \"restart\", or can I \"reload\" my databases?\nA: Please use  the command `aptible db:restart`.  If you need to restart your database for any reason, either to scale the disk size or container size, the certificate will be updated.\n\nQ: How do I tell if my Database needs to be, and can be, restarted to update the certificate?\nA: During the maintenance window for Dedicated stacks, you should us the Aptible CLI command `aptible maintenance:dbs` to track which databases are required to be restarted. Please note that you need at least \"read\" permissions to see the databases requiring a restart. To ensure you are viewing information for all environments, its best this is reviewed by an Account Owner, Aptible Deploy Owner, or any user with privileges to all environments. \n\nQ: What happens if I don't take any action, or miss restarting a Database?\nA: Aptible's SRE team will identify any remaining Databases on March 9th, and restart them between 8:00PM and 11:59PM Eastern.\n\nQ: What about PostgreSQL and MySQL?\nA: PostgreSQL and MySQL Databases hosted on Aptible use self-signed certificates, and no action is required for them at this time. https://deploy-docs.aptible.com/docs/database-encryption-in-transit",
+          "incident_id": "q5mv2l4fsrfd",
+          "created_at": "2025-02-10T17:49:41.627-05:00",
+          "updated_at": "2025-02-10T17:49:41.925-05:00",
+          "display_at": "2025-02-10T17:49:41.627-05:00",
+          "affected_components": [
+            {
+              "code": "3f2df1dmxn4b",
+              "name": "Aptible Deploy",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1889084352539369513
+        }
+      ],
+      "components": [
+        {
+          "id": "3f2df1dmxn4b",
+          "name": "Aptible Deploy",
+          "status": "operational",
+          "created_at": "2017-07-25T12:40:40.556-04:00",
+          "updated_at": "2025-02-05T15:13:51.218-05:00",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-03-09T20:00:00.000-04:00",
+      "scheduled_until": "2025-03-10T00:00:00.000-04:00"
+    }
+  ],
   "status": {
     "indicator": "none",
     "description": "All Systems Operational"
