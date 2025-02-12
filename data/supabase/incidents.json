@@ -4,9 +4,62 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-02-11T16:46:33.464Z"
+    "updated_at": "2025-02-12T13:28:53.600Z"
   },
   "incidents": [
+    {
+      "id": "s8xm3b3z3lc2",
+      "name": "Small segment of users seeing failed restores or project unpauses",
+      "status": "identified",
+      "created_at": "2025-02-12T13:28:53.516Z",
+      "updated_at": "2025-02-12T13:28:53.597Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/rg11ys520shf",
+      "started_at": "2025-02-12T13:28:53.511Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "vd4jxy37rb13",
+          "status": "identified",
+          "body": "We have identified an issue preventing approximately 570 projects from restoring successfully.\n\nThese are predominately free plan projects, and the team has identified the issue and has begun working to get these projects running again. We have also put a fix in place to prevent more projects from encountering this same issue.\n\nWe will update when all known projects are up and running again.",
+          "incident_id": "s8xm3b3z3lc2",
+          "created_at": "2025-02-12T13:28:53.595Z",
+          "updated_at": "2025-02-12T13:28:53.595Z",
+          "display_at": "2025-02-12T13:28:53.595Z",
+          "affected_components": [
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "yz6pcnlscwpb",
+          "name": "Database",
+          "status": "degraded_performance",
+          "created_at": "2024-05-02T07:14:49.000Z",
+          "updated_at": "2025-02-12T13:28:53.550Z",
+          "position": 6,
+          "description": "The Postgres database and the REST Data APIs powered by PostgREST",
+          "showcase": true,
+          "start_date": "2024-05-02",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "vm4lyj8j0jdb",
       "name": "Issues with Supavisor in us-east-1",
@@ -4788,212 +4841,6 @@
           "group": false,
           "only_show_if_degraded": false
         },
-        {
-          "id": "45jcpkfhw6hd",
-          "name": "Dashboard",
-          "status": "operational",
-          "created_at": "2020-11-27T15:23:00.100Z",
-          "updated_at": "2025-01-29T20:33:00.000Z",
-          "position": 5,
-          "description": "The studio, docs and primary website at https://supabase.com",
-          "showcase": true,
-          "start_date": "2020-11-27",
-          "group_id": null,
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "8jzxshdwlnj7",
-      "name": "Some New User Signups are not allowing new users to sign in",
-      "status": "resolved",
-      "created_at": "2024-07-04T13:40:47.375Z",
-      "updated_at": "2024-07-04T18:51:34.232Z",
-      "monitoring_at": "2024-07-04T17:20:14.507Z",
-      "resolved_at": "2024-07-04T18:51:34.218Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/6qf80f63c0cy",
-      "started_at": "2024-07-04T13:40:47.368Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "h3dxyf70ly28",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "8jzxshdwlnj7",
-          "created_at": "2024-07-04T18:51:34.218Z",
-          "updated_at": "2024-07-04T18:51:34.218Z",
-          "display_at": "2024-07-04T18:51:34.218Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "f74qkx598w28",
-          "status": "monitoring",
-          "body": "We have taken steps to restore the errant signups, and all users should be able to login now as expected.\n\nAll users should also now be able to do password resets as expected.\n\nIf you are still experiencing issues, please contact support at support@supabase.com",
-          "incident_id": "8jzxshdwlnj7",
-          "created_at": "2024-07-04T17:20:14.507Z",
-          "updated_at": "2024-07-04T17:20:14.507Z",
-          "display_at": "2024-07-04T17:20:14.507Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jzwx56rnsh1p",
-          "status": "identified",
-          "body": "We're still testing the least impactful method to get the new signups between 0900-14:30 UTC today back to a functional state. All signups outside of that period (both before and after) are unaffected.\n\nIf you signed up during those times, please hang tight. We'll be in touch with you all directly once we have the best path forward.",
-          "incident_id": "8jzxshdwlnj7",
-          "created_at": "2024-07-04T16:46:36.031Z",
-          "updated_at": "2024-07-04T16:46:36.031Z",
-          "display_at": "2024-07-04T16:46:36.031Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cglrq53rfbw9",
-          "status": "identified",
-          "body": "New Signups during this period will need additional action to remediate. We are working on resolution, and will reach out to all affected signups directly.\n\nAdditionally, we discovered that password reset attempts were also interrupted during this event. If you tried to reset your password before and did not get an email, please try again now. If you are still having trouble, please reach out to Supabase Support.",
-          "incident_id": "8jzxshdwlnj7",
-          "created_at": "2024-07-04T15:16:12.339Z",
-          "updated_at": "2024-07-04T15:16:12.339Z",
-          "display_at": "2024-07-04T15:16:12.339Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3wcm0thf94px",
-          "status": "identified",
-          "body": "A fix has been deployed, and new user sign-ups from this point forward should function as per normal. Existing users continue to be unaffected.\n\nWe're currently investigating if further action is needed for users that signed up during the 0900-1430Z interval.",
-          "incident_id": "8jzxshdwlnj7",
-          "created_at": "2024-07-04T14:29:19.003Z",
-          "updated_at": "2024-07-04T14:29:19.003Z",
-          "display_at": "2024-07-04T14:29:19.003Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0n6vk96cz4gq",
-          "status": "identified",
-          "body": "Existing users, who had signed up prior to ~0900Z 4th July are not affected.",
-          "incident_id": "8jzxshdwlnj7",
-          "created_at": "2024-07-04T14:11:48.289Z",
-          "updated_at": "2024-07-04T14:11:48.289Z",
-          "display_at": "2024-07-04T14:11:48.289Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "yc3gvg2jrd9r",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "8jzxshdwlnj7",
-          "created_at": "2024-07-04T13:52:57.590Z",
-          "updated_at": "2024-07-04T13:52:57.590Z",
-          "display_at": "2024-07-04T13:52:57.590Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "f882y21vk0yn",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "8jzxshdwlnj7",
-          "created_at": "2024-07-04T13:44:17.245Z",
-          "updated_at": "2024-07-04T13:44:17.245Z",
-          "display_at": "2024-07-04T13:44:17.245Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "sjh52kqsp8rs",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "8jzxshdwlnj7",
-          "created_at": "2024-07-04T13:40:47.417Z",
-          "updated_at": "2024-07-04T13:40:47.417Z",
-          "display_at": "2024-07-04T13:40:47.417Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
         {
           "id": "45jcpkfhw6hd",
           "name": "Dashboard",
