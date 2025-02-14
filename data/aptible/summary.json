@@ -4,7 +4,7 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2025-02-13T13:21:13.815-05:00"
+    "updated_at": "2025-02-13T19:26:18.771-05:00"
   },
   "components": [
     {
@@ -145,9 +145,9 @@
     {
       "id": "3f2df1dmxn4b",
       "name": "Aptible Deploy",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2017-07-25T12:40:40.556-04:00",
-      "updated_at": "2025-02-05T15:13:51.218-05:00",
+      "updated_at": "2025-02-13T18:51:13.991-05:00",
       "position": 7,
       "description": null,
       "showcase": true,
@@ -340,7 +340,81 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "mpmv8cqhxlnw",
+      "name": "Operations blocked - Route 53 propagation delays",
+      "status": "monitoring",
+      "created_at": "2025-02-13T18:51:13.962-05:00",
+      "updated_at": "2025-02-13T19:26:18.765-05:00",
+      "monitoring_at": "2025-02-13T19:26:18.458-05:00",
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/y2j84cv5gxf1",
+      "started_at": "2025-02-13T18:51:13.957-05:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "6x14ygnrkqpk",
+          "status": "monitoring",
+          "body": "We are noticing Route 53 record requests succeeding in a normal time frame, and are lifting the operation block at this time.\n\nWe'll continue to observe running operations to ensure stability.",
+          "incident_id": "mpmv8cqhxlnw",
+          "created_at": "2025-02-13T19:26:18.458-05:00",
+          "updated_at": "2025-02-13T19:26:18.759-05:00",
+          "display_at": "2025-02-13T19:26:18.458-05:00",
+          "affected_components": [
+            {
+              "code": "3f2df1dmxn4b",
+              "name": "Aptible Deploy",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1890195829748883730
+        },
+        {
+          "id": "6dq9fgp1gm1k",
+          "status": "identified",
+          "body": "We've noticed that some Operations are failing due to Route53 record changes not propagating within the 10 minute time limit allowed by our platform.\n\nIn order to prevent Apps and Databases DNS records from reaching an inconsistent state, we are temporarily blocking Operations.\n\nPerformance and reachability of existing Apps and Database is not impacted.",
+          "incident_id": "mpmv8cqhxlnw",
+          "created_at": "2025-02-13T18:51:14.030-05:00",
+          "updated_at": "2025-02-13T18:51:14.368-05:00",
+          "display_at": "2025-02-13T18:51:14.030-05:00",
+          "affected_components": [
+            {
+              "code": "3f2df1dmxn4b",
+              "name": "Aptible Deploy",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1890187003293233387
+        }
+      ],
+      "components": [
+        {
+          "id": "3f2df1dmxn4b",
+          "name": "Aptible Deploy",
+          "status": "partial_outage",
+          "created_at": "2017-07-25T12:40:40.556-04:00",
+          "updated_at": "2025-02-13T18:51:13.991-05:00",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "0r3sbvx4d8l5",
@@ -380,9 +454,9 @@
         {
           "id": "3f2df1dmxn4b",
           "name": "Aptible Deploy",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2025-02-05T15:13:51.218-05:00",
+          "updated_at": "2025-02-13T18:51:13.991-05:00",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -434,9 +508,9 @@
         {
           "id": "3f2df1dmxn4b",
           "name": "Aptible Deploy",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2025-02-05T15:13:51.218-05:00",
+          "updated_at": "2025-02-13T18:51:13.991-05:00",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -488,9 +562,9 @@
         {
           "id": "3f2df1dmxn4b",
           "name": "Aptible Deploy",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2025-02-05T15:13:51.218-05:00",
+          "updated_at": "2025-02-13T18:51:13.991-05:00",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -506,7 +580,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
