@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-02-15T21:22:15.817Z"
+    "updated_at": "2025-02-16T10:22:44.551Z"
   },
   "components": [
     {
@@ -70,9 +70,9 @@
     {
       "id": "15knchzwl5np",
       "name": "Customer Applications",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2024-07-24T19:09:04.958Z",
-      "updated_at": "2024-11-26T07:52:12.072Z",
+      "updated_at": "2025-02-16T10:11:01.269Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -100,9 +100,9 @@
     {
       "id": "66r6rhq3hn9n",
       "name": "Dashboard",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2019-07-10T17:28:27.083Z",
-      "updated_at": "2024-11-26T07:52:12.105Z",
+      "updated_at": "2025-02-16T10:11:01.287Z",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -175,9 +175,9 @@
     {
       "id": "80ykv2p95qgy",
       "name": "Machines API",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2020-04-01T21:30:26.075Z",
-      "updated_at": "2024-11-26T21:13:35.348Z",
+      "updated_at": "2025-02-16T10:11:01.304Z",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -190,7 +190,7 @@
     {
       "id": "mrcyzlkkw8z9",
       "name": "Regional Availability",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2019-07-01T19:19:04.424Z",
       "updated_at": "2024-07-24T19:09:19.587Z",
       "position": 4,
@@ -611,9 +611,9 @@
     {
       "id": "qyh8qlklk7mx",
       "name": "IAD - Ashburn, Virginia (US)",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2019-07-01T19:28:38.853Z",
-      "updated_at": "2025-01-23T21:42:28.964Z",
+      "updated_at": "2025-02-16T10:22:44.495Z",
       "position": 16,
       "description": null,
       "showcase": false,
@@ -943,10 +943,159 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "r6ksm5xyjy4y",
+      "name": "Network outage",
+      "status": "identified",
+      "created_at": "2025-02-16T10:11:01.228Z",
+      "updated_at": "2025-02-16T10:22:44.541Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/xkfrzxlcmd0w",
+      "started_at": "2025-02-16T10:11:01.000Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "jtwymhlhfslq",
+          "status": "identified",
+          "body": "The IAD region is unavailable due to an incident at an upstream provider. Our API is hosted in this region and as such is unavailable.",
+          "incident_id": "r6ksm5xyjy4y",
+          "created_at": "2025-02-16T10:22:44.538Z",
+          "updated_at": "2025-02-16T10:22:44.538Z",
+          "display_at": "2025-02-16T10:22:44.538Z",
+          "affected_components": [
+            {
+              "code": "qyh8qlklk7mx",
+              "name": "Regional Availability - IAD - Ashburn, Virginia (US)",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "66r6rhq3hn9n",
+              "name": "Dashboard",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "15knchzwl5np",
+              "name": "Customer Applications",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2q63gwbx1g9g",
+          "status": "investigating",
+          "body": "We are investigating widespread reports of networking issues. Apps appear to be running correctly but requests made to the apps may fail.\nThe API and dashboard are also unavailable at the moment.",
+          "incident_id": "r6ksm5xyjy4y",
+          "created_at": "2025-02-16T10:11:01.349Z",
+          "updated_at": "2025-02-16T10:12:27.539Z",
+          "display_at": "2025-02-16T10:11:01.000Z",
+          "affected_components": [
+            {
+              "code": "66r6rhq3hn9n",
+              "name": "Dashboard",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "15knchzwl5np",
+              "name": "Customer Applications",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "15knchzwl5np",
+          "name": "Customer Applications",
+          "status": "partial_outage",
+          "created_at": "2024-07-24T19:09:04.958Z",
+          "updated_at": "2025-02-16T10:11:01.269Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-07-24",
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "66r6rhq3hn9n",
+          "name": "Dashboard",
+          "status": "major_outage",
+          "created_at": "2019-07-10T17:28:27.083Z",
+          "updated_at": "2025-02-16T10:11:01.287Z",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "80ykv2p95qgy",
+          "name": "Machines API",
+          "status": "major_outage",
+          "created_at": "2020-04-01T21:30:26.075Z",
+          "updated_at": "2025-02-16T10:11:01.304Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "qyh8qlklk7mx",
+          "name": "IAD - Ashburn, Virginia (US)",
+          "status": "major_outage",
+          "created_at": "2019-07-01T19:28:38.853Z",
+          "updated_at": "2025-02-16T10:22:44.495Z",
+          "position": 16,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "major",
+    "description": "Partial System Outage"
   }
 }
