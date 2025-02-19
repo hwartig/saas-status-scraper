@@ -4,9 +4,62 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-02-19T08:10:11.764Z"
+    "updated_at": "2025-02-19T20:36:29.576Z"
   },
   "incidents": [
+    {
+      "id": "g37jfrsg7gyf",
+      "name": "Monitoring Alerts with tags",
+      "status": "investigating",
+      "created_at": "2025-02-19T20:36:29.477Z",
+      "updated_at": "2025-02-19T20:36:29.573Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/4s80nhzdcx04",
+      "started_at": "2025-02-19T20:36:29.470Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "qp32xrsc3zms",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating reports that alerts are not received when alerts are configured with tags. Users may not receive email notification of alerts when using tags, although resources specified by name are still monitored and receiving alerts properly.\n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "g37jfrsg7gyf",
+          "created_at": "2025-02-19T20:36:29.570Z",
+          "updated_at": "2025-02-19T20:36:29.570Z",
+          "display_at": "2025-02-19T20:36:29.570Z",
+          "affected_components": [
+            {
+              "code": "yht2qc1zfp6x",
+              "name": "Monitoring - Global",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "yht2qc1zfp6x",
+          "name": "Global",
+          "status": "degraded_performance",
+          "created_at": "2023-03-28T21:01:01.809Z",
+          "updated_at": "2025-02-19T20:36:29.514Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-28",
+          "group_id": "2d23wwyqgq6m",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "k07cn9nrghzn",
       "name": "Spaces and App Platform Deployments in BLR1 region",
@@ -7631,152 +7684,6 @@
           "showcase": false,
           "start_date": "2023-02-22",
           "group_id": "sjlhrm4vf4pr",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "fxvdq88ych5y",
-      "name": "Network Connectivity in SFO3 Region",
-      "status": "postmortem",
-      "created_at": "2024-09-25T23:34:54.182Z",
-      "updated_at": "2024-10-04T17:38:07.251Z",
-      "monitoring_at": "2024-09-26T02:15:13.902Z",
-      "resolved_at": "2024-09-26T02:45:02.427Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/26z014t2rqqx",
-      "started_at": "2024-09-25T23:34:54.176Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "c8m8wrmhf8p7",
-          "status": "postmortem",
-          "body": "## **Incident Summary**\n\nOn September 25, 2024 at 22:25 UTC, DigitalOcean experienced a reduction of datacenter capacity in SFO3 and impacted the availability of select DigitalOcean services. Due to a majority of the line cards rebooting at the same time on one of our core routers in SFO3, an inter-regional traffic interruption and traffic drop to the network backbone occurred. This issue impacted users of any DigitalOcean services in the SFO3 region, with a longer impact on select Managed Kubernetes Clusters \\(DOKS\\). \n\n‌\n\n## **Incident Details**\n\n_Networking_\n\n* **Root Cause**: Several line cards rebooted at the same time on one of the core routers, due to hardware errors on the network device.\n* **Impact**: Datacenter traffic capacity to/from the backbone was reduced by half during this incident. Network connectivity to some DigitalOcean services was affected.\n* **Response**: All of the crashed line cards came online quickly, allowing network traffic to begin flowing again and the core router to become operational.\n\n_Specific Impact on DOKS_\n\n* **Root Cause:** Due to the network issues from line card reboots, a number of DOKS fleet machines became unhealthy as guest networking failed to recover from the hardware fault.\n* **Impact:** Some customer clusters experienced connectivity issues and difficulty in accessing the K8s control plane until networking for the underlying nodes was restored.\n* **Response:** All affected nodes across the SFO3 region in the DOKS fleet were recycled.\n\n## **Timeline of Events**\n\nSep 25 22:21 - Large majority of line cards rebooted on the core router.\n\nSep 25 22:24 - Line cards became online.\n\nSep 25 22:25 - Network protocols started session establishment process.\n\nSep 25 22:30 - Traffic on the affected core router was restored.\n\nSep 25 22:50 - SFO3 control plane systems all reconnected and recovered. \n\nSep 25 23:07 - DOKS API servers degraded.\n\nSep 25 23:59 - Some DOKS clusters in the SFO3 region could not be scraped. Several nodes were discovered to be in a “not ready” state.\n\nSep 26 01:40 - All impacted DOKS nodes recycled and clusters are operational. \n\n## **Remediation Actions**\n\nDigitalOcean teams are working on multiple types of remediation to help prevent a similar incident from happening in the future. \n\nDigitalOcean is working with the vendor support team for the devices to determine the root cause of the line card crash, as well as upgrading software on the core routers in the SFO3 region.. \n\nDuring the incident, engineers had to manually remediate affected nodes across the entire SFO3 DOKS fleet to restore service. Teams are exploring methods to reduce the need for manual action in the future, by increasing thresholds for automated remediation actions, such that service is restored as quickly as possible.",
-          "incident_id": "fxvdq88ych5y",
-          "created_at": "2024-10-04T17:37:18.379Z",
-          "updated_at": "2024-10-04T17:38:07.235Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": "We published a postmortem on our September 25th incident: https://stspg.io/26z014t2rqqx",
-          "tweet_id": null
-        },
-        {
-          "id": "940jlstztzvv",
-          "status": "resolved",
-          "body": "From 22:25 to 22:50 UTC, users may have experienced network connectivity issues with all DigitalOcean services deployed in the SFO3 region. Additionally, from 22:25 until 01:40 UTC, users may have encountered network connectivity issues affecting their Managed Kubernetes clusters in the SFO3 region.\n\nOur Engineering team has fully resolved the issues impacting connectivity in the region, and all services are now operating normally. \n\nIf you continue to experience any problems, please open a ticket with our Support team. We apologize for any inconvenience caused.",
-          "incident_id": "fxvdq88ych5y",
-          "created_at": "2024-09-26T02:45:02.427Z",
-          "updated_at": "2024-09-26T02:45:02.427Z",
-          "display_at": "2024-09-26T02:45:02.427Z",
-          "affected_components": [
-            {
-              "code": "s9txl6g88v1z",
-              "name": "Kubernetes - SFO3",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vxdbf9wnjfc4",
-          "status": "monitoring",
-          "body": "Our Engineering team has implemented a fix to resolve the issue affecting networking connectivity with Managed Kubernetes clusters in the SFO3 region and is closely monitoring the situation. We will provide an update as soon as the issue is fully resolved.",
-          "incident_id": "fxvdq88ych5y",
-          "created_at": "2024-09-26T02:15:13.902Z",
-          "updated_at": "2024-09-26T02:15:13.902Z",
-          "display_at": "2024-09-26T02:15:13.902Z",
-          "affected_components": [
-            {
-              "code": "s9txl6g88v1z",
-              "name": "Kubernetes - SFO3",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "drvr3g7m041j",
-          "status": "identified",
-          "body": "Our Engineering team has identified the cause of the networking connectivity issues with Managed Kubernetes clusters in the SFO3 region and is actively working on rolling out a fix. Once we have additional information, we will share another update.",
-          "incident_id": "fxvdq88ych5y",
-          "created_at": "2024-09-26T01:27:36.491Z",
-          "updated_at": "2024-09-26T01:27:36.491Z",
-          "display_at": "2024-09-26T01:27:36.491Z",
-          "affected_components": [
-            {
-              "code": "s9txl6g88v1z",
-              "name": "Kubernetes - SFO3",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "yl81f54s2xhx",
-          "status": "investigating",
-          "body": "We are continuing to investigate the network connectivity issue with Managed Kubernetes clusters.\n\nDuring this investigation, we have also identified an earlier period of network connectivity disruption affecting all services in the region, from 22:25 to 22:50 UTC.\n\nAt this time, some Managed Kubernetes clusters may continue experiencing network connectivity issues, but all other services in the region should be accessible as normal.",
-          "incident_id": "fxvdq88ych5y",
-          "created_at": "2024-09-26T00:38:59.828Z",
-          "updated_at": "2024-09-26T00:38:59.828Z",
-          "display_at": "2024-09-26T00:38:59.828Z",
-          "affected_components": [
-            {
-              "code": "s9txl6g88v1z",
-              "name": "Kubernetes - SFO3",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "djc87pdkb8mr",
-          "status": "investigating",
-          "body": "Our Engineering team is currently investigating issues with network connectivity for Managed Kubernetes clusters in the SFO3 region. During this time, some users may experience difficulties connecting to their Managed Kubernetes clusters, or connecting to other services from their clusters. \n\nWe apologize for the inconvenience and will provide an update as soon as we have more information.",
-          "incident_id": "fxvdq88ych5y",
-          "created_at": "2024-09-25T23:34:54.244Z",
-          "updated_at": "2024-09-25T23:34:54.244Z",
-          "display_at": "2024-09-25T23:34:54.244Z",
-          "affected_components": [
-            {
-              "code": "s9txl6g88v1z",
-              "name": "Kubernetes - SFO3",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "s9txl6g88v1z",
-          "name": "SFO3",
-          "status": "operational",
-          "created_at": "2023-02-22T17:31:21.752Z",
-          "updated_at": "2024-09-26T02:45:02.385Z",
-          "position": 9,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "gb3gs5vj7js2",
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
