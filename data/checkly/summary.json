@@ -4,15 +4,15 @@
     "name": "Checkly",
     "url": "https://is.checkly.online",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-02-19T12:36:33.488Z"
+    "updated_at": "2025-02-19T13:29:05.071Z"
   },
   "components": [
     {
       "id": "f3y2bjndgxq8",
       "name": "API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2021-04-02T11:43:11.274Z",
-      "updated_at": "2024-08-10T06:46:28.415Z",
+      "updated_at": "2025-02-19T13:29:04.511Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -171,12 +171,102 @@
       "page_id": "nq8lf8mrmvw6",
       "group": false,
       "only_show_if_degraded": false
+    },
+    {
+      "id": "jwkl7vqbmhwd",
+      "name": "Heartbeat check",
+      "status": "degraded_performance",
+      "created_at": "2025-02-19T13:21:04.959Z",
+      "updated_at": "2025-02-19T13:29:04.538Z",
+      "position": 12,
+      "description": null,
+      "showcase": true,
+      "start_date": "2025-02-19",
+      "group_id": null,
+      "page_id": "nq8lf8mrmvw6",
+      "group": false,
+      "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "620dfy1t6c47",
+      "name": "Elevated error rate on a subset of API requests and Heartbeat checks",
+      "status": "investigating",
+      "created_at": "2025-02-19T13:29:04.475Z",
+      "updated_at": "2025-02-19T13:29:05.064Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/8rmy3ybskqd3",
+      "started_at": "2025-02-19T13:29:04.470Z",
+      "page_id": "nq8lf8mrmvw6",
+      "incident_updates": [
+        {
+          "id": "2jdfl04jsqsn",
+          "status": "investigating",
+          "body": "We are investigating an increase in the error rate related to one of our storage providers.",
+          "incident_id": "620dfy1t6c47",
+          "created_at": "2025-02-19T13:29:04.581Z",
+          "updated_at": "2025-02-19T13:29:05.059Z",
+          "display_at": "2025-02-19T13:29:04.581Z",
+          "affected_components": [
+            {
+              "code": "f3y2bjndgxq8",
+              "name": "API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "jwkl7vqbmhwd",
+              "name": "Heartbeat check",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1892204760079716599
+        }
+      ],
+      "components": [
+        {
+          "id": "f3y2bjndgxq8",
+          "name": "API",
+          "status": "degraded_performance",
+          "created_at": "2021-04-02T11:43:11.274Z",
+          "updated_at": "2025-02-19T13:29:04.511Z",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": "2021-04-02",
+          "group_id": null,
+          "page_id": "nq8lf8mrmvw6",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "jwkl7vqbmhwd",
+          "name": "Heartbeat check",
+          "status": "degraded_performance",
+          "created_at": "2025-02-19T13:21:04.959Z",
+          "updated_at": "2025-02-19T13:29:04.538Z",
+          "position": 12,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-02-19",
+          "group_id": null,
+          "page_id": "nq8lf8mrmvw6",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
