@@ -4,15 +4,15 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-02-20T10:47:27.239-08:00"
+    "updated_at": "2025-02-20T11:26:55.267-08:00"
   },
   "incidents": [
     {
       "id": "4shks2nlxwyl",
       "name": "[Critical] Customers may have issues with Uploads, Downloads, and accessing the All Files page",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-02-19T12:07:07.536-08:00",
-      "updated_at": "2025-02-19T16:17:50.930-08:00",
+      "updated_at": "2025-02-20T11:26:55.265-08:00",
       "monitoring_at": "2025-02-19T12:20:24.000-08:00",
       "resolved_at": "2025-02-19T16:12:35.000-08:00",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2025-02-19T12:09:40.000-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "lpzl34xt7c2l",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\n‌\n\nOn February 19, 2025 between 11:12 am and 12:15 pm PST, some users may have experienced difficulties while working with Box. During this time, users may have experienced degradation of Public API, Login, Box Sign, Shared Links and Notes services. \n\n### Root Cause\n\nOne of Box’s core services, SIS, uses a set of authentication and authorization keys. These keys enable SIS to connect with a NoSQL database. This connection allows the service to retrieve rules that are essential for its business logic. As part of routine maintenance in rotating these keys, some of them were mistakenly assumed to be no longer necessary and deleted. However, one service was still dependent on these keys; as a result, it failed the authentication and was unable to retrieve these business rules. The impact of this was detected through a drop in Box’s User Availability metrics at 11:15am PST and by 11:52am PST, this drop was traced to the operation of deletion of these keys. \n\n### Resolution\n\nOnce a new set of keys was generated and quickly reinstated, the SIS service began to recover. As a result, all requests started to process without any errors.\n\n### Futureproofing\n\nAll services that currently use keys to authenticate with Box’s cloud provider’s native services will be reviewed. Additionally, we are planning to migrate these services to a different process for authentication and authorization that would eliminate the need for the existing key management system and any errors that it can introduce.\n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n‌\n\nSincerely,\n\n‌\n\nThe Box Team",
+          "incident_id": "4shks2nlxwyl",
+          "created_at": "2025-02-20T11:26:38.386-08:00",
+          "updated_at": "2025-02-20T11:26:55.264-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "btj5t8fwlscb",
           "status": "resolved",
