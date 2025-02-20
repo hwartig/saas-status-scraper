@@ -4,9 +4,39 @@
     "name": "Checkly",
     "url": "https://is.checkly.online",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-02-20T14:13:20.269Z"
+    "updated_at": "2025-02-20T15:22:16.096Z"
   },
   "incidents": [
+    {
+      "id": "wzzvywrfsqcr",
+      "name": "TCP Scheduling Broken",
+      "status": "resolved",
+      "created_at": "2025-02-20T14:50:00.000Z",
+      "updated_at": "2025-02-20T15:18:57.211Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-02-20T14:50:00.000Z",
+      "impact": "major",
+      "shortlink": "https://stspg.io/67jl2l9hh5s5",
+      "started_at": "2025-02-20T15:18:32.044Z",
+      "page_id": "nq8lf8mrmvw6",
+      "incident_updates": [
+        {
+          "id": "qnjmy032j72h",
+          "status": "resolved",
+          "body": "Due to a bad database migration, TCP scheduling was broken for 15 mins",
+          "incident_id": "wzzvywrfsqcr",
+          "created_at": "2025-02-20T15:18:32.093Z",
+          "updated_at": "2025-02-20T15:18:32.093Z",
+          "display_at": "2025-02-20T14:50:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "dk2m64f58cx3",
       "name": "Increased scheduling delay in us-west-2",
@@ -5442,152 +5472,6 @@
           "description": null,
           "showcase": true,
           "start_date": "2021-04-02",
-          "group_id": null,
-          "page_id": "nq8lf8mrmvw6",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "nr5hwjznpvnn",
-      "name": "Subset of browser checks failing",
-      "status": "postmortem",
-      "created_at": "2024-03-21T16:21:52.839Z",
-      "updated_at": "2024-03-22T17:31:59.540Z",
-      "monitoring_at": "2024-03-21T17:20:10.372Z",
-      "resolved_at": "2024-03-21T17:50:27.491Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/bxf7ht4d5n1v",
-      "started_at": "2024-03-21T16:21:52.833Z",
-      "page_id": "nq8lf8mrmvw6",
-      "incident_updates": [
-        {
-          "id": "tb2tltfbqzsk",
-          "status": "postmortem",
-          "body": "We are currently modernizing and improving our runner infrastructure. During the rollout of the new sandbox runner, we shipped a broken deployment.\n\n### Here is what happened:\n\n1. We shipped a broken deployment, which resulted in false positives in a subset of checks.\n2. Additionally, the rollback of the deployment failed, prolonging the incident.\n3. The lack of proper internal communication about the system's state and rollback led to confusion and a prolonged response even more.\n\n### The incident affected browser checks in two specific cases:\n\n1. When using Twilio in any runtime - due to `TWILIO_ACCOUNT_SID` environment variable being improperly escaped. Affected check runs failed with an error message: `accountSid must start with AC`\n2. Checks using `mocha` in runtimes 2022.02 and 2022.10 with Playwright. These checks failed with an error `Could not load reporter /checkly/functions/src/browser-check-common/src/mocha/reporter.js`: \n\n### Impact:\n\n* A total of 10 customers were affected.\n* A total of 120 browser check runs \\(0.5%\\) failed due to this incident.\n* A total of 66 different checks were affected.\n* The broken deployment was shipped at 15:30 and was rolled back at 16:10 UTC\n\nWe apologize for any problems this may have caused. **If you have any questions or concerns feel free to contact us via** [support@checklyhq.com](mailto:support@checklyhq.com)",
-          "incident_id": "nr5hwjznpvnn",
-          "created_at": "2024-03-22T17:28:29.389Z",
-          "updated_at": "2024-03-22T17:31:59.534Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": "We published a postmortem on our March 21st incident: https://stspg.io/bxf7ht4d5n1v",
-          "tweet_id": null
-        },
-        {
-          "id": "t435trzmw9x8",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "nr5hwjznpvnn",
-          "created_at": "2024-03-21T17:50:27.491Z",
-          "updated_at": "2024-03-21T17:50:27.899Z",
-          "display_at": "2024-03-21T17:50:27.491Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1770870603706405306
-        },
-        {
-          "id": "7gxqr6v6w64w",
-          "status": "monitoring",
-          "body": "We have rolled back the breaking change and are monitoring our systems.",
-          "incident_id": "nr5hwjznpvnn",
-          "created_at": "2024-03-21T17:20:10.372Z",
-          "updated_at": "2024-03-21T17:20:10.948Z",
-          "display_at": "2024-03-21T17:20:10.372Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1770862982450254060
-        },
-        {
-          "id": "7n8mfvlfvqk2",
-          "status": "identified",
-          "body": "The rollback is in progress, but taking longer than usual.",
-          "incident_id": "nr5hwjznpvnn",
-          "created_at": "2024-03-21T17:14:28.751Z",
-          "updated_at": "2024-03-21T17:14:29.272Z",
-          "display_at": "2024-03-21T17:14:28.751Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1770861549218906387
-        },
-        {
-          "id": "z3cm1k81hy2x",
-          "status": "identified",
-          "body": "We have identified the issue and are rolling back the breaking change.",
-          "incident_id": "nr5hwjznpvnn",
-          "created_at": "2024-03-21T16:56:15.628Z",
-          "updated_at": "2024-03-21T16:56:16.186Z",
-          "display_at": "2024-03-21T16:56:15.628Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1770856964660051994
-        },
-        {
-          "id": "h5m7jwsq8mfx",
-          "status": "investigating",
-          "body": "A small subset of browser checks are failing when using specific environment variables. We are investigating",
-          "incident_id": "nr5hwjznpvnn",
-          "created_at": "2024-03-21T16:21:52.930Z",
-          "updated_at": "2024-03-21T16:21:53.551Z",
-          "display_at": "2024-03-21T16:21:52.930Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1770848313115308411
-        }
-      ],
-      "components": [
-        {
-          "id": "67l5jbfddxv3",
-          "name": "Browser check runtime",
-          "status": "operational",
-          "created_at": "2021-07-29T15:53:09.494Z",
-          "updated_at": "2025-02-14T00:47:26.979Z",
-          "position": 5,
-          "description": null,
-          "showcase": true,
-          "start_date": "2021-07-29",
           "group_id": null,
           "page_id": "nq8lf8mrmvw6",
           "group": false,
