@@ -4,7 +4,7 @@
     "name": "EasyPost",
     "url": "https://www.easypoststatus.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-02-20T10:48:03.313-08:00"
+    "updated_at": "2025-02-21T00:08:50.798-08:00"
   },
   "components": [
     {
@@ -55,9 +55,9 @@
     {
       "id": "hj673gyk4bdv",
       "name": "API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2013-06-23T15:41:46.599-07:00",
-      "updated_at": "2025-01-30T03:00:21.515-08:00",
+      "updated_at": "2025-02-21T00:08:49.952-08:00",
       "position": 2,
       "description": null,
       "showcase": true,
@@ -145,7 +145,7 @@
     {
       "id": "ysyh73ptcymy",
       "name": "EasyPost Backend",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-03-10T10:20:59.021-07:00",
       "updated_at": "2020-03-10T10:20:59.021-07:00",
       "position": 4,
@@ -196,7 +196,7 @@
     {
       "id": "x3g03m4md1t8",
       "name": "Carriers",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-03-01T16:28:09.042-08:00",
       "updated_at": "2024-05-22T10:51:09.346-07:00",
       "position": 5,
@@ -341,9 +341,9 @@
     {
       "id": "gw4yxwx13mgy",
       "name": "UPS",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-03-02T12:22:49.183-08:00",
-      "updated_at": "2025-01-30T03:00:22.312-08:00",
+      "updated_at": "2025-02-21T00:08:49.976-08:00",
       "position": 11,
       "description": null,
       "showcase": true,
@@ -356,9 +356,9 @@
     {
       "id": "f6l0qk8vgxn2",
       "name": "UPSDAP",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-03-02T12:42:19.573-08:00",
-      "updated_at": "2025-01-30T03:00:22.376-08:00",
+      "updated_at": "2025-02-21T00:08:50.002-08:00",
       "position": 12,
       "description": null,
       "showcase": true,
@@ -371,9 +371,9 @@
     {
       "id": "7nbrx2fmk16y",
       "name": "UPS SurePost",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-03-02T12:35:07.125-08:00",
-      "updated_at": "2025-01-30T03:00:22.420-08:00",
+      "updated_at": "2025-02-21T00:08:50.024-08:00",
       "position": 13,
       "description": null,
       "showcase": true,
@@ -386,9 +386,9 @@
     {
       "id": "k87df208gp5m",
       "name": "UPS Mail Innovations",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-03-02T12:36:08.781-08:00",
-      "updated_at": "2025-01-30T03:00:22.467-08:00",
+      "updated_at": "2025-02-21T00:08:50.047-08:00",
       "position": 14,
       "description": null,
       "showcase": true,
@@ -489,10 +489,148 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "70c1gdh6y6rb",
+      "name": "UPS OAuth issues causing elevated UPS failure rates",
+      "status": "identified",
+      "created_at": "2025-02-21T00:08:49.902-08:00",
+      "updated_at": "2025-02-21T00:08:50.792-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/3tvffc7h7cqm",
+      "started_at": "2025-02-21T00:08:49.887-08:00",
+      "page_id": "n1jtz5983249",
+      "incident_updates": [
+        {
+          "id": "f17647t1phhj",
+          "status": "identified",
+          "body": "The issue has been identified as problems with UPS OAuth service.",
+          "incident_id": "70c1gdh6y6rb",
+          "created_at": "2025-02-21T00:08:50.093-08:00",
+          "updated_at": "2025-02-21T00:08:50.786-08:00",
+          "display_at": "2025-02-21T00:08:50.093-08:00",
+          "affected_components": [
+            {
+              "code": "hj673gyk4bdv",
+              "name": "EasyPost Backend - API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "gw4yxwx13mgy",
+              "name": "Carriers - UPS",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "f6l0qk8vgxn2",
+              "name": "Carriers - UPSDAP",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "7nbrx2fmk16y",
+              "name": "Carriers - UPS SurePost",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "k87df208gp5m",
+              "name": "Carriers - UPS Mail Innovations",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1892848945413705886
+        }
+      ],
+      "components": [
+        {
+          "id": "hj673gyk4bdv",
+          "name": "API",
+          "status": "degraded_performance",
+          "created_at": "2013-06-23T15:41:46.599-07:00",
+          "updated_at": "2025-02-21T00:08:49.952-08:00",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": "ysyh73ptcymy",
+          "page_id": "n1jtz5983249",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "gw4yxwx13mgy",
+          "name": "UPS",
+          "status": "partial_outage",
+          "created_at": "2022-03-02T12:22:49.183-08:00",
+          "updated_at": "2025-02-21T00:08:49.976-08:00",
+          "position": 11,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-03-01",
+          "group_id": "x3g03m4md1t8",
+          "page_id": "n1jtz5983249",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "f6l0qk8vgxn2",
+          "name": "UPSDAP",
+          "status": "partial_outage",
+          "created_at": "2022-03-02T12:42:19.573-08:00",
+          "updated_at": "2025-02-21T00:08:50.002-08:00",
+          "position": 12,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-03-02",
+          "group_id": "x3g03m4md1t8",
+          "page_id": "n1jtz5983249",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "7nbrx2fmk16y",
+          "name": "UPS SurePost",
+          "status": "partial_outage",
+          "created_at": "2022-03-02T12:35:07.125-08:00",
+          "updated_at": "2025-02-21T00:08:50.024-08:00",
+          "position": 13,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-03-01",
+          "group_id": "x3g03m4md1t8",
+          "page_id": "n1jtz5983249",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "k87df208gp5m",
+          "name": "UPS Mail Innovations",
+          "status": "partial_outage",
+          "created_at": "2022-03-02T12:36:08.781-08:00",
+          "updated_at": "2025-02-21T00:08:50.047-08:00",
+          "position": 14,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-03-01",
+          "group_id": "x3g03m4md1t8",
+          "page_id": "n1jtz5983249",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
