@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-02-21T13:58:05.762Z"
+    "updated_at": "2025-02-21T20:27:25.005Z"
   },
   "incidents": [
     {
@@ -905,6 +905,36 @@
           "only_show_if_degraded": false
         }
       ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "x07y6vhlvqg2",
+      "name": "[Retroactive] Incident with Migrations service",
+      "status": "resolved",
+      "created_at": "2025-02-13T07:30:00.000Z",
+      "updated_at": "2025-02-21T20:27:24.999Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-02-13T07:30:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/vrfg4z64hbbk",
+      "started_at": "2025-02-21T20:27:24.890Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "lb78mqkrp3qt",
+          "status": "resolved",
+          "body": "Between Thursday 13th, 2025 19:30 UTC and Friday 14th, 2025 08:02 UTC the Migrations service was experiencing intermittent migration failures for some customers. This was caused by a code change that contained an edge case that erroneously failed some migrations.\n\nWe mitigated the incident by rolling back the code change.\n\nWe are working on improving our monitoring and deployment practices to reduce our time to detection and mitigation of issues like this one in the future.",
+          "incident_id": "x07y6vhlvqg2",
+          "created_at": "2025-02-21T20:27:24.981Z",
+          "updated_at": "2025-02-21T20:27:24.981Z",
+          "display_at": "2025-02-13T07:30:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
       "reminder_intervals": null
     },
     {
@@ -9126,127 +9156,6 @@
           "created_at": "2024-09-05T15:55:34.526Z",
           "updated_at": "2024-09-05T15:55:34.526Z",
           "display_at": "2024-09-05T15:55:34.526Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "djwfzglh2dyq",
-      "name": "Disruption with some GitHub services",
-      "status": "resolved",
-      "created_at": "2024-08-29T19:29:09.798Z",
-      "updated_at": "2024-08-30T18:54:46.423Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-08-29T21:54:47.439Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/gj1bzm274nnq",
-      "started_at": "2024-08-29T19:29:09.793Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "zc651bq9rzsc",
-          "status": "resolved",
-          "body": "On August 29th, 2024, from 16:56 UTC to 21:42 UTC, we observed an elevated rate of traffic on our public edge, which triggered GitHub’s rate limiting protections. This resulted in <0.1% of users being identified as false-positives, which they experienced as intermittent connection timeouts. At 20:59 UTC the engineering team improved the system to remediate the false-positive identification of user traffic, and return to normal traffic operations.",
-          "incident_id": "djwfzglh2dyq",
-          "created_at": "2024-08-29T21:54:47.439Z",
-          "updated_at": "2024-08-30T18:54:46.417Z",
-          "display_at": "2024-08-29T21:54:47.439Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "v7xw89dqx7cd",
-          "status": "investigating",
-          "body": "The connectivity issues have been resolved and we are back to normal.",
-          "incident_id": "djwfzglh2dyq",
-          "created_at": "2024-08-29T21:54:35.979Z",
-          "updated_at": "2024-08-29T21:54:35.979Z",
-          "display_at": "2024-08-29T21:54:35.979Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9d311zjc4l98",
-          "status": "investigating",
-          "body": "We have implemented a potential fix and are continuing to monitor for success.",
-          "incident_id": "djwfzglh2dyq",
-          "created_at": "2024-08-29T21:45:56.734Z",
-          "updated_at": "2024-08-29T21:45:56.734Z",
-          "display_at": "2024-08-29T21:45:56.734Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0nc8pb5ylb2h",
-          "status": "investigating",
-          "body": "We have isolated the symptom of the connectivity issues and are working to trace down the cause.",
-          "incident_id": "djwfzglh2dyq",
-          "created_at": "2024-08-29T21:25:32.950Z",
-          "updated_at": "2024-08-29T21:25:32.950Z",
-          "display_at": "2024-08-29T21:25:32.950Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qr53q3xjt3b9",
-          "status": "investigating",
-          "body": "While we have seen a reduction in reports of users having connectivity issues to GitHub.com, we are still investigating the issue.",
-          "incident_id": "djwfzglh2dyq",
-          "created_at": "2024-08-29T20:43:25.567Z",
-          "updated_at": "2024-08-29T20:43:25.567Z",
-          "display_at": "2024-08-29T20:43:25.567Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "h6cr0x1z07c9",
-          "status": "investigating",
-          "body": "We are continuing to investigate issues with customers reporting temporary issues accessing GitHub.com",
-          "incident_id": "djwfzglh2dyq",
-          "created_at": "2024-08-29T20:07:31.080Z",
-          "updated_at": "2024-08-29T20:07:31.080Z",
-          "display_at": "2024-08-29T20:07:31.080Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1738dx7tf3q4",
-          "status": "investigating",
-          "body": "We are getting reports of users who aren't able to access GitHub.com and are investigating.",
-          "incident_id": "djwfzglh2dyq",
-          "created_at": "2024-08-29T19:29:39.627Z",
-          "updated_at": "2024-08-29T19:29:39.627Z",
-          "display_at": "2024-08-29T19:29:39.627Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bzxs1x6ttp60",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "djwfzglh2dyq",
-          "created_at": "2024-08-29T19:29:09.826Z",
-          "updated_at": "2024-08-29T19:29:09.826Z",
-          "display_at": "2024-08-29T19:29:09.826Z",
           "affected_components": null,
           "deliver_notifications": true,
           "custom_tweet": null,
