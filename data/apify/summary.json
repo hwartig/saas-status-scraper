@@ -4,7 +4,7 @@
     "name": "Apify",
     "url": "https://status.apify.com",
     "time_zone": "Europe/Prague",
-    "updated_at": "2025-02-24T16:06:55.832+01:00"
+    "updated_at": "2025-02-24T16:25:22.821+01:00"
   },
   "components": [
     {
@@ -100,9 +100,9 @@
     {
       "id": "ynhqjzcclgvf",
       "name": "Request queue",
-      "status": "major_outage",
+      "status": "operational",
       "created_at": "2019-08-08T10:22:47.130+02:00",
-      "updated_at": "2025-02-24T16:06:55.827+01:00",
+      "updated_at": "2025-02-24T16:19:58.832+01:00",
       "position": 2,
       "description": "Maintain a queue of URLs of web pages in order to recursively crawl websites, starting from initial URLs and adding new links as they are found while skipping duplicates.",
       "showcase": false,
@@ -117,7 +117,7 @@
       "name": "Residential",
       "status": "operational",
       "created_at": "2022-09-21T10:42:35.158+02:00",
-      "updated_at": "2025-02-23T00:25:46.615+01:00",
+      "updated_at": "2025-02-24T16:21:43.395+01:00",
       "position": 2,
       "description": "Download your data over IP addresses located in homes and offices of people all around the world. These IPs have the lowest chance of blocking and best geographical coverage.",
       "showcase": false,
@@ -205,9 +205,9 @@
     {
       "id": "z2cl20hmyryr",
       "name": "Actors",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2018-07-12T08:48:36.759+02:00",
-      "updated_at": "2025-02-23T00:33:22.337+01:00",
+      "updated_at": "2025-02-24T16:19:50.427+01:00",
       "position": 4,
       "description": "Actors are serverless cloud programs running on Apify that can perform arbitrary computing jobs, such as send an email or crawl a website with millions of pages.",
       "showcase": false,
@@ -235,7 +235,7 @@
     {
       "id": "0cn0yc84wx80",
       "name": "Storage",
-      "status": "major_outage",
+      "status": "operational",
       "created_at": "2019-08-08T10:22:29.684+02:00",
       "updated_at": "2022-09-21T10:41:29.785+02:00",
       "position": 5,
@@ -290,9 +290,9 @@
     {
       "id": "p6fnw2qczbcf",
       "name": "Scheduler",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2016-11-15T12:08:20.639+01:00",
-      "updated_at": "2025-02-23T00:25:46.659+01:00",
+      "updated_at": "2025-02-24T16:24:19.056+01:00",
       "position": 7,
       "description": "Scheduler is used to automatically start your actors at certain times.",
       "showcase": false,
@@ -337,7 +337,7 @@
       "name": "Webhooks",
       "status": "operational",
       "created_at": "2019-08-08T10:23:38.374+02:00",
-      "updated_at": "2025-02-22T23:59:28.170+01:00",
+      "updated_at": "2025-02-24T16:25:22.816+01:00",
       "position": 8,
       "description": "Webhooks provide an easy and reliable way to configure the Apify platform to carry out an action when a certain system event occurs. For example, you can use webhooks to start another actor when an actor run finishes or fails.",
       "showcase": false,
@@ -485,7 +485,103 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "d7t6vxq18wq9",
+      "name": "Malfunctioning scheduler",
+      "status": "investigating",
+      "created_at": "2025-02-24T16:24:19.006+01:00",
+      "updated_at": "2025-02-24T16:24:19.119+01:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/qcx7pdkzcbd2",
+      "started_at": "2025-02-24T16:24:18.999+01:00",
+      "page_id": "j23nkrf8p8p8",
+      "incident_updates": [
+        {
+          "id": "zztsbp9l8v5v",
+          "status": "investigating",
+          "body": "We're experiencing issues with scheduler - some jobs are not started and some jobs are being duplicated. The API is performing badly.\nWe're investigating the issue.",
+          "incident_id": "d7t6vxq18wq9",
+          "created_at": "2025-02-24T16:24:19.115+01:00",
+          "updated_at": "2025-02-24T16:24:19.115+01:00",
+          "display_at": "2025-02-24T16:24:19.115+01:00",
+          "affected_components": [
+            {
+              "code": "ghq5ghrcl6jf",
+              "name": "API (api.apify.com)",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "p6fnw2qczbcf",
+              "name": "Scheduler",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "z2cl20hmyryr",
+              "name": "Actors",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "ghq5ghrcl6jf",
+          "name": "API (api.apify.com)",
+          "status": "major_outage",
+          "created_at": "2016-11-15T11:44:46.574+01:00",
+          "updated_at": "2025-02-24T16:03:26.210+01:00",
+          "position": 3,
+          "description": "Back-end services running at https://api.apify.com",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "j23nkrf8p8p8",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "z2cl20hmyryr",
+          "name": "Actors",
+          "status": "major_outage",
+          "created_at": "2018-07-12T08:48:36.759+02:00",
+          "updated_at": "2025-02-24T16:19:50.427+01:00",
+          "position": 4,
+          "description": "Actors are serverless cloud programs running on Apify that can perform arbitrary computing jobs, such as send an email or crawl a website with millions of pages.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "j23nkrf8p8p8",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "p6fnw2qczbcf",
+          "name": "Scheduler",
+          "status": "major_outage",
+          "created_at": "2016-11-15T12:08:20.639+01:00",
+          "updated_at": "2025-02-24T16:24:19.056+01:00",
+          "position": 7,
+          "description": "Scheduler is used to automatically start your actors at certain times.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "j23nkrf8p8p8",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
     "indicator": "major",
