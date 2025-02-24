@@ -4,22 +4,54 @@
     "name": "Apify",
     "url": "https://status.apify.com",
     "time_zone": "Europe/Prague",
-    "updated_at": "2025-02-24T17:26:47.386+01:00"
+    "updated_at": "2025-02-24T17:55:32.625+01:00"
   },
   "incidents": [
     {
       "id": "d7t6vxq18wq9",
       "name": "Malfunctioning scheduler",
-      "status": "monitoring",
+      "status": "resolved",
       "created_at": "2025-02-24T16:24:19.000+01:00",
-      "updated_at": "2025-02-24T17:26:47.385+01:00",
+      "updated_at": "2025-02-24T17:55:32.620+01:00",
       "monitoring_at": "2025-02-24T17:22:32.000+01:00",
-      "resolved_at": null,
+      "resolved_at": "2025-02-24T17:55:32.589+01:00",
       "impact": "critical",
       "shortlink": "https://stspg.io/qcx7pdkzcbd2",
       "started_at": "2025-02-24T16:24:19.000+01:00",
       "page_id": "j23nkrf8p8p8",
       "incident_updates": [
+        {
+          "id": "9b8wg3ll1d3b",
+          "status": "resolved",
+          "body": "Summary: We experienced a partial outage of the scheduler and degraded performance of Apify API.\n\nTimeframe: The issue started at a small scale from 11.00 UTC and then escalated around 15.00 UTC. By 16.15 UTC, the issue was resolved.\n\nImpact:\n - During the incident, some scheduled Actors did not start or were run twice.\n - In response, we've aborted some of the runs that started after 15:00 UTC and turned off the Schedule component for approximately 45 minutes.\n - If your runs were aborted, they can now be safely resurrected; see: https://docs.apify.com/platform/actors/running/runs-and-builds#resurrection-of-finished-run\n - There was no data loss for runs in progress, but some runs were not triggered.\n - API performance was degraded at various levels along the incident, and some runs started via API may have been in a READY state for longer than usual.\n\nWe're sorry for the inconvenience. We take this issue seriously and will implement measures to mitigate similar issues in the future.\nWe will provide a post-mortem summary here with more details later this week.",
+          "incident_id": "d7t6vxq18wq9",
+          "created_at": "2025-02-24T17:55:32.589+01:00",
+          "updated_at": "2025-02-24T17:55:32.589+01:00",
+          "display_at": "2025-02-24T17:55:32.589+01:00",
+          "affected_components": [
+            {
+              "code": "ghq5ghrcl6jf",
+              "name": "API (api.apify.com)",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "p6fnw2qczbcf",
+              "name": "Scheduler",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "z2cl20hmyryr",
+              "name": "Actors",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "60w3z2d3tryd",
           "status": "monitoring",
