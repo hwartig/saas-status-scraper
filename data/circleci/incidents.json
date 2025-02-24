@@ -4,9 +4,62 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-02-24T08:12:00.789Z"
+    "updated_at": "2025-02-24T16:31:59.248Z"
   },
   "incidents": [
+    {
+      "id": "jhkq8z3kmqhh",
+      "name": "Incread Queue Times for macos.m1.large.gen1",
+      "status": "identified",
+      "created_at": "2025-02-24T16:23:12.147Z",
+      "updated_at": "2025-02-24T16:23:17.033Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/4ld3btzjw13x",
+      "started_at": "2025-02-24T16:23:12.141Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "d102nbx0frb0",
+          "status": "identified",
+          "body": "Capacity on M1 Resource Class is limited. Customers can experience less queuing if you move to m2pro.medium or m2pro.large.",
+          "incident_id": "jhkq8z3kmqhh",
+          "created_at": "2025-02-24T16:23:12.210Z",
+          "updated_at": "2025-02-24T16:23:12.529Z",
+          "display_at": "2025-02-24T16:23:12.210Z",
+          "affected_components": [
+            {
+              "code": "bpfmy8wy8wq2",
+              "name": "macOS Jobs",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1894060519327519168
+        }
+      ],
+      "components": [
+        {
+          "id": "bpfmy8wy8wq2",
+          "name": "macOS Jobs",
+          "status": "operational",
+          "created_at": "2017-11-09T08:22:00.885Z",
+          "updated_at": "2025-02-10T17:43:25.544Z",
+          "position": 3,
+          "description": "CircleCI jobs using the macos executor.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "4c2q64fzctj7",
       "name": "Issues loading the jobs page",
@@ -5545,152 +5598,6 @@
           "updated_at": "2025-02-10T17:43:25.544Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "txmlx271z61b",
-      "name": "Elevated errors in the CircleCI UI",
-      "status": "postmortem",
-      "created_at": "2024-06-21T16:54:12.797Z",
-      "updated_at": "2024-06-28T21:41:20.293Z",
-      "monitoring_at": "2024-06-21T18:27:28.145Z",
-      "resolved_at": "2024-06-21T19:40:09.793Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/wjgmwyls5j60",
-      "started_at": "2024-06-21T16:54:12.792Z",
-      "page_id": "6w4r0ttlx5ft",
-      "incident_updates": [
-        {
-          "id": "1d2rvw4hprc8",
-          "status": "postmortem",
-          "body": "## Summary\n\nOn June 21, 2024, code changes were deployed to two services at 16:19 UTC, causing CircleCI customers with actively running workflows to experience errors in the UI when trying to view projects or workflows. This was isolated to the UI and had no impact on builds. Both deployments were reverted by 16:27 UTC, but customers who had started workflows between 16:19 and 16:27 continued to see errors until those workflows completed or until an additional change was deployed at 18:27 UTC. We thank our customers for their patience and understanding as we worked to resolve this incident.\n\n## What Happened\n\nAll timestamps are UTC.\n\nCode changes were deployed to two related services at 16:19, which would allow information about actively running workflows to be processed and provided to the UI by the same service that provides information about completed workflows. These changes were made as part of an ongoing effort to improve reliability and performance. The changes involved deployments to a service that processes workflow events, and to the API service that serves that information to the UI, which had been tested via unit and integration tests. The change to process the active running workflow events was thought to have been disabled via a feature flag. At 16:20, the API service deployment failed and was rolled back automatically, and we began to see data type errors in that service as well as in two services related to the UI. We rolled back the deployment of the service that processes the workflow events at 16:27, but the errors continued.\n\nWe first ensured that the rollouts were reverted correctly and that the downstream services related to the UI were not using cached data. At 17:09, we discovered that the feature flag to disable the new event processing had been misconfigured. This led to the processing of events between the deployment at 16:19 and the rollback at 16:27. At 17:14, we identified that the data models had not been fully updated to handle the active workflow data in a backwards-compatible way. The system was attempting to serve data that was not compatible with the API or database spec for the actively running workflows that had been processed. While tests had been written for the initial code change, this particular change in the data had been overlooked. Due to the size of the change, it was also overlooked during code review.\n\nA PR was created to fix the issue in the API service at 17:18, but there were some issues with several tests that needed to be addressed before merging. This took longer than expected due to test complexity. The change was deployed once all tests were passing at 18:27, resolving the issue. We continued to monitor until 19:40 and then declared the incident resolved.\n\n## Future Prevention and Process Improvement\n\nWe have updated the service and the tests to properly account for the differences in data between actively running workflows and completed workflows. It was identified during the incident that the tests for these services were overly complex, which added to the time it took to fully resolve the incident, so we are also prioritizing improvements to the tests. While the API service is now updated to handle the events appropriately, the team responsible for providing the workflow events will also be making changes so that the events for actively running workflows include data for the same fields that completed workflows have.\n\nWe’ve acknowledged that deploying the read and write changes simultaneously created more complexity and added to the size of the pull request for review. We are updating our process to deploy read changes separately from write changes, and to ensure that feature flag functionality is fully documented prior to deployment.\n\nWe also identified that continuing to focus on fixing the tests during the incident added significant delay to mitigating the issue. We intend on sharing these learnings across the organization to encourage incident commanders and responding engineers to be focused on mitigation, and potentially time boxing solutions if other options exist.",
-          "incident_id": "txmlx271z61b",
-          "created_at": "2024-06-28T21:27:10.231Z",
-          "updated_at": "2024-06-28T21:41:20.290Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gr9nllw7drxf",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "txmlx271z61b",
-          "created_at": "2024-06-21T19:40:09.793Z",
-          "updated_at": "2024-06-21T19:40:10.123Z",
-          "display_at": "2024-06-21T19:40:09.793Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1804237895181701611
-        },
-        {
-          "id": "sp2rq3cy70yz",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues.",
-          "incident_id": "txmlx271z61b",
-          "created_at": "2024-06-21T18:27:35.677Z",
-          "updated_at": "2024-06-21T18:27:36.069Z",
-          "display_at": "2024-06-21T18:27:35.677Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1804219632926290121
-        },
-        {
-          "id": "8btvg0ypsgrx",
-          "status": "monitoring",
-          "body": "We have deployed a fix to resolve the underlying issue and monitoring the system for stability",
-          "incident_id": "txmlx271z61b",
-          "created_at": "2024-06-21T18:27:28.145Z",
-          "updated_at": "2024-06-21T18:27:28.521Z",
-          "display_at": "2024-06-21T18:27:28.145Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1804219601292779837
-        },
-        {
-          "id": "cwkktsxh38p5",
-          "status": "identified",
-          "body": "The issue has been identified and we are currently working on a fix",
-          "incident_id": "txmlx271z61b",
-          "created_at": "2024-06-21T17:14:40.313Z",
-          "updated_at": "2024-06-21T17:14:40.780Z",
-          "display_at": "2024-06-21T17:14:40.313Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1804201281659244609
-        },
-        {
-          "id": "hk1wbt59rbgx",
-          "status": "investigating",
-          "body": "We are currently investigating an issue that may cause some customers to experience errors when loading the pipelines and workflows pages",
-          "incident_id": "txmlx271z61b",
-          "created_at": "2024-06-21T16:54:12.888Z",
-          "updated_at": "2024-06-21T16:54:15.059Z",
-          "display_at": "2024-06-21T16:54:12.888Z",
-          "affected_components": [
-            {
-              "code": "sw1j7xsbdlk4",
-              "name": "CircleCI UI",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1804196140398915965
-        }
-      ],
-      "components": [
-        {
-          "id": "sw1j7xsbdlk4",
-          "name": "CircleCI UI",
-          "status": "operational",
-          "created_at": "2017-08-11T03:29:32.538Z",
-          "updated_at": "2025-02-20T19:53:49.916Z",
-          "position": 6,
-          "description": null,
           "showcase": true,
           "start_date": null,
           "group_id": null,
