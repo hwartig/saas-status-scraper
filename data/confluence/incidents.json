@@ -4,7 +4,7 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-02-25T09:06:38.787Z"
+    "updated_at": "2025-02-26T02:12:28.176Z"
   },
   "incidents": [
     {
@@ -156,9 +156,9 @@
     {
       "id": "mrg2r22znjzn",
       "name": "Jira and Confluence has degraded performance - scoped to Brazil only",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-02-10T18:07:57.390Z",
-      "updated_at": "2025-02-10T20:16:20.038Z",
+      "updated_at": "2025-02-26T02:12:28.173Z",
       "monitoring_at": null,
       "resolved_at": "2025-02-10T19:26:40.000Z",
       "impact": "minor",
@@ -166,6 +166,19 @@
       "started_at": "2025-02-10T18:07:57.372Z",
       "page_id": "4g2my7tbhjsq",
       "incident_updates": [
+        {
+          "id": "7skhwssbb1zv",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn February 10, 2025, between 16:10 and 18:35 UTC, Atlassian customers in Brazil experienced intermittent failures accessing and using Jira and Confluence Cloud. This disruption was due to our Content Delivery Network \\(CDN\\) not having sufficient capacity in Brazil under a certain network configuration.\n\nChanges in the lead-up to the incident included enabling CDN for Jira and Confluence in Brazil between January 20th and February 6th to improve performance and security.\n\nJira and Confluence experience success rate monitoring detected the incident within 50 minutes. The incident was mitigated by temporarily disabling CDN in Brazil, which put Atlassian systems into a known good state. The total time to resolution was two hours and 25 minutes.\n\n### **IMPACT**\n\nThe overall impact was on February 10, 2025, between 16:10 and 18:35 UTC to Jira and Confluence Cloud_._ The incident caused service disruption to Brazilian customers when they attempted to access or use any feature of those products. Customers observed a generic error page or “HTTP 500” error presented by our CDN provider for up to a third of all requests at peak.\n\n### **ROOT CAUSE**\n\nOur CDN is configured to present Jira and Confluence Cloud from static IP ranges dedicated to Atlassian.\n\nThis configuration limited the number of edge locations servicing customer requests, causing a high concentration of connections in the Brazilian region on one edge location in particular.\n\nWhen daily traffic volumes in Brazil peaked on February 10, connections through the edge location to our servers encountered a capacity limit and were rejected with a HTTP 500 error.\n\n### **REMEDIAL ACTION PLAN & NEXT STEPS**\n\nWe understand that outages impact your productivity. We apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability. Along with our CDN provider, we have already taken the following actions to avoid repeating this type of incident:\n\n* Our CDN provider has completed the rollout of the static, dedicated IP feature to all their edge locations and enabled Jira and Confluence Cloud to be served from all of them, thus moving to the intended configuration that will provide full network capacity.\n* We are working with our CDN provider to perform more rigorous checks of capacity and configuration for Jira and Confluence Cloud.\n* Our CDN provider increased the server connection limit for Jira and Confluence Cloud in all locations, further increasing capacity.\n* Based on the observed failure patterns, we have created additional monitoring and alerting configurations, so we will be alerted immediately if the issue reoccurs.\n\nAdditionally, we are prioritizing actions to improve the detection of failures that affect a specific region.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "mrg2r22znjzn",
+          "created_at": "2025-02-26T02:12:21.805Z",
+          "updated_at": "2025-02-26T02:12:28.170Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "28nhtwfxh037",
           "status": "resolved",
