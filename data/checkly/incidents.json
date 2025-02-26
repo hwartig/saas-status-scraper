@@ -4,9 +4,62 @@
     "name": "Checkly",
     "url": "https://is.checkly.online",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-02-26T11:05:23.467Z"
+    "updated_at": "2025-02-26T16:51:27.596Z"
   },
   "incidents": [
+    {
+      "id": "nkt07mcb4ts7",
+      "name": "Slack Alerts Degradation",
+      "status": "investigating",
+      "created_at": "2025-02-26T16:51:27.039Z",
+      "updated_at": "2025-02-26T16:51:27.556Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/d7f45llqx4ky",
+      "started_at": "2025-02-26T16:51:27.033Z",
+      "page_id": "nq8lf8mrmvw6",
+      "incident_updates": [
+        {
+          "id": "jxqjqcr73jdh",
+          "status": "investigating",
+          "body": "We are experiencing intermittent failures in delivering alerts via Slack due to an upstream issue at Slack https://slack-status.com/. Some notifications may not be delivered. We are monitoring the situation and will provide updates as needed.",
+          "incident_id": "nkt07mcb4ts7",
+          "created_at": "2025-02-26T16:51:27.126Z",
+          "updated_at": "2025-02-26T16:51:27.547Z",
+          "display_at": "2025-02-26T16:51:27.126Z",
+          "affected_components": [
+            {
+              "code": "ghrnr69mpm9w",
+              "name": "Alerting",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1894792404374560920
+        }
+      ],
+      "components": [
+        {
+          "id": "ghrnr69mpm9w",
+          "name": "Alerting",
+          "status": "degraded_performance",
+          "created_at": "2022-06-21T06:57:02.422Z",
+          "updated_at": "2025-02-26T16:51:27.076Z",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-06-21",
+          "group_id": null,
+          "page_id": "nq8lf8mrmvw6",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "5kj7sy7s6ygr",
       "name": "Private locations TCP/API checks scheduling errors across CLI and UI.",
@@ -5283,132 +5336,6 @@
           "description": null,
           "showcase": true,
           "start_date": "2021-06-04",
-          "group_id": null,
-          "page_id": "nq8lf8mrmvw6",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "0tcnjvyv7cl8",
-      "name": "Increased check scheduling latency in us-east-1",
-      "status": "postmortem",
-      "created_at": "2024-03-29T00:22:17.578Z",
-      "updated_at": "2024-03-29T17:39:25.768Z",
-      "monitoring_at": "2024-03-29T01:37:06.159Z",
-      "resolved_at": "2024-03-29T01:50:36.859Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/x6zpryy7xh4v",
-      "started_at": "2024-03-29T00:22:17.573Z",
-      "page_id": "nq8lf8mrmvw6",
-      "incident_updates": [
-        {
-          "id": "djyl06r77kl6",
-          "status": "postmortem",
-          "body": "## Incident Summary: Elevated Browser Check Scheduling Latency in `us-east-1`\n\n**Date:** March 28-29, 2024\n\n### Overview\n\nOn March 28th from 23:40 UTC to March 29th at 1:43 UTC, Checkly experienced elevated browser check scheduling delay in the `us-east-1` region due to an unexpected surge in browser check runs, attributed to suspicious activity. This incident impacted approximately 37,600 browser and multistep checks, with the maximum delay reaching 44.5 minutes. API checks and heartbeat checks remained unaffected. All delayed checks were eventually processed. We didn’t detect any signs of false positives caused by this incident. \n\n### Root Cause\n\nSuspicious activity within one customer’s accounts generated over 21,000 additional browser check runs in a short period of time, saturating the `us-east-1` region's capacity and causing the delays.\n\n### Conclusion\n\nWe apologize for any inconvenience and assure you that all delayed checks were executed without any false positives. Checkly is committed to providing a reliable service and we are taking steps to enhance our resilience and security.\n\n### Support\n\nFor questions or concerns, please contact [support@checklyhq.com](mailto:support@checklyhq.com). We value your trust and are here to help.",
-          "incident_id": "0tcnjvyv7cl8",
-          "created_at": "2024-03-29T17:34:20.229Z",
-          "updated_at": "2024-03-29T17:39:25.763Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": "We published a postmortem on our March 29th incident: https://stspg.io/x6zpryy7xh4v",
-          "tweet_id": null
-        },
-        {
-          "id": "svm7x1y9tsf0",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "0tcnjvyv7cl8",
-          "created_at": "2024-03-29T01:50:36.859Z",
-          "updated_at": "2024-03-29T01:50:37.335Z",
-          "display_at": "2024-03-29T01:50:36.859Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1773528154268950771
-        },
-        {
-          "id": "tbbbhjnm7mzt",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "0tcnjvyv7cl8",
-          "created_at": "2024-03-29T01:37:06.159Z",
-          "updated_at": "2024-03-29T01:37:06.574Z",
-          "display_at": "2024-03-29T01:37:06.159Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1773524753661452306
-        },
-        {
-          "id": "xmlf5j39q41d",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "0tcnjvyv7cl8",
-          "created_at": "2024-03-29T01:16:18.990Z",
-          "updated_at": "2024-03-29T01:16:19.300Z",
-          "display_at": "2024-03-29T01:16:18.990Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1773519522273849487
-        },
-        {
-          "id": "x6r6hxtkjs6w",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "0tcnjvyv7cl8",
-          "created_at": "2024-03-29T00:22:17.647Z",
-          "updated_at": "2024-03-29T00:22:18.053Z",
-          "display_at": "2024-03-29T00:22:17.647Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1773505927548907665
-        }
-      ],
-      "components": [
-        {
-          "id": "67l5jbfddxv3",
-          "name": "Browser check runtime",
-          "status": "operational",
-          "created_at": "2021-07-29T15:53:09.494Z",
-          "updated_at": "2025-02-14T00:47:26.979Z",
-          "position": 5,
-          "description": null,
-          "showcase": true,
-          "start_date": "2021-07-29",
           "group_id": null,
           "page_id": "nq8lf8mrmvw6",
           "group": false,
