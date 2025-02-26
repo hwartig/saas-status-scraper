@@ -4,9 +4,39 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-02-26T11:05:17.614Z"
+    "updated_at": "2025-02-26T12:40:10.397Z"
   },
   "incidents": [
+    {
+      "id": "skb7jbxwfm47",
+      "name": "Reports of pg_net issues on some projects",
+      "status": "investigating",
+      "created_at": "2025-02-26T12:40:10.353Z",
+      "updated_at": "2025-02-26T12:40:10.394Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/xrdv32j4gfl9",
+      "started_at": "2025-02-26T12:40:10.346Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "v7cb1hklyw70",
+          "status": "investigating",
+          "body": "We are seeing increased reports of permissions issues when using pg_net and the engineering team are investigating.",
+          "incident_id": "skb7jbxwfm47",
+          "created_at": "2025-02-26T12:40:10.392Z",
+          "updated_at": "2025-02-26T12:40:10.392Z",
+          "display_at": "2025-02-26T12:40:10.392Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "yg64p2zfd3dg",
       "name": "Connectivity Issues to Pooler in US-East-1",
@@ -4471,249 +4501,6 @@
           "description": "The studio, docs and primary website at https://supabase.com",
           "showcase": true,
           "start_date": "2020-11-27",
-          "group_id": null,
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "xlnfykn7vm8y",
-      "name": "Data and Auth API Connectivity issues in SA-East-1",
-      "status": "resolved",
-      "created_at": "2024-07-15T22:32:24.533Z",
-      "updated_at": "2024-07-16T10:52:19.843Z",
-      "monitoring_at": "2024-07-16T08:01:14.656Z",
-      "resolved_at": "2024-07-16T10:52:19.827Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/xy5wmb6ck3m2",
-      "started_at": "2024-07-15T22:32:24.526Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "5whxl35hwb4t",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "xlnfykn7vm8y",
-          "created_at": "2024-07-16T10:52:19.827Z",
-          "updated_at": "2024-07-16T10:52:19.827Z",
-          "display_at": "2024-07-16T10:52:19.827Z",
-          "affected_components": [
-            {
-              "code": "fznyj00kpng2",
-              "name": "Auth",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "43453sylqk7v",
-              "name": "API Gateway",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "w1zsqg7dc77s",
-          "status": "monitoring",
-          "body": "The ISP has fixed the issue and we are monitoring the situation.",
-          "incident_id": "xlnfykn7vm8y",
-          "created_at": "2024-07-16T08:01:14.656Z",
-          "updated_at": "2024-07-16T08:01:14.656Z",
-          "display_at": "2024-07-16T08:01:14.656Z",
-          "affected_components": [
-            {
-              "code": "fznyj00kpng2",
-              "name": "Auth",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "43453sylqk7v",
-              "name": "API Gateway",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "h6j69dq40v1x",
-          "status": "identified",
-          "body": "The problem has been narrowed down to an ISP having degraded performance with IPv6 traffic. Our CDN provider is working with the ISP to resolve the issue.",
-          "incident_id": "xlnfykn7vm8y",
-          "created_at": "2024-07-16T06:26:27.039Z",
-          "updated_at": "2024-07-16T06:26:27.039Z",
-          "display_at": "2024-07-16T06:26:27.039Z",
-          "affected_components": [
-            {
-              "code": "fznyj00kpng2",
-              "name": "Auth",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "43453sylqk7v",
-              "name": "API Gateway",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1xbby75ffd3n",
-          "status": "investigating",
-          "body": "We're continuing to work with Cloudflare and AWS on identifying the source of the interruption between the two.\n\nAffected connections are to projects hosted in the AWS sa-east-1 region, generally when contacted from us-east-1 (but potentially others as well).\n\nWorkarounds include:\n\n- relocating client workloads to us-west-1 \n- temporarily using an IPv4 add-on (the interruption only seems to be affecting IPv6 traffic)",
-          "incident_id": "xlnfykn7vm8y",
-          "created_at": "2024-07-16T04:18:29.112Z",
-          "updated_at": "2024-07-16T04:18:29.112Z",
-          "display_at": "2024-07-16T04:18:29.112Z",
-          "affected_components": [
-            {
-              "code": "fznyj00kpng2",
-              "name": "Auth",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "43453sylqk7v",
-              "name": "API Gateway",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5hltl6dc58zf",
-          "status": "investigating",
-          "body": "The connectivity issue seems to be affecting connections made from the AWS us-east-1 region (including, e.g. Vercel resources hosted in iad1), to projects hosted in the AWS sa-east-1 region.\n\nInitiating requests from other AWS regions should work without issues, and can be used as a workaround (e.g. by moving client service/app hosting locations).\n\nWe're still working on a root cause and resolution.",
-          "incident_id": "xlnfykn7vm8y",
-          "created_at": "2024-07-15T23:43:50.511Z",
-          "updated_at": "2024-07-15T23:43:50.511Z",
-          "display_at": "2024-07-15T23:43:50.511Z",
-          "affected_components": [
-            {
-              "code": "fznyj00kpng2",
-              "name": "Auth",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "43453sylqk7v",
-              "name": "API Gateway",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l6z165m2cm3r",
-          "status": "investigating",
-          "body": "There seem to be Cloudflare connectivity issues between some regions in North and South America, to our projects hosted in the sa-east-1 region.\n\nOther regions seem to be unaffected.",
-          "incident_id": "xlnfykn7vm8y",
-          "created_at": "2024-07-15T22:44:15.519Z",
-          "updated_at": "2024-07-15T22:44:15.519Z",
-          "display_at": "2024-07-15T22:44:15.519Z",
-          "affected_components": [
-            {
-              "code": "fznyj00kpng2",
-              "name": "Auth",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "43453sylqk7v",
-              "name": "API Gateway",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "n9g4wrss76yt",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "xlnfykn7vm8y",
-          "created_at": "2024-07-15T22:35:03.387Z",
-          "updated_at": "2024-07-15T22:35:03.387Z",
-          "display_at": "2024-07-15T22:35:03.387Z",
-          "affected_components": [
-            {
-              "code": "fznyj00kpng2",
-              "name": "Auth",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "43453sylqk7v",
-              "name": "API Gateway",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9p6lkqy1g016",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "xlnfykn7vm8y",
-          "created_at": "2024-07-15T22:32:24.574Z",
-          "updated_at": "2024-07-15T22:32:24.574Z",
-          "display_at": "2024-07-15T22:32:24.574Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "43453sylqk7v",
-          "name": "API Gateway",
-          "status": "operational",
-          "created_at": "2024-05-02T07:20:18.177Z",
-          "updated_at": "2024-07-16T10:52:19.783Z",
-          "position": 2,
-          "description": "API Gateway for all Supabase Products",
-          "showcase": true,
-          "start_date": "2024-05-02",
-          "group_id": null,
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "fznyj00kpng2",
-          "name": "Auth",
-          "status": "operational",
-          "created_at": "2023-06-21T09:23:42.781Z",
-          "updated_at": "2025-02-11T14:55:35.346Z",
-          "position": 3,
-          "description": "Authenticate and authorize users",
-          "showcase": true,
-          "start_date": "2023-06-21",
           "group_id": null,
           "page_id": "q7pxfmcf2sbx",
           "group": false,
