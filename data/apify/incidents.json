@@ -4,15 +4,15 @@
     "name": "Apify",
     "url": "https://status.apify.com",
     "time_zone": "Europe/Prague",
-    "updated_at": "2025-02-26T12:05:57.899+01:00"
+    "updated_at": "2025-02-26T15:26:42.594+01:00"
   },
   "incidents": [
     {
       "id": "d7t6vxq18wq9",
       "name": "Malfunctioning scheduler",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-02-24T16:24:19.000+01:00",
-      "updated_at": "2025-02-24T17:55:32.620+01:00",
+      "updated_at": "2025-02-26T15:26:42.591+01:00",
       "monitoring_at": "2025-02-24T17:22:32.000+01:00",
       "resolved_at": "2025-02-24T17:55:32.589+01:00",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2025-02-24T16:24:19.000+01:00",
       "page_id": "j23nkrf8p8p8",
       "incident_updates": [
+        {
+          "id": "7h3lr11l2600",
+          "status": "postmortem",
+          "body": "Malfunctioning scheduler post-mortem\n\nDate of incident: 2025-02-24  \nDuration: 10:30 UTC - 16:15 UTC  \nImpact: \n\n* From 10:30 UTC to 15:00 UTC, some of the schedules were triggered more than once. It started as a small-scale issue, and the problem escalated after 14:00 UTC.\n* From 15:00 UTC to 15:55 UTC, API performance was degraded, and some Actor builds and runs were stuck in the READY state. Some Actor runs were aborted but can be resurrected.\n* From 15:25 UTC to 16:15 UTC, schedules were not working, so some Actor runs did not start at all.\n\nWhat happened?\n\n* We implemented a change that would improve Actor startup performance by targeting Docker layers more effectively.\n* The change caused certain database items to increase in size, overloading the network of the primary cluster and leading to degraded performance.\n* Some core components, including those behind the scheduler, repeatedly went out of memory.\n\nWhat we did\n\n* We temporarily paused the Actor run scheduler and manually aborted runs triggered after 15:00 UTC.\n* We downscaled the platform to make the database responsive again and reverted the change causing the bug.\n\nNext steps\n\n* We will improve our monitoring to catch similar problems, deviations, and network spikes sooner before they escalate.\n* We will investigate the component's current architecture to ensure we prevent such incidents in the future. \n\nWe apologize for the disruption and appreciate your patience. If you have any questions, please reach out to [support@apify.com](mailto:support@apify.com).\n\nSincerely,  \nApify engineering team",
+          "incident_id": "d7t6vxq18wq9",
+          "created_at": "2025-02-26T15:26:10.503+01:00",
+          "updated_at": "2025-02-26T15:26:42.588+01:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "9b8wg3ll1d3b",
           "status": "resolved",
@@ -201,9 +214,9 @@
     {
       "id": "4k6n5swkwx5h",
       "name": "Major systems outage",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-02-22T23:12:18.851+01:00",
-      "updated_at": "2025-02-23T00:41:44.826+01:00",
+      "updated_at": "2025-02-26T15:21:30.893+01:00",
       "monitoring_at": "2025-02-23T00:25:46.000+01:00",
       "resolved_at": "2025-02-23T00:38:48.202+01:00",
       "impact": "critical",
@@ -211,6 +224,19 @@
       "started_at": "2025-02-22T23:12:18.830+01:00",
       "page_id": "j23nkrf8p8p8",
       "incident_updates": [
+        {
+          "id": "1bld01f2wj4r",
+          "status": "postmortem",
+          "body": "Saturday outage post-mortem  \nDate of incident: 2025-02-22\n\nImpact: \n\n* Complete downtime of the Apify platform from 22.00 UTC to 23.00 UTC.\n* No Actors could be started. \n* Those already running were paused and continued running after the incident was resolved. \n* There was no data loss, but the workloads were disrupted.\n\nWhat happened:\n\n* Our user base is growing fast, and the number of new signups is increasing exponentially. The exponentially increased load revealed suboptimalities that had not manifested before.\n* One misconfigured query then caused a peak in memory due to a load of a suboptimal index, which caused the cluster to crash.\n\nWhat we did:\n\n* The cluster size was increased to ensure enough memory until the issue was fixed. \n* Then, the cluster and all the dependent systems were restarted.\n\nNext steps:\n\n* We are already re-architecting our primary database clusters to optimize systems for future growth.\n* As part of this, we aim to decrease the size of all our clusters to ensure performant restarts in case of a problem.\n* We are currently optimizing indexing and querying among heavy-load components.\n* In addition, we identified missing metrics that would indicate similar problems ahead of time.\n\nWe sincerely apologize for the disruption and appreciate your patience. If you have any questions, please reach out to [support@apify.com](mailto:support@apify.com).\n\nSincerely,  \nApify engineering team",
+          "incident_id": "4k6n5swkwx5h",
+          "created_at": "2025-02-26T15:21:12.449+01:00",
+          "updated_at": "2025-02-26T15:21:30.890+01:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "yynfj6t20hjk",
           "status": "resolved",
