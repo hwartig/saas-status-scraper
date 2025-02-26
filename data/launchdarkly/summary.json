@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-02-26T03:04:48.110-08:00"
+    "updated_at": "2025-02-26T13:29:53.262-08:00"
   },
   "components": [
     {
@@ -291,9 +291,9 @@
     {
       "id": "g5bksjhndxmj",
       "name": "Flag usage metrics",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-08-30T10:10:07.695-07:00",
-      "updated_at": "2024-10-02T11:29:11.412-07:00",
+      "updated_at": "2025-02-26T13:27:59.398-08:00",
       "position": 3,
       "description": "Recording and displaying of data pertaining to your flag usage",
       "showcase": false,
@@ -450,7 +450,7 @@
     {
       "id": "2868qx437p9m",
       "name": "Feature management (non-core functionality)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-03-20T14:51:47.901-07:00",
       "updated_at": "2023-07-07T11:10:01.177-07:00",
       "position": 5,
@@ -575,7 +575,81 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "qdl9c5h8cwdj",
+      "name": "Flag Insights data is delayed",
+      "status": "identified",
+      "created_at": "2025-02-26T13:27:59.354-08:00",
+      "updated_at": "2025-02-26T13:29:53.254-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/7b3hnkwq0qbx",
+      "started_at": "2025-02-26T13:27:59.346-08:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "8kt0v3w3kmyk",
+          "status": "identified",
+          "body": "The cause has been identified and data is flowing again.  We are working on clearing the backlog.",
+          "incident_id": "qdl9c5h8cwdj",
+          "created_at": "2025-02-26T13:29:52.921-08:00",
+          "updated_at": "2025-02-26T13:29:53.247-08:00",
+          "display_at": "2025-02-26T13:29:52.921-08:00",
+          "affected_components": [
+            {
+              "code": "g5bksjhndxmj",
+              "name": "Feature management (non-core functionality) - Flag usage metrics",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1894862473209225383
+        },
+        {
+          "id": "s8x0lyz5g05p",
+          "status": "investigating",
+          "body": "Data in our Flag Insights feature is partially delayed beginning at around 1 PM Pacific Time.  We are investigating the issue.",
+          "incident_id": "qdl9c5h8cwdj",
+          "created_at": "2025-02-26T13:27:59.451-08:00",
+          "updated_at": "2025-02-26T13:27:59.961-08:00",
+          "display_at": "2025-02-26T13:27:59.451-08:00",
+          "affected_components": [
+            {
+              "code": "g5bksjhndxmj",
+              "name": "Feature management (non-core functionality) - Flag usage metrics",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1894861998036525089
+        }
+      ],
+      "components": [
+        {
+          "id": "g5bksjhndxmj",
+          "name": "Flag usage metrics",
+          "status": "degraded_performance",
+          "created_at": "2018-08-30T10:10:07.695-07:00",
+          "updated_at": "2025-02-26T13:27:59.398-08:00",
+          "position": 3,
+          "description": "Recording and displaying of data pertaining to your flag usage",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "2868qx437p9m",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "vv1mlmybm046",
@@ -750,7 +824,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
