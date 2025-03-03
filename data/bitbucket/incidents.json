@@ -4,7 +4,7 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-03T17:02:08.240Z"
+    "updated_at": "2025-03-03T18:03:06.097Z"
   },
   "incidents": [
     {
@@ -143,9 +143,9 @@
     {
       "id": "mb73p3vm5y5r",
       "name": "Bitbucket has degraded performance",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-02-11T16:12:05.452Z",
-      "updated_at": "2025-03-03T17:02:08.232Z",
+      "updated_at": "2025-03-03T18:03:06.093Z",
       "monitoring_at": null,
       "resolved_at": "2025-02-11T17:16:13.119Z",
       "impact": "minor",
@@ -153,6 +153,19 @@
       "started_at": "2025-02-11T16:12:05.435Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "hcvvmwlsvtlv",
+          "status": "postmortem",
+          "body": "### SUMMARY\n\nOn February 11, 2025, between 15:41 and 16:26 UTC, Atlassian customers using Bitbucket Cloud experienced workspace access errors \\(HTTP 404\\) when attempting to access the website, API, and Git over HTTPS/SSH. The event was triggered by a failure in our feature flagging service, which inadvertently blocked some users from core services. The incident was detected within eight minutes by automated monitoring and was resolved 45 minutes later once a change to a feature flag configuration had been fully deployed.\n\n### **IMPACT**\n\nA subset of Bitbucket Cloud users were unable to access their workspace. When trying to access their Bitbucket cloud repository through the website, API, or CLI, these users would have seen a 404 error message.\n\n### **ROOT CAUSE**\n\nAn upstream failure in a feature flagging service resulted in Bitbucket’s application logic not working correctly. This resulted in access errors for a subset of customers.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. While we have a number of testing and preventative processes in place, this specific failure scenario wasn’t identified during testing.\n\nWe are prioritizing the following improvement actions designed to avoid repeating this type of incident:\n\n* Fixing the root cause of the bug in our feature flag service\n* Improving Bitbucket’s fallback mechanisms and handling of errors in feature flags\n* Improving test coverage and war gaming failures with core dependencies.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "mb73p3vm5y5r",
+          "created_at": "2025-03-03T17:02:05.671Z",
+          "updated_at": "2025-03-03T18:03:06.090Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "5dfsvct4vx1j",
           "status": "resolved",
