@@ -4,9 +4,62 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-04T03:43:14.252Z"
+    "updated_at": "2025-03-04T07:32:15.882Z"
   },
   "incidents": [
+    {
+      "id": "zt9nnchblfts",
+      "name": "Issues with 403 user authentication errors across Atlassian products",
+      "status": "resolved",
+      "created_at": "2025-03-04T07:31:46.044Z",
+      "updated_at": "2025-03-04T07:31:46.104Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-03-04T07:31:46.094Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/fjcq982sybhr",
+      "started_at": "2025-03-04T07:31:46.038Z",
+      "page_id": "4g2my7tbhjsq",
+      "incident_updates": [
+        {
+          "id": "jny2962n76z9",
+          "status": "resolved",
+          "body": "We are aware of an issue that was impacting user authentication to Atlassian services between 6:10AM Tuesday 4th March UTC and 6:35AM Tuesday 4th March UTC.\nUsers that were already logged in would not have been impacted by this issue.\nA deployment suspected of causing this issue was rolled back and the problem was subsequently resolved.",
+          "incident_id": "zt9nnchblfts",
+          "created_at": "2025-03-04T07:31:46.094Z",
+          "updated_at": "2025-03-04T07:31:46.094Z",
+          "display_at": "2025-03-04T07:31:46.094Z",
+          "affected_components": [
+            {
+              "code": "n779hf70xvvb",
+              "name": "Authentication and User Management",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "n779hf70xvvb",
+          "name": "Authentication and User Management",
+          "status": "operational",
+          "created_at": "2019-05-02T04:25:15.382Z",
+          "updated_at": "2025-02-10T19:26:40.517Z",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "4g2my7tbhjsq",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "vdpnbrgs11br",
       "name": "Confluence search not returning results for some customers",
@@ -6032,92 +6085,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "0qf80wtzl58m",
-      "name": "Error responses across multiple Cloud products",
-      "status": "postmortem",
-      "created_at": "2024-06-03T23:11:01.127Z",
-      "updated_at": "2024-06-11T00:55:22.086Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-06-04T00:34:23.147Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/nxsb1p4phwh6",
-      "started_at": "2024-06-03T23:11:01.108Z",
-      "page_id": "4g2my7tbhjsq",
-      "incident_updates": [
-        {
-          "id": "37yj24l47n6r",
-          "status": "postmortem",
-          "body": "### Summary\n\nOn June 3rd, between 09:43pm and 10:58 pm UTC, Atlassian customers using multiple product\\(s\\) were unable to access their services. The event was triggered by a change to the infrastructure API Gateway, which is responsible for routing the traffic to the correct application backends.\n\nThe incident was detected by the automated monitoring system within five minutes and mitigated by correcting a faulty release feature flag, which put Atlassian systems into a known good state. The first communications were published on the Statuspage at 11:11pm UTC. The total time to resolution was about 75 minutes.\n\n### **IMPACT**\n\nThe overall impact was between 09:43pm and 10:17pm UTC, with the system initially in a degraded state, followed by a total outage between 10:17pm and 10:58pm UTC. \n\n_The Incident caused service disruption to customers in all regions and affected the following products:_\n\n* Jira Software\n* Jira Service Management\n* Jira Work Management\n* Jira Product Discovery\n* Jira Align\n* Confluence\n* Trello\n* Bitbucket\n* Opsgenie\n* Compass\n\n### **ROOT CAUSE**\n\nA policy used in the infrastructure API gateway was being updated in production via a feature flag. The combination of an erroneous value entered in a feature flag, and a bug in the code resulted in the API Gateway not processing any traffic.\n\nThis created a total outage, where all users started receiving 5XX errors for most Atlassian products.\n\nOnce the problem was identified and the feature flag updated to the correct values, all services started seeing recovery immediately.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. While we have several testing and preventative processes in place, this specific issue wasn’t identified because the change did not go through our regular release process and instead was incorrectly applied through a feature flag.\n\nWe are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n* Prevent high-risk feature flags from being used in production\n* Improve the policy changes testing\n* Enforcing longer soak time for policy changes\n* Any feature flags should go through progressive rollouts to minimize broad impact\n* Review the infrastructure feature flags to ensure they all have appropriate defaults\n* Improve our processes and internal tooling to provide faster communications to our customers\n\nWe apologize to customers whose services were affected by this incident and are taking immediate steps to address the above gaps.\n\nThanks,\n\nAtlassian Customer Support",
-          "incident_id": "0qf80wtzl58m",
-          "created_at": "2024-06-11T00:54:45.092Z",
-          "updated_at": "2024-06-11T00:55:22.084Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "x1ydzp25j7w1",
-          "status": "resolved",
-          "body": "Between 22:18 UTC to 22:56 UTC, we experienced errors for multiple Cloud products. The issue has been resolved and the service is operating normally.",
-          "incident_id": "0qf80wtzl58m",
-          "created_at": "2024-06-04T00:34:23.147Z",
-          "updated_at": "2024-06-04T00:34:23.147Z",
-          "display_at": "2024-06-04T00:34:23.147Z",
-          "affected_components": [
-            {
-              "code": "n779hf70xvvb",
-              "name": "Authentication and User Management",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "33styy2h5dvn",
-          "status": "identified",
-          "body": "We are investigating an issue with error responses for some Cloud customers across multiple products. We have identified the root cause and expect recovery shortly.",
-          "incident_id": "0qf80wtzl58m",
-          "created_at": "2024-06-03T23:11:01.406Z",
-          "updated_at": "2024-06-03T23:11:01.406Z",
-          "display_at": "2024-06-03T23:11:01.406Z",
-          "affected_components": [
-            {
-              "code": "n779hf70xvvb",
-              "name": "Authentication and User Management",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "n779hf70xvvb",
-          "name": "Authentication and User Management",
-          "status": "operational",
-          "created_at": "2019-05-02T04:25:15.382Z",
-          "updated_at": "2025-02-10T19:26:40.517Z",
-          "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "4g2my7tbhjsq",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
