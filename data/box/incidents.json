@@ -4,9 +4,39 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-03-03T19:42:48.961-08:00"
+    "updated_at": "2025-03-03T22:05:07.121-08:00"
   },
   "incidents": [
+    {
+      "id": "8k98zlp911gt",
+      "name": "[Minor] Customers may have experienced issues using All Files page and Public API",
+      "status": "resolved",
+      "created_at": "2025-03-03T03:00:00.000-08:00",
+      "updated_at": "2025-03-03T22:05:07.118-08:00",
+      "monitoring_at": null,
+      "resolved_at": "2025-03-03T20:00:00.000-08:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/b3v5g1jcdlg2",
+      "started_at": "2025-03-03T20:00:00.000-08:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "lfvkzg07m1c1",
+          "status": "resolved",
+          "body": "Between 8:44 - 8:56 PM PT on March 3rd 2025, some users may have experienced difficulties using All Files page and Public API. No further impact has been observed and we are considering this issue to be resolved. If you are still experiencing any issues, please let us know at https://support.box.com.",
+          "incident_id": "8k98zlp911gt",
+          "created_at": "2025-03-03T21:50:07.238-08:00",
+          "updated_at": "2025-03-03T22:05:06.992-08:00",
+          "display_at": "2025-03-03T20:00:00.000-08:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "nrmshwcw475y",
       "name": "[Outage] Some Users Unable to View All Files and API Pages",
@@ -11266,132 +11296,6 @@
           "showcase": false,
           "start_date": "2023-07-18",
           "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "93cs3md2y96f",
-      "name": "[Critical] Issues Accessing box.com",
-      "status": "postmortem",
-      "created_at": "2023-09-22T10:30:51.147-07:00",
-      "updated_at": "2023-11-15T09:59:32.434-08:00",
-      "monitoring_at": "2023-09-22T10:34:49.080-07:00",
-      "resolved_at": "2023-09-22T10:40:00.564-07:00",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/jl4c3259wnp3",
-      "started_at": "2023-09-22T10:30:51.142-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "323372fq21b5",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting the Box marketing site \\([www.box.com](http://www.box.com)\\). We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 10:07am PDT and 10:33am PDT on September 22nd, 2023, some users may have experienced difficulties while working in Box. During this time, the Box marketing site \\([www.box.com](http://www.box.com)\\) was inaccessible and users attempting to access the site encountered a 404 error page. The issue occurred as a result of instability in Box’s marketing site vendor’s network. We were able to resolve the issue by working with the vendor to deploy a temporary workaround to remediate this issue**.** In addition, we are working with the vendor to improve their rollout verification process and also to identify Box-owned processes to remediate similar issues should they arise in the future. \n\n‌\n\n**Analysis** \n\nThe cause of this issue was a change in the leader election process of a key component in the vendor’s configuration management pipeline. This change triggered a race condition in a downstream component in the pipeline, which resulted in overwriting some customer configurations with an empty configuration. While the change was rolled out gradually with a canary process, the vendor’s automated rollout verification mechanism was not able to identify the issue. The issue was eventually detected by the vendor’s data plane monitoring systems, which alerted due to the rise in errors being served.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned by the vendor and Box:\n\n* Vendor: Identify and resolve the underlying race condition in configuration lifecycle that resulted in the unintended modifications.\n* Vendor: Improve tooling and processes to more quickly and safely rollback components in the configuration management system.\n* Vendor: Improve internal monitoring and visualization to better assess and understand source of error response alerting to expedite detection and remediation.\n* Box: Identify and implement Box-owned solution to remediate similar issues should they arise in the future.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
-          "incident_id": "93cs3md2y96f",
-          "created_at": "2023-11-15T09:59:13.539-08:00",
-          "updated_at": "2023-11-15T09:59:32.432-08:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bwjkgnr4g4yn",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. box.com has been restored to full functionality. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
-          "incident_id": "93cs3md2y96f",
-          "created_at": "2023-09-22T10:40:00.564-07:00",
-          "updated_at": "2023-09-22T10:40:00.564-07:00",
-          "display_at": "2023-09-22T10:40:00.564-07:00",
-          "affected_components": [
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bprd72jrmzwd",
-          "status": "monitoring",
-          "body": "Our team has taken steps to remediate this issue and is seeing improvement when accessing box.com. We are continuing to monitor for any additional impact.",
-          "incident_id": "93cs3md2y96f",
-          "created_at": "2023-09-22T10:34:49.080-07:00",
-          "updated_at": "2023-09-22T10:34:49.080-07:00",
-          "display_at": "2023-09-22T10:34:49.080-07:00",
-          "affected_components": [
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xmt974t8grjt",
-          "status": "identified",
-          "body": "Our team has identified the underlying cause of this issue and is working to take remediating steps. We will provide additional updates as they become available.",
-          "incident_id": "93cs3md2y96f",
-          "created_at": "2023-09-22T10:33:13.188-07:00",
-          "updated_at": "2023-09-22T10:33:13.188-07:00",
-          "display_at": "2023-09-22T10:33:13.188-07:00",
-          "affected_components": [
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "tgvq2hdr1gsw",
-          "status": "investigating",
-          "body": "Our team is investigating an issue with accessing box.com. Users may see errors when attempting to access the box.com URL. Users can avoid this by accessing app.box.com. We will provide additional information as it becomes available.",
-          "incident_id": "93cs3md2y96f",
-          "created_at": "2023-09-22T10:30:51.227-07:00",
-          "updated_at": "2023-09-22T10:30:51.227-07:00",
-          "display_at": "2023-09-22T10:30:51.227-07:00",
-          "affected_components": [
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "t1bgldgfmgfs",
-          "name": "Box Website",
-          "status": "operational",
-          "created_at": "2018-10-01T20:25:05.195-07:00",
-          "updated_at": "2024-03-08T03:08:44.276-08:00",
-          "position": 12,
-          "description": "The primary Box marketing website which includes information about available products and services. This site also serves as the beginning destination for a customer's login to the Box Web Application and default download links to desktop and mobile client software.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
           "page_id": "208q92hckwws",
           "group": false,
           "only_show_if_degraded": false
