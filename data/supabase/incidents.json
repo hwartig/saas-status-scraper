@@ -4,9 +4,39 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-04T22:11:06.943Z"
+    "updated_at": "2025-03-05T00:20:34.440Z"
   },
   "incidents": [
+    {
+      "id": "p1w0h9g4llzb",
+      "name": "\"Failed to Retrieve Tables\" in the dashboard in US-West-1",
+      "status": "resolved",
+      "created_at": "2025-03-04T23:30:00.000Z",
+      "updated_at": "2025-03-04T23:44:30.996Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-03-04T23:30:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/4p2tv4169nt9",
+      "started_at": "2025-03-04T23:44:30.946Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "y4wzbfb453h9",
+          "status": "resolved",
+          "body": "For approximately 5 minutes, 22:59-23:04 UTC, requests between the Supabase Dashboard and project databases were failing, resulting in \"Failed to Retrieve Tables\" or similar errors in the dashboard. \n\nAll projects were up and receiving regular postgres and API traffic - this only affected requests originating from the Supabase Dashboard to the project databases.\n\nThe issue resolved itself, as designed, when a node in the infrastructure experienced issues was replaced. The team will also be looking into making this process more resilient.",
+          "incident_id": "p1w0h9g4llzb",
+          "created_at": "2025-03-04T23:44:30.987Z",
+          "updated_at": "2025-03-04T23:44:30.987Z",
+          "display_at": "2025-03-04T23:30:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "skb7jbxwfm47",
       "name": "pg_net disruption on some projects using version 0.8.0 of the extension",
@@ -4440,132 +4470,6 @@
           "description": "Globally deployed serverless functions",
           "showcase": true,
           "start_date": "2022-08-10",
-          "group_id": null,
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "ybb5g56277dj",
-      "name": "Some users are experiencing issues with email + password logins to the Supabase Dashboard",
-      "status": "resolved",
-      "created_at": "2024-07-17T14:15:07.736Z",
-      "updated_at": "2024-07-17T16:44:40.053Z",
-      "monitoring_at": "2024-07-17T15:58:49.000Z",
-      "resolved_at": "2024-07-17T16:44:40.037Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/c7yt2fpm1j09",
-      "started_at": "2024-07-17T14:41:19.000Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "qmswrqkjvw5k",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "ybb5g56277dj",
-          "created_at": "2024-07-17T16:44:40.037Z",
-          "updated_at": "2024-07-17T16:44:40.037Z",
-          "display_at": "2024-07-17T16:44:40.037Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "w6v86q5f25mr",
-          "status": "monitoring",
-          "body": "We have determined the users receiving this error message were github signups, who were attempting to sign in with a username/password. We are rolling out an update to provide the expected wrong username/password error. \n\nBut at this time, we have no reason to suspect that the login flow is working incorrectly for any users.\n\nIf you receive an unexpected error, please try logging in with github. If that fails, please contact our support at support@supbase.com",
-          "incident_id": "ybb5g56277dj",
-          "created_at": "2024-07-17T15:58:49.463Z",
-          "updated_at": "2024-07-17T15:59:37.329Z",
-          "display_at": "2024-07-17T15:58:49.000Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "y1hd4x2t2fmb",
-          "status": "identified",
-          "body": "We have identified an issue logging in to the Supabase Dashboard from some users who sign in with Github.\n\nA small number of users who normally sign in via Github may see an unexpected server error rather if they attempt to login with an email and password instead.\n\nUsers who experience this error should attempt to sign in with Github to resolve the issue.",
-          "incident_id": "ybb5g56277dj",
-          "created_at": "2024-07-17T14:41:19.366Z",
-          "updated_at": "2024-07-17T14:41:31.870Z",
-          "display_at": "2024-07-17T14:41:19.000Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "t3c2mp9zw7zk",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "ybb5g56277dj",
-          "created_at": "2024-07-17T14:22:55.342Z",
-          "updated_at": "2024-07-17T14:22:55.342Z",
-          "display_at": "2024-07-17T14:22:55.342Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "j7g37jx4z03h",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "ybb5g56277dj",
-          "created_at": "2024-07-17T14:15:07.766Z",
-          "updated_at": "2024-07-17T14:15:07.766Z",
-          "display_at": "2024-07-17T14:15:07.766Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "45jcpkfhw6hd",
-          "name": "Dashboard",
-          "status": "operational",
-          "created_at": "2020-11-27T15:23:00.100Z",
-          "updated_at": "2025-01-29T20:33:00.000Z",
-          "position": 5,
-          "description": "The studio, docs and primary website at https://supabase.com",
-          "showcase": true,
-          "start_date": "2020-11-27",
           "group_id": null,
           "page_id": "q7pxfmcf2sbx",
           "group": false,
