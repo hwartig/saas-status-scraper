@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-06T12:14:47.424Z"
+    "updated_at": "2025-03-06T16:20:46.016Z"
   },
   "components": [
     {
@@ -55,9 +55,9 @@
     {
       "id": "fznyj00kpng2",
       "name": "Auth",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-06-21T09:23:42.781Z",
-      "updated_at": "2025-02-11T14:55:35.346Z",
+      "updated_at": "2025-03-06T16:13:54.556Z",
       "position": 3,
       "description": "Authenticate and authorize users",
       "showcase": true,
@@ -145,9 +145,9 @@
     {
       "id": "yz6pcnlscwpb",
       "name": "Database",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-05-02T07:14:49.000Z",
-      "updated_at": "2025-02-12T14:08:17.564Z",
+      "updated_at": "2025-03-06T16:13:54.570Z",
       "position": 6,
       "description": "The Postgres database and the REST Data APIs powered by PostgREST",
       "showcase": true,
@@ -432,6 +432,80 @@
     }
   ],
   "incidents": [
+    {
+      "id": "v9h8r1hy8qw5",
+      "name": "New projects and existing projects seeing auth failures after configuration changes",
+      "status": "investigating",
+      "created_at": "2025-03-06T16:13:54.526Z",
+      "updated_at": "2025-03-06T16:13:54.610Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/8vf8d5wkm01y",
+      "started_at": "2025-03-06T16:13:54.521Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "sbzcw2nhy13s",
+          "status": "investigating",
+          "body": "We are currently investigating the root cause. At this time, we would advise against making changes to postgrest or auth settings. Out of caution, we would also suggest against restarts, compute add-on changes, or other configuration issues. The team is still assessing the full scope of changes, and we will update here as we have more information.",
+          "incident_id": "v9h8r1hy8qw5",
+          "created_at": "2025-03-06T16:13:54.607Z",
+          "updated_at": "2025-03-06T16:13:54.607Z",
+          "display_at": "2025-03-06T16:13:54.607Z",
+          "affected_components": [
+            {
+              "code": "fznyj00kpng2",
+              "name": "Auth",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "fznyj00kpng2",
+          "name": "Auth",
+          "status": "degraded_performance",
+          "created_at": "2023-06-21T09:23:42.781Z",
+          "updated_at": "2025-03-06T16:13:54.556Z",
+          "position": 3,
+          "description": "Authenticate and authorize users",
+          "showcase": true,
+          "start_date": "2023-06-21",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "yz6pcnlscwpb",
+          "name": "Database",
+          "status": "degraded_performance",
+          "created_at": "2024-05-02T07:14:49.000Z",
+          "updated_at": "2025-03-06T16:13:54.570Z",
+          "position": 6,
+          "description": "The Postgres database and the REST Data APIs powered by PostgREST",
+          "showcase": true,
+          "start_date": "2024-05-02",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "17mwxkdj7gpw",
       "name": "Compute capacity issues observed in multiple availability zones",
@@ -755,7 +829,7 @@
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
