@@ -4,9 +4,62 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-10T08:09:32.833Z"
+    "updated_at": "2025-03-10T12:05:15.310Z"
   },
   "incidents": [
+    {
+      "id": "tb0kfpyzty9g",
+      "name": "Managed Kubernetes Connectivity with Internal Droplets",
+      "status": "investigating",
+      "created_at": "2025-03-10T12:03:40.032Z",
+      "updated_at": "2025-03-10T12:05:15.306Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/wkqskfqftv3n",
+      "started_at": "2025-03-10T12:03:40.000Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "mdmhr0gvbhtk",
+          "status": "investigating",
+          "body": "Our Engineering team is currently investigating an issue impacting recently created Managed Kubernetes nodes not being able to connect to Droplets that utilize the Managed Kubernetes Cluster source to allow traffic.\n\nUsers adding a Managed Kubernetes Cluster as a source in the Cloud firewall may see related Droplets not added to the Cloud firewall.\n\nAs a workaround users can add the tag \"k8s:CLUSTER_UUID\" where \"CLUSTER_UUID\" is the user's Clusters UUID.\nUsers can find the UUID details in the Cloud Panel URL of Managed Kubernetes Cluster or by using the command \"doctl kubernetes cluster list\"\n\nWe apologize for the inconvenience and will share more information as soon as it's available.",
+          "incident_id": "tb0kfpyzty9g",
+          "created_at": "2025-03-10T12:03:40.105Z",
+          "updated_at": "2025-03-10T12:05:15.224Z",
+          "display_at": "2025-03-10T12:03:40.000Z",
+          "affected_components": [
+            {
+              "code": "ljktrzzffk6j",
+              "name": "Kubernetes - Global",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "ljktrzzffk6j",
+          "name": "Global",
+          "status": "degraded_performance",
+          "created_at": "2024-08-16T11:33:35.622Z",
+          "updated_at": "2025-03-10T12:03:40.063Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-08-16",
+          "group_id": "gb3gs5vj7js2",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "d1qqcx7wt5lx",
       "name": "Managed Certificate",
@@ -2143,9 +2196,9 @@
         {
           "id": "ljktrzzffk6j",
           "name": "Global",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2024-08-16T11:33:35.622Z",
-          "updated_at": "2025-01-11T21:12:49.128Z",
+          "updated_at": "2025-03-10T12:03:40.063Z",
           "position": 1,
           "description": null,
           "showcase": false,
@@ -2292,9 +2345,9 @@
         {
           "id": "ljktrzzffk6j",
           "name": "Global",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2024-08-16T11:33:35.622Z",
-          "updated_at": "2025-01-11T21:12:49.128Z",
+          "updated_at": "2025-03-10T12:03:40.063Z",
           "position": 1,
           "description": null,
           "showcase": false,
@@ -6703,9 +6756,9 @@
         {
           "id": "ljktrzzffk6j",
           "name": "Global",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2024-08-16T11:33:35.622Z",
-          "updated_at": "2025-01-11T21:12:49.128Z",
+          "updated_at": "2025-03-10T12:03:40.063Z",
           "position": 1,
           "description": null,
           "showcase": false,
@@ -7695,330 +7748,6 @@
           "showcase": false,
           "start_date": "2023-02-21",
           "group_id": "nmb3bbtqfgsj",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "bcc21zwyds3v",
-      "name": "Creating or Regenerating Spaces Access Key",
-      "status": "resolved",
-      "created_at": "2024-10-03T17:52:04.125Z",
-      "updated_at": "2024-10-03T19:05:01.592Z",
-      "monitoring_at": "2024-10-03T18:08:39.229Z",
-      "resolved_at": "2024-10-03T19:05:00.795Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/y9j6qbnrt20f",
-      "started_at": "2024-10-03T17:52:04.106Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "13tf1lbzq1j3",
-          "status": "resolved",
-          "body": "Our Engineering team has confirmed the resolution of the issue impacting Spaces Access Keys.\n\nFrom 15:21 UTC to 17:52 UTC, users were experiencing errors when creating or regenerating Spaces Access Keys in the Cloud Control Panel.\n\nWe apologize for the inconvenience. If you have any questions or continue to experience issues, please reach out via a Support ticket on your account.",
-          "incident_id": "bcc21zwyds3v",
-          "created_at": "2024-10-03T19:05:00.795Z",
-          "updated_at": "2024-10-03T19:05:01.587Z",
-          "display_at": "2024-10-03T19:05:00.795Z",
-          "affected_components": [
-            {
-              "code": "z2cshz8pdgwj",
-              "name": "Spaces - AMS3",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "66wjtpd8ngvx",
-              "name": "Spaces - FRA1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "tz43j53blsmy",
-              "name": "Spaces - NYC3",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "w4m98sdz3szn",
-              "name": "Spaces - SFO2",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "lf2rrgctn54t",
-              "name": "Spaces - SFO3",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "rf1h8gfz4ts6",
-              "name": "Spaces - SGP1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "bpchszdrvvc5",
-              "name": "Spaces - SYD1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "b44h3yhj3jy5",
-              "name": "Spaces - BLR1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1841917389333791189
-        },
-        {
-          "id": "tbjwpnjrxcr9",
-          "status": "monitoring",
-          "body": "Our Engineering team has identified the cause of the issue with Spaces Access Keys and has implemented a fix. Users should now be able to create or regenerate Spaces Access Keys without any issues.\n\nWe are currently monitoring the situation and will post an update as soon as the issue is fully resolved.",
-          "incident_id": "bcc21zwyds3v",
-          "created_at": "2024-10-03T18:08:39.229Z",
-          "updated_at": "2024-10-03T18:08:39.545Z",
-          "display_at": "2024-10-03T18:08:39.229Z",
-          "affected_components": [
-            {
-              "code": "z2cshz8pdgwj",
-              "name": "Spaces - AMS3",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "66wjtpd8ngvx",
-              "name": "Spaces - FRA1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "tz43j53blsmy",
-              "name": "Spaces - NYC3",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "w4m98sdz3szn",
-              "name": "Spaces - SFO2",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lf2rrgctn54t",
-              "name": "Spaces - SFO3",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "rf1h8gfz4ts6",
-              "name": "Spaces - SGP1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bpchszdrvvc5",
-              "name": "Spaces - SYD1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "b44h3yhj3jy5",
-              "name": "Spaces - BLR1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1841903204046667900
-        },
-        {
-          "id": "gtqd2r71nkt1",
-          "status": "investigating",
-          "body": "Our Engineering team is investigating an issue with creating or regenerating Spaces Access Keys in the Cloud Control Panel. During this time, users may experience errors when attempting to create or regenerate Spaces Access Keys in the Cloud Control Panel. We apologize for the inconvenience and will share an update once we have more information.",
-          "incident_id": "bcc21zwyds3v",
-          "created_at": "2024-10-03T17:52:04.334Z",
-          "updated_at": "2024-10-03T17:52:05.095Z",
-          "display_at": "2024-10-03T17:52:04.334Z",
-          "affected_components": [
-            {
-              "code": "z2cshz8pdgwj",
-              "name": "Spaces - AMS3",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "66wjtpd8ngvx",
-              "name": "Spaces - FRA1",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "tz43j53blsmy",
-              "name": "Spaces - NYC3",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "w4m98sdz3szn",
-              "name": "Spaces - SFO2",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "lf2rrgctn54t",
-              "name": "Spaces - SFO3",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "rf1h8gfz4ts6",
-              "name": "Spaces - SGP1",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bpchszdrvvc5",
-              "name": "Spaces - SYD1",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "b44h3yhj3jy5",
-              "name": "Spaces - BLR1",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1841899033004278114
-        }
-      ],
-      "components": [
-        {
-          "id": "z2cshz8pdgwj",
-          "name": "AMS3",
-          "status": "operational",
-          "created_at": "2023-02-22T17:38:11.979Z",
-          "updated_at": "2024-11-29T05:35:21.690Z",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "fdg768pfw7v3",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "66wjtpd8ngvx",
-          "name": "FRA1",
-          "status": "operational",
-          "created_at": "2023-02-22T17:38:11.443Z",
-          "updated_at": "2024-11-29T05:35:21.721Z",
-          "position": 3,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "fdg768pfw7v3",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "tz43j53blsmy",
-          "name": "NYC3",
-          "status": "operational",
-          "created_at": "2023-02-22T17:38:11.758Z",
-          "updated_at": "2024-11-29T05:35:21.783Z",
-          "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "fdg768pfw7v3",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "w4m98sdz3szn",
-          "name": "SFO2",
-          "status": "operational",
-          "created_at": "2023-09-14T02:34:00.938Z",
-          "updated_at": "2024-11-29T05:35:21.842Z",
-          "position": 5,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-09-14",
-          "group_id": "fdg768pfw7v3",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "lf2rrgctn54t",
-          "name": "SFO3",
-          "status": "operational",
-          "created_at": "2023-02-22T17:38:11.777Z",
-          "updated_at": "2024-11-29T05:35:21.857Z",
-          "position": 6,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "fdg768pfw7v3",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "rf1h8gfz4ts6",
-          "name": "SGP1",
-          "status": "operational",
-          "created_at": "2023-02-22T17:38:12.076Z",
-          "updated_at": "2024-11-29T05:35:21.920Z",
-          "position": 7,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "fdg768pfw7v3",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "bpchszdrvvc5",
-          "name": "SYD1",
-          "status": "operational",
-          "created_at": "2023-02-22T17:38:12.779Z",
-          "updated_at": "2024-11-29T05:35:21.969Z",
-          "position": 8,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "fdg768pfw7v3",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "b44h3yhj3jy5",
-          "name": "BLR1",
-          "status": "operational",
-          "created_at": "2023-08-15T21:33:02.619Z",
-          "updated_at": "2025-02-11T10:38:32.251Z",
-          "position": 9,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-08-15",
-          "group_id": "fdg768pfw7v3",
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
