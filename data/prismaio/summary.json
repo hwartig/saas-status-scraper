@@ -4,15 +4,15 @@
     "name": "Prisma Data Platform",
     "url": "https://www.prisma-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-10T06:18:33.109Z"
+    "updated_at": "2025-03-10T08:20:59.760Z"
   },
   "components": [
     {
       "id": "2954z91ljjsn",
       "name": "Prisma Accelerate",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-10-26T13:07:16.811Z",
-      "updated_at": "2025-02-12T15:26:39.668Z",
+      "updated_at": "2025-03-10T08:12:43.589Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -40,9 +40,9 @@
     {
       "id": "llb0lm2djdlc",
       "name": "Prisma Data Platform Console",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-10-26T14:24:11.686Z",
-      "updated_at": "2025-03-09T13:36:34.587Z",
+      "updated_at": "2025-03-10T08:12:43.606Z",
       "position": 3,
       "description": null,
       "showcase": true,
@@ -70,9 +70,9 @@
     {
       "id": "w5pj4w5gs117",
       "name": "Prisma Postgres",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-01-13T10:01:00.986Z",
-      "updated_at": "2025-03-04T11:03:02.922Z",
+      "updated_at": "2025-03-10T08:12:43.620Z",
       "position": 5,
       "description": null,
       "showcase": true,
@@ -98,10 +98,106 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "ctj0wjxdkq1j",
+      "name": "Accelerate: Increased Error Rate",
+      "status": "identified",
+      "created_at": "2025-03-10T08:12:43.553Z",
+      "updated_at": "2025-03-10T08:12:43.662Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/918shm486z6r",
+      "started_at": "2025-03-10T08:12:43.547Z",
+      "page_id": "21tdsvytt5d6",
+      "incident_updates": [
+        {
+          "id": "br6756x08w0x",
+          "status": "identified",
+          "body": "Description: We are investigating an increase in errors on accelerate.\n\nAffected users: Some users in the US region.\n\nRoot cause: Our upstream cloud provider is experiencing latency on their storage service which is used to download Prisma ORM binaries.\n\nWorkarounds: We're currently investigating a workaround.",
+          "incident_id": "ctj0wjxdkq1j",
+          "created_at": "2025-03-10T08:12:43.659Z",
+          "updated_at": "2025-03-10T08:12:43.659Z",
+          "display_at": "2025-03-10T08:12:43.659Z",
+          "affected_components": [
+            {
+              "code": "2954z91ljjsn",
+              "name": "Prisma Accelerate",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "llb0lm2djdlc",
+              "name": "Prisma Data Platform Console",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "w5pj4w5gs117",
+              "name": "Prisma Postgres",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "2954z91ljjsn",
+          "name": "Prisma Accelerate",
+          "status": "degraded_performance",
+          "created_at": "2023-10-26T13:07:16.811Z",
+          "updated_at": "2025-03-10T08:12:43.589Z",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": "2023-09-12",
+          "group_id": null,
+          "page_id": "21tdsvytt5d6",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "llb0lm2djdlc",
+          "name": "Prisma Data Platform Console",
+          "status": "degraded_performance",
+          "created_at": "2023-10-26T14:24:11.686Z",
+          "updated_at": "2025-03-10T08:12:43.606Z",
+          "position": 3,
+          "description": null,
+          "showcase": true,
+          "start_date": "2023-10-26",
+          "group_id": null,
+          "page_id": "21tdsvytt5d6",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "w5pj4w5gs117",
+          "name": "Prisma Postgres",
+          "status": "degraded_performance",
+          "created_at": "2025-01-13T10:01:00.986Z",
+          "updated_at": "2025-03-10T08:12:43.620Z",
+          "position": 5,
+          "description": null,
+          "showcase": true,
+          "start_date": "2024-11-01",
+          "group_id": null,
+          "page_id": "21tdsvytt5d6",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
