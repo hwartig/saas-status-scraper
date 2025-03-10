@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-10T12:20:45.524Z"
+    "updated_at": "2025-03-10T14:38:35.612Z"
   },
   "components": [
     {
@@ -3265,9 +3265,9 @@
     {
       "id": "tb0kfpyzty9g",
       "name": "Managed Kubernetes Connectivity with Internal Droplets",
-      "status": "investigating",
+      "status": "identified",
       "created_at": "2025-03-10T12:03:40.032Z",
-      "updated_at": "2025-03-10T12:05:15.306Z",
+      "updated_at": "2025-03-10T14:38:35.597Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -3275,6 +3275,26 @@
       "started_at": "2025-03-10T12:03:40.000Z",
       "page_id": "w4cz49tckxhp",
       "incident_updates": [
+        {
+          "id": "xqv4tz4w8tz7",
+          "status": "identified",
+          "body": "Our Engineering team has identified the cause of the issue affecting recently created Managed Kubernetes nodes. These nodes are currently unable to connect to Droplets that use the Managed Kubernetes Cluster as a source to allow traffic.\nAdditionally, users who add a Managed Kubernetes Cluster as a source in the Cloud firewall may experience issues with related Droplets not being added to the firewall as expected.\n\nAs a temporary solution, users can continue to add the tag k8s:CLUSTER_UUID, where CLUSTER_UUID is the UUID of the user's Managed Kubernetes Cluster. The UUID can be found in the Cloud Panel URL of the Managed Kubernetes Cluster or by running the following command:\n\ndoctl kubernetes cluster list\n\nWe are working on a solution and will provide further updates as we progress. We appreciate your patience and understanding.",
+          "incident_id": "tb0kfpyzty9g",
+          "created_at": "2025-03-10T14:38:35.590Z",
+          "updated_at": "2025-03-10T14:38:35.590Z",
+          "display_at": "2025-03-10T14:38:35.590Z",
+          "affected_components": [
+            {
+              "code": "ljktrzzffk6j",
+              "name": "Kubernetes - Global",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "mdmhr0gvbhtk",
           "status": "investigating",
