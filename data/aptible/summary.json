@@ -4,7 +4,7 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2025-03-13T22:49:22.643-04:00"
+    "updated_at": "2025-03-14T11:24:31.050-04:00"
   },
   "components": [
     {
@@ -341,7 +341,62 @@
     }
   ],
   "incidents": [],
-  "scheduled_maintenances": [],
+  "scheduled_maintenances": [
+    {
+      "id": "rmskjphss16y",
+      "name": "Shared stack infrastructure upgrades",
+      "status": "scheduled",
+      "created_at": "2025-03-14T11:21:01.305-04:00",
+      "updated_at": "2025-03-14T11:24:31.042-04:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/xwtptb1yrbh8",
+      "started_at": "2025-03-14T11:21:01.378-04:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "y5st2g3rh1cz",
+          "status": "scheduled",
+          "body": "Our team will be performing an upgrade to the infrastructure of all shared stacks on March 23rd, between 10:00PM and 11:59PM Eastern.\n  \n During this window each shared stack’s Bastion will be replaced, and the following impacts are expected:\n \n - <b>Outbound internet connectivity</b>: Since the Bastion also acts as the outbound NAT for your Apps, the outbound IP address will change to another IP address in the <a href=\"https://www.aptible.com/docs/outbound-ips\">pre-defined pool</a> to minimize downtime. If the IP change occurs mid-session, existing connections will be disconnected. New connections will automatically use the new public IP.  If your partners, vendors, or third-party services require an allowlist, please ensure they allow all addresses in the pool to prevent connectivity interruptions during maintenance. See https://app.aptible.com/stacks to obtain the pool of addresses for the stack(s) you utilize.\n - <b>Operations</b>: traditionally we have blocked (rejected) new operations during critical maintenance, but we will not be doing so this time. Instead, if you create a new operation while a stack is in maintenance, the operation will be queued, and execute as soon as the maintenance is complete. Operations may be queued for up to 5 minutes but will eventually run and succeed.\n - <b>Database tunnels</b>: during the maintenance any CLI <tt>aptible db:tunnel</tt> sessions will be disconnected. You will be able to immediately reconnect if you are impacted.\n - <b>Ephemeral sessions</b>: during the maintenance any running CLI <tt>aptible ssh</tt> sessions will be disconnected. You will be able to immediately start a new ephemeral session if you are impacted.\n - <b>Log streaming</b>: logs streamed via the <tt>aptible logs</tt> CLI command will be disconnected. You will be able to immediately reconnect to streaming logs if you are impacted.\n \n Dedicated stacks will not be affected at this time; their maintenance will be scheduled separately.",
+          "incident_id": "rmskjphss16y",
+          "created_at": "2025-03-14T11:21:01.378-04:00",
+          "updated_at": "2025-03-14T11:24:31.036-04:00",
+          "display_at": "2025-03-14T11:21:01.378-04:00",
+          "affected_components": [
+            {
+              "code": "3f2df1dmxn4b",
+              "name": "Aptible Deploy",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1900567852706566627
+        }
+      ],
+      "components": [
+        {
+          "id": "3f2df1dmxn4b",
+          "name": "Aptible Deploy",
+          "status": "operational",
+          "created_at": "2017-07-25T12:40:40.556-04:00",
+          "updated_at": "2025-03-09T21:07:06.394-04:00",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-03-23T10:00:00.000-04:00",
+      "scheduled_until": "2025-03-23T11:59:00.000-04:00"
+    }
+  ],
   "status": {
     "indicator": "none",
     "description": "All Systems Operational"
