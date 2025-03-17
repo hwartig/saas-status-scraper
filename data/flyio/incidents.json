@@ -4,9 +4,62 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-17T20:39:48.211Z"
+    "updated_at": "2025-03-17T20:50:51.455Z"
   },
   "incidents": [
+    {
+      "id": "fhhv3d27g8bb",
+      "name": "Capacity issues in IAD and AMS",
+      "status": "monitoring",
+      "created_at": "2025-03-17T20:50:51.363Z",
+      "updated_at": "2025-03-17T20:50:51.452Z",
+      "monitoring_at": "2025-03-17T20:50:51.443Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/p68wpff05hhq",
+      "started_at": "2025-03-17T20:50:51.355Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "zj2ls4w8x49h",
+          "status": "monitoring",
+          "body": "New machine/volume creates in IAD regions may fail as there is no host capacity available.\n\nAny workloads currently running will continue to run; it is also still possible to update existing machines/volumes.\n\nIncreasing `fly scale count` in these regions may not work. Blue-green deploys may also be unavailable at the moment, as well as deploys with `release_command`.\n\nWe are provisioning additional capacity in this region.",
+          "incident_id": "fhhv3d27g8bb",
+          "created_at": "2025-03-17T20:50:51.443Z",
+          "updated_at": "2025-03-17T20:50:51.443Z",
+          "display_at": "2025-03-17T20:50:51.443Z",
+          "affected_components": [
+            {
+              "code": "qyh8qlklk7mx",
+              "name": "Regional Availability - IAD - Ashburn, Virginia (US)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "qyh8qlklk7mx",
+          "name": "IAD - Ashburn, Virginia (US)",
+          "status": "degraded_performance",
+          "created_at": "2019-07-01T19:28:38.853Z",
+          "updated_at": "2025-03-17T20:50:51.399Z",
+          "position": 16,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "jvgtznsf1z4m",
       "name": "Capacity issues in LHR region",
@@ -807,9 +860,9 @@
         {
           "id": "qyh8qlklk7mx",
           "name": "IAD - Ashburn, Virginia (US)",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-07-01T19:28:38.853Z",
-          "updated_at": "2025-02-16T14:13:45.038Z",
+          "updated_at": "2025-03-17T20:50:51.399Z",
           "position": 16,
           "description": null,
           "showcase": false,
@@ -1414,9 +1467,9 @@
         {
           "id": "qyh8qlklk7mx",
           "name": "IAD - Ashburn, Virginia (US)",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-07-01T19:28:38.853Z",
-          "updated_at": "2025-02-16T14:13:45.038Z",
+          "updated_at": "2025-03-17T20:50:51.399Z",
           "position": 16,
           "description": null,
           "showcase": false,
@@ -3128,9 +3181,9 @@
         {
           "id": "qyh8qlklk7mx",
           "name": "IAD - Ashburn, Virginia (US)",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-07-01T19:28:38.853Z",
-          "updated_at": "2025-02-16T14:13:45.038Z",
+          "updated_at": "2025-03-17T20:50:51.399Z",
           "position": 16,
           "description": null,
           "showcase": false,
@@ -5533,9 +5586,9 @@
         {
           "id": "qyh8qlklk7mx",
           "name": "IAD - Ashburn, Virginia (US)",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-07-01T19:28:38.853Z",
-          "updated_at": "2025-02-16T14:13:45.038Z",
+          "updated_at": "2025-03-17T20:50:51.399Z",
           "position": 16,
           "description": null,
           "showcase": false,
@@ -6130,9 +6183,9 @@
         {
           "id": "qyh8qlklk7mx",
           "name": "IAD - Ashburn, Virginia (US)",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-07-01T19:28:38.853Z",
-          "updated_at": "2025-02-16T14:13:45.038Z",
+          "updated_at": "2025-03-17T20:50:51.399Z",
           "position": 16,
           "description": null,
           "showcase": false,
@@ -6143,36 +6196,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "2sq17q1rq14f",
-      "name": "JNB - routing issue",
-      "status": "resolved",
-      "created_at": "2024-09-06T19:30:00.000Z",
-      "updated_at": "2024-09-06T19:45:20.049Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-09-06T19:30:00.000Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/3jhq2fckk88h",
-      "started_at": "2024-09-06T19:30:00.000Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "yvgmqhx9tw7m",
-          "status": "resolved",
-          "body": "Between 18:35-19:30 UTC, a routing issue prevented application traffic from reaching machines in the JNB region. The issue has now been resolved.",
-          "incident_id": "2sq17q1rq14f",
-          "created_at": "2024-09-06T19:44:25.087Z",
-          "updated_at": "2024-09-06T19:45:19.964Z",
-          "display_at": "2024-09-06T19:30:00.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
