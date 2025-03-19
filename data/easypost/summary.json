@@ -4,7 +4,7 @@
     "name": "EasyPost",
     "url": "https://www.easypoststatus.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-03-19T09:27:27.457-07:00"
+    "updated_at": "2025-03-19T10:58:32.147-07:00"
   },
   "components": [
     {
@@ -196,7 +196,7 @@
     {
       "id": "x3g03m4md1t8",
       "name": "Carriers",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-03-01T16:28:09.042-08:00",
       "updated_at": "2024-05-22T10:51:09.346-07:00",
       "position": 5,
@@ -248,9 +248,9 @@
     {
       "id": "hr5gz6pbxbnc",
       "name": "FedEx",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-03-01T16:28:09.080-08:00",
-      "updated_at": "2025-01-30T03:00:21.994-08:00",
+      "updated_at": "2025-03-19T10:58:31.619-07:00",
       "position": 6,
       "description": null,
       "showcase": true,
@@ -281,9 +281,9 @@
     {
       "id": "cy0b7dpzltnp",
       "name": "FedEx SmartPost",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-03-02T12:34:43.154-08:00",
-      "updated_at": "2025-01-30T03:00:22.058-08:00",
+      "updated_at": "2025-03-19T10:58:31.641-07:00",
       "position": 7,
       "description": null,
       "showcase": true,
@@ -489,10 +489,85 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "k6v2c8lxq9b4",
+      "name": "Degraded FedEx API performance",
+      "status": "monitoring",
+      "created_at": "2025-03-19T10:58:31.576-07:00",
+      "updated_at": "2025-03-19T10:58:32.141-07:00",
+      "monitoring_at": "2025-03-19T10:58:31.687-07:00",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/s9x2xr1rdwzk",
+      "started_at": "2025-03-19T10:58:31.566-07:00",
+      "page_id": "n1jtz5983249",
+      "incident_updates": [
+        {
+          "id": "q52z1pnb3l8x",
+          "status": "monitoring",
+          "body": "The FedEx API is experiencing elevated rates of errors and request timeouts for rating. FedEx has been notified and our engineers will continue to monitor the performance of the API.\n\nMessage from FedEx:\nWe are experiencing an issue that started around 12:12pm CT today that is causing certain functions to operate slower than usual or be temporarily unavailable.  Our IT teams are working diligently to identify and resolve the problem.  We regret any inconvenience this have caused.",
+          "incident_id": "k6v2c8lxq9b4",
+          "created_at": "2025-03-19T10:58:31.687-07:00",
+          "updated_at": "2025-03-19T10:58:32.137-07:00",
+          "display_at": "2025-03-19T10:58:31.687-07:00",
+          "affected_components": [
+            {
+              "code": "hr5gz6pbxbnc",
+              "name": "Carriers - FedEx",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "cy0b7dpzltnp",
+              "name": "Carriers - FedEx SmartPost",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1902419429956403342
+        }
+      ],
+      "components": [
+        {
+          "id": "hr5gz6pbxbnc",
+          "name": "FedEx",
+          "status": "degraded_performance",
+          "created_at": "2022-03-01T16:28:09.080-08:00",
+          "updated_at": "2025-03-19T10:58:31.619-07:00",
+          "position": 6,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-03-01",
+          "group_id": "x3g03m4md1t8",
+          "page_id": "n1jtz5983249",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "cy0b7dpzltnp",
+          "name": "FedEx SmartPost",
+          "status": "degraded_performance",
+          "created_at": "2022-03-02T12:34:43.154-08:00",
+          "updated_at": "2025-03-19T10:58:31.641-07:00",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-03-01",
+          "group_id": "x3g03m4md1t8",
+          "page_id": "n1jtz5983249",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
