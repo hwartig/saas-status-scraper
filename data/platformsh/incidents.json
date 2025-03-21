@@ -4,9 +4,83 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-21T03:18:15.551Z"
+    "updated_at": "2025-03-21T04:55:07.145Z"
   },
   "incidents": [
+    {
+      "id": "jz90fl06l1fz",
+      "name": "Degraded Performance of Console and Deployment services on AU, AU-2 regions.",
+      "status": "identified",
+      "created_at": "2025-03-21T04:55:07.051Z",
+      "updated_at": "2025-03-21T04:55:07.142Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/52qk6dbx0jzr",
+      "started_at": "2025-03-21T04:55:07.045Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "0pgp6rlv0v63",
+          "status": "identified",
+          "body": "We have detected an issue affecting service on the AU and AU-2 regions. Our Operations team has been notified and is currently working to resolve the issue. Projects on affected regions may experience delays when loading console, triggering deployments or taking backups. \nThis issue does not affect availability of any environments, only the API services for the project. There is no site downtime as a result of this issue.",
+          "incident_id": "jz90fl06l1fz",
+          "created_at": "2025-03-21T04:55:07.139Z",
+          "updated_at": "2025-03-21T04:55:07.139Z",
+          "display_at": "2025-03-21T04:55:07.139Z",
+          "affected_components": [
+            {
+              "code": "by08c9v64dnf",
+              "name": "Australia (au.platform.sh)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "kpqzr22bvvyd",
+              "name": "Australia East (au-2.platform.sh)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "by08c9v64dnf",
+          "name": "Australia (au.platform.sh)",
+          "status": "degraded_performance",
+          "created_at": "2017-07-06T09:07:08.052Z",
+          "updated_at": "2025-03-21T04:55:07.084Z",
+          "position": 1,
+          "description": "au.platform.sh",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "kpqzr22bvvyd",
+          "name": "Australia East (au-2.platform.sh)",
+          "status": "degraded_performance",
+          "created_at": "2021-10-10T22:05:27.244Z",
+          "updated_at": "2025-03-21T04:55:07.099Z",
+          "position": 2,
+          "description": "au-2.platform.sh",
+          "showcase": false,
+          "start_date": "2021-10-10",
+          "group_id": null,
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "xhlzf58r7c6w",
       "name": "Outage on EU-5",
@@ -6742,112 +6816,6 @@
           "description": "us-3.platform.sh",
           "showcase": false,
           "start_date": null,
-          "group_id": null,
-          "page_id": "l2x5n4czt1ph",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "fxk4xhh31xdn",
-      "name": "Partial Outage on FR-3.platform.sh",
-      "status": "postmortem",
-      "created_at": "2024-03-01T07:42:47.000Z",
-      "updated_at": "2024-03-01T12:32:15.654Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-03-01T09:26:20.954Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/wyn4tjqp5mnr",
-      "started_at": "2024-03-01T07:42:47.000Z",
-      "page_id": "l2x5n4czt1ph",
-      "incident_updates": [
-        {
-          "id": "hfyg41t17l2j",
-          "status": "postmortem",
-          "body": "**What happened**\n\nAs part of routine maintenance, some project containers were not correctly reallocated.\n\nThis incident did not affect Dedicated clusters.\n\n**Customer Impact**\n\nSome sites were not available for up to 3 hours \\(between 2024-03-01 07:10 UTC and 2024-03-01 09:30 UTC\\).\n\n**What was done to resolve the incident**\n\nOur team reallocated the affected containers and restored availability on the affected projects.",
-          "incident_id": "fxk4xhh31xdn",
-          "created_at": "2024-03-01T12:31:42.548Z",
-          "updated_at": "2024-03-01T12:32:15.652Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6dwp6g32y84p",
-          "status": "resolved",
-          "body": "Our Team has restored service to enviroments in this region. Please create a support ticket if you are still seeing any issues.",
-          "incident_id": "fxk4xhh31xdn",
-          "created_at": "2024-03-01T09:26:20.954Z",
-          "updated_at": "2024-03-01T09:26:20.954Z",
-          "display_at": "2024-03-01T09:26:20.954Z",
-          "affected_components": [
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ds76plbz1jk2",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "fxk4xhh31xdn",
-          "created_at": "2024-03-01T07:57:58.602Z",
-          "updated_at": "2024-03-01T07:57:58.602Z",
-          "display_at": "2024-03-01T07:57:58.602Z",
-          "affected_components": [
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "zy32nljb82qm",
-          "status": "investigating",
-          "body": "We have detected an issue affecting service on the FR-3.platform.sh region.\nOur Operations team has been notified and is currently working to restore service.\nProjects on affected regions may not be available.\n\nWe will update you as soon as we have further information.",
-          "incident_id": "fxk4xhh31xdn",
-          "created_at": "2024-03-01T07:42:47.692Z",
-          "updated_at": "2024-03-01T07:43:59.970Z",
-          "display_at": "2024-03-01T07:42:47.000Z",
-          "affected_components": [
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "gzncjfm5zxp6",
-          "name": "Europe (France 3) (fr-3.platform.sh)",
-          "status": "operational",
-          "created_at": "2021-04-06T15:26:41.226Z",
-          "updated_at": "2025-02-05T22:01:21.580Z",
-          "position": 5,
-          "description": "fr-3.platform.sh",
-          "showcase": false,
-          "start_date": "2021-04-06",
           "group_id": null,
           "page_id": "l2x5n4czt1ph",
           "group": false,
