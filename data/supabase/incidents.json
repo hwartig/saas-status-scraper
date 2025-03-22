@@ -4,22 +4,62 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-22T17:03:12.816Z"
+    "updated_at": "2025-03-22T17:22:43.781Z"
   },
   "incidents": [
     {
       "id": "nyv01zmx5yxr",
       "name": "API Requests to projects being blocked at the API Gateway layer",
-      "status": "investigating",
-      "created_at": "2025-03-22T16:21:06.727Z",
-      "updated_at": "2025-03-22T17:03:12.803Z",
-      "monitoring_at": null,
+      "status": "monitoring",
+      "created_at": "2025-03-22T16:21:06.000Z",
+      "updated_at": "2025-03-22T17:22:43.778Z",
+      "monitoring_at": "2025-03-22T17:22:43.761Z",
       "resolved_at": null,
       "impact": "major",
       "shortlink": "https://stspg.io/q5c9rw5tplfz",
       "started_at": "2025-03-22T16:21:06.000Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "nv3wd8pgmzs6",
+          "status": "monitoring",
+          "body": "The fix has been rolled out. Block rates at the API layer have returned to normal levels, and things are looking stable now. API requests to your supabase projects should now be working as expected.",
+          "incident_id": "nyv01zmx5yxr",
+          "created_at": "2025-03-22T17:22:43.761Z",
+          "updated_at": "2025-03-22T17:22:43.761Z",
+          "display_at": "2025-03-22T17:22:43.761Z",
+          "affected_components": [
+            {
+              "code": "43453sylqk7v",
+              "name": "API Gateway",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "dtcz3c035fsn",
+          "status": "identified",
+          "body": "With the assistance of our API gateway partner, we have identified the configurations resulting in the Blocking and are working to update them.",
+          "incident_id": "nyv01zmx5yxr",
+          "created_at": "2025-03-22T17:14:12.635Z",
+          "updated_at": "2025-03-22T17:14:12.635Z",
+          "display_at": "2025-03-22T17:14:12.635Z",
+          "affected_components": [
+            {
+              "code": "43453sylqk7v",
+              "name": "API Gateway",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "hvtd3lhk8lz3",
           "status": "investigating",
@@ -43,10 +83,10 @@
         {
           "id": "gdt9bn70k4dl",
           "status": "investigating",
-          "body": "We are receiving reports of user API requests receiving Cloudflare errors when making Auth and other API calls. The team is currently looking into the reason and for mitigating steps.",
+          "body": "We are receiving reports of user API requests receiving API gateway errors when making Auth and other API calls. The team is currently looking into the reason and for mitigating steps.",
           "incident_id": "nyv01zmx5yxr",
           "created_at": "2025-03-22T16:21:06.806Z",
-          "updated_at": "2025-03-22T16:27:19.736Z",
+          "updated_at": "2025-03-22T17:15:19.374Z",
           "display_at": "2025-03-22T16:21:06.000Z",
           "affected_components": [
             {
@@ -65,9 +105,9 @@
         {
           "id": "43453sylqk7v",
           "name": "API Gateway",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2024-05-02T07:20:18.177Z",
-          "updated_at": "2025-03-22T16:21:06.761Z",
+          "updated_at": "2025-03-22T17:22:43.727Z",
           "position": 2,
           "description": "API Gateway for all Supabase Products",
           "showcase": true,
