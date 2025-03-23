@@ -4,15 +4,15 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-23T08:32:40.974Z"
+    "updated_at": "2025-03-23T08:34:20.566Z"
   },
   "incidents": [
     {
       "id": "jz90fl06l1fz",
       "name": "Degraded Performance of Console and Deployment services on AU, AU-2 regions.",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-03-21T04:55:07.051Z",
-      "updated_at": "2025-03-23T08:32:40.965Z",
+      "updated_at": "2025-03-23T08:34:20.563Z",
       "monitoring_at": "2025-03-21T09:10:02.040Z",
       "resolved_at": "2025-03-23T05:06:04.139Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2025-03-21T04:55:07.045Z",
       "page_id": "l2x5n4czt1ph",
       "incident_updates": [
+        {
+          "id": "wy2ddxhk7znp",
+          "status": "postmortem",
+          "body": "# What happened\n\nA recent upgrade to regions AU.platform.sh and AU-2.platform.sh was unable to fully purge the stale network states within our routing infrastructure.\n\nThis caused client programs within our subsystems responsible for handling deployments, console and project API having busy-looping processes retrying invalid TCP connections indefinitely and consumed all the available CPU resources.\n\n‌\n\nThis caused the console to freeze, slow loading times when using project API functions, and delays in deployments or backups.\n\n‌\n\nAfter further investigation, the Operations team has deployed an emergency fix to eliminate those busy-looping processes.\n\nOur team has stopped the scheduled upgrades to other regions and is still working on a permanent fix.\n\n‌\n\n# Customer impact\n\nFrom 2025-03-20 12:50 **UTC** to 2025-03-21 09:00 **UTC**, customers may experience delays when loading console, triggering deployments or taking backups for their projects in regions AU.platform.sh and AU-2.platform.sh .\n\n‌\n\nFrom 2025-03-21 07:27 **UTC** to 2025-03-21 07:55 **UTC**, there may be issues with outgoing connections in AU.platform.sh environments, including live ones, due to our emergency fix deployment.\n\n‌\n\n# What was done to resolve the incident\n\nThe Operations team has taken out the busy-looping processes in the subsystems for deployments, console, and project API functions and deployed an emergency correction fix to the affected regions.\n\n‌\n\nIncident has been resolved.",
+          "incident_id": "jz90fl06l1fz",
+          "created_at": "2025-03-23T08:30:07.789Z",
+          "updated_at": "2025-03-23T08:34:20.560Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "m7dkzvfsg1w8",
           "status": "resolved",
