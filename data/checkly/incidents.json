@@ -4,9 +4,62 @@
     "name": "Checkly",
     "url": "https://is.checkly.online",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-24T16:07:34.588Z"
+    "updated_at": "2025-03-24T19:20:51.651Z"
   },
   "incidents": [
+    {
+      "id": "llrjqd74sb5b",
+      "name": "Degradation of Prometheus Endpoint",
+      "status": "investigating",
+      "created_at": "2025-03-24T19:11:36.499Z",
+      "updated_at": "2025-03-24T19:11:37.012Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/1b6fldp755vq",
+      "started_at": "2025-03-24T19:11:36.494Z",
+      "page_id": "nq8lf8mrmvw6",
+      "incident_updates": [
+        {
+          "id": "z6mcjrk2y41s",
+          "status": "investigating",
+          "body": "We’re investigating an issue causing requests to the Prometheus endpoint to be slow and occasionally time out. We’ll provide updates as soon as more information is available.",
+          "incident_id": "llrjqd74sb5b",
+          "created_at": "2025-03-24T19:11:36.572Z",
+          "updated_at": "2025-03-24T19:11:37.007Z",
+          "display_at": "2025-03-24T19:11:36.572Z",
+          "affected_components": [
+            {
+              "code": "f3y2bjndgxq8",
+              "name": "API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1904249760745455667
+        }
+      ],
+      "components": [
+        {
+          "id": "f3y2bjndgxq8",
+          "name": "API",
+          "status": "degraded_performance",
+          "created_at": "2021-04-02T11:43:11.274Z",
+          "updated_at": "2025-03-24T19:11:36.530Z",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": "2021-04-02",
+          "group_id": null,
+          "page_id": "nq8lf8mrmvw6",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "rbvxl0bzz8xv",
       "name": "Degraded performance of check runtimes",
@@ -737,9 +790,9 @@
         {
           "id": "f3y2bjndgxq8",
           "name": "API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2021-04-02T11:43:11.274Z",
-          "updated_at": "2025-02-28T12:07:18.564Z",
+          "updated_at": "2025-03-24T19:11:36.530Z",
           "position": 1,
           "description": null,
           "showcase": true,
@@ -1159,9 +1212,9 @@
         {
           "id": "f3y2bjndgxq8",
           "name": "API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2021-04-02T11:43:11.274Z",
-          "updated_at": "2025-02-28T12:07:18.564Z",
+          "updated_at": "2025-03-24T19:11:36.530Z",
           "position": 1,
           "description": null,
           "showcase": true,
@@ -4291,9 +4344,9 @@
         {
           "id": "f3y2bjndgxq8",
           "name": "API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2021-04-02T11:43:11.274Z",
-          "updated_at": "2025-02-28T12:07:18.564Z",
+          "updated_at": "2025-03-24T19:11:36.530Z",
           "position": 1,
           "description": null,
           "showcase": true,
@@ -4429,9 +4482,9 @@
         {
           "id": "f3y2bjndgxq8",
           "name": "API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2021-04-02T11:43:11.274Z",
-          "updated_at": "2025-02-28T12:07:18.564Z",
+          "updated_at": "2025-03-24T19:11:36.530Z",
           "position": 1,
           "description": null,
           "showcase": true,
@@ -5282,301 +5335,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "blrnndpd2622",
-      "name": "Check run infrastructure impaired",
-      "status": "postmortem",
-      "created_at": "2024-05-02T00:51:00.931Z",
-      "updated_at": "2024-05-03T17:52:56.671Z",
-      "monitoring_at": "2024-05-02T01:14:07.369Z",
-      "resolved_at": "2024-05-02T05:42:21.000Z",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/t9r4032bzgq5",
-      "started_at": "2024-05-02T05:42:21.000Z",
-      "page_id": "nq8lf8mrmvw6",
-      "incident_updates": [
-        {
-          "id": "vck3ls3366wm",
-          "status": "postmortem",
-          "body": "On May 1st, 11:15 pm UTC a buildup in memory usage in our check scheduling service started. It was caused by a user creating an extremely high number of client certificates for their checks. Over time, this caused the scheduler instances to crash until almost no checks could be scheduled from ~11 pm - 1 am UTC.\n\nAfter an initial investigation, the on-call engineer decided to declare an incident and scale up the scheduling service to handle the high memory consumption. \n\nThis partially restored service, but was not enough for full recovery. Memory usage was increasing very quickly and still causing crashes which caused some check runs to get lost. Check scheduling was still significantly impaired.\n\nAfter investigating using logs, metrics, and events stored in our data lake, we were able to identify an account with an extremely high number of client certificates. The check scheduling service executed a database query through an implicit model dependency for every check run job, which loaded all certificates into memory, leading to high memory consumption. \n\nThe incident was fully resolved when we enforced a hard limit of 10 certificates per account. The limit brought back the scheduling service' memory consumption to regular levels. After fixing the memory issues, we manually scaled up the platform to handle the build-up of queued check runs, and within ~30 minutes, the service returned to normal around 5:30 am UTC. \n\nHow we move forward:\n\n1. We have limited the amount of certificates users can create to 10 and the size to be max 50kb. Thereby preventing the same issue from happening a second time. \n2. We are adding tooling to investigate the heap usage of our NodeJS services so we can debug memory problems much faster if scaling up does not resolve them. Our current methods have proven insufficient under pressure in an incident situation. \n3. We are currently reviewing all APIs to make sure we have proper limits in place for other entities as well.",
-          "incident_id": "blrnndpd2622",
-          "created_at": "2024-05-03T17:43:06.678Z",
-          "updated_at": "2024-05-03T17:52:56.667Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": "We published a postmortem on our May 2nd incident: https://stspg.io/t9r4032bzgq5",
-          "tweet_id": null
-        },
-        {
-          "id": "hl6w4w1f2spz",
-          "status": "resolved",
-          "body": "Check runs that were successfully scheduled have been backfilled. This incident has been resolved.",
-          "incident_id": "blrnndpd2622",
-          "created_at": "2024-05-02T05:42:21.567Z",
-          "updated_at": "2024-05-02T09:58:46.280Z",
-          "display_at": "2024-05-02T05:42:21.000Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "174v8j8sp84c",
-              "name": "API Check Runtime",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1785907661726511519
-        },
-        {
-          "id": "np8601v8rqn3",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues.",
-          "incident_id": "blrnndpd2622",
-          "created_at": "2024-05-02T05:28:08.317Z",
-          "updated_at": "2024-05-02T05:28:08.702Z",
-          "display_at": "2024-05-02T05:28:08.317Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "174v8j8sp84c",
-              "name": "API Check Runtime",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1785904083112788038
-        },
-        {
-          "id": "n3j2f7050kfb",
-          "status": "monitoring",
-          "body": "We rolled out another fix and all metrics return back to normal. Checks are processing fine again, Check results rolling in",
-          "incident_id": "blrnndpd2622",
-          "created_at": "2024-05-02T04:41:24.087Z",
-          "updated_at": "2024-05-02T04:41:24.527Z",
-          "display_at": "2024-05-02T04:41:24.087Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "174v8j8sp84c",
-              "name": "API Check Runtime",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1785892321508385082
-        },
-        {
-          "id": "7jty34r3wgyx",
-          "status": "identified",
-          "body": "We are still seeing some related errors and checks are not processing as expected. we moved back to \"partial outage\".",
-          "incident_id": "blrnndpd2622",
-          "created_at": "2024-05-02T04:00:16.294Z",
-          "updated_at": "2024-05-02T04:00:16.750Z",
-          "display_at": "2024-05-02T04:00:16.294Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "174v8j8sp84c",
-              "name": "API Check Runtime",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1785881970905653388
-        },
-        {
-          "id": "z0qjpxc0mxnl",
-          "status": "monitoring",
-          "body": "Checks get processed since ~1:11 UTC but it will take some time for results to show up",
-          "incident_id": "blrnndpd2622",
-          "created_at": "2024-05-02T02:41:21.875Z",
-          "updated_at": "2024-05-02T02:41:22.206Z",
-          "display_at": "2024-05-02T02:41:21.875Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "174v8j8sp84c",
-              "name": "API Check Runtime",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1785862112843329574
-        },
-        {
-          "id": "khs8qsqr3g2t",
-          "status": "monitoring",
-          "body": "While catching up after the outage, we see some higher than usual scheduling delays in us-west-2, eu-south-1, ap-southeast-2 and me-south-1.",
-          "incident_id": "blrnndpd2622",
-          "created_at": "2024-05-02T01:36:52.703Z",
-          "updated_at": "2024-05-02T01:36:53.056Z",
-          "display_at": "2024-05-02T01:36:52.703Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "174v8j8sp84c",
-              "name": "API Check Runtime",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1785845884363894852
-        },
-        {
-          "id": "7qxsgpbh012j",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring our infra working through the backlog of checks.",
-          "incident_id": "blrnndpd2622",
-          "created_at": "2024-05-02T01:14:07.369Z",
-          "updated_at": "2024-05-02T01:14:07.798Z",
-          "display_at": "2024-05-02T01:14:07.369Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "174v8j8sp84c",
-              "name": "API Check Runtime",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1785840158056808839
-        },
-        {
-          "id": "qtyhv8z75phw",
-          "status": "identified",
-          "body": "The failing service has been identified and we are looking into a fix.",
-          "incident_id": "blrnndpd2622",
-          "created_at": "2024-05-02T01:08:11.424Z",
-          "updated_at": "2024-05-02T01:08:11.878Z",
-          "display_at": "2024-05-02T01:08:11.424Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "partial_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "174v8j8sp84c",
-              "name": "API Check Runtime",
-              "old_status": "partial_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1785838665283027233
-        },
-        {
-          "id": "6lzvd8gr5hhm",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "blrnndpd2622",
-          "created_at": "2024-05-02T00:51:01.009Z",
-          "updated_at": "2024-05-02T00:51:01.410Z",
-          "display_at": "2024-05-02T00:51:01.009Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "174v8j8sp84c",
-              "name": "API Check Runtime",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1785834343191249015
-        }
-      ],
-      "components": [
-        {
-          "id": "67l5jbfddxv3",
-          "name": "Browser check runtime",
-          "status": "operational",
-          "created_at": "2021-07-29T15:53:09.494Z",
-          "updated_at": "2025-03-22T11:00:27.665Z",
-          "position": 5,
-          "description": null,
-          "showcase": true,
-          "start_date": "2021-07-29",
-          "group_id": null,
-          "page_id": "nq8lf8mrmvw6",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "174v8j8sp84c",
-          "name": "API Check Runtime",
-          "status": "operational",
-          "created_at": "2024-01-29T16:32:25.511Z",
-          "updated_at": "2025-03-22T11:00:27.687Z",
-          "position": 9,
-          "description": null,
-          "showcase": true,
-          "start_date": "2024-01-29",
-          "group_id": null,
-          "page_id": "nq8lf8mrmvw6",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
