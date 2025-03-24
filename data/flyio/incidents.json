@@ -4,9 +4,62 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-23T21:39:49.433Z"
+    "updated_at": "2025-03-24T09:31:42.565Z"
   },
   "incidents": [
+    {
+      "id": "wtl4mkq4snzb",
+      "name": "Management plane for managed postgres in ORD is unavailable",
+      "status": "investigating",
+      "created_at": "2025-03-24T09:28:23.117Z",
+      "updated_at": "2025-03-24T09:28:23.198Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/cmyqvymb3pmq",
+      "started_at": "2025-03-24T09:28:23.110Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "r567m9v9zjj4",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "wtl4mkq4snzb",
+          "created_at": "2025-03-24T09:28:23.195Z",
+          "updated_at": "2025-03-24T09:28:23.195Z",
+          "display_at": "2025-03-24T09:28:23.195Z",
+          "affected_components": [
+            {
+              "code": "q5hm9x2qx9l9",
+              "name": "Managed Postgres - Management Plane - ORD",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "q5hm9x2qx9l9",
+          "name": "Management Plane - ORD",
+          "status": "major_outage",
+          "created_at": "2025-03-24T09:28:07.965Z",
+          "updated_at": "2025-03-24T09:28:23.153Z",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-03-24",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "vhb5gb8cxr18",
       "name": "Degraded connectivity to Fly Registry",
@@ -6107,99 +6160,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "mrcyzlkkw8z9",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "nf04qbsq0nbg",
-      "name": "Missing Logs on fly-metrics.net",
-      "status": "resolved",
-      "created_at": "2024-09-10T01:16:15.000Z",
-      "updated_at": "2024-09-10T03:24:09.881Z",
-      "monitoring_at": "2024-09-10T02:40:14.821Z",
-      "resolved_at": "2024-09-10T03:24:09.866Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/9dm8cbx1dwxk",
-      "started_at": "2024-09-10T01:16:15.000Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "8zs3lb1kz972",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "nf04qbsq0nbg",
-          "created_at": "2024-09-10T03:24:09.866Z",
-          "updated_at": "2024-09-10T03:24:09.866Z",
-          "display_at": "2024-09-10T03:24:09.866Z",
-          "affected_components": [
-            {
-              "code": "6sckg8qmrnzz",
-              "name": "Logs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "kp3nqw0jj012",
-          "status": "monitoring",
-          "body": "We have applied a fix and are now seeing logs flow through to user's fly-metrics dashboards. \n\nWe are containing to monitor the dashboard to ensure recovery.",
-          "incident_id": "nf04qbsq0nbg",
-          "created_at": "2024-09-10T02:40:14.821Z",
-          "updated_at": "2024-09-10T02:40:14.821Z",
-          "display_at": "2024-09-10T02:40:14.821Z",
-          "affected_components": [
-            {
-              "code": "6sckg8qmrnzz",
-              "name": "Logs",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6tsmh6s8pb05",
-          "status": "investigating",
-          "body": "We are investigating reports of missing logs in customer's fly-metrics dashboards. \n\nOnly log search in the fly-metrics hosted Grafana instance is impacted. Checking logs using `flyctl logs`, the live logs page in the dashboard, or using a Fly-Log-Shipper app continues to work as expected.",
-          "incident_id": "nf04qbsq0nbg",
-          "created_at": "2024-09-10T01:16:15.311Z",
-          "updated_at": "2024-09-10T01:17:20.640Z",
-          "display_at": "2024-09-10T01:16:15.000Z",
-          "affected_components": [
-            {
-              "code": "6sckg8qmrnzz",
-              "name": "Logs",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "6sckg8qmrnzz",
-          "name": "Logs",
-          "status": "operational",
-          "created_at": "2020-06-30T20:19:10.241Z",
-          "updated_at": "2024-11-22T04:29:05.117Z",
-          "position": 8,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
           "page_id": "65rccr4mbblw",
           "group": false,
           "only_show_if_degraded": false
