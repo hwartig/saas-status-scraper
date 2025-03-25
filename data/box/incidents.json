@@ -4,9 +4,83 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-03-25T04:44:07.183-07:00"
+    "updated_at": "2025-03-25T08:44:41.889-07:00"
   },
   "incidents": [
+    {
+      "id": "kh2g281g066x",
+      "name": "[Critical] Box Shuttle Service Seeing Issues Creating New Jobs",
+      "status": "investigating",
+      "created_at": "2025-03-25T08:44:41.781-07:00",
+      "updated_at": "2025-03-25T08:44:41.886-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/ksypjh8zzsr7",
+      "started_at": "2025-03-25T08:44:41.770-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "0d4b7x2fwm04",
+          "status": "investigating",
+          "body": "We are investigating an issue affecting new job creations via the Box Shuttle service. The issue began at approximately 6am PST. We will provide more information as soon as it is available.",
+          "incident_id": "kh2g281g066x",
+          "created_at": "2025-03-25T08:44:41.883-07:00",
+          "updated_at": "2025-03-25T08:44:41.883-07:00",
+          "display_at": "2025-03-25T08:44:41.883-07:00",
+          "affected_components": [
+            {
+              "code": "xnqq9jsb6qh7",
+              "name": "Box Web Application - Box Shuttle",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "tcyh2sw13n01",
+              "name": "Box Platform / API - Box Shuttle",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "tcyh2sw13n01",
+          "name": "Box Shuttle",
+          "status": "major_outage",
+          "created_at": "2023-07-12T12:47:28.112-07:00",
+          "updated_at": "2025-03-25T08:44:41.821-07:00",
+          "position": 12,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-07-12",
+          "group_id": "vggytbdllrjt",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "xnqq9jsb6qh7",
+          "name": "Box Shuttle",
+          "status": "major_outage",
+          "created_at": "2023-07-12T12:46:59.079-07:00",
+          "updated_at": "2025-03-25T08:44:41.841-07:00",
+          "position": 19,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-07-12",
+          "group_id": "l6vzpnn62cgq",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "clyy7wrdtfml",
       "name": "[Minor] Customers may be experiencing issues with uploads and downloads",
@@ -9553,172 +9627,6 @@
         }
       ],
       "reminder_intervals": null
-    },
-    {
-      "id": "j0g48mrwx4py",
-      "name": "[Major] Issues with Search Functionality",
-      "status": "postmortem",
-      "created_at": "2023-10-10T14:47:33.000-07:00",
-      "updated_at": "2023-11-20T11:02:43.976-08:00",
-      "monitoring_at": null,
-      "resolved_at": "2023-10-10T19:07:36.000-07:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/v00vktrszgjb",
-      "started_at": "2023-10-10T14:47:33.000-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "j78vj660hfpp",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting Search. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 9/29/2023 9PM PDT and 10/12/2023 4:10PM PDT, some users may have experienced difficulties while working in Box. During this time, users were unable to find some documents that were uploaded, modified or moved during the specified period. The issue occurred as a result of changes to our infrastructure to more uniformly distribute the index across all shards in our search clusters. Specifically, a new sharding scheme was applied to our live serving search clusters resulting in some recently updated documents going to the the wrong shards. We were able to resolve the issue by reverting back to the old sharding scheme for live clusters. In addition, we are working on adding mechanisms to safely alter sharding scheme for live production clusters to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nThis issue occurred due to alteration of the sharding scheme used for indexing to live serving search clusters. This change inadvertently resulted in inconsistency between the sharding scheme used to update documents and the sharding scheme used to query the cluster. As a result, a small portion of documents that were created, updated or moved on Box during the issue time window were indexed to a different shard than what the user queries were being processed on. Since the sharding scheme only impacted a small portion of content on Box \\(less than 1%\\), most documents were still searchable, and this issue only impacted a relatively small number of files.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Adding checks in the system to ensure indexing and query pipeline are using the same sharding scheme for a specific cluster\n* Adding tooling to identify if document is being indexed to the wrong shard on a cluster\n* Update procedure for changing sharding scheme to prevent unintentionally applying it to all serving clusters.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,  \nThe Box Team",
-          "incident_id": "j0g48mrwx4py",
-          "created_at": "2023-10-24T15:01:52.249-07:00",
-          "updated_at": "2023-11-20T11:02:43.973-08:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vfqxy7ltsxpk",
-          "status": "resolved",
-          "body": "Teams have isolated the cause of the search issues and have completed steps to remediate further impact. A reindexing job was kicked off and will complete in the next 24 hours in which any remaining missing files will be processed. Please contact Box Support at https://support.box.com/ if you continue to experience any issues.",
-          "incident_id": "j0g48mrwx4py",
-          "created_at": "2023-10-10T19:07:36.622-07:00",
-          "updated_at": "2023-10-10T20:06:33.795-07:00",
-          "display_at": "2023-10-10T19:07:36.000-07:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4bl98jxdl1cz",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue. As of now, impact is not seen to be widespread. Teams are working to further identify the level of impact and have implemented jobs to assist with discoverability. Further updates will be posted when more information becomes available.",
-          "incident_id": "j0g48mrwx4py",
-          "created_at": "2023-10-10T17:54:23.594-07:00",
-          "updated_at": "2023-10-10T17:54:23.594-07:00",
-          "display_at": "2023-10-10T17:54:23.594-07:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l25rwnt0n7mb",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "j0g48mrwx4py",
-          "created_at": "2023-10-10T16:40:04.727-07:00",
-          "updated_at": "2023-10-10T16:40:04.727-07:00",
-          "display_at": "2023-10-10T16:40:04.727-07:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bqwg1d56zy14",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "j0g48mrwx4py",
-          "created_at": "2023-10-10T15:46:19.441-07:00",
-          "updated_at": "2023-10-10T15:46:19.441-07:00",
-          "display_at": "2023-10-10T15:46:19.441-07:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qw13hwk4q694",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "j0g48mrwx4py",
-          "created_at": "2023-10-10T14:47:48.646-07:00",
-          "updated_at": "2023-10-10T14:47:48.646-07:00",
-          "display_at": "2023-10-10T14:47:48.646-07:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bx2g760ppgkx",
-          "status": "investigating",
-          "body": "We are investigating an ongoing issue affecting Search functionality inclusive of Metadata template search functionality. We will provide more information as soon as it is available.",
-          "incident_id": "j0g48mrwx4py",
-          "created_at": "2023-10-10T14:47:33.800-07:00",
-          "updated_at": "2023-10-10T15:15:03.702-07:00",
-          "display_at": "2023-10-10T14:47:33.000-07:00",
-          "affected_components": [
-            {
-              "code": "4g0qfr4s03y8",
-              "name": "Box Web Application - Search",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "4g0qfr4s03y8",
-          "name": "Search",
-          "status": "operational",
-          "created_at": "2018-10-01T20:09:16.360-07:00",
-          "updated_at": "2025-02-06T19:00:21.484-08:00",
-          "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": "[]"
     }
   ]
 }
