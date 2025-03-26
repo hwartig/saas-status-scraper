@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-25T07:30:40.452Z"
+    "updated_at": "2025-03-26T22:24:02.030Z"
   },
   "components": [
     {
@@ -115,9 +115,9 @@
     {
       "id": "mzkgffp35tq4",
       "name": "Global",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-08-16T11:21:56.097Z",
-      "updated_at": "2025-03-05T23:11:18.958Z",
+      "updated_at": "2025-03-26T22:24:01.534Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -2994,7 +2994,7 @@
     {
       "id": "kl8qv98c9brp",
       "name": "Managed Databases",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T19:29:09.360Z",
       "updated_at": "2025-01-22T14:37:36.171Z",
       "position": 17,
@@ -3261,10 +3261,64 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "r22g7bhs316q",
+      "name": "Managed Databases Metrics",
+      "status": "identified",
+      "created_at": "2025-03-26T22:24:01.497Z",
+      "updated_at": "2025-03-26T22:24:02.025Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/ybpcvfcxnh9z",
+      "started_at": "2025-03-26T22:24:01.488Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "dpsjhq6tvfgh",
+          "status": "identified",
+          "body": "Our Engineering team has identified and is currently repairing an issue affecting database engine metrics in the Cloud Control Panel for Managed Databases.\n\nUsers with PostgreSQL, MySQL, Kafka, OpenSearch, or Caching database clusters may be unable to see metrics. Mongo database clusters are not impacted. Additionally, storage metrics and alerts are not impacted and continue to function normally.\n\nWhile we are working to correct this issue as quickly as possible, we anticipate that a resolution will take multiple days. We will post an update once we have a more definite ETA or additional information becomes available.\n\nWe apologize for the inconvenience. If you have any questions, please feel free to reach out to our Support team from within your account.",
+          "incident_id": "r22g7bhs316q",
+          "created_at": "2025-03-26T22:24:01.592Z",
+          "updated_at": "2025-03-26T22:24:02.020Z",
+          "display_at": "2025-03-26T22:24:01.592Z",
+          "affected_components": [
+            {
+              "code": "mzkgffp35tq4",
+              "name": "Managed Databases - Global",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1905022959766671452
+        }
+      ],
+      "components": [
+        {
+          "id": "mzkgffp35tq4",
+          "name": "Global",
+          "status": "degraded_performance",
+          "created_at": "2024-08-16T11:21:56.097Z",
+          "updated_at": "2025-03-26T22:24:01.534Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-08-16",
+          "group_id": "kl8qv98c9brp",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
