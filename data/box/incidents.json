@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-03-26T00:20:11.483-07:00"
+    "updated_at": "2025-03-27T08:35:54.625-07:00"
   },
   "incidents": [
     {
@@ -136,9 +136,9 @@
     {
       "id": "clyy7wrdtfml",
       "name": "[Minor] Customers may be experiencing issues with uploads and downloads",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-03-21T09:50:05.972-07:00",
-      "updated_at": "2025-03-21T11:07:38.063-07:00",
+      "updated_at": "2025-03-27T08:34:52.204-07:00",
       "monitoring_at": "2025-03-21T10:40:05.163-07:00",
       "resolved_at": "2025-03-21T11:07:38.042-07:00",
       "impact": "minor",
@@ -146,6 +146,19 @@
       "started_at": "2025-03-21T09:50:05.959-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "fzf4pm49jqg6",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\n \n\nOn March 21, 2025 between 9:04 am PST and 10:32 am PST, some users may have experienced difficulties while working in Box. During this time customers of Box Zones Germany and Box Zones France may have experienced issues with uploading, downloading and previewing files.\n\n‌\n\nThe issue occurred due to a configuration change in a backend service used to provide Box Zones. We resolved the issue by temporarily redirecting certain compute processes from the impacted region to the US region and then reverting the configuration change. After mitigating the issue, we shifted the traffic back at 1:24 PM PDT. Importantly, even during the period of temporary traffic redirection, all Box Zones customer content continued to be stored in the correct Box Zones region. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "clyy7wrdtfml",
+          "created_at": "2025-03-27T08:34:39.289-07:00",
+          "updated_at": "2025-03-27T08:34:52.202-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "dxtwnmp8xr64",
           "status": "resolved",
@@ -289,9 +302,9 @@
     {
       "id": "30j6lgx8wqts",
       "name": "[Critical] Customers may experience issues with Login and All Files page",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-03-19T03:58:21.121-07:00",
-      "updated_at": "2025-03-19T04:26:18.180-07:00",
+      "updated_at": "2025-03-27T08:35:54.622-07:00",
       "monitoring_at": "2025-03-19T04:23:17.118-07:00",
       "resolved_at": "2025-03-19T04:26:18.165-07:00",
       "impact": "major",
@@ -299,6 +312,19 @@
       "started_at": "2025-03-19T03:58:21.115-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "lx6ryym3q5dg",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\n \n\nOn March 19, 2025 between 3:06 AM and 4:35 AM PST, some users may have experienced difficulties while working in Box. During this time, users may have experienced slowness or occasional errors when interacting with several features in the Box webapp or public API, including Logins, Uploads/Downloads, and Notes. The issue was caused by a latent code bug in an internal health-checking service, which incorrectly determined that several caching servers were unhealthy and subsequently restarted them without following proper initialization steps. This left these caching instances in a state of being unreachable to upstream clients, so the queries that they typically serve were instead routed to our databases. This resulted in increased latency and potential timeouts in some cases. We were able to resolve the issue by temporarily routing traffic away from the impacted caching instances until they were manually restored by on-call engineers. In addition, we addressed the underlying code bug that triggered the server restarts and will provide additional controls to the health-checking service to prevent similar issues from occurring in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "30j6lgx8wqts",
+          "created_at": "2025-03-27T08:35:41.855-07:00",
+          "updated_at": "2025-03-27T08:35:54.620-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "dhqvqyxyfx0c",
           "status": "resolved",
