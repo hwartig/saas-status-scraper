@@ -4,9 +4,39 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-28T13:38:58.720Z"
+    "updated_at": "2025-03-28T17:53:07.400Z"
   },
   "incidents": [
+    {
+      "id": "vhzbr55p9jtx",
+      "name": "Disruption with some GitHub services",
+      "status": "investigating",
+      "created_at": "2025-03-28T17:53:07.344Z",
+      "updated_at": "2025-03-28T17:53:07.397Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/vwpy9tgn0f24",
+      "started_at": "2025-03-28T17:53:07.335Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "01rzc6ynfwm1",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "vhzbr55p9jtx",
+          "created_at": "2025-03-28T17:53:07.393Z",
+          "updated_at": "2025-03-28T17:53:07.393Z",
+          "display_at": "2025-03-28T17:53:07.393Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "lnvht7g03czs",
       "name": "Disruption with Pull Request Ref Updates",
@@ -9277,75 +9307,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "v4d2jbm842p4",
-      "name": "Disruption with some GitHub services",
-      "status": "resolved",
-      "created_at": "2024-12-03T04:11:57.955Z",
-      "updated_at": "2024-12-06T19:46:05.430Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-12-03T04:39:47.555Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/4szgmb4nzb8w",
-      "started_at": "2024-12-03T04:11:57.948Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "z4hrslgf8vmc",
-          "status": "resolved",
-          "body": "Between Dec 3 03:35 UTC and 04:35 UTC, availability of large hosted runners for Actions was degraded due to failures in background VM provisioning jobs.  This was a shorter recurrence of the issue that occurred the previous day.  Users would see workflows queued waiting for a large runner.  On average, 13.5% of all workflows requiring large runners over the incident time were affected, peaking at 46% of requests. Standard and Mac runners were not affected.<br /><br />Following the Dec 1 incident, we had disabled non-critical paths in the provisioning job and believed that would eliminate any impact while we understood and addressed the timeouts.  Unfortunately, the timeouts were a symptom of broader job health issues, so those changes did not prevent this second occurrence the following day.  We now understand that other jobs on these agents had issues that resulted in them hanging and consuming available job agent capacity.  The reduced capacity led to saturation of the remaining agents and significant performance degradation in the running jobs.<br /><br />In addition to the immediate improvements shared in the previous incident summary, we immediately initiated regular recycles of all agents in this area while we continue to address the issues in both the jobs themselves and the resiliency of the agents.  We also continue to improve our detection to ensure we are automatically detecting these delays.",
-          "incident_id": "v4d2jbm842p4",
-          "created_at": "2024-12-03T04:39:47.555Z",
-          "updated_at": "2024-12-06T19:46:05.423Z",
-          "display_at": "2024-12-03T04:39:47.555Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ykmpk9b0wr86",
-          "status": "investigating",
-          "body": "We saw a recurrence of the large hosted runner incident (https://www.githubstatus.com/incidents/qq1m7mqcl6zk) from 12/1/2024. We've applied the same mitigation and see improvements. We will continue to work on a long term solution.",
-          "incident_id": "v4d2jbm842p4",
-          "created_at": "2024-12-03T04:38:25.631Z",
-          "updated_at": "2024-12-03T04:38:25.631Z",
-          "display_at": "2024-12-03T04:38:25.631Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "yvgsxghyq61x",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for  Hosted Runners",
-          "incident_id": "v4d2jbm842p4",
-          "created_at": "2024-12-03T04:16:38.024Z",
-          "updated_at": "2024-12-03T04:16:38.024Z",
-          "display_at": "2024-12-03T04:16:38.024Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "99p5ppz487b0",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "v4d2jbm842p4",
-          "created_at": "2024-12-03T04:11:57.994Z",
-          "updated_at": "2024-12-03T04:11:57.994Z",
-          "display_at": "2024-12-03T04:11:57.994Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
