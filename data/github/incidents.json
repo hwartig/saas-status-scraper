@@ -4,9 +4,39 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-03-28T19:33:15.971Z"
+    "updated_at": "2025-03-28T22:50:53.866Z"
   },
   "incidents": [
+    {
+      "id": "7s7z64qbl194",
+      "name": "[Retroactive] Disruption with Pull Request Ref Updates",
+      "status": "resolved",
+      "created_at": "2025-03-28T22:50:53.812Z",
+      "updated_at": "2025-03-28T22:50:53.863Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-03-28T22:50:53.854Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/57c1ht3gd66f",
+      "started_at": "2025-03-28T22:50:53.808Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "gqvxcl5hln09",
+          "status": "resolved",
+          "body": "Beginning at 21:24 UTC on March 28 and lasting until 21:50 UTC, some customers of github.com had issues with PR tracking refs not being updated due to processing delays and increased failure rates. We did not status before we completed the rollback, and the incident is currently resolved. We are sorry for the delayed post on githubstatus.com.",
+          "incident_id": "7s7z64qbl194",
+          "created_at": "2025-03-28T22:50:53.854Z",
+          "updated_at": "2025-03-28T22:50:53.854Z",
+          "display_at": "2025-03-28T22:50:53.854Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "vhzbr55p9jtx",
       "name": "Disruption with some GitHub services",
@@ -9033,293 +9063,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "w6g0cmvyx3vm",
-      "name": "Incident with Pull Requests and API Requests",
-      "status": "resolved",
-      "created_at": "2024-12-03T19:48:52.190Z",
-      "updated_at": "2024-12-04T23:36:39.056Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-12-03T20:05:05.206Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/lqtj32njw0bk",
-      "started_at": "2024-12-03T19:48:52.182Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "0cbtv7ft9vgj",
-          "status": "resolved",
-          "body": "On December 3, 2024, between 19:35 UTC and 20:05 UTC API requests, Actions, Pull Requests and Issues were degraded. Web and API requests for Pull Requests experienced a 3.5% error rate and Issues had a 1.2% error rate. The highest impact was for users who experienced errors while creating and commenting on Pull Requests and Issues. Actions had a 3.3% error rate in jobs and delays on some updates during this time.<br /><br />This was due to an erroneous database credential change impacting write access to Issues and Pull Requests data. We mitigated the incident by reverting the credential change at 19:52 UTC. We continued to monitor service recovery before resolving the incident at 20:05 UTC. <br /><br />There are a few improvements we are making in response to this. We are investing in safe guards to the change management process in order to prevent erroneous database credential changes. Additionally, the initial rollback attempt was unsuccessful which led to a longer time to mitigate. We were able to revert through an alternative method and are updating our playbooks to document this mitigation strategy.",
-          "incident_id": "w6g0cmvyx3vm",
-          "created_at": "2024-12-03T20:05:05.206Z",
-          "updated_at": "2024-12-04T23:36:39.051Z",
-          "display_at": "2024-12-03T20:05:05.206Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "hx8fv0qt8t1y",
-          "status": "investigating",
-          "body": "Pull Requests is operating normally.",
-          "incident_id": "w6g0cmvyx3vm",
-          "created_at": "2024-12-03T20:05:02.150Z",
-          "updated_at": "2024-12-03T20:05:02.150Z",
-          "display_at": "2024-12-03T20:05:02.150Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qcfv1k0rx311",
-          "status": "investigating",
-          "body": "Actions is operating normally.",
-          "incident_id": "w6g0cmvyx3vm",
-          "created_at": "2024-12-03T20:04:59.258Z",
-          "updated_at": "2024-12-03T20:04:59.258Z",
-          "display_at": "2024-12-03T20:04:59.258Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "024d3w824g35",
-          "status": "investigating",
-          "body": "API Requests is operating normally.",
-          "incident_id": "w6g0cmvyx3vm",
-          "created_at": "2024-12-03T20:02:07.187Z",
-          "updated_at": "2024-12-03T20:02:07.187Z",
-          "display_at": "2024-12-03T20:02:07.187Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cvhxd6crsbqg",
-          "status": "investigating",
-          "body": "We have taken mitigating actions and are starting to see recovery but are continuing to monitor and ensure full recovery. Some users may still see errors.",
-          "incident_id": "w6g0cmvyx3vm",
-          "created_at": "2024-12-03T19:59:48.322Z",
-          "updated_at": "2024-12-03T19:59:48.322Z",
-          "display_at": "2024-12-03T19:59:48.322Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wwk7scdbm8d7",
-          "status": "investigating",
-          "body": "Some users will experience problems with certain features of pull requests, actions, issues and other areas. We are aware of the issue, know the cause, and are working on a mitigation.",
-          "incident_id": "w6g0cmvyx3vm",
-          "created_at": "2024-12-03T19:54:04.897Z",
-          "updated_at": "2024-12-03T19:54:04.897Z",
-          "display_at": "2024-12-03T19:54:04.897Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ppj7zkm2m80z",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for API Requests, Actions and Pull Requests",
-          "incident_id": "w6g0cmvyx3vm",
-          "created_at": "2024-12-03T19:48:52.286Z",
-          "updated_at": "2024-12-03T19:48:52.286Z",
-          "display_at": "2024-12-03T19:48:52.286Z",
-          "affected_components": [
-            {
-              "code": "brv1bkgrwx7q",
-              "name": "API Requests",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "brv1bkgrwx7q",
-          "name": "API Requests",
-          "status": "operational",
-          "created_at": "2017-01-31T20:01:46.621Z",
-          "updated_at": "2025-03-03T05:31:19.626Z",
-          "position": 4,
-          "description": "Requests for GitHub APIs",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "hhtssxt0f5v2",
-          "name": "Pull Requests",
-          "status": "operational",
-          "created_at": "2020-09-02T15:39:06.329Z",
-          "updated_at": "2025-03-28T01:40:38.271Z",
-          "position": 6,
-          "description": "Requests for Pull Requests on GitHub.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "br0l2tvcx85d",
-          "name": "Actions",
-          "status": "operational",
-          "created_at": "2019-11-13T18:02:19.432Z",
-          "updated_at": "2025-03-21T09:34:18.695Z",
-          "position": 7,
-          "description": "Workflows, Compute and Orchestration for GitHub Actions",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
