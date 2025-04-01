@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-04-01T12:47:21.492Z"
+    "updated_at": "2025-04-01T17:37:35.494Z"
   },
   "incidents": [
     {
@@ -197,7 +197,7 @@
       "name": "Disruption with Pull Request Ref Updates",
       "status": "resolved",
       "created_at": "2025-03-27T23:49:10.373Z",
-      "updated_at": "2025-03-28T01:40:38.335Z",
+      "updated_at": "2025-04-01T17:37:35.483Z",
       "monitoring_at": null,
       "resolved_at": "2025-03-28T01:40:38.313Z",
       "impact": "minor",
@@ -208,10 +208,10 @@
         {
           "id": "kpbmqlfc95xg",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "Between March 27, 2025, 23:45 UTC and March 28, 2025, 01:40 UTC the Pull Requests service was degraded and failed to update refs for repositories with higher traffic activity. This was due to a large repository migration that resulted in a larger than usual number of enqueued jobs; while simultaneously impacting git fileservers where the problematic repository was hosted. This resulted in an increase in queue depth due to retries on failures to perform those jobs causing delays for non-migration sourced jobs.<br /><br />We declared an incident once we confirmed that this issue was not isolated to the problematic migration and other repositories were also failing to process ref updates. <br /><br />We mitigated the issue by stopping the migration and short circuiting the remaining jobs. Additionally, we increased the worker pool of this job to reduce the time required to recover. <br /><br />As a result of this incident, we are revisiting our repository migration process and are working to isolate potentially problematic migration workloads from non-migration workloads. <br />",
           "incident_id": "lnvht7g03czs",
           "created_at": "2025-03-28T01:40:38.313Z",
-          "updated_at": "2025-03-28T01:40:38.313Z",
+          "updated_at": "2025-04-01T17:37:35.478Z",
           "display_at": "2025-03-28T01:40:38.313Z",
           "affected_components": [
             {
