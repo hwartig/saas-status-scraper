@@ -4,9 +4,62 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-04-02T16:03:44.311-07:00"
+    "updated_at": "2025-04-02T16:20:44.553-07:00"
   },
   "incidents": [
+    {
+      "id": "tz7qld0jk37w",
+      "name": "Delay in Flag Evaluation Data",
+      "status": "identified",
+      "created_at": "2025-04-02T16:20:26.332-07:00",
+      "updated_at": "2025-04-02T16:20:26.473-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/lvbc947hcmnp",
+      "started_at": "2025-04-02T16:20:26.321-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "2ytnhvs3w05n",
+          "status": "identified",
+          "body": "We have identified an issue causing delayed flag evaluation data in the web app. Our engineers are currently working on the fix and we'll provide another update shortly.",
+          "incident_id": "tz7qld0jk37w",
+          "created_at": "2025-04-02T16:20:26.468-07:00",
+          "updated_at": "2025-04-02T16:20:26.468-07:00",
+          "display_at": "2025-04-02T16:20:26.468-07:00",
+          "affected_components": [
+            {
+              "code": "g5bksjhndxmj",
+              "name": "Feature management (non-core functionality) - Flag usage metrics",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "g5bksjhndxmj",
+          "name": "Flag usage metrics",
+          "status": "degraded_performance",
+          "created_at": "2018-08-30T10:10:07.695-07:00",
+          "updated_at": "2025-04-02T16:20:26.396-07:00",
+          "position": 3,
+          "description": "Recording and displaying of data pertaining to your flag usage",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "2868qx437p9m",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "npdydfk46c89",
       "name": "Docs Site Intermittently Unavailable",
@@ -1091,9 +1144,9 @@
         {
           "id": "g5bksjhndxmj",
           "name": "Flag usage metrics",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-08-30T10:10:07.695-07:00",
-          "updated_at": "2025-02-26T17:25:58.244-08:00",
+          "updated_at": "2025-04-02T16:20:26.396-07:00",
           "position": 3,
           "description": "Recording and displaying of data pertaining to your flag usage",
           "showcase": false,
@@ -5248,9 +5301,9 @@
         {
           "id": "g5bksjhndxmj",
           "name": "Flag usage metrics",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-08-30T10:10:07.695-07:00",
-          "updated_at": "2025-02-26T17:25:58.244-08:00",
+          "updated_at": "2025-04-02T16:20:26.396-07:00",
           "position": 3,
           "description": "Recording and displaying of data pertaining to your flag usage",
           "showcase": false,
@@ -5369,62 +5422,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "6k23lm7d614n",
-      "name": "UI error when toggling a flag from the legacy flag list",
-      "status": "resolved",
-      "created_at": "2024-09-27T11:47:48.532-07:00",
-      "updated_at": "2024-09-27T12:59:05.516-07:00",
-      "monitoring_at": "2024-09-27T12:07:07.126-07:00",
-      "resolved_at": "2024-09-27T12:59:05.235-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/bs6mwjzl1thm",
-      "started_at": "2024-09-27T11:47:48.526-07:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "3hqfhwhrlj02",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "6k23lm7d614n",
-          "created_at": "2024-09-27T12:59:05.235-07:00",
-          "updated_at": "2024-09-27T12:59:05.512-07:00",
-          "display_at": "2024-09-27T12:59:05.235-07:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1839756668206465383
-        },
-        {
-          "id": "frqt46w6dc39",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "6k23lm7d614n",
-          "created_at": "2024-09-27T12:07:07.126-07:00",
-          "updated_at": "2024-09-27T12:07:07.425-07:00",
-          "display_at": "2024-09-27T12:07:07.126-07:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1839743590010106080
-        },
-        {
-          "id": "0wvns23q61ml",
-          "status": "identified",
-          "body": "For users on the legacy UI only, toggling the flag on or off from the flag list is resulting in an error. Flags can still be toggled on or off from the individual flag view.\n\nWe have identified the problem and are working to resolve the issue.",
-          "incident_id": "6k23lm7d614n",
-          "created_at": "2024-09-27T11:47:48.569-07:00",
-          "updated_at": "2024-09-27T11:47:48.894-07:00",
-          "display_at": "2024-09-27T11:47:48.569-07:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1839738730783101422
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
