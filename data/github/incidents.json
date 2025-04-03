@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-04-03T17:00:22.945Z"
+    "updated_at": "2025-04-03T18:56:00.404Z"
   },
   "incidents": [
+    {
+      "id": "6xn7r7hhrq72",
+      "name": "Disruption with some GitHub services",
+      "status": "investigating",
+      "created_at": "2025-04-03T18:51:32.771Z",
+      "updated_at": "2025-04-03T18:56:00.378Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/v85jjh46s9v8",
+      "started_at": "2025-04-03T18:51:32.760Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "jm71d7drmsc1",
+          "status": "investigating",
+          "body": "We are investigating and working on applying mitigations to intermittent unavailability of GitHub's Docs.",
+          "incident_id": "6xn7r7hhrq72",
+          "created_at": "2025-04-03T18:56:00.365Z",
+          "updated_at": "2025-04-03T18:56:00.365Z",
+          "display_at": "2025-04-03T18:56:00.365Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "ng3q2t3xjs7k",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "6xn7r7hhrq72",
+          "created_at": "2025-04-03T18:51:32.835Z",
+          "updated_at": "2025-04-03T18:51:32.835Z",
+          "display_at": "2025-04-03T18:51:32.835Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "d3t3d2jn3b0j",
       "name": "Disruption with some GitHub services",
@@ -8581,159 +8624,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "fnq063tqh7cc",
-      "name": "Live updates on pages not loading reliably",
-      "status": "resolved",
-      "created_at": "2024-12-17T14:51:28.494Z",
-      "updated_at": "2024-12-18T21:44:07.852Z",
-      "monitoring_at": null,
-      "resolved_at": "2024-12-17T16:00:10.805Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/kk9f3jsc7y3x",
-      "started_at": "2024-12-17T14:51:28.489Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "rfl45wv0kw6f",
-          "status": "resolved",
-          "body": "On December 17th, 2024, between 14:33 UTC and 14:50 UTC, many users experienced intermittent errors and timeouts when accessing github.com. The error rate was 8.5% on average and peaked at 44.3% of requests. The increased error rate caused a broad impact across our services, such as the inability to log in, view a repository, open a pull request, and comment on issues. The errors were caused by our web servers being overloaded as a result of planned maintenance that unintentionally caused our live updates service to fail to start. As a result of the live updates service being down, clients reconnected aggressively and overloaded our servers.<br /><br />We only marked Issues as affected during this incident despite the broad impact. This oversight was due to a gap in our alerting while our web servers were overloaded. The engineering team's focus on restoring functionality led us to not identify the broad scope of the impact to customers until the incident had already been mitigated.<br /><br />We mitigated the incident by rolling back the changes from the planned maintenance to the live updates service and scaling up the service to handle the influx of traffic from WebSocket clients.<br /><br />We are working to reduce the impact of the live updates service's availability on github.com to prevent issues like this one in the future. We are also working to improve our alerting to better detect the scope of impact from incidents like this.",
-          "incident_id": "fnq063tqh7cc",
-          "created_at": "2024-12-17T16:00:10.805Z",
-          "updated_at": "2024-12-18T21:44:07.847Z",
-          "display_at": "2024-12-17T16:00:10.805Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "q8qtr4l3b0gk",
-          "status": "investigating",
-          "body": "Issues is operating normally.",
-          "incident_id": "fnq063tqh7cc",
-          "created_at": "2024-12-17T15:32:41.359Z",
-          "updated_at": "2024-12-17T15:32:41.359Z",
-          "display_at": "2024-12-17T15:32:41.359Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vn44qfg3wbly",
-          "status": "investigating",
-          "body": "We have taken some mitigation steps and are continuing to investigate the issue. There was a period of wider impact on many GitHub services such as user logins and page loads which should now be mitigated.",
-          "incident_id": "fnq063tqh7cc",
-          "created_at": "2024-12-17T15:29:59.772Z",
-          "updated_at": "2024-12-17T15:29:59.772Z",
-          "display_at": "2024-12-17T15:29:59.772Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "k9xx40ddsj7v",
-          "status": "investigating",
-          "body": "Issues is experiencing degraded availability. We are continuing to investigate.",
-          "incident_id": "fnq063tqh7cc",
-          "created_at": "2024-12-17T15:05:58.205Z",
-          "updated_at": "2024-12-17T15:05:58.205Z",
-          "display_at": "2024-12-17T15:05:58.205Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "yrhzwghrvps0",
-          "status": "investigating",
-          "body": "We are currently seeing live updates on some pages not working. This can impact features such as status checks and the merge button for PRs.<br /><br />Current mitigation is to refresh pages manually to see latest details.<br /><br />We are working to mitigate this and will continue to provide updates as the team makes progress.",
-          "incident_id": "fnq063tqh7cc",
-          "created_at": "2024-12-17T14:53:02.614Z",
-          "updated_at": "2024-12-17T14:53:02.614Z",
-          "display_at": "2024-12-17T14:53:02.614Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "q32wl4g3qv1q",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Issues",
-          "incident_id": "fnq063tqh7cc",
-          "created_at": "2024-12-17T14:51:28.561Z",
-          "updated_at": "2024-12-17T14:51:28.561Z",
-          "display_at": "2024-12-17T14:51:28.561Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "kr09ddfgbfsf",
-          "name": "Issues",
-          "status": "operational",
-          "created_at": "2017-01-31T20:01:46.638Z",
-          "updated_at": "2025-03-17T23:02:33.249Z",
-          "position": 5,
-          "description": "Requests for Issues on GitHub.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
