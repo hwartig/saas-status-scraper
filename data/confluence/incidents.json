@@ -4,7 +4,7 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-04-04T03:55:39.274Z"
+    "updated_at": "2025-04-04T04:19:30.871Z"
   },
   "incidents": [
     {
@@ -808,9 +808,9 @@
     {
       "id": "74q8rx3zbqfv",
       "name": "Automation rule execution are delayed",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-03-18T15:04:13.150Z",
-      "updated_at": "2025-04-04T03:55:39.268Z",
+      "updated_at": "2025-04-04T03:55:42.798Z",
       "monitoring_at": "2025-03-18T16:51:18.335Z",
       "resolved_at": "2025-03-18T17:28:35.580Z",
       "impact": "minor",
@@ -818,6 +818,19 @@
       "started_at": "2025-03-18T15:04:13.143Z",
       "page_id": "4g2my7tbhjsq",
       "incident_updates": [
+        {
+          "id": "znm7qpgh9ffc",
+          "status": "postmortem",
+          "body": "### Summary\n\nJira, Confluence and JSM Automation rules triggered or scheduled to run between 10am and 5pm UTC on March 17, 2025, and between 1pm UTC on March 18 and 12:30am UTC on March 19 were delayed on average by 1.5 hours and up to 12 hours maximum. The incident was triggered by the deployment of a monitoring library upgrade, which slowed the execution of all rules. This reduced the throughput of rule processing which resulted in rules being backed up and delayed. The change manifested in poor rule performance only during periods of high traffic. This incident occurred over two time windows. For the first incident window, backed-up rule executions began to reduce 4 hours 15 minutes after the first alert, and all rules had caught up 7 hours after the first alert. For the second incident window, backed-up rule executions began to reduce 1 hour, 50 minutes after the first alert, and all rules had caught up 10 hours after the first alert.\n\nThe root cause of both incidents was identified and a change to address it was deployed by 10am UTC on March 19, 2025.\n\n### **IMPACT**\n\nThe customer’s rules were delayed on average by 1.5 hours and up to 12 hours during both incident windows. A very small number of rules encountered the following error: “_The rule actor doesn't have permission to view the event that triggered this rule_.” This error occurred because of rate limiting implemented by an internal Atlassian service due to increased throughput resulting from our mitigation efforts. These rules failed to complete successfully. All other rules eventually ran successfully.\n\n### **ROOT CAUSE**\n\nThe issue was caused by a change introduced to an Atlassian monitoring library, which significantly degraded the Automation rule engine's performance. The performance degradation prevented Automation's system from keeping pace with processing throughput, causing a back-up of executions and subsequent customer rule delays.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. While we have a number of testing and preventative processes in place, this specific issue didn’t manifest itself until our systems were at peak load.\n\nThe change to the Atlassian monitoring library that was the root cause of the incident has been fixed.\n\nWe are prioritizing the following improvement actions that are designed to avoid a repeat of this type of incident:\n\n* Deploying the fixed monitoring library after thorough testing\n* Implementing additional monitoring and alerting to the area of our system affected with performance degradation\n* Introducing additional pre-deployment testing designed to identify performance degradations before they impact customers\n* Increasing rate limits of certain downstream Atlassian systems to reduce the likelihood of the rule failures that occurred in this incident\n* Increasing the processing capacity of parts of our system to reduce the impact of backed up rule executions\n\nWe apologize to customers whose automation rules were impacted during this incident; we are taking immediate steps designed to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "74q8rx3zbqfv",
+          "created_at": "2025-04-04T03:55:39.263Z",
+          "updated_at": "2025-04-04T03:55:42.795Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "n0h6sxkqfkh7",
           "status": "resolved",
