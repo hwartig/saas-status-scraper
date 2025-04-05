@@ -4,9 +4,62 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-04-05T13:59:22.413Z"
+    "updated_at": "2025-04-05T16:52:00.519Z"
   },
   "incidents": [
+    {
+      "id": "fz0wy87t17j0",
+      "name": "Mongo 8 Database Creation",
+      "status": "investigating",
+      "created_at": "2025-04-05T16:52:00.432Z",
+      "updated_at": "2025-04-05T16:52:00.516Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/574py4rqqzxd",
+      "started_at": "2025-04-05T16:52:00.425Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "yrm73dsf407r",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue with Mongo 8 database creation in the AMS3 region. At this time, users may experience errors while attempting to create a new Mongo 8 database instance in the AMS3 region.\n\nWe apologize for the inconvenience and will provide another update as soon as possible.",
+          "incident_id": "fz0wy87t17j0",
+          "created_at": "2025-04-05T16:52:00.514Z",
+          "updated_at": "2025-04-05T16:52:00.514Z",
+          "display_at": "2025-04-05T16:52:00.514Z",
+          "affected_components": [
+            {
+              "code": "msbt8b9p1p0q",
+              "name": "Managed Databases - AMS3",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "msbt8b9p1p0q",
+          "name": "AMS3",
+          "status": "degraded_performance",
+          "created_at": "2023-02-22T19:29:08.637Z",
+          "updated_at": "2025-04-05T16:52:00.464Z",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-22",
+          "group_id": "kl8qv98c9brp",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "6rmd4yq0jlxf",
       "name": "Networking in LON1 Region",
@@ -7699,132 +7752,6 @@
           "showcase": false,
           "start_date": "2023-02-22",
           "group_id": "kl8qv98c9brp",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "f5fc4f6w9c2v",
-      "name": "Event Processing in NYC2 Region",
-      "status": "resolved",
-      "created_at": "2024-11-01T13:36:47.117Z",
-      "updated_at": "2024-11-01T17:37:40.786Z",
-      "monitoring_at": "2024-11-01T13:36:47.331Z",
-      "resolved_at": "2024-11-01T17:37:40.743Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/mzzk0f1g0vzm",
-      "started_at": "2024-11-01T13:36:47.095Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "fpc8f5txlnld",
-          "status": "resolved",
-          "body": "Our Engineering team has confirmed resolution of the issue impacting Droplet creation events and event processing and all services should now be operating normally. If you continue to experience any problems, please open a ticket with our Support team. Thank you for your patience and we apologize for any inconvenience.",
-          "incident_id": "f5fc4f6w9c2v",
-          "created_at": "2024-11-01T17:37:40.743Z",
-          "updated_at": "2024-11-01T17:37:40.743Z",
-          "display_at": "2024-11-01T17:37:40.743Z",
-          "affected_components": [
-            {
-              "code": "f61lqt7r9fg5",
-              "name": "Event Processing - NYC2",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "r2cw20w0r9zx",
-              "name": "Networking - NYC2",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "527z45n3nhdd",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues.",
-          "incident_id": "f5fc4f6w9c2v",
-          "created_at": "2024-11-01T13:39:11.670Z",
-          "updated_at": "2024-11-01T13:39:11.670Z",
-          "display_at": "2024-11-01T13:39:11.670Z",
-          "affected_components": [
-            {
-              "code": "f61lqt7r9fg5",
-              "name": "Event Processing - NYC2",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "r2cw20w0r9zx",
-              "name": "Networking - NYC2",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3gdfg00cc1nz",
-          "status": "monitoring",
-          "body": "Our Engineers are currently monitoring an issue related to event processing and Droplet creates in our NYC2 region. Between 12:34 UTC and 13:09, users may have experienced failures with events such as creating, destroying, or rebuilding Droplets and Droplet-backed products. Our team has mitigated the impact and is monitoring the situation closely. We will post another update as soon as we can confirm the issue to be fully resolved.",
-          "incident_id": "f5fc4f6w9c2v",
-          "created_at": "2024-11-01T13:36:47.331Z",
-          "updated_at": "2024-11-01T13:36:47.331Z",
-          "display_at": "2024-11-01T13:36:47.331Z",
-          "affected_components": [
-            {
-              "code": "f61lqt7r9fg5",
-              "name": "Event Processing - NYC2",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "r2cw20w0r9zx",
-              "name": "Networking - NYC2",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "f61lqt7r9fg5",
-          "name": "NYC2",
-          "status": "operational",
-          "created_at": "2023-02-22T17:27:02.408Z",
-          "updated_at": "2024-11-01T17:37:40.641Z",
-          "position": 8,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "b3tklvcyzvh0",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "r2cw20w0r9zx",
-          "name": "NYC2",
-          "status": "operational",
-          "created_at": "2023-02-22T17:38:12.072Z",
-          "updated_at": "2024-11-01T13:39:11.627Z",
-          "position": 8,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "sjlhrm4vf4pr",
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
