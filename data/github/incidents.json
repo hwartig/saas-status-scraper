@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-04-08T17:23:36.992Z"
+    "updated_at": "2025-04-08T18:00:32.763Z"
   },
   "incidents": [
+    {
+      "id": "mdfybxmvbp0z",
+      "name": "Vision requests are unavailable for certain models on Copilot Chat on github.com",
+      "status": "investigating",
+      "created_at": "2025-04-08T17:53:47.501Z",
+      "updated_at": "2025-04-08T17:58:53.817Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/6v25jd6fjtpf",
+      "started_at": "2025-04-08T17:53:47.495Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "vqrxw9q689fl",
+          "status": "investigating",
+          "body": "Image attachments are not available for some models on Copilot chat on github.com. The issue has been identified and the fix is in progress.",
+          "incident_id": "mdfybxmvbp0z",
+          "created_at": "2025-04-08T17:58:53.815Z",
+          "updated_at": "2025-04-08T17:58:53.815Z",
+          "display_at": "2025-04-08T17:58:53.815Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "s9x7hbfrbq27",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "mdfybxmvbp0z",
+          "created_at": "2025-04-08T17:53:47.538Z",
+          "updated_at": "2025-04-08T17:53:47.538Z",
+          "display_at": "2025-04-08T17:53:47.538Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "cjq2q04mfydp",
       "name": "Disruption with some GitHub services",
@@ -8459,198 +8502,6 @@
           "updated_at": "2025-03-17T23:02:33.249Z",
           "position": 5,
           "description": "Requests for Issues on GitHub.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "br0l2tvcx85d",
-          "name": "Actions",
-          "status": "operational",
-          "created_at": "2019-11-13T18:02:19.432Z",
-          "updated_at": "2025-03-21T09:34:18.695Z",
-          "position": 7,
-          "description": "Workflows, Compute and Orchestration for GitHub Actions",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "6ddp6v8g5t72",
-      "name": "Incident with Actions",
-      "status": "resolved",
-      "created_at": "2025-01-02T22:09:21.100Z",
-      "updated_at": "2025-01-06T23:30:24.893Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-01-03T00:19:10.519Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/hxc0t791h2ln",
-      "started_at": "2025-01-02T22:09:21.091Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "jy5x5f4t7c5h",
-          "status": "resolved",
-          "body": "On January 2, 2025 between 16:00:00 and 22:27:30 UTC, a bug in feature-flagged code that cleans up Pull Requests after they are closed or merged incorrectly cleared the merge commit SHA for ~139,000 pull requests. During the incident, Actions workflows triggered by the <i>on: pull_request</i> trigger for the <i>closed</i> type were not queued successfully because of these missing merge commit SHAs. Approximately 45,000 repositories experienced these missing workflow triggers in either of two possible scenarios: pull requests which were closed, but not merged; and pull requests which were merged. Impact was mitigated after rolling back the aforementioned feature flag. <br /><br />Merged pull requests that were affected have had their merge commit SHAs restored. Closed pull requests have not had their merge commit SHA restored; however, customers can re-open and close them again to recalculate this SHA. We are investigating methods to improve detection of these kinds of errors in the future.",
-          "incident_id": "6ddp6v8g5t72",
-          "created_at": "2025-01-03T00:19:10.519Z",
-          "updated_at": "2025-01-06T23:30:24.888Z",
-          "display_at": "2025-01-03T00:19:10.519Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "m8c6q59j3z7z",
-          "status": "investigating",
-          "body": "All systems are operational, and we have a plan to backfill the missing metadata. In total, 139,000 PRs were impacted across 45,000 repositories. The backfilled metadata will be available in a few days.<br /><br />Until the backfill is complete, there are several actions you can take to ensure an Action runs:<br />- Any Actions that should have run on closed but not merged PRs can be triggered by re-opening and re-closing the PR.<br />- Actions that should have run on PR merge can be re-run from the main branch of your repository.<br /><br />The only Actions that cannot be re-run at this time are ones that specifically use the merge commit.<br /><br />Additionally, the `merge_commit_sha` field on an impacted Pull Request will be `null` when queried via our API until the backfill completes.<br /><br />We appreciate the error reports we received, and thank you for your patience. We mitigated the initial impact quickly by rolling back a feature flag. We will be improving the monitoring of our feature flag rollouts in the future to better catch these scenarios.",
-          "incident_id": "6ddp6v8g5t72",
-          "created_at": "2025-01-03T00:19:04.404Z",
-          "updated_at": "2025-01-03T00:19:04.404Z",
-          "display_at": "2025-01-03T00:19:04.404Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "g1ty80dfn0fw",
-          "status": "investigating",
-          "body": "We have remediated the issue impacting Actions workflows. During investigation and remediation, we realized there were also issues with recording metadata around merge commits. No git data or code has been lost. PRs merged today between 20:06 UTC and 22:15 UTC are impacted. We are working on a plan to regenerate the missing metadata and will provide an update once we have one in place.",
-          "incident_id": "6ddp6v8g5t72",
-          "created_at": "2025-01-02T23:11:28.512Z",
-          "updated_at": "2025-01-02T23:11:28.512Z",
-          "display_at": "2025-01-02T23:11:28.512Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6nh4ms376v81",
-          "status": "investigating",
-          "body": "Pull Requests is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "6ddp6v8g5t72",
-          "created_at": "2025-01-02T23:05:16.650Z",
-          "updated_at": "2025-01-02T23:05:16.650Z",
-          "display_at": "2025-01-02T23:05:16.650Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0rtjt928fnk4",
-          "status": "investigating",
-          "body": "We have identified and begun to remediate the issue preventing Actions from triggering on closed pull requests. We are beginning to see recovery.",
-          "incident_id": "6ddp6v8g5t72",
-          "created_at": "2025-01-02T22:30:40.168Z",
-          "updated_at": "2025-01-02T22:30:40.168Z",
-          "display_at": "2025-01-02T22:30:40.168Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "8zc29v8zlm2n",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Actions",
-          "incident_id": "6ddp6v8g5t72",
-          "created_at": "2025-01-02T22:09:21.178Z",
-          "updated_at": "2025-01-02T22:09:21.178Z",
-          "display_at": "2025-01-02T22:09:21.178Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "hhtssxt0f5v2",
-          "name": "Pull Requests",
-          "status": "operational",
-          "created_at": "2020-09-02T15:39:06.329Z",
-          "updated_at": "2025-04-07T02:31:05.362Z",
-          "position": 6,
-          "description": "Requests for Pull Requests on GitHub.com",
           "showcase": false,
           "start_date": null,
           "group_id": null,
