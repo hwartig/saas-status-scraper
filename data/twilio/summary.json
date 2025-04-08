@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-04-08T13:43:58.752-07:00"
+    "updated_at": "2025-04-08T14:00:24.917-07:00"
   },
   "components": [
     {
@@ -25,7 +25,7 @@
     {
       "id": "s2k3h0mkqnth",
       "name": "PROGRAMMABLE MESSAGING",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-03-23T13:29:44.048-07:00",
       "updated_at": "2019-01-10T08:04:05.231-08:00",
       "position": 1,
@@ -1583,7 +1583,7 @@
     {
       "id": "j8hlnyphbbs0",
       "name": "CARRIER NETWORK",
-      "status": "under_maintenance",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:24:19.092-08:00",
       "updated_at": "2023-07-03T12:51:21.552-07:00",
       "position": 16,
@@ -1637,9 +1637,9 @@
     {
       "id": "9z5gsqyjs4rl",
       "name": "SMS, Middle East & Africa",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-03-23T22:59:03.032-07:00",
-      "updated_at": "2025-04-07T09:19:03.407-07:00",
+      "updated_at": "2025-04-08T13:57:40.283-07:00",
       "position": 16,
       "description": null,
       "showcase": false,
@@ -1757,9 +1757,9 @@
     {
       "id": "3p1q1qbw970c",
       "name": "Content API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-07-03T12:48:25.571-07:00",
-      "updated_at": "2024-10-15T03:29:27.584-07:00",
+      "updated_at": "2025-04-08T13:49:54.646-07:00",
       "position": 19,
       "description": null,
       "showcase": false,
@@ -1888,11 +1888,77 @@
   ],
   "incidents": [
     {
+      "id": "j0rpg13rgdmh",
+      "name": "SMS Delivery Delays to MTN Network in Zambia",
+      "status": "investigating",
+      "created_at": "2025-04-08T13:53:38.820-07:00",
+      "updated_at": "2025-04-08T13:57:40.360-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/wfbr6dssj0gm",
+      "started_at": "2025-04-08T13:53:38.814-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "s0dd37wm15kt",
+          "status": "investigating",
+          "body": "We are experiencing SMS delivery delays to MTN Network in Zambia. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "j0rpg13rgdmh",
+          "created_at": "2025-04-08T13:57:40.356-07:00",
+          "updated_at": "2025-04-08T13:57:40.356-07:00",
+          "display_at": "2025-04-08T13:57:40.356-07:00",
+          "affected_components": [
+            {
+              "code": "9z5gsqyjs4rl",
+              "name": "CARRIER NETWORK - SMS, Middle East & Africa",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "7q1gcqljszx8",
+          "status": "investigating",
+          "body": "Our monitoring systems have detected a potential issue with SMS delivery delays to MTN Network in Zambia. Our engineering team has been alerted and is actively investigating. We will update as soon as we have more information.",
+          "incident_id": "j0rpg13rgdmh",
+          "created_at": "2025-04-08T13:53:38.857-07:00",
+          "updated_at": "2025-04-08T13:53:38.857-07:00",
+          "display_at": "2025-04-08T13:53:38.857-07:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "9z5gsqyjs4rl",
+          "name": "SMS, Middle East & Africa",
+          "status": "degraded_performance",
+          "created_at": "2023-03-23T22:59:03.032-07:00",
+          "updated_at": "2025-04-08T13:57:40.283-07:00",
+          "position": 16,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-23",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "320fthnspfw8",
       "name": "Meta Template Approval Webhook Delivery Failure",
       "status": "investigating",
       "created_at": "2025-04-08T10:48:37.532-07:00",
-      "updated_at": "2025-04-08T13:43:58.746-07:00",
+      "updated_at": "2025-04-08T13:49:54.774-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -1900,6 +1966,26 @@
       "started_at": "2025-04-08T10:48:37.526-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "zw86399t204f",
+          "status": "investigating",
+          "body": "There is currently a bug in Meta's systems that is causing a delay in template status change event delivery. There will be a delay for the time it takes for a template approval to be reflected in Twilio's systems. Customers may see a discrepancy in the template status between Meta and Twilio during this delay. Twilio will continue to monitor the situation while Meta resolves the issue. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "320fthnspfw8",
+          "created_at": "2025-04-08T13:49:54.764-07:00",
+          "updated_at": "2025-04-08T13:49:54.764-07:00",
+          "display_at": "2025-04-08T13:49:54.764-07:00",
+          "affected_components": [
+            {
+              "code": "3p1q1qbw970c",
+              "name": "PROGRAMMABLE MESSAGING - Content API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "nqz1wdk32dzf",
           "status": "investigating",
@@ -1958,9 +2044,9 @@
         {
           "id": "3p1q1qbw970c",
           "name": "Content API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-07-03T12:48:25.571-07:00",
-          "updated_at": "2024-10-15T03:29:27.584-07:00",
+          "updated_at": "2025-04-08T13:49:54.646-07:00",
           "position": 19,
           "description": null,
           "showcase": false,
@@ -1980,7 +2066,7 @@
       "name": "Qatar SMS Carrier Maintenance - Vodafone",
       "status": "scheduled",
       "created_at": "2025-04-07T15:35:26.336-07:00",
-      "updated_at": "2025-04-07T15:35:26.413-07:00",
+      "updated_at": "2025-04-08T14:00:24.901-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
@@ -1988,6 +2074,19 @@
       "started_at": "2025-04-07T15:35:26.327-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "0z3p4m287yc7",
+          "status": "scheduled",
+          "body": "Maintenance will begin as scheduled in 60 minutes.",
+          "incident_id": "053thrqt5tb1",
+          "created_at": "2025-04-08T14:00:24.656-07:00",
+          "updated_at": "2025-04-08T14:00:24.656-07:00",
+          "display_at": "2025-04-08T14:00:24.656-07:00",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "ywbzv88g6b9m",
           "status": "scheduled",
@@ -2013,9 +2112,9 @@
         {
           "id": "9z5gsqyjs4rl",
           "name": "SMS, Middle East & Africa",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-03-23T22:59:03.032-07:00",
-          "updated_at": "2025-04-07T09:19:03.407-07:00",
+          "updated_at": "2025-04-08T13:57:40.283-07:00",
           "position": 16,
           "description": null,
           "showcase": false,
@@ -3677,7 +3776,7 @@
     }
   ],
   "status": {
-    "indicator": "maintenance",
-    "description": "Service Under Maintenance"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
