@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-04-14T23:01:03.767Z"
+    "updated_at": "2025-04-14T23:28:15.778Z"
   },
   "incidents": [
     {
@@ -155,7 +155,7 @@
       "name": "Disruption with some Pull Requests stuck in processing state",
       "status": "resolved",
       "created_at": "2025-04-09T23:27:16.388Z",
-      "updated_at": "2025-04-10T00:39:04.103Z",
+      "updated_at": "2025-04-14T23:28:15.770Z",
       "monitoring_at": null,
       "resolved_at": "2025-04-10T00:39:04.086Z",
       "impact": "minor",
@@ -166,10 +166,10 @@
         {
           "id": "jm5bcdgz3qwj",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "On April 9, 2025, between 11:27 UTC and 12:39 UTC, the Pull Requests service was degraded and experienced delays in processing updates. At peak, approximately 1–1.5% of users were affected by delays in synchronizing pull requests. During this period, users may have seen a \"Processing updates\" message in their pull requests after pushing new commits, and the new commits did not appear in the Pull Request view as expected. The Pull Request synchronization process has automatic retries and most delays were automatically resolved. Any Pull Requests that were not resynchronized during this window were manually synchronized on Friday, April 11 at 14:23 UTC.<br /><br />This was due to a misconfigured GeoIP lookup file that our routine GitHub operations depended on and led to background job processing to fail. <br /><br />We mitigated the incident by reverting to a known good version of the GeoIP lookup file on affected hosts.<br /><br /><br />We are working to enhance our CI testing and automation by validating GeoIP metadata to reduce our time to detection and mitigation of issues like this one in the future.",
           "incident_id": "vxfd5br11t6v",
           "created_at": "2025-04-10T00:39:04.086Z",
-          "updated_at": "2025-04-10T00:39:04.086Z",
+          "updated_at": "2025-04-14T23:28:15.765Z",
           "display_at": "2025-04-10T00:39:04.086Z",
           "affected_components": [
             {
