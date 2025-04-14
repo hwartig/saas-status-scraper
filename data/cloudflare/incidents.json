@@ -4,9 +4,62 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-04-14T18:04:16.465Z"
+    "updated_at": "2025-04-14T18:28:50.074Z"
   },
   "incidents": [
+    {
+      "id": "mvjh73f60l9d",
+      "name": "Single File Purge Delays on China Network",
+      "status": "investigating",
+      "created_at": "2025-04-14T18:28:49.926Z",
+      "updated_at": "2025-04-14T18:28:50.070Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/p7bjzs3j6lj6",
+      "started_at": "2025-04-14T18:28:49.915Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "zmpgpsxc9m92",
+          "status": "investigating",
+          "body": "Cloudflare single-file cache purging (purge by URL) called via the Dashboard/API is running up to 60 minutes behind only on the China Network. We are working to resolve this issue as soon as possible. Until then you may use a different purge feature but do be aware it may cause additional traffic to your origin server(s). More updates to follow.",
+          "incident_id": "mvjh73f60l9d",
+          "created_at": "2025-04-14T18:28:50.065Z",
+          "updated_at": "2025-04-14T18:28:50.065Z",
+          "display_at": "2025-04-14T18:28:50.065Z",
+          "affected_components": [
+            {
+              "code": "fbvx0hxhhdj0",
+              "name": "Cloudflare Sites and Services - CDN Cache Purge",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "fbvx0hxhhdj0",
+          "name": "CDN Cache Purge",
+          "status": "degraded_performance",
+          "created_at": "2019-01-31T16:54:52.510Z",
+          "updated_at": "2025-04-14T18:28:49.978Z",
+          "position": 22,
+          "description": "CDN single file cache purging service",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "jj0ts48gtd54",
       "name": "Zaraz issues",
@@ -653,9 +706,9 @@
         {
           "id": "fbvx0hxhhdj0",
           "name": "CDN Cache Purge",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-31T16:54:52.510Z",
-          "updated_at": "2025-04-10T23:04:03.846Z",
+          "updated_at": "2025-04-14T18:28:49.978Z",
           "position": 22,
           "description": "CDN single file cache purging service",
           "showcase": false,
@@ -4897,79 +4950,6 @@
           "updated_at": "2025-03-20T18:07:49.286Z",
           "position": 81,
           "description": "Certificate provisioning service for custom hostnames on the edge",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "2sqz6dgrryh7",
-      "name": "Errors adding new Magic IPsec tunnels via Cloudflare dashboard",
-      "status": "resolved",
-      "created_at": "2025-03-19T10:24:17.630Z",
-      "updated_at": "2025-03-19T11:23:52.672Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-03-19T11:23:52.656Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/jh05vyc2qg5w",
-      "started_at": "2025-03-19T10:24:17.623Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "hvv7t06hd33y",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "2sqz6dgrryh7",
-          "created_at": "2025-03-19T11:23:52.656Z",
-          "updated_at": "2025-03-19T11:23:52.656Z",
-          "display_at": "2025-03-19T11:23:52.656Z",
-          "affected_components": [
-            {
-              "code": "y98zlwj1d7zh",
-              "name": "Cloudflare Sites and Services - Tunnel",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "td4cv50j6jhl",
-          "status": "investigating",
-          "body": "Cloudflare is investigating issues with creating new Magic IPsec Tunnels in the Cloudflare dashboard.  This issue does not affect the operation of existing IPsec Tunnels that continue to function and pass traffic normally.\nAs a workaround, new IPsec tunnels can be created via API.\n\nWe are working to understand to mitigate this problem.  More updates to follow shortly.`",
-          "incident_id": "2sqz6dgrryh7",
-          "created_at": "2025-03-19T10:24:17.719Z",
-          "updated_at": "2025-03-19T10:24:17.719Z",
-          "display_at": "2025-03-19T10:24:17.719Z",
-          "affected_components": [
-            {
-              "code": "y98zlwj1d7zh",
-              "name": "Cloudflare Sites and Services - Tunnel",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "y98zlwj1d7zh",
-          "name": "Tunnel",
-          "status": "operational",
-          "created_at": "2019-01-24T16:28:05.466Z",
-          "updated_at": "2025-03-19T11:23:52.613Z",
-          "position": 86,
-          "description": "Cloudflare Tunnel provides you with a secure way to connect your resources to Cloudflare without a publicly routable IP address",
           "showcase": false,
           "start_date": null,
           "group_id": "1km35smx8p41",
