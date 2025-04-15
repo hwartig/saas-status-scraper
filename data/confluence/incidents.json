@@ -4,9 +4,82 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-04-15T12:41:09.380Z"
+    "updated_at": "2025-04-15T15:31:59.354Z"
   },
   "incidents": [
+    {
+      "id": "r3lcm4yww2y7",
+      "name": "Confluence page load errors",
+      "status": "resolved",
+      "created_at": "2025-04-15T15:31:14.401Z",
+      "updated_at": "2025-04-15T15:31:59.349Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-04-15T15:31:59.324Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/8kk1j0qdfpfx",
+      "started_at": "2025-04-15T15:31:14.396Z",
+      "page_id": "4g2my7tbhjsq",
+      "incident_updates": [
+        {
+          "id": "3vw830qrp3zw",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "r3lcm4yww2y7",
+          "created_at": "2025-04-15T15:31:59.324Z",
+          "updated_at": "2025-04-15T15:31:59.324Z",
+          "display_at": "2025-04-15T15:31:59.324Z",
+          "affected_components": [
+            {
+              "code": "bl9mxbb582vk",
+              "name": "View Content",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "wz4qpmb9k3gm",
+          "status": "investigating",
+          "body": "Between 14:29 UTC to 14:55 UTC, some users may have experienced page load errors for Confluence. The issue has been resolved and the service is operating normally. Once we complete our internal incident review process, we will publish a more detailed postmortem of what went wrong, along with steps we're taking designed to prevent this from happening again in the future.",
+          "incident_id": "r3lcm4yww2y7",
+          "created_at": "2025-04-15T15:31:14.444Z",
+          "updated_at": "2025-04-15T15:31:14.444Z",
+          "display_at": "2025-04-15T15:31:14.444Z",
+          "affected_components": [
+            {
+              "code": "bl9mxbb582vk",
+              "name": "View Content",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "bl9mxbb582vk",
+          "name": "View Content",
+          "status": "operational",
+          "created_at": "2018-11-12T04:04:58.123Z",
+          "updated_at": "2025-04-04T06:37:28.094Z",
+          "position": 1,
+          "description": "Viewing pages or dashboards",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "4g2my7tbhjsq",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "p6mvchhgzmw4",
       "name": "Confluence Page Load Errors",
@@ -7585,75 +7658,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "7y1mrb4xln1v",
-      "name": "Degredaded Experience",
-      "status": "postmortem",
-      "created_at": "2024-08-29T09:43:49.441Z",
-      "updated_at": "2024-09-12T15:44:58.392Z",
-      "monitoring_at": "2024-08-29T10:54:19.268Z",
-      "resolved_at": "2024-08-29T11:22:24.375Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/nn3x5ll9ctq5",
-      "started_at": "2024-08-29T09:43:49.434Z",
-      "page_id": "4g2my7tbhjsq",
-      "incident_updates": [
-        {
-          "id": "klqldpvtvm01",
-          "status": "postmortem",
-          "body": "### SUMMARY\n\nOn August 29, 2024, between 8:32 AM and 11:35 AM UTC, Atlassian customers experienced an unexpected disruption in service affecting Jira and Confluence cloud products. This was primarily due to connectivity issues with an external service provider, which impacted our ability to perform certain operations integral to our services. The incident was promptly identified through our monitoring systems, and our teams initiated response protocols to address the issue. The disruption resulted in increased error rates across Jira and Confluence products, temporarily affecting the experience for some of our users.\n\n### **IMPACT**\n\nOn August 29, 2024, between 8:32 AM and 11:35 AM UTC, there was an impact on Confluence and Jira cloud affecting customers in multiple regions. The total time to resolution was three hours and three minutes.\n\n### **ROOT CAUSE**\n\nThe issue was caused by an outage on our external security token provider. Services which requested security tokens experienced timeouts leading to outages for our cloud products.\n\nOur automated monitoring system detected the incident within one minute and we confirmed the external service outage with the external provider. The provider resolved the outage at 10:02 AM UTC, and full system recovery for Atlassian was completed by 11:35 AM UTC.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe are committed to reducing the risk of similar incidents in the future. To achieve this, we will enhance our system's ability to handle external service disruptions and improve our incident response strategies. Specifically, we will reduce our reliance on single points of failure by setting up fallback region support for the critical security service provider. Additionally, we will implement measures to minimize the recovery time of the Atlassian services once the external security provider has recovered.\n\nThanks,\n\nAtlassian Customer Support",
-          "incident_id": "7y1mrb4xln1v",
-          "created_at": "2024-09-12T15:44:53.401Z",
-          "updated_at": "2024-09-12T15:44:58.390Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "g2z81n8rlgrb",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "7y1mrb4xln1v",
-          "created_at": "2024-08-29T11:22:24.375Z",
-          "updated_at": "2024-08-29T11:22:24.375Z",
-          "display_at": "2024-08-29T11:22:24.375Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ls38rrr6d5sq",
-          "status": "monitoring",
-          "body": "We are seeing recovery and monitoring the situation",
-          "incident_id": "7y1mrb4xln1v",
-          "created_at": "2024-08-29T10:54:19.268Z",
-          "updated_at": "2024-08-29T10:54:19.268Z",
-          "display_at": "2024-08-29T10:54:19.268Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "knj5glvnrt5x",
-          "status": "investigating",
-          "body": "We are investigating cases of degraded performance and increased error rates for Atlassian products. We will provide more details within the next hour.",
-          "incident_id": "7y1mrb4xln1v",
-          "created_at": "2024-08-29T09:43:49.479Z",
-          "updated_at": "2024-08-29T09:43:49.479Z",
-          "display_at": "2024-08-29T09:43:49.479Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
