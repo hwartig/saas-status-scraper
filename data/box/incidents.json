@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-04-15T05:41:01.658-07:00"
+    "updated_at": "2025-04-15T09:34:05.354-07:00"
   },
   "incidents": [
     {
@@ -800,7 +800,7 @@
       "name": "[Major] Some customers can have issues to load or open MS Office Online",
       "status": "postmortem",
       "created_at": "2025-03-12T03:44:38.819-07:00",
-      "updated_at": "2025-04-03T03:28:04.161-07:00",
+      "updated_at": "2025-04-15T09:34:05.346-07:00",
       "monitoring_at": "2025-03-12T05:45:09.767-07:00",
       "resolved_at": "2025-03-12T06:00:54.845-07:00",
       "impact": "major",
@@ -811,10 +811,10 @@
         {
           "id": "5f6n143q1n74",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nWe recently addressed issues affecting the Box for Office integration. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n**Analysis**\n\nOn March 12, 2025 between 1:37 AM and 5:18 AM PDT, some users may have experienced difficulties while working in Box. During this time, the Box for Office integration was encountering errors, and as a result, users attempting to edit content using this integration may have experienced failures. The issue occurred due to an error on our Partner provider.\n\n**Corrective Actions**\n\nWe are working closely with the Partner to help understand the failure and mitigate the problem on both sides to ensure a similar issue does not recur. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting the Box For Office Integration. We would like to take the opportunity to further explain these issues and the steps taken to keep them from happening again.\n\nBetween 01:39 AM PT and 05:19 AM PT on March 12, 2025, some users may have experienced difficulties while working in Box. During this time, Box customers were unable to open or edit Microsoft Office files via Office Online. The issue occurred as a result of network connectivity issues with Microsoft's services. We were able to resolve the issue by restoring the network connectivity with our partner. In addition, we are working on making the Box For Office Integration more resilient to prevent similar problems in the future.\n\n‌\n\n**Analysis** \n\nThe Box For Office Integration enhances communication with Microsoft servers, enabling Office Online functionalities for files hosted in Box. This communication occurs through the Web Application Open Platform Interface \\(WOPI\\) protocol. Most WOPI operations require a process called WOPI discovery. During this phase, a WOPI host \\(like Box\\), identifies how to perform specific actions within the WOPI protocol. In this case, it is performed by retrieving a discovery XML file from Microsoft's Discovery Endpoint. This file contains essential information about the URLs needed for these actions and the keys required for validating signatures on each WOPI command. The file is then cached for a set period. \n\nBefore the outage that caused this issue, one of the discovery endpoints in Office Online faced significant slowdowns and longer response times than usual. At the same time, Box's cache expired, which prevented us from managing WOPI operations effectively. As a result, users may have experienced session terminations and disruption of the integration between the two services. \n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* The cache time-to-live for the discovery file will be increased to minimize Box's exposure to potential failures in reaching the discovery endpoint.\n* The discovery file will be periodically refreshed by a dedicated process. This approach aims to offload the operational endpoint, thereby minimizing its exposure to potential issues during periods of degradation.\n* The operations timeout will be reduced to enhance overall performance.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
           "incident_id": "54k4mwdqpvr0",
           "created_at": "2025-04-03T02:53:41.656-07:00",
-          "updated_at": "2025-04-03T03:28:04.158-07:00",
+          "updated_at": "2025-04-15T09:34:05.343-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
