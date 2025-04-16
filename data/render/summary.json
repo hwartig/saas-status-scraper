@@ -4,7 +4,7 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-04-16T17:16:10.414Z"
+    "updated_at": "2025-04-16T19:04:00.425Z"
   },
   "components": [
     {
@@ -25,9 +25,9 @@
     {
       "id": "lncp1pny4nlm",
       "name": "Web Services",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-05-06T00:07:58.112Z",
-      "updated_at": "2025-04-11T21:49:00.523Z",
+      "updated_at": "2025-04-16T19:04:00.040Z",
       "position": 1,
       "description": "All public HTTP services hosted on Render.",
       "showcase": true,
@@ -280,9 +280,9 @@
     {
       "id": "hnrs7hr1ty53",
       "name": "Static Sites",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2019-02-08T22:32:29.834Z",
-      "updated_at": "2024-12-03T18:38:57.135Z",
+      "updated_at": "2025-04-16T19:04:00.054Z",
       "position": 4,
       "description": "Static sites hosted on our global anycast CDN.",
       "showcase": true,
@@ -460,7 +460,7 @@
     {
       "id": "4r7rv784cclm",
       "name": "Oregon",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-05-06T00:07:58.093Z",
       "updated_at": "2022-08-15T20:03:36.083Z",
       "position": 6,
@@ -890,6 +890,80 @@
   ],
   "incidents": [
     {
+      "id": "hd89mmfzkljn",
+      "name": "Increased 404s on services in Oregon",
+      "status": "identified",
+      "created_at": "2025-04-16T19:04:00.006Z",
+      "updated_at": "2025-04-16T19:04:00.418Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/dsxcq488ql17",
+      "started_at": "2025-04-16T19:03:59.996Z",
+      "page_id": "tyfhm2rrt1tl",
+      "incident_updates": [
+        {
+          "id": "5n4br9qq2g0c",
+          "status": "identified",
+          "body": "We are seeing increased rates of 404s for valid URLs on services hosted in Oregon, including Static Sites, we are working on resolving this issue.",
+          "incident_id": "hd89mmfzkljn",
+          "created_at": "2025-04-16T19:04:00.085Z",
+          "updated_at": "2025-04-16T19:04:00.412Z",
+          "display_at": "2025-04-16T19:04:00.085Z",
+          "affected_components": [
+            {
+              "code": "hnrs7hr1ty53",
+              "name": "Static Sites",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "lncp1pny4nlm",
+              "name": "Oregon - Web Services",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1912582766618911195
+        }
+      ],
+      "components": [
+        {
+          "id": "lncp1pny4nlm",
+          "name": "Web Services",
+          "status": "partial_outage",
+          "created_at": "2022-05-06T00:07:58.112Z",
+          "updated_at": "2025-04-16T19:04:00.040Z",
+          "position": 1,
+          "description": "All public HTTP services hosted on Render.",
+          "showcase": true,
+          "start_date": "2022-01-01",
+          "group_id": "4r7rv784cclm",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "hnrs7hr1ty53",
+          "name": "Static Sites",
+          "status": "partial_outage",
+          "created_at": "2019-02-08T22:32:29.834Z",
+          "updated_at": "2025-04-16T19:04:00.054Z",
+          "position": 4,
+          "description": "Static sites hosted on our global anycast CDN.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "6jw6y218xfh1",
       "name": "Intermittent 502s have been reported on some services",
       "status": "monitoring",
@@ -1046,6 +1120,6 @@
   "scheduled_maintenances": [],
   "status": {
     "indicator": "minor",
-    "description": "Partially Degraded Service"
+    "description": "Minor Service Outage"
   }
 }
