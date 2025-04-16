@@ -4,7 +4,7 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-04-16T10:46:02.359Z"
+    "updated_at": "2025-04-16T13:45:03.254Z"
   },
   "components": [
     {
@@ -40,9 +40,9 @@
     {
       "id": "lqw6cbytntwp",
       "name": "Web Services",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-05-06T00:09:07.965Z",
-      "updated_at": "2024-12-03T18:38:57.091Z",
+      "updated_at": "2025-04-16T13:45:03.208Z",
       "position": 1,
       "description": "All public HTTP services hosted on Render.",
       "showcase": true,
@@ -561,7 +561,7 @@
     {
       "id": "wtb4wdj1f07v",
       "name": "Frankfurt",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-05-06T00:09:07.946Z",
       "updated_at": "2022-08-15T20:03:36.095Z",
       "position": 7,
@@ -888,10 +888,64 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "6jw6y218xfh1",
+      "name": "Intermittent 502s have been reported on some services",
+      "status": "investigating",
+      "created_at": "2025-04-16T13:45:03.159Z",
+      "updated_at": "2025-04-16T13:45:03.250Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/yk9s770bq15p",
+      "started_at": "2025-04-16T13:45:03.148Z",
+      "page_id": "tyfhm2rrt1tl",
+      "incident_updates": [
+        {
+          "id": "y0f3194w525n",
+          "status": "investigating",
+          "body": "Some services — mostly in the Frankfurt region — have been reported to return 502s on certain requests. It’s not hitting all services, and we can’t confirm yet if it’s limited to just one region.\n\nWe’re on it and investigating.",
+          "incident_id": "6jw6y218xfh1",
+          "created_at": "2025-04-16T13:45:03.247Z",
+          "updated_at": "2025-04-16T13:45:03.247Z",
+          "display_at": "2025-04-16T13:45:03.247Z",
+          "affected_components": [
+            {
+              "code": "lqw6cbytntwp",
+              "name": "Frankfurt - Web Services",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "lqw6cbytntwp",
+          "name": "Web Services",
+          "status": "degraded_performance",
+          "created_at": "2022-05-06T00:09:07.965Z",
+          "updated_at": "2025-04-16T13:45:03.208Z",
+          "position": 1,
+          "description": "All public HTTP services hosted on Render.",
+          "showcase": true,
+          "start_date": "2022-01-01",
+          "group_id": "wtb4wdj1f07v",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
