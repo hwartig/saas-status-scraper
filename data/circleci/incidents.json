@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-04-16T09:20:59.666Z"
+    "updated_at": "2025-04-16T13:35:44.607Z"
   },
   "incidents": [
     {
@@ -312,9 +312,9 @@
     {
       "id": "31n0h4tcl02g",
       "name": "Delays in starting workflows",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-04-03T22:35:12.880Z",
-      "updated_at": "2025-04-04T00:11:05.674Z",
+      "updated_at": "2025-04-16T13:35:44.604Z",
       "monitoring_at": "2025-04-03T23:52:57.922Z",
       "resolved_at": "2025-04-04T00:11:05.336Z",
       "impact": "major",
@@ -322,6 +322,19 @@
       "started_at": "2025-04-03T22:35:12.868Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "5plwdxn3ly60",
+          "status": "postmortem",
+          "body": "## Summary\n\nOn April 3, 2025, from 22:08 UTC to 23:45 UTC, CircleCI customers experienced increased latency and some failures with starting and canceling workflows and jobs.  During this time customers may have experienced delays and difficulty viewing workflows in the UI.  We appreciate your patience and understanding as we worked to resolve this incident.\n\n## What Happened\n\n\\(all times UTC\\)\n\nAt approximately 22:00 on April 4, we initiated an upgrade to the service responsible for workflows. We expected a short delay \\(< 90 seconds\\) during the database upgrade where calls to the database from the workflows service would get sent to a queue and retried over a 10 minute period. We expected to see the queues grow slightly during and immediately after the upgrade.  At 22:08, when the blue/green deployment was complete, we verified queries being served. At 22:17, we identified increased latency in the workflows service, as well as some errors from jobs being dropped due to exhausting their 10 minute retries.\n\nAt 22:29 additional engineers were engaged, and at 22:30 the team restarted the workflows pods to ensure they were all connecting to the correct database. At 22:35 a public incident was declared.  At 22:41, it was observed that all queries on the new database were hitting disk, which indicated that the database statistics tables had not updated.  The team immediately upsized the database and disabled any non business critical operations on the database.   At 23:00, the workflows service was scaled down to a single pod to give the database capacity to recover while the statistics table was rebuilt.  \n\nAt 23:10, the team observed the workflows queue backing up due to the reduction in pods as expected but also did not see an improvement in database performance.  At 23:19, the team decided to re-enable writes on the old database and reinstate its primary status to restore service to customers sooner. This work completed at 23:29.  The team continued to monitor the workflows queue.  At 23:45 it was determined that the workflow queue was back to normal operating levels, and no further errors were observed.\n\nPost-incident, the team continued to investigate.  The root cause was determined to be that the analyze operation to rebuild the database’s statistics table, which is used for indexes, had been executed too early in the operation and was made stale by a second major version upgrade within the same deployment.  \n\n## Future Prevention and Process Improvement\n\nThe blue/green database deployment procedures have been updated to run an analysis procedure after every major version change.  The team has also tested running the analyze command while a database is under pressure to determine it has no further degrading effects on the database performance.  This will be noted for future remediation.\n\nBefore any additional migrations are run, the team will add additional automated tests and manual checkpoints throughout the process to identify and resolve issues before the blue/green cutover.",
+          "incident_id": "31n0h4tcl02g",
+          "created_at": "2025-04-16T13:35:01.823Z",
+          "updated_at": "2025-04-16T13:35:44.602Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "p3j2hpfp59l8",
           "status": "resolved",
