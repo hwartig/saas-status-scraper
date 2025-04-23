@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-04-23T21:58:35.623Z"
+    "updated_at": "2025-04-23T22:42:58.239Z"
   },
   "components": [
     {
@@ -235,7 +235,7 @@
     {
       "id": "mrcyzlkkw8z9",
       "name": "Regional Availability",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T19:19:04.424Z",
       "updated_at": "2024-07-24T19:09:19.587Z",
       "position": 4,
@@ -878,9 +878,9 @@
     {
       "id": "vfq82tp9wp5r",
       "name": "ORD - Chicago, Illinois (US)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T19:29:02.173Z",
-      "updated_at": "2024-11-26T17:55:01.284Z",
+      "updated_at": "2025-04-23T22:42:58.187Z",
       "position": 24,
       "description": null,
       "showcase": false,
@@ -1056,10 +1056,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "q14f97nryt0c",
+      "name": "Network performance issues in ORD",
+      "status": "investigating",
+      "created_at": "2025-04-23T22:42:58.150Z",
+      "updated_at": "2025-04-23T22:42:58.236Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/b5v30tqd0mtt",
+      "started_at": "2025-04-23T22:42:58.143Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "w82jq5sd3jtc",
+          "status": "investigating",
+          "body": "Some network paths in a single region (ORD) are slightly slower than expected. You may experience lower network performance for requests in ORD.",
+          "incident_id": "q14f97nryt0c",
+          "created_at": "2025-04-23T22:42:58.233Z",
+          "updated_at": "2025-04-23T22:42:58.233Z",
+          "display_at": "2025-04-23T22:42:58.233Z",
+          "affected_components": [
+            {
+              "code": "vfq82tp9wp5r",
+              "name": "Regional Availability - ORD - Chicago, Illinois (US)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "vfq82tp9wp5r",
+          "name": "ORD - Chicago, Illinois (US)",
+          "status": "degraded_performance",
+          "created_at": "2019-07-01T19:29:02.173Z",
+          "updated_at": "2025-04-23T22:42:58.187Z",
+          "position": 24,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
