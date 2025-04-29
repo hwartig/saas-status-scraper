@@ -4,9 +4,39 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2025-04-29T01:51:09.874-04:00"
+    "updated_at": "2025-04-29T11:07:29.705-04:00"
   },
   "incidents": [
+    {
+      "id": "26m7shvf523w",
+      "name": "Aptible Documentation Site Unavailable",
+      "status": "investigating",
+      "created_at": "2025-04-29T11:07:29.644-04:00",
+      "updated_at": "2025-04-29T11:07:29.701-04:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/fyvf7lwldjv2",
+      "started_at": "2025-04-29T11:07:29.635-04:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "ps4szz7rwhxf",
+          "status": "investigating",
+          "body": "Our online documentation at aptible.com/docs is temporarily unavailable. We are working with our upstream provider to resolve the issue and will update this incident when it is resolved.",
+          "incident_id": "26m7shvf523w",
+          "created_at": "2025-04-29T11:07:29.697-04:00",
+          "updated_at": "2025-04-29T11:07:29.697-04:00",
+          "display_at": "2025-04-29T11:07:29.697-04:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "8hmh4916dt1g",
       "name": "Delayed Operations in eu-central-1",
@@ -3738,152 +3768,6 @@
           "deliver_notifications": false,
           "custom_tweet": null,
           "tweet_id": 1492178275040333826
-        }
-      ],
-      "components": [
-        {
-          "id": "3f2df1dmxn4b",
-          "name": "Aptible Deploy",
-          "status": "operational",
-          "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2025-04-13T22:00:45.606-04:00",
-          "position": 7,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "fmwgqnbnbc4r",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "5dr0jpbpqzx1",
-      "name": "EC2 Host Failure",
-      "status": "resolved",
-      "created_at": "2021-12-22T07:16:46.578-05:00",
-      "updated_at": "2021-12-23T09:17:35.171-05:00",
-      "monitoring_at": "2021-12-22T13:22:48.205-05:00",
-      "resolved_at": "2021-12-23T09:17:35.156-05:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/5wsmhhqwb9bp",
-      "started_at": "2021-12-22T07:16:46.570-05:00",
-      "page_id": "fmwgqnbnbc4r",
-      "incident_updates": [
-        {
-          "id": "clngj8bj0tgp",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "5dr0jpbpqzx1",
-          "created_at": "2021-12-23T09:17:35.156-05:00",
-          "updated_at": "2021-12-23T09:17:35.156-05:00",
-          "display_at": "2021-12-23T09:17:35.156-05:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "w9gb0l995khv",
-          "status": "monitoring",
-          "body": "At this time, there are only 3 databases still impacted by the outage, because the database's associated EBS volume does not support `DetachVolume` or `CreateSnapshot`, limiting our ability . We have reached out and will continue coordinating 1:1 with the affected customers on the possible options:\n\n- Restore from a prior backup (< 24 hours old)\n- Switch to a replica database\n- Wait for AWS to fully resolve the outage so that these volumes become operational again.",
-          "incident_id": "5dr0jpbpqzx1",
-          "created_at": "2021-12-22T13:22:48.205-05:00",
-          "updated_at": "2021-12-22T13:22:48.896-05:00",
-          "display_at": "2021-12-22T13:22:48.205-05:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1473720694957645832
-        },
-        {
-          "id": "4tl4j768bcql",
-          "status": "identified",
-          "body": "At this time, the majority of affected resources have been restored. For databases that have not yet been restored:\n\n* The outage prevents us from stopping or starting the EC2 instance on which the database is running, or (in most cases) creating a new instance.\n* The outage prevents us from accessing the EBS volume associated with the database.\n* We have just become able to start taking backups of the databases (via EBS volume snapshot), and we're running that for all affected databases, so that we can attempt to restore via up-to-date backup onto an existing EC2 instance, assuming the backups complete before AWS makes further progress resolving the issue.\n\nIf you have a replica for an affected PostgreSQL or Redis database, you can promote that replica to accept writes, and update your apps (via `aptible config:set`) to connect to the replica instead of the primary.\n\n* On PostgreSQL 9.4 through 11: Run `COPY (SELECT 'fast') TO '/var/db/pgsql.trigger';` in a psql session connected to the database (via `aptible db:tunnel`)\n* On PostgreSQL 12+: Run `SELECT pg_promote();` in a psql session connected to the database (via `aptible db:tunnel`)\n* On Redis: Run `SLAVEOF NO ONE` in a redis-cli session connected to the database (via `aptible db:tunnel`)\n\nIf you have an affected database for which you don't need the data (e.g. a Redis database used for caching), we recommend creating a _new_ database and updating your apps to connect to this new database.",
-          "incident_id": "5dr0jpbpqzx1",
-          "created_at": "2021-12-22T10:12:00.505-05:00",
-          "updated_at": "2021-12-22T10:12:00.505-05:00",
-          "display_at": "2021-12-22T10:12:00.505-05:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9mtrq3y3hs9t",
-          "status": "identified",
-          "body": "The root cause of the failure is networking connectivity issues.  You can also visit AWS status page for additional updates and information: https://status.aws.amazon.com/",
-          "incident_id": "5dr0jpbpqzx1",
-          "created_at": "2021-12-22T07:53:23.419-05:00",
-          "updated_at": "2021-12-22T07:53:25.057-05:00",
-          "display_at": "2021-12-22T07:53:23.419-05:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1473637799492345859
-        },
-        {
-          "id": "36nlvscpttht",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "5dr0jpbpqzx1",
-          "created_at": "2021-12-22T07:16:52.297-05:00",
-          "updated_at": "2021-12-22T07:16:52.803-05:00",
-          "display_at": "2021-12-22T07:16:52.297-05:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1473628604667887617
-        },
-        {
-          "id": "k3k5ck6yp4dq",
-          "status": "investigating",
-          "body": "We are investigating an EC2 dedicated host failure affecting a small number of apps and databases. Affected apps are currently being restarted on healthy instances (apps scaled to 2 or more are automatically distributed across availability zones and will automatically failover).",
-          "incident_id": "5dr0jpbpqzx1",
-          "created_at": "2021-12-22T07:16:46.625-05:00",
-          "updated_at": "2021-12-22T07:16:47.310-05:00",
-          "display_at": "2021-12-22T07:16:46.625-05:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1473628581506924544
         }
       ],
       "components": [
