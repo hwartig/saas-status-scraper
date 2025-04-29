@@ -4,9 +4,62 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-04-29T15:50:52.862-07:00"
+    "updated_at": "2025-04-29T16:41:34.455-07:00"
   },
   "incidents": [
+    {
+      "id": "jvh8fsbgflsy",
+      "name": "[Major] Issues with Box Relay",
+      "status": "investigating",
+      "created_at": "2025-04-29T16:40:52.913-07:00",
+      "updated_at": "2025-04-29T16:41:34.450-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/t7d76281f6pq",
+      "started_at": "2025-04-29T16:40:52.908-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "gn75ny1419k9",
+          "status": "investigating",
+          "body": "On 29th of April 2025 at approximately 2:36PM PST, we started investigating an ongoing issue affecting Box Relay. We will provide more information as soon as it is available.",
+          "incident_id": "jvh8fsbgflsy",
+          "created_at": "2025-04-29T16:40:52.990-07:00",
+          "updated_at": "2025-04-29T16:40:52.990-07:00",
+          "display_at": "2025-04-29T16:40:52.990-07:00",
+          "affected_components": [
+            {
+              "code": "k577rblv57vr",
+              "name": "Box Relay",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "k577rblv57vr",
+          "name": "Box Relay",
+          "status": "degraded_performance",
+          "created_at": "2020-01-02T12:05:42.075-08:00",
+          "updated_at": "2025-04-29T16:40:52.947-07:00",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "fbqpbfhbqc1j",
       "name": "[Minor] Issues with Multiple Box Services",
@@ -3861,9 +3914,9 @@
         {
           "id": "k577rblv57vr",
           "name": "Box Relay",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-01-02T12:05:42.075-08:00",
-          "updated_at": "2024-07-22T02:19:39.917-07:00",
+          "updated_at": "2025-04-29T16:40:52.947-07:00",
           "position": 7,
           "description": null,
           "showcase": false,
@@ -9835,192 +9888,6 @@
         }
       ],
       "reminder_intervals": null
-    },
-    {
-      "id": "4wmkn9s7xj4p",
-      "name": "[Critical] Issues accessing Box for Salesforce",
-      "status": "postmortem",
-      "created_at": "2023-11-03T14:57:41.032-07:00",
-      "updated_at": "2023-12-05T12:46:37.860-08:00",
-      "monitoring_at": "2023-11-03T19:31:16.136-07:00",
-      "resolved_at": "2023-11-03T19:41:19.393-07:00",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/cnlbm3h3qrrl",
-      "started_at": "2023-11-03T14:57:41.024-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "6kxb88c6sb95",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting the Box for Salesforce Integration. We would like to take this opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 12:17 PM PDT and 7:36 PM PDT on Friday, November 3, 2023, some users may have experienced difficulties while using our Box for Salesforce integration. During this time, customers using the integration experienced issues loading the Box Folder widgets, toolkit automation, and authentication flows. This occurred as a result of a back-end change that resulted in the integration's authentication credentials being invalidated. We were able to resolve the issue by resetting the credentials. In addition, we are updating our change control processes and software to prevent similar issues from occurring in the future.\n\n‌\n\n**Analysis** \n\n‌\n\nThe Box Developer Console is part of our main web application, and is an interface that developers use to manage their application’s properties. The console also includes functionality to reset application credentials when necessary, which is typically reserved for credential rotations or similar scenarios. In this issue, the functionality to reset the application credentials was inadvertently triggered during other, more routine updates. As a result of these invalidated credentials, some users may have temporarily experienced difficulties using the integration. The issue was detected by Box employees within minutes of the change, and we were able to resolve the issue by restoring the application’s credentials.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Restoring the Box for Salesforce integration’s credentials\n* Update tooling and processes so that routine, low risk updates to applications are separated from rare, but necessary high risk capabilities, like resetting application credentials.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here, and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
-          "incident_id": "4wmkn9s7xj4p",
-          "created_at": "2023-11-20T11:03:47.342-08:00",
-          "updated_at": "2023-12-05T12:46:37.858-08:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "w22h1jhzm523",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. Box for Salesforce has been restored to full functionality. Please contact Box Support at https://support.box.com/ if you continue to experience any issues.",
-          "incident_id": "4wmkn9s7xj4p",
-          "created_at": "2023-11-03T19:41:19.393-07:00",
-          "updated_at": "2023-11-03T19:41:19.393-07:00",
-          "display_at": "2023-11-03T19:41:19.393-07:00",
-          "affected_components": [
-            {
-              "code": "c65jnfv7j6mj",
-              "name": "Partners / Integrations - Box for Salesforce",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "kvlvb4t5m53x",
-          "status": "monitoring",
-          "body": "Our team has implemented a fix and is currently monitoring the results.",
-          "incident_id": "4wmkn9s7xj4p",
-          "created_at": "2023-11-03T19:31:16.136-07:00",
-          "updated_at": "2023-11-03T19:31:16.136-07:00",
-          "display_at": "2023-11-03T19:31:16.136-07:00",
-          "affected_components": [
-            {
-              "code": "c65jnfv7j6mj",
-              "name": "Partners / Integrations - Box for Salesforce",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "j3vx2y6b6dm8",
-          "status": "identified",
-          "body": "Our team is in the process of deploying a change to help remediate this issue. We will continue to provide updates as they become available.",
-          "incident_id": "4wmkn9s7xj4p",
-          "created_at": "2023-11-03T18:26:56.425-07:00",
-          "updated_at": "2023-11-03T18:26:56.425-07:00",
-          "display_at": "2023-11-03T18:26:56.425-07:00",
-          "affected_components": [
-            {
-              "code": "c65jnfv7j6mj",
-              "name": "Partners / Integrations - Box for Salesforce",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xsnk1k18x8wd",
-          "status": "identified",
-          "body": "We are continuing to work on a fix for this issue.",
-          "incident_id": "4wmkn9s7xj4p",
-          "created_at": "2023-11-03T16:45:38.991-07:00",
-          "updated_at": "2023-11-03T16:45:38.991-07:00",
-          "display_at": "2023-11-03T16:45:38.991-07:00",
-          "affected_components": [
-            {
-              "code": "c65jnfv7j6mj",
-              "name": "Partners / Integrations - Box for Salesforce",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6pbpdr32ccwz",
-          "status": "identified",
-          "body": "Our team continues remediation efforts to restore full functionality to Box for Salesforce. We will provide additional updates as they become available.",
-          "incident_id": "4wmkn9s7xj4p",
-          "created_at": "2023-11-03T15:35:57.624-07:00",
-          "updated_at": "2023-11-03T15:35:57.624-07:00",
-          "display_at": "2023-11-03T15:35:57.624-07:00",
-          "affected_components": [
-            {
-              "code": "c65jnfv7j6mj",
-              "name": "Partners / Integrations - Box for Salesforce",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ghf54rnzqh4y",
-          "status": "investigating",
-          "body": "Our team has identified the underlying cause of this issue affecting Box for Salesforce and is working to take remediating steps. We will provide additional updates as they become available.",
-          "incident_id": "4wmkn9s7xj4p",
-          "created_at": "2023-11-03T15:06:37.243-07:00",
-          "updated_at": "2023-11-03T15:06:37.243-07:00",
-          "display_at": "2023-11-03T15:06:37.243-07:00",
-          "affected_components": [
-            {
-              "code": "c65jnfv7j6mj",
-              "name": "Partners / Integrations - Box for Salesforce",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5n7kyzxt8j8h",
-          "status": "investigating",
-          "body": "Our team is investigating an issue with Box for Salesforce. Users may see errors using or logging into Box for Salesforce. We will provide additional information as it becomes available.",
-          "incident_id": "4wmkn9s7xj4p",
-          "created_at": "2023-11-03T14:57:41.112-07:00",
-          "updated_at": "2023-11-03T14:57:41.112-07:00",
-          "display_at": "2023-11-03T14:57:41.112-07:00",
-          "affected_components": [
-            {
-              "code": "c65jnfv7j6mj",
-              "name": "Partners / Integrations - Box for Salesforce",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "c65jnfv7j6mj",
-          "name": "Box for Salesforce",
-          "status": "operational",
-          "created_at": "2018-12-17T19:09:23.007-08:00",
-          "updated_at": "2023-11-03T19:41:19.364-07:00",
-          "position": 3,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "jvy3knlf7n32",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": "[]"
     }
   ]
 }
