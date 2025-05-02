@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-05-02T00:36:17.701Z"
+    "updated_at": "2025-05-02T02:21:06.211Z"
   },
   "components": [
     {
@@ -40,9 +40,9 @@
     {
       "id": "x1v3t5qrnlhk",
       "name": "Docker Jobs",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2017-03-17T19:43:18.878Z",
-      "updated_at": "2025-05-01T23:05:38.785Z",
+      "updated_at": "2025-05-02T00:45:56.002Z",
       "position": 1,
       "description": "CircleCI jobs using the docker executor.",
       "showcase": true,
@@ -85,9 +85,9 @@
     {
       "id": "0l5xn1l7qs8f",
       "name": "Machine Jobs",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2019-05-02T20:42:22.366Z",
-      "updated_at": "2025-05-02T00:36:17.638Z",
+      "updated_at": "2025-05-02T00:45:56.018Z",
       "position": 2,
       "description": "CircleCI jobs using the machine executor, and jobs using the setup_remote_docker step.",
       "showcase": true,
@@ -591,315 +591,52 @@
   ],
   "incidents": [
     {
-      "id": "59phbpt8l345",
-      "name": "Final results of some jobs may not be reported in the UI",
-      "status": "monitoring",
-      "created_at": "2025-05-01T22:40:20.952Z",
-      "updated_at": "2025-05-02T00:36:17.689Z",
-      "monitoring_at": "2025-05-01T22:40:20.999Z",
+      "id": "ggpypjwf0kgy",
+      "name": "Delay in starting some jobs",
+      "status": "identified",
+      "created_at": "2025-05-02T01:51:28.436Z",
+      "updated_at": "2025-05-02T02:21:06.203Z",
+      "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
-      "shortlink": "https://stspg.io/v1hylmrn83ql",
-      "started_at": "2025-05-01T22:40:20.943Z",
+      "shortlink": "https://stspg.io/fkz5p9qhpkb4",
+      "started_at": "2025-05-02T01:51:28.428Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
         {
-          "id": "645p7t12vqmm",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues.",
-          "incident_id": "59phbpt8l345",
-          "created_at": "2025-05-02T00:36:17.685Z",
-          "updated_at": "2025-05-02T00:36:17.685Z",
-          "display_at": "2025-05-02T00:36:17.685Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
+          "id": "g7rc01xqhyj4",
+          "status": "identified",
+          "body": "Queues should be clearing, and jobs starting normally.",
+          "incident_id": "ggpypjwf0kgy",
+          "created_at": "2025-05-02T02:21:05.870Z",
+          "updated_at": "2025-05-02T02:21:06.198Z",
+          "display_at": "2025-05-02T02:21:05.870Z",
+          "affected_components": null,
           "deliver_notifications": false,
           "custom_tweet": null,
-          "tweet_id": null
+          "tweet_id": 1918128583480099046
         },
         {
-          "id": "6x3rgmcxdq74",
-          "status": "monitoring",
-          "body": "Jobs for the following resource classes will have suffered significant delays in running, these will be processed over the next X minutes. \n\n* Docker Large, Medium and Small\n* Linux Large\n\nThose jobs will start within the next 15 minutes, you should not need to retry them. We thank you for your patience whilst we resolve this issue.",
-          "incident_id": "59phbpt8l345",
-          "created_at": "2025-05-02T00:29:51.576Z",
-          "updated_at": "2025-05-02T00:29:51.890Z",
-          "display_at": "2025-05-02T00:29:51.576Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1918100589327860117
-        },
-        {
-          "id": "ghzt15lt6ybx",
-          "status": "monitoring",
-          "body": "We're continuing to monitor the delays with starting Docker jobs. Thank you for your patience.",
-          "incident_id": "59phbpt8l345",
-          "created_at": "2025-05-01T23:43:51.788Z",
-          "updated_at": "2025-05-01T23:43:51.788Z",
-          "display_at": "2025-05-01T23:43:51.788Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
+          "id": "wvmx54dpc73v",
+          "status": "investigating",
+          "body": "We are investigating a delay in starting some jobs.",
+          "incident_id": "ggpypjwf0kgy",
+          "created_at": "2025-05-02T01:51:28.488Z",
+          "updated_at": "2025-05-02T01:51:28.785Z",
+          "display_at": "2025-05-02T01:51:28.488Z",
+          "affected_components": null,
           "deliver_notifications": false,
           "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nf37kgyz11lz",
-          "status": "monitoring",
-          "body": "Docker jobs have not recovered as expected, and customers may continue to see delays for Docker jobs starting. We are working to increase capacity and thank you for your patience.",
-          "incident_id": "59phbpt8l345",
-          "created_at": "2025-05-01T23:05:38.824Z",
-          "updated_at": "2025-05-01T23:05:40.553Z",
-          "display_at": "2025-05-01T23:05:38.824Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1918079402166124766
-        },
-        {
-          "id": "ks3wskhxnjw3",
-          "status": "monitoring",
-          "body": "This incident impacted final result delivery between 22:06 and 22:17 UTC. Customers may experience delays starting Docker Large jobs as the system recovers. We will continue to monitor recovery and thank you for your patience.",
-          "incident_id": "59phbpt8l345",
-          "created_at": "2025-05-01T22:49:41.945Z",
-          "updated_at": "2025-05-01T22:49:42.246Z",
-          "display_at": "2025-05-01T22:49:41.945Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1918075383100170249
-        },
-        {
-          "id": "48847xzcdydk",
-          "status": "monitoring",
-          "body": "This also impacts status checks which may not have been sent to GitHub.",
-          "incident_id": "59phbpt8l345",
-          "created_at": "2025-05-01T22:40:20.999Z",
-          "updated_at": "2025-05-01T22:40:21.348Z",
-          "display_at": "2025-05-01T22:40:20.999Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1918073030632513706
+          "tweet_id": 1918121128545190314
         }
       ],
-      "components": [
-        {
-          "id": "x1v3t5qrnlhk",
-          "name": "Docker Jobs",
-          "status": "degraded_performance",
-          "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2025-05-01T23:05:38.785Z",
-          "position": 1,
-          "description": "CircleCI jobs using the docker executor.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "0l5xn1l7qs8f",
-          "name": "Machine Jobs",
-          "status": "degraded_performance",
-          "created_at": "2019-05-02T20:42:22.366Z",
-          "updated_at": "2025-05-02T00:36:17.638Z",
-          "position": 2,
-          "description": "CircleCI jobs using the machine executor, and jobs using the setup_remote_docker step.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "bpfmy8wy8wq2",
-          "name": "macOS Jobs",
-          "status": "operational",
-          "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2025-03-24T17:36:34.554Z",
-          "position": 3,
-          "description": "CircleCI jobs using the macos executor.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "svt88btymymk",
-          "name": "Windows Jobs",
-          "status": "operational",
-          "created_at": "2020-10-23T23:37:10.052Z",
-          "updated_at": "2024-11-26T16:28:10.742Z",
-          "position": 4,
-          "description": "Jobs using the Windows executor.",
-          "showcase": true,
-          "start_date": "2020-10-23",
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
+      "components": [],
       "reminder_intervals": null
     }
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "minor",
-    "description": "Partially Degraded Service"
+    "indicator": "none",
+    "description": "All Systems Operational"
   }
 }
