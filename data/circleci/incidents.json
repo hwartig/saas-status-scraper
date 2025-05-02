@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-05-02T13:52:46.495Z"
+    "updated_at": "2025-05-02T14:20:21.688Z"
   },
   "incidents": [
     {
@@ -692,9 +692,9 @@
     {
       "id": "zh1qd6lrntl7",
       "name": "CircleCI UI Loading & build triggering issues",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-04-04T01:17:09.703Z",
-      "updated_at": "2025-04-04T02:11:08.690Z",
+      "updated_at": "2025-05-02T14:17:44.745Z",
       "monitoring_at": "2025-04-04T01:51:51.437Z",
       "resolved_at": "2025-04-04T02:11:08.372Z",
       "impact": "major",
@@ -702,6 +702,19 @@
       "started_at": "2025-04-04T01:17:09.698Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "4ytsbmv1pkml",
+          "status": "postmortem",
+          "body": "## Summary\n\nOn April 4, 2025, from 00:16 to 01:49 UTC \\(approximately 1 hour and 33 minutes\\), CircleCI experienced a service disruption affecting both our user interface and build capabilities. During this time, customers were unable to access the CircleCI UI or initiate new builds. The incident was caused by an inadvertently applied Web Application Firewall \\(WAF\\) rule that blocked legitimate traffic to CircleCI services. It was resolved when our engineering team identified and removed this rule.\n\n[The original status page can be found here.](https://status.circleci.com/incidents/zh1qd6lrntl7)\n\n## What Happened\n\n\\(all times UTC\\)\n\nThe WAF is a critical security component that sits in front of our services and protects them from malicious traffic, while allowing legitimate requests to pass through. All times below are in UTC\n\n* **00:16**: A WAF rule was inadvertently introduced that began blocking legitimate traffic to CircleCI services.\n* **00:26 - 00:52**: Our monitoring systems detected degraded performance across multiple services. This occurred just as our teams were concluding another [unrelated incident](https://status.circleci.com/incidents/31n0h4tcl02g), which initially caused some confusion about whether the issues might be connected. Customers began reporting inability to access the CircleCI UI or initiate new builds, and our teams pivoted to investigate these new symptoms. The team noted a drop in GitHub webhooks and widespread connectivity issues between our frontend and backend services, spending time to ensure these weren't aftereffects of the previous incident.\n* **00:52**: We established we were looking at a completely separate incident and launched our incident process with a new incident, and a dedicated response team was assembled to investigate the service disruption.\n* **01:15:**  Initial investigation revealed broad connectivity issues between the frontend and our backing APIs, including CORS \\(Cross-Origin Resource Sharing\\) errors. The team explored multiple potential causes, including recent deployments and infrastructure changes, but the cause remained unclear.\n* **01:35**: Our automated Terraform drift detection identified a difference in configuration between our defined and current WAF settings. This discovery revealed that a WAF rule had been changed outside of our standard Terraform deployment process, and was blocking legitimate traffic to [api.circleci.com](http://api.circleci.com) and [circleci.com](http://circleci.com) CloudFront distributions.\n* **01:41**: The problematic WAF rule was reverted from both affected CloudFront distributions.\n* **01:49**: Our monitoring confirmed that error rates decreased across all affected services  as traffic was properly routed again. \n* **01:55**: Full service restoration was confirmed across the board at this time. \n* **02:59**: The incident was officially closed after a period of monitoring confirmed stable operation.\n\n## **Root Cause Analysis**\n\nWhile we manage all our infrastructure, including WAF, almost entirely with Terraform, we discovered during this incident a misconfiguration in IAM controls that allowed a specific role to make changes without using our infrastructure-as-code tooling. As a result, while investigating routine security monitoring, an operator manually modified WAF configuration, believing they were taking read-only actions. The resulting change blocked legitimate traffic to our services.\n\nBased on the same assumptions, those investigating the incident did not prioritize investigating WAF configuration expecting that any changes would have gone through our Terraform pipeline and there was no record of such changes.\n\nThe diverse symptoms produced across our platform combined with the occurrence shortly after a separate, [unrelated incident](https://status.circleci.com/incidents/31n0h4tcl02g), led to time spent on paths of inquiry that ultimately proved fruitless.\n\nEventually, our automated drift detection process ran and identified the issue. While this safeguard was invaluable, it was nearly 80 minutes between the initial change and the detection. Drift detection identified the exact configuration change that caused the issue despite the confusion and led directly to the resolution of the incident.\n\n## Future Prevention and Process Improvement\n\nThis incident highlighted the strength of our existing systems while identifying several areas where we can improve and make them even more robust:\n\n1. We have implemented stricter IAM policies that prevent direct modification of infrastructure managed by our infrastructure-as-code pipeline.\n2. Terraform's drift detection was instrumental in identifying the root cause of this incident. We are enhancing these capabilities to provide faster alerts when critical infra components deviate from their expected state.  We are also adding  technical guardrails to ensure all configuration management follows this approach, which helps prevent human error and provides better visibility into changes.\n3. Specifically, we're establishing better protocols for implementing and testing WAF rules before they reach production environments. Additionally, we are adding monitoring specifically for WAF behavior and traffic patterns to detect potential issues more quickly.\n4. We're investigating additional technical controls through Security Control Policies \\(SCPs\\) that provide organization-wide restrictions on IAM roles, reducing the risk of accidental misconfigurations. These policies create hard boundaries on what actions can be performed on critical systems like our WAFs, adding an extra layer of protection against unintended changes.\n\nWe sincerely apologize for the disruption this incident caused to your ability to build on our platform. We understand the critical role CircleCI plays in your development workflow and take any service disruption seriously. We're committed to learning from this experience and have already implemented several measures to prevent similar occurrences in the future.\n\nThank you for your patience and continued trust in CircleCI.",
+          "incident_id": "zh1qd6lrntl7",
+          "created_at": "2025-05-02T14:14:47.566Z",
+          "updated_at": "2025-05-02T14:17:44.742Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "lcv7tcrtr2jr",
           "status": "resolved",
