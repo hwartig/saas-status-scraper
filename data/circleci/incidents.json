@@ -4,9 +4,62 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-05-06T18:55:54.179Z"
+    "updated_at": "2025-05-06T19:20:22.368Z"
   },
   "incidents": [
+    {
+      "id": "q2gc6bp3q4x4",
+      "name": "Test results are delayed for test insights",
+      "status": "investigating",
+      "created_at": "2025-05-06T19:06:44.382Z",
+      "updated_at": "2025-05-06T19:06:44.823Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/lzj988yqls44",
+      "started_at": "2025-05-06T19:06:44.377Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "6wdw4yym181s",
+          "status": "investigating",
+          "body": "Some users may notice a delay in their test insights. We are working on a fix. Thank you for your patience.",
+          "incident_id": "q2gc6bp3q4x4",
+          "created_at": "2025-05-06T19:06:44.454Z",
+          "updated_at": "2025-05-06T19:06:44.820Z",
+          "display_at": "2025-05-06T19:06:44.454Z",
+          "affected_components": [
+            {
+              "code": "gs1qyd7g3l17",
+              "name": "CircleCI Insights",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1919831213491290586
+        }
+      ],
+      "components": [
+        {
+          "id": "gs1qyd7g3l17",
+          "name": "CircleCI Insights",
+          "status": "degraded_performance",
+          "created_at": "2021-09-08T16:47:55.711Z",
+          "updated_at": "2025-05-06T19:06:44.413Z",
+          "position": 11,
+          "description": "The CircleCI Insights dashboard provides an overview of the health and usage of your repository build processes.",
+          "showcase": true,
+          "start_date": "2021-09-08",
+          "group_id": null,
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "50rqx1h1q828",
       "name": "Delays in May 1, 2025 Data in Usage API",
@@ -5138,410 +5191,6 @@
           "description": null,
           "showcase": true,
           "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "lsv2ry3jr16c",
-      "name": "Increased wait times for machine jobs",
-      "status": "postmortem",
-      "created_at": "2024-09-11T14:29:58.912Z",
-      "updated_at": "2024-09-20T20:54:16.786Z",
-      "monitoring_at": "2024-09-11T20:36:35.199Z",
-      "resolved_at": "2024-09-11T20:52:57.217Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/msv6hmrg8s46",
-      "started_at": "2024-09-11T14:51:32.000Z",
-      "page_id": "6w4r0ttlx5ft",
-      "incident_updates": [
-        {
-          "id": "vj75hd955w3j",
-          "status": "postmortem",
-          "body": "## Summary:\n\nOn September 11, 2024, from 10:16 to 21:00 UTC CircleCI customers encountered multiple issues, including delays in starting jobs, slow processing of job outputs and task status messages \\(such as the completion of steps and tasks\\), dropped workflows, and a rise in infrastructure failures. These problems collectively affected all jobs during this time frame.\n\nTo address these issues, we worked to stabilize the service responsible for ingesting and serving the step output as well as tracking the start and end times of individual steps \\(**step service**\\) until 19:00 UTC, at which point it was determined to be in a sustainable state. Despite this progress, delays in starting Mac jobs persisted until 20:30 UTC, largely due to a backlog of jobs waiting to start and a failure to properly garbage collect \\(GC\\) old virtual machines \\(VMs\\). This combination of factors contributed to a challenging operational environment for CircleCI customers.\n\nThe original status page can be found [here](https://status.circleci.com/incidents/lsv2ry3jr16c).\n\n## What Happened\n\n\\(All times UTC\\)\n\nOn September 11, 2024, for approximately 10 hours, CircleCI experienced significant service disruptions. The incident began at 10:05 when a particularly potent configuration was executed during an internal test. By 10:14, the job ended, but efforts to generate test results led to a spike in memory usage, causing Out of Memory \\(OOM\\) errors for several internal services. This resulted in failures in processing job submissions and dispatching tasks, which impacted all customer jobs.\n\nBy 10:16, job starts across all executors had completely failed, as the service responsible for processing and storing test results, as well as handling storage of job records \\(**output service**\\) became overwhelmed and unable to service requests. An official incident declaration occurred at 10:20.\n\nWe triggered a deployment restart at 10:23, which initially allowed for some recovery before the service was again overwhelmed at approximately 10:27. To address these issues, we horizontally and vertically scaled the service. This adjustment allowed the service to stabilize and for customer jobs to start flowing again.\n\nThroughout the incident, machine jobs faced specific challenges due to timeouts. By 13:00, we detected abnormal resource utilization in step service, prompting us to monitor the situation closely. We believed the ongoing issues were related to a thundering herd effect stemming from an earlier incident.\n\nBetween 14:47 and 15:05 our efforts to stabilize the system included increasing memory for the service processing step output multiple times throughout this incident in an ongoing attempt to manage the backlog and prevent OOM kills.\n\nAt 16:21, in order to process the load of the thundering herd of built up workload, we had to raise memory limits in multiple locations in order to allow work to process without causing outages. This marked the beginning of a significant recovery. The existing Redis cluster was under heavy CPU load, prompting a decision at 16:30 to spin up a second Redis cluster to alleviate the pressure.\n\n![](https://global.discourse-cdn.com/circleci/original/3X/c/f/cfbf14664563f62c4d331c0aed80b152ccdc1d5c.png)\n`Redis Engine CPU Utilization Impact Timeline`\n\nBy 17:00, the job queue began to decrease significantly as the service stabilized. Throughout the afternoon, we continued to monitor and adjust resources, ultimately doubling Redis shards around 18:11, which had an immediate positive effect on reducing load.\n\nDuring this incident, customers experienced significantly longer response times for API calls from servers running customer workloads reporting back the output of jobs. The 95th percentile \\(p95\\) response times spiked to between 5 and 15 seconds from 14:20 to 19:50, compared to the usual expectation of around 100 milliseconds.\n\nThis led to degraded step output on the jobs page, with issues such as delays in displaying the output of the customer steps, missing output of customer steps, and, in some cases, no output of customer steps at all. These delays likely resulted in slower Task performance, as sending step output to the step receiver took longer, blocking other actions within the Tasks. While the average Task runtime increased, the specific impact varied depending on the Task's contents.\n\n![](https://global.discourse-cdn.com/circleci/original/3X/c/6/c600d16b22a0f27de0827edca9d4c55a2e56ea25.png)\n`Task Wait Time`\n\n\n_Linux:_\n\n* **12:10 - 13:05:** Wait times under 1 minute.\n* **13:40 - 15:30:** Degraded wait times, generally under 5 minutes.\n* **15:30 - 18:05:** Wait times increased to tens of minutes, with some recovery starting around 17:45.\n* **18:05 - 20:00:** Continued degraded wait times of 2-3 minutes.\n* **20:00:** Fully recovered.\n\n_Windows:_\n\n* **12:10 - 15:40:** Degraded wait times, typically under 5 minutes.\n* **15:40 - 17:15:** Wait times reached tens of minutes.\n* **17:15 - 19:35:** Returned to degraded wait times, usually under 5 minutes.\n* **19:35 - 19:55:** Wait times again increased to tens of minutes.\n* **19:55:** Fully recovered.\n\n_Mac OS:_\n\n* **12:10 - 15:30:** Degraded wait times, generally under 5 minutes.\n* **15:30 - 21:00:** Wait times escalated to tens of minutes.\n* **21:00:** Fully recovered.\n\n## Future Prevention and Process Improvement:\n\nIn response to this incident, we are implementing several key improvements to enhance service reliability. First, we will enhance how tasks are cleared during infrastructure failures, which will help streamline operations. We will put in guardrails in the system to prevent execution of pathological workloads.\n\nAdditionally, we will implement a mechanism that will allow us to temporarily prevent jobs that have failed due to infrastructure issues from being retried. We will adjust Redis health checks by moving them from liveness probes to readiness probes, and we plan to increase the number of Redis shards to better distribute load and minimize the impact of a single shard being blocked. During our investigation we identified a self-reenforcing cycle of poorly performing Redis commands \\(scans\\) that were the root cause of Redis failing, and we’re going to address this as well.\n\nTo enhance stability, we will introduce a timeout for step data based on job maximum runtime and reduce the pressure a single job can place on the S3 connection pool.\n\nWe are also looking to develop a method to pause live deployments from the CircleCI app during incidents, ensuring that delayed changes do not overwrite manual adjustments made in the interim.",
-          "incident_id": "lsv2ry3jr16c",
-          "created_at": "2024-09-20T18:29:44.795Z",
-          "updated_at": "2024-09-20T20:54:16.783Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "17r2s34pqkk0",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "lsv2ry3jr16c",
-          "created_at": "2024-09-11T20:52:57.217Z",
-          "updated_at": "2024-09-11T20:52:57.585Z",
-          "display_at": "2024-09-11T20:52:57.217Z",
-          "affected_components": [
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1833972018586550698
-        },
-        {
-          "id": "h14tz5wsynln",
-          "status": "monitoring",
-          "body": "Machine, MacOS and Windows jobs are now within normal operating parameters. We will continue to monitor.",
-          "incident_id": "lsv2ry3jr16c",
-          "created_at": "2024-09-11T20:36:35.199Z",
-          "updated_at": "2024-09-11T20:36:35.598Z",
-          "display_at": "2024-09-11T20:36:35.199Z",
-          "affected_components": [
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1833967899792605311
-        },
-        {
-          "id": "mjtf407hhwk3",
-          "status": "identified",
-          "body": "Machine and Windows jobs are now within normal operating parameters.  Wait times continue to be longer than the expected normal for MacOS jobs as we work through the backlog of jobs.  We thank you for your patience while our engineers continue to work towards mitigation.",
-          "incident_id": "lsv2ry3jr16c",
-          "created_at": "2024-09-11T18:55:30.803Z",
-          "updated_at": "2024-09-11T19:10:16.765Z",
-          "display_at": "2024-09-11T18:55:30.000Z",
-          "affected_components": [
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1833942469656170769
-        },
-        {
-          "id": "9b9s1hm7f6sd",
-          "status": "identified",
-          "body": "We are continuing to optimize our infrastructure and resource usage due to a slower than expected recovery times.  While the wait times have improved they continue to be longer than the expected normal.  We thank you for your patience while our engineers continue to work towards mitigation.",
-          "incident_id": "lsv2ry3jr16c",
-          "created_at": "2024-09-11T18:19:41.934Z",
-          "updated_at": "2024-09-11T18:19:41.934Z",
-          "display_at": "2024-09-11T18:19:41.934Z",
-          "affected_components": [
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "mqpzthb35qzn",
-          "status": "identified",
-          "body": "We are beginning to see early signs of recovery with Linux and Windows jobs processing.  As the system works through the backlog, you should start to see reduced wait times. Our engineers continue to monitor our resources closely to ensure a steady improvement in our systems.  macOS jobs may see a longer recovery period. \n\nWe thank you for your patience during this time as we work towards a complete mitigation.",
-          "incident_id": "lsv2ry3jr16c",
-          "created_at": "2024-09-11T17:27:03.472Z",
-          "updated_at": "2024-09-11T17:27:03.472Z",
-          "display_at": "2024-09-11T17:27:03.472Z",
-          "affected_components": [
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9jbwmcky0w1l",
-          "status": "investigating",
-          "body": "We are continuing to investigate and mitigate the high resource pressure on our platform.  The mitigating efforts may lead to some steps within the running jobs having an empty output or being skipped.  We thank you for your patience while our engineers work to bring the platform to a healthy state",
-          "incident_id": "lsv2ry3jr16c",
-          "created_at": "2024-09-11T16:44:52.396Z",
-          "updated_at": "2024-09-11T16:45:10.341Z",
-          "display_at": "2024-09-11T16:44:52.000Z",
-          "affected_components": [
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "hfkwjs7vgrbd",
-          "status": "investigating",
-          "body": "We are continuing to alleviate the resource pressure our platform is currently experiencing.  We thank you for your patience while we work to mitigate the issue causing high wait times on multiple job types",
-          "incident_id": "lsv2ry3jr16c",
-          "created_at": "2024-09-11T16:15:19.494Z",
-          "updated_at": "2024-09-11T16:15:19.494Z",
-          "display_at": "2024-09-11T16:15:19.494Z",
-          "affected_components": [
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cmy6zvxxzmy1",
-          "status": "investigating",
-          "body": "Our engineers continue to investigate the issue and are working on changes to our infrastructure to relieve the pressure caused by high resource usage.  We thank you for your patience while we work to reduce these high queue times.",
-          "incident_id": "lsv2ry3jr16c",
-          "created_at": "2024-09-11T15:31:52.669Z",
-          "updated_at": "2024-09-11T15:31:52.669Z",
-          "display_at": "2024-09-11T15:31:52.669Z",
-          "affected_components": [
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xnz6zwz0r092",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue and are noticing high pressure on other job types at this time.",
-          "incident_id": "lsv2ry3jr16c",
-          "created_at": "2024-09-11T14:54:36.622Z",
-          "updated_at": "2024-09-11T14:55:18.561Z",
-          "display_at": "2024-09-11T14:54:36.000Z",
-          "affected_components": [
-            {
-              "code": "bpfmy8wy8wq2",
-              "name": "macOS Jobs",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "svt88btymymk",
-              "name": "Windows Jobs",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "sthm91rptcdn",
-          "status": "investigating",
-          "body": "Our engineers are continuing to investigate the issue causing high utilization of our resources and higher wait times for machine and other job types.  We thank you for your patience as we work to mitigate this issue.",
-          "incident_id": "lsv2ry3jr16c",
-          "created_at": "2024-09-11T14:51:32.334Z",
-          "updated_at": "2024-09-11T14:52:18.577Z",
-          "display_at": "2024-09-11T14:51:32.000Z",
-          "affected_components": [
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "kx8st0jxbcn2",
-          "status": "investigating",
-          "body": "Our engineers are currently investigating an issue causing longer wait times for machine jobs running on the platform. We will provide further updates as more information becomes available.",
-          "incident_id": "lsv2ry3jr16c",
-          "created_at": "2024-09-11T14:29:58.974Z",
-          "updated_at": "2024-09-11T14:29:58.974Z",
-          "display_at": "2024-09-11T14:29:58.974Z",
-          "affected_components": [
-            {
-              "code": "0l5xn1l7qs8f",
-              "name": "Machine Jobs",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "0l5xn1l7qs8f",
-          "name": "Machine Jobs",
-          "status": "operational",
-          "created_at": "2019-05-02T20:42:22.366Z",
-          "updated_at": "2025-05-02T00:45:56.018Z",
-          "position": 2,
-          "description": "CircleCI jobs using the machine executor, and jobs using the setup_remote_docker step.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "bpfmy8wy8wq2",
-          "name": "macOS Jobs",
-          "status": "operational",
-          "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2025-03-24T17:36:34.554Z",
-          "position": 3,
-          "description": "CircleCI jobs using the macos executor.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "svt88btymymk",
-          "name": "Windows Jobs",
-          "status": "operational",
-          "created_at": "2020-10-23T23:37:10.052Z",
-          "updated_at": "2024-11-26T16:28:10.742Z",
-          "position": 4,
-          "description": "Jobs using the Windows executor.",
-          "showcase": true,
-          "start_date": "2020-10-23",
           "group_id": null,
           "page_id": "6w4r0ttlx5ft",
           "group": false,
