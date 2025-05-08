@@ -4,15 +4,15 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-05-08T04:25:53.004-07:00"
+    "updated_at": "2025-05-08T09:36:04.756-07:00"
   },
   "incidents": [
     {
       "id": "slc6f8l75rj2",
       "name": "[Critical] Issues with Multiple Box Services",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-05-07T06:30:29.515-07:00",
-      "updated_at": "2025-05-07T12:19:18.332-07:00",
+      "updated_at": "2025-05-08T09:36:04.752-07:00",
       "monitoring_at": "2025-05-07T06:55:38.270-07:00",
       "resolved_at": "2025-05-07T12:19:18.315-07:00",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2025-05-07T06:30:29.507-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "x2440fmlmgyr",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\n \n\nOn May 7, 2025 between 01:21 AM and 01:00 PM PT, some users may have experienced difficulties while working in Box, particularly when interacting with Box services. The issue occurred due to a code change that inadvertently increased the memory requirements in our database backend for certain queries. This issue triggered automated remediation tooling, however, it was unable to keep up with the consistently increasing load. This resulted in degraded availability for some of our services that perform write operations for a small subset of users. We were able to resolve the issue by rolling back the change once it was identified. We have implemented enhanced monitoring to quickly catch and mitigate similar issues in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "slc6f8l75rj2",
+          "created_at": "2025-05-08T09:35:59.538-07:00",
+          "updated_at": "2025-05-08T09:36:04.749-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "qxbkstjjghpg",
           "status": "resolved",
