@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-05-12T11:31:00.352Z"
+    "updated_at": "2025-05-12T13:38:42.578Z"
   },
   "components": [
     {
@@ -115,9 +115,9 @@
     {
       "id": "66r6rhq3hn9n",
       "name": "Dashboard",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2019-07-10T17:28:27.083Z",
-      "updated_at": "2025-04-24T10:43:37.362Z",
+      "updated_at": "2025-05-12T13:38:42.495Z",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -205,9 +205,9 @@
     {
       "id": "80ykv2p95qgy",
       "name": "Machines API",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2020-04-01T21:30:26.075Z",
-      "updated_at": "2025-02-16T15:18:14.690Z",
+      "updated_at": "2025-05-12T13:38:42.517Z",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -1056,10 +1056,85 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "gs7mt471z0py",
+      "name": "Errors (5xx, timeouts) in Fly.io dashboard",
+      "status": "investigating",
+      "created_at": "2025-05-12T13:38:42.449Z",
+      "updated_at": "2025-05-12T13:38:42.574Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/p7k4hngs1m5k",
+      "started_at": "2025-05-12T13:38:42.440Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "3bn15sfdqd00",
+          "status": "investigating",
+          "body": "Our metrics and user reports show Fly.io/dashboard and portions of the API backend are timing out or returning 5xx errors. All operations in the Fly dashboard and most operations using fly CLI will fail or timeout at this point.\n\nCurrently-running machines or workloads should not be affected.",
+          "incident_id": "gs7mt471z0py",
+          "created_at": "2025-05-12T13:38:42.570Z",
+          "updated_at": "2025-05-12T13:38:42.570Z",
+          "display_at": "2025-05-12T13:38:42.570Z",
+          "affected_components": [
+            {
+              "code": "66r6rhq3hn9n",
+              "name": "Dashboard",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "66r6rhq3hn9n",
+          "name": "Dashboard",
+          "status": "partial_outage",
+          "created_at": "2019-07-10T17:28:27.083Z",
+          "updated_at": "2025-05-12T13:38:42.495Z",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "80ykv2p95qgy",
+          "name": "Machines API",
+          "status": "partial_outage",
+          "created_at": "2020-04-01T21:30:26.075Z",
+          "updated_at": "2025-05-12T13:38:42.517Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
