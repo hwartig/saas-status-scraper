@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-05-12T14:22:22.590Z"
+    "updated_at": "2025-05-12T15:07:28.935Z"
   },
   "components": [
     {
@@ -115,9 +115,9 @@
     {
       "id": "66r6rhq3hn9n",
       "name": "Dashboard",
-      "status": "partial_outage",
+      "status": "degraded_performance",
       "created_at": "2019-07-10T17:28:27.083Z",
-      "updated_at": "2025-05-12T13:38:42.495Z",
+      "updated_at": "2025-05-12T14:56:49.716Z",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -205,9 +205,9 @@
     {
       "id": "80ykv2p95qgy",
       "name": "Machines API",
-      "status": "partial_outage",
+      "status": "degraded_performance",
       "created_at": "2020-04-01T21:30:26.075Z",
-      "updated_at": "2025-05-12T13:38:42.517Z",
+      "updated_at": "2025-05-12T14:56:49.733Z",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -220,9 +220,9 @@
     {
       "id": "dz36cj1q2s1r",
       "name": "Management Plane - FRA",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2025-03-24T09:31:59.019Z",
-      "updated_at": "2025-03-24T09:31:59.019Z",
+      "updated_at": "2025-05-12T15:07:28.879Z",
       "position": 3,
       "description": null,
       "showcase": true,
@@ -795,7 +795,7 @@
     {
       "id": "h2hndffd5ysc",
       "name": "Managed Postgres",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2025-03-24T09:28:07.922Z",
       "updated_at": "2025-03-24T09:28:07.922Z",
       "position": 19,
@@ -1058,18 +1058,97 @@
   ],
   "incidents": [
     {
+      "id": "8scl0ts7lc6h",
+      "name": "New MPG clusters cannot be provisioned in FRA",
+      "status": "identified",
+      "created_at": "2025-05-12T15:07:28.840Z",
+      "updated_at": "2025-05-12T15:07:28.931Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/k8dx2txn0d99",
+      "started_at": "2025-05-12T15:07:28.825Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "3wdtlrsndg8m",
+          "status": "identified",
+          "body": "New MPG cluster creations in Frankfurt (FRA) region are currently failing. Cluster creation in other MPG regions is working as normal. \n\nExisting, running clusters in FRA are not impacted and continue to work as normal. We are working to restore FRA cluster creation.",
+          "incident_id": "8scl0ts7lc6h",
+          "created_at": "2025-05-12T15:07:28.927Z",
+          "updated_at": "2025-05-12T15:07:28.927Z",
+          "display_at": "2025-05-12T15:07:28.927Z",
+          "affected_components": [
+            {
+              "code": "dz36cj1q2s1r",
+              "name": "Managed Postgres - Management Plane - FRA",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "dz36cj1q2s1r",
+          "name": "Management Plane - FRA",
+          "status": "partial_outage",
+          "created_at": "2025-03-24T09:31:59.019Z",
+          "updated_at": "2025-05-12T15:07:28.879Z",
+          "position": 3,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-03-24",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "gs7mt471z0py",
       "name": "Errors (5xx, timeouts) in Fly.io dashboard",
-      "status": "identified",
+      "status": "monitoring",
       "created_at": "2025-05-12T13:38:42.449Z",
-      "updated_at": "2025-05-12T14:11:44.701Z",
-      "monitoring_at": null,
+      "updated_at": "2025-05-12T14:56:49.798Z",
+      "monitoring_at": "2025-05-12T14:56:49.782Z",
       "resolved_at": null,
       "impact": "none",
       "shortlink": "https://stspg.io/p7k4hngs1m5k",
       "started_at": "2025-05-12T13:38:42.440Z",
       "page_id": "65rccr4mbblw",
       "incident_updates": [
+        {
+          "id": "f03w4b6vwht5",
+          "status": "monitoring",
+          "body": "We continue to monitor the deployed fix. Dashboard and API/CLI operations should be functional now.",
+          "incident_id": "gs7mt471z0py",
+          "created_at": "2025-05-12T14:56:49.782Z",
+          "updated_at": "2025-05-12T14:56:49.782Z",
+          "display_at": "2025-05-12T14:56:49.782Z",
+          "affected_components": [
+            {
+              "code": "66r6rhq3hn9n",
+              "name": "Dashboard",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "63nw9wl3g47h",
           "status": "identified",
@@ -1127,9 +1206,9 @@
         {
           "id": "66r6rhq3hn9n",
           "name": "Dashboard",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2019-07-10T17:28:27.083Z",
-          "updated_at": "2025-05-12T13:38:42.495Z",
+          "updated_at": "2025-05-12T14:56:49.716Z",
           "position": 2,
           "description": null,
           "showcase": false,
@@ -1142,9 +1221,9 @@
         {
           "id": "80ykv2p95qgy",
           "name": "Machines API",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2020-04-01T21:30:26.075Z",
-          "updated_at": "2025-05-12T13:38:42.517Z",
+          "updated_at": "2025-05-12T14:56:49.733Z",
           "position": 3,
           "description": null,
           "showcase": false,
