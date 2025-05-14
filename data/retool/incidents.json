@@ -4,9 +4,62 @@
     "name": "Retool",
     "url": "https://status.retool.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-05-14T18:20:30.293Z"
+    "updated_at": "2025-05-14T18:55:50.816Z"
   },
   "incidents": [
+    {
+      "id": "x9phl56999tr",
+      "name": "Downstream Email Service Provider Outage",
+      "status": "identified",
+      "created_at": "2025-05-14T18:50:00.758Z",
+      "updated_at": "2025-05-14T18:55:50.810Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/gxrqygnkgm0p",
+      "started_at": "2025-05-14T18:50:00.000Z",
+      "page_id": "0qnsgqt7vsht",
+      "incident_updates": [
+        {
+          "id": "2s3s1yf496jw",
+          "status": "identified",
+          "body": "Platform features relying on email sending (invites, password reset etc) will be degraded until the outage is resolved\n\nData connectors using the Retool Email resource type are NOT affected at this time. They should continue to be fully functional.",
+          "incident_id": "x9phl56999tr",
+          "created_at": "2025-05-14T18:50:00.849Z",
+          "updated_at": "2025-05-14T18:55:50.712Z",
+          "display_at": "2025-05-14T18:50:00.000Z",
+          "affected_components": [
+            {
+              "code": "sr15qrsfd2vx",
+              "name": "Email Server",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "sr15qrsfd2vx",
+          "name": "Email Server",
+          "status": "major_outage",
+          "created_at": "2023-06-29T18:36:54.440Z",
+          "updated_at": "2025-05-14T18:50:00.803Z",
+          "position": 6,
+          "description": null,
+          "showcase": true,
+          "start_date": "2023-06-29",
+          "group_id": null,
+          "page_id": "0qnsgqt7vsht",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "vxgg18pjxngn",
       "name": "Intermittent Certificate Errors for Retool Requests",
@@ -1456,9 +1509,9 @@
         {
           "id": "sr15qrsfd2vx",
           "name": "Email Server",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2023-06-29T18:36:54.440Z",
-          "updated_at": "2024-08-02T23:34:33.661Z",
+          "updated_at": "2025-05-14T18:50:00.803Z",
           "position": 6,
           "description": null,
           "showcase": true,
@@ -1715,9 +1768,9 @@
         {
           "id": "sr15qrsfd2vx",
           "name": "Email Server",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2023-06-29T18:36:54.440Z",
-          "updated_at": "2024-08-02T23:34:33.661Z",
+          "updated_at": "2025-05-14T18:50:00.803Z",
           "position": 6,
           "description": null,
           "showcase": true,
@@ -4707,49 +4760,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "lmhpqvm4vrx9",
-      "name": "OpenSSL buffer overflow vulnerability",
-      "status": "resolved",
-      "created_at": "2022-11-01T17:30:06.416Z",
-      "updated_at": "2022-11-02T17:35:31.248Z",
-      "monitoring_at": "2022-11-01T17:30:06.462Z",
-      "resolved_at": "2022-11-02T17:35:31.213Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/z74wdr5nrcgk",
-      "started_at": "2022-11-01T17:30:06.409Z",
-      "page_id": "0qnsgqt7vsht",
-      "incident_updates": [
-        {
-          "id": "gfsyxl76z64p",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "lmhpqvm4vrx9",
-          "created_at": "2022-11-02T17:35:31.213Z",
-          "updated_at": "2022-11-02T17:35:31.213Z",
-          "display_at": "2022-11-02T17:35:31.213Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vwlb0mb80hx0",
-          "status": "monitoring",
-          "body": "We are currently monitoring the OpenSSL buffer overflow vulnerability https://security.snyk.io/vuln/SNYK-UNMANAGED-OPENSSL-3090874. Cloud or On-Prem customers are not affected by this vulnerability at the moment but we are actively monitoring the situation for any updates.",
-          "incident_id": "lmhpqvm4vrx9",
-          "created_at": "2022-11-01T17:30:06.462Z",
-          "updated_at": "2022-11-01T17:30:06.462Z",
-          "display_at": "2022-11-01T17:30:06.462Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
