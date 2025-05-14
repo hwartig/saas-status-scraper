@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-05-13T16:21:00.038-07:00"
+    "updated_at": "2025-05-13T19:37:02.793-07:00"
   },
   "incidents": [
     {
@@ -7678,7 +7678,7 @@
       "name": "[Major] Issues with Logins",
       "status": "postmortem",
       "created_at": "2024-02-14T11:22:19.384-08:00",
-      "updated_at": "2024-02-22T12:02:09.548-08:00",
+      "updated_at": "2025-05-13T19:37:02.781-07:00",
       "monitoring_at": "2024-02-14T12:23:57.147-08:00",
       "resolved_at": "2024-02-14T12:36:51.917-08:00",
       "impact": "major",
@@ -7689,10 +7689,10 @@
         {
           "id": "6rwmy9qmmynt",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\nOn February 14, 2024 between 11:00 AM PST and 11:32 AM PST, a small percentage of users using MFA \\(multi-factor authentication\\) may have experienced difficulties logging into Box.  The issue occurred as a result of a temporary failure of an underlying network component provided by one of our third-party service providers. The issue self resolved when the service provider addressed the issue.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "body": "We previously addressed an issue that impacted a small percentage of users utilizing multi-factor authentication \\(MFA\\) while logging into Box and accessing the Box API. We would like to take this opportunity to explain the issue and the steps we have taken to prevent similar occurrences in the future.\n\n## **Incident Summary**\n\nOn February 14, 2024, between 11:00 AM PST and 11:32 AM PST, some users may have experienced difficulties logging into Box and using the Box API when MFA was required. This issue was caused by a temporary failure in an underlying network component provided by one of our third-party service providers. The disruption was automatically resolved when the service provider mitigated the issue.\n\n## **Analysis**\n\nThe issue originated from a temporary failure within a regional infrastructure component of our service provider, which supports functions such as request handling, load balancing, and metadata storage. This system is designed to dynamically scale and adjust compute capacity in response to demand fluctuations. However, an unexpected spike in demand exceeded its ability to provision additional resources quickly, leading to increased latency and service errors across multiple services in the affected region.\n\n‌\n\nAs a result, authentication requests for MFA users on Box were impacted until the service provider was able to isolate and mitigate the issue.\n\n## **Corrective Actions**\n\nTo further enhance the resilience of our authentication services, we have implemented the following measures:\n\n* Improved alerting for load balancers to detect and respond to service degradations more effectively.\n* Assessment and implementation of direct fallback application profiles to minimize disruptions in the event of similar network-related failures.\n\n‌\n\nWe remain committed to delivering a reliable and secure experience for all Box users. We appreciate your patience and understanding and are happy to answer any further questions regarding this matter.\n\n‌\n\nSincerely,\n\n‌\n\nThe Box Team",
           "incident_id": "ckl55ldh27t1",
           "created_at": "2024-02-22T12:01:50.236-08:00",
-          "updated_at": "2024-02-22T12:02:09.547-08:00",
+          "updated_at": "2025-05-13T19:37:02.777-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
