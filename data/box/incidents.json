@@ -4,9 +4,62 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-05-14T23:05:55.496-07:00"
+    "updated_at": "2025-05-15T00:35:41.376-07:00"
   },
   "incidents": [
+    {
+      "id": "hl7519fkk3b8",
+      "name": "[Major] Issues to open / edit Powerpoint files with MS Office Online",
+      "status": "investigating",
+      "created_at": "2025-05-15T00:35:41.260-07:00",
+      "updated_at": "2025-05-15T00:35:41.373-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/ys3zc4rsksjm",
+      "started_at": "2025-05-15T00:35:41.250-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "gt4341mnppsh",
+          "status": "investigating",
+          "body": "Our team is investigating an issue with MS Office Online, especially on Powerpoint files. Users may see errors while opening Powerpoint files with MS Office Online. We will provide additional information as it becomes available.",
+          "incident_id": "hl7519fkk3b8",
+          "created_at": "2025-05-15T00:35:41.370-07:00",
+          "updated_at": "2025-05-15T00:35:41.370-07:00",
+          "display_at": "2025-05-15T00:35:41.370-07:00",
+          "affected_components": [
+            {
+              "code": "m9wrjsglbtpy",
+              "name": "Partners / Integrations - Microsoft Online",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "m9wrjsglbtpy",
+          "name": "Microsoft Online",
+          "status": "degraded_performance",
+          "created_at": "2018-10-01T20:21:36.119-07:00",
+          "updated_at": "2025-05-15T00:35:41.308-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "jvy3knlf7n32",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "slc6f8l75rj2",
       "name": "[Critical] Issues with Multiple Box Services",
@@ -1627,9 +1680,9 @@
         {
           "id": "m9wrjsglbtpy",
           "name": "Microsoft Online",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-10-01T20:21:36.119-07:00",
-          "updated_at": "2025-03-12T06:00:54.812-07:00",
+          "updated_at": "2025-05-15T00:35:41.308-07:00",
           "position": 1,
           "description": null,
           "showcase": false,
@@ -3076,9 +3129,9 @@
         {
           "id": "m9wrjsglbtpy",
           "name": "Microsoft Online",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-10-01T20:21:36.119-07:00",
-          "updated_at": "2025-03-12T06:00:54.812-07:00",
+          "updated_at": "2025-05-15T00:35:41.308-07:00",
           "position": 1,
           "description": null,
           "showcase": false,
@@ -4171,9 +4224,9 @@
         {
           "id": "m9wrjsglbtpy",
           "name": "Microsoft Online",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-10-01T20:21:36.119-07:00",
-          "updated_at": "2025-03-12T06:00:54.812-07:00",
+          "updated_at": "2025-05-15T00:35:41.308-07:00",
           "position": 1,
           "description": null,
           "showcase": false,
@@ -7944,9 +7997,9 @@
         {
           "id": "m9wrjsglbtpy",
           "name": "Microsoft Online",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-10-01T20:21:36.119-07:00",
-          "updated_at": "2025-03-12T06:00:54.812-07:00",
+          "updated_at": "2025-05-15T00:35:41.308-07:00",
           "position": 1,
           "description": null,
           "showcase": false,
@@ -10037,237 +10090,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": null,
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "mpxhzbg316mn",
-      "name": "[MAJOR] Issues with All Files page, Downloads, API",
-      "status": "postmortem",
-      "created_at": "2023-12-15T05:12:51.469-08:00",
-      "updated_at": "2024-01-19T08:10:40.544-08:00",
-      "monitoring_at": "2023-12-15T05:22:00.605-08:00",
-      "resolved_at": "2023-12-15T06:35:05.658-08:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/wqkq01qx4v5m",
-      "started_at": "2023-12-15T05:12:51.453-08:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "wvnwld27mzm9",
-          "status": "postmortem",
-          "body": "## Background\n\nWe recently addressed issues affecting Box Webapp, Public and Uploads & Downloads. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future. \n\nBetween 4:30 AM PST and 5:05 AM PST on December 15, 2023, some users may have experienced difficulties while working in Box. During these times, some users may have experienced slowness and failures interacting  with parts of the Box Webapp and public API, including Uploads and Downloads. The issue occurred due to an issue with the deployment of a new DB Access Control service on our database fleet.  We were able to resolve the issue by temporarily disabling the problematic service. In addition, we are working to improve our testing and rollout process for services being deployed to our database fleet to prevent similar issues from occurring in the future.\n\n## Analysis\n\nThe DB Access Control service is a service that enables new user access controls to be applied automatically and frequently.  This allows for faster development of new DB functionality that requires access control changes, resulting in faster team velocity and ultimately more stable and reliable infrastructure.  \n\nOn the morning of December 13th, an operator started the rollout of the DB Access Control service by deploying it to a single database pod. At that time, it was configured to execute its work every 10 minutes.  Approximately 10 minutes after the deployment, we saw degradation on that pod, causing the impact seen on December 13. The operator suspected that the service frequency was the cause and remediated by configuring the service to execute its work once a day at a low-traffic time. The next steps should have been to validate the changes in a way that would not result in customer impact and then deploy it again on a single pod. However, the standard process was unintentionally not adhered to in this case and the change was instead deployed across the fleet, leading to additional impact as seen on December 15.\n\nIn addition to optimizing the DB Access Control service to be less resource-intensive, we intend to make some process changes in response to this issue. There is already a general standard process that should be followed when deploying services to the Database fleet. However, to minimize the likelihood of similar situations occurring again, we are updating our documentation to better ensure that all operators have a comprehensive understanding of the standard process and that such process is consistently followed. \n\n## Next Steps and Corrective Actions\n\nThe following corrective actions have been completed or are planned:\n\n* The relevant DB service was temporarily disabled to remediate the issue.\n* The relevant DB service has been optimized to be less resource-intensive and will automatically refuse to run during high-traffic times\n* Rollout process for all DB services will be more thoroughly documented\n* Operators will receive additional training to ensure that they have a comprehensive understanding of the documented rollout process\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
-          "incident_id": "mpxhzbg316mn",
-          "created_at": "2024-01-19T07:56:16.584-08:00",
-          "updated_at": "2024-01-19T08:10:40.542-08:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l8c3z6q3fy3n",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. Service has been restored to full functionality. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
-          "incident_id": "mpxhzbg316mn",
-          "created_at": "2023-12-15T06:35:05.658-08:00",
-          "updated_at": "2023-12-15T06:35:05.658-08:00",
-          "display_at": "2023-12-15T06:35:05.658-08:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "pfqdnzt9kjrf",
-              "name": "Box Web Application - Preview",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9qlwypj1xcgw",
-          "status": "monitoring",
-          "body": "Our team has taken steps to remediate this issue and our services should be returned to full functionality. We are continuing to monitor for any additional impact.",
-          "incident_id": "mpxhzbg316mn",
-          "created_at": "2023-12-15T05:34:20.053-08:00",
-          "updated_at": "2023-12-15T05:34:20.053-08:00",
-          "display_at": "2023-12-15T05:34:20.053-08:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "pfqdnzt9kjrf",
-              "name": "Box Web Application - Preview",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "tgcydj2q8xjs",
-          "status": "monitoring",
-          "body": "Our team has taken steps to remediate this issue and is seeing improvement for the services that have been affected. We are continuing to monitor for any additional impact.",
-          "incident_id": "mpxhzbg316mn",
-          "created_at": "2023-12-15T05:22:00.605-08:00",
-          "updated_at": "2023-12-15T05:22:00.605-08:00",
-          "display_at": "2023-12-15T05:22:00.605-08:00",
-          "affected_components": [
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "pfqdnzt9kjrf",
-              "name": "Box Web Application - Preview",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "8g7zdsdgh630",
-          "status": "investigating",
-          "body": "Our team is investigating an issue that could affect All Files page, Downloads, API calls. Users may see errors when attempting to preview files or share files. We will provide additional information as it becomes available.",
-          "incident_id": "mpxhzbg316mn",
-          "created_at": "2023-12-15T05:12:51.626-08:00",
-          "updated_at": "2023-12-15T05:12:51.626-08:00",
-          "display_at": "2023-12-15T05:12:51.626-08:00",
-          "affected_components": [
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "pfqdnzt9kjrf",
-              "name": "Box Web Application - Preview",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "k9qs0mx2d5cw",
-          "name": "Content API",
-          "status": "operational",
-          "created_at": "2014-06-26T08:25:48.103-07:00",
-          "updated_at": "2025-04-13T19:11:16.332-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "vggytbdllrjt",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "khm68x6zltbt",
-          "name": "Login/SSO",
-          "status": "operational",
-          "created_at": "2018-10-01T20:06:36.188-07:00",
-          "updated_at": "2025-05-07T12:19:18.241-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "wtcp7snm0429",
-          "name": "Uploads/Downloads",
-          "status": "operational",
-          "created_at": "2018-10-01T20:08:50.656-07:00",
-          "updated_at": "2025-05-07T12:19:18.262-07:00",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "pfqdnzt9kjrf",
-          "name": "Preview",
-          "status": "operational",
-          "created_at": "2018-10-01T20:09:27.498-07:00",
-          "updated_at": "2025-02-06T19:00:21.571-08:00",
-          "position": 5,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
           "page_id": "208q92hckwws",
           "group": false,
           "only_show_if_degraded": false
