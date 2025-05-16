@@ -4,7 +4,7 @@
     "name": "Vercel",
     "url": "https://www.vercel-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-05-16T15:56:02.535Z"
+    "updated_at": "2025-05-16T18:02:39.816Z"
   },
   "components": [
     {
@@ -383,9 +383,9 @@
     {
       "id": "4byczsw70cgb",
       "name": "DNS",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-04-21T16:09:02.544Z",
-      "updated_at": "2025-03-31T16:22:08.339Z",
+      "updated_at": "2025-05-16T17:53:00.333Z",
       "position": 8,
       "description": null,
       "showcase": true,
@@ -892,10 +892,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "vx6ctwkwjd1w",
+      "name": "DNS Verification Issue",
+      "status": "investigating",
+      "created_at": "2025-05-16T17:53:00.296Z",
+      "updated_at": "2025-05-16T18:02:39.805Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/h95sktk8pht9",
+      "started_at": "2025-05-16T17:53:00.000Z",
+      "page_id": "lvglq8h0mdyh",
+      "incident_updates": [
+        {
+          "id": "ckb3zmf4g5yp",
+          "status": "investigating",
+          "body": "We are investigating errors in our DNS configuration UI. It is occasionally showing your existing DNS records instead of the records you should be setting.\n\nYou may still configure a domain manually:\n- For apex domains, set an A record to 76.76.21.21\n- For subdomains, set a CNAME record to cname.vercel-dns.com",
+          "incident_id": "vx6ctwkwjd1w",
+          "created_at": "2025-05-16T17:53:00.390Z",
+          "updated_at": "2025-05-16T18:02:39.801Z",
+          "display_at": "2025-05-16T17:53:00.000Z",
+          "affected_components": [
+            {
+              "code": "4byczsw70cgb",
+              "name": "DNS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "4byczsw70cgb",
+          "name": "DNS",
+          "status": "degraded_performance",
+          "created_at": "2020-04-21T16:09:02.544Z",
+          "updated_at": "2025-05-16T17:53:00.333Z",
+          "position": 8,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
