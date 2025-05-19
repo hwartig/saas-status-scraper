@@ -4,9 +4,39 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-05-18T23:45:44.475-07:00"
+    "updated_at": "2025-05-19T02:20:21.543-07:00"
   },
   "incidents": [
+    {
+      "id": "bcmqzl2t6xmf",
+      "name": "[Major] Customers may have experienced issues with Login, SSO, Uploads and Downloads",
+      "status": "resolved",
+      "created_at": "2025-05-19T01:00:00.000-07:00",
+      "updated_at": "2025-05-19T02:20:03.417-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2025-05-19T01:00:00.000-07:00",
+      "impact": "major",
+      "shortlink": "https://stspg.io/3j2ngxbdtj31",
+      "started_at": "2025-05-19T02:19:43.166-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "9rfbbs2f44qq",
+          "status": "resolved",
+          "body": "From approximately 01:08 AM to 01:18 AM US Pacific time, we observed an issue impacting Login, SSO, Uploads and Downloads. Our engineering teams detected and corrected the underlying issue. There is no current impact and no further updates will be provided here. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
+          "incident_id": "bcmqzl2t6xmf",
+          "created_at": "2025-05-19T02:19:43.209-07:00",
+          "updated_at": "2025-05-19T02:19:43.209-07:00",
+          "display_at": "2025-05-19T01:00:00.000-07:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "hl7519fkk3b8",
       "name": "[Major] Issues to open / edit Powerpoint files with MS Office Online",
@@ -8238,325 +8268,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "jvy3knlf7n32",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "hj7155sn4xj4",
-      "name": "[Outage] Issues with Logins, Uploads, Downloads, API calls",
-      "status": "postmortem",
-      "created_at": "2024-01-09T11:20:39.964-08:00",
-      "updated_at": "2024-01-23T16:19:29.552-08:00",
-      "monitoring_at": "2024-01-09T12:11:56.645-08:00",
-      "resolved_at": "2024-01-09T12:57:41.421-08:00",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/572xytb3s362",
-      "started_at": "2024-01-09T11:20:39.950-08:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "rv2n79jy2nt1",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting most parts of the Box webapp and public API; including Logins, Uploads and Downloads. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nOn January 9, 2024, between 11:10 AM PT and 12:15 PM PT, users experienced difficulties while working in Box. During this time, users experienced slowness and failures interacting with most parts of the Box webapp and public API, including Logins, Uploads and Downloads. The issue was triggered by a change that impacted Kubernetes clusters in one of the regions where we run our critical services. At 11:18 AM PT this change was rolled back. After rolling back the change, systems began to recover around 11:27 AM. \n\n‌\n\n**Analysis** \n\nOn January 9th, 2024, we made a configuration change to deploy a new daemonset to the dedicated Kubernetes clusters running our core data services, which caused resource exhaustion and eviction of our core data services on those nodes. The daemonset deployment pipeline erroneously allowed the change to be promoted to an entire region instead of the planned gradual rollout, which resulted in service interruption impacting most of our customers. To address this issue, we rolled back the daemonset deployment. After the daemonset was rolled back, the evicted core data services began to be restored and our systems began to recover; however, in two of our three clusters, this process was delayed by a scheduler limitation, elongating the duration of impact. We adjusted the resource requests for our core data services to speed up recovery of these two clusters, restoring normal operations at 12:15pm.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* We have paused the daemonset pipeline until we can ensure it employs safe incremental rollout processes.\n* We are updating the daemonset pipeline to validate resource allocations before deployment and ensure a gradual production rollout to reduce the likelihood of similar issues occurring in the future.\n* We have adjusted the priority of our application services, including the core data services, to be higher than daemonsets to ensure their capacity is protected.\n* We are adjusting our Kubernetes configurations to enable faster restoration of service through guaranteed capacity and buffers.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,  \nThe Box Team",
-          "incident_id": "hj7155sn4xj4",
-          "created_at": "2024-01-11T07:33:29.470-08:00",
-          "updated_at": "2024-01-23T16:19:29.549-08:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "66vqgcz7vqwp",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. All services have been restored to full functionality. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
-          "incident_id": "hj7155sn4xj4",
-          "created_at": "2024-01-09T12:57:41.421-08:00",
-          "updated_at": "2024-01-09T12:57:41.421-08:00",
-          "display_at": "2024-01-09T12:57:41.421-08:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cz2lwtbg8kk4",
-          "status": "monitoring",
-          "body": "Our team has taken steps to remediate this issue and all services should be returned to full functionality. We are continuing to monitor for any additional impact.",
-          "incident_id": "hj7155sn4xj4",
-          "created_at": "2024-01-09T12:19:30.295-08:00",
-          "updated_at": "2024-01-09T12:19:30.295-08:00",
-          "display_at": "2024-01-09T12:19:30.295-08:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "p68dghrb89gs",
-          "status": "monitoring",
-          "body": "Our team has taken steps to remediate this issue and we are seeing improvement across all Box Services. We are continuing to monitor for any additional impact as services return back to full functionality.",
-          "incident_id": "hj7155sn4xj4",
-          "created_at": "2024-01-09T12:11:56.645-08:00",
-          "updated_at": "2024-01-09T12:11:56.645-08:00",
-          "display_at": "2024-01-09T12:11:56.645-08:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "b6crwb7m3qq2",
-          "status": "identified",
-          "body": "Our team continues remediation efforts to restore full functionality to affected services. We will provide additional updates as they become available.",
-          "incident_id": "hj7155sn4xj4",
-          "created_at": "2024-01-09T11:50:26.210-08:00",
-          "updated_at": "2024-01-09T11:50:26.210-08:00",
-          "display_at": "2024-01-09T11:50:26.210-08:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "pqy5hqq2hf9d",
-          "status": "identified",
-          "body": "Our team has identified the underlying cause of this issue and is working to take remediating steps. You may begin seeing improvement at this time. We will provide additional updates as they become available.",
-          "incident_id": "hj7155sn4xj4",
-          "created_at": "2024-01-09T11:30:43.847-08:00",
-          "updated_at": "2024-01-09T11:30:43.847-08:00",
-          "display_at": "2024-01-09T11:30:43.847-08:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "q9k0v48t0rqg",
-          "status": "investigating",
-          "body": "Our team is investigating an issue with Logins, Uploads, Downloads, All Files page, API calls. Users attempting to use these services may see errors or timeouts. We will provide additional information as it becomes available.",
-          "incident_id": "hj7155sn4xj4",
-          "created_at": "2024-01-09T11:20:40.100-08:00",
-          "updated_at": "2024-01-09T11:20:40.100-08:00",
-          "display_at": "2024-01-09T11:20:40.100-08:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "wtcp7snm0429",
-              "name": "Box Web Application - Uploads/Downloads",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "k9qs0mx2d5cw",
-              "name": "Box Platform / API - Content API",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "t1bgldgfmgfs",
-              "name": "Box Website",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "k9qs0mx2d5cw",
-          "name": "Content API",
-          "status": "operational",
-          "created_at": "2014-06-26T08:25:48.103-07:00",
-          "updated_at": "2025-04-13T19:11:16.332-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "vggytbdllrjt",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "khm68x6zltbt",
-          "name": "Login/SSO",
-          "status": "operational",
-          "created_at": "2018-10-01T20:06:36.188-07:00",
-          "updated_at": "2025-05-07T12:19:18.241-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "wtcp7snm0429",
-          "name": "Uploads/Downloads",
-          "status": "operational",
-          "created_at": "2018-10-01T20:08:50.656-07:00",
-          "updated_at": "2025-05-07T12:19:18.262-07:00",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "t1bgldgfmgfs",
-          "name": "Box Website",
-          "status": "operational",
-          "created_at": "2018-10-01T20:25:05.195-07:00",
-          "updated_at": "2025-05-07T12:20:27.345-07:00",
-          "position": 12,
-          "description": "The primary Box marketing website which includes information about available products and services. This site also serves as the beginning destination for a customer's login to the Box Web Application and default download links to desktop and mobile client software.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
           "page_id": "208q92hckwws",
           "group": false,
           "only_show_if_degraded": false
