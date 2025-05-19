@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-05-19T18:46:01.405Z"
+    "updated_at": "2025-05-19T19:55:57.756Z"
   },
   "incidents": [
     {
@@ -12,7 +12,7 @@
       "name": "GitHub Enterprise Importer (GEI) is experiencing degraded throughput",
       "status": "resolved",
       "created_at": "2025-05-16T13:46:13.662Z",
-      "updated_at": "2025-05-17T02:27:01.186Z",
+      "updated_at": "2025-05-19T19:55:57.746Z",
       "monitoring_at": null,
       "resolved_at": "2025-05-17T02:27:01.167Z",
       "impact": "minor",
@@ -23,10 +23,10 @@
         {
           "id": "rcgv1b775m63",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between May 16, 2025, 1:21 PM UTC and May 17, 2025, 2:26 AM UTC, the GitHub Enterprise Importer service was degraded and experienced slow processing of customer migrations. Customers may have seen extended wait times for migrations to start or complete.<br /><br />This incident was initially observed as a slowdown in migration processing. During our investigation, we identified that a recent change aimed at improving API query performance caused an increase in load signals, which triggered migration throttling. As a result, the performance of migrations was negatively impacted, and overall migration duration increased. In parallel, we identified a race condition that caused a specific migration to be repeatedly re-queued, further straining system resources and contributing to a backlog of migration jobs, resulting in accumulated delays. No data was lost, and all migrations were ultimately processed successfully.<br /><br />We have reverted the feature flag associated with a query change and are working to improve system safeguards to help prevent similar race condition issues from occurring in the future.",
           "incident_id": "71tl7pkqysgw",
           "created_at": "2025-05-17T02:27:01.167Z",
-          "updated_at": "2025-05-17T02:27:01.167Z",
+          "updated_at": "2025-05-19T19:55:57.742Z",
           "display_at": "2025-05-17T02:27:01.167Z",
           "affected_components": null,
           "deliver_notifications": true,
