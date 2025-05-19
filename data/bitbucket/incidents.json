@@ -4,15 +4,15 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-05-19T13:51:01.438Z"
+    "updated_at": "2025-05-19T16:43:45.373Z"
   },
   "incidents": [
     {
       "id": "z1lk6hmkp9gt",
       "name": "Bitbucket has degraded performance",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-05-08T15:41:12.779Z",
-      "updated_at": "2025-05-09T11:17:42.401Z",
+      "updated_at": "2025-05-19T16:43:45.369Z",
       "monitoring_at": "2025-05-08T15:57:14.828Z",
       "resolved_at": "2025-05-09T11:17:41.794Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2025-05-08T15:41:12.772Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "f60x4292d2f5",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn May 8, 2025, at 3:26pm UTC, Bitbucket Cloud experienced website and API latency due to an overloaded primary database. The event was caused by a backfill job running from an internal Atlassian service, which triggered an excessive call volume of expensive queries and pressure on database resources.\n\nAs a result, the primary database automatically failed over, and Bitbucket services recovered in 15 minutes. Our real-time monitoring detected the incident immediately, and the high-intensity backfill job was stopped. However, following the failover, a backlog of retries from downstream services continued to impact overall database performance. Customers may have seen intermittent errors or website latency during this time.\n\nDuring this period following the failover, the engineering team implemented several strategies to further shed database load, successfully alleviating pressure on resources and improving performance. On May 9th at 11:19 AM UTC, Bitbucket Cloud systems were fully operational.\n\n### **Impact**\n\nThe overall impact occurred between May 8th, 2025, at 3:26 PM and May 9th at 11:19 AM UTC on Bitbucket Cloud. The incident resulted in increased latency and intermittent failures across Bitbucket Cloud services, including the website, API, and Bitbucket Pipelines.\n\n### **Root cause**\n\nThe issue was caused by an internal high-scale backfill job that triggered excessive load on certain API endpoints, which eventually impacted the database through resource-intensive queries and operations. This led to additional load from retries by dependent services, increasing the total recovery time.\n\n### **Remedial action plan and next steps**\n\nWe know that outages impact your productivity. While we have several testing and preventative processes in place, this specific issue wasn’t identified during our testing, as it was related to a specific high-scale backfill job run by an internal component, which impacted highly resource-intensive database queries.\n\nTo prevent this type of incident from recurring, we are prioritizing the following improvement actions:\n\n* Improve database request routing so that more reads go to read replicas instead of the write-primary database.\n* Adjust rate limits for internal API endpoints with resource-intensive database operations.\n* Optimize database queries so that they can run more efficiently.\n* Tune retry policies from downstream services.\n\nWe apologize to customers whose services were interrupted by this incident, and we are taking immediate steps to improve the platform’s reliability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "z1lk6hmkp9gt",
+          "created_at": "2025-05-19T16:42:52.993Z",
+          "updated_at": "2025-05-19T16:43:45.366Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "9zhrs99hl4vg",
           "status": "resolved",
