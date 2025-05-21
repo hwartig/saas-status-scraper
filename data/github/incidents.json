@@ -4,9 +4,39 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-05-21T09:51:01.897Z"
+    "updated_at": "2025-05-21T14:34:12.704Z"
   },
   "incidents": [
+    {
+      "id": "89gkzpf9fc20",
+      "name": "Incident with Webhooks",
+      "status": "resolved",
+      "created_at": "2025-05-21T09:00:00.000Z",
+      "updated_at": "2025-05-21T14:34:12.700Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-05-21T09:00:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/pk6pt10ys2dl",
+      "started_at": "2025-05-21T14:34:12.644Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "6zjsd03ncs0l",
+          "status": "resolved",
+          "body": "A change to the webhooks UI removed the ability to add webhooks. The timeframe of this impact was between 8:49 and 12:55 UTC on May 21st 2025. Existing webhooks, as well as adding webhooks via the API were unaffected. The issue has been fixed.",
+          "incident_id": "89gkzpf9fc20",
+          "created_at": "2025-05-21T14:34:12.691Z",
+          "updated_at": "2025-05-21T14:34:12.691Z",
+          "display_at": "2025-05-21T09:00:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "d3nnz2ckp2f7",
       "name": "Incident with Copilot",
@@ -6512,119 +6542,6 @@
           "description": null,
           "showcase": false,
           "start_date": "2022-06-21",
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "pnl2xrj64d7p",
-      "name": "Incident with Packages",
-      "status": "resolved",
-      "created_at": "2025-02-25T00:17:09.692Z",
-      "updated_at": "2025-02-27T21:51:24.860Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-02-25T01:08:43.750Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/g5jp9m2d9jnq",
-      "started_at": "2025-02-25T00:17:09.680Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "87mcy06y1s0z",
-          "status": "resolved",
-          "body": "On February 25, 2025, between 00:17 UTC and 01:08 UTC, GitHub Packages experienced a service degradation, leading to failures uploading and downloading packages, along with increased latency for all requests to GitHub Packages registry. At peak impact, about 14% of uploads and downloads failed, and all Packages requests were delayed by an average of 7 seconds. The incident was caused by the rollout of a database configuration change that resulted in a degradation in database performance. We mitigated the incident by rolling back the contributing change and failing over the database. In response to this incident, we are tuning database configurations and resolving a source of deadlocks. We are also redistributing certain workloads to read replicas to reduce latency and enhance overall database performance.",
-          "incident_id": "pnl2xrj64d7p",
-          "created_at": "2025-02-25T01:08:43.750Z",
-          "updated_at": "2025-02-27T21:51:24.854Z",
-          "display_at": "2025-02-25T01:08:43.750Z",
-          "affected_components": [
-            {
-              "code": "st3j38cctv9l",
-              "name": "Packages",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "8tqhmjx6f0j8",
-          "status": "investigating",
-          "body": "We have confirmed recovery for the majority of our systems. Some systems may still experience higher than normal latency as they catch up.",
-          "incident_id": "pnl2xrj64d7p",
-          "created_at": "2025-02-25T01:08:32.701Z",
-          "updated_at": "2025-02-25T01:08:32.701Z",
-          "display_at": "2025-02-25T01:08:32.701Z",
-          "affected_components": [
-            {
-              "code": "st3j38cctv9l",
-              "name": "Packages",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "p6bcddnmcxt2",
-          "status": "investigating",
-          "body": "We have identified the issue impacting packages and have rolled out a fix. We are seeing signs of recovery and continue to monitor the situation.",
-          "incident_id": "pnl2xrj64d7p",
-          "created_at": "2025-02-25T00:41:56.789Z",
-          "updated_at": "2025-02-25T00:41:56.789Z",
-          "display_at": "2025-02-25T00:41:56.789Z",
-          "affected_components": [
-            {
-              "code": "st3j38cctv9l",
-              "name": "Packages",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dkmb7bcrrw8d",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Packages",
-          "incident_id": "pnl2xrj64d7p",
-          "created_at": "2025-02-25T00:17:09.816Z",
-          "updated_at": "2025-02-25T00:17:09.816Z",
-          "display_at": "2025-02-25T00:17:09.816Z",
-          "affected_components": [
-            {
-              "code": "st3j38cctv9l",
-              "name": "Packages",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "st3j38cctv9l",
-          "name": "Packages",
-          "status": "operational",
-          "created_at": "2019-11-13T18:02:40.064Z",
-          "updated_at": "2025-02-26T17:19:02.400Z",
-          "position": 8,
-          "description": "API requests and webhook delivery for GitHub Packages",
-          "showcase": false,
-          "start_date": null,
           "group_id": null,
           "page_id": "kctbh9vrtdwd",
           "group": false,
