@@ -4,7 +4,7 @@
     "name": "Apify",
     "url": "https://status.apify.com",
     "time_zone": "Europe/Prague",
-    "updated_at": "2025-05-24T06:01:25.455+02:00"
+    "updated_at": "2025-05-24T08:23:52.739+02:00"
   },
   "components": [
     {
@@ -205,9 +205,9 @@
     {
       "id": "z2cl20hmyryr",
       "name": "Actors",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-07-12T08:48:36.759+02:00",
-      "updated_at": "2025-04-10T15:41:26.654+02:00",
+      "updated_at": "2025-05-24T08:23:52.686+02:00",
       "position": 4,
       "description": "Actors are serverless cloud programs running on Apify that can perform arbitrary computing jobs, such as send an email or crawl a website with millions of pages.",
       "showcase": false,
@@ -485,10 +485,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "sk25z89wj8ds",
+      "name": "Incorrect Actor Maintenance Flag",
+      "status": "investigating",
+      "created_at": "2025-05-24T08:23:52.655+02:00",
+      "updated_at": "2025-05-24T08:23:52.734+02:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/ny10b6cj9g87",
+      "started_at": "2025-05-24T08:23:52.651+02:00",
+      "page_id": "j23nkrf8p8p8",
+      "incident_updates": [
+        {
+          "id": "yfxxz9yb2y8s",
+          "status": "investigating",
+          "body": "Actors was incorrectly flagged by the automated QA system due to a false positive test result. No issues were detected in actual runtime behavior.",
+          "incident_id": "sk25z89wj8ds",
+          "created_at": "2025-05-24T08:23:52.731+02:00",
+          "updated_at": "2025-05-24T08:23:52.731+02:00",
+          "display_at": "2025-05-24T08:23:52.731+02:00",
+          "affected_components": [
+            {
+              "code": "z2cl20hmyryr",
+              "name": "Actors",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "z2cl20hmyryr",
+          "name": "Actors",
+          "status": "degraded_performance",
+          "created_at": "2018-07-12T08:48:36.759+02:00",
+          "updated_at": "2025-05-24T08:23:52.686+02:00",
+          "position": 4,
+          "description": "Actors are serverless cloud programs running on Apify that can perform arbitrary computing jobs, such as send an email or crawl a website with millions of pages.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "j23nkrf8p8p8",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
