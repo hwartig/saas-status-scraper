@@ -4,7 +4,7 @@
     "name": "Bitrise CI",
     "url": "https://status.bitrise.io",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-05-26T02:50:52.077Z"
+    "updated_at": "2025-05-26T07:33:41.784Z"
   },
   "components": [
     {
@@ -59,9 +59,9 @@
     {
       "id": "jmwzblpshvb7",
       "name": "Web App",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2015-10-31T15:46:48.508Z",
-      "updated_at": "2025-05-22T16:51:46.744Z",
+      "updated_at": "2025-05-26T07:28:40.487Z",
       "position": 2,
       "description": null,
       "showcase": true,
@@ -228,7 +228,7 @@
     {
       "id": "dgrgk07ng5t9",
       "name": "Third Party Integrations",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2015-10-31T16:09:11.306Z",
       "updated_at": "2021-07-08T02:39:48.031Z",
       "position": 9,
@@ -531,9 +531,9 @@
     {
       "id": "px1ztqt0q85h",
       "name": "GitHub API Requests",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2019-01-21T12:55:24.007Z",
-      "updated_at": "2025-05-23T18:33:33.245Z",
+      "updated_at": "2025-05-26T07:21:52.336Z",
       "position": 35,
       "description": null,
       "showcase": false,
@@ -576,9 +576,9 @@
     {
       "id": "hjzb95f925h1",
       "name": "GitHub Git Operations",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2019-01-21T12:55:29.362Z",
-      "updated_at": "2025-05-08T16:28:24.462Z",
+      "updated_at": "2025-05-26T07:22:30.785Z",
       "position": 40,
       "description": null,
       "showcase": false,
@@ -589,10 +589,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "5dvzmwjtcjpz",
+      "name": "A large number of builds are not starting",
+      "status": "investigating",
+      "created_at": "2025-05-26T07:27:36.341Z",
+      "updated_at": "2025-05-26T07:33:41.777Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/v0xncxl02lch",
+      "started_at": "2025-05-26T07:27:36.000Z",
+      "page_id": "1q8r4n02vb2k",
+      "incident_updates": [
+        {
+          "id": "kgjq2zt7xn6d",
+          "status": "investigating",
+          "body": "We are currently experiencing elevated errors in build triggering for projects connected to a GitHub repository, due to degraded performance of the GitHub API. Our team is monitoring the situation and will provide updates as soon as more information becomes available",
+          "incident_id": "5dvzmwjtcjpz",
+          "created_at": "2025-05-26T07:28:40.529Z",
+          "updated_at": "2025-05-26T07:28:42.556Z",
+          "display_at": "2025-05-26T07:28:40.529Z",
+          "affected_components": [
+            {
+              "code": "jmwzblpshvb7",
+              "name": "Web App",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1926903303373299893
+        },
+        {
+          "id": "4dzqclt7qskw",
+          "status": "investigating",
+          "body": "We see elevated error rates in build triggering.\n\nThis seems to be connected to Github, especially builds requiring Github API to trigger.\n\nWe are investigating the issue.",
+          "incident_id": "5dvzmwjtcjpz",
+          "created_at": "2025-05-26T07:27:36.428Z",
+          "updated_at": "2025-05-26T07:33:41.773Z",
+          "display_at": "2025-05-26T07:27:36.000Z",
+          "affected_components": [
+            {
+              "code": "jmwzblpshvb7",
+              "name": "Web App",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1926903028390436886
+        }
+      ],
+      "components": [
+        {
+          "id": "jmwzblpshvb7",
+          "name": "Web App",
+          "status": "partial_outage",
+          "created_at": "2015-10-31T15:46:48.508Z",
+          "updated_at": "2025-05-26T07:28:40.487Z",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "1q8r4n02vb2k",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
