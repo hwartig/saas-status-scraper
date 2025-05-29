@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-05-29T16:30:21.569Z"
+    "updated_at": "2025-05-29T18:57:55.308Z"
   },
   "incidents": [
     {
@@ -357,7 +357,7 @@
       "name": "We're experiencing errors",
       "status": "resolved",
       "created_at": "2025-05-26T07:21:51.216Z",
-      "updated_at": "2025-05-26T10:17:51.851Z",
+      "updated_at": "2025-05-29T18:57:55.296Z",
       "monitoring_at": null,
       "resolved_at": "2025-05-26T10:17:51.836Z",
       "impact": "minor",
@@ -368,10 +368,10 @@
         {
           "id": "kmyqpst90j3d",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On May 26, 2025, between 06:20 UTC and 09:45 UTC GitHub experienced broad failures across a variety of services (API, Issues, Git, etc). These were degraded at times, but peaked at 100% failure rates for some operations during this time.<br /><br />On May 23, a new feature was added to Copilot APIs and monitored during rollout but it was not tested at peak load. At 6:20 UTC on May 26, load increased on the code path in question and started to degrade a Copilot API because the caching for this endpoint and circuit breakers for high load were misconfigured.<br /><br />In addition, the traffic limiting meant to protect wider swaths of the GitHub API from queuing was not yet covering this endpoint, meaning it was able to overwhelm the capacity to serve traffic and cause request queuing.<br /><br />We were able to mitigate the incident by turning off the endpoint until the behavior could be reverted.<br /><br />We are already working on a quality of service strategy for API endpoints like this that will limit the impact of a broad incident and are rolling it out. We are also addressing the specific caching and circuit breaker misconfigurations for this endpoint, which would have reduced the time to mitigate this particular incident and the blast radius.",
           "incident_id": "d0nm3xcdc5jw",
           "created_at": "2025-05-26T10:17:51.836Z",
-          "updated_at": "2025-05-26T10:17:51.836Z",
+          "updated_at": "2025-05-29T18:57:55.291Z",
           "display_at": "2025-05-26T10:17:51.836Z",
           "affected_components": [
             {
