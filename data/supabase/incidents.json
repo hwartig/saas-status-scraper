@@ -4,9 +4,62 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-03T22:21:17.040Z"
+    "updated_at": "2025-06-04T09:41:38.294Z"
   },
   "incidents": [
+    {
+      "id": "1v26qpnczmrg",
+      "name": "supabase-js client lib JSR issue in Edge Functions",
+      "status": "identified",
+      "created_at": "2025-06-04T09:41:38.206Z",
+      "updated_at": "2025-06-04T09:41:38.291Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/lf9k3tfmqlnd",
+      "started_at": "2025-06-04T09:41:38.201Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "xnlmw6vwf1sx",
+          "status": "identified",
+          "body": "The team has identified an issue with the latest version of supabase-js from JSR in Edge Functions.\n\nA fix has been identified and is being worked on.\n\nIn the meantime, you can apply the following mitigations to maintain normal functionality:\n* use version 2.49.8 of the library\n* use import { createClient } from \"npm:@supabase/supabase-js@2\"",
+          "incident_id": "1v26qpnczmrg",
+          "created_at": "2025-06-04T09:41:38.288Z",
+          "updated_at": "2025-06-04T09:41:38.288Z",
+          "display_at": "2025-06-04T09:41:38.288Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "mvs609wqrsf7",
+          "name": "Edge Functions",
+          "status": "partial_outage",
+          "created_at": "2022-08-10T18:16:24.352Z",
+          "updated_at": "2025-06-04T09:41:38.240Z",
+          "position": 7,
+          "description": "Globally deployed serverless functions",
+          "showcase": true,
+          "start_date": "2022-08-10",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "25cw8crd7nbq",
       "name": "Management API – Increased Error Rates and Response Times",
@@ -2008,9 +2061,9 @@
         {
           "id": "mvs609wqrsf7",
           "name": "Edge Functions",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2022-08-10T18:16:24.352Z",
-          "updated_at": "2025-03-24T22:44:38.712Z",
+          "updated_at": "2025-06-04T09:41:38.240Z",
           "position": 7,
           "description": "Globally deployed serverless functions",
           "showcase": true,
@@ -4887,127 +4940,6 @@
           "created_at": "2024-11-19T11:37:21.748Z",
           "updated_at": "2024-11-19T11:37:21.748Z",
           "display_at": "2024-11-19T11:37:21.748Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "dpf7cxbq0knx",
-      "name": "Compute capacity issues observed in eu-west-3",
-      "status": "resolved",
-      "created_at": "2024-11-18T10:28:28.474Z",
-      "updated_at": "2024-11-18T22:33:03.357Z",
-      "monitoring_at": "2024-11-18T21:49:17.192Z",
-      "resolved_at": "2024-11-18T22:33:03.343Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/q0xch0wr7k1d",
-      "started_at": "2024-11-18T10:28:28.460Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "x7q0bfylvqy8",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "dpf7cxbq0knx",
-          "created_at": "2024-11-18T22:33:03.343Z",
-          "updated_at": "2024-11-18T22:33:03.343Z",
-          "display_at": "2024-11-18T22:33:03.343Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9d4dzssdzpz8",
-          "status": "monitoring",
-          "body": "We have observed no further errors and have re-enabled project creation, restarting, and compute upgrade changes again. We will continue to monitor for continued stability.",
-          "incident_id": "dpf7cxbq0knx",
-          "created_at": "2024-11-18T21:49:17.192Z",
-          "updated_at": "2024-11-18T21:49:17.192Z",
-          "display_at": "2024-11-18T21:49:17.192Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "f0mky0x7q0z8",
-          "status": "identified",
-          "body": "We are observing a recovery in capacity in the eu-west-3 region and are continuing to monitor the situation.\n\nThe ability to create new projects, restart projects or make compute upgrades in the eu-west-3 region are still disabled until the capacity issues are fully resolved.",
-          "incident_id": "dpf7cxbq0knx",
-          "created_at": "2024-11-18T18:26:43.380Z",
-          "updated_at": "2024-11-18T18:26:43.380Z",
-          "display_at": "2024-11-18T18:26:43.380Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fx5fkmyn5j7f",
-          "status": "identified",
-          "body": "There is still insufficient compute available in the eu-west-3 region, we have disabled the ability to create new projects, restart projects or make compute upgrades in the eu-west-3 region until the capacity issues are resolved. \n\nWe are working with AWS to come up with a timeframe for when this capacity issue may be resolved.",
-          "incident_id": "dpf7cxbq0knx",
-          "created_at": "2024-11-18T18:05:26.103Z",
-          "updated_at": "2024-11-18T18:05:26.103Z",
-          "display_at": "2024-11-18T18:05:26.103Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "kcf2dcr87c3f",
-          "status": "identified",
-          "body": "There is still insufficient compute available in the eu-west-3 region, we have disabled the ability to create new projects, restart projects or make compute upgrades in the eu-west-3 region until the capacity issues are resolved.",
-          "incident_id": "dpf7cxbq0knx",
-          "created_at": "2024-11-18T14:24:09.740Z",
-          "updated_at": "2024-11-18T14:24:09.740Z",
-          "display_at": "2024-11-18T14:24:09.740Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xh9ybwm77zr3",
-          "status": "identified",
-          "body": "We recommend that customers with projects in the eu-west-3 region should not perform restarts or compute upgrades until the capacity issues are resolved.",
-          "incident_id": "dpf7cxbq0knx",
-          "created_at": "2024-11-18T10:52:03.363Z",
-          "updated_at": "2024-11-18T10:52:03.363Z",
-          "display_at": "2024-11-18T10:52:03.363Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7vddf2kx066k",
-          "status": "identified",
-          "body": "We have identified the issue as being related to our cloud provider displaying insufficient compute capacity in the eu-west-3 region.",
-          "incident_id": "dpf7cxbq0knx",
-          "created_at": "2024-11-18T10:34:20.485Z",
-          "updated_at": "2024-11-18T10:34:20.485Z",
-          "display_at": "2024-11-18T10:34:20.485Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ghydy1rgbcwm",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "dpf7cxbq0knx",
-          "created_at": "2024-11-18T10:28:28.598Z",
-          "updated_at": "2024-11-18T10:28:28.598Z",
-          "display_at": "2024-11-18T10:28:28.598Z",
           "affected_components": null,
           "deliver_notifications": true,
           "custom_tweet": null,
