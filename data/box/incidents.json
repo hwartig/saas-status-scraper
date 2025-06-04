@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-06-04T07:20:22.811-07:00"
+    "updated_at": "2025-06-04T09:46:55.805-07:00"
   },
   "incidents": [
     {
@@ -12,7 +12,7 @@
       "name": "[Outage] Box Services Unavailable",
       "status": "postmortem",
       "created_at": "2025-05-21T14:28:00.838-07:00",
-      "updated_at": "2025-05-22T09:26:31.486-07:00",
+      "updated_at": "2025-06-04T09:46:55.796-07:00",
       "monitoring_at": "2025-05-21T15:07:39.972-07:00",
       "resolved_at": "2025-05-21T16:10:49.987-07:00",
       "impact": "critical",
@@ -23,10 +23,10 @@
         {
           "id": "dxzpwc5y57jz",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\nOn May 21, 2025 between 02:18 PM PT and 02:49 PM PT, users may have experienced difficulties while working in Box. During this time, Box services and APIs were temporarily unavailable. The was caused by a middleware service that was unable to discover our databases due to a change made in the tooling used to manage our database fleet. We were able to resolve the issue by rolling back the problematic change. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further review. In the event our continuing investigation yields new substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "body": "We recently addressed issues affecting Box and would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 02:18 PM PT and 02:49 PM PT on May 21, 2025, users may have experienced difficulties while working in Box. During this time, Box services and APIs were temporarily unavailable. This was caused by a middleware service that was unable to discover our databases due to a change made in the tooling used to manage our database fleet. We were able to resolve the issue by rolling back the problematic change.  In addition, we are improving our database management tool’s observability and rollout process to proactively detect and prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nAs part of our routine patching process, we upgraded the tooling used to manage our database fleet. This upgrade was performed before certain prerequisite upgrades on a subset of critical databases. As a result, the updated tooling was incompatible with those databases, causing our middleware service to fail to discover them, leading to a service outage.\n\nThe incident highlighted gaps in our database management tool’s upgrade sequencing, rollout validation, and rollback readiness as well as gaps in system observability needed for early detection and remediation of partial discovery failures, all areas we are actively addressing.\n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Improve patching upgrade rollout validation\n* Optimize our database management tool’s rollback procedures for faster recovery\n* Enhance system observability for early detection and remediation of partial discovery failures\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
           "incident_id": "np6l3wntd830",
           "created_at": "2025-05-22T09:26:02.310-07:00",
-          "updated_at": "2025-05-22T09:26:31.484-07:00",
+          "updated_at": "2025-06-04T09:46:55.792-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
@@ -264,7 +264,7 @@
       "name": "[Major] Customers may have experienced issues with Login, SSO, Uploads and Downloads",
       "status": "postmortem",
       "created_at": "2025-05-19T01:00:00.000-07:00",
-      "updated_at": "2025-05-29T11:53:22.589-07:00",
+      "updated_at": "2025-06-04T09:45:44.942-07:00",
       "monitoring_at": null,
       "resolved_at": "2025-05-19T01:00:00.000-07:00",
       "impact": "major",
@@ -275,10 +275,10 @@
         {
           "id": "p85lysp9w998",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\n \n\nOn May 19, 2025 between 1:08 AM PT and 1:18 AM PT, some users may have experienced difficulties while working in Box. During this time, users may have seen intermittent errors when interacting with Box services. This issue was caused by a temporary failure in an underlying network component provided by one of our third-party service providers. The disruption was automatically resolved when the service provider mitigated the issue.\n\n‌\n\nWe are partnering with our service provider to do an in-depth postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "body": "On May 19, 2025 between 1:08 AM PT and 1:18 AM PT, some users may have experienced difficulties while working in Box. During this time, users may have seen intermittent errors when interacting with Box services. This issue was caused by a temporary failure in an underlying network component provided by one of our third-party service providers. The disruption was automatically resolved when the service provider mitigated the issue.\n\nUpon further analysis from our cloud provider, we’ve determined that this was an isolated incident with a very low probability of repeat. Our automation correctly caught the issue and triggered automatic recovery, limiting the impact duration to 10 min. \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
           "incident_id": "bcmqzl2t6xmf",
           "created_at": "2025-05-29T11:52:36.513-07:00",
-          "updated_at": "2025-05-29T11:53:22.586-07:00",
+          "updated_at": "2025-06-04T09:45:44.940-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
