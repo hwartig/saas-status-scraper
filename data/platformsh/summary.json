@@ -4,7 +4,7 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-04T02:00:21.310Z"
+    "updated_at": "2025-06-04T04:12:57.308Z"
   },
   "components": [
     {
@@ -130,9 +130,9 @@
     {
       "id": "gzncjfm5zxp6",
       "name": "Europe (France 3) (fr-3.platform.sh)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2021-04-06T15:26:41.226Z",
-      "updated_at": "2025-06-04T02:00:21.212Z",
+      "updated_at": "2025-06-04T04:12:57.249Z",
       "position": 5,
       "description": "fr-3.platform.sh",
       "showcase": false,
@@ -389,7 +389,61 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "gpjxx89p1vk1",
+      "name": "Partial Outage on fr-3.platform.sh",
+      "status": "identified",
+      "created_at": "2025-06-04T04:12:57.208Z",
+      "updated_at": "2025-06-04T04:12:57.304Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/d218vc2snc1n",
+      "started_at": "2025-06-04T04:12:57.203Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "2vmrz1nhqrrs",
+          "status": "identified",
+          "body": "We have detected an issue affecting service on the fr-3.platform.sh region. Our Operations team has been notified and is currently working to restore service. The console and project services (deployments) are currently unavailable for some projects on the region.\nProduction site uptime is NOT affected. We will update you as soon as we have further information.",
+          "incident_id": "gpjxx89p1vk1",
+          "created_at": "2025-06-04T04:12:57.300Z",
+          "updated_at": "2025-06-04T04:12:57.300Z",
+          "display_at": "2025-06-04T04:12:57.300Z",
+          "affected_components": [
+            {
+              "code": "gzncjfm5zxp6",
+              "name": "Europe (France 3) (fr-3.platform.sh)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "gzncjfm5zxp6",
+          "name": "Europe (France 3) (fr-3.platform.sh)",
+          "status": "degraded_performance",
+          "created_at": "2021-04-06T15:26:41.226Z",
+          "updated_at": "2025-06-04T04:12:57.249Z",
+          "position": 5,
+          "description": "fr-3.platform.sh",
+          "showcase": false,
+          "start_date": "2021-04-06",
+          "group_id": null,
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "0xtd7vs26plz",
@@ -588,7 +642,7 @@
     }
   ],
   "status": {
-    "indicator": "maintenance",
-    "description": "Service Under Maintenance"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
