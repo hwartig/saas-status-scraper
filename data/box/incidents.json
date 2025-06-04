@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-06-04T03:45:49.120-07:00"
+    "updated_at": "2025-06-04T06:51:26.954-07:00"
   },
   "incidents": [
     {
@@ -619,7 +619,7 @@
       "name": "[Critical] Issues with Multiple Box Services",
       "status": "postmortem",
       "created_at": "2025-05-07T06:30:29.515-07:00",
-      "updated_at": "2025-05-08T09:36:04.752-07:00",
+      "updated_at": "2025-06-04T06:51:26.941-07:00",
       "monitoring_at": "2025-05-07T06:55:38.270-07:00",
       "resolved_at": "2025-05-07T12:19:18.315-07:00",
       "impact": "critical",
@@ -630,10 +630,10 @@
         {
           "id": "x2440fmlmgyr",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\n \n\nOn May 7, 2025 between 01:21 AM and 01:00 PM PT, some users may have experienced difficulties while working in Box, particularly when interacting with Box services. The issue occurred due to a code change that inadvertently increased the memory requirements in our database backend for certain queries. This issue triggered automated remediation tooling, however, it was unable to keep up with the consistently increasing load. This resulted in degraded availability for some of our services that perform write operations for a small subset of users. We were able to resolve the issue by rolling back the change once it was identified. We have implemented enhanced monitoring to quickly catch and mitigate similar issues in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting multiple Box services. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nOn May 7, 2025 between 01:21 AM and 01:00 PM PT, some users may have experienced difficulties while working in Box, particularly when interacting with Box services. The issue occurred due to a code change that inadvertently increased the memory requirements in our database backend for certain queries. This issue triggered automated remediation tooling, however, it was unable to keep up with the consistently increasing load. This resulted in degraded availability for some of our services that perform write operations for a small subset of users. We were able to resolve the issue by rolling back the change once it was identified. We have implemented enhanced monitoring to quickly catch and mitigate similar issues in the future. \n\n‌\n\n**Analysis** \n\n‌\n\nThe Search Team is actively working to reduce overall quicksearch latency for customers. Quicksearch is a fast search request executed in the Box Web Application by typing a query term \\(without pressing Enter to continue to FullSearch\\). As part of these efforts, the team implemented validation logic that inadvertently issued a large number of parallel queries against our databases, causing them to experience memory exhaustion. This issue was not caught in testing due to differences in our production data compared to test data. \n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Creating test datasets that reflect production data distribution.\n* Enforcing configuration of bounded execution pools for asynchronous processing, preventing future uncontrolled surges and improving system resilience.\n* Conducting a round of rollback exercises using standardized pipelines while ensuring rollback links are centrally accessible and reliable.\n* Improving logging and monitoring on database nodes and critical dependency traffic, to enable earlier detection of abnormal load patterns.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
           "incident_id": "slc6f8l75rj2",
           "created_at": "2025-05-08T09:35:59.538-07:00",
-          "updated_at": "2025-05-08T09:36:04.749-07:00",
+          "updated_at": "2025-06-04T06:51:26.938-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
@@ -1043,112 +1043,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "qvh7zdkvw690",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "l7d6sw5xtqsn",
-      "name": "[Major] Issues with Multiple Box Services",
-      "status": "postmortem",
-      "created_at": "2025-05-07T02:13:37.078-07:00",
-      "updated_at": "2025-05-08T09:47:13.628-07:00",
-      "monitoring_at": "2025-05-07T02:31:11.171-07:00",
-      "resolved_at": "2025-05-07T02:47:11.056-07:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/zyd6dgpqrw0v",
-      "started_at": "2025-05-07T02:13:37.060-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "wv9s4dsp7k42",
-          "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\n \n\nOn May 7, 2025 between 01:21 AM and 01:00 PM PT, some users may have experienced difficulties while working in Box, particularly when interacting with Box services. The issue occurred due to a code change that inadvertently increased the memory requirements in our database backend for certain queries. This issue triggered automated remediation tooling, however, it was unable to keep up with the consistently increasing load. This resulted in degraded availability for some of our services that perform write operations for a small subset of users. We were able to resolve the issue by rolling back the change once it was identified. We have implemented enhanced monitoring to quickly catch and mitigate similar issues in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
-          "incident_id": "l7d6sw5xtqsn",
-          "created_at": "2025-05-08T09:47:10.246-07:00",
-          "updated_at": "2025-05-08T09:47:13.625-07:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7ss4skr890xx",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. All services have been restored to full functionality. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
-          "incident_id": "l7d6sw5xtqsn",
-          "created_at": "2025-05-07T02:47:11.056-07:00",
-          "updated_at": "2025-05-07T02:47:11.056-07:00",
-          "display_at": "2025-05-07T02:47:11.056-07:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nvk0zpf7qyrv",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "l7d6sw5xtqsn",
-          "created_at": "2025-05-07T02:31:11.171-07:00",
-          "updated_at": "2025-05-07T02:31:11.171-07:00",
-          "display_at": "2025-05-07T02:31:11.171-07:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4yy1qz8drmbf",
-          "status": "investigating",
-          "body": "We are investigating an ongoing issue affecting multiple Box services.  We will provide more information as soon as it is available.",
-          "incident_id": "l7d6sw5xtqsn",
-          "created_at": "2025-05-07T02:13:37.183-07:00",
-          "updated_at": "2025-05-07T02:13:37.183-07:00",
-          "display_at": "2025-05-07T02:13:37.183-07:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "khm68x6zltbt",
-          "name": "Login/SSO",
-          "status": "operational",
-          "created_at": "2018-10-01T20:06:36.188-07:00",
-          "updated_at": "2025-05-21T14:59:45.138-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
           "page_id": "208q92hckwws",
           "group": false,
           "only_show_if_degraded": false
@@ -8345,6 +8239,114 @@
           "showcase": false,
           "start_date": null,
           "group_id": "qvh7zdkvw690",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "t338nyx801f7",
+      "name": "[Minor] Issue with Uploads, Downloads and Public API",
+      "status": "postmortem",
+      "created_at": "2024-01-22T16:16:21.430-08:00",
+      "updated_at": "2024-02-23T11:43:22.024-08:00",
+      "monitoring_at": null,
+      "resolved_at": "2024-01-22T16:16:21.470-08:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/c4plfmrj7g81",
+      "started_at": "2024-01-22T16:16:21.420-08:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "x57cj90wg1pj",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Uploads, Downloads and PublicAPI. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 03:37 PM and 03:47 PM PST on January 22, 2024, some users may have experienced difficulties while working in Box. During this time, an internal service was restarted, which resulted in some users experiencing degraded performance and/or intermittent errors on Box Uploads, Downloads and Public API. The issue occurred as a result of a previous infrastructure change and was automatically resolved once the impacted service successfully restarted and stabilized. We are enhancing our deployment automation and defining additional processes to minimize the risk of similar issues occurring in the future. \n\n‌\n\n**Analysis** \n\nOn January 22, 2024, a change was rolled out on an availability zone in one of our primary regions in which an internal database interaction service was running. There was a pre-existing discrepancy between the code and infrastructure originating from a previous operation performed in response to an unrelated incident. This discrepancy resulted in the impacted service restarting, which caused some users to experience degraded performance. \n\nWhen the change went live, the availability of the service dropped. That caused traffic from downstream services that directed to the service fleet in this zone to fail. As a result the top level metrics were impacted for 10 minutes. The impacted service came back up shortly after, which remediated the issue.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* Enhancing automation to prevent disruptive changes from going live\n* Putting processes and internal SLAs in place that will eliminate discrepancies between our code and infrastructure\n* Adding measures in our codebase to reduce the chances of causing disruptions  \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "t338nyx801f7",
+          "created_at": "2024-01-26T12:33:41.521-08:00",
+          "updated_at": "2024-02-23T11:43:22.022-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "v1s32q9p9gsm",
+          "status": "resolved",
+          "body": "From approximately 3:37 PM to 3:47 PM US Pacific time, we had an issue impacting uploads, downloads and Public API. Our systems automatically detected and corrected the underlying issue. There is no current impact and no further updates will be provided here. If you are currently seeing any issues, please let us know at https://support.box.com.",
+          "incident_id": "t338nyx801f7",
+          "created_at": "2024-01-22T16:16:21.470-08:00",
+          "updated_at": "2024-01-22T16:16:21.470-08:00",
+          "display_at": "2024-01-22T16:16:21.470-08:00",
+          "affected_components": [
+            {
+              "code": "wtcp7snm0429",
+              "name": "Box Web Application - Uploads/Downloads",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "k9qs0mx2d5cw",
+              "name": "Box Platform / API - Content API",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "dl6g3rgzpbmw",
+              "name": "Box Platform / API - Uploads/Downloads",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "k9qs0mx2d5cw",
+          "name": "Content API",
+          "status": "operational",
+          "created_at": "2014-06-26T08:25:48.103-07:00",
+          "updated_at": "2025-04-13T19:11:16.332-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "vggytbdllrjt",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "wtcp7snm0429",
+          "name": "Uploads/Downloads",
+          "status": "operational",
+          "created_at": "2018-10-01T20:08:50.656-07:00",
+          "updated_at": "2025-05-07T12:19:18.262-07:00",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "l6vzpnn62cgq",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "dl6g3rgzpbmw",
+          "name": "Uploads/Downloads",
+          "status": "operational",
+          "created_at": "2018-10-01T20:15:36.651-07:00",
+          "updated_at": "2025-04-13T19:11:16.418-07:00",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "vggytbdllrjt",
           "page_id": "208q92hckwws",
           "group": false,
           "only_show_if_degraded": false
