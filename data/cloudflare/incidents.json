@@ -4,9 +4,62 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-05T22:23:49.895Z"
+    "updated_at": "2025-06-05T22:38:22.840Z"
   },
   "incidents": [
+    {
+      "id": "84vztdywvvjh",
+      "name": "Realtime STUN/TURN outage",
+      "status": "identified",
+      "created_at": "2025-06-05T22:38:22.747Z",
+      "updated_at": "2025-06-05T22:38:22.837Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/l5b9nlgmtbk4",
+      "started_at": "2025-06-05T22:38:22.740Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "b69k8c08gdwn",
+          "status": "identified",
+          "body": "Cloudflare is experiencing issues with its Realtime STUN and TURN services. We are working to mitigate.",
+          "incident_id": "84vztdywvvjh",
+          "created_at": "2025-06-05T22:38:22.834Z",
+          "updated_at": "2025-06-05T22:38:22.834Z",
+          "display_at": "2025-06-05T22:38:22.834Z",
+          "affected_components": [
+            {
+              "code": "5s616lljfwdz",
+              "name": "Cloudflare Sites and Services - Realtime TURN Service",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "5s616lljfwdz",
+          "name": "Realtime TURN Service",
+          "status": "major_outage",
+          "created_at": "2025-05-16T17:07:34.278Z",
+          "updated_at": "2025-06-05T22:38:22.782Z",
+          "position": 71,
+          "description": "Separately from the SFU, Realtime offers a managed TURN service. TURN acts as a relay point for traffic between WebRTC clients like the browser and SFUs, particularly in scenarios where direct communication is obstructed by NATs or firewalls. TURN maintains an allocation of public IP addresses and ports for each session, ensuring connectivity even in restrictive network environments.\r\n\r\nUsing Cloudflare Realtime TURN service is available free of charge when used together with the Realtime SFU. Otherwise, it costs $0.05/real-time GB outbound from Cloudflare to the TURN client.",
+          "showcase": false,
+          "start_date": "2025-05-16",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "hwts1mf4v41g",
       "name": "Issues with Newly Deployed Snippets",
@@ -6424,9 +6477,9 @@
         {
           "id": "5s616lljfwdz",
           "name": "Realtime TURN Service",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2025-05-16T17:07:34.278Z",
-          "updated_at": "2025-05-27T17:05:08.658Z",
+          "updated_at": "2025-06-05T22:38:22.782Z",
           "position": 71,
           "description": "Separately from the SFU, Realtime offers a managed TURN service. TURN acts as a relay point for traffic between WebRTC clients like the browser and SFUs, particularly in scenarios where direct communication is obstructed by NATs or firewalls. TURN maintains an allocation of public IP addresses and ports for each session, ensuring connectivity even in restrictive network environments.\r\n\r\nUsing Cloudflare Realtime TURN service is available free of charge when used together with the Realtime SFU. Otherwise, it costs $0.05/real-time GB outbound from Cloudflare to the TURN client.",
           "showcase": false,
@@ -7749,106 +7802,6 @@
           "description": null,
           "showcase": false,
           "start_date": "2021-04-08",
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "vlr5pjg3k865",
-      "name": "Network Performance Issues in Ashburn, VA.",
-      "status": "resolved",
-      "created_at": "2025-05-13T04:15:37.000Z",
-      "updated_at": "2025-05-16T14:18:37.354Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-05-13T05:00:07.000Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/1s7d0lpnrc03",
-      "started_at": "2025-05-13T04:15:37.000Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "9fdg05xdvy1x",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "vlr5pjg3k865",
-          "created_at": "2025-05-16T14:18:07.477Z",
-          "updated_at": "2025-05-16T14:18:37.339Z",
-          "display_at": "2025-05-13T05:00:07.000Z",
-          "affected_components": [
-            {
-              "code": "4n0gb0kh02gf",
-              "name": "Cloudflare Sites and Services - Network",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "3t0npclljyyg",
-              "name": "North America - Ashburn, VA, United States - (IAD)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7dmc4r1sll2k",
-          "status": "investigating",
-          "body": "Cloudflare has observed issues with network performance in Ashburn, VA on the 13th of May between 04:20 and 04:55 UTC. During this time requests reaching a specific data center in the region could have experienced increased latency and intermittent errors.",
-          "incident_id": "vlr5pjg3k865",
-          "created_at": "2025-05-16T14:03:37.156Z",
-          "updated_at": "2025-05-16T14:17:54.827Z",
-          "display_at": "2025-05-13T04:15:37.000Z",
-          "affected_components": [
-            {
-              "code": "4n0gb0kh02gf",
-              "name": "Cloudflare Sites and Services - Network",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "3t0npclljyyg",
-              "name": "North America - Ashburn, VA, United States - (IAD)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "3t0npclljyyg",
-          "name": "Ashburn, VA, United States - (IAD)",
-          "status": "operational",
-          "created_at": "2014-10-27T20:30:01.380Z",
-          "updated_at": "2025-03-17T09:34:18.940Z",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "4l01sk5cdn5c",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "4n0gb0kh02gf",
-          "name": "Network",
-          "status": "operational",
-          "created_at": "2023-01-13T13:39:19.804Z",
-          "updated_at": "2025-05-31T04:14:47.371Z",
-          "position": 62,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-01-13",
           "group_id": "1km35smx8p41",
           "page_id": "yh6f0r4529hb",
           "group": false,
