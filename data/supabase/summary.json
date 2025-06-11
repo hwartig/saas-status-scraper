@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-10T22:45:24.879Z"
+    "updated_at": "2025-06-11T03:36:56.417Z"
   },
   "components": [
     {
@@ -55,9 +55,9 @@
     {
       "id": "fznyj00kpng2",
       "name": "Auth",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-06-21T09:23:42.781Z",
-      "updated_at": "2025-04-12T19:38:21.683Z",
+      "updated_at": "2025-06-11T02:39:57.337Z",
       "position": 3,
       "description": "Authenticate and authorize users",
       "showcase": true,
@@ -431,10 +431,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "771wbdj5f5h9",
+      "name": "Signin with Apple issues due to JWT issuer change",
+      "status": "identified",
+      "created_at": "2025-06-11T02:39:57.308Z",
+      "updated_at": "2025-06-11T03:36:56.408Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/sj6l8fzv31yh",
+      "started_at": "2025-06-11T02:39:57.304Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "0nxd980sxymn",
+          "status": "identified",
+          "body": "We've identified the cause, and are rolling out a fix on all projects currently using Sign in with Apple.",
+          "incident_id": "771wbdj5f5h9",
+          "created_at": "2025-06-11T03:36:56.405Z",
+          "updated_at": "2025-06-11T03:36:56.405Z",
+          "display_at": "2025-06-11T03:36:56.405Z",
+          "affected_components": [
+            {
+              "code": "fznyj00kpng2",
+              "name": "Auth",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "b4vqzk2s5r2f",
+          "status": "investigating",
+          "body": "We are investigating reports of Sign in with Apple not working due to unexpected JWT issuer URL change on Apple’s side.",
+          "incident_id": "771wbdj5f5h9",
+          "created_at": "2025-06-11T02:39:57.376Z",
+          "updated_at": "2025-06-11T02:39:57.376Z",
+          "display_at": "2025-06-11T02:39:57.376Z",
+          "affected_components": [
+            {
+              "code": "fznyj00kpng2",
+              "name": "Auth",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "fznyj00kpng2",
+          "name": "Auth",
+          "status": "degraded_performance",
+          "created_at": "2023-06-21T09:23:42.781Z",
+          "updated_at": "2025-06-11T02:39:57.337Z",
+          "position": 3,
+          "description": "Authenticate and authorize users",
+          "showcase": true,
+          "start_date": "2023-06-21",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
