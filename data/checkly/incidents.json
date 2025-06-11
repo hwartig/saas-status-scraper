@@ -4,9 +4,39 @@
     "name": "Checkly",
     "url": "https://is.checkly.online",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-11T10:51:11.923Z"
+    "updated_at": "2025-06-11T12:57:37.858Z"
   },
   "incidents": [
+    {
+      "id": "mxm11fzw4qhp",
+      "name": "Frankfurt eu-central-1 networking issues",
+      "status": "resolved",
+      "created_at": "2025-06-10T00:00:00.000Z",
+      "updated_at": "2025-06-11T12:57:37.855Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-06-10T00:00:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/90xs7psys0jz",
+      "started_at": "2025-06-10T00:00:00.000Z",
+      "page_id": "nq8lf8mrmvw6",
+      "incident_updates": [
+        {
+          "id": "c8rrzdclndfb",
+          "status": "resolved",
+          "body": "On June 10 from 1:50UTC to 2:36UTC, some checks running in Frankfurt eu-central-1 experienced failures due to networking issues. Affected checks had failed network requests, and in particular affected API checks had requests fail with the error `ETIMEDOUT`.",
+          "incident_id": "mxm11fzw4qhp",
+          "created_at": "2025-06-11T12:57:06.391Z",
+          "updated_at": "2025-06-11T12:57:37.763Z",
+          "display_at": "2025-06-10T00:00:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "60ncpckhl978",
       "name": "Increased scheduling delay in us-west-2",
@@ -5337,145 +5367,6 @@
           "description": null,
           "showcase": true,
           "start_date": "2024-05-30",
-          "group_id": null,
-          "page_id": "nq8lf8mrmvw6",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "gz72cjqb9vl1",
-      "name": "Faulty deployment affecting all browser and multistep checks using playwright",
-      "status": "postmortem",
-      "created_at": "2024-05-30T12:50:20.592Z",
-      "updated_at": "2024-05-31T07:20:41.857Z",
-      "monitoring_at": "2024-05-30T12:59:24.908Z",
-      "resolved_at": "2024-05-30T13:16:21.841Z",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/j68vk1kq7018",
-      "started_at": "2024-05-30T12:50:20.587Z",
-      "page_id": "nq8lf8mrmvw6",
-      "incident_updates": [
-        {
-          "id": "gm3p12f53hzf",
-          "status": "postmortem",
-          "body": "A faulty deployment added the **globalTimeout** Playwright configuration option. This option used an un-parsed environment variable set in our architecture, causing the timeout to be a _string_ instead of a _number_.      \nFor a subset of checks, Playwright failed with the following error: `globalTimeout must be a non-negative number`.\n\nDue to a misconfiguration, the issue went undetected before reaching production. To mitigate and prevent this from happening again, we are leveraging our canary and test environments.",
-          "incident_id": "gz72cjqb9vl1",
-          "created_at": "2024-05-30T13:40:30.158Z",
-          "updated_at": "2024-05-30T14:02:56.951Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": "We published a postmortem on our May 30th incident: https://stspg.io/j68vk1kq7018",
-          "tweet_id": null
-        },
-        {
-          "id": "yp9h8ly98xlt",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "gz72cjqb9vl1",
-          "created_at": "2024-05-30T13:16:21.841Z",
-          "updated_at": "2024-05-30T13:16:23.564Z",
-          "display_at": "2024-05-30T13:16:21.841Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1796168781028606450
-        },
-        {
-          "id": "kfbn8924nw93",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "gz72cjqb9vl1",
-          "created_at": "2024-05-30T12:59:24.908Z",
-          "updated_at": "2024-05-30T12:59:25.352Z",
-          "display_at": "2024-05-30T12:59:24.908Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1796164511088758857
-        },
-        {
-          "id": "bkcyh5909rn2",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "gz72cjqb9vl1",
-          "created_at": "2024-05-30T12:56:59.971Z",
-          "updated_at": "2024-05-30T12:57:00.284Z",
-          "display_at": "2024-05-30T12:56:59.971Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1796163902629408833
-        },
-        {
-          "id": "bqmmk1bqkrsl",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "gz72cjqb9vl1",
-          "created_at": "2024-05-30T12:51:54.196Z",
-          "updated_at": "2024-05-30T12:51:54.540Z",
-          "display_at": "2024-05-30T12:51:54.196Z",
-          "affected_components": [
-            {
-              "code": "67l5jbfddxv3",
-              "name": "Browser check runtime",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1796162620262916316
-        },
-        {
-          "id": "jjq930b8yhx9",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "gz72cjqb9vl1",
-          "created_at": "2024-05-30T12:50:20.622Z",
-          "updated_at": "2024-05-30T12:50:20.936Z",
-          "display_at": "2024-05-30T12:50:20.622Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1796162227676008471
-        }
-      ],
-      "components": [
-        {
-          "id": "67l5jbfddxv3",
-          "name": "Browser check runtime",
-          "status": "operational",
-          "created_at": "2021-07-29T15:53:09.494Z",
-          "updated_at": "2025-06-06T12:12:38.273Z",
-          "position": 5,
-          "description": null,
-          "showcase": true,
-          "start_date": "2021-07-29",
           "group_id": null,
           "page_id": "nq8lf8mrmvw6",
           "group": false,
