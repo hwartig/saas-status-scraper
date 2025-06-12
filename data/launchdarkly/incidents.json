@@ -4,9 +4,62 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-06-12T05:30:54.592-07:00"
+    "updated_at": "2025-06-12T11:47:21.324-07:00"
   },
   "incidents": [
+    {
+      "id": "xxtk8mkpxw6f",
+      "name": "Delays for Customers Using the Cloudflare Edge SDK",
+      "status": "identified",
+      "created_at": "2025-06-12T11:47:21.194-07:00",
+      "updated_at": "2025-06-12T11:47:21.320-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/h0z0c6l33t85",
+      "started_at": "2025-06-12T11:47:21.182-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "zg7j91d6s26t",
+          "status": "identified",
+          "body": "LaunchDarkly customers leveraging the Cloudflare Edge SDK may experience intermittent delays in processing flag changes. This is due to broad platform wide outages at Cloudflare. We're continuing to investigate the status with this partner. All other edge SDK's should be functioning normally. We'll post an update when available from Cloudflare.",
+          "incident_id": "xxtk8mkpxw6f",
+          "created_at": "2025-06-12T11:47:21.315-07:00",
+          "updated_at": "2025-06-12T11:47:21.315-07:00",
+          "display_at": "2025-06-12T11:47:21.315-07:00",
+          "affected_components": [
+            {
+              "code": "dbc44wm7yn68",
+              "name": "Flag Delivery Network (core functionality) - Edge API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "dbc44wm7yn68",
+          "name": "Edge API",
+          "status": "degraded_performance",
+          "created_at": "2022-10-13T10:37:20.077-07:00",
+          "updated_at": "2025-06-12T11:47:21.249-07:00",
+          "position": 4,
+          "description": "Flag updates for Edge integrations",
+          "showcase": true,
+          "start_date": "2022-10-13",
+          "group_id": "vvb9wn53mspf",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "xqpmjqh0hj3q",
       "name": "Errors in Scheduled Flag Changes",
@@ -3114,9 +3167,9 @@
         {
           "id": "dbc44wm7yn68",
           "name": "Edge API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2022-10-13T10:37:20.077-07:00",
-          "updated_at": "2025-01-31T13:47:56.974-08:00",
+          "updated_at": "2025-06-12T11:47:21.249-07:00",
           "position": 4,
           "description": "Flag updates for Edge integrations",
           "showcase": true,
@@ -4526,9 +4579,9 @@
         {
           "id": "dbc44wm7yn68",
           "name": "Edge API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2022-10-13T10:37:20.077-07:00",
-          "updated_at": "2025-01-31T13:47:56.974-08:00",
+          "updated_at": "2025-06-12T11:47:21.249-07:00",
           "position": 4,
           "description": "Flag updates for Edge integrations",
           "showcase": true,
@@ -4866,119 +4919,6 @@
           "showcase": true,
           "start_date": null,
           "group_id": "j4z3sqx09pkg",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "cqb7tvqj9y85",
-      "name": "Errors when using Jira integration",
-      "status": "resolved",
-      "created_at": "2024-11-13T15:51:10.115-08:00",
-      "updated_at": "2024-11-14T09:56:27.088-08:00",
-      "monitoring_at": "2024-11-13T16:47:39.684-08:00",
-      "resolved_at": "2024-11-14T09:56:26.614-08:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/5511tl5dx5yv",
-      "started_at": "2024-11-13T15:51:10.108-08:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "72sz1n6rlqqg",
-          "status": "resolved",
-          "body": "The issue with the Jira integration errors has been resolved with the LaunchDarkly for Jira version 1.0.18-AC from Atlassian Marketplace. Affected customers who have not yet received the update from Atlassian may manually update the integration from Jira administration.",
-          "incident_id": "cqb7tvqj9y85",
-          "created_at": "2024-11-14T09:56:26.614-08:00",
-          "updated_at": "2024-11-14T09:56:27.086-08:00",
-          "display_at": "2024-11-14T09:56:26.614-08:00",
-          "affected_components": [
-            {
-              "code": "xqtx8rntl6pn",
-              "name": "Automations (non-core functionality) - Integrations and webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1857120422111891901
-        },
-        {
-          "id": "4r2g6g14ggjy",
-          "status": "monitoring",
-          "body": "We have published the fix for Jira integration. The fix is expected to automatically roll out to affected customers' Jira instances within the next several hours. As a workaround to waiting, customers may manually update the integration from their Jira administration.",
-          "incident_id": "cqb7tvqj9y85",
-          "created_at": "2024-11-13T16:47:39.684-08:00",
-          "updated_at": "2024-11-13T16:47:40.030-08:00",
-          "display_at": "2024-11-13T16:47:39.684-08:00",
-          "affected_components": [
-            {
-              "code": "xqtx8rntl6pn",
-              "name": "Automations (non-core functionality) - Integrations and webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1856861520011071868
-        },
-        {
-          "id": "0hmkwktl166h",
-          "status": "identified",
-          "body": "We have identified the issue with errors when using our Jira integration. We are continuing our work to resolve it.",
-          "incident_id": "cqb7tvqj9y85",
-          "created_at": "2024-11-13T15:57:55.960-08:00",
-          "updated_at": "2024-11-13T15:57:56.281-08:00",
-          "display_at": "2024-11-13T15:57:55.960-08:00",
-          "affected_components": [
-            {
-              "code": "xqtx8rntl6pn",
-              "name": "Automations (non-core functionality) - Integrations and webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1856849005361467627
-        },
-        {
-          "id": "tl09fkdlfb8z",
-          "status": "investigating",
-          "body": "We are investigating reports with customers experiencing errors when using Jira integration. We are investigating and will provide updates as they become available.",
-          "incident_id": "cqb7tvqj9y85",
-          "created_at": "2024-11-13T15:51:10.196-08:00",
-          "updated_at": "2024-11-13T15:51:10.641-08:00",
-          "display_at": "2024-11-13T15:51:10.196-08:00",
-          "affected_components": [
-            {
-              "code": "xqtx8rntl6pn",
-              "name": "Automations (non-core functionality) - Integrations and webhooks",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1856847304093028769
-        }
-      ],
-      "components": [
-        {
-          "id": "xqtx8rntl6pn",
-          "name": "Integrations and webhooks",
-          "status": "operational",
-          "created_at": "2020-03-16T09:40:42.611-07:00",
-          "updated_at": "2025-01-22T11:49:24.753-08:00",
-          "position": 2,
-          "description": "LaunchDarkly-managed integrations with third-party services",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "5p5kdgq72sz7",
           "page_id": "9404kdk7lkn7",
           "group": false,
           "only_show_if_degraded": false
