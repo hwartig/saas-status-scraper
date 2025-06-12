@@ -4,9 +4,62 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-12T04:35:49.101Z"
+    "updated_at": "2025-06-12T05:46:43.362Z"
   },
   "incidents": [
+    {
+      "id": "ql9cq98f0kcl",
+      "name": "Partial Outage on au.platform.sh",
+      "status": "monitoring",
+      "created_at": "2025-06-12T05:46:43.307Z",
+      "updated_at": "2025-06-12T05:46:43.359Z",
+      "monitoring_at": "2025-06-12T05:46:43.350Z",
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/x2t92vfx5y1k",
+      "started_at": "2025-06-12T05:46:43.301Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "nbhl8pfb7n5w",
+          "status": "monitoring",
+          "body": "We have detected some timeouts with the API services on the au.platform.sh region. \n- API, console, CLI, SSH and deployments are affected\n- Live sites are not affected\n\nOur operations team is investigating",
+          "incident_id": "ql9cq98f0kcl",
+          "created_at": "2025-06-12T05:46:43.350Z",
+          "updated_at": "2025-06-12T05:46:43.350Z",
+          "display_at": "2025-06-12T05:46:43.350Z",
+          "affected_components": [
+            {
+              "code": "by08c9v64dnf",
+              "name": "Australia (au.platform.sh)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "by08c9v64dnf",
+          "name": "Australia (au.platform.sh)",
+          "status": "operational",
+          "created_at": "2017-07-06T09:07:08.052Z",
+          "updated_at": "2025-05-28T16:05:23.735Z",
+          "position": 1,
+          "description": "au.platform.sh",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "4t7c3rpw02zv",
       "name": "Partial Outage on EU-5",
@@ -6763,112 +6816,6 @@
           "description": "uk-1.platform.sh",
           "showcase": false,
           "start_date": null,
-          "group_id": null,
-          "page_id": "l2x5n4czt1ph",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "ht34976k3wrm",
-      "name": "Gateways unresponsive on us-4.platform.sh",
-      "status": "postmortem",
-      "created_at": "2024-03-27T04:42:38.659Z",
-      "updated_at": "2024-03-27T05:46:46.076Z",
-      "monitoring_at": "2024-03-27T04:45:02.083Z",
-      "resolved_at": "2024-03-27T05:37:15.536Z",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/s6n6zgbqr6mp",
-      "started_at": "2024-03-27T04:42:38.655Z",
-      "page_id": "l2x5n4czt1ph",
-      "incident_updates": [
-        {
-          "id": "rtbrchp5chh4",
-          "status": "postmortem",
-          "body": "## What happened\n\nA large increase in incoming connections to the `us-4.platform.sh` region caused the gateways to become unresponsive.  \nAvailability of sites/environments in the region was negatively impacted.\n\nThis incident did not affect Dedicated clusters.\n\n##   \nCustomer impact\n\nSome sites in `us-4.platform.sh` region were unavailable during the incident \\(starting at 04:23 **UTC** on 2024-03-27\\).  \nMost affected sites have recovered within 18 minutes \\(by 04:41 **UTC**\\).\n\n##   \nWhat was done to resolve the incident\n\nWe have blocked some malicious \\(DDOS\\) traffic to the region.",
-          "incident_id": "ht34976k3wrm",
-          "created_at": "2024-03-27T05:43:42.233Z",
-          "updated_at": "2024-03-27T05:46:46.075Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "phfby02gldnl",
-          "status": "resolved",
-          "body": "Alerts for the region have cleared following filtering of the excess traffic, and the region is again stable.",
-          "incident_id": "ht34976k3wrm",
-          "created_at": "2024-03-27T05:37:15.536Z",
-          "updated_at": "2024-03-27T05:37:15.536Z",
-          "display_at": "2024-03-27T05:37:15.536Z",
-          "affected_components": [
-            {
-              "code": "2lrjbtny7kx1",
-              "name": "USA-4 (East 1) (us-4.platform.sh)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "c4jfp22zqfp3",
-          "status": "monitoring",
-          "body": "Traffic has been blocked and we're seeing gateway performance returning to normal. We're continuing to monitor the situation and will take additional action if needed.",
-          "incident_id": "ht34976k3wrm",
-          "created_at": "2024-03-27T04:45:02.083Z",
-          "updated_at": "2024-03-27T04:45:02.083Z",
-          "display_at": "2024-03-27T04:45:02.083Z",
-          "affected_components": [
-            {
-              "code": "2lrjbtny7kx1",
-              "name": "USA-4 (East 1) (us-4.platform.sh)",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "pzh0rscxnntr",
-          "status": "identified",
-          "body": "A large increase in incoming connections to the us-4.platform.sh region caused the gateways to become unresponsive again.\n\nOur Operations team has been notified and is currently investigating the issue.",
-          "incident_id": "ht34976k3wrm",
-          "created_at": "2024-03-27T04:42:38.721Z",
-          "updated_at": "2024-03-27T04:42:38.721Z",
-          "display_at": "2024-03-27T04:42:38.721Z",
-          "affected_components": [
-            {
-              "code": "2lrjbtny7kx1",
-              "name": "USA-4 (East 1) (us-4.platform.sh)",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "2lrjbtny7kx1",
-          "name": "USA-4 (East 1) (us-4.platform.sh)",
-          "status": "operational",
-          "created_at": "2020-12-04T04:28:54.777Z",
-          "updated_at": "2025-06-05T10:48:59.948Z",
-          "position": 17,
-          "description": "us-4.platform.sh",
-          "showcase": false,
-          "start_date": "2020-12-04",
           "group_id": null,
           "page_id": "l2x5n4czt1ph",
           "group": false,
