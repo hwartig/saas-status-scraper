@@ -4,7 +4,7 @@
     "name": "Netlify",
     "url": "https://www.netlifystatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-12T12:30:58.769Z"
+    "updated_at": "2025-06-12T18:43:56.933Z"
   },
   "components": [
     {
@@ -100,9 +100,9 @@
     {
       "id": "999zpz7s4z44",
       "name": "Build Pipeline",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2016-08-26T19:06:12.274Z",
-      "updated_at": "2025-06-05T14:10:12.001Z",
+      "updated_at": "2025-06-12T18:43:56.489Z",
       "position": 4,
       "description": "The system that builds your source code into websites (for git-backed deployments)",
       "showcase": false,
@@ -115,9 +115,9 @@
     {
       "id": "ch6wx8lq2pgk",
       "name": "npm, Inc. Registry Reads",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-09-05T15:42:37.547Z",
-      "updated_at": "2025-04-11T14:51:16.644Z",
+      "updated_at": "2025-06-12T18:14:38.147Z",
       "position": 4,
       "description": null,
       "showcase": false,
@@ -145,9 +145,9 @@
     {
       "id": "y7hq47ts327k",
       "name": "Netlify Application UI",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2020-09-03T23:45:57.385Z",
-      "updated_at": "2025-06-09T18:56:42.233Z",
+      "updated_at": "2025-06-12T18:23:46.681Z",
       "position": 5,
       "description": "The web UI for administering your sites at http://app.netlify.com",
       "showcase": false,
@@ -520,7 +520,7 @@
     {
       "id": "912v4l5dqqhk",
       "name": "Third-Party Services",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-04-22T02:49:01.909Z",
       "updated_at": "2025-04-03T19:06:10.120Z",
       "position": 25,
@@ -545,10 +545,105 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "295qmtpj0zjw",
+      "name": "502 Errors on app.netlify.com",
+      "status": "investigating",
+      "created_at": "2025-06-12T18:23:46.648Z",
+      "updated_at": "2025-06-12T18:43:56.928Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/ytbpnw3hpjfg",
+      "started_at": "2025-06-12T18:23:46.642Z",
+      "page_id": "83dz7syz0j3x",
+      "incident_updates": [
+        {
+          "id": "ym8ttxxq2nyv",
+          "status": "investigating",
+          "body": "We're currently experiencing an increase in 502 errors and issues accessing app.netlify.com. We're investigating a potential issue with Google Cloud Platform, one of our upstream providers.",
+          "incident_id": "295qmtpj0zjw",
+          "created_at": "2025-06-12T18:43:56.534Z",
+          "updated_at": "2025-06-12T18:43:56.923Z",
+          "display_at": "2025-06-12T18:43:56.534Z",
+          "affected_components": [
+            {
+              "code": "999zpz7s4z44",
+              "name": "Build Pipeline",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "y7hq47ts327k",
+              "name": "Netlify Application UI",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1933233826991648858
+        },
+        {
+          "id": "8bbc5yw0994g",
+          "status": "investigating",
+          "body": "We're currently experiencing an increase in 502 errors and issues accessing app.netlify.com. We're currently investigating this issue.",
+          "incident_id": "295qmtpj0zjw",
+          "created_at": "2025-06-12T18:23:46.723Z",
+          "updated_at": "2025-06-12T18:23:47.187Z",
+          "display_at": "2025-06-12T18:23:46.723Z",
+          "affected_components": [
+            {
+              "code": "y7hq47ts327k",
+              "name": "Netlify Application UI",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1933228753070796814
+        }
+      ],
+      "components": [
+        {
+          "id": "999zpz7s4z44",
+          "name": "Build Pipeline",
+          "status": "degraded_performance",
+          "created_at": "2016-08-26T19:06:12.274Z",
+          "updated_at": "2025-06-12T18:43:56.489Z",
+          "position": 4,
+          "description": "The system that builds your source code into websites (for git-backed deployments)",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "83dz7syz0j3x",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "y7hq47ts327k",
+          "name": "Netlify Application UI",
+          "status": "partial_outage",
+          "created_at": "2020-09-03T23:45:57.385Z",
+          "updated_at": "2025-06-12T18:23:46.681Z",
+          "position": 5,
+          "description": "The web UI for administering your sites at http://app.netlify.com",
+          "showcase": false,
+          "start_date": "2020-09-03",
+          "group_id": null,
+          "page_id": "83dz7syz0j3x",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }

@@ -4,7 +4,7 @@
     "name": "Bitrise CI",
     "url": "https://status.bitrise.io",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-12T12:30:55.100Z"
+    "updated_at": "2025-06-12T18:41:07.552Z"
   },
   "components": [
     {
@@ -25,7 +25,7 @@
     {
       "id": "kx4q970bbvm5",
       "name": "Build Processing",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-10-31T16:03:35.403Z",
       "updated_at": "2020-12-08T18:09:35.841Z",
       "position": 1,
@@ -74,9 +74,9 @@
     {
       "id": "k4nmvg5qdmkf",
       "name": "Linux Stack (Android, web projects, ...)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-10-31T16:00:22.122Z",
-      "updated_at": "2025-06-11T15:58:46.412Z",
+      "updated_at": "2025-06-12T18:20:37.592Z",
       "position": 2,
       "description": "Builds on Linux platforms",
       "showcase": true,
@@ -589,7 +589,81 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "qgpwvyhy31px",
+      "name": "We are experiencing elevated error rates due to Google Service Outage",
+      "status": "identified",
+      "created_at": "2025-06-12T18:20:37.557Z",
+      "updated_at": "2025-06-12T18:41:07.544Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/cz0z64nqffll",
+      "started_at": "2025-06-12T18:20:37.549Z",
+      "page_id": "1q8r4n02vb2k",
+      "incident_updates": [
+        {
+          "id": "n7cvfpl94vvk",
+          "status": "identified",
+          "body": "We have identified that the recent increase in error rates is directly related to an ongoing outage with Google's services. Our investigation confirms that the root cause of these elevated errors stems from disruptions within Google's cloud infrastructure.\n\nOur teams are closely monitoring the situation. We understand the impact this has on your operations and appreciate your patience as this issue is being addressed. We will provide further updates as more information becomes available or when service is fully restored.\n\nThank you for your understanding.",
+          "incident_id": "qgpwvyhy31px",
+          "created_at": "2025-06-12T18:41:07.182Z",
+          "updated_at": "2025-06-12T18:41:07.538Z",
+          "display_at": "2025-06-12T18:41:07.182Z",
+          "affected_components": [
+            {
+              "code": "k4nmvg5qdmkf",
+              "name": "Build Processing - Linux Stack (Android, web projects, ...)",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1933233116627521584
+        },
+        {
+          "id": "l548gy5x9v8g",
+          "status": "investigating",
+          "body": "We're experiencing an elevated level of errors and are currently looking into the issue. This may cause builds not to start.",
+          "incident_id": "qgpwvyhy31px",
+          "created_at": "2025-06-12T18:20:37.637Z",
+          "updated_at": "2025-06-12T18:20:38.019Z",
+          "display_at": "2025-06-12T18:20:37.637Z",
+          "affected_components": [
+            {
+              "code": "k4nmvg5qdmkf",
+              "name": "Build Processing - Linux Stack (Android, web projects, ...)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": 1933227959705624988
+        }
+      ],
+      "components": [
+        {
+          "id": "k4nmvg5qdmkf",
+          "name": "Linux Stack (Android, web projects, ...)",
+          "status": "degraded_performance",
+          "created_at": "2015-10-31T16:00:22.122Z",
+          "updated_at": "2025-06-12T18:20:37.592Z",
+          "position": 2,
+          "description": "Builds on Linux platforms",
+          "showcase": true,
+          "start_date": null,
+          "group_id": "kx4q970bbvm5",
+          "page_id": "1q8r4n02vb2k",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "50vdnrtj6pf4",
@@ -647,7 +721,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
