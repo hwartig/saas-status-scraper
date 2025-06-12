@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-06-12T12:41:26.367-07:00"
+    "updated_at": "2025-06-12T13:09:32.975-07:00"
   },
   "incidents": [
     {
@@ -83,9 +83,9 @@
     {
       "id": "kcytb2vzwc82",
       "name": "Vendor Service Degradation in Virtual Agent (DialogFlow) Impacting Multiple Twilio Features",
-      "status": "investigating",
+      "status": "identified",
       "created_at": "2025-06-12T11:09:56.349-07:00",
-      "updated_at": "2025-06-12T12:12:25.151-07:00",
+      "updated_at": "2025-06-12T12:44:41.765-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -93,6 +93,92 @@
       "started_at": "2025-06-12T11:09:56.341-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "v94vp49dk198",
+          "status": "identified",
+          "body": "We are experiencing continued service degradation across multiple product features due to a significant vendor platform issue. Some features and services are starting to see early recovery. The following product features are impacted across all regions. We are iterating on workarounds as our vendor partner works to restore service\n\nVoice: \n\n- Features: Dialogflow / ConversationRelay / Realtime Transcriptions / Speech Recognition / Android Voice SDK\n- Impact: Dialogflow: Users may experience elevated latency interacting with Dialogflow agents or failed <Connect><VirtualAgent> TwiML execution Speech recognition: Users may experience delayed or missing speech results or failed <Gather> with speech input TwiML execution Realtime transcriptions: Users may experience delayed or missing transcriptions or failed transcription execution (started via <Start><Transcription> or Transcription API) ConversationRelay: Calls configured with Google ASR/STT will fail Android Voice SDK: See separate row below \"\n\n- Feature: Voice SDK\n- Impact: Prevents Android users from receiving phone calls via Twilio Voice.\n\nFlex Application:\n\n- Feature: Flex Mobile Android  \n- Impact: Flex Mobile Android clients are unable to receive push notifications since Firebase is down. iOS users are not impacted.\n\nServerless: \n\n- Features: Functions, Studio - \n- Impact: Connect Virtual Agent widget invocations failing. Errors installing certain NPM packages which cause build failures. All other customer usage is working as expected.\n\n- Feature: Studio\n- Impact: Invocations of the Connect Virtual Agent widget will transition to the \"Failed\" transition despite an otherwise valid setup\n\nDeveloper Tools\n\n- Feature: Console \n- Impact: All Console pages using Persona React SDK (Trusthub, Account Upgrade) are failing. Customers are unable to upgrade their accounts.\n\nMessaging\n\n- Feature: Messaging Services: \n- Impact: Elevated latency for RCS cap check in the CO flow -> increased latency for CO messages sent with RCS.\n\n- Feature: Conversations: \n- Impact: Customer Conversations will fail to receive push and updated notifications badge counts. Conversations making use of Dialog flow chatbot participants are also failing to access the Dialog flow service.\n\nWe expect to provide another update in 30 minutes or as soon as more information becomes available.",
+          "incident_id": "kcytb2vzwc82",
+          "created_at": "2025-06-12T12:44:41.761-07:00",
+          "updated_at": "2025-06-12T12:44:41.761-07:00",
+          "display_at": "2025-06-12T12:44:41.761-07:00",
+          "affected_components": [
+            {
+              "code": "1gkv0mxhzsjv",
+              "name": "PROGRAMMABLE MESSAGING - Messaging Channels",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "2vs63pk0qq23",
+              "name": "PROGRAMMABLE MESSAGING - Conversations",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "361mb56zmf8z",
+              "name": "PROGRAMMABLE VOICE - Speech Recognition",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "s91kksd3hqjp",
+              "name": "PROGRAMMABLE VOICE - Dialogflow",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "jdtgrvyw6w5z",
+              "name": "PROGRAMMABLE VOICE - ConversationRelay",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "gk7b1lwzf93x",
+              "name": "TWILIO PLATFORM - Trust Hub",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "rk4qzxxbwj7t",
+              "name": "PROGRAMMABLE CHAT",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "q4d7rj555ljl",
+              "name": "FLEX - Flex Application Platform",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "7ypw8tsmyr78",
+              "name": "FLEX - Flex Conversations",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "7c6yv3vctfqv",
+              "name": "SERVERLESS - Studio",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "b3tl520cz8tc",
+              "name": "SERVERLESS - Functions",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "g4hs7h64k9fv",
+              "name": "DEVELOPER TOOLS - Console",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "m5f3wtl0rs3c",
           "status": "investigating",
@@ -344,6 +430,21 @@
       ],
       "components": [
         {
+          "id": "g4hs7h64k9fv",
+          "name": "Console",
+          "status": "degraded_performance",
+          "created_at": "2016-04-07T15:37:46.117-07:00",
+          "updated_at": "2025-06-12T12:44:41.640-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "5myw7f7x6ylm",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
           "id": "7c6yv3vctfqv",
           "name": "Studio",
           "status": "degraded_performance",
@@ -404,6 +505,21 @@
           "only_show_if_degraded": false
         },
         {
+          "id": "7ypw8tsmyr78",
+          "name": "Flex Conversations",
+          "status": "operational",
+          "created_at": "2023-07-03T12:54:11.108-07:00",
+          "updated_at": "2025-04-17T15:32:21.141-07:00",
+          "position": 9,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-07-03",
+          "group_id": "p750yl3t5mwk",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
           "id": "361mb56zmf8z",
           "name": "Speech Recognition",
           "status": "degraded_performance",
@@ -414,6 +530,51 @@
           "showcase": false,
           "start_date": null,
           "group_id": "j3s4w3gnsj08",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "gk7b1lwzf93x",
+          "name": "Trust Hub",
+          "status": "degraded_performance",
+          "created_at": "2022-05-27T14:10:31.524-07:00",
+          "updated_at": "2025-06-12T12:44:41.667-07:00",
+          "position": 13,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-05-27",
+          "group_id": "t26k1dqws96h",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "1gkv0mxhzsjv",
+          "name": "Messaging Channels",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:29:19.563-08:00",
+          "updated_at": "2025-06-12T12:44:41.691-07:00",
+          "position": 14,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s2k3h0mkqnth",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "2vs63pk0qq23",
+          "name": "Conversations",
+          "status": "degraded_performance",
+          "created_at": "2019-10-18T15:30:00.580-07:00",
+          "updated_at": "2025-06-12T12:44:41.713-07:00",
+          "position": 16,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s2k3h0mkqnth",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
@@ -454,16 +615,36 @@
     {
       "id": "5jt68mc01lqx",
       "name": "SMS Delivery Delays to MTN Network in Nigeria",
-      "status": "investigating",
+      "status": "monitoring",
       "created_at": "2025-06-12T10:26:43.301-07:00",
-      "updated_at": "2025-06-12T11:28:41.208-07:00",
-      "monitoring_at": null,
+      "updated_at": "2025-06-12T13:09:32.973-07:00",
+      "monitoring_at": "2025-06-12T13:09:32.947-07:00",
       "resolved_at": null,
       "impact": "minor",
       "shortlink": "https://stspg.io/7mj2pvcdfsrz",
       "started_at": "2025-06-12T10:26:43.290-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "6y805r9089p1",
+          "status": "monitoring",
+          "body": "We are observing recovery in SMS delivery delays when sending messages to MTN Network in Nigeria. We will continue monitoring the service to ensure a full recovery. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "5jt68mc01lqx",
+          "created_at": "2025-06-12T13:09:32.947-07:00",
+          "updated_at": "2025-06-12T13:09:32.947-07:00",
+          "display_at": "2025-06-12T13:09:32.947-07:00",
+          "affected_components": [
+            {
+              "code": "9z5gsqyjs4rl",
+              "name": "CARRIER NETWORK - SMS, Middle East & Africa",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "1cfb8r3sq25k",
           "status": "investigating",
