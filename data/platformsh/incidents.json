@@ -4,7 +4,7 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-12T11:22:04.669Z"
+    "updated_at": "2025-06-12T12:56:00.029Z"
   },
   "incidents": [
     {
@@ -111,6 +111,36 @@
           "only_show_if_degraded": false
         }
       ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "f2w1s7xvhy13",
+      "name": "Unscheduled Maintenance on ch-1.platform.sh",
+      "status": "resolved",
+      "created_at": "2025-06-12T09:00:00.000Z",
+      "updated_at": "2025-06-12T12:56:00.026Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-06-12T09:00:00.000Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/5p64jj3m5y6z",
+      "started_at": "2025-06-12T12:55:38.032Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "skyqxtf9wvd0",
+          "status": "resolved",
+          "body": "The CH-1 region required an unscheduled maintenance period due to load concerns between 0900 and 1100 UTC.\n\nOur Operations team increased the capacity of the underlying hosts to provide additional capacity to the gateways.\n\nProjects hosted on CH-1 may have experienced performance issues with Console WebUI, SSH, and Git Integration access to projects, as well as connection issues with deployment activities during this maintenance.",
+          "incident_id": "f2w1s7xvhy13",
+          "created_at": "2025-06-12T12:55:38.089Z",
+          "updated_at": "2025-06-12T12:55:38.089Z",
+          "display_at": "2025-06-12T09:00:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
       "reminder_intervals": null
     },
     {
@@ -6690,172 +6720,6 @@
           "description": "uk-1.platform.sh",
           "showcase": false,
           "start_date": null,
-          "group_id": null,
-          "page_id": "l2x5n4czt1ph",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "0zlnc4whclzq",
-      "name": "Partial Outage on fr-3.platform.sh",
-      "status": "postmortem",
-      "created_at": "2024-04-03T00:38:41.880Z",
-      "updated_at": "2024-04-04T02:35:21.537Z",
-      "monitoring_at": "2024-04-03T02:32:25.756Z",
-      "resolved_at": "2024-04-03T23:59:16.083Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/jt3y803nwmqt",
-      "started_at": "2024-04-03T00:38:41.874Z",
-      "page_id": "l2x5n4czt1ph",
-      "incident_updates": [
-        {
-          "id": "9mbl0l9bdfmt",
-          "status": "postmortem",
-          "body": "## What happened\n\nUpstream provider had planned network maintenance causing unexpected interruption to our services in region `fr-3.platform.sh`\n\n‌\n\n## Customer Impact\n\nAll environments in region `fr-3.platform.sh` were unreachable temporarily, some of those environments may have experienced outages for more than 1.5 hours.\n\n‌\n\n## What was done to resolve the incident\n\nBased on the internal monitoring alerts, our team migrated all the affected environments to the healthy hosts.  \nAnd our upstream provider had also resolved the network issues so that our infrastructure can then function as expected.",
-          "incident_id": "0zlnc4whclzq",
-          "created_at": "2024-04-04T02:27:32.686Z",
-          "updated_at": "2024-04-04T02:35:21.534Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rhfwgnsmj1b0",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "0zlnc4whclzq",
-          "created_at": "2024-04-03T23:59:16.083Z",
-          "updated_at": "2024-04-03T23:59:16.083Z",
-          "display_at": "2024-04-03T23:59:16.083Z",
-          "affected_components": [
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dhpj0t1vzgw6",
-          "status": "monitoring",
-          "body": "Our upstream provider is still working on their planned network maintenance events.\nGiven the unexpected interruption to our services, we would like to monitor this region for prolonged period of time.\n\nAll environments should now function as expected.\nPlease submit a support ticket if you need further assistance from our team.",
-          "incident_id": "0zlnc4whclzq",
-          "created_at": "2024-04-03T06:52:01.065Z",
-          "updated_at": "2024-04-03T06:52:01.065Z",
-          "display_at": "2024-04-03T06:52:01.065Z",
-          "affected_components": [
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6txkb1rjs22p",
-          "status": "monitoring",
-          "body": "Our team has successfully migrated affected environments to working hosts and will monitor the situation with our upstream provider",
-          "incident_id": "0zlnc4whclzq",
-          "created_at": "2024-04-03T02:32:25.756Z",
-          "updated_at": "2024-04-03T02:32:25.756Z",
-          "display_at": "2024-04-03T02:32:25.756Z",
-          "affected_components": [
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "67t0870hgp1r",
-          "status": "identified",
-          "body": "Our team is still actively working on migrating the environments away from the affected hosts.",
-          "incident_id": "0zlnc4whclzq",
-          "created_at": "2024-04-03T01:55:24.286Z",
-          "updated_at": "2024-04-03T01:55:24.286Z",
-          "display_at": "2024-04-03T01:55:24.286Z",
-          "affected_components": [
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jfhm1w6djmp9",
-          "status": "identified",
-          "body": "There is a technical issue stemming from our upstream provider.\nThey are actively investigating and recovering the availability of the service.",
-          "incident_id": "0zlnc4whclzq",
-          "created_at": "2024-04-03T00:56:24.691Z",
-          "updated_at": "2024-04-03T00:56:24.691Z",
-          "display_at": "2024-04-03T00:56:24.691Z",
-          "affected_components": [
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3n973vvlrb8v",
-          "status": "identified",
-          "body": "We have detected an issue affecting service on the fr-3.platform.sh region. Our Operations team has been notified and is currently working to restore service. Projects on affected region may experience outages.\nWe will update you as soon as we have further information.",
-          "incident_id": "0zlnc4whclzq",
-          "created_at": "2024-04-03T00:38:41.968Z",
-          "updated_at": "2024-04-03T00:38:41.968Z",
-          "display_at": "2024-04-03T00:38:41.968Z",
-          "affected_components": [
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "gzncjfm5zxp6",
-          "name": "Europe (France 3) (fr-3.platform.sh)",
-          "status": "operational",
-          "created_at": "2021-04-06T15:26:41.226Z",
-          "updated_at": "2025-06-12T10:58:12.558Z",
-          "position": 5,
-          "description": "fr-3.platform.sh",
-          "showcase": false,
-          "start_date": "2021-04-06",
           "group_id": null,
           "page_id": "l2x5n4czt1ph",
           "group": false,
