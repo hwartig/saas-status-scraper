@@ -4,9 +4,62 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-11T15:20:47.102Z"
+    "updated_at": "2025-06-14T14:37:41.193Z"
   },
   "incidents": [
+    {
+      "id": "d6hgc4k9t4rj",
+      "name": "Customer Support Ticket Portal",
+      "status": "investigating",
+      "created_at": "2025-06-14T14:37:40.660Z",
+      "updated_at": "2025-06-14T14:37:41.184Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/j5r2ygs2hq4g",
+      "started_at": "2025-06-14T14:37:40.655Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "wh4lp31mc1vb",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue with our Support Portal. During this time, users will be unable to access the Support Portal at https://cloudsupport.digitalocean.com/. We are aware of this issue and our Engineers are working with our vendor to resolve this. \n \nAs a temporary workaround, users may still contact us via the form here: https://www.digitalocean.com/company/contact/support\n\nThank you for your patience. We will post an update as soon as further information becomes available.",
+          "incident_id": "d6hgc4k9t4rj",
+          "created_at": "2025-06-14T14:37:40.737Z",
+          "updated_at": "2025-06-14T14:37:41.178Z",
+          "display_at": "2025-06-14T14:37:40.737Z",
+          "affected_components": [
+            {
+              "code": "hklgsphcrjq4",
+              "name": "Support Center",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1933896628857127349
+        }
+      ],
+      "components": [
+        {
+          "id": "hklgsphcrjq4",
+          "name": "Support Center",
+          "status": "partial_outage",
+          "created_at": "2023-03-06T18:42:44.830Z",
+          "updated_at": "2025-06-14T14:37:40.690Z",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "910gxngf038g",
       "name": "DBaaS Cluster Logs",
@@ -5775,132 +5828,6 @@
           "showcase": false,
           "start_date": "2023-03-06",
           "group_id": null,
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "rj8pskv1j5n8",
-      "name": "Network Connectivity in SFO3 Region",
-      "status": "postmortem",
-      "created_at": "2025-01-07T13:35:38.361Z",
-      "updated_at": "2025-01-16T04:58:57.823Z",
-      "monitoring_at": "2025-01-07T15:51:20.926Z",
-      "resolved_at": "2025-01-07T16:43:08.848Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/ctrzzqxfnsq3",
-      "started_at": "2025-01-07T13:35:38.353Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "36n4ltlbm224",
-          "status": "postmortem",
-          "body": "# Postmortem\n\nWe post updates on incidents regularly to cover the details of our findings, learnings and corresponding actions to prevent recurrence. For this update, we will cover a recent incident related to network maintenance. Maintenance is an essential part of ensuring service stability at DigitalOcean, through scheduled upgrades, patches, and more. We work hard to plan for no interruptions from maintenance activities and we recognize the impact that maintenance can have on our customers if there is downtime. We apologize for the disruption that occurred and have identified action items to ensure maintenance activities are planned with minimal downtime and that we have plans to minimize impact, even when unforeseen errors occur. We go into detail about this below.\n\n## **Incident Summary**\n\nOn Jan. 7, 2025 12:10 UTC, DigitalOcean experienced a loss of network connectivity for Regional External Load Balancers, DOKS, and AppPlatform products in the SFO3 region. This impact was the result of an unexpected effect of scheduled maintenance work to upgrade our infrastructure and enhance network performance. The maintenance work to complete the network change was designed to be seamless, with the worst expected case being dropped packets. The resolution rollout began Jan. 7th at 13:15 UTC and was fully completed with all services reported operational Jan. 7th at 14:30 UTC.\n\n## **Incident Details**\n\nThe DigitalOcean Networking team started performing scheduled maintenance to enhance network performance at 10:00 UTC. As part of this maintenance, a routing change was rolled out at 12:10 UTC that would redirect the traffic over to a new path in the datacenter. There was an old routing configuration present on the Core switches that did not get updated. This resulted in traffic being dropped for products relying on Regional External Load Balancers \\(e.g. Droplets, DOKS, AppPlatform\\). As soon as we detected the drop in traffic, we reverted the changes to mitigate the impact. \n\n## **Timeline of Events**\n\n12:12 UTC - Flip to the new workflow was started and the impact began \n\n12:40 UTC - Alert fired for Load Balancers\n\n13:00 UTC - First report from customers was received\n\n13:13 UTC - Revert of the new code was started\n\n13:21 UTC - Incident was spun up\n\n14:19 UTC - Routing configuration was updated on Core Switches \n\n14:30 UTC - Code revert was completed and service functionality was restored\n\n## **Remediation Actions**\n\nFollowing a full internal postmortem, DigitalOcean engineers identified several areas of learning to prevent similar incidents. These include updating maintenance processes, increasing monitoring and alerting, and improving observability of network services. \n\nKey Learnings:\n\n1. Learning: Gaps in our automated validation of Network configuration setup for the rollout of this enhancement were identified. While our new, upgraded network results in a simpler state, we have inherited interim complexity as we transition from old to new.\n\n* Actions: The gaps in validation automation that resulted in this incident have been addressed. In addition, automated audit processes to further harden the validation process across all network configurations will be applied.\n\n‌\n\n1. Learning: Gaps in our incremental rollout process for network datapath changes for both pre- and post-deployment were identified. The process for these changes allowed for quicker rollouts for small changes that passed validation. We recognize that \"small changes\" can have a high impact.\n\n* Actions: All network changes will follow an incremental rollout plan, regardless of whether or not validation processes determine that it is a minor change. Runbooks have been updated with reachability tests to encompass Load Balancers and Kubernetes clusters for this type of maintenance. Additional testing steps in both pre-maintenance and post-maintenance procedures to confirm the success of the maintenance have also been implemented.",
-          "incident_id": "rj8pskv1j5n8",
-          "created_at": "2025-01-16T04:55:26.548Z",
-          "updated_at": "2025-01-16T04:58:57.817Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": "We published a postmortem on our January 7th incident: https://stspg.io/ctrzzqxfnsq3",
-          "tweet_id": null
-        },
-        {
-          "id": "2zt3knzzntyy",
-          "status": "resolved",
-          "body": "From 13:09 - 14:48 UTC, we experienced an issue with IPv6 network connectivity in our SFO3 region. Our Engineering team was able to identify the root cause, revert changes, and resolve the issue.\n\nDuring that time, connectivity via IPv6 to services in SFO3 was impacted. This included, in particular, connectivity to and provisioning of Load Balancers, control plane connectivity to Kubernetes clusters, and connectivity to App Platform Apps.\n\nIf you continue to experience problems, please open a ticket with our support team. Thank you for your patience and we apologize for any inconvenience.",
-          "incident_id": "rj8pskv1j5n8",
-          "created_at": "2025-01-07T16:43:08.848Z",
-          "updated_at": "2025-01-07T16:43:08.848Z",
-          "display_at": "2025-01-07T16:43:08.848Z",
-          "affected_components": [
-            {
-              "code": "pkldx6th5q38",
-              "name": "Networking - SFO3",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vf7mmzd6j8gv",
-          "status": "monitoring",
-          "body": "Our engineering team has implemented a fix to resolve the networking issue in our SFO3 region. Users should no longer encounter connectivity issues, provisioning Load Balancers, latency, and timeout errors while interacting with resources in the SFO3 region.\n\nWe will post an update as soon as the issue is fully resolved.",
-          "incident_id": "rj8pskv1j5n8",
-          "created_at": "2025-01-07T15:51:20.926Z",
-          "updated_at": "2025-01-07T15:51:20.926Z",
-          "display_at": "2025-01-07T15:51:20.926Z",
-          "affected_components": [
-            {
-              "code": "pkldx6th5q38",
-              "name": "Networking - SFO3",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "679x400sdxkw",
-          "status": "investigating",
-          "body": "Our Engineering team is continuing to investigate the cause of the issue with networking in our SFO3 region and is taking action to mitigate this incident by reverting recent changes. In addition to connectivity issues, users may see failures with provisioning Load Balancers in SFO3.\n\nWe are seeing some services recover, but expect to see a few more short periods of network connectivity issues as the reverts progress.\n\nWe will continue to share updates as soon as we have new information.",
-          "incident_id": "rj8pskv1j5n8",
-          "created_at": "2025-01-07T14:47:52.802Z",
-          "updated_at": "2025-01-07T14:47:52.802Z",
-          "display_at": "2025-01-07T14:47:52.802Z",
-          "affected_components": [
-            {
-              "code": "pkldx6th5q38",
-              "name": "Networking - SFO3",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1wzts8qkt5vf",
-          "status": "investigating",
-          "body": "Our engineering team is investigating an issue related to the SFO3 network maintenance here: https://status.digitalocean.com/incidents/lf0njg8ysj0w\n\nDuring this time users may experience connectivity issues, latency, and timeout errors while interacting with resources in the SFO3 data center. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
-          "incident_id": "rj8pskv1j5n8",
-          "created_at": "2025-01-07T13:35:38.457Z",
-          "updated_at": "2025-01-07T13:35:38.457Z",
-          "display_at": "2025-01-07T13:35:38.457Z",
-          "affected_components": [
-            {
-              "code": "pkldx6th5q38",
-              "name": "Networking - SFO3",
-              "old_status": "under_maintenance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "pkldx6th5q38",
-          "name": "SFO3",
-          "status": "operational",
-          "created_at": "2023-02-22T19:28:05.998Z",
-          "updated_at": "2025-06-11T14:26:06.087Z",
-          "position": 13,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-22",
-          "group_id": "sjlhrm4vf4pr",
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
