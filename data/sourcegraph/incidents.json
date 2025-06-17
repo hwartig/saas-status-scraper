@@ -4,15 +4,15 @@
     "name": "Sourcegraph",
     "url": "https://sourcegraphstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-17T11:21:09.215Z"
+    "updated_at": "2025-06-17T17:04:53.304Z"
   },
   "incidents": [
     {
       "id": "5d1cgxztb60d",
       "name": "Sourcegraph Cloud infrastructure outage",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-06-12T18:14:59.728Z",
-      "updated_at": "2025-06-12T22:34:35.079Z",
+      "updated_at": "2025-06-17T17:04:40.203Z",
       "monitoring_at": null,
       "resolved_at": "2025-06-12T22:34:35.059Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2025-06-12T18:14:59.720Z",
       "page_id": "tjfxzbdw4c4z",
       "incident_updates": [
+        {
+          "id": "zwg420j1pgj9",
+          "status": "postmortem",
+          "body": "# Summary\n\nOn June 12 2025, Sourcegraph hosted services \\(the “service”\\) experienced a site-wide outage due to an upstream providers incident. During the outage, some users were unable to access the service or were experiencing transient errors. The service was restored after the Cloud provider mitigated the underlying issue. \n\nThe affected service included:\n\n* Amp\n* Cody Free/Pro\n* Cody Gateway\n* Sourcegraph Cloud\n* Sourcegraph Workspaces\n\n# Timeline\n\n* 2025-06-12 11:08 AM PDT We created an internal incident after we were notified of an anomaly reported by our monitoring alert policies.\n* 2025-06-12 11:16 AM PDT We concluded that the outage was caused by the Cloud provider and communicated through our public status page at [https://sourcegraphstatus.com/](https://sourcegraphstatus.com/) and [https://ampcodestatus.com/](https://ampcodestatus.com/). We were actively monitoring for updates and assessing the health of individual services to ensure they can be safely restored later.\n* 2025-06-12 6:40 PM PDT All services were restored and validated. We closed the incident.\n\n# Root cause\n\n## GCP incident\n\nOur service utilized multiple GCP services to host the Sourcegraph application, e.g., Cloud SQL, Google Kubernetes Engine, Cloud Run, Cloud Storage. Service Control, one of the GCP’s internal services, was on the critical path for almost all public and internal API requests, and was responsible for authentication, authentication, and quota enforcement. During the incident, Service Control was down due to an application issue and affected all downstream GCP services. \n\nOur service relies on several GCP APIs to maintain basic functionality. For example, we used GCP Identity and Access Management \\(IAM\\) to permit workload to access the GCP-hosted datastore, such as Cloud SQL, and Object Storage. As these API endpoints were all affected by the Service Control outage, our service was inaccessible shortly after the Cloud provider breakage.\n\nWe confirmed all services were recovered at 2025-06-12 6:40 PM PDT.\n\n## Cloudflare incident\n\nIn addition to the GCP service, one of our services, Sourcegraph Workspaces, was affected by Cloudflare outage. The service relied on Cloudflare Workers as a centralized router for all user requests. Between 2025-06-12 10:52 AM PDT and 2025-06-12 1:28 PM PDT Cloudflare Workers experienced a downtime where almost all users' requests were failing. \n\nOur service remained inaccessible after Cloudflare Workers was restored due to the GCP incident above.\n\n# What are we doing about it?\n\nThere are no follow-up actions to this incident. Our team has previously done tabletop exercises for this scenario where GCP recovery may take multiple days. As a worldwide outage we are susceptible to these scenarios and will bring back our services as soon as we can.",
+          "incident_id": "5d1cgxztb60d",
+          "created_at": "2025-06-17T17:03:31.248Z",
+          "updated_at": "2025-06-17T17:04:40.198Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "6rpl4ry4087n",
           "status": "resolved",
@@ -123,9 +136,9 @@
     {
       "id": "ql631v3zvq4x",
       "name": "Sourcegraph hosted services outage",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-06-12T18:18:02.231Z",
-      "updated_at": "2025-06-12T22:33:47.378Z",
+      "updated_at": "2025-06-17T17:04:53.300Z",
       "monitoring_at": "2025-06-12T20:45:16.741Z",
       "resolved_at": "2025-06-12T22:33:47.362Z",
       "impact": "critical",
@@ -133,6 +146,19 @@
       "started_at": "2025-06-12T18:18:02.220Z",
       "page_id": "tjfxzbdw4c4z",
       "incident_updates": [
+        {
+          "id": "j8dc4vm8gskh",
+          "status": "postmortem",
+          "body": "# Summary\n\nOn June 12 2025, Sourcegraph hosted services \\(the “service”\\) experienced a site-wide outage due to an upstream providers incident. During the outage, some users were unable to access the service or were experiencing transient errors. The service was restored after the Cloud provider mitigated the underlying issue. \n\n‌\n\nThe affected service included:\n\n* Amp\n* Cody Free/Pro\n* Cody Gateway\n* Sourcegraph Cloud\n* Sourcegraph Workspaces\n\n# Timeline\n\n* 2025-06-12 11:08 AM PDT We created an internal incident after we were notified of an anomaly reported by our monitoring alert policies.\n* 2025-06-12 11:16 AM PDT We concluded that the outage was caused by the Cloud provider and communicated through our public status page at [https://sourcegraphstatus.com/](https://sourcegraphstatus.com/) and [https://ampcodestatus.com/](https://ampcodestatus.com/). We were actively monitoring for updates and assessing the health of individual services to ensure they can be safely restored later.\n* 2025-06-12 6:40 PM PDT All services were restored and validated. We closed the incident.\n\n# Root cause\n\n## GCP incident\n\nOur service utilized multiple GCP services to host the Sourcegraph application, e.g., Cloud SQL, Google Kubernetes Engine, Cloud Run, Cloud Storage. Service Control, one of the GCP’s internal services, was on the critical path for almost all public and internal API requests, and was responsible for authentication, authentication, and quota enforcement. During the incident, Service Control was down due to an application issue and affected all downstream GCP services. \n\n‌\n\nOur service relies on several GCP APIs to maintain basic functionality. For example, we used GCP Identity and Access Management \\(IAM\\) to permit workload to access the GCP-hosted datastore, such as Cloud SQL, and Object Storage. As these API endpoints were all affected by the Service Control outage, our service was inaccessible shortly after the Cloud provider breakage.\n\n‌\n\nWe confirmed all services were recovered at 2025-06-12 6:40 PM PDT.\n\n## Cloudflare incident\n\nIn addition to the GCP service, one of our services, Sourcegraph Workspaces, was affected by Cloudflare outage. The service relied on Cloudflare Workers as a centralized router for all user requests. Between 2025-06-12 10:52 AM PDT and 2025-06-12 1:28 PM PDT Cloudflare Workers experienced a downtime where almost all users' requests were failing. \n\n‌\n\nOur service remained inaccessible after Cloudflare Workers was restored due to the GCP incident above.\n\n# What are we doing about it?\n\nThere are no follow-up actions to this incident. Our team has previously done tabletop exercises for this scenario where GCP recovery may take multiple days. As a worldwide outage we are susceptible to these scenarios and will bring back our services as soon as we can.",
+          "incident_id": "ql631v3zvq4x",
+          "created_at": "2025-06-17T17:04:51.441Z",
+          "updated_at": "2025-06-17T17:04:53.297Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "x5t4qqnq7l36",
           "status": "resolved",
