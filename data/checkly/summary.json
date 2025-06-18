@@ -4,7 +4,7 @@
     "name": "Checkly",
     "url": "https://is.checkly.online",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-18T03:51:13.045Z"
+    "updated_at": "2025-06-18T05:06:31.586Z"
   },
   "components": [
     {
@@ -70,9 +70,9 @@
     {
       "id": "67l5jbfddxv3",
       "name": "Browser check runtime",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2021-07-29T15:53:09.494Z",
-      "updated_at": "2025-06-06T12:12:38.273Z",
+      "updated_at": "2025-06-18T05:06:31.105Z",
       "position": 5,
       "description": null,
       "showcase": true,
@@ -188,10 +188,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "dg4fz71kcr7h",
+      "name": "Increased scheduling delay in ap-northeast-3",
+      "status": "identified",
+      "created_at": "2025-06-18T05:06:31.069Z",
+      "updated_at": "2025-06-18T05:06:31.580Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/fdzb2265cws4",
+      "started_at": "2025-06-18T05:06:31.064Z",
+      "page_id": "nq8lf8mrmvw6",
+      "incident_updates": [
+        {
+          "id": "h32tym2bmzxr",
+          "status": "identified",
+          "body": "We identified an issue in our scaling logic and deploying a fix right now. You might experience a longer than normal scheduling delay for a subset of checks in ap-northeast-3",
+          "incident_id": "dg4fz71kcr7h",
+          "created_at": "2025-06-18T05:06:31.155Z",
+          "updated_at": "2025-06-18T05:06:31.575Z",
+          "display_at": "2025-06-18T05:06:31.155Z",
+          "affected_components": [
+            {
+              "code": "67l5jbfddxv3",
+              "name": "Browser check runtime",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1935202443186553276
+        }
+      ],
+      "components": [
+        {
+          "id": "67l5jbfddxv3",
+          "name": "Browser check runtime",
+          "status": "degraded_performance",
+          "created_at": "2021-07-29T15:53:09.494Z",
+          "updated_at": "2025-06-18T05:06:31.105Z",
+          "position": 5,
+          "description": null,
+          "showcase": true,
+          "start_date": "2021-07-29",
+          "group_id": null,
+          "page_id": "nq8lf8mrmvw6",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
