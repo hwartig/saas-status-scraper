@@ -4,9 +4,62 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-18T20:59:38.361Z"
+    "updated_at": "2025-06-22T05:40:43.654Z"
   },
   "incidents": [
+    {
+      "id": "7f94wh09jrbw",
+      "name": "GenAI Platform",
+      "status": "resolved",
+      "created_at": "2025-06-22T05:40:43.572Z",
+      "updated_at": "2025-06-22T05:40:43.650Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-06-22T05:40:43.637Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/y9gkmd5txrcd",
+      "started_at": "2025-06-22T05:40:43.569Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "mykcqg808bs2",
+          "status": "resolved",
+          "body": "From 2:57 AM to 4:38 AM UTC, our Engineering team identified and resolved an issue that affected multiple GenAI Platform models. During this period, all GenAI inference services were unavailable. \n\nThe Engineering team has confirmed that the issue has been fully resolved. \n\nIf you continue to experience any problems, please contact our support team by submitting a ticket through your Cloud Control Panel.",
+          "incident_id": "7f94wh09jrbw",
+          "created_at": "2025-06-22T05:40:43.637Z",
+          "updated_at": "2025-06-22T05:40:43.637Z",
+          "display_at": "2025-06-22T05:40:43.637Z",
+          "affected_components": [
+            {
+              "code": "br95fz33h6td",
+              "name": "GenAI Platform",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "br95fz33h6td",
+          "name": "GenAI Platform",
+          "status": "operational",
+          "created_at": "2025-01-22T14:37:25.334Z",
+          "updated_at": "2025-05-15T17:01:04.636Z",
+          "position": 10,
+          "description": null,
+          "showcase": false,
+          "start_date": "2025-01-22",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "vfd6gr6rk86b",
       "name": "Spaces Availability in FRA1",
@@ -5784,79 +5837,6 @@
           "showcase": false,
           "start_date": "2023-03-06",
           "group_id": null,
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "zbrpd3j7hrrd",
-      "name": "Latest AWS SDK/CLI updates incompatible with Spaces",
-      "status": "resolved",
-      "created_at": "2025-01-16T19:14:42.000Z",
-      "updated_at": "2025-01-21T22:21:56.370Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-01-21T22:21:56.349Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/t2rqs8w3xwn4",
-      "started_at": "2025-01-16T19:14:42.000Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "79cr05hbqtlj",
-          "status": "resolved",
-          "body": "Prior to Tuesday, January 21, 2025 at 19:20 UTC, customers that used an AWS CLI or AWS SDK version released on or after January 15, 2025 may have experienced issues with uploading files to a Spaces bucket. This impacted PutObject and UploadPart requests initiated by recent versions of the AWS CLI and AWS SDKs.\n\nOur Engineering team has confirmed resolution of this issue for almost all Spaces buckets (including all new Spaces buckets), which are now compatible with the latest versions of the AWS CLI and AWS SDKs (and tools and applications that depend on these versions).\n\nNote that Spaces does not currently verify data integrity checksums sent by the AWS CLI and AWS SDKs as part of upload requests (see Data Integrity Protections for Amazon S3 - https://docs.aws.amazon.com/sdkref/latest/guide/feature-dataintegrity.html).\n\nCustomers with a bucket that is still incompatible will receive an email from DigitalOcean with follow up steps. If you continue to experience problems, please open a ticket with our Support team. Thank you for your patience through this issue.",
-          "incident_id": "zbrpd3j7hrrd",
-          "created_at": "2025-01-21T22:21:56.349Z",
-          "updated_at": "2025-01-21T22:21:56.349Z",
-          "display_at": "2025-01-21T22:21:56.349Z",
-          "affected_components": [
-            {
-              "code": "nkx0nmdx9vrs",
-              "name": "Spaces - Global",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "d9lynlgpsp0b",
-          "status": "identified",
-          "body": "DigitalOcean Spaces Customers using the latest versions (released on Jan 15, 2025) of the AWS CLI or any AWS SDK, or relying on a tool or application that depends on any of these versions of the AWS CLI or an AWS SDK, are experiencing failed uploads to Spaces buckets in all regions.\n\nThis is caused by a change made by AWS on January 15, 2024 to the AWS CLI and almost all AWS SDKs (including boto3) to require use of “Data Integrity Protections for Amazon S3” (https://docs.aws.amazon.com/sdkref/latest/guide/feature-dataintegrity.html). \n\nThe currently recommended solution is to downgrade (roll back) to a version of the AWS CLI or AWS SDK released prior to January 15, 2025, or to an earlier version of tools or applications that do not depend on one of these versions of the AWS CLI or AWS SDK. The list of known impacted AWS client tools are:\nAWS CLI v2.23.0 (workaround - move to last known good version: v2.22.35)\nAWS SDK for Python (boto3) v1.36.0 (workaround - move to last known good version: 1.35.99)\nAWS SDK for Go 2025-01-15 release (workaround - move to last known good release: 2025-01-14)",
-          "incident_id": "zbrpd3j7hrrd",
-          "created_at": "2025-01-16T19:14:42.563Z",
-          "updated_at": "2025-01-16T19:17:53.484Z",
-          "display_at": "2025-01-16T19:14:42.000Z",
-          "affected_components": [
-            {
-              "code": "nkx0nmdx9vrs",
-              "name": "Spaces - Global",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "nkx0nmdx9vrs",
-          "name": "Global",
-          "status": "operational",
-          "created_at": "2024-11-18T19:18:34.401Z",
-          "updated_at": "2025-04-22T18:30:57.319Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2024-11-18",
-          "group_id": "fdg768pfw7v3",
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
