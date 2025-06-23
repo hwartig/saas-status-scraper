@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-06-23T16:20:37.755Z"
+    "updated_at": "2025-06-23T16:59:16.480Z"
   },
   "components": [
     {
@@ -85,9 +85,9 @@
     {
       "id": "022jctfqtj3y",
       "name": "Connection Pooler",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2024-05-02T07:16:06.672Z",
-      "updated_at": "2025-06-23T16:16:17.333Z",
+      "updated_at": "2025-06-23T16:59:16.427Z",
       "position": 4,
       "description": "Supavisor is a cloud-native, multi-tenant Postgres connection pooler.",
       "showcase": true,
@@ -435,16 +435,36 @@
     {
       "id": "phpl37k7q4ng",
       "name": "Intermittent Connection Pooler instability in us-west-1",
-      "status": "investigating",
+      "status": "monitoring",
       "created_at": "2025-06-23T16:16:17.299Z",
-      "updated_at": "2025-06-23T16:16:17.384Z",
-      "monitoring_at": null,
+      "updated_at": "2025-06-23T16:59:16.476Z",
+      "monitoring_at": "2025-06-23T16:59:16.460Z",
       "resolved_at": null,
       "impact": "minor",
       "shortlink": "https://stspg.io/cc3qrjnsb108",
       "started_at": "2025-06-23T16:16:17.294Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "crzpgt5lkqrh",
+          "status": "monitoring",
+          "body": "We have identified the node that was causing connection issues in us-west-1, replaced it, and restarted failing connection pools.\n\nError rate returned back to normal, but we are still monitoring to ensure the problem doesn’t come back.",
+          "incident_id": "phpl37k7q4ng",
+          "created_at": "2025-06-23T16:59:16.460Z",
+          "updated_at": "2025-06-23T16:59:16.460Z",
+          "display_at": "2025-06-23T16:59:16.460Z",
+          "affected_components": [
+            {
+              "code": "022jctfqtj3y",
+              "name": "Connection Pooler",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "x4y4fptz664x",
           "status": "investigating",
@@ -470,9 +490,9 @@
         {
           "id": "022jctfqtj3y",
           "name": "Connection Pooler",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2024-05-02T07:16:06.672Z",
-          "updated_at": "2025-06-23T16:16:17.333Z",
+          "updated_at": "2025-06-23T16:59:16.427Z",
           "position": 4,
           "description": "Supavisor is a cloud-native, multi-tenant Postgres connection pooler.",
           "showcase": true,
@@ -488,7 +508,7 @@
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "minor",
-    "description": "Partially Degraded Service"
+    "indicator": "none",
+    "description": "All Systems Operational"
   }
 }
