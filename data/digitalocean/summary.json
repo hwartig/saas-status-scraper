@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-07-02T16:29:23.738Z"
+    "updated_at": "2025-07-02T16:59:14.282Z"
   },
   "components": [
     {
@@ -55,9 +55,9 @@
     {
       "id": "txysr8r0gn1n",
       "name": "Global",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-03-28T21:01:12.838Z",
-      "updated_at": "2025-06-16T15:30:21.357Z",
+      "updated_at": "2025-07-02T16:59:14.213Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -115,9 +115,9 @@
     {
       "id": "mzkgffp35tq4",
       "name": "Global",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-08-16T11:21:56.097Z",
-      "updated_at": "2025-07-01T02:32:36.990Z",
+      "updated_at": "2025-07-02T16:59:14.230Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -2290,7 +2290,7 @@
     {
       "id": "jjs48vwjlqjr",
       "name": "App Platform",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-18T01:32:32.291Z",
       "updated_at": "2025-01-22T14:37:36.108Z",
       "position": 11,
@@ -3193,7 +3193,7 @@
     {
       "id": "kl8qv98c9brp",
       "name": "Managed Databases",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T19:29:09.360Z",
       "updated_at": "2025-01-22T14:37:36.171Z",
       "position": 17,
@@ -3470,6 +3470,80 @@
     }
   ],
   "incidents": [
+    {
+      "id": "4t8kjwvn0tlq",
+      "name": "Managed Database Provisioning and App Platform",
+      "status": "investigating",
+      "created_at": "2025-07-02T16:59:14.182Z",
+      "updated_at": "2025-07-02T16:59:14.280Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/xkx8k9h0mp9l",
+      "started_at": "2025-07-02T16:59:14.172Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "fdlxm71wmsmf",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue that is impacting the creation of Managed Databases through both the DigitalOcean Cloud Panel and API. During this time users may encounter errors or delays when attempting to provision new database clusters.\n\nIn addition, App Platform deploys with Managed Databases are also affected, which may result in delayed or failed deployments for some applications.\n\nWe are actively working on a solution in order to restore the services. Existing database clusters and Apps remain operational and are not affected by this issue.\n\nWe will provide updates as more information becomes available.",
+          "incident_id": "4t8kjwvn0tlq",
+          "created_at": "2025-07-02T16:59:14.278Z",
+          "updated_at": "2025-07-02T16:59:14.278Z",
+          "display_at": "2025-07-02T16:59:14.278Z",
+          "affected_components": [
+            {
+              "code": "txysr8r0gn1n",
+              "name": "App Platform - Global",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "mzkgffp35tq4",
+              "name": "Managed Databases - Global",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "txysr8r0gn1n",
+          "name": "Global",
+          "status": "degraded_performance",
+          "created_at": "2023-03-28T21:01:12.838Z",
+          "updated_at": "2025-07-02T16:59:14.213Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-28",
+          "group_id": "jjs48vwjlqjr",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "mzkgffp35tq4",
+          "name": "Global",
+          "status": "degraded_performance",
+          "created_at": "2024-08-16T11:21:56.097Z",
+          "updated_at": "2025-07-02T16:59:14.230Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-08-16",
+          "group_id": "kl8qv98c9brp",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "3xp1zjsfclnn",
       "name": "Creating Agents with Attached Knowledge Base",
