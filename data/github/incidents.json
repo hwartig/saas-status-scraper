@@ -4,9 +4,39 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-07-02T10:20:24.225Z"
+    "updated_at": "2025-07-02T16:09:40.799Z"
   },
   "incidents": [
+    {
+      "id": "txt7rjw95rhx",
+      "name": "Disruption with some GitHub services",
+      "status": "investigating",
+      "created_at": "2025-07-02T16:09:40.758Z",
+      "updated_at": "2025-07-02T16:09:40.796Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/p23m9btyznp2",
+      "started_at": "2025-07-02T16:09:40.752Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "c48rts4gyjcg",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "txt7rjw95rhx",
+          "created_at": "2025-07-02T16:09:40.794Z",
+          "updated_at": "2025-07-02T16:09:40.794Z",
+          "display_at": "2025-07-02T16:09:40.794Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "x10xvvl5kk4q",
       "name": "Disruption with some GitHub services",
@@ -7376,152 +7406,6 @@
           "description": "Orchestration and Compute for GitHub Codespaces",
           "showcase": false,
           "start_date": "2021-08-11",
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "vxfd5br11t6v",
-      "name": "Disruption with some Pull Requests stuck in processing state",
-      "status": "resolved",
-      "created_at": "2025-04-09T23:27:16.388Z",
-      "updated_at": "2025-04-14T23:28:15.770Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-04-10T00:39:04.086Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/2mtxtb0sphpd",
-      "started_at": "2025-04-09T23:27:16.382Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "jm5bcdgz3qwj",
-          "status": "resolved",
-          "body": "On April 9, 2025, between 11:27 UTC and 12:39 UTC, the Pull Requests service was degraded and experienced delays in processing updates. At peak, approximately 1–1.5% of users were affected by delays in synchronizing pull requests. During this period, users may have seen a \"Processing updates\" message in their pull requests after pushing new commits, and the new commits did not appear in the Pull Request view as expected. The Pull Request synchronization process has automatic retries and most delays were automatically resolved. Any Pull Requests that were not resynchronized during this window were manually synchronized on Friday, April 11 at 14:23 UTC.<br /><br />This was due to a misconfigured GeoIP lookup file that our routine GitHub operations depended on and led to background job processing to fail. <br /><br />We mitigated the incident by reverting to a known good version of the GeoIP lookup file on affected hosts.<br /><br /><br />We are working to enhance our CI testing and automation by validating GeoIP metadata to reduce our time to detection and mitigation of issues like this one in the future.",
-          "incident_id": "vxfd5br11t6v",
-          "created_at": "2025-04-10T00:39:04.086Z",
-          "updated_at": "2025-04-14T23:28:15.765Z",
-          "display_at": "2025-04-10T00:39:04.086Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "53qsmwznp29s",
-          "status": "investigating",
-          "body": "Pull Requests is operating normally.",
-          "incident_id": "vxfd5br11t6v",
-          "created_at": "2025-04-10T00:36:57.269Z",
-          "updated_at": "2025-04-10T00:36:57.269Z",
-          "display_at": "2025-04-10T00:36:57.269Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wj12n2nl0qlr",
-          "status": "investigating",
-          "body": "The team has identified a mitigation and is rolling it out while actively monitoring recovery",
-          "incident_id": "vxfd5br11t6v",
-          "created_at": "2025-04-10T00:19:40.396Z",
-          "updated_at": "2025-04-10T00:19:40.396Z",
-          "display_at": "2025-04-10T00:19:40.396Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "skct8ml99x0z",
-          "status": "investigating",
-          "body": "Some users are experiencing delays in pull request updates. After pushing new commits, PRs show a \"Processing updates\" message, and the new commits do not appear in the pull request view.",
-          "incident_id": "vxfd5br11t6v",
-          "created_at": "2025-04-09T23:39:07.681Z",
-          "updated_at": "2025-04-09T23:39:07.681Z",
-          "display_at": "2025-04-09T23:39:07.681Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "tckchhg0ytxb",
-          "status": "investigating",
-          "body": "Pull Requests is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "vxfd5br11t6v",
-          "created_at": "2025-04-09T23:36:35.618Z",
-          "updated_at": "2025-04-09T23:36:35.618Z",
-          "display_at": "2025-04-09T23:36:35.618Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "73h6nwbc13mp",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "vxfd5br11t6v",
-          "created_at": "2025-04-09T23:27:16.423Z",
-          "updated_at": "2025-04-09T23:27:16.423Z",
-          "display_at": "2025-04-09T23:27:16.423Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "hhtssxt0f5v2",
-          "name": "Pull Requests",
-          "status": "operational",
-          "created_at": "2020-09-02T15:39:06.329Z",
-          "updated_at": "2025-06-17T20:12:47.969Z",
-          "position": 6,
-          "description": "Requests for Pull Requests on GitHub.com",
-          "showcase": false,
-          "start_date": null,
           "group_id": null,
           "page_id": "kctbh9vrtdwd",
           "group": false,
