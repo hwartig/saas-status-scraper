@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-07-09T14:24:44.608-07:00"
+    "updated_at": "2025-07-09T15:29:54.369-07:00"
   },
   "components": [
     {
@@ -788,6 +788,60 @@
   ],
   "incidents": [],
   "scheduled_maintenances": [
+    {
+      "id": "x2nkpd67jryf",
+      "name": "Upcoming Maintenance: Domain Fronting Requests Will Be Rejected",
+      "status": "scheduled",
+      "created_at": "2025-07-09T15:29:53.952-07:00",
+      "updated_at": "2025-07-09T15:29:54.365-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/jfsnv39d08gg",
+      "started_at": "2025-07-09T15:29:53.946-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "kxv5l21mj9lk",
+          "status": "scheduled",
+          "body": "We are phasing out support for domain fronting on traffic that passes through our CDN. As part of this change, all incoming connections to the following endpoints must include a valid Server Name Indication (SNI) during TLS negotiation:\n\n* app.launchdarkly.com\n* sdk.launchdarkly.com\n* clientsdk.launchdarkly.com\n\nBrownout Test Scheduled\n\n🗓️ Date: Jul 23, 2025 \n🕐 Time: 1:00 PM – 3:00 PM Pacific Time\n\nDuring this two-hour brownout test window, any request that does not include a valid SNI will be rejected with an HTTP 421 (Misdirected Request) response code.\n\nWe've already worked with impacted customers and currently observe only trace levels of non-compliant traffic, primarily from automated sources such as bots and crawlers. However, we recommend all customers monitor their services during this time, especially if you use a proxy between your applications and LaunchDarkly.\n\nWhat to Do If You See Issues\n\nIf you encounter a 421 response for what you believe is a valid request:\n\n1. Check SNI Configuration: Ensure your tools, libraries, or proxies are correctly configured to include SNI during TLS handshakes.\n2. Contact Support: If the issue persists, reach out to our support team. Please include details such as:\n    * The endpoint being accessed\n    * The tools, SDKs, libraries, or proxies involved\n    * Logs or error messages, if available",
+          "incident_id": "x2nkpd67jryf",
+          "created_at": "2025-07-09T15:29:54.001-07:00",
+          "updated_at": "2025-07-09T15:29:54.362-07:00",
+          "display_at": "2025-07-09T15:29:54.001-07:00",
+          "affected_components": [
+            {
+              "code": "w5565sdz2kfj",
+              "name": "Flag Delivery Network (core functionality) - Polling API",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1943075163400212992
+        }
+      ],
+      "components": [
+        {
+          "id": "w5565sdz2kfj",
+          "name": "Polling API",
+          "status": "operational",
+          "created_at": "2017-04-17T09:40:25.815-07:00",
+          "updated_at": "2025-05-27T11:35:47.326-07:00",
+          "position": 3,
+          "description": "Flag updates for SDKs in polling mode",
+          "showcase": true,
+          "start_date": null,
+          "group_id": "vvb9wn53mspf",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-07-23T13:00:00.000-07:00",
+      "scheduled_until": "2025-07-23T15:00:00.000-07:00"
+    },
     {
       "id": "dv21fclzsdmq",
       "name": "SDK versions reaching their end of life (EOL) in July 2025",
