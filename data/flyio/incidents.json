@@ -4,9 +4,62 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-07-14T17:01:03.299Z"
+    "updated_at": "2025-07-14T19:30:15.322Z"
   },
   "incidents": [
+    {
+      "id": "6dhp12b0j0x5",
+      "name": "Intermittent networking Issues in GRU",
+      "status": "identified",
+      "created_at": "2025-07-14T19:30:15.226Z",
+      "updated_at": "2025-07-14T19:30:15.319Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/4t11cjg2ff9x",
+      "started_at": "2025-07-14T19:30:15.218Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "bpgb65b596lk",
+          "status": "identified",
+          "body": "The issue has been identified and a fix is currently being implemented.",
+          "incident_id": "6dhp12b0j0x5",
+          "created_at": "2025-07-14T19:30:15.316Z",
+          "updated_at": "2025-07-14T19:30:15.316Z",
+          "display_at": "2025-07-14T19:30:15.316Z",
+          "affected_components": [
+            {
+              "code": "5cmbhyzyb3lr",
+              "name": "Regional Availability - GRU - Sao Paulo, Brazil",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "5cmbhyzyb3lr",
+          "name": "GRU - Sao Paulo, Brazil",
+          "status": "degraded_performance",
+          "created_at": "2021-11-30T19:19:56.021Z",
+          "updated_at": "2025-07-14T19:30:15.264Z",
+          "position": 14,
+          "description": null,
+          "showcase": false,
+          "start_date": "2021-11-30",
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "83tsvkx4bcp4",
       "name": "Networking issues in IAD",
@@ -5032,9 +5085,9 @@
         {
           "id": "5cmbhyzyb3lr",
           "name": "GRU - Sao Paulo, Brazil",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2021-11-30T19:19:56.021Z",
-          "updated_at": "2025-05-30T14:00:21.639Z",
+          "updated_at": "2025-07-14T19:30:15.264Z",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -5536,119 +5589,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "mrcyzlkkw8z9",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "cf10v79k6hf7",
-      "name": "Deploys using Depot Builders failing",
-      "status": "resolved",
-      "created_at": "2025-01-23T18:05:41.095Z",
-      "updated_at": "2025-01-23T18:35:46.118Z",
-      "monitoring_at": "2025-01-23T18:28:43.703Z",
-      "resolved_at": "2025-01-23T18:35:46.105Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/kq3yfjh471zx",
-      "started_at": "2025-01-23T18:05:41.087Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "03h43xqmr8n9",
-          "status": "resolved",
-          "body": "This issue has been resolved, deploys using Depot Builders are succeeding as expected.",
-          "incident_id": "cf10v79k6hf7",
-          "created_at": "2025-01-23T18:35:46.105Z",
-          "updated_at": "2025-01-23T18:35:46.105Z",
-          "display_at": "2025-01-23T18:35:46.105Z",
-          "affected_components": [
-            {
-              "code": "49yq6v65b33l",
-              "name": "Deployments",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "t53wrtwvw6zk",
-          "status": "monitoring",
-          "body": "The Depot builder service is partially recovered and we are seeing deploys using Depot builders succeed again. Some customers may still experience degraded performance using Depot builders at this time. We're continuing to monitor for full recovery. \n\nCustomers can still deploy using Fly.io hosted builders with `fly deploy --depot=false`",
-          "incident_id": "cf10v79k6hf7",
-          "created_at": "2025-01-23T18:28:43.703Z",
-          "updated_at": "2025-01-23T18:28:43.703Z",
-          "display_at": "2025-01-23T18:28:43.703Z",
-          "affected_components": [
-            {
-              "code": "49yq6v65b33l",
-              "name": "Deployments",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0bhhtpc0bfh0",
-          "status": "identified",
-          "body": "The Depot service is currently degraded due to a database outage. We're continuing to monitor for recovery. Customers can also follow the Depot status page at https://status.depot.dev/ for updates.\n\nCustomers can still deploy using Fly.io hosted builders with `fly deploy --depot=false`",
-          "incident_id": "cf10v79k6hf7",
-          "created_at": "2025-01-23T18:21:13.771Z",
-          "updated_at": "2025-01-23T18:21:13.771Z",
-          "display_at": "2025-01-23T18:21:13.771Z",
-          "affected_components": [
-            {
-              "code": "49yq6v65b33l",
-              "name": "Deployments",
-              "old_status": "degraded_performance",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5b7787ryqzf9",
-          "status": "investigating",
-          "body": "We are investigating increased error rates when deploying apps using the default Depot Builders. \n\nCustomers who experience this issue can work around it by using `fly deploy --depot=false` to deploy your image with a Fly.io hosted builder.",
-          "incident_id": "cf10v79k6hf7",
-          "created_at": "2025-01-23T18:05:41.188Z",
-          "updated_at": "2025-01-23T18:05:41.188Z",
-          "display_at": "2025-01-23T18:05:41.188Z",
-          "affected_components": [
-            {
-              "code": "49yq6v65b33l",
-              "name": "Deployments",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "49yq6v65b33l",
-          "name": "Deployments",
-          "status": "operational",
-          "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2025-07-02T03:06:04.050Z",
-          "position": 6,
-          "description": "flyctl and GitHub Action app deployments",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
           "page_id": "65rccr4mbblw",
           "group": false,
           "only_show_if_degraded": false
