@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-07-16T13:20:28.331-07:00"
+    "updated_at": "2025-07-16T14:29:07.435-07:00"
   },
   "incidents": [
     {
@@ -781,7 +781,7 @@
       "name": "[Major] Issue Modifying Powerpoint Files with MS Office Online",
       "status": "postmortem",
       "created_at": "2025-05-15T00:35:41.000-07:00",
-      "updated_at": "2025-05-29T11:53:06.267-07:00",
+      "updated_at": "2025-07-16T14:20:47.189-07:00",
       "monitoring_at": "2025-05-15T04:28:06.648-07:00",
       "resolved_at": "2025-05-15T05:48:41.947-07:00",
       "impact": "major",
@@ -792,10 +792,10 @@
         {
           "id": "97trg7nlrv7w",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nBetween May 14, 2025 at 9:32 PM PDT and May 15, 2025 at 04:04 AM PDT, some users may have experienced difficulties while working in Box. During this time, some users were encountering an error when attempting to open PowerPoint files via Box for Office Online. The issue occurred as a result of a recent Microsoft Office update. We were able to resolve the issue by working closely with Microsoft to diagnose and remediate the issue and restore service. In addition, we are working to enhance monitoring and alerting, and also improve escalation channels with Microsoft to decrease any possible downtimes caused by such issues and prevent similar issues from occurring in the future.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "body": "We recently addressed issues affecting Box users. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween May 14, 2025 at 9:32 PM PDT and May 15, 2025 at 04:04 AM PDT, some users may have experienced difficulties while working in Box. During this time, some users encountered an error when attempting to open PowerPoint files via the _Box for Office Online_ integration. The issue occurred as a result of a third-party update. We were able to resolve the issue by working closely with Microsoft to diagnose and remediate the issue and restore our service. In addition, we are working to enhance monitoring and alerting, and improve escalation channels with Microsoft to decrease any possible downtimes caused by such issues to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\n‌\n\nThe incident was caused by a Microsoft update that impacted the _Box for Office Online_ integration. Based on logging, we observed that valid access tokens were missing in requests from Microsoft to retrieve PowerPoint files. As a result, such requests were rejected, and Microsoft could not access the file content to display it in Office Online. We were able to resolve the issue by working closely with Microsoft to diagnose and remediate the issue and restore our service.\n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions: \n\n* Create additional monitors and alerts to detect unusual request patterns more quickly \n* Enhance the escalation process with Microsoft for faster issue resolution\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
           "incident_id": "hl7519fkk3b8",
           "created_at": "2025-05-29T11:52:27.837-07:00",
-          "updated_at": "2025-05-29T11:53:06.265-07:00",
+          "updated_at": "2025-07-16T14:20:47.184-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
@@ -1635,7 +1635,7 @@
       "name": "[Minor] Issues with Multiple Box Services",
       "status": "postmortem",
       "created_at": "2025-04-13T17:24:20.117-07:00",
-      "updated_at": "2025-04-23T17:18:44.441-07:00",
+      "updated_at": "2025-07-16T14:29:07.422-07:00",
       "monitoring_at": "2025-04-13T19:11:16.453-07:00",
       "resolved_at": "2025-04-13T19:30:52.629-07:00",
       "impact": "minor",
@@ -1646,10 +1646,10 @@
         {
           "id": "fl7fdk1yd28f",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._ \n\nOn April 13, 2025 between 4:29PM and 7:14PM PDT, some users may have experienced difficulties while working in Box. During this time, users may have experienced slowness or occasional errors when interacting with some features in the Box webapp or public API, including Logins, Uploads/Downloads, and Notes. The issue occurred when multiple instances of our relational data access service in a single availability zone started to experience higher-than-expected latencies. We were able to resolve the issue by performing a rolling restart of the affected instances, which removed the additional latencies. In addition, we are actively investigating the cause of the additional latencies to prevent similar issues from occurring in the future as well as improving the rolling restart execution time to decrease remediation time if a similar issue occurs again. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting the Box Webapp and Public API. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nBetween 4:29 PM PDT and 7:14 PM PDT on April 13, 2025, some users may have experienced difficulties while working in Box. During this time, users may have experienced slowness or occasional errors when interacting with some features in the Box webapp or public API, including Logins, Uploads/Downloads, and Notes. The issue occurred as a result of CPU performance degradation in multiple instances of our relational data access service in a single availability zone. We were able to resolve the issue by performing a rolling restart of the affected instances. In addition, we are working to improve our remediation processes when a single availability zone is affected in order to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nDuring the time of the incident, we detected that several instances of our relational data access service in a single availability zone were experiencing higher-than-expected latencies. Because Box webapp and public API requests depend on this relational data access service, this additional latency impacted the Box webapp and public API. We resolved the issue by performing a rolling restart of the affected instances. However, the rolling restart took longer than desired and impacted latencies for the duration of the rolling restart. We identified corrective actions to more quickly remediate a similar issue in the future by leveraging tooling to divert traffic away from an impacted availability zone.\n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Improve observability into issues that affect a single availability zone\n* Improve processes around usage of tooling to safely and quickly divert traffic away from an impacted availability zone\n* Decrease time to perform restart of relational data access service instances\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
           "incident_id": "fbqpbfhbqc1j",
           "created_at": "2025-04-23T17:18:20.580-07:00",
-          "updated_at": "2025-04-23T17:18:44.439-07:00",
+          "updated_at": "2025-07-16T14:29:07.417-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
