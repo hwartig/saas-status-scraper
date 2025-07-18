@@ -4,15 +4,15 @@
     "name": "Prisma Data Platform",
     "url": "https://www.prisma-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-07-18T23:24:04.283Z"
+    "updated_at": "2025-07-18T23:37:55.513Z"
   },
   "components": [
     {
       "id": "2954z91ljjsn",
       "name": "Prisma Accelerate",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2023-10-26T13:07:16.811Z",
-      "updated_at": "2025-07-18T20:07:17.009Z",
+      "updated_at": "2025-07-18T23:37:55.449Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -55,9 +55,9 @@
     {
       "id": "w5pj4w5gs117",
       "name": "Prisma Postgres",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2025-01-13T10:01:00.986Z",
-      "updated_at": "2025-07-18T18:36:38.467Z",
+      "updated_at": "2025-07-18T23:37:55.465Z",
       "position": 5,
       "description": null,
       "showcase": true,
@@ -83,189 +83,10 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [
-    {
-      "id": "glcgmdm9kcrg",
-      "name": "Prisma ORM engine binary download issues causing Accelerate and Prisma Postgres errors",
-      "status": "monitoring",
-      "created_at": "2025-07-18T18:00:17.000Z",
-      "updated_at": "2025-07-18T23:16:46.917Z",
-      "monitoring_at": "2025-07-18T18:00:17.000Z",
-      "resolved_at": null,
-      "impact": "major",
-      "shortlink": "https://stspg.io/hl8snkh4hvsk",
-      "started_at": "2025-07-18T18:00:17.000Z",
-      "page_id": "21tdsvytt5d6",
-      "incident_updates": [
-        {
-          "id": "zgk8m8chzt42",
-          "status": "monitoring",
-          "body": "After resolving the original Prisma ORM binaries download issue we observed many users attempting to create query engines at the same time. Accelerate keeps a pool of warm instances to serve these requests quickly and when that warm pool is depleted we fallback on creating cold instances.\n\nWe identified a bug in the cold instance path which prevented us from bringing Accelerate online for all users fast enough. While some users were able to get instances from the warm path as new instances were added to the pool, it wasn't fast enough to serve the backlog of users who were requesting new instances. Once we found and patched the bug Accelerate was able to serve all instance requests within minutes.\n\nBecause this only affected the creation of new instances, users with instances already running would have not experienced any issues.\n\nThank you for your patience. We're already working on collecting data and insights for our postmortem which always aim to make our products and services better.",
-          "incident_id": "glcgmdm9kcrg",
-          "created_at": "2025-07-18T23:16:46.915Z",
-          "updated_at": "2025-07-18T23:16:46.915Z",
-          "display_at": "2025-07-18T23:16:46.915Z",
-          "affected_components": [
-            {
-              "code": "2954z91ljjsn",
-              "name": "Prisma Accelerate",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "w5pj4w5gs117",
-              "name": "Prisma Postgres",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wyrkpvxpttsb",
-          "status": "monitoring",
-          "body": "The issue has officially been resolved. After identifying and resolving the root cause we experienced issues while restoring Accelerate to service.\n\nWe're continuing to monitor closely and will provide another update with more details on what delayed bringing Accelerate back to service.",
-          "incident_id": "glcgmdm9kcrg",
-          "created_at": "2025-07-18T22:52:47.841Z",
-          "updated_at": "2025-07-18T22:52:47.841Z",
-          "display_at": "2025-07-18T22:52:47.841Z",
-          "affected_components": [
-            {
-              "code": "2954z91ljjsn",
-              "name": "Prisma Accelerate",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "w5pj4w5gs117",
-              "name": "Prisma Postgres",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "s9668p287cbm",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "glcgmdm9kcrg",
-          "created_at": "2025-07-18T22:06:41.191Z",
-          "updated_at": "2025-07-18T22:06:41.191Z",
-          "display_at": "2025-07-18T22:06:41.191Z",
-          "affected_components": [
-            {
-              "code": "2954z91ljjsn",
-              "name": "Prisma Accelerate",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "w5pj4w5gs117",
-              "name": "Prisma Postgres",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0zb0k1tw0tg4",
-          "status": "monitoring",
-          "body": "As we continue to monitor we have an update on the root cause and resolution of this incident:\n\n - When a new version of the ORM is published it uploads a binary to R2 and a failover to copy to S3\n - ORM users, including Accelerate and Prisma Postgres, require these binaries when starting up query engines\n - The failover to S3 triggered but ORM, Accelerate, and Prisma Postgres were not able to download binaries\n - We resolved the incident by overriding the failover and pointing to R2\n\nWe're investigating both the cause of the failover the issue related to downloading binaries from S3.",
-          "incident_id": "glcgmdm9kcrg",
-          "created_at": "2025-07-18T20:43:10.553Z",
-          "updated_at": "2025-07-18T20:47:40.395Z",
-          "display_at": "2025-07-18T20:43:10.000Z",
-          "affected_components": [
-            {
-              "code": "2954z91ljjsn",
-              "name": "Prisma Accelerate",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "w5pj4w5gs117",
-              "name": "Prisma Postgres",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "f71kp3l5kf2d",
-          "status": "monitoring",
-          "body": "Description: We have identified and mitigated an issue with Accelerate, also affecting Prisma Postgres, where Prisma ORM binaries are unable to be downloaded. The root cause has been found and fixed and we are monitoring Accelerate and Prisma Postgres.\n\nAffected users: All Accelerate and Prisma Postgres users, and a subset of Prisma ORM users\n\nRoot cause: Identified and fixed",
-          "incident_id": "glcgmdm9kcrg",
-          "created_at": "2025-07-18T20:07:17.064Z",
-          "updated_at": "2025-07-18T20:16:24.736Z",
-          "display_at": "2025-07-18T18:00:17.000Z",
-          "affected_components": [
-            {
-              "code": "2954z91ljjsn",
-              "name": "Prisma Accelerate",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "w5pj4w5gs117",
-              "name": "Prisma Postgres",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "2954z91ljjsn",
-          "name": "Prisma Accelerate",
-          "status": "partial_outage",
-          "created_at": "2023-10-26T13:07:16.811Z",
-          "updated_at": "2025-07-18T20:07:17.009Z",
-          "position": 1,
-          "description": null,
-          "showcase": true,
-          "start_date": "2023-09-12",
-          "group_id": null,
-          "page_id": "21tdsvytt5d6",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "w5pj4w5gs117",
-          "name": "Prisma Postgres",
-          "status": "partial_outage",
-          "created_at": "2025-01-13T10:01:00.986Z",
-          "updated_at": "2025-07-18T18:36:38.467Z",
-          "position": 5,
-          "description": null,
-          "showcase": true,
-          "start_date": "2024-11-01",
-          "group_id": null,
-          "page_id": "21tdsvytt5d6",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": "[]"
-    }
-  ],
+  "incidents": [],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "minor",
-    "description": "Minor Service Outage"
+    "indicator": "none",
+    "description": "All Systems Operational"
   }
 }
