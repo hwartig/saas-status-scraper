@@ -4,22 +4,42 @@
     "name": "Prisma Data Platform",
     "url": "https://www.prisma-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-07-18T22:52:47.851Z"
+    "updated_at": "2025-07-18T23:24:04.283Z"
   },
   "incidents": [
     {
       "id": "bdc6fkm9pw18",
       "name": "Connection errors to databases",
-      "status": "monitoring",
+      "status": "resolved",
       "created_at": "2025-07-18T18:36:38.000Z",
-      "updated_at": "2025-07-18T20:13:24.263Z",
+      "updated_at": "2025-07-18T23:24:04.280Z",
       "monitoring_at": "2025-07-18T19:50:46.685Z",
-      "resolved_at": null,
+      "resolved_at": "2025-07-18T23:24:04.261Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/vg5lnsl3slmk",
       "started_at": "2025-07-18T18:36:38.000Z",
       "page_id": "21tdsvytt5d6",
       "incident_updates": [
+        {
+          "id": "l42vxg7yvj5p",
+          "status": "resolved",
+          "body": "This was an issue affecting only a small handful of databases. It has been fully resolved and is unrelated to the Accelerate issue that occurred at the same time.",
+          "incident_id": "bdc6fkm9pw18",
+          "created_at": "2025-07-18T23:24:04.261Z",
+          "updated_at": "2025-07-18T23:24:04.261Z",
+          "display_at": "2025-07-18T23:24:04.261Z",
+          "affected_components": [
+            {
+              "code": "w5pj4w5gs117",
+              "name": "Prisma Postgres",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "qw2fqcdtn0ms",
           "status": "monitoring",
@@ -105,7 +125,7 @@
       "name": "Prisma ORM engine binary download issues causing Accelerate and Prisma Postgres errors",
       "status": "monitoring",
       "created_at": "2025-07-18T18:00:17.000Z",
-      "updated_at": "2025-07-18T22:52:47.843Z",
+      "updated_at": "2025-07-18T23:16:46.917Z",
       "monitoring_at": "2025-07-18T18:00:17.000Z",
       "resolved_at": null,
       "impact": "major",
@@ -113,6 +133,32 @@
       "started_at": "2025-07-18T18:00:17.000Z",
       "page_id": "21tdsvytt5d6",
       "incident_updates": [
+        {
+          "id": "zgk8m8chzt42",
+          "status": "monitoring",
+          "body": "After resolving the original Prisma ORM binaries download issue we observed many users attempting to create query engines at the same time. Accelerate keeps a pool of warm instances to serve these requests quickly and when that warm pool is depleted we fallback on creating cold instances.\n\nWe identified a bug in the cold instance path which prevented us from bringing Accelerate online for all users fast enough. While some users were able to get instances from the warm path as new instances were added to the pool, it wasn't fast enough to serve the backlog of users who were requesting new instances. Once we found and patched the bug Accelerate was able to serve all instance requests within minutes.\n\nBecause this only affected the creation of new instances, users with instances already running would have not experienced any issues.\n\nThank you for your patience. We're already working on collecting data and insights for our postmortem which always aim to make our products and services better.",
+          "incident_id": "glcgmdm9kcrg",
+          "created_at": "2025-07-18T23:16:46.915Z",
+          "updated_at": "2025-07-18T23:16:46.915Z",
+          "display_at": "2025-07-18T23:16:46.915Z",
+          "affected_components": [
+            {
+              "code": "2954z91ljjsn",
+              "name": "Prisma Accelerate",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "w5pj4w5gs117",
+              "name": "Prisma Postgres",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "wyrkpvxpttsb",
           "status": "monitoring",
