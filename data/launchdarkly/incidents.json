@@ -4,9 +4,135 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-07-21T10:55:57.168-07:00"
+    "updated_at": "2025-07-21T12:26:53.489-07:00"
   },
   "incidents": [
+    {
+      "id": "0s2vb8kfg87k",
+      "name": "Elevated Error Rates in Event Ingestion",
+      "status": "identified",
+      "created_at": "2025-07-21T12:14:48.883-07:00",
+      "updated_at": "2025-07-21T12:26:53.480-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/y3rd7r47j0xq",
+      "started_at": "2025-07-21T12:14:48.872-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "sjypb640tlxl",
+          "status": "identified",
+          "body": "Engineers have scaled the event service to resolve the majority of error rates. Users should experience a reduction in the errors on events.launchdarkly.com. Some downstream services in the event data warehouse are still not being updated. We will update to monitoring once we observe the remaining services recover.",
+          "incident_id": "0s2vb8kfg87k",
+          "created_at": "2025-07-21T12:26:53.477-07:00",
+          "updated_at": "2025-07-21T12:26:53.477-07:00",
+          "display_at": "2025-07-21T12:26:53.477-07:00",
+          "affected_components": [
+            {
+              "code": "2c1qzwzc7142",
+              "name": "Feature management (non-core functionality) - Data Export",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "hf1r5xs02ll2",
+              "name": "Experimentation (core functionality) - Experiment results processing",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "chrlm2xddrrj",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue and implementing steps to address the error rates. Users may experience errors when calling the events.launchdarkly.com endpoint.",
+          "incident_id": "0s2vb8kfg87k",
+          "created_at": "2025-07-21T12:19:18.524-07:00",
+          "updated_at": "2025-07-21T12:19:18.524-07:00",
+          "display_at": "2025-07-21T12:19:18.524-07:00",
+          "affected_components": [
+            {
+              "code": "2c1qzwzc7142",
+              "name": "Feature management (non-core functionality) - Data Export",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "hf1r5xs02ll2",
+              "name": "Experimentation (core functionality) - Experiment results processing",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "81y0ptqm9sn4",
+          "status": "investigating",
+          "body": "We are currently observing elevated errors in event data ingestion related to experiments, data export, and other areas of the LaunchDarkly platform. Users may experience stale data when using these features.",
+          "incident_id": "0s2vb8kfg87k",
+          "created_at": "2025-07-21T12:14:48.990-07:00",
+          "updated_at": "2025-07-21T12:14:48.990-07:00",
+          "display_at": "2025-07-21T12:14:48.990-07:00",
+          "affected_components": [
+            {
+              "code": "2c1qzwzc7142",
+              "name": "Feature management (non-core functionality) - Data Export",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "hf1r5xs02ll2",
+              "name": "Experimentation (core functionality) - Experiment results processing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "2c1qzwzc7142",
+          "name": "Data Export",
+          "status": "degraded_performance",
+          "created_at": "2018-11-30T14:17:50.328-08:00",
+          "updated_at": "2025-07-21T12:14:48.923-07:00",
+          "position": 2,
+          "description": "Recording and publication of events to Data Export destinations",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "2868qx437p9m",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "hf1r5xs02ll2",
+          "name": "Experiment results processing",
+          "status": "degraded_performance",
+          "created_at": "2022-09-16T15:33:34.500-07:00",
+          "updated_at": "2025-07-21T12:14:48.945-07:00",
+          "position": 3,
+          "description": "Ingestion and recording of experiment results",
+          "showcase": true,
+          "start_date": "2022-09-16",
+          "group_id": "j28fw96kw68y",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "71jvcgqb3hfh",
       "name": "Observability [EAP] Pages Outage",
@@ -362,9 +488,9 @@
         {
           "id": "2c1qzwzc7142",
           "name": "Data Export",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-11-30T14:17:50.328-08:00",
-          "updated_at": "2025-06-12T14:52:16.053-07:00",
+          "updated_at": "2025-07-21T12:14:48.923-07:00",
           "position": 2,
           "description": "Recording and publication of events to Data Export destinations",
           "showcase": false,
@@ -932,9 +1058,9 @@
         {
           "id": "2c1qzwzc7142",
           "name": "Data Export",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-11-30T14:17:50.328-08:00",
-          "updated_at": "2025-06-12T14:52:16.053-07:00",
+          "updated_at": "2025-07-21T12:14:48.923-07:00",
           "position": 2,
           "description": "Recording and publication of events to Data Export destinations",
           "showcase": false,
@@ -1055,9 +1181,9 @@
         {
           "id": "2c1qzwzc7142",
           "name": "Data Export",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-11-30T14:17:50.328-08:00",
-          "updated_at": "2025-06-12T14:52:16.053-07:00",
+          "updated_at": "2025-07-21T12:14:48.923-07:00",
           "position": 2,
           "description": "Recording and publication of events to Data Export destinations",
           "showcase": false,
@@ -1357,9 +1483,9 @@
         {
           "id": "2c1qzwzc7142",
           "name": "Data Export",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-11-30T14:17:50.328-08:00",
-          "updated_at": "2025-06-12T14:52:16.053-07:00",
+          "updated_at": "2025-07-21T12:14:48.923-07:00",
           "position": 2,
           "description": "Recording and publication of events to Data Export destinations",
           "showcase": false,
@@ -4439,9 +4565,9 @@
         {
           "id": "hf1r5xs02ll2",
           "name": "Experiment results processing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2022-09-16T15:33:34.500-07:00",
-          "updated_at": "2024-12-09T18:46:59.893-08:00",
+          "updated_at": "2025-07-21T12:14:48.945-07:00",
           "position": 3,
           "description": "Ingestion and recording of experiment results",
           "showcase": true,
@@ -4617,9 +4743,9 @@
         {
           "id": "2c1qzwzc7142",
           "name": "Data Export",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-11-30T14:17:50.328-08:00",
-          "updated_at": "2025-06-12T14:52:16.053-07:00",
+          "updated_at": "2025-07-21T12:14:48.923-07:00",
           "position": 2,
           "description": "Recording and publication of events to Data Export destinations",
           "showcase": false,
@@ -4632,9 +4758,9 @@
         {
           "id": "hf1r5xs02ll2",
           "name": "Experiment results processing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2022-09-16T15:33:34.500-07:00",
-          "updated_at": "2024-12-09T18:46:59.893-08:00",
+          "updated_at": "2025-07-21T12:14:48.945-07:00",
           "position": 3,
           "description": "Ingestion and recording of experiment results",
           "showcase": true,
@@ -4846,79 +4972,6 @@
           "showcase": false,
           "start_date": "2021-09-13",
           "group_id": "5p5kdgq72sz7",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "2c3tc1sc1hwv",
-      "name": "Flag update delays",
-      "status": "resolved",
-      "created_at": "2024-12-04T20:48:57.273-08:00",
-      "updated_at": "2024-12-04T22:00:04.280-08:00",
-      "monitoring_at": null,
-      "resolved_at": "2024-12-04T22:00:03.842-08:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/8tnzwp5w37s6",
-      "started_at": "2024-12-04T20:48:57.265-08:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "zth3b80hwb6w",
-          "status": "resolved",
-          "body": "The issue with the edge integration has been resolved. Impacted services have returned to normal operation",
-          "incident_id": "2c3tc1sc1hwv",
-          "created_at": "2024-12-04T22:00:03.842-08:00",
-          "updated_at": "2024-12-04T22:00:04.275-08:00",
-          "display_at": "2024-12-04T22:00:03.842-08:00",
-          "affected_components": [
-            {
-              "code": "dbc44wm7yn68",
-              "name": "Flag Delivery Network (core functionality) - Edge API",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1864550284405690871
-        },
-        {
-          "id": "m6sv4mc29gbg",
-          "status": "investigating",
-          "body": "Some customers who use the edge integration are experiencing delayed flag updates. We are investigating and will provide updates as they become available.",
-          "incident_id": "2c3tc1sc1hwv",
-          "created_at": "2024-12-04T20:48:57.349-08:00",
-          "updated_at": "2024-12-04T20:48:59.155-08:00",
-          "display_at": "2024-12-04T20:48:57.349-08:00",
-          "affected_components": [
-            {
-              "code": "dbc44wm7yn68",
-              "name": "Flag Delivery Network (core functionality) - Edge API",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1864532394356953165
-        }
-      ],
-      "components": [
-        {
-          "id": "dbc44wm7yn68",
-          "name": "Edge API",
-          "status": "operational",
-          "created_at": "2022-10-13T10:37:20.077-07:00",
-          "updated_at": "2025-06-12T14:52:16.079-07:00",
-          "position": 4,
-          "description": "Flag updates for Edge integrations",
-          "showcase": true,
-          "start_date": "2022-10-13",
-          "group_id": "vvb9wn53mspf",
           "page_id": "9404kdk7lkn7",
           "group": false,
           "only_show_if_degraded": false
