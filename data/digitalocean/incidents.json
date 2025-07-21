@@ -4,9 +4,39 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-07-20T14:20:35.776Z"
+    "updated_at": "2025-07-21T20:02:17.834Z"
   },
   "incidents": [
+    {
+      "id": "sv0rnk7vk7j5",
+      "name": "Let's Encrypt SSL Provisioning",
+      "status": "investigating",
+      "created_at": "2025-07-21T20:02:17.776Z",
+      "updated_at": "2025-07-21T20:02:17.830Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/r4dftrk1txzq",
+      "started_at": "2025-07-21T20:02:17.768Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "d09zjjjb01q6",
+          "status": "investigating",
+          "body": "Our Engineering team has identified an issue affecting the creation of Let's Encrypt SSL certificates through the DigitalOcean Cloud Panel for Spaces and Load Balancers. During this time, users may experience failures or delays when provisioning new certificates.\n\nOur team is actively working with Let's Encrypt to resolve the issue as quickly as possible. Existing certificates and traffic over HTTPS are not impacted.\n\nWe will continue to provide updates as we learn more.",
+          "incident_id": "sv0rnk7vk7j5",
+          "created_at": "2025-07-21T20:02:17.827Z",
+          "updated_at": "2025-07-21T20:02:17.827Z",
+          "display_at": "2025-07-21T20:02:17.827Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "p7zv9y9xsx6z",
       "name": "Reserved IPs and Load Balancers",
@@ -5295,198 +5325,6 @@
           "showcase": false,
           "start_date": "2024-08-16",
           "group_id": "gb3gs5vj7js2",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "d1qqcx7wt5lx",
-      "name": "Managed Certificate",
-      "status": "resolved",
-      "created_at": "2025-03-05T21:22:08.610Z",
-      "updated_at": "2025-03-05T23:11:19.047Z",
-      "monitoring_at": "2025-03-05T22:07:14.745Z",
-      "resolved_at": "2025-03-05T23:11:19.028Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/5qdhcbpyl4g4",
-      "started_at": "2025-03-05T21:22:08.592Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "bx5glrpgpwss",
-          "status": "resolved",
-          "body": "From 20:08 UTC to 21:49 UTC, users may have experienced issues creating new certificates, provisioning or scaling MongoDB clusters, and issuing certificates for use with LBAAS and CDN services. Additionally, a subset of new custom domains on the App Platform may have taken longer than usual to configure.\n\nOur Certificate Authority has fully resolved the issue with our managed certificates service, and all services have returned to normal operation.\n\nIf you continue to experience problems, please open a ticket with our support team. We apologize for any inconvenience.",
-          "incident_id": "d1qqcx7wt5lx",
-          "created_at": "2025-03-05T23:11:19.028Z",
-          "updated_at": "2025-03-05T23:11:19.028Z",
-          "display_at": "2025-03-05T23:11:19.028Z",
-          "affected_components": [
-            {
-              "code": "txysr8r0gn1n",
-              "name": "App Platform - Global",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "ctwhml01vvw1",
-              "name": "Load Balancers - Global",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "8cp93lvtlh32",
-              "name": "Spaces CDN - Global",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "y3hg12w0k18p",
-          "status": "monitoring",
-          "body": "Our Certificate Authority has implemented a fix for the issue with our managed certificates service. Services are beginning to recover, and we are closely monitoring the situation to ensure full stability.\n\nUsers should now be able to create new certificates, provision and scale MongoDB clusters, and issue certificates for use with LBAAS and CDN services. Additionally, new custom domains on the App Platform should start configuring normally.\n\nWe apologize for the inconvenience and will share another update once the matter is fully resolved.",
-          "incident_id": "d1qqcx7wt5lx",
-          "created_at": "2025-03-05T22:07:14.745Z",
-          "updated_at": "2025-03-05T22:07:14.745Z",
-          "display_at": "2025-03-05T22:07:14.745Z",
-          "affected_components": [
-            {
-              "code": "txysr8r0gn1n",
-              "name": "App Platform - Global",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "ctwhml01vvw1",
-              "name": "Load Balancers - Global",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "8cp93lvtlh32",
-              "name": "Spaces CDN - Global",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "tytwrns7876z",
-          "status": "investigating",
-          "body": "Our engineering team is investigating an issue with our managed certificates service due to an unexpected outage from our Certificate Authority.\n\nDuring this time, users may experience issues creating new certificates, provisioning or scaling MongoDB clusters, and issuing certificates for use with LBAAS and CDN services. Additionally, this may cause a subset of new custom domains on App Platform to take longer than usual to become active.\n\nWe apologize for the inconvenience and will provide updates as soon as we receive more information.",
-          "incident_id": "d1qqcx7wt5lx",
-          "created_at": "2025-03-05T21:22:08.775Z",
-          "updated_at": "2025-03-05T21:22:08.775Z",
-          "display_at": "2025-03-05T21:22:08.775Z",
-          "affected_components": [
-            {
-              "code": "txysr8r0gn1n",
-              "name": "App Platform - Global",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "ctwhml01vvw1",
-              "name": "Load Balancers - Global",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "8cp93lvtlh32",
-              "name": "Spaces CDN - Global",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "txysr8r0gn1n",
-          "name": "Global",
-          "status": "operational",
-          "created_at": "2023-03-28T21:01:12.838Z",
-          "updated_at": "2025-07-08T16:01:19.028Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-03-28",
-          "group_id": "jjs48vwjlqjr",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "mzkgffp35tq4",
-          "name": "Global",
-          "status": "operational",
-          "created_at": "2024-08-16T11:21:56.097Z",
-          "updated_at": "2025-07-08T16:01:19.044Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2024-08-16",
-          "group_id": "kl8qv98c9brp",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "ctwhml01vvw1",
-          "name": "Global",
-          "status": "operational",
-          "created_at": "2024-08-16T11:30:05.343Z",
-          "updated_at": "2025-07-18T13:20:04.643Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2024-08-16",
-          "group_id": "jg6pzd84p7bn",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "8cp93lvtlh32",
-          "name": "Global",
-          "status": "operational",
-          "created_at": "2024-11-18T19:19:12.798Z",
-          "updated_at": "2025-03-05T23:11:18.992Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2024-11-18",
-          "group_id": "0fycrqvyvqf3",
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
