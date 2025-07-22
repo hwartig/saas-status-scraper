@@ -4,9 +4,103 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-07-21T19:01:08.941-07:00"
+    "updated_at": "2025-07-22T06:45:51.789-07:00"
   },
   "incidents": [
+    {
+      "id": "xcw9dgs819t1",
+      "name": "Elevated error rates in usage and flag endpoints",
+      "status": "identified",
+      "created_at": "2025-07-22T06:44:20.355-07:00",
+      "updated_at": "2025-07-22T06:45:51.780-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/dswbgxsl54hm",
+      "started_at": "2025-07-22T06:44:20.348-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "vyrfcthwzrc6",
+          "status": "identified",
+          "body": "We are continuing to work on a fix for this issue.",
+          "incident_id": "xcw9dgs819t1",
+          "created_at": "2025-07-22T06:45:51.777-07:00",
+          "updated_at": "2025-07-22T06:45:51.777-07:00",
+          "display_at": "2025-07-22T06:45:51.777-07:00",
+          "affected_components": [
+            {
+              "code": "g5bksjhndxmj",
+              "name": "Feature management (non-core functionality) - Flag usage metrics",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "0z3ns76sxvnf",
+              "name": "Feature management (core functionality) - Flag targeting",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "3kqxz6mxjrvz",
+          "status": "identified",
+          "body": "We have identified an issue causing elevated error rates on a small subset of requests on the LaunchDarkly platform. Some users may experience 5xx errors when calling the following endpoints. \n - Usage data endpoints\n - GET flag(s) endpoint\n\nWe are currently working to mitigate the underlying root cause.",
+          "incident_id": "xcw9dgs819t1",
+          "created_at": "2025-07-22T06:44:20.436-07:00",
+          "updated_at": "2025-07-22T06:44:20.436-07:00",
+          "display_at": "2025-07-22T06:44:20.436-07:00",
+          "affected_components": [
+            {
+              "code": "g5bksjhndxmj",
+              "name": "Feature management (non-core functionality) - Flag usage metrics",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "0z3ns76sxvnf",
+          "name": "Flag targeting",
+          "status": "degraded_performance",
+          "created_at": "2015-01-05T20:05:03.176-08:00",
+          "updated_at": "2025-07-22T06:45:51.735-07:00",
+          "position": 2,
+          "description": "UI and APIs used to update flag targeting rules",
+          "showcase": true,
+          "start_date": null,
+          "group_id": "j4z3sqx09pkg",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "g5bksjhndxmj",
+          "name": "Flag usage metrics",
+          "status": "degraded_performance",
+          "created_at": "2018-08-30T10:10:07.695-07:00",
+          "updated_at": "2025-07-22T06:44:20.391-07:00",
+          "position": 3,
+          "description": "Recording and displaying of data pertaining to your flag usage",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "2868qx437p9m",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "0s2vb8kfg87k",
       "name": "Elevated Error Rates in Event Ingestion",
@@ -1754,9 +1848,9 @@
         {
           "id": "g5bksjhndxmj",
           "name": "Flag usage metrics",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-08-30T10:10:07.695-07:00",
-          "updated_at": "2025-04-30T12:32:05.869-07:00",
+          "updated_at": "2025-07-22T06:44:20.391-07:00",
           "position": 3,
           "description": "Recording and displaying of data pertaining to your flag usage",
           "showcase": false,
@@ -1877,9 +1971,9 @@
         {
           "id": "g5bksjhndxmj",
           "name": "Flag usage metrics",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-08-30T10:10:07.695-07:00",
-          "updated_at": "2025-04-30T12:32:05.869-07:00",
+          "updated_at": "2025-07-22T06:44:20.391-07:00",
           "position": 3,
           "description": "Recording and displaying of data pertaining to your flag usage",
           "showcase": false,
@@ -2451,9 +2545,9 @@
         {
           "id": "0z3ns76sxvnf",
           "name": "Flag targeting",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2015-01-05T20:05:03.176-08:00",
-          "updated_at": "2025-03-14T09:50:10.659-07:00",
+          "updated_at": "2025-07-22T06:45:51.735-07:00",
           "position": 2,
           "description": "UI and APIs used to update flag targeting rules",
           "showcase": true,
@@ -2564,9 +2658,9 @@
         {
           "id": "0z3ns76sxvnf",
           "name": "Flag targeting",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2015-01-05T20:05:03.176-08:00",
-          "updated_at": "2025-03-14T09:50:10.659-07:00",
+          "updated_at": "2025-07-22T06:45:51.735-07:00",
           "position": 2,
           "description": "UI and APIs used to update flag targeting rules",
           "showcase": true,
@@ -2976,9 +3070,9 @@
         {
           "id": "g5bksjhndxmj",
           "name": "Flag usage metrics",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-08-30T10:10:07.695-07:00",
-          "updated_at": "2025-04-30T12:32:05.869-07:00",
+          "updated_at": "2025-07-22T06:44:20.391-07:00",
           "position": 3,
           "description": "Recording and displaying of data pertaining to your flag usage",
           "showcase": false,
@@ -4931,99 +5025,6 @@
           "showcase": true,
           "start_date": "2023-07-07",
           "group_id": "17840mm6444k",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "h7whdp2x9svy",
-      "name": "Email notifications are being sent to spam",
-      "status": "resolved",
-      "created_at": "2024-12-03T16:08:14.290-08:00",
-      "updated_at": "2024-12-06T07:59:29.020-08:00",
-      "monitoring_at": "2024-12-05T03:16:17.575-08:00",
-      "resolved_at": "2024-12-06T07:59:28.587-08:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/cdlrsmwpfx8c",
-      "started_at": "2024-12-03T16:08:14.280-08:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "zftldysy23xn",
-          "status": "resolved",
-          "body": "The issue with emails being marked as spam has been resolved. Impacted services have returned to normal operation",
-          "incident_id": "h7whdp2x9svy",
-          "created_at": "2024-12-06T07:59:28.587-08:00",
-          "updated_at": "2024-12-06T07:59:29.016-08:00",
-          "display_at": "2024-12-06T07:59:28.587-08:00",
-          "affected_components": [
-            {
-              "code": "2hh5b13z44vt",
-              "name": "Automations (non-core functionality) - Emails and notifications",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1865063519370289558
-        },
-        {
-          "id": "pp9ts4kmqn1j",
-          "status": "monitoring",
-          "body": "The issue with transactional emails being identified as spam has been identified and a fix is in progress. We are continuing to monitor the performance of this issue, as email may continue to be identified as spam for a short time. We will continue to update this page until it is resolved.",
-          "incident_id": "h7whdp2x9svy",
-          "created_at": "2024-12-05T03:16:17.575-08:00",
-          "updated_at": "2024-12-05T03:16:17.896-08:00",
-          "display_at": "2024-12-05T03:16:17.575-08:00",
-          "affected_components": [
-            {
-              "code": "2hh5b13z44vt",
-              "name": "Automations (non-core functionality) - Emails and notifications",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1864629865561116785
-        },
-        {
-          "id": "d5k1653bzrkh",
-          "status": "identified",
-          "body": "Some customers are experiencing LaunchDarkly-sourced emails being marked as spam.  We have identified the issue and are working to resolve it.",
-          "incident_id": "h7whdp2x9svy",
-          "created_at": "2024-12-03T16:08:14.392-08:00",
-          "updated_at": "2024-12-03T16:08:14.916-08:00",
-          "display_at": "2024-12-03T16:08:14.392-08:00",
-          "affected_components": [
-            {
-              "code": "2hh5b13z44vt",
-              "name": "Automations (non-core functionality) - Emails and notifications",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1864099357534142509
-        }
-      ],
-      "components": [
-        {
-          "id": "2hh5b13z44vt",
-          "name": "Emails and notifications",
-          "status": "operational",
-          "created_at": "2021-09-13T11:04:52.860-07:00",
-          "updated_at": "2025-02-27T04:29:26.550-08:00",
-          "position": 1,
-          "description": "Outbound emails and notifications sent by LaunchDarkly",
-          "showcase": false,
-          "start_date": "2021-09-13",
-          "group_id": "5p5kdgq72sz7",
           "page_id": "9404kdk7lkn7",
           "group": false,
           "only_show_if_degraded": false
