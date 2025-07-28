@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-07-28T17:36:05.570Z"
+    "updated_at": "2025-07-28T18:11:41.995Z"
   },
   "incidents": [
     {
@@ -12,7 +12,7 @@
       "name": "Disruption with some GitHub services",
       "status": "investigating",
       "created_at": "2025-07-28T16:50:53.986Z",
-      "updated_at": "2025-07-28T17:30:04.481Z",
+      "updated_at": "2025-07-28T18:11:41.982Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -20,6 +20,26 @@
       "started_at": "2025-07-28T16:50:53.978Z",
       "page_id": "kctbh9vrtdwd",
       "incident_updates": [
+        {
+          "id": "cc5xmn04dmww",
+          "status": "investigating",
+          "body": "We are still actively investigating this issue.",
+          "incident_id": "s6d4x8c6cvv5",
+          "created_at": "2025-07-28T18:11:41.979Z",
+          "updated_at": "2025-07-28T18:11:41.979Z",
+          "display_at": "2025-07-28T18:11:41.979Z",
+          "affected_components": [
+            {
+              "code": "8l4ygp009s5s",
+              "name": "Git Operations",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "6h2bvdgz91dd",
           "status": "investigating",
@@ -297,7 +317,7 @@
       "name": "Incident with Issues",
       "status": "resolved",
       "created_at": "2025-07-21T07:15:32.982Z",
-      "updated_at": "2025-07-21T09:48:02.130Z",
+      "updated_at": "2025-07-28T17:51:51.498Z",
       "monitoring_at": null,
       "resolved_at": "2025-07-21T09:48:02.097Z",
       "impact": "minor",
@@ -308,10 +328,10 @@
         {
           "id": "m4mwjnbr52ly",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On July 21st, 2025, between 07:00 UTC and 09:45 UTC the API, Codespaces, Copilot, Issues, Package Registry, Pull Requests and Webhook services were degraded and experienced dropped requests and increased latency. At the peak of this incident (a 2 minute period around 07:00 UTC) error rates peaked at 11% and went down shortly after. Average web request load times rose to 1 second during this same time frame. After this period, traffic gradually recovered but error rate and latency remained slightly elevated until the end of the incident.<br /><br />This incident was triggered by a kernel bug that caused a crash of some of our load balancers during a scheduled process after a kernel upgrade. In order to mitigate the incident, we halted the roll out of our upgrades, and rolled back the impacted instances. We are working to make sure the kernel version is fully removed from our fleet. As a precaution, we temporarily paused the scheduled process to prevent any unintended use in the affected kernel. We also tuned our alerting so we can more quickly detect and mitigate future instances where we experience a sudden drop in load-balancing capacity.",
           "incident_id": "btl2cjm2pzkj",
           "created_at": "2025-07-21T09:48:02.097Z",
-          "updated_at": "2025-07-21T09:48:02.097Z",
+          "updated_at": "2025-07-28T17:51:51.493Z",
           "display_at": "2025-07-21T09:48:02.097Z",
           "affected_components": [
             {
