@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-07-29T15:57:07.280Z"
+    "updated_at": "2025-07-29T21:02:46.985Z"
   },
   "incidents": [
     {
@@ -190,7 +190,7 @@
       "name": "GitHub Enterprise Importer migrations are stalled",
       "status": "resolved",
       "created_at": "2025-07-28T21:41:16.253Z",
-      "updated_at": "2025-07-29T03:15:46.749Z",
+      "updated_at": "2025-07-29T21:02:46.974Z",
       "monitoring_at": null,
       "resolved_at": "2025-07-29T03:15:46.736Z",
       "impact": "major",
@@ -201,10 +201,10 @@
         {
           "id": "7f0tyf9nw5yh",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between approximately 21:41 UTC July 28th and 03:15 UTC July 29th, GitHub Enterprise Importer (GEI) operated in a degraded state where migrations could not be processed. <br /><br />Our investigation found that a component of the GEI infrastructure had been improperly taken out of service and could not be restored to its previous configuration. <br />This necessitated the provisioning of new resources to resolve the incident.<br /><br />As a result, customers will need to add our new IP range to the following IP allow lists, if enabled:<br />- The IP allow list on your destination GitHub.com organization or enterprise<br />- If you're running migrations from GitHub.com, the IP allow list on your source GitHub.com organization or enterprise<br />- If you're running migrations from a GitHub Enterprise Server, Bitbucket Server or Bitbucket Data Center instance, the allow list on your configured Azure Blob Storage or -- Amazon S3 storage account<br />- If you're running migrations from Azure DevOps, the allow list on your Azure DevOps organization<br /><br />The new GEI IP ranges for inclusion in applicable IP allow lists are:<br />- 20.99.172.64/28<br />- 135.234.59.224/28  <br /><br />The following IP ranges are no longer used by GEI and can be removed from all applicable IP allow lists:<br />- 40.71.233.224/28<br />- 20.125.12.8/29<br /><br />Users who have run migrations using GitHub Enterprise Importer in the past 90 days will receive email alerts about this change.",
           "incident_id": "qjbc2h6dfyvc",
           "created_at": "2025-07-29T03:15:46.736Z",
-          "updated_at": "2025-07-29T03:15:46.736Z",
+          "updated_at": "2025-07-29T21:02:46.969Z",
           "display_at": "2025-07-29T03:15:46.736Z",
           "affected_components": null,
           "deliver_notifications": true,
