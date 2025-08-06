@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-08-06T16:21:07.785Z"
+    "updated_at": "2025-08-06T19:07:39.984Z"
   },
   "components": [
     {
@@ -317,9 +317,9 @@
     {
       "id": "vnhk0y6jtn3q",
       "name": "Management Plane - GRU",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:32:12.829Z",
-      "updated_at": "2025-03-24T09:32:12.829Z",
+      "updated_at": "2025-08-06T19:07:39.936Z",
       "position": 4,
       "description": null,
       "showcase": true,
@@ -795,7 +795,7 @@
     {
       "id": "h2hndffd5ysc",
       "name": "Managed Postgres",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:28:07.922Z",
       "updated_at": "2025-03-24T09:28:07.922Z",
       "position": 19,
@@ -1071,7 +1071,61 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "tshx15s9ff6p",
+      "name": "MPG Control Plane issues in GRU",
+      "status": "investigating",
+      "created_at": "2025-08-06T19:07:39.902Z",
+      "updated_at": "2025-08-06T19:07:39.981Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/w5bthcnbmypx",
+      "started_at": "2025-08-06T19:07:39.895Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "whdynvc82djq",
+          "status": "investigating",
+          "body": "We are investigating instability with the MPG control plane in the GRU region (São Paulo, Brazil). Users may see delays provisioning new clusters in this region.",
+          "incident_id": "tshx15s9ff6p",
+          "created_at": "2025-08-06T19:07:39.979Z",
+          "updated_at": "2025-08-06T19:07:39.979Z",
+          "display_at": "2025-08-06T19:07:39.979Z",
+          "affected_components": [
+            {
+              "code": "vnhk0y6jtn3q",
+              "name": "Managed Postgres - Management Plane - GRU",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "vnhk0y6jtn3q",
+          "name": "Management Plane - GRU",
+          "status": "degraded_performance",
+          "created_at": "2025-03-24T09:32:12.829Z",
+          "updated_at": "2025-08-06T19:07:39.936Z",
+          "position": 4,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-03-24",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "jjj329lqyv54",
@@ -1129,7 +1183,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
