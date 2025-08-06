@@ -4,9 +4,39 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-08-06T09:20:58.415-07:00"
+    "updated_at": "2025-08-06T12:42:20.333-07:00"
   },
   "incidents": [
+    {
+      "id": "v2w3y8kmr78m",
+      "name": "[Minor] Issue with Logins and Box Notes",
+      "status": "resolved",
+      "created_at": "2025-08-06T09:30:00.000-07:00",
+      "updated_at": "2025-08-06T12:42:20.330-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2025-08-06T09:30:00.000-07:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/qbch1xlqrrtt",
+      "started_at": "2025-08-06T12:42:05.754-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "kyw08pd0s3dl",
+          "status": "resolved",
+          "body": "From approximately 11:20 AM to 11:34 AM US Pacific time, we observed an issue impacting some Logins and Box Notes. Our systems automatically detected and corrected the underlying issue. There is no current impact and no further updates will be provided here. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
+          "incident_id": "v2w3y8kmr78m",
+          "created_at": "2025-08-06T12:42:05.804-07:00",
+          "updated_at": "2025-08-06T12:42:05.804-07:00",
+          "display_at": "2025-08-06T09:30:00.000-07:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "fv3cpmp3kcgq",
       "name": "[Outage] Issues with Multiple Box Services",
@@ -8554,171 +8584,6 @@
       ],
       "components": [],
       "reminder_intervals": "[]"
-    },
-    {
-      "id": "ckl55ldh27t1",
-      "name": "[Major] Issues with Logins",
-      "status": "postmortem",
-      "created_at": "2024-02-14T11:22:19.384-08:00",
-      "updated_at": "2025-05-13T19:37:02.781-07:00",
-      "monitoring_at": "2024-02-14T12:23:57.147-08:00",
-      "resolved_at": "2024-02-14T12:36:51.917-08:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/3m21c736qx33",
-      "started_at": "2024-02-14T11:22:19.375-08:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "6rwmy9qmmynt",
-          "status": "postmortem",
-          "body": "We previously addressed an issue that impacted a small percentage of users utilizing multi-factor authentication \\(MFA\\) while logging into Box and accessing the Box API. We would like to take this opportunity to explain the issue and the steps we have taken to prevent similar occurrences in the future.\n\n## **Incident Summary**\n\nOn February 14, 2024, between 11:00 AM PST and 11:32 AM PST, some users may have experienced difficulties logging into Box and using the Box API when MFA was required. This issue was caused by a temporary failure in an underlying network component provided by one of our third-party service providers. The disruption was automatically resolved when the service provider mitigated the issue.\n\n## **Analysis**\n\nThe issue originated from a temporary failure within a regional infrastructure component of our service provider, which supports functions such as request handling, load balancing, and metadata storage. This system is designed to dynamically scale and adjust compute capacity in response to demand fluctuations. However, an unexpected spike in demand exceeded its ability to provision additional resources quickly, leading to increased latency and service errors across multiple services in the affected region.\n\n‌\n\nAs a result, authentication requests for MFA users on Box were impacted until the service provider was able to isolate and mitigate the issue.\n\n## **Corrective Actions**\n\nTo further enhance the resilience of our authentication services, we have implemented the following measures:\n\n* Improved alerting for load balancers to detect and respond to service degradations more effectively.\n* Assessment and implementation of direct fallback application profiles to minimize disruptions in the event of similar network-related failures.\n\n‌\n\nWe remain committed to delivering a reliable and secure experience for all Box users. We appreciate your patience and understanding and are happy to answer any further questions regarding this matter.\n\n‌\n\nSincerely,\n\n‌\n\nThe Box Team",
-          "incident_id": "ckl55ldh27t1",
-          "created_at": "2024-02-22T12:01:50.236-08:00",
-          "updated_at": "2025-05-13T19:37:02.777-07:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qjcn1671qqgz",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. All logins have has been restored to full functionality. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
-          "incident_id": "ckl55ldh27t1",
-          "created_at": "2024-02-14T12:36:51.917-08:00",
-          "updated_at": "2024-02-14T12:36:51.917-08:00",
-          "display_at": "2024-02-14T12:36:51.917-08:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "w0l4pg7zrc66",
-              "name": "Desktop Applications - Login/SSO",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bnbpnqjwmx6b",
-          "status": "monitoring",
-          "body": "Our team has taken steps to remediate this issue and the login service should be returning to full functionality. We are continuing to monitor for any additional impact.",
-          "incident_id": "ckl55ldh27t1",
-          "created_at": "2024-02-14T12:23:57.147-08:00",
-          "updated_at": "2024-02-14T12:23:57.147-08:00",
-          "display_at": "2024-02-14T12:23:57.147-08:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "w0l4pg7zrc66",
-              "name": "Desktop Applications - Login/SSO",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "x9tvz64m0b2d",
-          "status": "identified",
-          "body": "Our team has identified the underlying cause of this issue and is working to take remediating steps. We will provide additional updates as they become available.",
-          "incident_id": "ckl55ldh27t1",
-          "created_at": "2024-02-14T11:53:03.059-08:00",
-          "updated_at": "2024-02-14T11:53:03.059-08:00",
-          "display_at": "2024-02-14T11:53:03.059-08:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "major_outage",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "w0l4pg7zrc66",
-              "name": "Desktop Applications - Login/SSO",
-              "old_status": "major_outage",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jjlccztl9twc",
-          "status": "investigating",
-          "body": "Our team is investigating an issue with Logins within Box. Users attempting to log in to Box  may see errors or timeouts. We will provide additional information as it becomes available.",
-          "incident_id": "ckl55ldh27t1",
-          "created_at": "2024-02-14T11:22:19.466-08:00",
-          "updated_at": "2024-02-14T11:22:19.466-08:00",
-          "display_at": "2024-02-14T11:22:19.466-08:00",
-          "affected_components": [
-            {
-              "code": "khm68x6zltbt",
-              "name": "Box Web Application - Login/SSO",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "w0l4pg7zrc66",
-              "name": "Desktop Applications - Login/SSO",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "khm68x6zltbt",
-          "name": "Login/SSO",
-          "status": "operational",
-          "created_at": "2018-10-01T20:06:36.188-07:00",
-          "updated_at": "2025-05-21T14:59:45.138-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "w0l4pg7zrc66",
-          "name": "Login/SSO",
-          "status": "operational",
-          "created_at": "2018-10-01T20:17:00.031-07:00",
-          "updated_at": "2024-04-22T19:33:58.119-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "qvh7zdkvw690",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
     }
   ]
 }
