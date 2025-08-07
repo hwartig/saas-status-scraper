@@ -4,7 +4,7 @@
     "name": "Apify",
     "url": "https://status.apify.com",
     "time_zone": "Europe/Prague",
-    "updated_at": "2025-08-07T11:15:57.439+02:00"
+    "updated_at": "2025-08-07T17:01:19.873+02:00"
   },
   "components": [
     {
@@ -205,9 +205,9 @@
     {
       "id": "z2cl20hmyryr",
       "name": "Actors",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-07-12T08:48:36.759+02:00",
-      "updated_at": "2025-08-01T09:01:53.302+02:00",
+      "updated_at": "2025-08-07T17:01:19.800+02:00",
       "position": 4,
       "description": "Actors are serverless cloud programs running on Apify that can perform arbitrary computing jobs, such as send an email or crawl a website with millions of pages.",
       "showcase": false,
@@ -485,10 +485,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "dftdf3f0hn6v",
+      "name": "Increased error rate",
+      "status": "monitoring",
+      "created_at": "2025-08-07T16:44:33.073+02:00",
+      "updated_at": "2025-08-07T17:01:19.870+02:00",
+      "monitoring_at": "2025-08-07T17:01:19.852+02:00",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/7b2wt2pp55cm",
+      "started_at": "2025-08-07T16:44:33.069+02:00",
+      "page_id": "j23nkrf8p8p8",
+      "incident_updates": [
+        {
+          "id": "tpd5b0tpbgh4",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "dftdf3f0hn6v",
+          "created_at": "2025-08-07T17:01:19.852+02:00",
+          "updated_at": "2025-08-07T17:01:19.852+02:00",
+          "display_at": "2025-08-07T17:01:19.852+02:00",
+          "affected_components": [
+            {
+              "code": "z2cl20hmyryr",
+              "name": "Actors",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "9svzps9nprm7",
+          "status": "identified",
+          "body": "We are experiencing an increased error rate for Actor runs on some nodes. A small percentage is affected. We identified a potential root cause and are working towards a resolution.",
+          "incident_id": "dftdf3f0hn6v",
+          "created_at": "2025-08-07T16:44:33.115+02:00",
+          "updated_at": "2025-08-07T16:44:33.115+02:00",
+          "display_at": "2025-08-07T16:44:33.115+02:00",
+          "affected_components": [
+            {
+              "code": "z2cl20hmyryr",
+              "name": "Actors",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "z2cl20hmyryr",
+          "name": "Actors",
+          "status": "degraded_performance",
+          "created_at": "2018-07-12T08:48:36.759+02:00",
+          "updated_at": "2025-08-07T17:01:19.800+02:00",
+          "position": 4,
+          "description": "Actors are serverless cloud programs running on Apify that can perform arbitrary computing jobs, such as send an email or crawl a website with millions of pages.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "j23nkrf8p8p8",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
