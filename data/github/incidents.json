@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-08-08T23:20:53.921Z"
+    "updated_at": "2025-08-09T00:35:54.945Z"
   },
   "incidents": [
     {
@@ -12,7 +12,7 @@
       "name": "Incident with Pull Requests",
       "status": "resolved",
       "created_at": "2025-08-05T17:53:22.219Z",
-      "updated_at": "2025-08-05T19:46:42.140Z",
+      "updated_at": "2025-08-09T00:35:54.935Z",
       "monitoring_at": null,
       "resolved_at": "2025-08-05T19:46:42.122Z",
       "impact": "minor",
@@ -23,10 +23,10 @@
         {
           "id": "pkpddb9jhc9y",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "At 15:33 UTC on August 5, 2025, we initiated a production database migration to drop a column from a table backing pull request functionality. While the column was no longer in direct use, our ORM continued to reference the dropped column in a subset of pull request queries. As a result, there were elevated error rates across pushes, webhooks, notifications, and pull requests with impact peaking at approximately 4% of all web and REST API traffic. <br /><br />We mitigated the issue by deploying a change that instructed the ORM to ignore the removed column. Most affected services recovered by 16:13 UTC. However, that fix was applied only to our largest production environment. An update to some of our custom and canary environments did not pick up the fix and this triggered a secondary incident affecting ~0.1% of pull request traffic, which was fully resolved by 19:45 UTC.<br /><br />While migrations have protections such as progressive roll-out first targeting validation environments and acknowledge gates, this incident identified an application monitoring gap that would have prevented continued rollout when impact was observed. We will add additional automation and safeguards to prevent future incidents without requiring human intervention. We are also already working on a way to streamline some types of changes across environments, which would have prevented the second incident from occurring.",
           "incident_id": "skmqnpynxyqs",
           "created_at": "2025-08-05T19:46:42.122Z",
-          "updated_at": "2025-08-05T19:46:42.122Z",
+          "updated_at": "2025-08-09T00:35:54.930Z",
           "display_at": "2025-08-05T19:46:42.122Z",
           "affected_components": [
             {
@@ -185,7 +185,7 @@
       "name": "Incident with pull requests",
       "status": "resolved",
       "created_at": "2025-08-05T15:42:11.214Z",
-      "updated_at": "2025-08-05T16:14:39.169Z",
+      "updated_at": "2025-08-09T00:35:23.354Z",
       "monitoring_at": null,
       "resolved_at": "2025-08-05T16:14:39.153Z",
       "impact": "major",
@@ -196,10 +196,10 @@
         {
           "id": "k85x0j6ph4qg",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "At 15:33 UTC on August 5, 2025, we initiated a production database migration to drop a column from a table backing pull request functionality. While the column was no longer in direct use, our ORM continued to reference the dropped column in a subset of pull request queries. As a result, there were elevated error rates across pushes, webhooks, notifications, and pull requests with impact peaking at approximately 4% of all web and REST API traffic. <br /><br />We mitigated the issue by deploying a change that instructed the ORM to ignore the removed column. Most affected services recovered by 16:13 UTC. However, that fix was applied only to our largest production environment. An update to some of our custom and canary environments did not pick up the fix and this triggered a secondary incident affecting ~0.1% of pull request traffic, which was fully resolved by 19:45 UTC.<br /><br />While migrations have protections such as progressive roll-out first targeting validation environments and acknowledge gates, this incident identified an application monitoring gap that would have prevented continued rollout when impact was observed. We will add additional automation and safeguards to prevent future incidents without requiring human intervention. We are also already working on a way to streamline some types of changes across environments, which would have prevented the second incident from occurring.",
           "incident_id": "6swp0zf7lk8h",
           "created_at": "2025-08-05T16:14:39.153Z",
-          "updated_at": "2025-08-05T16:14:39.153Z",
+          "updated_at": "2025-08-09T00:35:23.349Z",
           "display_at": "2025-08-05T16:14:39.153Z",
           "affected_components": [
             {
