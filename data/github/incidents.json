@@ -4,9 +4,65 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-08-11T15:21:10.702Z"
+    "updated_at": "2025-08-11T18:57:23.323Z"
   },
   "incidents": [
+    {
+      "id": "j2fdyn2v9df9",
+      "name": "Disruption with some GitHub services",
+      "status": "resolved",
+      "created_at": "2025-08-11T18:51:11.735Z",
+      "updated_at": "2025-08-11T18:57:23.320Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-08-11T18:57:23.304Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/zvh1ty3py29v",
+      "started_at": "2025-08-11T18:51:11.728Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "pm994v9bpydd",
+          "status": "resolved",
+          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "incident_id": "j2fdyn2v9df9",
+          "created_at": "2025-08-11T18:57:23.304Z",
+          "updated_at": "2025-08-11T18:57:23.304Z",
+          "display_at": "2025-08-11T18:57:23.304Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "qxjrf2ygnrcq",
+          "status": "investigating",
+          "body": "Logged out users may see intermittent errors when loading github.com webpages. Investigation is ongoing.",
+          "incident_id": "j2fdyn2v9df9",
+          "created_at": "2025-08-11T18:53:16.846Z",
+          "updated_at": "2025-08-11T18:53:16.846Z",
+          "display_at": "2025-08-11T18:53:16.846Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "wvfz70bjf93l",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "j2fdyn2v9df9",
+          "created_at": "2025-08-11T18:51:11.779Z",
+          "updated_at": "2025-08-11T18:51:11.779Z",
+          "display_at": "2025-08-11T18:51:11.779Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "skmqnpynxyqs",
       "name": "Incident with Pull Requests",
@@ -8491,127 +8547,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "71tl7pkqysgw",
-      "name": "GitHub Enterprise Importer (GEI) is experiencing degraded throughput",
-      "status": "resolved",
-      "created_at": "2025-05-16T13:46:13.662Z",
-      "updated_at": "2025-05-19T19:55:57.746Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-05-17T02:27:01.167Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/3yhmyh38q9jl",
-      "started_at": "2025-05-16T20:36:07.000Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "rcgv1b775m63",
-          "status": "resolved",
-          "body": "Between May 16, 2025, 1:21 PM UTC and May 17, 2025, 2:26 AM UTC, the GitHub Enterprise Importer service was degraded and experienced slow processing of customer migrations. Customers may have seen extended wait times for migrations to start or complete.<br /><br />This incident was initially observed as a slowdown in migration processing. During our investigation, we identified that a recent change aimed at improving API query performance caused an increase in load signals, which triggered migration throttling. As a result, the performance of migrations was negatively impacted, and overall migration duration increased. In parallel, we identified a race condition that caused a specific migration to be repeatedly re-queued, further straining system resources and contributing to a backlog of migration jobs, resulting in accumulated delays. No data was lost, and all migrations were ultimately processed successfully.<br /><br />We have reverted the feature flag associated with a query change and are working to improve system safeguards to help prevent similar race condition issues from occurring in the future.",
-          "incident_id": "71tl7pkqysgw",
-          "created_at": "2025-05-17T02:27:01.167Z",
-          "updated_at": "2025-05-19T19:55:57.742Z",
-          "display_at": "2025-05-17T02:27:01.167Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "hztq2hcsr7fq",
-          "status": "investigating",
-          "body": "We continue to see signs of recovery for GitHub Enterprise Importer migrations. Queue depth is decreasing and migration duration is trending toward normal levels. We will continue to monitor improvements.",
-          "incident_id": "71tl7pkqysgw",
-          "created_at": "2025-05-17T02:26:40.237Z",
-          "updated_at": "2025-05-17T02:26:40.237Z",
-          "display_at": "2025-05-17T02:26:40.237Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fkpn35t36txs",
-          "status": "investigating",
-          "body": "We have identified the source of increased load and have started mitigation. Customers using the GitHub Enterprise Importer may still see extended wait times until recovery completes.",
-          "incident_id": "71tl7pkqysgw",
-          "created_at": "2025-05-16T22:33:28.269Z",
-          "updated_at": "2025-05-16T22:33:28.269Z",
-          "display_at": "2025-05-16T22:33:28.269Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xb31thl6mvj9",
-          "status": "investigating",
-          "body": "Investigations on the incident impacting GitHub Enterprise Importer continue. An additional contributing cause has been identified, and we are working to ship additional mitigating measures.",
-          "incident_id": "71tl7pkqysgw",
-          "created_at": "2025-05-16T20:36:07.374Z",
-          "updated_at": "2025-05-16T20:53:45.848Z",
-          "display_at": "2025-05-16T20:36:07.000Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7nq7k1cf6zcb",
-          "status": "investigating",
-          "body": "We have taken several steps to mitigate the incident impacting GitHub Enterprise Importer (GEI). We are seeing early indications of system recovery. However, customers may continue to experience longer migrations and extended queue times. The team is continuing to work on further mitigating efforts to speed up recovery.",
-          "incident_id": "71tl7pkqysgw",
-          "created_at": "2025-05-16T18:19:24.934Z",
-          "updated_at": "2025-05-16T18:19:24.934Z",
-          "display_at": "2025-05-16T18:19:24.934Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dq1nqs3d2c1k",
-          "status": "investigating",
-          "body": "We are continuing to investigate issues with the GitHub Enterprise Importer. Customers may experience slower migration processes and extended wait times.",
-          "incident_id": "71tl7pkqysgw",
-          "created_at": "2025-05-16T15:32:05.409Z",
-          "updated_at": "2025-05-16T15:32:05.409Z",
-          "display_at": "2025-05-16T15:32:05.409Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4g5pkk482p0h",
-          "status": "investigating",
-          "body": "We are investigating issues with the GitHub Enterprise Importer. Customers may experience slower migration processes and extended wait times.",
-          "incident_id": "71tl7pkqysgw",
-          "created_at": "2025-05-16T14:06:27.000Z",
-          "updated_at": "2025-05-16T14:06:27.000Z",
-          "display_at": "2025-05-16T14:06:27.000Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6xywtm6tjm5r",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "71tl7pkqysgw",
-          "created_at": "2025-05-16T13:46:13.716Z",
-          "updated_at": "2025-05-16T13:46:13.716Z",
-          "display_at": "2025-05-16T13:46:13.716Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
