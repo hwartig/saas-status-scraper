@@ -4,9 +4,62 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-08-12T21:15:51.510-07:00"
+    "updated_at": "2025-08-12T22:11:08.904-07:00"
   },
   "incidents": [
+    {
+      "id": "fxw6pd3pw28b",
+      "name": "[Outage] Issues with Box AI",
+      "status": "investigating",
+      "created_at": "2025-08-12T22:11:08.821-07:00",
+      "updated_at": "2025-08-12T22:11:08.901-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/ghbq6pgvldg5",
+      "started_at": "2025-08-12T22:11:08.815-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "gts5qjfrvt1f",
+          "status": "investigating",
+          "body": "We are investigating an ongoing issue affecting Box AI. Users may experience problem using Box AI. We will provide more information as soon as it is available.",
+          "incident_id": "fxw6pd3pw28b",
+          "created_at": "2025-08-12T22:11:08.898-07:00",
+          "updated_at": "2025-08-12T22:11:08.898-07:00",
+          "display_at": "2025-08-12T22:11:08.898-07:00",
+          "affected_components": [
+            {
+              "code": "dndn3xr4456w",
+              "name": "Box Web Application - Box AI",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "dndn3xr4456w",
+          "name": "Box AI",
+          "status": "major_outage",
+          "created_at": "2024-05-14T16:39:52.472-07:00",
+          "updated_at": "2025-08-12T22:11:08.856-07:00",
+          "position": 22,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-05-14",
+          "group_id": "l6vzpnn62cgq",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "v2w3y8kmr78m",
       "name": "[Minor] Issue with Logins and Box Notes",
@@ -748,9 +801,9 @@
         {
           "id": "dndn3xr4456w",
           "name": "Box AI",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2024-05-14T16:39:52.472-07:00",
-          "updated_at": "2025-05-19T18:49:02.519-07:00",
+          "updated_at": "2025-08-12T22:11:08.856-07:00",
           "position": 22,
           "description": null,
           "showcase": false,
@@ -5388,9 +5441,9 @@
         {
           "id": "dndn3xr4456w",
           "name": "Box AI",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2024-05-14T16:39:52.472-07:00",
-          "updated_at": "2025-05-19T18:49:02.519-07:00",
+          "updated_at": "2025-08-12T22:11:08.856-07:00",
           "position": 22,
           "description": null,
           "showcase": false,
@@ -8502,88 +8555,6 @@
         }
       ],
       "reminder_intervals": null
-    },
-    {
-      "id": "bwwdlfwmp513",
-      "name": "[Minor] Item Counts Not Updating",
-      "status": "postmortem",
-      "created_at": "2024-02-19T09:59:50.228-08:00",
-      "updated_at": "2024-02-29T12:34:26.839-08:00",
-      "monitoring_at": "2024-02-19T10:44:29.301-08:00",
-      "resolved_at": "2024-02-19T18:24:08.453-08:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/shvxm5wrxzrq",
-      "started_at": "2024-02-19T09:59:50.222-08:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "2brctzjxhq0j",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting file and folder counts in Box. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 4:00 PM PST on February 18, 2024 and 9:10 PM PST on February 19, 2024, updates to file and folder counts displayed in Box were delayed for some customers. The issue occurred as a result of an intentional workload migration to mitigate a partial outage in one region of one of our cloud providers.  We were able to resolve the issue by adding resources to the target region to reduce the cross-region latency impact. These delays only affected the visibility of file and folder counts; the counts themselves were maintained.\n\n‌\n\n**Analysis** \n\nOn February 16th, a resource migration from one of our regions to another was performed as a mitigation effort for an unrelated issue. An increase in traffic on February 18th combined with the region shift resulted in a backlog in the file and folder counts workflow.\n\nWe addressed the issue by adding more resources to the new region. We are currently in the process of further consolidating the resources for this workflow to avoid significant delays and backlogs. Furthermore, to minimize the likelihood of similar situations occurring again, we are implementing checks and alerts to prevent future scenarios in which resource shortages could lead to delays in updating file and folder counts.\n\n‌\n\n**Corrective Actions**\n\nThe following corrective actions have been completed or are planned:\n\n* We will implement checks and alerts to trigger if the workflow processing slows down and starts to back up.\n* We will add further documentation to our run book as references to be used in the event of similar region outages, ensuring that our service remains resilient to such incidents.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
-          "incident_id": "bwwdlfwmp513",
-          "created_at": "2024-02-29T12:34:09.096-08:00",
-          "updated_at": "2024-02-29T12:34:26.836-08:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "r8rv5dt99cfy",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. Box services have been restored to full functionality. Please contact Box Support at https://support.box.com/ if you continue to experience any issues.",
-          "incident_id": "bwwdlfwmp513",
-          "created_at": "2024-02-19T18:24:08.453-08:00",
-          "updated_at": "2024-02-19T18:24:08.453-08:00",
-          "display_at": "2024-02-19T18:24:08.453-08:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0ly089kjb3j2",
-          "status": "monitoring",
-          "body": "Our team is continuing to monitor the progress of File and Folder counts. While customers should continue to see gradual improvement, it will take some time for all counts to be up to date. We will provide another update once the issue is considered fully resolved or if the status of the issue changes.",
-          "incident_id": "bwwdlfwmp513",
-          "created_at": "2024-02-19T11:09:43.410-08:00",
-          "updated_at": "2024-02-19T11:09:43.410-08:00",
-          "display_at": "2024-02-19T11:09:43.410-08:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5h0s8z53yh9n",
-          "status": "monitoring",
-          "body": "Our team has taken steps to remediate this issue and is seeing improvement in file and folder counts. Customers should begin to see gradual improvement with counts updating across Box. We are continuing to monitor for any additional impact and to ensure the issue will be fully resolved by the steps we have taken.",
-          "incident_id": "bwwdlfwmp513",
-          "created_at": "2024-02-19T10:44:29.301-08:00",
-          "updated_at": "2024-02-19T10:44:29.301-08:00",
-          "display_at": "2024-02-19T10:44:29.301-08:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gxzcl85550py",
-          "status": "investigating",
-          "body": "Our team is investigating an issue with File and Folder counts not updating. This issue only affects the aesthetic count fields. It does not affect the ability to use or access any Box features or services. We will provide additional information as it becomes available.",
-          "incident_id": "bwwdlfwmp513",
-          "created_at": "2024-02-19T09:59:50.265-08:00",
-          "updated_at": "2024-02-19T09:59:50.265-08:00",
-          "display_at": "2024-02-19T09:59:50.265-08:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": "[]"
     }
   ]
 }
