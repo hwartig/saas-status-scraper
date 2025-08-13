@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-08-13T19:10:46.532Z"
+    "updated_at": "2025-08-13T22:29:34.144Z"
   },
   "components": [
     {
@@ -235,7 +235,7 @@
     {
       "id": "mrcyzlkkw8z9",
       "name": "Regional Availability",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T19:19:04.424Z",
       "updated_at": "2024-07-24T19:09:19.587Z",
       "position": 4,
@@ -735,9 +735,9 @@
     {
       "id": "r8cxv07rm0h4",
       "name": "JNB - Johannesburg, South Africa",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-05-22T08:34:12.878Z",
-      "updated_at": "2025-02-12T20:39:42.777Z",
+      "updated_at": "2025-08-13T22:29:34.098Z",
       "position": 17,
       "description": null,
       "showcase": false,
@@ -1071,10 +1071,119 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
-  "scheduled_maintenances": [],
+  "incidents": [
+    {
+      "id": "0mxz8kqpm8qf",
+      "name": "High packet loss in JNB region",
+      "status": "investigating",
+      "created_at": "2025-08-13T22:29:34.064Z",
+      "updated_at": "2025-08-13T22:29:34.141Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/s08d6fxhw1yd",
+      "started_at": "2025-08-13T22:29:34.057Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "km2fp1lvwjn6",
+          "status": "investigating",
+          "body": "We are currently investigating high packet loss in JNB.",
+          "incident_id": "0mxz8kqpm8qf",
+          "created_at": "2025-08-13T22:29:34.139Z",
+          "updated_at": "2025-08-13T22:29:34.139Z",
+          "display_at": "2025-08-13T22:29:34.139Z",
+          "affected_components": [
+            {
+              "code": "r8cxv07rm0h4",
+              "name": "Regional Availability - JNB - Johannesburg, South Africa",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "r8cxv07rm0h4",
+          "name": "JNB - Johannesburg, South Africa",
+          "status": "degraded_performance",
+          "created_at": "2023-05-22T08:34:12.878Z",
+          "updated_at": "2025-08-13T22:29:34.098Z",
+          "position": 17,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-05-22",
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
+  "scheduled_maintenances": [
+    {
+      "id": "pdlpgkkhcmp8",
+      "name": "Network maintenance in SIN (Singapore)",
+      "status": "scheduled",
+      "created_at": "2025-08-13T22:16:26.354Z",
+      "updated_at": "2025-08-13T22:16:26.407Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/bj71b1syg19f",
+      "started_at": "2025-08-13T22:16:26.347Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "hx1ss6xmqnrh",
+          "status": "scheduled",
+          "body": "An upstream provider is performing network maintenance in SIN, from 2025-08-20 at 16:00 UTC (2025-08-21 12:00am SIN local time) to 20:00 UTC (04:00am SIN local time). You may experience a short total loss of connectivity for up to 2 hours within the scheduled maintenance window hours.",
+          "incident_id": "pdlpgkkhcmp8",
+          "created_at": "2025-08-13T22:16:26.405Z",
+          "updated_at": "2025-08-13T22:16:26.405Z",
+          "display_at": "2025-08-13T22:16:26.405Z",
+          "affected_components": [
+            {
+              "code": "b97pv9yxbzv7",
+              "name": "Regional Availability - SIN - Singapore",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "b97pv9yxbzv7",
+          "name": "SIN - Singapore",
+          "status": "operational",
+          "created_at": "2019-07-01T19:31:49.625Z",
+          "updated_at": "2024-11-26T17:55:16.512Z",
+          "position": 30,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-08-20T16:00:00.000Z",
+      "scheduled_until": "2025-08-20T20:00:00.000Z"
+    }
+  ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
