@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-08-15T19:19:08.060Z"
+    "updated_at": "2025-08-15T19:35:03.333Z"
   },
   "incidents": [
     {
@@ -218,7 +218,7 @@
       "name": "Incident with search on GitHub we are seeing increased failure rates",
       "status": "resolved",
       "created_at": "2025-08-12T14:12:10.354Z",
-      "updated_at": "2025-08-12T17:56:13.291Z",
+      "updated_at": "2025-08-15T19:35:03.322Z",
       "monitoring_at": null,
       "resolved_at": "2025-08-12T17:56:13.276Z",
       "impact": "major",
@@ -229,10 +229,10 @@
         {
           "id": "vky9x74l0mbr",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On August 12, 2025, between 13:30 UTC and 17:14 UTC, GitHub search was in a degraded state. Users experienced inaccurate or incomplete results, failures to load certain pages (like Issues, Pull Requests, Projects, and Deployments), and broken components like Actions workflow and label filters.<br /><br />Most user impact occurred between 14:00 UTC and 15:30 UTC, when up to 75% of search queries failed, and updates to search results were delayed by up to 100 minutes. <br /><br />The incident was triggered by intermittent connectivity issues between our load balancers and search hosts. While retry logic initially masked these problems, retry queues eventually overwhelmed the load balancers, causing failure. The query failures were mitigated at 15:30 UTC after throttling our search indexing pipeline to reduce load and stabilize retries.  The connectivity failures were resolved at 17:14 UTC after the automated reboot of a search host, causing the rest of the system to recover.  <br /><br />We have improved internal monitors and playbooks, and tuned our search cluster load balancer to further mitigate the recurrence of this failure mode. We continue to invest in resolving the underlying connectivity issues.",
           "incident_id": "9rfydl2xdqqj",
           "created_at": "2025-08-12T17:56:13.276Z",
-          "updated_at": "2025-08-12T17:56:13.276Z",
+          "updated_at": "2025-08-15T19:35:03.316Z",
           "display_at": "2025-08-12T17:56:13.276Z",
           "affected_components": [
             {
