@@ -4,7 +4,7 @@
     "name": "Wix",
     "url": "https://status.wix.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-08-21T21:51:14.297Z"
+    "updated_at": "2025-08-21T22:22:01.454Z"
   },
   "components": [
     {
@@ -310,7 +310,7 @@
     {
       "id": "rd2swgkl30s1",
       "name": "Site Loading",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2021-01-18T07:11:29.292Z",
       "updated_at": "2021-01-18T07:12:24.720Z",
       "position": 1,
@@ -513,9 +513,9 @@
     {
       "id": "qdh1nrrml1zr",
       "name": "Site Loading",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-11-22T07:20:58.629Z",
-      "updated_at": "2025-08-21T03:35:53.051Z",
+      "updated_at": "2025-08-21T22:17:18.342Z",
       "position": 2,
       "description": null,
       "showcase": true,
@@ -1939,10 +1939,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "zmh8dq4b1hcz",
+      "name": "Some Wix Websites May Be Unaccessible in Brazil",
+      "status": "identified",
+      "created_at": "2025-08-21T22:12:00.377Z",
+      "updated_at": "2025-08-21T22:17:28.333Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/bpsbrmx9r8zl",
+      "started_at": "2025-08-21T22:12:00.369Z",
+      "page_id": "3x6vjqhj2cpt",
+      "incident_updates": [
+        {
+          "id": "vrtx4jn69g0s",
+          "status": "identified",
+          "body": "We’re aware of an issue that appears to manifest on the routing path between a user's Internet Provider and Wix for some users trying to access Wix sites from Brazil. \n\nWe have done an extensive investigation and found the issue to be caused by the routing before it reaches Wix.\n\nIn case you encounter this issue, please contact your Internet Provider directly and ask them to perform a trace to see where the connection stops and they can address it from there.\n\nAs a possible workaround, please attempt to access the site by typing www. or the full domain with https://\n\nPlease keep in mind that the workaround does not work for everyone.",
+          "incident_id": "zmh8dq4b1hcz",
+          "created_at": "2025-08-21T22:17:18.380Z",
+          "updated_at": "2025-08-21T22:17:28.329Z",
+          "display_at": "2025-08-21T22:17:18.000Z",
+          "affected_components": [
+            {
+              "code": "qdh1nrrml1zr",
+              "name": "Site Loading - Site Loading",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "mb0qcsbbbkyc",
+          "status": "identified",
+          "body": "We’re aware of an issue that appears to manifest on the routing path between a user's Internet Provider and Wix for some users trying to access Wix sites from Brazil.\n\nIn case you encounter this issue, please contact your Internet Provider directly in order for them to take measures on their side. \n\nAs a workaround, please attempt toaccess the site by typing www. or the full domain with https://\n\nWe are monitoring their progress and will provide an update once we see the issue is resolved.",
+          "incident_id": "zmh8dq4b1hcz",
+          "created_at": "2025-08-21T22:12:00.465Z",
+          "updated_at": "2025-08-21T22:12:00.465Z",
+          "display_at": "2025-08-21T22:12:00.465Z",
+          "affected_components": [
+            {
+              "code": "qdh1nrrml1zr",
+              "name": "Site Loading - Site Loading",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "qdh1nrrml1zr",
+          "name": "Site Loading",
+          "status": "degraded_performance",
+          "created_at": "2020-11-22T07:20:58.629Z",
+          "updated_at": "2025-08-21T22:17:18.342Z",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": "2020-10-01",
+          "group_id": "rd2swgkl30s1",
+          "page_id": "3x6vjqhj2cpt",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
