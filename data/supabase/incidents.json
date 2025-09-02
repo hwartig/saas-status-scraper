@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-02T17:36:01.960Z"
+    "updated_at": "2025-09-02T20:34:30.293Z"
   },
   "incidents": [
     {
@@ -40,9 +40,9 @@
     {
       "id": "gvp38qdj3bm6",
       "name": "Elevated 525 error rates in the US region",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-08-28T10:36:06.121Z",
-      "updated_at": "2025-08-28T13:14:14.802Z",
+      "updated_at": "2025-09-02T20:33:21.236Z",
       "monitoring_at": "2025-08-28T11:20:33.111Z",
       "resolved_at": "2025-08-28T13:14:14.788Z",
       "impact": "major",
@@ -50,6 +50,19 @@
       "started_at": "2025-08-28T10:36:06.112Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "w42fqzyn28l9",
+          "status": "postmortem",
+          "body": "## SSL Handshake Failures Due to BGP Route Leak\n\nBetween 9:15 UTC and 11:09 UTC on August 28th, 2025, customers accessing Supabase services in the us-east-1 region experienced SSL handshake failures \\(525 errors\\) when connecting to their projects. The issue was caused by a third-party network route leak that misdirected traffic intended for AWS prefixes.\n\nCustomers with projects hosted in the us-east-1 region were primarily affected. In total, over 5 million requests were blocked. The impacted requests received Cloudflare 525 and 520 errors, primarily affecting PostgREST and Auth services.\n\nWe sincerely apologize for the disruption this caused to your applications and services. Here is additional detail about what happened and the steps we're taking to improve our resilience against similar incidents.\n\n### What happened?\n\nA third-party network provider unintentionally propagated BGP routing announcements beyond their intended scope, causing a route leak that included AWS prefixes used by Supabase origins. This misdirected traffic away from its proper destination, resulting in SSL handshake failures at our CDN layer.\n\nThe incident timeline was as follows:\n\n* WED 28 AUG 9:18 UTC: Multiple customer in us-east support tickets reported 525 and 520 errors\n* WED 28 AUG 9:20 UTC: We started an internal incident\n* WED 28 AUG 9:25 UTC: Our team identified the issue was concentrated in us-east-1 region and reached out to our upstream provider\n* WED 28 AUG 9:50 UTC: Issue was confirmed to be related to external network/CDN problem\n* WED 28 AUG 10:35 UTC: US traffic began recovering as BGP routes stabilized\n* WED 28 AUG 11:09 UTC: Full recovery confirmed, error rates returned to zero\n* WED 29 AUG 9:40 UTC: We were continuing to work with an upstream provider until the identification of the root cause\n\n### What will we do to mitigate problems like this in the future?\n\n* Improve detection and alerting\n* Improve vendor communication to be able to faster detect similar issues in the future\n\n### What actions do you need to take?\n\nNo action is required from customers. This was an infrastructure issue outside of Supabase's direct control that has been resolved. The BGP route leak was corrected by the third-party network provider, and traffic routing has returned to normal.\n\nIf you continue to experience connectivity issues, please contact our support team with details about your specific project and region.",
+          "incident_id": "gvp38qdj3bm6",
+          "created_at": "2025-09-02T20:31:55.970Z",
+          "updated_at": "2025-09-02T20:33:21.234Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "nqw0rgkyg2km",
           "status": "resolved",
