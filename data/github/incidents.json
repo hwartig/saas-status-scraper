@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-03T22:01:12.404Z"
+    "updated_at": "2025-09-04T18:20:26.826Z"
   },
   "incidents": [
+    {
+      "id": "mdj41rgqwjx5",
+      "name": "Degraded REST API success rates for some customers",
+      "status": "investigating",
+      "created_at": "2025-09-04T18:16:52.513Z",
+      "updated_at": "2025-09-04T18:18:22.725Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/wdpymtwywhy1",
+      "started_at": "2025-09-04T18:16:52.507Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "hrqwpqtd7jdj",
+          "status": "investigating",
+          "body": "Customers are experiencing 504 responses for some API requests for regarding repo refs/tags. We are investigating.",
+          "incident_id": "mdj41rgqwjx5",
+          "created_at": "2025-09-04T18:18:22.722Z",
+          "updated_at": "2025-09-04T18:18:22.722Z",
+          "display_at": "2025-09-04T18:18:22.722Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "93573sqw4q9s",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "mdj41rgqwjx5",
+          "created_at": "2025-09-04T18:16:52.550Z",
+          "updated_at": "2025-09-04T18:16:52.550Z",
+          "display_at": "2025-09-04T18:16:52.550Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "mj067hg9slb4",
       "name": "Loading avatars might fail for a 0.5% of total users and 100% users around the Arabian Peninsula. We are investigating.",
@@ -8556,165 +8599,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "l5jqk83qnfzd",
-      "name": "Disruption with some GitHub services",
-      "status": "resolved",
-      "created_at": "2025-05-28T11:11:15.122Z",
-      "updated_at": "2025-05-29T22:04:49.243Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-05-28T14:43:08.402Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/7fv7m43gfhjv",
-      "started_at": "2025-05-28T11:11:15.112Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "4tc2yvh3zgd9",
-          "status": "resolved",
-          "body": "On May 28, 2025, from approximately 09:45 UTC to 14:45 UTC, GitHub Actions experienced delayed job starts for workflows in public repos using Ubuntu-24 standard hosted runners. This was caused by a misconfiguration in backend caching behavior after a failover, which led to duplicate job assignments and reduced available capacity. Approximately 19.7% of Ubuntu-24 hosted runner jobs on public repos were delayed.  Other hosted runners, self-hosted runners, and private repo workflows were unaffected.<br /><br />By 12:45 UTC, we mitigated the issue by redeploying backend components to reset state and scaling up available resources to more quickly work through the backlog of queued jobs. We are working to improve our deployment and failover resiliency and validation to reduce the likelihood of similar issues in the future.",
-          "incident_id": "l5jqk83qnfzd",
-          "created_at": "2025-05-28T14:43:08.402Z",
-          "updated_at": "2025-05-29T22:04:49.237Z",
-          "display_at": "2025-05-28T14:43:08.402Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "n61wf5gxljb0",
-          "status": "investigating",
-          "body": "We are continuing to monitor the affected Actions runners to ensure a smooth recovery.",
-          "incident_id": "l5jqk83qnfzd",
-          "created_at": "2025-05-28T14:35:09.650Z",
-          "updated_at": "2025-05-28T14:35:09.650Z",
-          "display_at": "2025-05-28T14:35:09.650Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "q3vcr40gqjjp",
-          "status": "investigating",
-          "body": "We are observing indications of recovery with the affected Actions runners.<br /><br />The team will continue monitoring systems to ensure a return to normal service.",
-          "incident_id": "l5jqk83qnfzd",
-          "created_at": "2025-05-28T13:42:18.037Z",
-          "updated_at": "2025-05-28T13:42:18.037Z",
-          "display_at": "2025-05-28T13:42:18.037Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "f9dg8xhttnlv",
-          "status": "investigating",
-          "body": "We're continuing to investigate delays in Actions runners for hosted Ubuntu 24.<br /><br />We will provide further updates as more information becomes available.",
-          "incident_id": "l5jqk83qnfzd",
-          "created_at": "2025-05-28T12:41:26.292Z",
-          "updated_at": "2025-05-28T12:41:26.292Z",
-          "display_at": "2025-05-28T12:41:26.292Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0f0h3z6hn05d",
-          "status": "investigating",
-          "body": "Actions is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "l5jqk83qnfzd",
-          "created_at": "2025-05-28T11:49:59.811Z",
-          "updated_at": "2025-05-28T11:49:59.811Z",
-          "display_at": "2025-05-28T11:49:59.811Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fxd825tkpwms",
-          "status": "investigating",
-          "body": "Actions is experiencing high wait times for obtaining standard hosted runners for ubuntu 24. Other hosted labels and self-hosted runners are not impacted.",
-          "incident_id": "l5jqk83qnfzd",
-          "created_at": "2025-05-28T11:42:47.582Z",
-          "updated_at": "2025-05-28T11:42:47.582Z",
-          "display_at": "2025-05-28T11:42:47.582Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "15vz12q45pfz",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "l5jqk83qnfzd",
-          "created_at": "2025-05-28T11:11:15.178Z",
-          "updated_at": "2025-05-28T11:11:15.178Z",
-          "display_at": "2025-05-28T11:11:15.178Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "br0l2tvcx85d",
-          "name": "Actions",
-          "status": "operational",
-          "created_at": "2019-11-13T18:02:19.432Z",
-          "updated_at": "2025-08-21T18:13:02.491Z",
-          "position": 7,
-          "description": "Workflows, Compute and Orchestration for GitHub Actions",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
