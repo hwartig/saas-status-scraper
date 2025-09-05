@@ -4,9 +4,62 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-03T11:30:22.516Z"
+    "updated_at": "2025-09-05T19:42:24.158Z"
   },
   "incidents": [
+    {
+      "id": "g3jkqp1ywq9j",
+      "name": "Droplet Creation",
+      "status": "resolved",
+      "created_at": "2025-09-05T19:42:24.102Z",
+      "updated_at": "2025-09-05T19:42:24.156Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-09-05T19:42:24.148Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/jjkf8cyjjz2x",
+      "started_at": "2025-09-05T19:42:24.096Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "00bt16sgbpnl",
+          "status": "resolved",
+          "body": "From 18:53 to 19:15 UTC, our Engineering team identified an issue with the public Droplet API, resulting in difficulties in creating, accessing and listing Droplets via the Cloud Control Panel or API. Autoscaler and LBaaS APIs were also affected. Our team has fully resolved the issues, and as of 19:15 UTC, all services are operating normally.\nWe apologize for the inconvenience. If you are still experiencing any problems or have additional questions, then please open a support ticket within your account",
+          "incident_id": "g3jkqp1ywq9j",
+          "created_at": "2025-09-05T19:42:24.148Z",
+          "updated_at": "2025-09-05T19:42:24.148Z",
+          "display_at": "2025-09-05T19:42:24.148Z",
+          "affected_components": [
+            {
+              "code": "dkbfnt2ghbw4",
+              "name": "Droplets - Global",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "dkbfnt2ghbw4",
+          "name": "Global",
+          "status": "operational",
+          "created_at": "2024-08-16T11:18:00.871Z",
+          "updated_at": "2025-08-26T19:33:40.984Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-08-16",
+          "group_id": "4rgs7bbljl8d",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "2gdnm0bpghv0",
       "name": "Block Storage Volumes and Kubernetes Clusters in NYC1 Region",
@@ -4960,119 +5013,6 @@
           "showcase": false,
           "start_date": "2025-01-22",
           "group_id": null,
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "7sr4m44gd75l",
-      "name": "Managed Databases creation",
-      "status": "resolved",
-      "created_at": "2025-03-31T04:09:58.000Z",
-      "updated_at": "2025-03-31T09:30:16.840Z",
-      "monitoring_at": "2025-03-31T07:58:15.172Z",
-      "resolved_at": "2025-03-31T09:30:16.825Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/qhztht1v8hnl",
-      "started_at": "2025-03-31T04:09:58.000Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "zsng46mhk43j",
-          "status": "resolved",
-          "body": "From 00:13 UTC to 9:09 UTC, users may have experienced errors when attempting to create Managed Database Caching Clusters.\n\nOur Engineering team has confirmed the full resolution of the issue. Users should now be able to create Caching clusters normally.\n\nIf you continue to experience issues, please open a support ticket from your Cloud Control Panel.",
-          "incident_id": "7sr4m44gd75l",
-          "created_at": "2025-03-31T09:30:16.825Z",
-          "updated_at": "2025-03-31T09:30:16.825Z",
-          "display_at": "2025-03-31T09:30:16.825Z",
-          "affected_components": [
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "x2kmpnvz52rl",
-          "status": "monitoring",
-          "body": "Our Engineering team has implemented a fix to resolve the issues impacting the creation of Managed Database Clusters.\n\nUsers should no longer see any errors while creating a Caching Database Cluster. \n\nWe are actively monitoring the situation and will post an update as soon as the issue is fully resolved.",
-          "incident_id": "7sr4m44gd75l",
-          "created_at": "2025-03-31T07:58:15.172Z",
-          "updated_at": "2025-03-31T07:58:15.172Z",
-          "display_at": "2025-03-31T07:58:15.172Z",
-          "affected_components": [
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2k1737pnst5b",
-          "status": "identified",
-          "body": "Our Engineering team has identified the root cause of the issue affecting the creation of Managed Database Clusters and is actively working on a fix.\n\nUsers who already have a Caching Database Cluster in their account should be able to create a new Cluster. During this time, users without an existing caching cluster in their account may still see an error while creating a new cluster.\n\nWe apologize for the inconvenience and will provide another update as soon as possible.",
-          "incident_id": "7sr4m44gd75l",
-          "created_at": "2025-03-31T05:41:42.225Z",
-          "updated_at": "2025-03-31T05:42:38.580Z",
-          "display_at": "2025-03-31T05:41:42.000Z",
-          "affected_components": [
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "hvb8gghs0lyd",
-          "status": "investigating",
-          "body": "As of 00:13 UTC, our Engineering team is investigating an issue with creating Managed Database clusters.\n\nDuring this time, users may face issues creating caching clusters.\n\nWe apologize for the inconvenience and will share an update once we have more information.",
-          "incident_id": "7sr4m44gd75l",
-          "created_at": "2025-03-31T04:09:58.340Z",
-          "updated_at": "2025-03-31T04:18:45.403Z",
-          "display_at": "2025-03-31T04:09:58.000Z",
-          "affected_components": [
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "mzkgffp35tq4",
-          "name": "Global",
-          "status": "operational",
-          "created_at": "2024-08-16T11:21:56.097Z",
-          "updated_at": "2025-09-03T11:30:22.448Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2024-08-16",
-          "group_id": "kl8qv98c9brp",
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
