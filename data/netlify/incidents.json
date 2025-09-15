@@ -4,9 +4,62 @@
     "name": "Netlify",
     "url": "https://www.netlifystatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-14T19:55:57.432Z"
+    "updated_at": "2025-09-15T06:25:32.143Z"
   },
   "incidents": [
+    {
+      "id": "s6v21bsk31w4",
+      "name": "Planned brownout – legacy Equinix CDN (action required)",
+      "status": "monitoring",
+      "created_at": "2025-09-15T06:24:04.931Z",
+      "updated_at": "2025-09-15T06:24:05.400Z",
+      "monitoring_at": "2025-09-15T06:24:04.999Z",
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/vyh3ls3365r8",
+      "started_at": "2025-09-15T06:24:04.926Z",
+      "page_id": "83dz7syz0j3x",
+      "incident_updates": [
+        {
+          "id": "3w1vdhj1q0cx",
+          "status": "monitoring",
+          "body": "Sites still pointing to the legacy edge network (Equinix) with the IP 147.75.40.150 will be offline until the DNS is updated to the current IP address. Please follow this guide: https://www.netlify.com/changelog/equinix-ip-address-expiring-for-4-year-old-sites/. DNS propagation can take up to 24–48 hours, depending on TTL.",
+          "incident_id": "s6v21bsk31w4",
+          "created_at": "2025-09-15T06:24:04.999Z",
+          "updated_at": "2025-09-15T06:24:05.395Z",
+          "display_at": "2025-09-15T06:24:04.999Z",
+          "affected_components": [
+            {
+              "code": "9z55n3qxn9k7",
+              "name": "Legacy Edge Network (Equinix)",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1967474482781848062
+        }
+      ],
+      "components": [
+        {
+          "id": "9z55n3qxn9k7",
+          "name": "Legacy Edge Network (Equinix)",
+          "status": "partial_outage",
+          "created_at": "2025-09-11T14:27:44.449Z",
+          "updated_at": "2025-09-15T06:25:32.139Z",
+          "position": 27,
+          "description": "Legacy load balancer. Planned to be decommissioned on 09/15/2025.",
+          "showcase": false,
+          "start_date": "2025-09-11",
+          "group_id": null,
+          "page_id": "83dz7syz0j3x",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "m7sg2frht5hk",
       "name": "Increased errors on HP Edge Network",
@@ -5841,36 +5894,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "x7gkq8f2y9d6",
-      "name": "Increased latencies and errors on High Performance Edge Network",
-      "status": "resolved",
-      "created_at": "2025-01-12T15:35:00.000Z",
-      "updated_at": "2025-01-12T16:32:02.165Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-01-12T15:35:00.000Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/gl4g6py3t087",
-      "started_at": "2025-01-12T16:32:02.092Z",
-      "page_id": "83dz7syz0j3x",
-      "incident_updates": [
-        {
-          "id": "xdkmxtxdg4gn",
-          "status": "resolved",
-          "body": "On January 12, 2025, from 15:35 UTC to 16:11 UTC, the Netlify High Performance Edge Network suffered increased latencies and errors. This should now be resolved.",
-          "incident_id": "x7gkq8f2y9d6",
-          "created_at": "2025-01-12T16:32:02.152Z",
-          "updated_at": "2025-01-12T16:32:02.152Z",
-          "display_at": "2025-01-12T15:35:00.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
