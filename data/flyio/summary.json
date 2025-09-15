@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-15T09:51:05.086Z"
+    "updated_at": "2025-09-15T14:57:13.575Z"
   },
   "components": [
     {
@@ -360,6 +360,21 @@
       "only_show_if_degraded": false
     },
     {
+      "id": "00vjpjnwrhqz",
+      "name": "flydns.net",
+      "status": "partial_outage",
+      "created_at": "2025-09-15T14:56:46.727Z",
+      "updated_at": "2025-09-15T14:57:13.523Z",
+      "position": 5,
+      "description": "DNS servers for fly.dev and other Fly.io domains",
+      "showcase": false,
+      "start_date": "2025-09-15",
+      "group_id": "n5bhwnntp7v3",
+      "page_id": "65rccr4mbblw",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
       "id": "49yq6v65b33l",
       "name": "Deployments",
       "status": "operational",
@@ -665,7 +680,7 @@
     {
       "id": "n5bhwnntp7v3",
       "name": "DNS",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2024-02-27T23:27:51.385Z",
       "updated_at": "2024-07-24T18:59:29.458Z",
       "position": 15,
@@ -679,7 +694,8 @@
       "components": [
         "wf7mhv85lyhv",
         "b1mvm9ctzkdb",
-        "pj9b7qmx6tkb"
+        "pj9b7qmx6tkb",
+        "00vjpjnwrhqz"
       ]
     },
     {
@@ -1057,6 +1073,59 @@
   ],
   "incidents": [
     {
+      "id": "37jjv7yk2kqv",
+      "name": "fly.dev DNS resolution issues",
+      "status": "investigating",
+      "created_at": "2025-09-15T14:57:13.483Z",
+      "updated_at": "2025-09-15T14:57:13.572Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/xsyhx69w61by",
+      "started_at": "2025-09-15T14:57:13.474Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "bmxdy1nb6mvy",
+          "status": "investigating",
+          "body": "We are investigating an issue with fly.dev domain DNS resolution. Default fly.dev domains for apps may fail to resolve. Custom domains continue to work.",
+          "incident_id": "37jjv7yk2kqv",
+          "created_at": "2025-09-15T14:57:13.569Z",
+          "updated_at": "2025-09-15T14:57:13.569Z",
+          "display_at": "2025-09-15T14:57:13.569Z",
+          "affected_components": [
+            {
+              "code": "00vjpjnwrhqz",
+              "name": "DNS - flydns.net",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "00vjpjnwrhqz",
+          "name": "flydns.net",
+          "status": "partial_outage",
+          "created_at": "2025-09-15T14:56:46.727Z",
+          "updated_at": "2025-09-15T14:57:13.523Z",
+          "position": 5,
+          "description": "DNS servers for fly.dev and other Fly.io domains",
+          "showcase": false,
+          "start_date": "2025-09-15",
+          "group_id": "n5bhwnntp7v3",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "6fbfvqghxz2f",
       "name": "Network issues in BOM",
       "status": "identified",
@@ -1173,6 +1242,6 @@
   "scheduled_maintenances": [],
   "status": {
     "indicator": "minor",
-    "description": "Partially Degraded Service"
+    "description": "Minor Service Outage"
   }
 }
