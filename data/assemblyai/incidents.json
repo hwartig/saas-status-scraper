@@ -4,9 +4,39 @@
     "name": "AssemblyAI",
     "url": "https://status.assemblyai.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-16T08:50:56.724Z"
+    "updated_at": "2025-09-16T10:30:47.712Z"
   },
   "incidents": [
+    {
+      "id": "657380y6cfl6",
+      "name": "Degraded Streaming Performance",
+      "status": "resolved",
+      "created_at": "2025-09-16T09:00:00.000Z",
+      "updated_at": "2025-09-16T10:30:47.710Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-09-16T09:00:00.000Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/s41rv0qnck1t",
+      "started_at": "2025-09-16T10:30:32.889Z",
+      "page_id": "8yxng9m82rr4",
+      "incident_updates": [
+        {
+          "id": "3vlbp6s1jp5j",
+          "status": "resolved",
+          "body": "We experienced an issue with our Streaming API between 09:00 GMT and 10:04 GMT. This resulted in reduced quality of service for streaming sessions and some sessions were closing unexpectedly. A fix was implemented and our Streaming API is now functioning normally.",
+          "incident_id": "657380y6cfl6",
+          "created_at": "2025-09-16T10:30:32.938Z",
+          "updated_at": "2025-09-16T10:30:32.938Z",
+          "display_at": "2025-09-16T09:00:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "rz51jtsbvhcq",
       "name": "Slam-1 requests not completing successfully",
@@ -5923,192 +5953,6 @@
           "created_at": "2023-08-08T19:56:51.966Z",
           "updated_at": "2023-08-08T19:56:51.966Z",
           "display_at": "2023-08-08T19:56:51.966Z",
-          "affected_components": [
-            {
-              "code": "kygwc83t1rfg",
-              "name": "APIs - Asynchronous API",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "kygwc83t1rfg",
-          "name": "Asynchronous API",
-          "status": "operational",
-          "created_at": "2021-10-25T15:23:09.740Z",
-          "updated_at": "2025-08-05T17:16:54.407Z",
-          "position": 1,
-          "description": null,
-          "showcase": true,
-          "start_date": "2021-10-25",
-          "group_id": "50txf4qfk2kv",
-          "page_id": "8yxng9m82rr4",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "kjrvxcjxxl0q",
-      "name": "Longer than usual processing times",
-      "status": "postmortem",
-      "created_at": "2023-08-07T19:58:54.726Z",
-      "updated_at": "2023-08-20T23:32:15.436Z",
-      "monitoring_at": "2023-08-07T21:17:56.207Z",
-      "resolved_at": "2023-08-07T23:00:03.537Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/xvj8lfm4n0nq",
-      "started_at": "2023-08-07T19:58:54.718Z",
-      "page_id": "8yxng9m82rr4",
-      "incident_updates": [
-        {
-          "id": "4zwpjxfkxrqz",
-          "status": "postmortem",
-          "body": "We wanted to reach back out to share more detailed information on the incidents that occurred on 8/7 and 8/8. These incidents were caused by separate issues  See the information below for a description of each issue and the steps taken to remedy them.\n\n8/7  \nIncident Cause  \nAn inefficient database usage pattern change was submitted and deployed on 8/2. Although inefficient, due to the standard load prior to deployment, no regression was detected. We encountered a new peak load on 8/7 which along with this inefficiency led to a large increase in latency \\(turnaround times\\) which was the incident faced this day.\n\nResolution  \nWe identified and reverted the database usage change committed on 8/2 that led to this slowdown.  \nWe upgraded our database instance size.\n\n8/8  \nIncident Cause  \nA full table query was run against our write replica database as a team worked to transfer data to BigQuery for business intelligence tooling. This led to database contention and slowed down our production service.\n\nResolution  \nWe implemented more fine-grained controls and roles for database access along with an approval process to verify production database queries are run against the correct replica and will not impact customers.  \n  \nIf you have any questions about this information feel free to reach out to support@assemblyai.com.",
-          "incident_id": "kjrvxcjxxl0q",
-          "created_at": "2023-08-20T23:31:25.390Z",
-          "updated_at": "2023-08-20T23:32:15.434Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4tnltkd0hq20",
-          "status": "resolved",
-          "body": "Processing times have now returned to the normal range. We will continue to monitor traffic to ensure good performance going forward but at this point, this degradation of service is being marked as resolved.",
-          "incident_id": "kjrvxcjxxl0q",
-          "created_at": "2023-08-07T23:00:03.537Z",
-          "updated_at": "2023-08-07T23:00:03.537Z",
-          "display_at": "2023-08-07T23:00:03.537Z",
-          "affected_components": [
-            {
-              "code": "kygwc83t1rfg",
-              "name": "APIs - Asynchronous API",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gwkvz8yxtpq2",
-          "status": "monitoring",
-          "body": "We are continuing to monitor the situation but we are seeing processing times go down as a result of the latest changes we deployed. While we are not quite back to the normal processing range yet, we are moving in that direction. We will continue to monitor processing times and update you again once we have fully returned to the normal range.",
-          "incident_id": "kjrvxcjxxl0q",
-          "created_at": "2023-08-07T22:36:05.677Z",
-          "updated_at": "2023-08-07T22:36:05.677Z",
-          "display_at": "2023-08-07T22:36:05.677Z",
-          "affected_components": [
-            {
-              "code": "kygwc83t1rfg",
-              "name": "APIs - Asynchronous API",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vsdm04w87d0v",
-          "status": "identified",
-          "body": "The earlier changes we implemented did not improve processing times in the way that we hoped. We have another potential fix for this issue that we are working to release into Production. We will share another update here once that fix is live and we have had time to monitor its impact.",
-          "incident_id": "kjrvxcjxxl0q",
-          "created_at": "2023-08-07T22:03:40.309Z",
-          "updated_at": "2023-08-07T22:03:40.309Z",
-          "display_at": "2023-08-07T22:03:40.309Z",
-          "affected_components": [
-            {
-              "code": "kygwc83t1rfg",
-              "name": "APIs - Asynchronous API",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "8wqmx6hqzpbx",
-          "status": "monitoring",
-          "body": "We have made some changes to address the slower-than-normal processing times we have been seeing and are currently monitoring the results of those changes to measure improvement.",
-          "incident_id": "kjrvxcjxxl0q",
-          "created_at": "2023-08-07T21:17:56.207Z",
-          "updated_at": "2023-08-07T21:17:56.207Z",
-          "display_at": "2023-08-07T21:17:56.207Z",
-          "affected_components": [
-            {
-              "code": "kygwc83t1rfg",
-              "name": "APIs - Asynchronous API",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1ss57w521wrv",
-          "status": "investigating",
-          "body": "We are still working to identify the root cause of the slowdown but it looks to be related to database load, which is causing degraded performance and slower-than-expected processing times. Jobs are still completing but with longer than normal turnaround times.",
-          "incident_id": "kjrvxcjxxl0q",
-          "created_at": "2023-08-07T20:41:45.768Z",
-          "updated_at": "2023-08-07T20:41:45.768Z",
-          "display_at": "2023-08-07T20:41:45.768Z",
-          "affected_components": [
-            {
-              "code": "kygwc83t1rfg",
-              "name": "APIs - Asynchronous API",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "16csf6h3fcc5",
-          "status": "investigating",
-          "body": "We have seen some improvement in processing times but we are still operating a higher than usual times. We are continuing to identify the root cause of the issue and will provide further updates as we learn more.",
-          "incident_id": "kjrvxcjxxl0q",
-          "created_at": "2023-08-07T20:22:42.517Z",
-          "updated_at": "2023-08-07T20:22:42.517Z",
-          "display_at": "2023-08-07T20:22:42.517Z",
-          "affected_components": [
-            {
-              "code": "kygwc83t1rfg",
-              "name": "APIs - Asynchronous API",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "npw4js192lb6",
-          "status": "investigating",
-          "body": "We are currently seeing slower-than-normal turnaround times for our Async API. Our Engineering team is actively investigating the issue and we will share additional information here as it becomes available.",
-          "incident_id": "kjrvxcjxxl0q",
-          "created_at": "2023-08-07T19:58:54.800Z",
-          "updated_at": "2023-08-07T19:58:54.800Z",
-          "display_at": "2023-08-07T19:58:54.800Z",
           "affected_components": [
             {
               "code": "kygwc83t1rfg",
