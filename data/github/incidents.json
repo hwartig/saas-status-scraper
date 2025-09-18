@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-18T15:31:07.542Z"
+    "updated_at": "2025-09-18T18:29:33.466Z"
   },
   "incidents": [
     {
@@ -353,7 +353,7 @@
       "name": "Repository search is degraded",
       "status": "resolved",
       "created_at": "2025-09-13T12:44:00.572Z",
-      "updated_at": "2025-09-15T21:01:03.405Z",
+      "updated_at": "2025-09-18T18:29:33.455Z",
       "monitoring_at": null,
       "resolved_at": "2025-09-15T21:01:03.389Z",
       "impact": "minor",
@@ -364,10 +364,10 @@
         {
           "id": "vsv5hb2f8lt5",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "At around 18:45 UTC on Friday, September 12, 2025, a change was deployed that unintentionally affected search index management. As a result, approximately 25% of repositories were temporarily missing from search results.<br /><br />By 12:45 UTC on Saturday, September 14, most missing repositories were restored from an earlier search index snapshot, and repositories updated between the snapshot and the restoration were reindexed. This backfill was completed at 21:25 UTC.<br /><br />After these repairs, about 98.5% of repositories were once again searchable. We are performing a full reconciliation of the search index and customers can expect to see records being updated and content becoming searchable for all repos again between now and Sept 25.<br /><br />NOTE: Users who notice missing or outdated repositories in search results can force reindexing by starring or un-starring the repository. Other repository actions such as adding topics, or updating the repository description, will also result in reindexing. In general, changes to searchable artifacts in GitHub will also update their respective search index in near-real time.<br /><br />User impact has been mitigated with the exception of the 1.5% of repos that are missing from the search index. The change responsible for the search issue has been reverted, and full reconciliation of the search index is underway, expected to complete by September 23. We have added additional checks to our indexing model to ensure this failure does not happen again. We are also investigating faster repair alternatives.<br /><br />To avoid resource contention and possible further issues we are currently not repairing repositories or organizations individually at this time. No repository data was lost, and other search types were not affected.",
           "incident_id": "n3vgjzqv7d18",
           "created_at": "2025-09-15T21:01:03.389Z",
-          "updated_at": "2025-09-15T21:01:03.389Z",
+          "updated_at": "2025-09-18T18:29:33.449Z",
           "display_at": "2025-09-15T21:01:03.389Z",
           "affected_components": null,
           "deliver_notifications": true,
