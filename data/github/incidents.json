@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-18T21:25:57.191Z"
+    "updated_at": "2025-09-18T23:23:30.895Z"
   },
   "incidents": [
     {
@@ -422,7 +422,7 @@
       "name": "Disruption with some GitHub services",
       "status": "resolved",
       "created_at": "2025-09-15T18:21:25.130Z",
-      "updated_at": "2025-09-15T18:28:36.052Z",
+      "updated_at": "2025-09-18T23:23:30.885Z",
       "monitoring_at": null,
       "resolved_at": "2025-09-15T18:28:36.038Z",
       "impact": "major",
@@ -433,10 +433,10 @@
         {
           "id": "5y87s4pdyxgd",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On September 15th between 17:55 and 18:20 UTC, Copilot experienced degraded availability for all features. This was due a partial deployment of a feature flag to a global rate limiter. The flag triggered behavior that unintentionally rate limited all requests, resulting in 100% of them returning 403 errors. The issue was resolved by reverting the feature flag which resulted in immediate recovery.<br /><br />The root cause of the incident was from an undetected edge case in our rate limiting logic. The flag was meant to scale down rate limiting for a subset of users, but unintentionally put our rate limiting configuration into an invalid state.<br /><br />To prevent this from happening again, we have addressed the bug with our rate limiting. We are also adding additional monitors to detect anomalies in our traffic patterns, which will allow us to identify similar issues during future deployments. Furthermore, we are exploring ways to test our rate limit scaling in our internal environment to enhance our pre-production validation process.<br />",
           "incident_id": "ffh1r1w0hj6h",
           "created_at": "2025-09-15T18:28:36.038Z",
-          "updated_at": "2025-09-15T18:28:36.038Z",
+          "updated_at": "2025-09-18T23:23:30.880Z",
           "display_at": "2025-09-15T18:28:36.038Z",
           "affected_components": null,
           "deliver_notifications": true,
