@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-19T08:00:56.804Z"
+    "updated_at": "2025-09-19T13:33:02.903Z"
   },
   "incidents": [
     {
@@ -284,7 +284,7 @@
       "name": "Creating GitHub apps using the REST API will fail with a 401 error",
       "status": "resolved",
       "created_at": "2025-09-16T17:14:45.261Z",
-      "updated_at": "2025-09-16T17:45:22.213Z",
+      "updated_at": "2025-09-19T13:33:02.891Z",
       "monitoring_at": null,
       "resolved_at": "2025-09-16T17:45:22.191Z",
       "impact": "minor",
@@ -295,10 +295,10 @@
         {
           "id": "4y3ryfr7h8f6",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between 16:26 UTC on September 15th and 18:30 UTC on September 16th, anonymous REST API calls to approximately 20 endpoints were incorrectly rejected because they were not authenticated. While this caused unauthenticated requests to be rejected by these endpoints, all authenticated requests were unaffected, and no protected endpoints were exposed.<br /><br />This resulted in 100% of requests to these endpoints failing at peak, representing less than 0.1% of GitHub’s overall request volume. On average, the error rate for these endpoints was less than 50% and peaked at 100% for about 26 hours over September 16th. API requests to the impacted endpoints were rejected with a 401 error code. This was due to a mismatch in authentication policies, for specific endpoints, during a system migration. <br /><br />The failure to detect the errors was the result of the issue occurring for a low percentage of traffic.<br /><br /><br />We mitigated the incident by reverting the policy in question, and correcting the logic associated with the degraded endpoints. We are working to improve our test suite to further validate mismatches, and refining our monitors for proactive detection.",
           "incident_id": "3kjv06tdxxfn",
           "created_at": "2025-09-16T17:45:22.191Z",
-          "updated_at": "2025-09-16T17:45:22.191Z",
+          "updated_at": "2025-09-19T13:33:02.885Z",
           "display_at": "2025-09-16T17:45:22.191Z",
           "affected_components": null,
           "deliver_notifications": true,
