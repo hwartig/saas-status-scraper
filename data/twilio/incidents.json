@@ -4,22 +4,48 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-09-20T00:19:18.398-07:00"
+    "updated_at": "2025-09-20T00:39:06.556-07:00"
   },
   "incidents": [
     {
       "id": "vk0m199l2hb7",
-      "name": "Call setup failures for Twilio SIP using Twilio Interconnect in us2 edge",
-      "status": "identified",
+      "name": "Call Setup Failures for Twilio SIP via Interconnect on US2 Edge",
+      "status": "investigating",
       "created_at": "2025-09-19T23:19:07.282-07:00",
-      "updated_at": "2025-09-20T00:19:18.390-07:00",
+      "updated_at": "2025-09-20T00:39:06.552-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
       "shortlink": "https://stspg.io/w7s18g1gvj4l",
-      "started_at": "2025-09-19T23:19:07.274-07:00",
+      "started_at": "2025-09-19T23:54:41.000-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "8gfswc09pb4l",
+          "status": "investigating",
+          "body": "We have identified that Programmable Voice calls using the PSTN are affected by an issue related to a loss of IP addresses for certain hosts in the US2 region during a recent maintenance event.",
+          "incident_id": "vk0m199l2hb7",
+          "created_at": "2025-09-20T00:36:13.073-07:00",
+          "updated_at": "2025-09-20T00:37:01.691-07:00",
+          "display_at": "2025-09-20T00:36:13.000-07:00",
+          "affected_components": [
+            {
+              "code": "g2dt752kwqs0",
+              "name": "PROGRAMMABLE VOICE - PSTN",
+              "old_status": "under_maintenance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "w7nxj548smhd",
+              "name": "PROGRAMMABLE VOICE - SIP Interface",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "w1cvyv0qdfls",
           "status": "identified",
@@ -122,6 +148,21 @@
         }
       ],
       "components": [
+        {
+          "id": "g2dt752kwqs0",
+          "name": "PSTN",
+          "status": "degraded_performance",
+          "created_at": "2016-04-08T13:28:39.348-07:00",
+          "updated_at": "2025-09-20T00:36:13.031-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j3s4w3gnsj08",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
         {
           "id": "w7nxj548smhd",
           "name": "SIP Interface",
@@ -5397,9 +5438,9 @@
         {
           "id": "g2dt752kwqs0",
           "name": "PSTN",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-08T13:28:39.348-07:00",
-          "updated_at": "2025-09-19T22:00:21.232-07:00",
+          "updated_at": "2025-09-20T00:36:13.031-07:00",
           "position": 1,
           "description": null,
           "showcase": false,
