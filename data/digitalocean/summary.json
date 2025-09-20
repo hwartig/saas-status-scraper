@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-17T08:32:56.982Z"
+    "updated_at": "2025-09-20T01:20:33.407Z"
   },
   "components": [
     {
@@ -115,9 +115,9 @@
     {
       "id": "mzkgffp35tq4",
       "name": "Global",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-08-16T11:21:56.097Z",
-      "updated_at": "2025-09-03T11:30:22.448Z",
+      "updated_at": "2025-09-20T00:42:35.127Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -3208,7 +3208,7 @@
     {
       "id": "kl8qv98c9brp",
       "name": "Managed Databases",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T19:29:09.360Z",
       "updated_at": "2025-08-06T12:30:25.569Z",
       "position": 18,
@@ -3484,10 +3484,64 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "sq70bh11bhx7",
+      "name": "Degradation in Managed Databases",
+      "status": "identified",
+      "created_at": "2025-09-20T00:42:35.095Z",
+      "updated_at": "2025-09-20T00:42:35.177Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/3vtpt477kw9w",
+      "started_at": "2025-09-20T00:42:35.088Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "xgs5xkt6mzrj",
+          "status": "identified",
+          "body": "Our Engineering team has identified an issue affecting the ability to access and manage the Managed databases and App platform in the Cloud Control Panel.\n\nWhile there is no impact on data-plane availability, Users may experience some issues like UI taking a while to load, request timeouts, some delays in App platform deployment for apps that have databases, and some API errors.\n\nOur Engineering team is already working on this issue for the resolution. We apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "sq70bh11bhx7",
+          "created_at": "2025-09-20T00:42:35.174Z",
+          "updated_at": "2025-09-20T00:42:35.174Z",
+          "display_at": "2025-09-20T00:42:35.174Z",
+          "affected_components": [
+            {
+              "code": "mzkgffp35tq4",
+              "name": "Managed Databases - Global",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "mzkgffp35tq4",
+          "name": "Global",
+          "status": "degraded_performance",
+          "created_at": "2024-08-16T11:21:56.097Z",
+          "updated_at": "2025-09-20T00:42:35.127Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-08-16",
+          "group_id": "kl8qv98c9brp",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
