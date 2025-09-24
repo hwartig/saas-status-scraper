@@ -4,9 +4,62 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-20T09:05:55.578Z"
+    "updated_at": "2025-09-24T15:20:57.252Z"
   },
   "incidents": [
+    {
+      "id": "q4rsbmwz4kt0",
+      "name": "Domain Accessibility: .space Domains",
+      "status": "identified",
+      "created_at": "2025-09-24T15:10:59.343Z",
+      "updated_at": "2025-09-24T15:10:59.468Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/7n5qpf4d4x2p",
+      "started_at": "2025-09-24T15:10:59.335Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "4f3z425pfhjb",
+          "status": "identified",
+          "body": "Our Engineering team has identified issues affecting .space domains. As a result, some customers may be unable to access their websites, and zone files may not appear in dig results. The engineers have confirmed that this is an issue with the registry and have informed upstream providers.\n\nWe apologize for the inconvenience and will provide updates as soon as more information is available.",
+          "incident_id": "q4rsbmwz4kt0",
+          "created_at": "2025-09-24T15:10:59.465Z",
+          "updated_at": "2025-09-24T15:10:59.465Z",
+          "display_at": "2025-09-24T15:10:59.465Z",
+          "affected_components": [
+            {
+              "code": "qdnryq0lymfk",
+              "name": "DNS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "qdnryq0lymfk",
+          "name": "DNS",
+          "status": "degraded_performance",
+          "created_at": "2023-03-06T18:42:44.851Z",
+          "updated_at": "2025-09-24T15:10:59.396Z",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "sq70bh11bhx7",
       "name": "Degradation in Managed Databases",
@@ -4989,99 +5042,6 @@
           "showcase": false,
           "start_date": "2023-02-22",
           "group_id": "b3tklvcyzvh0",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "hkrt60rg0nz3",
-      "name": "Delay in Transactional Emails",
-      "status": "resolved",
-      "created_at": "2025-04-23T22:34:50.228Z",
-      "updated_at": "2025-04-24T04:41:58.463Z",
-      "monitoring_at": "2025-04-24T00:28:18.931Z",
-      "resolved_at": "2025-04-24T04:41:58.451Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/rt864rnmzj5w",
-      "started_at": "2025-04-23T22:34:50.222Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "ph93vnn9vh99",
-          "status": "resolved",
-          "body": "Our Engineering team has resolved the issue with the email delivery delays. Services should now be operating normally. \n\nIf you continue to experience problems, please open a ticket with our support team. We apologize for any inconvenience.",
-          "incident_id": "hkrt60rg0nz3",
-          "created_at": "2025-04-24T04:41:58.451Z",
-          "updated_at": "2025-04-24T04:41:58.451Z",
-          "display_at": "2025-04-24T04:41:58.451Z",
-          "affected_components": [
-            {
-              "code": "czck17wcspr5",
-              "name": "Cloud Control Panel",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fmf9zdjnhnks",
-          "status": "monitoring",
-          "body": "Our Engineering team has confirmed the email delivery delays caused by an issue with an upstream provider has been mitigated. We are now seeing successful delivery of previously delayed emails, as well as normal flow of new messages.\n\nWe are currently monitoring the situation closely and will share an update as soon as the issue is fully resolved.",
-          "incident_id": "hkrt60rg0nz3",
-          "created_at": "2025-04-24T00:28:18.931Z",
-          "updated_at": "2025-04-24T00:28:18.931Z",
-          "display_at": "2025-04-24T00:28:18.931Z",
-          "affected_components": [
-            {
-              "code": "czck17wcspr5",
-              "name": "Cloud Control Panel",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "49rh523ggn20",
-          "status": "identified",
-          "body": "Our Engineering team is aware of an issue with an upstream provider that is impacting the delivery of emails from DigitalOcean to DigitalOcean customers. \n\nBeginning 20:55 UTC, users may experience delays in receiving emails from DigitalOcean, including sign-in verification codes, sign-up verifications, maintenance notifications, and other transactional emails. \n\nOur team is closely monitoring the situation and has begun to see signs of recovery, with both delayed and recent emails starting to be delivered. \n\nWe will provide further updates as they are available.",
-          "incident_id": "hkrt60rg0nz3",
-          "created_at": "2025-04-23T22:34:50.332Z",
-          "updated_at": "2025-04-23T22:34:50.332Z",
-          "display_at": "2025-04-23T22:34:50.332Z",
-          "affected_components": [
-            {
-              "code": "czck17wcspr5",
-              "name": "Cloud Control Panel",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "czck17wcspr5",
-          "name": "Cloud Control Panel",
-          "status": "operational",
-          "created_at": "2023-03-06T18:42:46.098Z",
-          "updated_at": "2025-09-03T11:30:22.463Z",
-          "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-03-06",
-          "group_id": null,
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
