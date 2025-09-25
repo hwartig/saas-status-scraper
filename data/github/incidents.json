@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-25T13:46:00.105Z"
+    "updated_at": "2025-09-25T17:06:12.539Z"
   },
   "incidents": [
+    {
+      "id": "xcn454p4wqtz",
+      "name": "Disruption with some GitHub services",
+      "status": "investigating",
+      "created_at": "2025-09-25T17:00:25.118Z",
+      "updated_at": "2025-09-25T17:06:12.527Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/nzb80f7lkmzh",
+      "started_at": "2025-09-25T17:00:25.109Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "15t9n1lys1f7",
+          "status": "investigating",
+          "body": "We are seeing issues related to our ability to serve raw file access across a small percentage of our requests.",
+          "incident_id": "xcn454p4wqtz",
+          "created_at": "2025-09-25T17:06:12.522Z",
+          "updated_at": "2025-09-25T17:06:12.522Z",
+          "display_at": "2025-09-25T17:06:12.522Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "sw85stj09gxj",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "xcn454p4wqtz",
+          "created_at": "2025-09-25T17:00:25.175Z",
+          "updated_at": "2025-09-25T17:00:25.175Z",
+          "display_at": "2025-09-25T17:00:25.175Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "pm0l7tdd6nyk",
       "name": "Disruption with some GitHub services",
@@ -7172,139 +7215,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "7kltzm6r774q",
-      "name": "Partial Degradation in Issues Experience",
-      "status": "resolved",
-      "created_at": "2025-06-18T16:21:00.833Z",
-      "updated_at": "2025-06-24T13:42:22.740Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-06-18T17:42:18.022Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/qvwwzdnyvlj4",
-      "started_at": "2025-06-18T16:21:00.827Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "wgr2gsbgtcv4",
-          "status": "resolved",
-          "body": "On June 18, 2025, between 15:15 UTC and 19:29 UTC, the Issues service was degraded, and certain GraphQL queries accessing the `ReactionGroup.reactors` field returned errors. Our query routing infrastructure was impacted by exceptions from a particular database migration, resulting in errors for an average of 0.0097% of overall GraphQL requests (peaking at 0.02%).<br /><br />We mitigated the incident by reverting the migration.<br /><br />We continue to investigate the cause of the exceptions and are holding off on similar migrations until the underlying issue is understood and resolved.",
-          "incident_id": "7kltzm6r774q",
-          "created_at": "2025-06-18T17:42:18.022Z",
-          "updated_at": "2025-06-24T13:42:22.735Z",
-          "display_at": "2025-06-18T17:42:18.022Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fzvxls8kh0yd",
-          "status": "investigating",
-          "body": "We have confirmed that we are currently within SLA for Issues experience. Remaining clean up will complete over the next few hours to fully restore the ability to search Issues by reaction as well as related GraphQL API queries.",
-          "incident_id": "7kltzm6r774q",
-          "created_at": "2025-06-18T17:41:38.922Z",
-          "updated_at": "2025-06-18T17:41:38.922Z",
-          "display_at": "2025-06-18T17:41:38.922Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "yg5stwcw3wm5",
-          "status": "investigating",
-          "body": "We have confirmed that impact is restricted to failing to display reactions on some issues and searching issues by reaction. Mitigation is in progress to restore these features and should be fully rolled out to all customers in the next few hours.",
-          "incident_id": "7kltzm6r774q",
-          "created_at": "2025-06-18T17:07:52.018Z",
-          "updated_at": "2025-06-18T17:07:52.018Z",
-          "display_at": "2025-06-18T17:07:52.018Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "kmhry9md0tph",
-          "status": "investigating",
-          "body": "Some users are seeing errors when accessing issues on GitHub. We have identified the problem and are working on a revert to restore full functionality.",
-          "incident_id": "7kltzm6r774q",
-          "created_at": "2025-06-18T16:25:27.231Z",
-          "updated_at": "2025-06-18T16:25:27.231Z",
-          "display_at": "2025-06-18T16:25:27.231Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "65zzk2md3c1c",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Issues",
-          "incident_id": "7kltzm6r774q",
-          "created_at": "2025-06-18T16:21:00.916Z",
-          "updated_at": "2025-06-18T16:21:00.916Z",
-          "display_at": "2025-06-18T16:21:00.916Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "kr09ddfgbfsf",
-          "name": "Issues",
-          "status": "operational",
-          "created_at": "2017-01-31T20:01:46.638Z",
-          "updated_at": "2025-08-27T21:27:47.854Z",
-          "position": 5,
-          "description": "Requests for Issues on GitHub.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
