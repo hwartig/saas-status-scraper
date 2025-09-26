@@ -4,15 +4,15 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-26T15:11:28.063Z"
+    "updated_at": "2025-09-26T15:14:41.212Z"
   },
   "incidents": [
     {
       "id": "spyxwjqn7d2f",
       "name": "Supabase Connectivity from the Etisalat and Du network in the UAE",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-09-02T15:57:12.817Z",
-      "updated_at": "2025-09-26T15:11:28.058Z",
+      "updated_at": "2025-09-26T15:14:41.209Z",
       "monitoring_at": "2025-09-20T14:39:42.426Z",
       "resolved_at": "2025-09-26T15:11:28.036Z",
       "impact": "none",
@@ -20,6 +20,19 @@
       "started_at": "2025-09-02T15:57:12.811Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "g884g54q9skm",
+          "status": "postmortem",
+          "body": "Between September 2nd and September 20th, 2025, customers in the UAE experienced service outages when attempting to access Supabase projects. The issue was caused by DNS-level blocking implemented by major UAE telecommunications providers Etisalat and Du, citing copyright infringement concerns related to unauthorized usage of our platform.\n\nCustomers with projects accessed from within the UAE were completely unable to reach any `*.supabase.co` domains. The blocking affected all Supabase services including PostgREST, Auth, Storage, Realtime, and Edge Functions.\n\nWe sincerely apologize for the extended disruption this caused to your applications and services. Here is additional detail about what happened and the steps we're taking to prevent similar incidents.\n\n## What happened?\n\nUAE telecommunications providers Etisalat and Du implemented DNS-level blocking of all `*.supabase.co` domains after identifying a project that violated broadcasting rights in the region. The providers did not send advance notice or DMCA takedown requests, instead implementing immediate network-wide blocking for all Supabase domains.\n\nThe incident timeline was as follows:\n\n* **MON 2 SEP 18:00 UTC**: Initial customer reports of connectivity issues from UAE\n* **MON 2 SEP 23:30 UTC**: Identified DNS blocking by Etisalat, began outreach attempts\n* **TUE 3 to FRI 13 SEP**: Sent multiple formal and informal communications to ISP NOC contacts\n* **WED 10 SEP**: Deployed proxy workaround with limited functionality as last resort measure\n* **SUN 15 SEP**: Our partners were able to reach out directly to Etisalat and worked with them to facilitate unblock\n* **SUN 15 SEP**: Engaged UAE law firm to handle official TDRA communication\n* **MON 16 SEP**: Our customer facilitated introduction to TDRA\n* **TUE 17 SEP**: Etisalat connectivity restored following TDRA intervention\n* **WED 18 SEP**: TDRA provided details of copyright violations, offending project suspended\n* **THU 19 SEP**: Du confirmed working on removal of restrictions\n* **FRI 20 SEP**: Full connectivity restored across all UAE ISPs\n\n## What will we do to mitigate problems like this in the future?\n\n* We have established forward looking proactive strategy with government authorities in the UAE.\n* We are working on a strategy for further proactive regulator engagement.\n* Make abuse reporting channels more visible on our website.\n\n## What actions do you need to take?\n\nIf you previously switched to a proxy as a workaround, please migrate back to your original `*.supabase.co` domain as the proxy solution has limited functionality and is not intended for long-term use.\n\nIf you experience any lingering connectivity issues from UAE networks, please contact our support team with your project details and ISP information.",
+          "incident_id": "spyxwjqn7d2f",
+          "created_at": "2025-09-26T15:12:48.626Z",
+          "updated_at": "2025-09-26T15:14:41.207Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "q28c7jx2j9dy",
           "status": "resolved",
