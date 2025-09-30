@@ -4,13 +4,13 @@
     "name": "AssemblyAI",
     "url": "https://status.assemblyai.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-09-30T14:50:56.608Z"
+    "updated_at": "2025-09-30T17:33:53.302Z"
   },
   "components": [
     {
       "id": "50txf4qfk2kv",
       "name": "APIs",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2021-10-25T15:23:09.725Z",
       "updated_at": "2023-07-29T17:52:35.503Z",
       "position": 1,
@@ -30,9 +30,9 @@
     {
       "id": "kygwc83t1rfg",
       "name": "Asynchronous API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2021-10-25T15:23:09.740Z",
-      "updated_at": "2025-08-05T17:16:54.407Z",
+      "updated_at": "2025-09-30T17:33:53.262Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -314,10 +314,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "ytmgp9nbx4rw",
+      "name": "Increased error rates for pre-recorded Speech-to-Text",
+      "status": "investigating",
+      "created_at": "2025-09-30T17:33:53.233Z",
+      "updated_at": "2025-09-30T17:33:53.300Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/ys4f0ghv9sg4",
+      "started_at": "2025-09-30T17:33:53.227Z",
+      "page_id": "8yxng9m82rr4",
+      "incident_updates": [
+        {
+          "id": "6h9vfxydrsr3",
+          "status": "investigating",
+          "body": "Our team is currently investigating an issue that is causing an increase in server errors for our pre-recorded audio speech-to-text feature. This issue is only affecting a small number of requests, but it is affecting requests to both Universal and Slam-1 models. If you experience a server error we suggest retrying the request as those will likely be successful.",
+          "incident_id": "ytmgp9nbx4rw",
+          "created_at": "2025-09-30T17:33:53.298Z",
+          "updated_at": "2025-09-30T17:33:53.298Z",
+          "display_at": "2025-09-30T17:33:53.298Z",
+          "affected_components": [
+            {
+              "code": "kygwc83t1rfg",
+              "name": "APIs - Asynchronous API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "kygwc83t1rfg",
+          "name": "Asynchronous API",
+          "status": "degraded_performance",
+          "created_at": "2021-10-25T15:23:09.740Z",
+          "updated_at": "2025-09-30T17:33:53.262Z",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": "2021-10-25",
+          "group_id": "50txf4qfk2kv",
+          "page_id": "8yxng9m82rr4",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
