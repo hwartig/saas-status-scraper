@@ -4,15 +4,15 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-01T05:55:52.586Z"
+    "updated_at": "2025-10-01T06:20:10.141Z"
   },
   "incidents": [
     {
       "id": "bjzb4q9ql785",
       "name": "Degraded performance to multiple Atlassian experiences",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-09-22T05:09:32.247Z",
-      "updated_at": "2025-09-22T07:17:23.624Z",
+      "updated_at": "2025-10-01T06:20:10.137Z",
       "monitoring_at": "2025-09-22T06:55:45.916Z",
       "resolved_at": "2025-09-22T07:17:23.603Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2025-09-22T05:09:32.224Z",
       "page_id": "4g2my7tbhjsq",
       "incident_updates": [
+        {
+          "id": "1f496qpfbz50",
+          "status": "postmortem",
+          "body": "### **SUMMARY**\n\nOn September 22, 2025, between 04:38 and 04:48 UTC, Atlassian customers experienced connection errors preventing access to their [atlassian.net](http://atlassian.net/) sites. Some customers observed intermittent errors as services gradually recovered until 06:17 UTC.\n\nThe event was triggered by a faulty configuration change to our Content Delivery Network \\(CDN\\). The change included an invalid hostname which prevented customers from successfully connecting to [atlassian.net](http://atlassian.net/) domains.\n\nThe incident was detected within 1 minute by our monitoring systems and mitigated by rolling back the change, which put Atlassian systems into a known good state. The acute impact was resolved in 10 minutes and all lingering errors resolved in 1 hour 38 minutes.\n\n### **IMPACT**\n\nThe acute impact occurred on September 22, 2025, between 04:38 UTC and 04:48 UTC to Confluence, Compass and Jira, including Jira Service Management. The incident caused service disruption to customers when they attempted to load those products in their browser or interact with APIs. Between 04:48 UTC and 06:17 UTC some customers continued to observe intermittent errors as services gradually recovered.\n\n### **ROOT CAUSE**\n\nThe issue was caused by a change to the hostname configuration of our Content Delivery Network \\(CDN\\). As a result, the products mentioned could not receive connections, and the users received TLS handshake errors, followed by HTTP 503 and 403 errors.\n\nMore specifically a new CDN configuration contained a resource name which conflicted with the existing customer-serving CDN resource, and was able to be deployed, overwriting it. The root cause of the incident was the failure in the detection of the bug by our pre-deployment validations and tests.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that you rely on our products for your daily operations and productivity, and we sincerely apologize for any impact this disruption has had on you, your team or your organisation.\n\nWe are prioritizing the following improvement actions to help avoid repeating this type of incident:\n\n* Improved pre-deployment change controls and testing.\n* Improved validation of target configurations before deployment to ensure customer-serving CDN resources cannot their hostnames changed.\n* Sharding of our CDN configuration to enable progressive changes.\n\nWe sincerely appreciate your understanding and patience as we improve our processes to provide a better customer experience.\n\nThank you,\n\nAtlassian Customer Support",
+          "incident_id": "bjzb4q9ql785",
+          "created_at": "2025-10-01T06:20:01.552Z",
+          "updated_at": "2025-10-01T06:20:10.134Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "nk4kmgyqbymz",
           "status": "resolved",
