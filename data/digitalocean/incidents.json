@@ -4,9 +4,62 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-02T14:21:35.363Z"
+    "updated_at": "2025-10-04T15:40:04.563Z"
   },
   "incidents": [
+    {
+      "id": "ss2bxhr4j58c",
+      "name": "API Availability",
+      "status": "resolved",
+      "created_at": "2025-10-04T15:40:04.483Z",
+      "updated_at": "2025-10-04T15:40:04.559Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-10-04T15:40:04.542Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/yhvnjkty3hwg",
+      "started_at": "2025-10-04T15:40:04.480Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "7sjjtq4lf0hx",
+          "status": "resolved",
+          "body": "From 14:30 to 14:44 UTC, our Engineering team observed an issue impacting our API. \n\nDuring this time, users may have experienced intermittent errors when trying to use the public API at api.digitalocean.com or processing API requests. Users may have also experienced issues with processing Droplet and Kubernetes cluster creations.\n\nThe impact has now subsided and as of 14:44 UTC, users should no longer be experiencing issues with accessing the API and all services should now be functioning normally.\n\nIf you continue to experience problems, please open a ticket with our support team. We apologize for any inconvenience.",
+          "incident_id": "ss2bxhr4j58c",
+          "created_at": "2025-10-04T15:40:04.542Z",
+          "updated_at": "2025-10-04T15:40:04.542Z",
+          "display_at": "2025-10-04T15:40:04.542Z",
+          "affected_components": [
+            {
+              "code": "p1x9rv4137gx",
+              "name": "API",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "p1x9rv4137gx",
+          "name": "API",
+          "status": "operational",
+          "created_at": "2023-03-06T18:42:45.160Z",
+          "updated_at": "2025-10-02T14:21:33.366Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "4pgsj30c2k1g",
       "name": "PostgreSQL Managed Database Connectivity",
@@ -5076,99 +5129,6 @@
           "showcase": false,
           "start_date": "2023-02-22",
           "group_id": "2d23wwyqgq6m",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "0mbrttwszdbs",
-      "name": "Droplet Creation in NYC1",
-      "status": "resolved",
-      "created_at": "2025-05-05T14:18:05.699Z",
-      "updated_at": "2025-05-05T15:46:56.354Z",
-      "monitoring_at": "2025-05-05T15:18:19.172Z",
-      "resolved_at": "2025-05-05T15:46:56.339Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/p6t7sq5g2hgy",
-      "started_at": "2025-05-05T14:18:05.690Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "1px3svdffpwb",
-          "status": "resolved",
-          "body": "Our Engineering team has confirmed the complete resolution of the issue that was affecting Droplet creation and console access in the NYC1 region. Users should now be able to deploy new droplets and access them normally in the NYC1 region. \n\nAll systems are now operating normally. We appreciate your patience and apologize for any inconvenience this may have caused.",
-          "incident_id": "0mbrttwszdbs",
-          "created_at": "2025-05-05T15:46:56.339Z",
-          "updated_at": "2025-05-05T15:46:56.339Z",
-          "display_at": "2025-05-05T15:46:56.339Z",
-          "affected_components": [
-            {
-              "code": "fb63qt9f69m0",
-              "name": "Droplets - NYC1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jv7rz4lbml6d",
-          "status": "monitoring",
-          "body": "Our Engineering team has implemented a fix for the issue affecting Droplet creation and console access in the NYC1 region. Impacted users may have seen 504 Gateway Timeout errors during Droplet creation or when accessing the Droplet console.\n\nOur team is currently monitoring the situation to ensure stability. We will provide a final update once we confirm the issue is fully resolved.",
-          "incident_id": "0mbrttwszdbs",
-          "created_at": "2025-05-05T15:18:19.172Z",
-          "updated_at": "2025-05-05T15:18:19.172Z",
-          "display_at": "2025-05-05T15:18:19.172Z",
-          "affected_components": [
-            {
-              "code": "fb63qt9f69m0",
-              "name": "Droplets - NYC1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "q9w0q15nbmpy",
-          "status": "investigating",
-          "body": "Our Engineering team is currently investigating an issue with creating Droplets in NYC1 region. During this time, users may see 504 Gateway Timeout errors when creating droplets in the NYC1 region. \n\nWe apologize for the inconvenience and will provide an update as soon as we have more information.",
-          "incident_id": "0mbrttwszdbs",
-          "created_at": "2025-05-05T14:18:05.794Z",
-          "updated_at": "2025-05-05T14:18:05.794Z",
-          "display_at": "2025-05-05T14:18:05.794Z",
-          "affected_components": [
-            {
-              "code": "fb63qt9f69m0",
-              "name": "Droplets - NYC1",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "fb63qt9f69m0",
-          "name": "NYC1",
-          "status": "operational",
-          "created_at": "2023-02-21T16:23:53.127Z",
-          "updated_at": "2025-10-02T14:21:34.465Z",
-          "position": 8,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-02-21",
-          "group_id": "4rgs7bbljl8d",
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
