@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-10-07T05:11:20.608-07:00"
+    "updated_at": "2025-10-07T11:35:11.592-07:00"
   },
   "incidents": [
     {
@@ -194,7 +194,7 @@
       "name": "[Critical] Issue with Multiple Box Services",
       "status": "postmortem",
       "created_at": "2025-09-18T13:50:37.063-07:00",
-      "updated_at": "2025-09-23T11:55:27.405-07:00",
+      "updated_at": "2025-10-07T11:34:40.315-07:00",
       "monitoring_at": "2025-09-18T14:55:21.289-07:00",
       "resolved_at": "2025-09-18T17:12:34.325-07:00",
       "impact": "critical",
@@ -205,10 +205,10 @@
         {
           "id": "d56t9zgdbyhn",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nBetween September 17 at 11:17 PM to September 18 at 2:21 PM PDT, some users may have experienced difficulties while working in Box. When attempting to access Box during this time, some users may have seen an unbranded error message, which cleared after the page was refreshed. The issue occurred due to changes made by one of Box’s cloud infrastructure providers and was resolved when that change was reverted. In response, Box has made improvements to our alerting system and is working with the vendor to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "body": "We recently addressed issues affecting the Box service. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween September 17, 2025 at 11:17 PM and September 18, 2025 at 2:21PM PDT, some users may have experienced difficulties while working in Box. During this time, when attempting to access Box, some users may have seen an unbranded error message which cleared after their browser established a new connection to Box. The issue occurred as a result of a change made by one of Box’s cloud infrastructure providers, and was resolved when the vendor reverted the change. In addition, Box is working closely with our vendor’s engineering team to minimize the likelihood of similar issues occurring in the future. \n\n‌\n\n**Analysis** \n\nBox’s cloud provider experienced an issue that caused global load balancer services to incorrectly return HTTP 502 responses for a small percentage of user requests during the following three time periods:\n\n1. September 17, 2025 from 11:17 PM to 2025-09-18 1:30 AM Pacific\n2. September 18, 2025 from 8:50 AM to 2025-09-18 9:30 AM Pacific\n3. September 18, 2025 from 12:50 PM to 2025-09-18 2:21 PM Pacific\n\nThese appear to have been linked to a load balancer software release. Upon discovery, the third-party vendor subsequently performed a rollback at 2:00 PM PT on September 18 to recover the issue. The provider has fixed the bug in their code and will include the fix in future builds.\n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Implementation of specific improvements to our alerting system for cloud provider load balancer errors\n* Improved observability to better enable correlation of cloud provider load balancer errors with other conditions\n* Added measures for these particular load balancer conditions as a new Service Level Indicator\n* Increased communication with the cloud provider to detect and resolve this class of issue more quickly\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
           "incident_id": "qj9gwp1lzrtg",
           "created_at": "2025-09-23T11:55:12.039-07:00",
-          "updated_at": "2025-09-23T11:55:27.404-07:00",
+          "updated_at": "2025-10-07T11:34:40.312-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
@@ -2033,7 +2033,7 @@
       "name": "[Major] Issues with API Calls",
       "status": "postmortem",
       "created_at": "2025-09-18T01:50:33.350-07:00",
-      "updated_at": "2025-09-23T11:57:39.532-07:00",
+      "updated_at": "2025-10-07T11:35:11.583-07:00",
       "monitoring_at": "2025-09-18T03:14:54.868-07:00",
       "resolved_at": "2025-09-18T04:11:31.806-07:00",
       "impact": "major",
@@ -2044,10 +2044,10 @@
         {
           "id": "2gj79ntq0zf5",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nBetween September 17 at 11:17 PM to September 18 at 2:21 PM PDT, some users may have experienced difficulties while working in Box. When attempting to access Box during this time, some users may have seen an unbranded error message, which cleared after the page was refreshed. The issue occurred due to changes made by one of Box’s cloud infrastructure providers and was resolved when that change was reverted. In response, Box has made improvements to our alerting system and is working with the vendor to prevent similar issues from occurring in the future. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.  \n\nSincerely,  \nThe Box Team",
+          "body": "We recently addressed issues affecting the Box service. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween September 17, 2025 at 11:17 PM and September 18, 2025 at 2:21PM PDT, some users may have experienced difficulties while working in Box. During this time, when attempting to access Box, some users may have seen an unbranded error message which cleared after their browser established a new connection to Box. The issue occurred as a result of a change made by one of Box’s cloud infrastructure providers, and was resolved when the vendor reverted the change. In addition, Box is working closely with our vendor’s engineering team to minimize the likelihood of similar issues occurring in the future. \n\n‌\n\n**Analysis** \n\nBox’s cloud provider experienced an issue that caused global load balancer services to incorrectly return HTTP 502 responses for a small percentage of user requests during the following three time periods:\n\n1. September 17, 2025 from 11:17 PM to 2025-09-18 1:30 AM Pacific\n2. September 18, 2025 from 8:50 AM to 2025-09-18 9:30 AM Pacific\n3. September 18, 2025 from 12:50 PM to 2025-09-18 2:21 PM Pacific\n\nThese appear to have been linked to a load balancer software release. Upon discovery, the third-party vendor subsequently performed a rollback at 2:00 PM PT on September 18 to recover the issue. The provider has fixed the bug in their code and will include the fix in future builds.\n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Implementation of specific improvements to our alerting system for cloud provider load balancer errors\n* Improved observability to better enable correlation of cloud provider load balancer errors with other conditions\n* Added measures for these particular load balancer conditions as a new Service Level Indicator\n* Increased communication with the cloud provider to detect and resolve this class of issue more quickly\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
           "incident_id": "mjl56s7gtgtt",
           "created_at": "2025-09-23T11:57:03.496-07:00",
-          "updated_at": "2025-09-23T11:57:39.529-07:00",
+          "updated_at": "2025-10-07T11:35:11.580-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
