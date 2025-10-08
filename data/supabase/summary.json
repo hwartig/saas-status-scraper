@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-08T06:41:15.247Z"
+    "updated_at": "2025-10-08T06:59:34.011Z"
   },
   "components": [
     {
@@ -280,9 +280,9 @@
     {
       "id": "xhpx25nnldh5",
       "name": "eu-north-1",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2025-01-10T16:57:43.756Z",
-      "updated_at": "2025-10-08T06:41:15.163Z",
+      "updated_at": "2025-10-08T06:59:33.964Z",
       "position": 10,
       "description": null,
       "showcase": false,
@@ -437,7 +437,7 @@
       "name": "Project and branch lifecycle workflows affected in EU and APAC regions",
       "status": "identified",
       "created_at": "2025-10-05T19:31:31.604Z",
-      "updated_at": "2025-10-08T06:41:15.233Z",
+      "updated_at": "2025-10-08T06:59:34.001Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -445,6 +445,50 @@
       "started_at": "2025-10-05T19:31:31.594Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "tw5fljqj4332",
+          "status": "identified",
+          "body": "We are currently experiencing capacity issues across all EU and APAC regions due to a surge in project creation requests.\nThis is impacting the availability of Nano and Micro instance types. Larger compute sizes are not impacted. \n\nAs a result, users may encounter errors when attempting the following operations on a Nano or Micro instance:\n- Project creation\n- Project restore\n- Project restart\n- Project resize\n- Unpausing projects \n- Database upgrade\n- Read replica creation\n- Branch creation\n\nWe are continuously monitoring available capacity across all regions and will enable or disable project and branch lifecycle workflows (listed above) as needed based on current capacity.\nAt this time, these workflows are disabled in ap-south-1, eu-north-1 while we work to provision additional capacity. Our team is actively collaborating with our cloud provider to increase capacity and restore normal operations.\n\nExisting active projects in the region remain unaffected.",
+          "incident_id": "5hq69pvqdzmm",
+          "created_at": "2025-10-08T06:59:33.998Z",
+          "updated_at": "2025-10-08T06:59:33.998Z",
+          "display_at": "2025-10-08T06:59:33.998Z",
+          "affected_components": [
+            {
+              "code": "prrc7382xy5j",
+              "name": "Compute capacity - ap-south-1",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "hzvb6v63k20m",
+              "name": "Compute capacity - eu-central-1",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "mzjn8lwgnb69",
+              "name": "Compute capacity - eu-central-2",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "xhpx25nnldh5",
+              "name": "Compute capacity - eu-north-1",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "qpszx8dqhvwq",
+              "name": "Compute capacity - eu-west-2",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "tww8bdnt9kgw",
           "status": "identified",
@@ -667,9 +711,9 @@
         {
           "id": "xhpx25nnldh5",
           "name": "eu-north-1",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2025-01-10T16:57:43.756Z",
-          "updated_at": "2025-10-08T06:41:15.163Z",
+          "updated_at": "2025-10-08T06:59:33.964Z",
           "position": 10,
           "description": null,
           "showcase": false,
