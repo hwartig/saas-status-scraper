@@ -4,82 +4,9 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-08T21:35:09.582Z"
+    "updated_at": "2025-10-08T21:44:58.436Z"
   },
   "incidents": [
-    {
-      "id": "kzr935hfkxht",
-      "name": "Issues for some partners using Connect Javascript APIs",
-      "status": "resolved",
-      "created_at": "2025-10-08T19:18:22.000Z",
-      "updated_at": "2025-10-08T21:35:09.579Z",
-      "monitoring_at": "2025-10-08T19:18:22.000Z",
-      "resolved_at": "2025-10-08T19:19:45.942Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/ghbfqs2y1n1n",
-      "started_at": "2025-10-08T19:18:22.000Z",
-      "page_id": "bqlf8qjztdtr",
-      "incident_updates": [
-        {
-          "id": "0z54yj2mnwwr",
-          "status": "resolved",
-          "body": "This issue is resolved, we will be working on a longer-term solution to prevent a similar incident from occurring again.",
-          "incident_id": "kzr935hfkxht",
-          "created_at": "2025-10-08T19:19:45.942Z",
-          "updated_at": "2025-10-08T19:19:45.942Z",
-          "display_at": "2025-10-08T19:19:45.942Z",
-          "affected_components": [
-            {
-              "code": "k0x2yw1435v7",
-              "name": "API",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vgd72f213qp9",
-          "status": "monitoring",
-          "body": "On September 30, 2025, from 06:50 to 08:30 UTC, Confluence Cloud experienced an incident due to the unintended deprecation of ACJS methods (https://developer.atlassian.com/cloud/confluence/about-the-connect-javascript-api/#connect-javascript-api) linked to retired V1 APIs (https://developer.atlassian.com/cloud/confluence/rest/v1/), resulting in 410 errors affecting partners reliant on these APIs. The issue has been mitigated, a solution will be put in place to prevent this from happening again.",
-          "incident_id": "kzr935hfkxht",
-          "created_at": "2025-10-08T19:18:22.824Z",
-          "updated_at": "2025-10-08T19:21:58.743Z",
-          "display_at": "2025-10-08T19:18:22.000Z",
-          "affected_components": [
-            {
-              "code": "k0x2yw1435v7",
-              "name": "API",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1976004262183485488
-        }
-      ],
-      "components": [
-        {
-          "id": "k0x2yw1435v7",
-          "name": "API",
-          "status": "operational",
-          "created_at": "2015-06-05T19:34:43.541Z",
-          "updated_at": "2025-10-08T19:19:45.918Z",
-          "position": 2,
-          "description": "Access to api.bitbucket.org",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "bqlf8qjztdtr",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
     {
       "id": "tn0sgc4kc36t",
       "name": "Delays in running Bitbucket Pipelines",
@@ -9704,6 +9631,301 @@
         }
       ],
       "reminder_intervals": null
+    },
+    {
+      "id": "rgwgpfyx0mpy",
+      "name": "Bitbucket Cloud website performance degraded",
+      "status": "postmortem",
+      "created_at": "2024-02-22T08:37:58.070Z",
+      "updated_at": "2024-03-12T17:58:41.661Z",
+      "monitoring_at": "2024-02-22T13:39:40.802Z",
+      "resolved_at": "2024-02-22T13:57:05.766Z",
+      "impact": "major",
+      "shortlink": "https://stspg.io/sd8w5g0dczwp",
+      "started_at": "2024-02-22T08:37:58.064Z",
+      "page_id": "bqlf8qjztdtr",
+      "incident_updates": [
+        {
+          "id": "vq1h9k4n87dl",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn February 22, 2024, between 7:22 UTC and 13:30 UTC, Atlassian customers using Bitbucket Cloud faced degradation to its website and APIs. This was caused by the vacuum process not being run frequently enough on our high-traffic database tables, which impaired the database’s ability to handle requests. This resulted in connection pools becoming saturated, response times increasing, and a ramp-up of requests timing out completely.\n\nAfter the database recovered at 13:30 UTC, Bitbucket Pipelines experienced build scheduling delays as it processed the backlog of jobs. Additional resources were added to Bitbucket Pipelines and the backlog was cleared in full by 17:30 UTC.\n\n### **IMPACT**\n\nCustomers who were impacted experienced significant delays with running Bitbucket Pipelines and increased latency when accessing the [bitbucket.org](http://bitbucket.org/) website and APIs during the duration of the incident. Git requests over HTTPS and SSH were unaffected.\n\n### **ROOT CAUSE**\n\nThe incident was caused by an issue during the routine autovacuuming of our active database tables, which impaired its ability to serve requests. This led to slowdowns that impacted a variety of Bitbucket services, including the queuing of a large backlog of unscheduled pipelines.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. We are prioritizing the following improvement actions to reduce recovery time, limit impact, and avoid repeating these types of incidents in the future:\n\n* Reconfigure vacuuming threshold for high write activity database tables.\n* Adjust alert thresholds to proactively catch this behavior earlier and reduce potential impact.\n* Tuning autoscaling and load shedding behavior for Pipelines services and increasing build runner capacity.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "rgwgpfyx0mpy",
+          "created_at": "2024-03-12T17:58:31.396Z",
+          "updated_at": "2024-03-12T17:58:41.660Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "s2fj62jjzwzr",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "rgwgpfyx0mpy",
+          "created_at": "2024-02-22T13:57:05.766Z",
+          "updated_at": "2024-02-22T13:57:05.766Z",
+          "display_at": "2024-02-22T13:57:05.766Z",
+          "affected_components": [
+            {
+              "code": "g0lfj4sv2fhf",
+              "name": "Website",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "k0x2yw1435v7",
+              "name": "API",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "rfzky0v13fbp",
+              "name": "Webhooks",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "rzh2n85q7vtt",
+              "name": "Pipelines",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "3ptz8nyfwr3r",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "rgwgpfyx0mpy",
+          "created_at": "2024-02-22T13:39:40.802Z",
+          "updated_at": "2024-02-22T13:39:40.802Z",
+          "display_at": "2024-02-22T13:39:40.802Z",
+          "affected_components": [
+            {
+              "code": "g0lfj4sv2fhf",
+              "name": "Website",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "k0x2yw1435v7",
+              "name": "API",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "rfzky0v13fbp",
+              "name": "Webhooks",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "rzh2n85q7vtt",
+              "name": "Pipelines",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "89cqwlgm8l77",
+          "status": "investigating",
+          "body": "We are continuing to investigate the cause of the degraded performance.",
+          "incident_id": "rgwgpfyx0mpy",
+          "created_at": "2024-02-22T11:56:50.260Z",
+          "updated_at": "2024-02-22T11:56:50.260Z",
+          "display_at": "2024-02-22T11:56:50.260Z",
+          "affected_components": [
+            {
+              "code": "g0lfj4sv2fhf",
+              "name": "Website",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "k0x2yw1435v7",
+              "name": "API",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "rfzky0v13fbp",
+              "name": "Webhooks",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "rzh2n85q7vtt",
+              "name": "Pipelines",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "wln3c79tsm8v",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue.",
+          "incident_id": "rgwgpfyx0mpy",
+          "created_at": "2024-02-22T10:13:59.687Z",
+          "updated_at": "2024-02-22T10:13:59.687Z",
+          "display_at": "2024-02-22T10:13:59.687Z",
+          "affected_components": [
+            {
+              "code": "g0lfj4sv2fhf",
+              "name": "Website",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "k0x2yw1435v7",
+              "name": "API",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "rfzky0v13fbp",
+              "name": "Webhooks",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "rzh2n85q7vtt",
+              "name": "Pipelines",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "gbt8c9vqxfn7",
+          "status": "investigating",
+          "body": "We are continuing to investigate the cause of the degraded performance.",
+          "incident_id": "rgwgpfyx0mpy",
+          "created_at": "2024-02-22T10:08:44.827Z",
+          "updated_at": "2024-02-22T10:08:44.827Z",
+          "display_at": "2024-02-22T10:08:44.827Z",
+          "affected_components": [
+            {
+              "code": "g0lfj4sv2fhf",
+              "name": "Website",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "k0x2yw1435v7",
+              "name": "API",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "0shdxv448y53",
+          "status": "investigating",
+          "body": "We are aware of an incident impacting the performance of the Bitbucket Cloud website. An update will be provided soon.",
+          "incident_id": "rgwgpfyx0mpy",
+          "created_at": "2024-02-22T08:37:58.168Z",
+          "updated_at": "2024-02-22T08:37:58.168Z",
+          "display_at": "2024-02-22T08:37:58.168Z",
+          "affected_components": [
+            {
+              "code": "g0lfj4sv2fhf",
+              "name": "Website",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "k0x2yw1435v7",
+              "name": "API",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "g0lfj4sv2fhf",
+          "name": "Website",
+          "status": "operational",
+          "created_at": "2013-09-26T03:34:27.377Z",
+          "updated_at": "2025-08-19T14:41:14.071Z",
+          "position": 1,
+          "description": "Access to bitbucket.org",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "bqlf8qjztdtr",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "k0x2yw1435v7",
+          "name": "API",
+          "status": "operational",
+          "created_at": "2015-06-05T19:34:43.541Z",
+          "updated_at": "2025-10-08T19:19:45.918Z",
+          "position": 2,
+          "description": "Access to api.bitbucket.org",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "bqlf8qjztdtr",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "rfzky0v13fbp",
+          "name": "Webhooks",
+          "status": "operational",
+          "created_at": "2015-07-29T01:37:04.511Z",
+          "updated_at": "2025-07-19T17:30:21.262Z",
+          "position": 7,
+          "description": "The Bitbucket webhooks service",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "bqlf8qjztdtr",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "rzh2n85q7vtt",
+          "name": "Pipelines",
+          "status": "operational",
+          "created_at": "2016-08-23T20:04:54.469Z",
+          "updated_at": "2025-09-16T04:34:27.045Z",
+          "position": 9,
+          "description": "Continuous integration and delivery for Bitbucket repos",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "bqlf8qjztdtr",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": "[]"
     }
   ]
 }
