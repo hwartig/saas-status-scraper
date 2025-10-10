@@ -4,9 +4,62 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-10T19:21:07.576Z"
+    "updated_at": "2025-10-10T20:29:39.657Z"
   },
   "incidents": [
+    {
+      "id": "r09r2y9jlmfc",
+      "name": "Delays starting Docker Jobs",
+      "status": "investigating",
+      "created_at": "2025-10-10T20:29:39.194Z",
+      "updated_at": "2025-10-10T20:29:39.650Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/dr4xtyw19s04",
+      "started_at": "2025-10-10T20:29:39.189Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "5030p9nzt2zs",
+          "status": "investigating",
+          "body": "Some customers may have experienced delays of around 5 minutes starting Docker Jobs.",
+          "incident_id": "r09r2y9jlmfc",
+          "created_at": "2025-10-10T20:29:39.286Z",
+          "updated_at": "2025-10-10T20:29:39.645Z",
+          "display_at": "2025-10-10T20:29:39.286Z",
+          "affected_components": [
+            {
+              "code": "x1v3t5qrnlhk",
+              "name": "Docker Jobs",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1976746974386045192
+        }
+      ],
+      "components": [
+        {
+          "id": "x1v3t5qrnlhk",
+          "name": "Docker Jobs",
+          "status": "degraded_performance",
+          "created_at": "2017-03-17T19:43:18.878Z",
+          "updated_at": "2025-10-10T20:29:39.230Z",
+          "position": 1,
+          "description": "CircleCI jobs using the docker executor.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "lm01kk5xl4fd",
       "name": "Delay in Usage API Data",
@@ -833,9 +886,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2025-08-19T15:21:10.281Z",
+          "updated_at": "2025-10-10T20:29:39.230Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -3037,9 +3090,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2025-08-19T15:21:10.281Z",
+          "updated_at": "2025-10-10T20:29:39.230Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -4935,49 +4988,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "yr50qd5pw3b8",
-      "name": "Some commit status updates were not updated",
-      "status": "postmortem",
-      "created_at": "2025-01-23T20:30:00.000Z",
-      "updated_at": "2025-01-31T21:39:23.065Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-01-23T20:30:00.000Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/jn7lxhrjltc4",
-      "started_at": "2025-01-23T20:30:00.000Z",
-      "page_id": "6w4r0ttlx5ft",
-      "incident_updates": [
-        {
-          "id": "m0pgb86ll4z9",
-          "status": "postmortem",
-          "body": "## Summary\n\nOn January 23, 2025, from 19:48 UTC to 20:43 UTC, customers using CircleCI GitHub OAuth and Bitbucket projects stopped receiving commit status updates. This was due to a code change deployed at 19:48 UTC that negatively impacted the service responsible for sending commit statuses to the Version Control System \\(VCS\\) provider.\n\n## What Happened\n\nOn January 23, 2025, at 19:48 UTC, we deployed a change in how we send events from our service that orchestrates workflows. This change inadvertently modified the value of a key field used by a downstream service responsible for setting commit statuses.\n\nAt 20:03 UTC, the team responsible for the downstream service was alerted to an increase in errors when setting commit statuses. This alert auto-resolved without intervention, delaying our response time.\n\nAt 20:12 UTC, our support team notified us that customers were experiencing issues with commit status updates. This prompted an investigation. By 20:40 UTC, we had identified and reverted the faulty code change, with customer impact ceasing at 20:43 UTC.\n\n## Future Prevention and Process Improvement\n\nWe will add more comprehensive testing to cover the events sent by our orchestration service. Additionally, we will implement synthetic tests to catch failures in setting proper commit status updates.\n\nWe are also investigating why the alert auto-resolved to ensure similar issues are actioned sooner.\n\nWhile investigation and remediation started promptly after being notified of the issue, there was a delay in initializing our incident protocol, which delayed the creation of a status page update and limited the information available to provide clear timing on the published update. We are revisiting our incident declaration procedures and tool configuration to provide further clarity around incident declaration and improve response time.",
-          "incident_id": "yr50qd5pw3b8",
-          "created_at": "2025-01-31T21:38:54.613Z",
-          "updated_at": "2025-01-31T21:39:23.063Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "40xm39nmtq81",
-          "status": "resolved",
-          "body": "At 19:48 UTC, some customers' projects may have stopped receiving commit status updates. The incident was resolved at 20:43 UTC. To ensure that the checks are reported correctly, we recommend rerunning the impacted workflows from the start.",
-          "incident_id": "yr50qd5pw3b8",
-          "created_at": "2025-01-23T20:59:33.031Z",
-          "updated_at": "2025-01-31T19:44:34.573Z",
-          "display_at": "2025-01-23T20:30:00.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
