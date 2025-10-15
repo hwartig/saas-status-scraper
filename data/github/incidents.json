@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-15T04:01:11.541Z"
+    "updated_at": "2025-10-15T12:45:49.462Z"
   },
   "incidents": [
     {
@@ -1581,7 +1581,7 @@
       "name": "Multiple GitHub API endpoints are experiencing errors",
       "status": "resolved",
       "created_at": "2025-10-09T13:52:49.468Z",
-      "updated_at": "2025-10-09T13:56:06.774Z",
+      "updated_at": "2025-10-15T12:45:49.450Z",
       "monitoring_at": null,
       "resolved_at": "2025-10-09T13:56:06.757Z",
       "impact": "minor",
@@ -1592,10 +1592,10 @@
         {
           "id": "nbxf6fnyv73j",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between 13:39 UTC and 13:42 UTC on Oct 9, 2025, around 2.3% of REST API calls and 0.4% Web traffic were impacted due to the partial rollout of a new feature that had more impact on one of our primary databases than anticipated. When the feature was partially rolled out it performed an excessive number of writes per request which caused excessive latency for writes from other API and Web endpoints and resulted in 5xx errors to customers. <br /><br />The issue was identified by our automatic alerting and reverted by turning down the percentage of traffic to the new feature, which led to recovery of the data cluster and services. <br /><br />We are working to improve the way we roll out new features like this and move the specific writes from this incident to a storage solution more suited to this type of activity. We have also optimized this particular feature to avoid its rollout from having future impact on other areas of the site. We are also investigating how we can even more quickly identify issues like this.",
           "incident_id": "kk58nfytx0c7",
           "created_at": "2025-10-09T13:56:06.757Z",
-          "updated_at": "2025-10-09T13:56:06.757Z",
+          "updated_at": "2025-10-15T12:45:49.444Z",
           "display_at": "2025-10-09T13:56:06.757Z",
           "affected_components": null,
           "deliver_notifications": true,
