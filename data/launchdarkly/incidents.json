@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-10-20T12:02:50.018-07:00"
+    "updated_at": "2025-10-20T13:05:47.048-07:00"
   },
   "incidents": [
     {
@@ -12,14 +12,118 @@
       "name": "Elevated latencies and delays",
       "status": "identified",
       "created_at": "2025-10-20T00:25:44.626-07:00",
-      "updated_at": "2025-10-20T12:02:50.014-07:00",
+      "updated_at": "2025-10-20T13:05:47.037-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
       "shortlink": "https://stspg.io/gwz5tfd08bnq",
-      "started_at": "2025-10-20T00:25:44.598-07:00",
+      "started_at": "2025-10-20T03:15:32.000-07:00",
       "page_id": "9404kdk7lkn7",
       "incident_updates": [
+        {
+          "id": "660ykdxk6zjr",
+          "status": "identified",
+          "body": "The impacted AWS region continues to recover and make resources available which we are using to improve the availability of the LaunchDarkly platform. As we continue to recover and scale up, so do our customers. This increase in traffic is slowing our ability to reduce the impact of the outage.\n\nFor customers who are using the LaunchDarkly SDKs, we do not recommend making changes to your SDK configuration at this time as doing so will impact our ability to continue service during our recovery.\n\nFor Flag Delivery, server-side streaming is back online and no longer impacted by the incident for most customers. Customers using big segments or payload filtering are still impacted.\n\nThe EU and Federal LaunchDarkly instances continue to not be impacted by this incident at this time.\n\nThe event ingestion pipeline will remain disabled to limit the traffic volume within LaunchDarkly's services during our recovery.\nWe will provide our next update within 60 minutes.",
+          "incident_id": "zxl3q06s2lvq",
+          "created_at": "2025-10-20T12:47:01.250-07:00",
+          "updated_at": "2025-10-20T13:05:47.031-07:00",
+          "display_at": "2025-10-20T12:47:01.000-07:00",
+          "affected_components": [
+            {
+              "code": "7h4z5dpj09mx",
+              "name": "Feature management (non-core functionality) - Context processing",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "2c1qzwzc7142",
+              "name": "Feature management (non-core functionality) - Data Export",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "g5bksjhndxmj",
+              "name": "Feature management (non-core functionality) - Flag usage metrics",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "d78f8m7zkgqt",
+              "name": "Flag Delivery Network (core functionality) - Server-side streaming API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "156fh2g9b6pd",
+              "name": "Flag Delivery Network (core functionality) - Client-side streaming API",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "w5565sdz2kfj",
+              "name": "Flag Delivery Network (core functionality) - Polling API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "0z3ns76sxvnf",
+              "name": "Feature management (core functionality) - Flag targeting",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "9xz56kbw0hgj",
+              "name": "Feature management (core functionality) - Segment management",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "2xhvx01jmqrw",
+              "name": "Feature management (core functionality) - Progressive rollouts",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "2wnf8k8p3bd8",
+              "name": "Feature management (core functionality) - Release pipelines",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "hf1r5xs02ll2",
+              "name": "Experimentation (core functionality) - Experiment results processing",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "nz8qpllp3bsz",
+              "name": "Global (core functionality) - Authentication",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "1skhs8zvnlm6",
+              "name": "Global (core functionality) - Metrics",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "s57hhrpqqwk1",
+              "name": "Global (core functionality) - Web app (app.launchdarkly.com)",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "2hh5b13z44vt",
+              "name": "Automations (non-core functionality) - Emails and notifications",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1980360123551027652
+        },
         {
           "id": "s09qccp63f4z",
           "status": "identified",
