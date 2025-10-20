@@ -4,9 +4,62 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-20T05:06:17.426Z"
+    "updated_at": "2025-10-20T15:01:41.203Z"
   },
   "incidents": [
+    {
+      "id": "r6gz6g4rx29n",
+      "name": "Degraded Performance on us.platform.sh region",
+      "status": "investigating",
+      "created_at": "2025-10-20T15:01:41.087Z",
+      "updated_at": "2025-10-20T15:01:41.199Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/6bbfnvt6wz86",
+      "started_at": "2025-10-20T15:01:41.080Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "tqpk9fk3c0tj",
+          "status": "investigating",
+          "body": "Our monitoring has detected serious issues with our cloud infrastructure provider which affect all sites hosted on the us.platform.sh region. Currently, these issues look to be resulting in degraded performance,  rather than a complete outage.\n\nOur operations team has been notified and they are investigating the issue with our provider.\n\nWe will update you as soon as we have further information.",
+          "incident_id": "r6gz6g4rx29n",
+          "created_at": "2025-10-20T15:01:41.195Z",
+          "updated_at": "2025-10-20T15:01:41.195Z",
+          "display_at": "2025-10-20T15:01:41.195Z",
+          "affected_components": [
+            {
+              "code": "zn912j34l6sp",
+              "name": "USA (East) (us.platform.sh)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "zn912j34l6sp",
+          "name": "USA (East) (us.platform.sh)",
+          "status": "degraded_performance",
+          "created_at": "2015-10-06T13:57:44.771Z",
+          "updated_at": "2025-10-20T15:01:41.131Z",
+          "position": 14,
+          "description": "us.platform.sh",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "0qwbm7fmk49v",
       "name": "Partial Outage on FR-3",
@@ -1366,9 +1419,9 @@
         {
           "id": "zn912j34l6sp",
           "name": "USA (East) (us.platform.sh)",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2015-10-06T13:57:44.771Z",
-          "updated_at": "2025-09-22T06:59:57.052Z",
+          "updated_at": "2025-10-20T15:01:41.131Z",
           "position": 14,
           "description": "us.platform.sh",
           "showcase": false,
@@ -7012,145 +7065,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": null,
-          "page_id": "l2x5n4czt1ph",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "ryhgszs0smh2",
-      "name": "API server outage",
-      "status": "postmortem",
-      "created_at": "2024-06-24T03:42:55.536Z",
-      "updated_at": "2024-06-24T07:13:47.501Z",
-      "monitoring_at": "2024-06-24T03:50:09.234Z",
-      "resolved_at": "2024-06-24T04:06:57.169Z",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/13r572yt0v10",
-      "started_at": "2024-06-24T03:42:55.526Z",
-      "page_id": "l2x5n4czt1ph",
-      "incident_updates": [
-        {
-          "id": "dqf2h3sxx69t",
-          "status": "postmortem",
-          "body": "## What happened\n\nAfter recent maintenance work, the API server was not able to communicate with internal database servers.\n\n‌\n\n## Customer Impact\n\nCustomers were unable to use the CLI or console, which included connecting to your project with SSH, and other activities like submitting deployments for a period of 40 minutes.\n\nThe availability of your live sites were not affected.  \n\n## What was done to resolve the incident\n\nOur team quickly discovered the DB connection issues and made those DB servers available for the API server.",
-          "incident_id": "ryhgszs0smh2",
-          "created_at": "2024-06-24T07:12:03.843Z",
-          "updated_at": "2024-06-24T07:13:47.499Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "yxyqqfrkswvj",
-          "status": "resolved",
-          "body": "The CLI, console and API services should now function as expected.\nThis incident has been resolved.",
-          "incident_id": "ryhgszs0smh2",
-          "created_at": "2024-06-24T04:06:57.169Z",
-          "updated_at": "2024-06-24T04:06:57.169Z",
-          "display_at": "2024-06-24T04:06:57.169Z",
-          "affected_components": [
-            {
-              "code": "w62ktynq8s8d",
-              "name": "Accounts - Console",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "0s9xkzzp4l49",
-              "name": "Accounts - User accounting",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "265bn0vjl3hv",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "ryhgszs0smh2",
-          "created_at": "2024-06-24T03:50:09.234Z",
-          "updated_at": "2024-06-24T03:50:09.234Z",
-          "display_at": "2024-06-24T03:50:09.234Z",
-          "affected_components": [
-            {
-              "code": "w62ktynq8s8d",
-              "name": "Accounts - Console",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "0s9xkzzp4l49",
-              "name": "Accounts - User accounting",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bgz2f3zvnqb7",
-          "status": "investigating",
-          "body": "We have detected an issue affecting CLI, console and API usage.\nOur engineers are actively investigating this issue.",
-          "incident_id": "ryhgszs0smh2",
-          "created_at": "2024-06-24T03:42:55.615Z",
-          "updated_at": "2024-06-24T03:42:55.615Z",
-          "display_at": "2024-06-24T03:42:55.615Z",
-          "affected_components": [
-            {
-              "code": "w62ktynq8s8d",
-              "name": "Accounts - Console",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "0s9xkzzp4l49",
-              "name": "Accounts - User accounting",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "w62ktynq8s8d",
-          "name": "Console",
-          "status": "operational",
-          "created_at": "2019-07-23T19:37:12.161Z",
-          "updated_at": "2025-09-23T04:30:49.447Z",
-          "position": 1,
-          "description": "Project console for Platform Professional.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "fyqkwqq92sxm",
-          "page_id": "l2x5n4czt1ph",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "0s9xkzzp4l49",
-          "name": "User accounting",
-          "status": "operational",
-          "created_at": "2015-10-06T13:58:03.296Z",
-          "updated_at": "2025-09-23T04:30:49.466Z",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "fyqkwqq92sxm",
           "page_id": "l2x5n4czt1ph",
           "group": false,
           "only_show_if_degraded": false
