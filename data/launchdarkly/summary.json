@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-10-20T00:25:45.929-07:00"
+    "updated_at": "2025-10-20T01:00:27.207-07:00"
   },
   "components": [
     {
@@ -790,16 +790,78 @@
     {
       "id": "zxl3q06s2lvq",
       "name": "Elevated latencies and delays",
-      "status": "investigating",
+      "status": "identified",
       "created_at": "2025-10-20T00:25:44.626-07:00",
-      "updated_at": "2025-10-20T00:25:45.921-07:00",
+      "updated_at": "2025-10-20T01:00:27.202-07:00",
       "monitoring_at": null,
       "resolved_at": null,
-      "impact": "minor",
+      "impact": "major",
       "shortlink": "https://stspg.io/gwz5tfd08bnq",
       "started_at": "2025-10-20T00:25:44.598-07:00",
       "page_id": "9404kdk7lkn7",
       "incident_updates": [
+        {
+          "id": "k7kr0ph93pr1",
+          "status": "identified",
+          "body": "We have identified issue with elevated error rates and event pipelines. Currently impacted services are\n\n- SDK and Relay Proxy requests for environments using Big Segments in us-east-1 region\n- Guarded rollouts\n- Scheduled flag changes\n- Experimentation\n- Data export\n- Flag usage metrics\n- Emails and notifications\n- Integrations web hooks",
+          "incident_id": "zxl3q06s2lvq",
+          "created_at": "2025-10-20T01:00:25.963-07:00",
+          "updated_at": "2025-10-20T01:00:27.180-07:00",
+          "display_at": "2025-10-20T01:00:25.963-07:00",
+          "affected_components": [
+            {
+              "code": "7h4z5dpj09mx",
+              "name": "Feature management (non-core functionality) - Context processing",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "2c1qzwzc7142",
+              "name": "Feature management (non-core functionality) - Data Export",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "g5bksjhndxmj",
+              "name": "Feature management (non-core functionality) - Flag usage metrics",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "w5565sdz2kfj",
+              "name": "Flag Delivery Network (core functionality) - Polling API",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "xkfhb7ktnvb6",
+              "name": "Feature management (core functionality) - Feature workflows",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "2wnf8k8p3bd8",
+              "name": "Feature management (core functionality) - Release pipelines",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "hf1r5xs02ll2",
+              "name": "Experimentation (core functionality) - Experiment results processing",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "2hh5b13z44vt",
+              "name": "Automations (non-core functionality) - Emails and notifications",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1980182308591370572
+        },
         {
           "id": "90sstmrm6y68",
           "status": "investigating",
