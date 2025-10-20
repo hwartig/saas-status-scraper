@@ -4,7 +4,7 @@
     "name": "Vercel",
     "url": "https://www.vercel-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-20T18:06:56.054Z"
+    "updated_at": "2025-10-20T18:40:03.895Z"
   },
   "components": [
     {
@@ -334,9 +334,9 @@
     {
       "id": "1vhy91zktp01",
       "name": "Cron Jobs",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-02-05T05:23:22.063Z",
-      "updated_at": "2025-08-28T17:33:37.963Z",
+      "updated_at": "2025-10-20T18:40:03.794Z",
       "position": 6,
       "description": null,
       "showcase": true,
@@ -504,9 +504,9 @@
     {
       "id": "pdnc30nkdqth",
       "name": "Edge Functions",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2023-02-17T10:28:47.618Z",
-      "updated_at": "2025-10-20T17:36:12.038Z",
+      "updated_at": "2025-10-20T18:40:03.810Z",
       "position": 11,
       "description": null,
       "showcase": true,
@@ -534,9 +534,9 @@
     {
       "id": "1w4lc3s3q2pz",
       "name": "Edge Middleware",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2021-12-17T09:32:22.097Z",
-      "updated_at": "2025-10-20T17:36:12.055Z",
+      "updated_at": "2025-10-20T18:40:03.839Z",
       "position": 12,
       "description": null,
       "showcase": true,
@@ -929,7 +929,7 @@
       "name": "Elevated errors across multiple services",
       "status": "identified",
       "created_at": "2025-10-20T07:30:44.192Z",
-      "updated_at": "2025-10-20T18:06:56.040Z",
+      "updated_at": "2025-10-20T18:40:03.883Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -937,6 +937,56 @@
       "started_at": "2025-10-20T07:30:44.000Z",
       "page_id": "lvglq8h0mdyh",
       "incident_updates": [
+        {
+          "id": "cp8xvzg7pqtx",
+          "status": "identified",
+          "body": "New deployments using Routing Middleware or Vercel Functions in the IAD1 region may fail to deploy.\nTraffic is still successfully being rerouted away from IAD1, which may result in increased latency.\nWe are seeing full recovery of Edge Function and Middleware invocation errors in our IAD1 region.\nWe are investigating an intermittent elevation of Cron Jobs not being executed.\nHistorical data for Speed Insights and Web Analytics is currently being backfilled.",
+          "incident_id": "5m5fd7ljhf26",
+          "created_at": "2025-10-20T18:40:03.879Z",
+          "updated_at": "2025-10-20T18:40:03.879Z",
+          "display_at": "2025-10-20T18:40:03.879Z",
+          "affected_components": [
+            {
+              "code": "jrd979g6ssl0",
+              "name": "Edge Network - IAD1 - Washington DC, USA",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "1w4lc3s3q2pz",
+              "name": "Edge Middleware",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "kscyjm1qp3cw",
+              "name": "Speed Insights",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "pdnc30nkdqth",
+              "name": "Edge Functions",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "zr2j7y9kv5hd",
+              "name": "Web Analytics",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "1vhy91zktp01",
+              "name": "Cron Jobs",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "wyk45gdk83fy",
           "status": "identified",
@@ -1685,11 +1735,26 @@
       ],
       "components": [
         {
+          "id": "1vhy91zktp01",
+          "name": "Cron Jobs",
+          "status": "degraded_performance",
+          "created_at": "2025-02-05T05:23:22.063Z",
+          "updated_at": "2025-10-20T18:40:03.794Z",
+          "position": 6,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-02-05",
+          "group_id": null,
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
           "id": "pdnc30nkdqth",
           "name": "Edge Functions",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2023-02-17T10:28:47.618Z",
-          "updated_at": "2025-10-20T17:36:12.038Z",
+          "updated_at": "2025-10-20T18:40:03.810Z",
           "position": 11,
           "description": null,
           "showcase": true,
@@ -1702,9 +1767,9 @@
         {
           "id": "1w4lc3s3q2pz",
           "name": "Edge Middleware",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2021-12-17T09:32:22.097Z",
-          "updated_at": "2025-10-20T17:36:12.055Z",
+          "updated_at": "2025-10-20T18:40:03.839Z",
           "position": 12,
           "description": null,
           "showcase": true,
