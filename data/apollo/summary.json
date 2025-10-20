@@ -4,15 +4,15 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-20T10:35:10.526Z"
+    "updated_at": "2025-10-20T10:39:12.340Z"
   },
   "components": [
     {
       "id": "f9vbgntg553n",
       "name": "Uplink",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2021-09-27T16:44:28.215Z",
-      "updated_at": "2025-10-20T08:14:36.817Z",
+      "updated_at": "2025-10-20T10:39:12.275Z",
       "position": 1,
       "description": "Studio managed Supergraph Schema Delivery. Apollo Gateway (v 0.34+) uses Uplink to fetch routing configuration dynamically from the Apollo schema registry.",
       "showcase": true,
@@ -205,9 +205,9 @@
     {
       "id": "821z1tygvvpf",
       "name": "Cloud Routing",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2022-10-28T11:32:57.526Z",
-      "updated_at": "2025-10-20T08:14:36.829Z",
+      "updated_at": "2025-10-20T10:39:12.291Z",
       "position": 14,
       "description": "GraphOS Cloud supergraphs hosted on Apollo infrastructure",
       "showcase": true,
@@ -233,111 +233,10 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [
-    {
-      "id": "t9sjqy52yt7n",
-      "name": "AWS us-east-1 Outage Impacting Multiple Apollo Services",
-      "status": "monitoring",
-      "created_at": "2025-10-20T08:14:36.788Z",
-      "updated_at": "2025-10-20T10:35:10.522Z",
-      "monitoring_at": "2025-10-20T09:50:46.444Z",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/cfm7f7nf5v2h",
-      "started_at": "2025-10-20T08:14:36.780Z",
-      "page_id": "r56zbm15x15h",
-      "incident_updates": [
-        {
-          "id": "p29ndbprt73j",
-          "status": "monitoring",
-          "body": "AWS is reporting signs of recovery on their status page and we are seeing recovery in several of our triggered monitors for systems which rely on AWS, however, we continue to monitor the overall situation as AWS processes a backlog of events in us-east-1.\n\nAs noted in the previous update, on-premise/self-hosted routers would only be impacted if their default configuration to roam between AWS and GCP has been changed to only rely on AWS. \n\nAnecdotally, we are seeing various non-Apollo systems regain previously unavailable functionality.\n\nAWS has suggested additional updates will occur within the next 30 minutes and we will update our own system statuses when we are confident they are fully recovered.\n\nThanks for your patience during the matter and thank you for the AWS teams working toward full recovery.",
-          "incident_id": "t9sjqy52yt7n",
-          "created_at": "2025-10-20T09:50:46.444Z",
-          "updated_at": "2025-10-20T09:50:46.444Z",
-          "display_at": "2025-10-20T09:50:46.444Z",
-          "affected_components": [
-            {
-              "code": "f9vbgntg553n",
-              "name": "Uplink",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "821z1tygvvpf",
-              "name": "Cloud Routing",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5jcfvn31s7m8",
-          "status": "investigating",
-          "body": "Outage in AWS us-east-1 is impacting multiple Apollo products including Uplink (AWS), Cloud Routers and customer's ability to open supports tickets. \n\nBy default Routers are configured to use GCP and AWS for Uplink, however if you have configured your router to use AWS exclusively there may be delays in schema updates, persisted queries manifests or the ability to bring new routers online, until the AWS outage is resolved.\n\nAWS Outage Link: https://health.aws.amazon.com/health/status",
-          "incident_id": "t9sjqy52yt7n",
-          "created_at": "2025-10-20T08:14:36.859Z",
-          "updated_at": "2025-10-20T08:14:36.859Z",
-          "display_at": "2025-10-20T08:14:36.859Z",
-          "affected_components": [
-            {
-              "code": "f9vbgntg553n",
-              "name": "Uplink",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "821z1tygvvpf",
-              "name": "Cloud Routing",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "f9vbgntg553n",
-          "name": "Uplink",
-          "status": "partial_outage",
-          "created_at": "2021-09-27T16:44:28.215Z",
-          "updated_at": "2025-10-20T08:14:36.817Z",
-          "position": 1,
-          "description": "Studio managed Supergraph Schema Delivery. Apollo Gateway (v 0.34+) uses Uplink to fetch routing configuration dynamically from the Apollo schema registry.",
-          "showcase": true,
-          "start_date": "2021-09-27",
-          "group_id": null,
-          "page_id": "r56zbm15x15h",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "821z1tygvvpf",
-          "name": "Cloud Routing",
-          "status": "degraded_performance",
-          "created_at": "2022-10-28T11:32:57.526Z",
-          "updated_at": "2025-10-20T08:14:36.829Z",
-          "position": 14,
-          "description": "GraphOS Cloud supergraphs hosted on Apollo infrastructure",
-          "showcase": true,
-          "start_date": "2022-10-03",
-          "group_id": null,
-          "page_id": "r56zbm15x15h",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    }
-  ],
+  "incidents": [],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "minor",
-    "description": "Minor Service Outage"
+    "indicator": "none",
+    "description": "All Systems Operational"
   }
 }
