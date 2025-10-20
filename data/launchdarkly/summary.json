@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-10-20T11:28:41.911-07:00"
+    "updated_at": "2025-10-20T12:02:50.018-07:00"
   },
   "components": [
     {
@@ -121,9 +121,9 @@
     {
       "id": "nz8qpllp3bsz",
       "name": "Authentication",
-      "status": "major_outage",
+      "status": "partial_outage",
       "created_at": "2023-07-07T11:02:17.209-07:00",
-      "updated_at": "2025-10-20T06:55:34.585-07:00",
+      "updated_at": "2025-10-20T12:02:48.986-07:00",
       "position": 1,
       "description": "UI & API Authentication Mechanisms",
       "showcase": true,
@@ -196,9 +196,9 @@
     {
       "id": "0z3ns76sxvnf",
       "name": "Flag targeting",
-      "status": "major_outage",
+      "status": "partial_outage",
       "created_at": "2015-01-05T20:05:03.176-08:00",
-      "updated_at": "2025-10-20T06:55:34.610-07:00",
+      "updated_at": "2025-10-20T12:02:49.006-07:00",
       "position": 2,
       "description": "UI and APIs used to update flag targeting rules",
       "showcase": true,
@@ -256,7 +256,7 @@
     {
       "id": "j4z3sqx09pkg",
       "name": "Feature management (core functionality)",
-      "status": "major_outage",
+      "status": "partial_outage",
       "created_at": "2022-02-28T13:46:44.240-08:00",
       "updated_at": "2024-05-14T10:03:32.484-07:00",
       "position": 2,
@@ -419,9 +419,9 @@
     {
       "id": "s57hhrpqqwk1",
       "name": "Web app (app.launchdarkly.com)",
-      "status": "major_outage",
+      "status": "partial_outage",
       "created_at": "2023-07-07T11:07:04.790-07:00",
-      "updated_at": "2025-10-20T06:55:34.755-07:00",
+      "updated_at": "2025-10-20T12:02:49.025-07:00",
       "position": 3,
       "description": "The website app.launchdarkly.com",
       "showcase": true,
@@ -434,9 +434,9 @@
     {
       "id": "9xz56kbw0hgj",
       "name": "Segment management",
-      "status": "major_outage",
+      "status": "partial_outage",
       "created_at": "2023-09-18T15:12:33.968-07:00",
-      "updated_at": "2025-10-20T06:55:34.778-07:00",
+      "updated_at": "2025-10-20T12:02:49.043-07:00",
       "position": 3,
       "description": "UI and APIs used to manage segments",
       "showcase": true,
@@ -524,9 +524,9 @@
     {
       "id": "2xhvx01jmqrw",
       "name": "Progressive rollouts",
-      "status": "major_outage",
+      "status": "partial_outage",
       "created_at": "2025-03-26T10:02:50.370-07:00",
-      "updated_at": "2025-10-20T06:55:34.802-07:00",
+      "updated_at": "2025-10-20T12:02:49.063-07:00",
       "position": 4,
       "description": "Gradually release features to minimize risk and enhance control",
       "showcase": true,
@@ -594,9 +594,9 @@
     {
       "id": "2wnf8k8p3bd8",
       "name": "Release pipelines",
-      "status": "major_outage",
+      "status": "partial_outage",
       "created_at": "2025-03-26T10:04:45.880-07:00",
-      "updated_at": "2025-10-20T06:55:34.826-07:00",
+      "updated_at": "2025-10-20T12:02:49.083-07:00",
       "position": 5,
       "description": "Automate and standardize the feature release process",
       "showcase": true,
@@ -792,7 +792,7 @@
       "name": "Elevated latencies and delays",
       "status": "identified",
       "created_at": "2025-10-20T00:25:44.626-07:00",
-      "updated_at": "2025-10-20T11:28:41.909-07:00",
+      "updated_at": "2025-10-20T12:02:50.014-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -800,6 +800,110 @@
       "started_at": "2025-10-20T00:25:44.598-07:00",
       "page_id": "9404kdk7lkn7",
       "incident_updates": [
+        {
+          "id": "s09qccp63f4z",
+          "status": "identified",
+          "body": "We've made significant progress on our recovery from this incident. Our engineers are continuing to bring the LaunchDarkly web application into a healthy state and have more than tripled the number of healthy nodes to serve our customers. The status of many service components has been upgraded from Major outage to Partial Outage.\n\nThe following components are still experiencing a Major Outage:\n- Experiment Results Processing\n- Global Metrics\n- Feature Management Context Processing\n- Feature Management Data Export\n- Feature Management Flag Usage Metric\n\nThe EU and Federal LaunchDarkly instances continue to not be impacted by this incident at this time.\n\nThe event ingestion pipeline will remain disabled to limit the traffic volume within LaunchDarkly's services during our recovery.\n\nWe will provide our next update within 30 minutes.",
+          "incident_id": "zxl3q06s2lvq",
+          "created_at": "2025-10-20T12:02:49.120-07:00",
+          "updated_at": "2025-10-20T12:02:50.011-07:00",
+          "display_at": "2025-10-20T12:02:49.120-07:00",
+          "affected_components": [
+            {
+              "code": "7h4z5dpj09mx",
+              "name": "Feature management (non-core functionality) - Context processing",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "2c1qzwzc7142",
+              "name": "Feature management (non-core functionality) - Data Export",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "g5bksjhndxmj",
+              "name": "Feature management (non-core functionality) - Flag usage metrics",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "d78f8m7zkgqt",
+              "name": "Flag Delivery Network (core functionality) - Server-side streaming API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "156fh2g9b6pd",
+              "name": "Flag Delivery Network (core functionality) - Client-side streaming API",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "w5565sdz2kfj",
+              "name": "Flag Delivery Network (core functionality) - Polling API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "0z3ns76sxvnf",
+              "name": "Feature management (core functionality) - Flag targeting",
+              "old_status": "major_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "9xz56kbw0hgj",
+              "name": "Feature management (core functionality) - Segment management",
+              "old_status": "major_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "2xhvx01jmqrw",
+              "name": "Feature management (core functionality) - Progressive rollouts",
+              "old_status": "major_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "2wnf8k8p3bd8",
+              "name": "Feature management (core functionality) - Release pipelines",
+              "old_status": "major_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "hf1r5xs02ll2",
+              "name": "Experimentation (core functionality) - Experiment results processing",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "nz8qpllp3bsz",
+              "name": "Global (core functionality) - Authentication",
+              "old_status": "major_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "1skhs8zvnlm6",
+              "name": "Global (core functionality) - Metrics",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "s57hhrpqqwk1",
+              "name": "Global (core functionality) - Web app (app.launchdarkly.com)",
+              "old_status": "major_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "2hh5b13z44vt",
+              "name": "Automations (non-core functionality) - Emails and notifications",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1980349002093850787
+        },
         {
           "id": "sffjgzjg31bj",
           "status": "identified",
@@ -1697,9 +1801,9 @@
         {
           "id": "nz8qpllp3bsz",
           "name": "Authentication",
-          "status": "major_outage",
+          "status": "partial_outage",
           "created_at": "2023-07-07T11:02:17.209-07:00",
-          "updated_at": "2025-10-20T06:55:34.585-07:00",
+          "updated_at": "2025-10-20T12:02:48.986-07:00",
           "position": 1,
           "description": "UI & API Authentication Mechanisms",
           "showcase": true,
@@ -1727,9 +1831,9 @@
         {
           "id": "0z3ns76sxvnf",
           "name": "Flag targeting",
-          "status": "major_outage",
+          "status": "partial_outage",
           "created_at": "2015-01-05T20:05:03.176-08:00",
-          "updated_at": "2025-10-20T06:55:34.610-07:00",
+          "updated_at": "2025-10-20T12:02:49.006-07:00",
           "position": 2,
           "description": "UI and APIs used to update flag targeting rules",
           "showcase": true,
@@ -1832,9 +1936,9 @@
         {
           "id": "s57hhrpqqwk1",
           "name": "Web app (app.launchdarkly.com)",
-          "status": "major_outage",
+          "status": "partial_outage",
           "created_at": "2023-07-07T11:07:04.790-07:00",
-          "updated_at": "2025-10-20T06:55:34.755-07:00",
+          "updated_at": "2025-10-20T12:02:49.025-07:00",
           "position": 3,
           "description": "The website app.launchdarkly.com",
           "showcase": true,
@@ -1847,9 +1951,9 @@
         {
           "id": "9xz56kbw0hgj",
           "name": "Segment management",
-          "status": "major_outage",
+          "status": "partial_outage",
           "created_at": "2023-09-18T15:12:33.968-07:00",
-          "updated_at": "2025-10-20T06:55:34.778-07:00",
+          "updated_at": "2025-10-20T12:02:49.043-07:00",
           "position": 3,
           "description": "UI and APIs used to manage segments",
           "showcase": true,
@@ -1862,9 +1966,9 @@
         {
           "id": "2xhvx01jmqrw",
           "name": "Progressive rollouts",
-          "status": "major_outage",
+          "status": "partial_outage",
           "created_at": "2025-03-26T10:02:50.370-07:00",
-          "updated_at": "2025-10-20T06:55:34.802-07:00",
+          "updated_at": "2025-10-20T12:02:49.063-07:00",
           "position": 4,
           "description": "Gradually release features to minimize risk and enhance control",
           "showcase": true,
@@ -1877,9 +1981,9 @@
         {
           "id": "2wnf8k8p3bd8",
           "name": "Release pipelines",
-          "status": "major_outage",
+          "status": "partial_outage",
           "created_at": "2025-03-26T10:04:45.880-07:00",
-          "updated_at": "2025-10-20T06:55:34.826-07:00",
+          "updated_at": "2025-10-20T12:02:49.083-07:00",
           "position": 5,
           "description": "Automate and standardize the feature release process",
           "showcase": true,
