@@ -4,15 +4,15 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-20T15:51:40.779Z"
+    "updated_at": "2025-10-20T17:00:53.330Z"
   },
   "components": [
     {
       "id": "f9vbgntg553n",
       "name": "Uplink",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2021-09-27T16:44:28.215Z",
-      "updated_at": "2025-10-20T10:39:12.275Z",
+      "updated_at": "2025-10-20T16:56:23.878Z",
       "position": 1,
       "description": "Studio managed Supergraph Schema Delivery. Apollo Gateway (v 0.34+) uses Uplink to fetch routing configuration dynamically from the Apollo schema registry.",
       "showcase": true,
@@ -205,9 +205,9 @@
     {
       "id": "821z1tygvvpf",
       "name": "Cloud Routing",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-10-28T11:32:57.526Z",
-      "updated_at": "2025-10-20T10:39:12.291Z",
+      "updated_at": "2025-10-20T17:00:53.269Z",
       "position": 14,
       "description": "GraphOS Cloud supergraphs hosted on Apollo infrastructure",
       "showcase": true,
@@ -233,10 +233,105 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "pslsmz20q3rt",
+      "name": "AWS us-east-1 Outage Impacting Apollo Services",
+      "status": "monitoring",
+      "created_at": "2025-10-20T16:56:23.844Z",
+      "updated_at": "2025-10-20T17:00:53.318Z",
+      "monitoring_at": "2025-10-20T16:56:23.915Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/zc20tbjc182k",
+      "started_at": "2025-10-20T16:56:23.835Z",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "0nhf3dywrd1v",
+          "status": "monitoring",
+          "body": "Apollo Products hosted in AWS may be running into performance issues as problems at the Cloud Hosting Provider are remediated. \n\nPlease use the \"contact support\" button in Studio if you require further bespoke assistance from Apollo.",
+          "incident_id": "pslsmz20q3rt",
+          "created_at": "2025-10-20T17:00:53.314Z",
+          "updated_at": "2025-10-20T17:00:53.314Z",
+          "display_at": "2025-10-20T17:00:53.314Z",
+          "affected_components": [
+            {
+              "code": "f9vbgntg553n",
+              "name": "Uplink",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "821z1tygvvpf",
+              "name": "Cloud Routing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "1tnj1dv7nydw",
+          "status": "monitoring",
+          "body": "AWS has reported continued degradation after initial signs of recovery. We are seeing some minor impacts to the AWS Uplink service, which we are continuing to monitor.\n\nAs we've previously stated we recommend customers to allowlist AWS and GCP Uplink endpoints which Apollo provides. Allowlisting both endpoints will allow seamless fallback if one is having issues. We have not seen any impact to GCP Uplink. \n\nThanks for your patience during the matter and thank you for the AWS teams working toward full recovery.",
+          "incident_id": "pslsmz20q3rt",
+          "created_at": "2025-10-20T16:56:23.915Z",
+          "updated_at": "2025-10-20T16:56:23.915Z",
+          "display_at": "2025-10-20T16:56:23.915Z",
+          "affected_components": [
+            {
+              "code": "f9vbgntg553n",
+              "name": "Uplink",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "f9vbgntg553n",
+          "name": "Uplink",
+          "status": "degraded_performance",
+          "created_at": "2021-09-27T16:44:28.215Z",
+          "updated_at": "2025-10-20T16:56:23.878Z",
+          "position": 1,
+          "description": "Studio managed Supergraph Schema Delivery. Apollo Gateway (v 0.34+) uses Uplink to fetch routing configuration dynamically from the Apollo schema registry.",
+          "showcase": true,
+          "start_date": "2021-09-27",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "821z1tygvvpf",
+          "name": "Cloud Routing",
+          "status": "degraded_performance",
+          "created_at": "2022-10-28T11:32:57.526Z",
+          "updated_at": "2025-10-20T17:00:53.269Z",
+          "position": 14,
+          "description": "GraphOS Cloud supergraphs hosted on Apollo infrastructure",
+          "showcase": true,
+          "start_date": "2022-10-03",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
