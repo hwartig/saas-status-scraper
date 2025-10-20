@@ -4,9 +4,209 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-10-19T22:05:57.582-07:00"
+    "updated_at": "2025-10-20T00:25:45.929-07:00"
   },
   "incidents": [
+    {
+      "id": "zxl3q06s2lvq",
+      "name": "Elevated latencies and delays",
+      "status": "investigating",
+      "created_at": "2025-10-20T00:25:44.626-07:00",
+      "updated_at": "2025-10-20T00:25:45.921-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/gwz5tfd08bnq",
+      "started_at": "2025-10-20T00:25:44.598-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "90sstmrm6y68",
+          "status": "investigating",
+          "body": "We are investigating elevated latencies and delays in multiple services including scheduled flag changes, flag updates and events processing. We will post updates as they are available.",
+          "incident_id": "zxl3q06s2lvq",
+          "created_at": "2025-10-20T00:25:44.894-07:00",
+          "updated_at": "2025-10-20T00:25:45.914-07:00",
+          "display_at": "2025-10-20T00:25:44.894-07:00",
+          "affected_components": [
+            {
+              "code": "7h4z5dpj09mx",
+              "name": "Feature management (non-core functionality) - Context processing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "2c1qzwzc7142",
+              "name": "Feature management (non-core functionality) - Data Export",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "g5bksjhndxmj",
+              "name": "Feature management (non-core functionality) - Flag usage metrics",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "w5565sdz2kfj",
+              "name": "Flag Delivery Network (core functionality) - Polling API",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "xkfhb7ktnvb6",
+              "name": "Feature management (core functionality) - Feature workflows",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "2wnf8k8p3bd8",
+              "name": "Feature management (core functionality) - Release pipelines",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "hf1r5xs02ll2",
+              "name": "Experimentation (core functionality) - Experiment results processing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "2hh5b13z44vt",
+              "name": "Automations (non-core functionality) - Emails and notifications",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1980173579116499403
+        }
+      ],
+      "components": [
+        {
+          "id": "2hh5b13z44vt",
+          "name": "Emails and notifications",
+          "status": "degraded_performance",
+          "created_at": "2021-09-13T11:04:52.860-07:00",
+          "updated_at": "2025-10-20T00:25:44.694-07:00",
+          "position": 1,
+          "description": "Outbound emails and notifications sent by LaunchDarkly",
+          "showcase": false,
+          "start_date": "2021-09-13",
+          "group_id": "5p5kdgq72sz7",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "xkfhb7ktnvb6",
+          "name": "Feature workflows",
+          "status": "degraded_performance",
+          "created_at": "2022-02-28T13:47:46.907-08:00",
+          "updated_at": "2025-10-20T00:25:44.720-07:00",
+          "position": 1,
+          "description": "Workflow functionality for automated features like scheduled changes and approvals",
+          "showcase": true,
+          "start_date": "2022-02-28",
+          "group_id": "j4z3sqx09pkg",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "7h4z5dpj09mx",
+          "name": "Context processing",
+          "status": "degraded_performance",
+          "created_at": "2023-09-18T15:14:51.435-07:00",
+          "updated_at": "2025-10-20T00:25:44.745-07:00",
+          "position": 1,
+          "description": "Ingestion and recording of contexts",
+          "showcase": false,
+          "start_date": "2023-09-18",
+          "group_id": "2868qx437p9m",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "2c1qzwzc7142",
+          "name": "Data Export",
+          "status": "degraded_performance",
+          "created_at": "2018-11-30T14:17:50.328-08:00",
+          "updated_at": "2025-10-20T00:25:44.769-07:00",
+          "position": 2,
+          "description": "Recording and publication of events to Data Export destinations",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "2868qx437p9m",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "w5565sdz2kfj",
+          "name": "Polling API",
+          "status": "operational",
+          "created_at": "2017-04-17T09:40:25.815-07:00",
+          "updated_at": "2025-05-27T11:35:47.326-07:00",
+          "position": 3,
+          "description": "Flag updates for SDKs in polling mode",
+          "showcase": true,
+          "start_date": null,
+          "group_id": "vvb9wn53mspf",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "g5bksjhndxmj",
+          "name": "Flag usage metrics",
+          "status": "degraded_performance",
+          "created_at": "2018-08-30T10:10:07.695-07:00",
+          "updated_at": "2025-10-20T00:25:44.794-07:00",
+          "position": 3,
+          "description": "Recording and displaying of data pertaining to your flag usage",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "2868qx437p9m",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "hf1r5xs02ll2",
+          "name": "Experiment results processing",
+          "status": "degraded_performance",
+          "created_at": "2022-09-16T15:33:34.500-07:00",
+          "updated_at": "2025-10-20T00:25:44.819-07:00",
+          "position": 3,
+          "description": "Ingestion and recording of experiment results",
+          "showcase": true,
+          "start_date": "2022-09-16",
+          "group_id": "j28fw96kw68y",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "2wnf8k8p3bd8",
+          "name": "Release pipelines",
+          "status": "degraded_performance",
+          "created_at": "2025-03-26T10:04:45.880-07:00",
+          "updated_at": "2025-10-20T00:25:44.842-07:00",
+          "position": 5,
+          "description": "Automate and standardize the feature release process",
+          "showcase": true,
+          "start_date": "2025-03-26",
+          "group_id": "j4z3sqx09pkg",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "36pzzpbcrdcy",
       "name": "Delays in event data",
@@ -118,9 +318,9 @@
         {
           "id": "hf1r5xs02ll2",
           "name": "Experiment results processing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2022-09-16T15:33:34.500-07:00",
-          "updated_at": "2025-10-10T11:56:39.448-07:00",
+          "updated_at": "2025-10-20T00:25:44.819-07:00",
           "position": 3,
           "description": "Ingestion and recording of experiment results",
           "showcase": true,
@@ -410,9 +610,9 @@
         {
           "id": "2c1qzwzc7142",
           "name": "Data Export",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-11-30T14:17:50.328-08:00",
-          "updated_at": "2025-10-01T08:28:50.882-07:00",
+          "updated_at": "2025-10-20T00:25:44.769-07:00",
           "position": 2,
           "description": "Recording and publication of events to Data Export destinations",
           "showcase": false,
@@ -626,9 +826,9 @@
         {
           "id": "hf1r5xs02ll2",
           "name": "Experiment results processing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2022-09-16T15:33:34.500-07:00",
-          "updated_at": "2025-10-10T11:56:39.448-07:00",
+          "updated_at": "2025-10-20T00:25:44.819-07:00",
           "position": 3,
           "description": "Ingestion and recording of experiment results",
           "showcase": true,
@@ -1439,9 +1639,9 @@
         {
           "id": "g5bksjhndxmj",
           "name": "Flag usage metrics",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-08-30T10:10:07.695-07:00",
-          "updated_at": "2025-10-01T11:47:54.425-07:00",
+          "updated_at": "2025-10-20T00:25:44.794-07:00",
           "position": 3,
           "description": "Recording and displaying of data pertaining to your flag usage",
           "showcase": false,
@@ -1911,9 +2111,9 @@
         {
           "id": "2c1qzwzc7142",
           "name": "Data Export",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-11-30T14:17:50.328-08:00",
-          "updated_at": "2025-10-01T08:28:50.882-07:00",
+          "updated_at": "2025-10-20T00:25:44.769-07:00",
           "position": 2,
           "description": "Recording and publication of events to Data Export destinations",
           "showcase": false,
@@ -1926,9 +2126,9 @@
         {
           "id": "g5bksjhndxmj",
           "name": "Flag usage metrics",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-08-30T10:10:07.695-07:00",
-          "updated_at": "2025-10-01T11:47:54.425-07:00",
+          "updated_at": "2025-10-20T00:25:44.794-07:00",
           "position": 3,
           "description": "Recording and displaying of data pertaining to your flag usage",
           "showcase": false,
@@ -1941,9 +2141,9 @@
         {
           "id": "hf1r5xs02ll2",
           "name": "Experiment results processing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2022-09-16T15:33:34.500-07:00",
-          "updated_at": "2025-10-10T11:56:39.448-07:00",
+          "updated_at": "2025-10-20T00:25:44.819-07:00",
           "position": 3,
           "description": "Ingestion and recording of experiment results",
           "showcase": true,
@@ -2087,9 +2287,9 @@
         {
           "id": "g5bksjhndxmj",
           "name": "Flag usage metrics",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-08-30T10:10:07.695-07:00",
-          "updated_at": "2025-10-01T11:47:54.425-07:00",
+          "updated_at": "2025-10-20T00:25:44.794-07:00",
           "position": 3,
           "description": "Recording and displaying of data pertaining to your flag usage",
           "showcase": false,
@@ -2250,9 +2450,9 @@
         {
           "id": "2c1qzwzc7142",
           "name": "Data Export",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-11-30T14:17:50.328-08:00",
-          "updated_at": "2025-10-01T08:28:50.882-07:00",
+          "updated_at": "2025-10-20T00:25:44.769-07:00",
           "position": 2,
           "description": "Recording and publication of events to Data Export destinations",
           "showcase": false,
@@ -2265,9 +2465,9 @@
         {
           "id": "hf1r5xs02ll2",
           "name": "Experiment results processing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2022-09-16T15:33:34.500-07:00",
-          "updated_at": "2025-10-10T11:56:39.448-07:00",
+          "updated_at": "2025-10-20T00:25:44.819-07:00",
           "position": 3,
           "description": "Ingestion and recording of experiment results",
           "showcase": true,
@@ -2635,9 +2835,9 @@
         {
           "id": "2c1qzwzc7142",
           "name": "Data Export",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-11-30T14:17:50.328-08:00",
-          "updated_at": "2025-10-01T08:28:50.882-07:00",
+          "updated_at": "2025-10-20T00:25:44.769-07:00",
           "position": 2,
           "description": "Recording and publication of events to Data Export destinations",
           "showcase": false,
@@ -2763,9 +2963,9 @@
         {
           "id": "2wnf8k8p3bd8",
           "name": "Release pipelines",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2025-03-26T10:04:45.880-07:00",
-          "updated_at": "2025-06-09T16:47:45.211-07:00",
+          "updated_at": "2025-10-20T00:25:44.842-07:00",
           "position": 5,
           "description": "Automate and standardize the feature release process",
           "showcase": true,
@@ -3205,9 +3405,9 @@
         {
           "id": "2c1qzwzc7142",
           "name": "Data Export",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-11-30T14:17:50.328-08:00",
-          "updated_at": "2025-10-01T08:28:50.882-07:00",
+          "updated_at": "2025-10-20T00:25:44.769-07:00",
           "position": 2,
           "description": "Recording and publication of events to Data Export destinations",
           "showcase": false,
@@ -3328,9 +3528,9 @@
         {
           "id": "2c1qzwzc7142",
           "name": "Data Export",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-11-30T14:17:50.328-08:00",
-          "updated_at": "2025-10-01T08:28:50.882-07:00",
+          "updated_at": "2025-10-20T00:25:44.769-07:00",
           "position": 2,
           "description": "Recording and publication of events to Data Export destinations",
           "showcase": false,
@@ -3630,9 +3830,9 @@
         {
           "id": "2c1qzwzc7142",
           "name": "Data Export",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-11-30T14:17:50.328-08:00",
-          "updated_at": "2025-10-01T08:28:50.882-07:00",
+          "updated_at": "2025-10-20T00:25:44.769-07:00",
           "position": 2,
           "description": "Recording and publication of events to Data Export destinations",
           "showcase": false,
@@ -3849,9 +4049,9 @@
         {
           "id": "g5bksjhndxmj",
           "name": "Flag usage metrics",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-08-30T10:10:07.695-07:00",
-          "updated_at": "2025-10-01T11:47:54.425-07:00",
+          "updated_at": "2025-10-20T00:25:44.794-07:00",
           "position": 3,
           "description": "Recording and displaying of data pertaining to your flag usage",
           "showcase": false,
@@ -3972,9 +4172,9 @@
         {
           "id": "g5bksjhndxmj",
           "name": "Flag usage metrics",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2018-08-30T10:10:07.695-07:00",
-          "updated_at": "2025-10-01T11:47:54.425-07:00",
+          "updated_at": "2025-10-20T00:25:44.794-07:00",
           "position": 3,
           "description": "Recording and displaying of data pertaining to your flag usage",
           "showcase": false,
@@ -4255,99 +4455,6 @@
           "showcase": false,
           "start_date": "2022-06-07",
           "group_id": null,
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "hbtl9w3tqck0",
-      "name": "Streamer SDK clients in APSE1 region experiencing errors",
-      "status": "resolved",
-      "created_at": "2025-03-22T05:24:57.695-07:00",
-      "updated_at": "2025-03-22T05:44:10.634-07:00",
-      "monitoring_at": "2025-03-22T05:32:41.480-07:00",
-      "resolved_at": "2025-03-22T05:44:10.339-07:00",
-      "impact": "none",
-      "shortlink": "https://stspg.io/nhpd7tbm9tct",
-      "started_at": "2025-03-22T05:24:57.681-07:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "7xlc507wxb8g",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "hbtl9w3tqck0",
-          "created_at": "2025-03-22T05:44:10.339-07:00",
-          "updated_at": "2025-03-22T05:44:10.630-07:00",
-          "display_at": "2025-03-22T05:44:10.339-07:00",
-          "affected_components": [
-            {
-              "code": "d78f8m7zkgqt",
-              "name": "Flag Delivery Network (core functionality) - Server-side streaming API",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1903427482650636583
-        },
-        {
-          "id": "c4yqmtkb445z",
-          "status": "monitoring",
-          "body": "A fix has been implemented, and we are monitoring the results. Error rates have now returned to baseline.",
-          "incident_id": "hbtl9w3tqck0",
-          "created_at": "2025-03-22T05:32:41.480-07:00",
-          "updated_at": "2025-03-22T05:32:41.792-07:00",
-          "display_at": "2025-03-22T05:32:41.480-07:00",
-          "affected_components": [
-            {
-              "code": "d78f8m7zkgqt",
-              "name": "Flag Delivery Network (core functionality) - Server-side streaming API",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1903424593395958082
-        },
-        {
-          "id": "34q30jsc85vg",
-          "status": "investigating",
-          "body": "We are currently investigating an increase in errors received by clients of the Streamer SDK in APSE1. Other regions are not impacted.",
-          "incident_id": "hbtl9w3tqck0",
-          "created_at": "2025-03-22T05:24:57.748-07:00",
-          "updated_at": "2025-03-22T05:24:59.174-07:00",
-          "display_at": "2025-03-22T05:24:57.748-07:00",
-          "affected_components": [
-            {
-              "code": "d78f8m7zkgqt",
-              "name": "Flag Delivery Network (core functionality) - Server-side streaming API",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1903422652297142519
-        }
-      ],
-      "components": [
-        {
-          "id": "d78f8m7zkgqt",
-          "name": "Server-side streaming API",
-          "status": "operational",
-          "created_at": "2016-02-23T13:25:44.226-08:00",
-          "updated_at": "2025-08-13T06:17:03.001-07:00",
-          "position": 1,
-          "description": "Real-time flag updates for server-side SDKs",
-          "showcase": true,
-          "start_date": null,
-          "group_id": "vvb9wn53mspf",
           "page_id": "9404kdk7lkn7",
           "group": false,
           "only_show_if_degraded": false
