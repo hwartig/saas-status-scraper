@@ -4,35 +4,47 @@
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-21T09:45:03.854Z"
+    "updated_at": "2025-10-21T10:00:48.558Z"
   },
   "incidents": [
     {
-      "id": "cnzrk2lxdf9y",
-      "name": "Schema Publishing Encountering Issues",
+      "id": "pslsmz20q3rt",
+      "name": "AWS us-east-1 Outage Impacting Apollo Services",
       "status": "resolved",
-      "created_at": "2025-10-20T20:42:24.252Z",
-      "updated_at": "2025-10-21T05:26:55.657Z",
-      "monitoring_at": "2025-10-20T21:17:27.567Z",
-      "resolved_at": "2025-10-21T05:26:55.641Z",
+      "created_at": "2025-10-20T16:56:23.844Z",
+      "updated_at": "2025-10-21T10:00:48.555Z",
+      "monitoring_at": "2025-10-20T16:56:23.915Z",
+      "resolved_at": "2025-10-21T10:00:48.533Z",
       "impact": "minor",
-      "shortlink": "https://stspg.io/hws3zvc2gjzb",
-      "started_at": "2025-10-20T20:42:24.245Z",
+      "shortlink": "https://stspg.io/zc20tbjc182k",
+      "started_at": "2025-10-20T16:56:23.835Z",
       "page_id": "r56zbm15x15h",
       "incident_updates": [
         {
-          "id": "yrn5c0bjmvl2",
+          "id": "16rw5nzm2y6p",
           "status": "resolved",
-          "body": "No schema publishing or checks issues have been observed for couple of hours now.  We are continuing to monitor our services in relation to the AWS outage today on the other open incident.",
-          "incident_id": "cnzrk2lxdf9y",
-          "created_at": "2025-10-21T05:26:55.641Z",
-          "updated_at": "2025-10-21T05:26:55.641Z",
-          "display_at": "2025-10-21T05:26:55.641Z",
+          "body": "We will mark this as resolved as issues impacting our service have been resolved either through mitigation or upstream provider resolution. While some of our dependent services have indicated there is on-going stabilization of their own systems (following on the AWS us-east-1 disruptions yesterday) any unresolved items have NO impact to our offerings.  In the event that we have new findings or degradations, we will open a new incident.\n\nThank you for your patience while we adapted toward changing circumstances following on yesterday's events, and thank you to teams across the industry who worked (or may still be working) tirelessly toward recovery.",
+          "incident_id": "pslsmz20q3rt",
+          "created_at": "2025-10-21T10:00:48.533Z",
+          "updated_at": "2025-10-21T10:00:48.533Z",
+          "display_at": "2025-10-21T10:00:48.533Z",
           "affected_components": [
             {
-              "code": "kjtxqnqszhv8",
-              "name": "Schema Publishing",
-              "old_status": "degraded_performance",
+              "code": "zmt0l1mwxnw5",
+              "name": "Metrics Ingestion",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "f9vbgntg553n",
+              "name": "Uplink",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "821z1tygvvpf",
+              "name": "Cloud Routing",
+              "old_status": "operational",
               "new_status": "operational"
             }
           ],
@@ -40,79 +52,6 @@
           "custom_tweet": null,
           "tweet_id": null
         },
-        {
-          "id": "msswfs5nsq6v",
-          "status": "monitoring",
-          "body": "We've identified the root cause of the issue as a third party dependency of Apollo attempting to recover from the AWS outage that has impacted many. The third party is working on remediating the issue and we are continuing to monitor.",
-          "incident_id": "cnzrk2lxdf9y",
-          "created_at": "2025-10-20T21:17:27.567Z",
-          "updated_at": "2025-10-20T21:17:27.567Z",
-          "display_at": "2025-10-20T21:17:27.567Z",
-          "affected_components": [
-            {
-              "code": "kjtxqnqszhv8",
-              "name": "Schema Publishing",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fcpw8jv418dq",
-          "status": "investigating",
-          "body": "We're investigating issues in the schema publishing pipeline. There is degraded performance right now. We are investigating the root cause.",
-          "incident_id": "cnzrk2lxdf9y",
-          "created_at": "2025-10-20T20:42:24.331Z",
-          "updated_at": "2025-10-20T20:42:24.331Z",
-          "display_at": "2025-10-20T20:42:24.331Z",
-          "affected_components": [
-            {
-              "code": "kjtxqnqszhv8",
-              "name": "Schema Publishing",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "kjtxqnqszhv8",
-          "name": "Schema Publishing",
-          "status": "operational",
-          "created_at": "2021-10-01T18:16:27.822Z",
-          "updated_at": "2025-10-21T05:26:55.607Z",
-          "position": 3,
-          "description": "The Schema Publishing feature which is leveraged by tools like Server auto-reporting, `rover graph publish`, and `rover subgraph publish`.",
-          "showcase": true,
-          "start_date": "2021-10-01",
-          "group_id": null,
-          "page_id": "r56zbm15x15h",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": "[]"
-    },
-    {
-      "id": "pslsmz20q3rt",
-      "name": "AWS us-east-1 Outage Impacting Apollo Services",
-      "status": "monitoring",
-      "created_at": "2025-10-20T16:56:23.844Z",
-      "updated_at": "2025-10-21T08:39:24.337Z",
-      "monitoring_at": "2025-10-20T16:56:23.915Z",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/zc20tbjc182k",
-      "started_at": "2025-10-20T16:56:23.835Z",
-      "page_id": "r56zbm15x15h",
-      "incident_updates": [
         {
           "id": "t8jz8xzf139z",
           "status": "monitoring",
@@ -336,6 +275,99 @@
         }
       ],
       "reminder_intervals": null
+    },
+    {
+      "id": "cnzrk2lxdf9y",
+      "name": "Schema Publishing Encountering Issues",
+      "status": "resolved",
+      "created_at": "2025-10-20T20:42:24.252Z",
+      "updated_at": "2025-10-21T05:26:55.657Z",
+      "monitoring_at": "2025-10-20T21:17:27.567Z",
+      "resolved_at": "2025-10-21T05:26:55.641Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/hws3zvc2gjzb",
+      "started_at": "2025-10-20T20:42:24.245Z",
+      "page_id": "r56zbm15x15h",
+      "incident_updates": [
+        {
+          "id": "yrn5c0bjmvl2",
+          "status": "resolved",
+          "body": "No schema publishing or checks issues have been observed for couple of hours now.  We are continuing to monitor our services in relation to the AWS outage today on the other open incident.",
+          "incident_id": "cnzrk2lxdf9y",
+          "created_at": "2025-10-21T05:26:55.641Z",
+          "updated_at": "2025-10-21T05:26:55.641Z",
+          "display_at": "2025-10-21T05:26:55.641Z",
+          "affected_components": [
+            {
+              "code": "kjtxqnqszhv8",
+              "name": "Schema Publishing",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "msswfs5nsq6v",
+          "status": "monitoring",
+          "body": "We've identified the root cause of the issue as a third party dependency of Apollo attempting to recover from the AWS outage that has impacted many. The third party is working on remediating the issue and we are continuing to monitor.",
+          "incident_id": "cnzrk2lxdf9y",
+          "created_at": "2025-10-20T21:17:27.567Z",
+          "updated_at": "2025-10-20T21:17:27.567Z",
+          "display_at": "2025-10-20T21:17:27.567Z",
+          "affected_components": [
+            {
+              "code": "kjtxqnqszhv8",
+              "name": "Schema Publishing",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "fcpw8jv418dq",
+          "status": "investigating",
+          "body": "We're investigating issues in the schema publishing pipeline. There is degraded performance right now. We are investigating the root cause.",
+          "incident_id": "cnzrk2lxdf9y",
+          "created_at": "2025-10-20T20:42:24.331Z",
+          "updated_at": "2025-10-20T20:42:24.331Z",
+          "display_at": "2025-10-20T20:42:24.331Z",
+          "affected_components": [
+            {
+              "code": "kjtxqnqszhv8",
+              "name": "Schema Publishing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "kjtxqnqszhv8",
+          "name": "Schema Publishing",
+          "status": "operational",
+          "created_at": "2021-10-01T18:16:27.822Z",
+          "updated_at": "2025-10-21T05:26:55.607Z",
+          "position": 3,
+          "description": "The Schema Publishing feature which is leveraged by tools like Server auto-reporting, `rover graph publish`, and `rover subgraph publish`.",
+          "showcase": true,
+          "start_date": "2021-10-01",
+          "group_id": null,
+          "page_id": "r56zbm15x15h",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": "[]"
     },
     {
       "id": "t9sjqy52yt7n",
