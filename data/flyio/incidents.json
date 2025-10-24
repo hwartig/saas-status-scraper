@@ -4,9 +4,82 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-24T15:06:12.108Z"
+    "updated_at": "2025-10-24T16:27:46.143Z"
   },
   "incidents": [
+    {
+      "id": "g5rzktmssk4k",
+      "name": "TLS certificate issues",
+      "status": "resolved",
+      "created_at": "2025-10-24T16:13:24.096Z",
+      "updated_at": "2025-10-24T16:27:46.140Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-10-24T16:27:46.125Z",
+      "impact": "major",
+      "shortlink": "https://stspg.io/vywjw1lkngd6",
+      "started_at": "2025-10-24T16:13:24.092Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "3bjwppc7blgc",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "g5rzktmssk4k",
+          "created_at": "2025-10-24T16:27:46.125Z",
+          "updated_at": "2025-10-24T16:27:46.125Z",
+          "display_at": "2025-10-24T16:27:46.125Z",
+          "affected_components": [
+            {
+              "code": "mvnft391hph6",
+              "name": "SSL/TLS Certificate Provisioning",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "vq792yxd6pn6",
+          "status": "investigating",
+          "body": "We are investigating an issue with the Vault server that stores TLS certificates. Provisioning new TLS certificates may fail, and connecting to domains whose existing certificate has not yet been cached may fail.",
+          "incident_id": "g5rzktmssk4k",
+          "created_at": "2025-10-24T16:13:24.169Z",
+          "updated_at": "2025-10-24T16:13:24.169Z",
+          "display_at": "2025-10-24T16:13:24.169Z",
+          "affected_components": [
+            {
+              "code": "mvnft391hph6",
+              "name": "SSL/TLS Certificate Provisioning",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "mvnft391hph6",
+          "name": "SSL/TLS Certificate Provisioning",
+          "status": "operational",
+          "created_at": "2020-06-26T21:31:00.282Z",
+          "updated_at": "2025-10-24T16:27:46.092Z",
+          "position": 10,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "582tv1lmstfc",
       "name": "Logs/metrics issues",
@@ -5561,119 +5634,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": null,
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "0mxz8kqpm8qf",
-      "name": "High packet loss in JNB region",
-      "status": "resolved",
-      "created_at": "2025-08-13T22:29:34.064Z",
-      "updated_at": "2025-08-14T01:17:49.786Z",
-      "monitoring_at": "2025-08-13T22:52:33.404Z",
-      "resolved_at": "2025-08-14T01:17:49.766Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/s08d6fxhw1yd",
-      "started_at": "2025-08-13T22:29:34.057Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "qzwh4g6x8t7g",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "0mxz8kqpm8qf",
-          "created_at": "2025-08-14T01:17:49.766Z",
-          "updated_at": "2025-08-14T01:17:49.766Z",
-          "display_at": "2025-08-14T01:17:49.766Z",
-          "affected_components": [
-            {
-              "code": "r8cxv07rm0h4",
-              "name": "Regional Availability - JNB - Johannesburg, South Africa",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gsppz8q9r7wl",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we continue to monitor the network.",
-          "incident_id": "0mxz8kqpm8qf",
-          "created_at": "2025-08-13T22:52:33.404Z",
-          "updated_at": "2025-08-13T22:52:33.404Z",
-          "display_at": "2025-08-13T22:52:33.404Z",
-          "affected_components": [
-            {
-              "code": "r8cxv07rm0h4",
-              "name": "Regional Availability - JNB - Johannesburg, South Africa",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nxtq8mg9nrhr",
-          "status": "investigating",
-          "body": "Our upstream provider is investigating the issue. Apps running in JNB region may experience packet loss or otherwise degraded network connectivity at this time.",
-          "incident_id": "0mxz8kqpm8qf",
-          "created_at": "2025-08-13T22:42:48.230Z",
-          "updated_at": "2025-08-13T22:42:48.230Z",
-          "display_at": "2025-08-13T22:42:48.230Z",
-          "affected_components": [
-            {
-              "code": "r8cxv07rm0h4",
-              "name": "Regional Availability - JNB - Johannesburg, South Africa",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "km2fp1lvwjn6",
-          "status": "investigating",
-          "body": "We are currently investigating high packet loss in JNB.",
-          "incident_id": "0mxz8kqpm8qf",
-          "created_at": "2025-08-13T22:29:34.139Z",
-          "updated_at": "2025-08-13T22:29:34.139Z",
-          "display_at": "2025-08-13T22:29:34.139Z",
-          "affected_components": [
-            {
-              "code": "r8cxv07rm0h4",
-              "name": "Regional Availability - JNB - Johannesburg, South Africa",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "r8cxv07rm0h4",
-          "name": "JNB - Johannesburg, South Africa",
-          "status": "operational",
-          "created_at": "2023-05-22T08:34:12.878Z",
-          "updated_at": "2025-09-22T18:47:17.524Z",
-          "position": 17,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-05-22",
-          "group_id": "mrcyzlkkw8z9",
           "page_id": "65rccr4mbblw",
           "group": false,
           "only_show_if_degraded": false
