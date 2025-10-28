@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-24T18:20:41.695Z"
+    "updated_at": "2025-10-28T11:30:10.045Z"
   },
   "components": [
     {
@@ -220,9 +220,9 @@
     {
       "id": "3xz669qnng8n",
       "name": "Global",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-11-18T19:18:52.512Z",
-      "updated_at": "2025-10-23T18:33:18.891Z",
+      "updated_at": "2025-10-28T11:30:09.973Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -2633,7 +2633,7 @@
     {
       "id": "nmb3bbtqfgsj",
       "name": "Container Registry",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-21T17:29:22.377Z",
       "updated_at": "2025-08-06T12:30:25.506Z",
       "position": 13,
@@ -3484,10 +3484,64 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "8ycq31pppzln",
+      "name": "Container Registry Garbage Collection",
+      "status": "investigating",
+      "created_at": "2025-10-28T11:30:09.927Z",
+      "updated_at": "2025-10-28T11:30:10.040Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/vzb7qx757gf6",
+      "started_at": "2025-10-28T11:30:09.917Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "zbmvqz60z5ld",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue with the Garbage Collection in the container registries. At this time, users may experience errors with the Garbage Collection failing or being stuck.\n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "8ycq31pppzln",
+          "created_at": "2025-10-28T11:30:10.036Z",
+          "updated_at": "2025-10-28T11:30:10.036Z",
+          "display_at": "2025-10-28T11:30:10.036Z",
+          "affected_components": [
+            {
+              "code": "3xz669qnng8n",
+              "name": "Container Registry - Global",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "3xz669qnng8n",
+          "name": "Global",
+          "status": "degraded_performance",
+          "created_at": "2024-11-18T19:18:52.512Z",
+          "updated_at": "2025-10-28T11:30:09.973Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-11-18",
+          "group_id": "nmb3bbtqfgsj",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
