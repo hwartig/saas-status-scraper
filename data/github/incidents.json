@@ -4,9 +4,39 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-10-29T21:02:07.676Z"
+    "updated_at": "2025-10-29T21:34:38.686Z"
   },
   "incidents": [
+    {
+      "id": "pch0flk719dj",
+      "name": "Disruption with Copilot Bing search tool",
+      "status": "investigating",
+      "created_at": "2025-10-29T21:34:38.644Z",
+      "updated_at": "2025-10-29T21:34:38.684Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/2p8tyyv702jr",
+      "started_at": "2025-10-29T21:34:38.638Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "1qrk62bcsz2b",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "pch0flk719dj",
+          "created_at": "2025-10-29T21:34:38.681Z",
+          "updated_at": "2025-10-29T21:34:38.681Z",
+          "display_at": "2025-10-29T21:34:38.681Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "4jxdz4m769gy",
       "name": "Experiencing connection issues across Actions, Codespaces, and possibly other services",
@@ -8132,140 +8162,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "qjbc2h6dfyvc",
-      "name": "GitHub Enterprise Importer migrations are stalled",
-      "status": "resolved",
-      "created_at": "2025-07-28T21:41:16.253Z",
-      "updated_at": "2025-07-29T21:02:46.974Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-07-29T03:15:46.736Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/bp26233501d2",
-      "started_at": "2025-07-28T21:41:16.246Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "7f0tyf9nw5yh",
-          "status": "resolved",
-          "body": "Between approximately 21:41 UTC July 28th and 03:15 UTC July 29th, GitHub Enterprise Importer (GEI) operated in a degraded state where migrations could not be processed. <br /><br />Our investigation found that a component of the GEI infrastructure had been improperly taken out of service and could not be restored to its previous configuration. <br />This necessitated the provisioning of new resources to resolve the incident.<br /><br />As a result, customers will need to add our new IP range to the following IP allow lists, if enabled:<br />- The IP allow list on your destination GitHub.com organization or enterprise<br />- If you're running migrations from GitHub.com, the IP allow list on your source GitHub.com organization or enterprise<br />- If you're running migrations from a GitHub Enterprise Server, Bitbucket Server or Bitbucket Data Center instance, the allow list on your configured Azure Blob Storage or -- Amazon S3 storage account<br />- If you're running migrations from Azure DevOps, the allow list on your Azure DevOps organization<br /><br />The new GEI IP ranges for inclusion in applicable IP allow lists are:<br />- 20.99.172.64/28<br />- 135.234.59.224/28  <br /><br />The following IP ranges are no longer used by GEI and can be removed from all applicable IP allow lists:<br />- 40.71.233.224/28<br />- 20.125.12.8/29<br /><br />Users who have run migrations using GitHub Enterprise Importer in the past 90 days will receive email alerts about this change.",
-          "incident_id": "qjbc2h6dfyvc",
-          "created_at": "2025-07-29T03:15:46.736Z",
-          "updated_at": "2025-07-29T21:02:46.969Z",
-          "display_at": "2025-07-29T03:15:46.736Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "v7cljnm5h8js",
-          "status": "investigating",
-          "body": "This incident is resolved, we will follow up with a detailed root cause analysis as soon as possible.<br /><br />As part of mitigation, some existing IP ranges were replaced. Migrations with customer owned storage that have IP allow lists enabled will require adding new IP ranges to your IP allow lists to prevent migrations from failing.<br />- 20.99.172.64/28<br />- 135.234.59.224/28",
-          "incident_id": "qjbc2h6dfyvc",
-          "created_at": "2025-07-29T03:15:30.512Z",
-          "updated_at": "2025-07-29T03:15:30.512Z",
-          "display_at": "2025-07-29T03:15:30.512Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qpqft0fnmcyc",
-          "status": "investigating",
-          "body": "We have deployed mitigations and are working to verify.",
-          "incident_id": "qjbc2h6dfyvc",
-          "created_at": "2025-07-29T02:32:59.916Z",
-          "updated_at": "2025-07-29T02:32:59.916Z",
-          "display_at": "2025-07-29T02:32:59.916Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "p5llfcykb608",
-          "status": "investigating",
-          "body": "The team is continuing its work to mitigate this incident.",
-          "incident_id": "qjbc2h6dfyvc",
-          "created_at": "2025-07-29T01:23:11.596Z",
-          "updated_at": "2025-07-29T01:23:11.596Z",
-          "display_at": "2025-07-29T01:23:11.596Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "sb2rwtsk2y5q",
-          "status": "investigating",
-          "body": "We're continuing to work to mitigate this issue, customers will continue to see stalled migrations in the meantime.",
-          "incident_id": "qjbc2h6dfyvc",
-          "created_at": "2025-07-29T00:45:17.398Z",
-          "updated_at": "2025-07-29T00:45:17.398Z",
-          "display_at": "2025-07-29T00:45:17.398Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "tn7bxr74cnbc",
-          "status": "investigating",
-          "body": "We continue to work to mitigate this issue.",
-          "incident_id": "qjbc2h6dfyvc",
-          "created_at": "2025-07-28T23:24:45.380Z",
-          "updated_at": "2025-07-28T23:24:45.380Z",
-          "display_at": "2025-07-28T23:24:45.380Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "267my50nly77",
-          "status": "investigating",
-          "body": "We are still working to mitigate the issue.",
-          "incident_id": "qjbc2h6dfyvc",
-          "created_at": "2025-07-28T22:49:49.003Z",
-          "updated_at": "2025-07-28T22:49:49.003Z",
-          "display_at": "2025-07-28T22:49:49.003Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1t7k16lgkgth",
-          "status": "investigating",
-          "body": "We have identified the issue and we're working to mitigate.",
-          "incident_id": "qjbc2h6dfyvc",
-          "created_at": "2025-07-28T22:12:10.127Z",
-          "updated_at": "2025-07-28T22:12:10.127Z",
-          "display_at": "2025-07-28T22:12:10.127Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "687f3h4j3805",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "qjbc2h6dfyvc",
-          "created_at": "2025-07-28T21:41:16.298Z",
-          "updated_at": "2025-07-28T21:41:16.298Z",
-          "display_at": "2025-07-28T21:41:16.298Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
