@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-10-30T14:00:56.304-07:00"
+    "updated_at": "2025-10-30T14:20:36.587-07:00"
   },
   "components": [
     {
@@ -373,9 +373,9 @@
     {
       "id": "39mb8cmw8y2v",
       "name": "SMS Short Code, North America",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2016-04-07T15:07:25.830-07:00",
-      "updated_at": "2025-10-30T00:00:21.440-07:00",
+      "updated_at": "2025-10-30T14:14:35.095-07:00",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -1360,9 +1360,9 @@
     {
       "id": "bnzggd37p61w",
       "name": "Voice, Europe",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2019-01-10T08:56:37.418-08:00",
-      "updated_at": "2025-10-23T22:31:23.804-07:00",
+      "updated_at": "2025-10-30T14:18:54.277-07:00",
       "position": 13,
       "description": null,
       "showcase": false,
@@ -1936,6 +1936,59 @@
   ],
   "incidents": [
     {
+      "id": "zkmxw6wddhcw",
+      "name": "SMS Delivery Delays to Mexico-Altan-334-140",
+      "status": "investigating",
+      "created_at": "2025-10-30T14:14:35.061-07:00",
+      "updated_at": "2025-10-30T14:14:35.155-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/cgvdtmmmfdx5",
+      "started_at": "2025-10-30T14:14:35.054-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "991y4f3qqjpt",
+          "status": "investigating",
+          "body": "We are experiencing SMS delivery delays when sending messages to Mexico-Altan-334-140. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "zkmxw6wddhcw",
+          "created_at": "2025-10-30T14:14:35.152-07:00",
+          "updated_at": "2025-10-30T14:14:35.152-07:00",
+          "display_at": "2025-10-30T14:14:35.152-07:00",
+          "affected_components": [
+            {
+              "code": "39mb8cmw8y2v",
+              "name": "CARRIER NETWORK - SMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "39mb8cmw8y2v",
+          "name": "SMS Short Code, North America",
+          "status": "degraded_performance",
+          "created_at": "2016-04-07T15:07:25.830-07:00",
+          "updated_at": "2025-10-30T14:14:35.095-07:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "hgf1263rxm4q",
       "name": "SMS Delivery Delays to OneNZ / Vodafone Networks in New Zealand via  Subset of Short-codes",
       "status": "monitoring",
@@ -2313,432 +2366,6 @@
         }
       ],
       "reminder_intervals": null
-    },
-    {
-      "id": "2m0wy7gyl7bx",
-      "name": "Outbound Call Failure to a Subset of Hungary Phone Numbers",
-      "status": "identified",
-      "created_at": "2025-10-15T07:28:53.039-07:00",
-      "updated_at": "2025-10-29T23:06:55.975-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/cnkh74p653ty",
-      "started_at": "2025-10-15T07:34:26.000-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "t6bh0c8mv84f",
-          "status": "identified",
-          "body": "Our carrier partner has informed us that the Hungarian regulator NMHH has begun enforcing Decree 4/2012 (I.24.), which introduces new screening and blocking obligations for calls terminating in Hungary via international interconnection points that present Hungarian Caller IDs.\n\nTo avoid disruptions in call delivery to Hungarian destinations, we recommend the following actions:\n\nRecommended Steps:\n\n- Avoid using Hungarian CLIs (+36 numbers) as Caller IDs on calls into Hungary unless you have a valid domestic interconnection or roaming agreement to justify their use.\n- Where possible, use non-Hungarian CLIs, such as your main business number or an international service number.\nYou can quickly provision U.S. numbers (+1) in the Twilio Console and use those for calls to Hungarian recipients.\n- Monitor your call completion rates to Hungarian destinations.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.\n\nWe’ll provide another update in 24 hours or sooner as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-29T23:06:55.970-07:00",
-          "updated_at": "2025-10-29T23:06:55.970-07:00",
-          "display_at": "2025-10-29T23:06:55.970-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "17py77fnflfq",
-          "status": "identified",
-          "body": "Our carrier partner has informed us that the Hungarian regulator NMHH has begun enforcing Decree 4/2012 (I.24.), which introduces new screening and blocking obligations for calls terminating in Hungary via international interconnection points that present Hungarian Caller IDs.\n\nTo avoid disruptions in call delivery to Hungarian destinations, we recommend the following actions:\n\nRecommended Steps:\n\n- Avoid using Hungarian CLIs (+36 numbers) as Caller IDs on calls into Hungary unless you have a valid domestic interconnection or roaming agreement to justify their use.\n- Where possible, use non-Hungarian CLIs, such as your main business number or an international service number.\nYou can quickly provision U.S. numbers (+1) in the Twilio Console and use those for calls to Hungarian recipients.\n- Monitor your call completion rates to Hungarian destinations.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.\n\nWe’ll provide another update in 24 hours or sooner as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-28T22:45:42.445-07:00",
-          "updated_at": "2025-10-28T22:45:42.445-07:00",
-          "display_at": "2025-10-28T22:45:42.445-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ktxh3l6bbnzy",
-          "status": "identified",
-          "body": "Our carrier partner has informed us that the Hungarian regulator NMHH has begun enforcing Decree 4/2012 (I.24.), which introduces new screening and blocking obligations for calls terminating in Hungary via international interconnection points that present Hungarian Caller IDs.\n\nTo avoid disruptions in call delivery to Hungarian destinations, we recommend the following actions:\n\nRecommended Steps:\n\n- Avoid using Hungarian CLIs (+36 numbers) as Caller IDs on calls into Hungary unless you have a valid domestic interconnection or roaming agreement to justify their use.\n- Where possible, use non-Hungarian CLIs, such as your main business number or an international service number.\nYou can quickly provision U.S. numbers (+1) in the Twilio Console and use those for calls to Hungarian recipients.\n- Monitor your call completion rates to Hungarian destinations.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.\n\nWe’ll provide another update in 24 hours or sooner as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-27T22:37:20.785-07:00",
-          "updated_at": "2025-10-27T22:37:20.785-07:00",
-          "display_at": "2025-10-27T22:37:20.785-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jhybr2pq5zly",
-          "status": "identified",
-          "body": "Our carrier partner has informed us that the Hungarian regulator NMHH has begun enforcing Decree 4/2012 (I.24.), which introduces new screening and blocking obligations for calls terminating in Hungary via international interconnection points that present Hungarian Caller IDs.\n\nTo avoid disruptions in call delivery to Hungarian destinations, we recommend the following actions:\n\nRecommended Steps:\n\n- Avoid using Hungarian CLIs (+36 numbers) as Caller IDs on calls into Hungary unless you have a valid domestic interconnection or roaming agreement to justify their use.\n- Where possible, use non-Hungarian CLIs, such as your main business number or an international service number.\nYou can quickly provision U.S. numbers (+1) in the Twilio Console and use those for calls to Hungarian recipients.\n- Monitor your call completion rates to Hungarian destinations.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.\n\nWe’ll provide another update in 24 hours or sooner as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-26T22:40:10.893-07:00",
-          "updated_at": "2025-10-26T22:40:10.893-07:00",
-          "display_at": "2025-10-26T22:40:10.893-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jb3fr9wk5njf",
-          "status": "identified",
-          "body": "Our carrier partner has informed us that the Hungarian regulator NMHH has begun enforcing Decree 4/2012 (I.24.), which introduces new screening and blocking obligations for calls terminating in Hungary via international interconnection points that present Hungarian Caller IDs.\n\nTo avoid disruptions in call delivery to Hungarian destinations, we recommend the following actions:\n\nRecommended Steps:\n\n- Avoid using Hungarian CLIs (+36 numbers) as Caller IDs on calls into Hungary unless you have a valid domestic interconnection or roaming agreement to justify their use.\n- Where possible, use non-Hungarian CLIs, such as your main business number or an international service number.\nYou can quickly provision U.S. numbers (+1) in the Twilio Console and use those for calls to Hungarian recipients.\n- Monitor your call completion rates to Hungarian destinations.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.\n\nWe’ll provide another update in 24 hours or sooner as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-25T22:40:31.973-07:00",
-          "updated_at": "2025-10-25T22:40:31.973-07:00",
-          "display_at": "2025-10-25T22:40:31.973-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fmtsdcwdhqhz",
-          "status": "identified",
-          "body": "Our carrier partner has informed us that the Hungarian regulator NMHH has begun enforcing Decree 4/2012 (I.24.), which introduces new screening and blocking obligations for calls terminating in Hungary via international interconnection points that present Hungarian Caller IDs.\n\nTo avoid disruptions in call delivery to Hungarian destinations, we recommend the following actions:\n\nRecommended Steps:\n\n- Avoid using Hungarian CLIs (+36 numbers) as Caller IDs on calls into Hungary unless you have a valid domestic interconnection or roaming agreement to justify their use.\n- Where possible, use non-Hungarian CLIs, such as your main business number or an international service number.\nYou can quickly provision U.S. numbers (+1) in the Twilio Console and use those for calls to Hungarian recipients.\n- Monitor your call completion rates to Hungarian destinations.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.\n\nWe’ll provide another update in 24 hours or sooner as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-24T22:31:27.778-07:00",
-          "updated_at": "2025-10-24T22:31:27.778-07:00",
-          "display_at": "2025-10-24T22:31:27.778-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rx4mr8sf9by7",
-          "status": "identified",
-          "body": "Our carrier partner has informed us that the Hungarian regulator NMHH has begun enforcing Decree 4/2012 (I.24.), which introduces new screening and blocking obligations for calls terminating in Hungary via international interconnection points that present Hungarian Caller IDs.\n\nTo avoid disruptions in call delivery to Hungarian destinations, we recommend the following actions:\n\nRecommended Steps:\n\n- Avoid using Hungarian CLIs (+36 numbers) as Caller IDs on calls into Hungary unless you have a valid domestic interconnection or roaming agreement to justify their use.\n- Where possible, use non-Hungarian CLIs, such as your main business number or an international service number.\nYou can quickly provision U.S. numbers (+1) in the Twilio Console and use those for calls to Hungarian recipients.\n- Monitor your call completion rates to Hungarian destinations.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.\n\nWe’ll provide another update in 24 hours or sooner as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-23T22:31:23.858-07:00",
-          "updated_at": "2025-10-23T22:31:23.858-07:00",
-          "display_at": "2025-10-23T22:31:23.858-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "d1hhyx0hr9pp",
-          "status": "identified",
-          "body": "Our carrier partner has informed us that the Hungarian regulator NMHH has begun enforcing Decree 4/2012 (I.24.), which introduces new screening and blocking obligations for calls terminating in Hungary via international interconnection points that present Hungarian Caller IDs.\n\nTo avoid disruptions in call delivery to Hungarian destinations, we recommend the following actions:\n\nRecommended Steps:\n\n- Avoid using Hungarian CLIs (+36 numbers) as Caller IDs on calls into Hungary unless you have a valid domestic interconnection or roaming agreement to justify their use.\n- Where possible, use non-Hungarian CLIs, such as your main business number or an international service number.\nYou can quickly provision U.S. numbers (+1) in the Twilio Console and use those for calls to Hungarian recipients.\n- Monitor your call completion rates to Hungarian destinations.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.\n\nWe’ll provide another update in 24 hours or sooner as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-22T22:31:08.679-07:00",
-          "updated_at": "2025-10-22T22:31:08.679-07:00",
-          "display_at": "2025-10-22T22:31:08.679-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "by4s1dmmbkv8",
-          "status": "identified",
-          "body": "Our carrier partner has informed us that the Hungarian regulator NMHH has begun enforcing Decree 4/2012 (I.24.), which introduces new screening and blocking obligations for calls terminating in Hungary via international interconnection points that present Hungarian Caller IDs.\n\nTo avoid disruptions in call delivery to Hungarian destinations, we recommend the following actions:\n\nRecommended Steps:\n\n- Avoid using Hungarian CLIs (+36 numbers) as Caller IDs on calls into Hungary unless you have a valid domestic interconnection or roaming agreement to justify their use.\n- Where possible, use non-Hungarian CLIs, such as your main business number or an international service number.\nYou can quickly provision U.S. numbers (+1) in the Twilio Console and use those for calls to Hungarian recipients.\n- Monitor your call completion rates to Hungarian destinations.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.\n\nWe’ll provide another update in 24 hours or sooner as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-21T22:32:48.604-07:00",
-          "updated_at": "2025-10-21T22:32:48.604-07:00",
-          "display_at": "2025-10-21T22:32:48.604-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "sqg2bl6vny5t",
-          "status": "identified",
-          "body": "Our carrier partner has informed us that the Hungarian regulator NMHH has begun enforcing Decree 4/2012 (I.24.), which introduces new screening and blocking obligations for calls terminating in Hungary via international interconnection points that present Hungarian Caller IDs.\n\nTo avoid disruptions in call delivery to Hungarian destinations, we recommend the following actions:\n\nRecommended Steps:\n\n- Avoid using Hungarian CLIs (+36 numbers) as Caller IDs on calls into Hungary unless you have a valid domestic interconnection or roaming agreement to justify their use.\n- Where possible, use non-Hungarian CLIs, such as your main business number or an international service number.\nYou can quickly provision U.S. numbers (+1) in the Twilio Console and use those for calls to Hungarian recipients.\n- Monitor your call completion rates to Hungarian destinations.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.\n\nWe’ll provide another update in 24 hours or sooner as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-20T22:39:04.429-07:00",
-          "updated_at": "2025-10-20T22:39:04.429-07:00",
-          "display_at": "2025-10-20T22:39:04.429-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "70sdwm1fq7sc",
-          "status": "identified",
-          "body": "Our carrier partner has informed us that the Hungarian regulator NMHH has begun enforcing Decree 4/2012 (I.24.), which introduces new screening and blocking obligations for calls terminating in Hungary via international interconnection points that present Hungarian Caller IDs.\n\nTo avoid disruptions in call delivery to Hungarian destinations, we recommend the following actions:\n\nRecommended Steps:\n\n- Avoid using Hungarian CLIs (+36 numbers) as Caller IDs on calls into Hungary unless you have a valid domestic interconnection or roaming agreement to justify their use.\n- Where possible, use non-Hungarian CLIs, such as your main business number or an international service number.\nYou can quickly provision U.S. numbers (+1) in the Twilio Console and use those for calls to Hungarian recipients.\n- Monitor your call completion rates to Hungarian destinations.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.\n\nWe’ll provide another update on 10/20/2025 at 12:00 PM PT or sooner as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-19T22:35:46.870-07:00",
-          "updated_at": "2025-10-19T22:35:46.870-07:00",
-          "display_at": "2025-10-19T22:35:46.870-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "66f1kx6t1s6z",
-          "status": "identified",
-          "body": "Our carrier partner has informed us that the Hungarian regulator NMHH has begun enforcing Decree 4/2012 (I.24.), which introduces new screening and blocking obligations for calls terminating in Hungary via international interconnection points that present Hungarian Caller IDs.\n\nTo avoid disruptions in call delivery to Hungarian destinations, we recommend the following actions:\n\nRecommended Steps:\n\n- Avoid using Hungarian CLIs (+36 numbers) as Caller IDs on calls into Hungary unless you have a valid domestic interconnection or roaming agreement to justify their use.\n- Where possible, use non-Hungarian CLIs, such as your main business number or an international service number.\nYou can quickly provision U.S. numbers (+1) in the Twilio Console and use those for calls to Hungarian recipients.\n- Monitor your call completion rates to Hungarian destinations.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.\n\nWe’ll provide another update on 10/20/2025 at 12:00 PM PT or sooner as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-18T22:34:43.024-07:00",
-          "updated_at": "2025-10-18T22:34:43.024-07:00",
-          "display_at": "2025-10-18T22:34:43.024-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3nryg4nslryd",
-          "status": "identified",
-          "body": "Our carrier partner has informed us that the Hungarian regulator NMHH has begun enforcing Decree 4/2012 (I.24.), which introduces new screening and blocking obligations for calls terminating in Hungary via international interconnection points that present Hungarian Caller IDs.\n\nTo avoid disruptions in call delivery to Hungarian destinations, we recommend the following actions:\n\nRecommended Steps:\n\n- Avoid using Hungarian CLIs (+36 numbers) as Caller IDs on calls into Hungary unless you have a valid domestic interconnection or roaming agreement to justify their use.\n- Where possible, use non-Hungarian CLIs, such as your main business number or an international service number.\nYou can quickly provision U.S. numbers (+1) in the Twilio Console and use those for calls to Hungarian recipients.\n- Monitor your call completion rates to Hungarian destinations.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.\n\nWe’ll provide another update on 10/20/2025 at 12:00 PM PT or sooner as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-16T22:37:27.415-07:00",
-          "updated_at": "2025-10-17T14:55:50.021-07:00",
-          "display_at": "2025-10-16T22:37:27.000-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "g6g6p8jlc6ph",
-          "status": "investigating",
-          "body": "We continue to observe a subset of outbound call failures to Hungary phone numbers. We are currently working with our carrier partner to resolve the issue. We expect to provide another update in 24 hours or as soon as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-16T14:39:57.954-07:00",
-          "updated_at": "2025-10-16T14:39:57.954-07:00",
-          "display_at": "2025-10-16T14:39:57.954-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "g4s7kdzbvshp",
-          "status": "investigating",
-          "body": "We continue to observe a subset of outbound call failures to Hungary phone numbers. We are currently working with our carrier partner to resolve the issue. We expect to provide another update in 16 hours or as soon as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-15T22:39:57.450-07:00",
-          "updated_at": "2025-10-15T22:39:57.450-07:00",
-          "display_at": "2025-10-15T22:39:57.450-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0jcl9x82tdfq",
-          "status": "investigating",
-          "body": "We continue to observe a subset of outbound call failures to Hungry phone numbers. We are currently working with our carrier partner to resolve the issue. We expect to provide another update in 8 hours or as soon as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-15T14:34:21.668-07:00",
-          "updated_at": "2025-10-15T14:34:21.668-07:00",
-          "display_at": "2025-10-15T14:34:21.668-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4vnlp4ypkf44",
-          "status": "investigating",
-          "body": "We are observing a subset of outbound call failures to Hungry phone numbers. We are currently working with our carrier partner to resolve the issue. We expect to provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-15T10:34:08.220-07:00",
-          "updated_at": "2025-10-15T10:34:08.220-07:00",
-          "display_at": "2025-10-15T10:34:08.220-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l4vlcjq8sz7g",
-          "status": "investigating",
-          "body": "We are observing a subset of outbound call failures to Hungry phone numbers. We are currently working with our carrier partner to resolve the issue. We expect to provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-15T08:33:53.517-07:00",
-          "updated_at": "2025-10-15T08:33:53.517-07:00",
-          "display_at": "2025-10-15T08:33:53.517-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "h9q6bfkbj3f9",
-          "status": "investigating",
-          "body": "We are observing a subset of outbound call failures to Hungry phone numbers. We are currently working with our carrier partner to resolve the issue. We expect to provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-15T07:34:26.801-07:00",
-          "updated_at": "2025-10-15T07:36:32.780-07:00",
-          "display_at": "2025-10-15T07:34:26.000-07:00",
-          "affected_components": [
-            {
-              "code": "bnzggd37p61w",
-              "name": "CARRIER NETWORK - Voice, Europe",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "lpwvfpr8nrpz",
-          "status": "investigating",
-          "body": "Our monitoring systems have detected a potential issue with calls failing to Hungry. Our engineering team has been alerted and is actively investigating. We will update as soon as we have more information.",
-          "incident_id": "2m0wy7gyl7bx",
-          "created_at": "2025-10-15T07:28:53.078-07:00",
-          "updated_at": "2025-10-15T07:28:53.078-07:00",
-          "display_at": "2025-10-15T07:28:53.078-07:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "bnzggd37p61w",
-          "name": "Voice, Europe",
-          "status": "degraded_performance",
-          "created_at": "2019-01-10T08:56:37.418-08:00",
-          "updated_at": "2025-10-23T22:31:23.804-07:00",
-          "position": 13,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
     }
   ],
   "scheduled_maintenances": [
@@ -2978,9 +2605,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-10-30T00:00:21.440-07:00",
+          "updated_at": "2025-10-30T14:14:35.095-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -3851,9 +3478,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-10-30T00:00:21.440-07:00",
+          "updated_at": "2025-10-30T14:14:35.095-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -4688,9 +4315,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-10-30T00:00:21.440-07:00",
+          "updated_at": "2025-10-30T14:14:35.095-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -5039,9 +4666,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-10-30T00:00:21.440-07:00",
+          "updated_at": "2025-10-30T14:14:35.095-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -5282,9 +4909,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-10-30T00:00:21.440-07:00",
+          "updated_at": "2025-10-30T14:14:35.095-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
