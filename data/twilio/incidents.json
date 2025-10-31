@@ -4,9 +4,113 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-10-31T03:00:21.620-07:00"
+    "updated_at": "2025-10-31T04:26:33.192-07:00"
   },
   "incidents": [
+    {
+      "id": "qjwj2yvjzfh0",
+      "name": "Messages not Retrievable via the Messaging Logs API or Visible in the Messaging Console",
+      "status": "resolved",
+      "created_at": "2025-10-31T04:19:50.000-07:00",
+      "updated_at": "2025-10-31T04:21:31.396-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2025-10-31T04:19:50.000-07:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/nrzzzvsy2c6p",
+      "started_at": "2025-10-31T04:21:31.330-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "hqd70ds270jz",
+          "status": "resolved",
+          "body": "Some messages created between 05:30 and 05:40 UTC on Oct 28 may not be retrievable via the Messaging Logs API or visible in the Messaging Console. Message delivery was not affected. This incident has been resolved",
+          "incident_id": "qjwj2yvjzfh0",
+          "created_at": "2025-10-31T04:21:31.386-07:00",
+          "updated_at": "2025-10-31T04:21:31.386-07:00",
+          "display_at": "2025-10-31T04:19:50.000-07:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
+    {
+      "id": "wznm1769y3pc",
+      "name": "Update in Reference to Previous Incident 'Outbound Call Failure to a Subset of Hungary Phone Numbers'",
+      "status": "resolved",
+      "created_at": "2025-10-31T04:16:38.779-07:00",
+      "updated_at": "2025-10-31T04:16:38.858-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2025-10-31T04:16:38.845-07:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/y7dhsys7zg47",
+      "started_at": "2025-10-31T04:16:38.768-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "v863l1np4ft4",
+          "status": "resolved",
+          "body": "In reference to previous incident https://status.twilio.com/incidents/2m0wy7gyl7bx, Following an amendment to Decree 4/2012 (I.24), calls made to Hungary using fixed or geographic numbers (like +36 1-9...) as a CLI are now likely to be blocked by local carriers, as of October 15, 2025. This will expand to mobile numbers (like +36 20, 30, 70...) starting June 1, 2026.\n\nThis means calls made with Transit Caller ID and Verified Caller ID will be delivered by Twilio on a best-effort basis when you're using a Hungarian CLI.\n\nRecommended steps:\n- For calls made into Hungary using Verified Caller ID or Transit Caller ID avoid using Hungarian numbers (+36 1-9… and +36 20, 30, 70...) as your CLI as the calls are likely to be blocked.\n- If a Hungary CLI isn’t a priority for your use case, use a non-Hungarian CLI like your main business or international service number. If you need one, you can quickly get a United States (+1) number right in the Twilio Console to use for these calls.\n\nIf you observe abnormal failure patterns, please reach out to Twilio Support for further assistance.",
+          "incident_id": "wznm1769y3pc",
+          "created_at": "2025-10-31T04:16:38.845-07:00",
+          "updated_at": "2025-10-31T04:16:38.845-07:00",
+          "display_at": "2025-10-31T04:16:38.845-07:00",
+          "affected_components": [
+            {
+              "code": "g2dt752kwqs0",
+              "name": "PROGRAMMABLE VOICE - PSTN",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "bnzggd37p61w",
+              "name": "CARRIER NETWORK - Voice, Europe",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "g2dt752kwqs0",
+          "name": "PSTN",
+          "status": "operational",
+          "created_at": "2016-04-08T13:28:39.348-07:00",
+          "updated_at": "2025-10-26T11:51:54.166-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j3s4w3gnsj08",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "bnzggd37p61w",
+          "name": "Voice, Europe",
+          "status": "operational",
+          "created_at": "2019-01-10T08:56:37.418-08:00",
+          "updated_at": "2025-10-30T14:18:54.277-07:00",
+          "position": 13,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "tth8k9zn3lt3",
       "name": "SMS Delivery Report Delays to Verizon Wireless Network in the US for a Subset of Short Code and Toll Free number",
@@ -355,9 +459,9 @@
         {
           "id": "7d8w22hqrh6s",
           "name": "SMS Long Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:24:19.107-08:00",
-          "updated_at": "2025-10-31T03:00:21.356-07:00",
+          "updated_at": "2025-10-31T04:25:52.069-07:00",
           "position": 1,
           "description": null,
           "showcase": false,
@@ -2827,9 +2931,9 @@
         {
           "id": "7d8w22hqrh6s",
           "name": "SMS Long Code, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:24:19.107-08:00",
-          "updated_at": "2025-10-31T03:00:21.356-07:00",
+          "updated_at": "2025-10-31T04:25:52.069-07:00",
           "position": 1,
           "description": null,
           "showcase": false,
@@ -5514,7 +5618,7 @@
       "name": "SMS Delivery Delays and Failures to Bmobile Network in Trinidad and Tobago",
       "status": "monitoring",
       "created_at": "2025-10-25T12:12:46.226-07:00",
-      "updated_at": "2025-10-31T02:33:41.975-07:00",
+      "updated_at": "2025-10-31T04:26:33.180-07:00",
       "monitoring_at": "2025-10-30T10:52:43.712-07:00",
       "resolved_at": null,
       "impact": "minor",
@@ -5522,6 +5626,26 @@
       "started_at": "2025-10-25T12:12:46.218-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "8tx2vbr2n934",
+          "status": "monitoring",
+          "body": "We are still observing recovery in SMS delivery delays and failures to Bmobile Network in Trinidad and Tobago. We will continue monitoring the service to ensure a full recovery. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "dj3dws3bpmd6",
+          "created_at": "2025-10-31T04:26:33.177-07:00",
+          "updated_at": "2025-10-31T04:26:33.177-07:00",
+          "display_at": "2025-10-31T04:26:33.177-07:00",
+          "affected_components": [
+            {
+              "code": "42zx9w2kmtvf",
+              "name": "CARRIER NETWORK - SMS, Latin America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "4phcb0cxxxr2",
           "status": "monitoring",
@@ -7061,292 +7185,6 @@
           "created_at": "2019-01-10T08:52:12.896-08:00",
           "updated_at": "2025-10-31T03:00:21.497-07:00",
           "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "sv8y684d19nv",
-      "name": "SMS Delivery Delays to DigiMobil (Movistar) in Spain",
-      "status": "resolved",
-      "created_at": "2025-10-24T00:18:15.540-07:00",
-      "updated_at": "2025-10-24T04:24:00.908-07:00",
-      "monitoring_at": "2025-10-24T02:29:48.465-07:00",
-      "resolved_at": "2025-10-24T04:24:00.889-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/5gyz84gbc5w0",
-      "started_at": "2025-10-24T00:18:15.531-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "ly4hrqdg838p",
-          "status": "resolved",
-          "body": "We are no longer experiencing SMS delivery delays when sending messages to DigiMobil (Movistar) in Spain. This incident has been resolved.",
-          "incident_id": "sv8y684d19nv",
-          "created_at": "2025-10-24T04:24:00.889-07:00",
-          "updated_at": "2025-10-24T04:24:00.889-07:00",
-          "display_at": "2025-10-24T04:24:00.889-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ss83z39d1nnr",
-          "status": "monitoring",
-          "body": "We are observing recovery in SMS delivery delays when sending messages to  DigiMobil (Movistar) in Spain. We will continue monitoring the service to ensure a full recovery. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "sv8y684d19nv",
-          "created_at": "2025-10-24T02:29:48.465-07:00",
-          "updated_at": "2025-10-24T02:29:48.465-07:00",
-          "display_at": "2025-10-24T02:29:48.465-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6yqt2ml6k9tw",
-          "status": "investigating",
-          "body": "We continue to experience SMS delivery delays when sending messages to DigiMobil (Movistar) in Spain. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "sv8y684d19nv",
-          "created_at": "2025-10-24T01:18:12.380-07:00",
-          "updated_at": "2025-10-24T01:18:12.380-07:00",
-          "display_at": "2025-10-24T01:18:12.380-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jcdn9czgylq8",
-          "status": "investigating",
-          "body": "We are experiencing SMS delivery delays when sending messages to DigiMobil (Movistar) in Spain. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "sv8y684d19nv",
-          "created_at": "2025-10-24T00:18:15.597-07:00",
-          "updated_at": "2025-10-24T00:18:15.597-07:00",
-          "display_at": "2025-10-24T00:18:15.597-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "llgdln3dcs6p",
-          "name": "SMS, Europe",
-          "status": "operational",
-          "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2025-10-30T17:00:21.265-07:00",
-          "position": 14,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "g95tsdvfg8hz",
-      "name": "SMS Delivery Delays To Orange Network In Cameroon",
-      "status": "resolved",
-      "created_at": "2025-10-23T03:50:32.489-07:00",
-      "updated_at": "2025-10-24T04:22:33.908-07:00",
-      "monitoring_at": "2025-10-24T02:18:34.131-07:00",
-      "resolved_at": "2025-10-24T04:22:33.887-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/3mq4mknpsn84",
-      "started_at": "2025-10-23T03:50:32.481-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "l0r6k75v9k5v",
-          "status": "resolved",
-          "body": "We are no longer experiencing SMS delivery delays when sending messages to Orange Network In Cameroon. This incident has been resolved.",
-          "incident_id": "g95tsdvfg8hz",
-          "created_at": "2025-10-24T04:22:33.887-07:00",
-          "updated_at": "2025-10-24T04:22:33.887-07:00",
-          "display_at": "2025-10-24T04:22:33.887-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cjyyvv7t6x7n",
-          "status": "monitoring",
-          "body": "We are observing recovery in SMS delivery delays when sending messages to Orange Network In Cameroon. We will continue monitoring the service to ensure a full recovery. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "g95tsdvfg8hz",
-          "created_at": "2025-10-24T02:18:34.131-07:00",
-          "updated_at": "2025-10-24T02:18:34.131-07:00",
-          "display_at": "2025-10-24T02:18:34.131-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dwqwvbgrfj6n",
-          "status": "investigating",
-          "body": "We continue to experience SMS delivery delays when sending messages to Orange Network In Cameroon. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 16 hours or as soon as more information becomes available.",
-          "incident_id": "g95tsdvfg8hz",
-          "created_at": "2025-10-23T18:40:41.703-07:00",
-          "updated_at": "2025-10-23T18:40:41.703-07:00",
-          "display_at": "2025-10-23T18:40:41.703-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2961yrslmybx",
-          "status": "investigating",
-          "body": "We continue to experience SMS delivery delays when sending messages to Orange Network In Cameroon. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 8 hours or as soon as more information becomes available.",
-          "incident_id": "g95tsdvfg8hz",
-          "created_at": "2025-10-23T10:40:08.304-07:00",
-          "updated_at": "2025-10-23T10:40:08.304-07:00",
-          "display_at": "2025-10-23T10:40:08.304-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xcv0vl0nk3dj",
-          "status": "investigating",
-          "body": "We continue to experience SMS delivery delays when sending messages to Orange Network In Cameroon. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "g95tsdvfg8hz",
-          "created_at": "2025-10-23T06:49:43.554-07:00",
-          "updated_at": "2025-10-23T06:49:43.554-07:00",
-          "display_at": "2025-10-23T06:49:43.554-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "66660wy5bldj",
-          "status": "investigating",
-          "body": "We are experiencing SMS delivery delays when sending messages to Orange Network In Cameroon. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "g95tsdvfg8hz",
-          "created_at": "2025-10-23T04:50:11.460-07:00",
-          "updated_at": "2025-10-23T04:50:11.460-07:00",
-          "display_at": "2025-10-23T04:50:11.460-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "y17jr65g1p01",
-          "status": "investigating",
-          "body": "We are experiencing SMS delivery delays when sending messages to Orange Network In Cameroon. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "g95tsdvfg8hz",
-          "created_at": "2025-10-23T03:50:32.536-07:00",
-          "updated_at": "2025-10-23T03:50:32.536-07:00",
-          "display_at": "2025-10-23T03:50:32.536-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "llgdln3dcs6p",
-          "name": "SMS, Europe",
-          "status": "operational",
-          "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2025-10-30T17:00:21.265-07:00",
-          "position": 14,
           "description": null,
           "showcase": false,
           "start_date": null,
