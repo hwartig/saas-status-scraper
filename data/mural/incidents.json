@@ -4,15 +4,15 @@
     "name": "Mural",
     "url": "https://status.mural.co",
     "time_zone": "America/Argentina/Buenos_Aires",
-    "updated_at": "2025-11-04T10:19:37.508-03:00"
+    "updated_at": "2025-11-04T10:22:56.835-03:00"
   },
   "incidents": [
     {
       "id": "wltmzxxbxr3z",
       "name": "Users are unable to sign in to Mural",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-10-29T13:13:19.051-03:00",
-      "updated_at": "2025-11-04T10:19:37.500-03:00",
+      "updated_at": "2025-11-04T10:22:56.832-03:00",
       "monitoring_at": "2025-10-29T17:46:18.930-03:00",
       "resolved_at": "2025-10-29T20:28:53.452-03:00",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2025-10-29T13:13:19.033-03:00",
       "page_id": "dbk70dpy3n7h",
       "incident_updates": [
+        {
+          "id": "r4ycbgbkdsnw",
+          "status": "postmortem",
+          "body": "**Date:** October 29, 2025  \n**Impact Duration:** 15:55 – 21:20 UTC  \n**Status:** Resolved  \n**Root Cause:** Outage with our cloud hosting provider\n\n### **Overview**\n\nOn **October 29, 2025**, Mural experienced a major service disruption that prevented users from signing in or accessing their murals. The issue was caused by a widespread outage with our primary cloud hosting provider.\n\nWhile the outage was external to Mural, it significantly impacted our ability to serve requests and maintain normal operations for several hours.\n\n### **Timeline of Events \\(UTC\\)**\n\n* **15:55** — We detected that some users were unable to sign in to Mural. Mural’s incident response team began investigating immediately\n* **16:13** — The incident notification was posted to Mural’s status page at [status.mural.co](http://status.mural.co) \n* **16:17** — We identified the root cause as an outage in Microsoft Azure’s infrastructure affecting application access\n* **16:32 – 20:46** — We continued working with Microsoft Azure and monitored for recovery while keeping users informed via our status page\n* **20:46** — Partial recovery began; some regions regained access\n* **21:19** — Full service restoration confirmed\n* **23:20** — Incident marked as **resolved** after stable monitoring and confirmation from our upstream provider\n\n### **Root Cause**\n\nThe outage originated from an **Azure Front Door incident** that disrupted network resources across several regions. This affected authentication and access for users attempting to sign in to Mural. Our systems rely on Azure for critical infrastructure, meaning our service availability was directly impacted by the Azure outage.\n\n### **Resolution**\n\nWe attempted several workarounds during the Azure outage, however these proved unsuccessful as the core issue required Azure Front Door accessibility. As Azure recovered, we were able to reconfigure our systems to bring Mural services back online. We closely monitored all internal systems and user traffic to ensure full stability before marking the incident as ‘in monitoring’. Once normal operation was confirmed across all regions for a period of 2 hours, we closed the incident.\n\n### **What We’re Doing Next**\n\nAlthough this incident was triggered by an external provider, we are taking several steps to reduce the impact of similar events in the future:\n\n1. **CDN Improvements** — We are researching improvements to our content delivery network \\(CDN\\) setup to enhance resilience\n2. **Enhanced Monitoring** — We are expanding our monitoring systems to detect upstream provider issues faster and more precisely\n3. **Communication Consistency** — We are working on improving how we communicate during incidents across all channels, including our status page, marketing site, and in-app messages, to ensure consistent and timely updates\n4. **Cloud Infrastructure** — We continue to assess our infrastructure to mitigate any potential impact from potential future impacts to our cloud hosting provider\n\n### **Closing Thoughts**\n\nWe know how important Mural is for your daily collaboration and creative work. Any downtime disrupts your teams, and we take that responsibility seriously. We sincerely apologize for the inconvenience this incident caused and appreciate your patience as we worked to resolve it.\n\nWe’re committed to learning from this event and strengthening Mural’s resilience against external dependencies.",
+          "incident_id": "wltmzxxbxr3z",
+          "created_at": "2025-11-04T10:19:08.790-03:00",
+          "updated_at": "2025-11-04T10:22:56.830-03:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "11zv51f10pwn",
           "status": "resolved",
