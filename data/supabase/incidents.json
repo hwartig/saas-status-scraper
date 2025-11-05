@@ -4,9 +4,82 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-05T15:51:12.490Z"
+    "updated_at": "2025-11-05T16:26:39.460Z"
   },
   "incidents": [
+    {
+      "id": "1hf115kd2qkt",
+      "name": "Some Users seeing Auth failures with deep-linked redirect URLs after sign-in",
+      "status": "identified",
+      "created_at": "2025-11-05T16:20:39.550Z",
+      "updated_at": "2025-11-05T16:26:39.452Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/vdsh8gxfr73q",
+      "started_at": "2025-11-05T16:20:39.544Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "74wsd0t6sp84",
+          "status": "identified",
+          "body": "Email link, and web-based OAuth sign-in on iOS and Android apps might be broken if the redirect URL used is a deep link and only has a scheme, like com.example.app://. \n\nEmail + password, native Apple (on iOS) or Google (on Android) are not affected.\n\nThe team is rolling out a fix.",
+          "incident_id": "1hf115kd2qkt",
+          "created_at": "2025-11-05T16:26:39.450Z",
+          "updated_at": "2025-11-05T16:26:39.450Z",
+          "display_at": "2025-11-05T16:26:39.450Z",
+          "affected_components": [
+            {
+              "code": "fznyj00kpng2",
+              "name": "Auth",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "z4g9zt8z3ljt",
+          "status": "identified",
+          "body": "We have identified the issue and are working on a fix. \n\nEmail link and Oauth sign in on iOS and Android apps might be broken if the redirect URL is a deep link and only has a scheme, like com.example.app://. \n\nThe team is rolling out a fix.",
+          "incident_id": "1hf115kd2qkt",
+          "created_at": "2025-11-05T16:20:39.635Z",
+          "updated_at": "2025-11-05T16:20:39.635Z",
+          "display_at": "2025-11-05T16:20:39.635Z",
+          "affected_components": [
+            {
+              "code": "fznyj00kpng2",
+              "name": "Auth",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "fznyj00kpng2",
+          "name": "Auth",
+          "status": "degraded_performance",
+          "created_at": "2023-06-21T09:23:42.781Z",
+          "updated_at": "2025-11-05T16:20:39.586Z",
+          "position": 4,
+          "description": "Authenticate and authorize users",
+          "showcase": true,
+          "start_date": "2023-06-21",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "59m3fk5v4dq8",
       "name": "Some Users Unable to see Project Metrics in the Dashboard",
@@ -2871,9 +2944,9 @@
         {
           "id": "fznyj00kpng2",
           "name": "Auth",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-06-21T09:23:42.781Z",
-          "updated_at": "2025-10-20T07:42:44.974Z",
+          "updated_at": "2025-11-05T16:20:39.586Z",
           "position": 4,
           "description": "Authenticate and authorize users",
           "showcase": true,
@@ -4629,9 +4702,9 @@
         {
           "id": "fznyj00kpng2",
           "name": "Auth",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-06-21T09:23:42.781Z",
-          "updated_at": "2025-10-20T07:42:44.974Z",
+          "updated_at": "2025-11-05T16:20:39.586Z",
           "position": 4,
           "description": "Authenticate and authorize users",
           "showcase": true,
@@ -5155,9 +5228,9 @@
         {
           "id": "fznyj00kpng2",
           "name": "Auth",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-06-21T09:23:42.781Z",
-          "updated_at": "2025-10-20T07:42:44.974Z",
+          "updated_at": "2025-11-05T16:20:39.586Z",
           "position": 4,
           "description": "Authenticate and authorize users",
           "showcase": true,
@@ -6344,132 +6417,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "sjktm52wkv7b",
-      "name": "Elevated error rates for Supabase Management API",
-      "status": "resolved",
-      "created_at": "2025-04-24T09:47:37.965Z",
-      "updated_at": "2025-04-24T12:01:19.322Z",
-      "monitoring_at": "2025-04-24T10:07:42.031Z",
-      "resolved_at": "2025-04-24T12:01:19.306Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/34jjg05fwy7m",
-      "started_at": "2025-04-24T09:47:37.959Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "zlg03ybbvnz0",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "sjktm52wkv7b",
-          "created_at": "2025-04-24T12:01:19.306Z",
-          "updated_at": "2025-04-24T12:01:19.306Z",
-          "display_at": "2025-04-24T12:01:19.306Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "8sjr72528tgt",
-              "name": "Management API",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jyk2mkk91bsr",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "sjktm52wkv7b",
-          "created_at": "2025-04-24T10:07:42.031Z",
-          "updated_at": "2025-04-24T10:07:42.031Z",
-          "display_at": "2025-04-24T10:07:42.031Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "8sjr72528tgt",
-              "name": "Management API",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "z4vwdfgwgjv1",
-          "status": "investigating",
-          "body": "Dashboard and Management API are seeing elevated error rates.\n\nExisting projects are unaffected, and are serving traffic normally.",
-          "incident_id": "sjktm52wkv7b",
-          "created_at": "2025-04-24T09:47:38.074Z",
-          "updated_at": "2025-04-24T09:47:38.074Z",
-          "display_at": "2025-04-24T09:47:38.074Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "8sjr72528tgt",
-              "name": "Management API",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "45jcpkfhw6hd",
-          "name": "Dashboard",
-          "status": "operational",
-          "created_at": "2020-11-27T15:23:00.100Z",
-          "updated_at": "2025-10-29T21:21:44.651Z",
-          "position": 6,
-          "description": "The studio, docs and primary website at https://supabase.com",
-          "showcase": true,
-          "start_date": "2020-11-27",
-          "group_id": null,
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "8sjr72528tgt",
-          "name": "Management API",
-          "status": "operational",
-          "created_at": "2020-11-27T15:23:16.693Z",
-          "updated_at": "2025-10-28T14:03:42.487Z",
-          "position": 9,
-          "description": "Manage Supabase projects programmatically.",
-          "showcase": true,
-          "start_date": "2020-11-27",
-          "group_id": null,
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
