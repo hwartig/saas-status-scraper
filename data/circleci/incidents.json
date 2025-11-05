@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-05T14:50:52.058Z"
+    "updated_at": "2025-11-05T15:01:11.556Z"
   },
   "incidents": [
     {
@@ -196,9 +196,9 @@
     {
       "id": "0y7q12npsl4h",
       "name": "Build failures and delays due to upstream service disruption",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-10-20T07:49:58.939Z",
-      "updated_at": "2025-10-20T22:15:04.833Z",
+      "updated_at": "2025-11-05T15:01:11.549Z",
       "monitoring_at": "2025-10-20T21:42:58.792Z",
       "resolved_at": "2025-10-20T22:15:04.379Z",
       "impact": "critical",
@@ -206,6 +206,19 @@
       "started_at": "2025-10-20T07:49:58.927Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "q3zksptkm0h1",
+          "status": "postmortem",
+          "body": "## Summary\n\nOn October 20, 2025, from 06:55 to 22:00 UTC, CircleCI customers experienced a variety of failures and delays across the system including job failures, pipeline creation failures, periods of increased queueing, errors in the UI and APIs, and a period of unavailability for audit log streaming failures due to an AWS outage affecting multiple AWS services in the US-EAST-1 region. We want to thank our customers for your patience and understanding as we worked to resolve this incident.\n\nThe original status page for this incident can be found [here](https://status.circleci.com/incidents/0y7q12npsl4h).\n\n## What Happened\n\n\\(All times UTC\\)\n\nOn October 20, 2025 at 06:55 the system that handles requests to create new pipelines \\(builds service\\) began to receive `503 Service Unavailable` error responses when attempting to retrieve pipeline values from AWS S3, resulting in failures and delays across multiple executor types.\n\nAt 07:11, [AWS declared an incident](https://health.aws.amazon.com/health/status?eventID=arn:aws:health:us-east-1::event/MULTIPLE_SERVICES/AWS_MULTIPLE_SERVICES_OPERATIONAL_ISSUE/AWS_MULTIPLE_SERVICES_OPERATIONAL_ISSUE_BA540_514A652BE1A) indicating that multiple AWS services were experiencing increased error rates and latencies in the US-EAST-1 region. During the same time, CircleCI customers began experiencing premature failures on running jobs across multiple executors. Audit log access and streaming was also unavailable at this time. CircleCI declared an incident at 07:29.\n\nAt 07:40, builds service started to encounter errors when attempting to read and write from S3. This resulted in errors loading the pipelines page in the CircleCI UI as well as errors creating pipelines. At the same time, the service responsible for starting workflows also encountered issues accessing S3, resulting in some jobs being dropped. Pipeline creation slowly began to recover at 08:24, and completely recovered by 09:14 along with workflow runs. During this time, Docker, Mac M1 and M4, Windows, and Android jobs began to run again. Linux, Remote Docker, and Mac M2 jobs continued to queue.\n\nAt 09:30, the system responsible for provisioning machines was unable to start new instances in AWS EC2 to meet the growing backlog of customer jobs. AWS acknowledged the increase in error rates when launching EC2 instances at 10:35. Docker jobs continued to run, but customers experienced high queue times as demand grew.\n\nBy 12:20, the queue time for Docker jobs dropped to 18 minutes from a previous high of 50 minutes. The queue of Docker jobs continued to shrink and eventually clear by 14:00. At 14:30, CircleCI engineers made a change to prevent infrastructure responsible for processing Docker jobs from scaling down and releasing instances, as EC2 was still experiencing provisioning failures.\n\nAt 15:28, Mac M4 machines became temporarily unavailable because our connectivity to the Mac environment relies on AWS networking. As network stability improved, Mac workloads were able to resume.\n\nAt 17:10, machine jobs \\(Linux, Remote Docker, Mac M1 and M2\\) began starting again after AWS applied a fix to EC2.\n\nAt 17:30, Mac M4 machines began to successfully boot again after AWS applied fixes to the network load balancers. At the same time, CircleCI’s task queue hit its peak and began to decrease as AWS service health continued to improve.\n\nThe backlog of jobs that had built up during the incident continued to clear over the next few hours. By 22:00, all customer jobs in the backlog had been processed, and new incoming jobs were being processed at pre-incident rates.\n\nWe continued to monitor our systems, and the CircleCI incident was marked resolved at 22:15.\n\n## Future Prevention and Process Improvement\n\nWhile outages of this scale are rare, we are strengthening both our resilience and the experience our customers have during major upstream disruptions.\n\nDuring this incident, we evaluated options to shift workloads to backup compute providers and different AWS regions. Based on the errors we were observing across multiple AWS services as well as instability in several upstream dependencies also impacted by the outage, we did not have confidence that shifting workloads would improve the situation. There was a significant risk of introducing new failures without reducing the disruption customers were already experiencing. In addition, based on the duration and scope of similar AWS incidents in the past, it was unlikely that shifting workloads mid-incident would restore service faster than AWS could complete their recovery. As a result, jobs continued to queue and then ran as expected once AWS restored stability.\n\nAdditionally, in the event of an AWS incident anticipated to span multiple days or longer, we would initiate disaster recovery to a different region. However, in this particular case, we had information from AWS indicating that the service would be restored in a timeframe where waiting was the best approach for our customers.\n\nIn order to ensure that our customers have the information they need to make timely decisions, we are also investing in improving our status page communication during major incidents. These improvements include:\n\n* Clearer visibility into which CircleCI functionality is impacted at any point in time.\n* More frequent updates based on our own service health, not only upstream reports.\n* Better expectations for how jobs will behave during disruptions.\n\nOur goal is to improve transparency, recovery options, and the predictability of the customer experience when the unexpected happens.",
+          "incident_id": "0y7q12npsl4h",
+          "created_at": "2025-11-05T14:57:39.983Z",
+          "updated_at": "2025-11-05T15:01:11.543Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our October 20th incident: https://stspg.io/dh45n2nw7w79",
+          "tweet_id": null
+        },
         {
           "id": "nygspr20xy9n",
           "status": "resolved",
