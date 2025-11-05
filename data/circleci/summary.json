@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-05T17:30:59.715Z"
+    "updated_at": "2025-11-05T18:06:34.763Z"
   },
   "components": [
     {
@@ -642,7 +642,7 @@
       "name": "Network Delays Affecting MacOS Jobs",
       "status": "identified",
       "created_at": "2025-11-05T16:57:21.960Z",
-      "updated_at": "2025-11-05T17:30:42.763Z",
+      "updated_at": "2025-11-05T18:06:34.761Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -650,6 +650,26 @@
       "started_at": "2025-11-05T16:57:21.954Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "jbtlsdw4zfks",
+          "status": "identified",
+          "body": "We are continuing to investigate degraded network performance affecting macOS resources in our infrastructure.\n\nWhat's happening:\nWe have identified reduced network bandwidth that is causing performance degradation for specific macOS resource classes.\n\nWhat's impacted:\nM1 medium and large resources: Experiencing average wait times of up to 20 minutes before job start\nM4 Pro medium and large resources: Experiencing average wait times of approximately 5 minutes before job start\nRunning jobs on affected resources: Network-dependent operations within jobs (cache restoration, pulling datasets, downloading dependencies) are also experiencing slowdowns. \nAll other macOS resource classes are operating normally\n\nNext update:\nWe are actively working to resolve this issue and will provide an update within 30 minutes or sooner if the situation changes.",
+          "incident_id": "c3xm3qc9d4qj",
+          "created_at": "2025-11-05T18:06:34.446Z",
+          "updated_at": "2025-11-05T18:06:34.758Z",
+          "display_at": "2025-11-05T18:06:34.446Z",
+          "affected_components": [
+            {
+              "code": "bpfmy8wy8wq2",
+              "name": "macOS Jobs",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1986133051093754315
+        },
         {
           "id": "mw0v0hsly99k",
           "status": "identified",
