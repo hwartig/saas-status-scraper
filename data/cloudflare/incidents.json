@@ -4,9 +4,62 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-06T10:44:34.859Z"
+    "updated_at": "2025-11-06T11:21:30.051Z"
   },
   "incidents": [
+    {
+      "id": "xffwrsky31bw",
+      "name": "Cloudflare WAF: Issues with Counting Expression (Rate Limiting)",
+      "status": "investigating",
+      "created_at": "2025-11-06T11:19:12.267Z",
+      "updated_at": "2025-11-06T11:21:30.046Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/pvjswqhn0m4t",
+      "started_at": "2025-11-06T11:19:12.000Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "p6wz2p4cy0fb",
+          "status": "investigating",
+          "body": "Cloudflare is aware of, and investigating an issue which potentially impacts multiple customers: zones that have migrated from our former Rate Limiting rules might observe broken counting expressions. This means that in some cases, rate limiting might be triggered well before expected. This impacts only customers that use counting expression.\n\nWe are working to resolve the issue. More updates to follow shortly.",
+          "incident_id": "xffwrsky31bw",
+          "created_at": "2025-11-06T11:19:12.363Z",
+          "updated_at": "2025-11-06T11:21:29.989Z",
+          "display_at": "2025-11-06T11:19:12.000Z",
+          "affected_components": [
+            {
+              "code": "d1r0plwsl5qb",
+              "name": "Cloudflare Sites and Services - Firewall",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "d1r0plwsl5qb",
+          "name": "Firewall",
+          "status": "degraded_performance",
+          "created_at": "2020-09-04T17:53:26.383Z",
+          "updated_at": "2025-11-06T11:19:12.303Z",
+          "position": 47,
+          "description": null,
+          "showcase": false,
+          "start_date": "2020-09-04",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "xtd2pqrj1f4q",
       "name": "Workers Builds increased failure rate",
@@ -7100,9 +7153,9 @@
         {
           "id": "m91w78997pqv",
           "name": "Memphis, TN, United States - (MEM)",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2018-03-28T09:07:42.032Z",
-          "updated_at": "2025-11-06T10:44:34.854Z",
+          "updated_at": "2025-11-06T11:12:23.087Z",
           "position": 22,
           "description": null,
           "showcase": false,
@@ -8974,9 +9027,9 @@
         {
           "id": "d1r0plwsl5qb",
           "name": "Firewall",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-09-04T17:53:26.383Z",
-          "updated_at": "2025-10-21T15:13:13.322Z",
+          "updated_at": "2025-11-06T11:19:12.303Z",
           "position": 47,
           "description": null,
           "showcase": false,
@@ -11739,119 +11792,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "445n26qghtmm",
-      "name": "Workers AI Errors for llama-3.1-8b-instruct",
-      "status": "resolved",
-      "created_at": "2025-10-21T13:21:21.828Z",
-      "updated_at": "2025-10-21T14:17:52.966Z",
-      "monitoring_at": "2025-10-21T13:48:19.716Z",
-      "resolved_at": "2025-10-21T14:17:52.949Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/t1dz0jmgdxvk",
-      "started_at": "2025-10-21T13:21:21.820Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "vtknpdjyts8f",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "445n26qghtmm",
-          "created_at": "2025-10-21T14:17:52.949Z",
-          "updated_at": "2025-10-21T14:17:52.949Z",
-          "display_at": "2025-10-21T14:17:52.949Z",
-          "affected_components": [
-            {
-              "code": "zvm7mqn92xzc",
-              "name": "Cloudflare Sites and Services - Workers AI",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "chqff1zw76gh",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "445n26qghtmm",
-          "created_at": "2025-10-21T13:48:19.716Z",
-          "updated_at": "2025-10-21T13:48:19.716Z",
-          "display_at": "2025-10-21T13:48:19.716Z",
-          "affected_components": [
-            {
-              "code": "zvm7mqn92xzc",
-              "name": "Cloudflare Sites and Services - Workers AI",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "z2yk8qtxsrvx",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "445n26qghtmm",
-          "created_at": "2025-10-21T13:27:54.192Z",
-          "updated_at": "2025-10-21T13:27:54.192Z",
-          "display_at": "2025-10-21T13:27:54.192Z",
-          "affected_components": [
-            {
-              "code": "zvm7mqn92xzc",
-              "name": "Cloudflare Sites and Services - Workers AI",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1c28jx31tndf",
-          "status": "investigating",
-          "body": "Cloudflare is investigating elevated error rates on Workers AI for customers using the \"@cf/meta/llama-3.1-8b-instruct\" model.  We are working to understand the full impact and mitigate this problem. More updates to follow shortly.",
-          "incident_id": "445n26qghtmm",
-          "created_at": "2025-10-21T13:21:21.928Z",
-          "updated_at": "2025-10-21T13:21:21.928Z",
-          "display_at": "2025-10-21T13:21:21.928Z",
-          "affected_components": [
-            {
-              "code": "zvm7mqn92xzc",
-              "name": "Cloudflare Sites and Services - Workers AI",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "zvm7mqn92xzc",
-          "name": "Workers AI",
-          "status": "operational",
-          "created_at": "2024-02-14T15:05:51.274Z",
-          "updated_at": "2025-11-04T01:16:05.788Z",
-          "position": 103,
-          "description": "Workers AI allows you to run machine learning models, on the Cloudflare network, from your own code – whether that be from Workers, Pages, or anywhere via REST API.",
-          "showcase": false,
-          "start_date": "2024-02-14",
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
