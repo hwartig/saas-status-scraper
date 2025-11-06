@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-06T09:06:06.434Z"
+    "updated_at": "2025-11-06T12:06:17.791Z"
   },
   "components": [
     {
@@ -193,9 +193,9 @@
     {
       "id": "yz6pcnlscwpb",
       "name": "Database",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-05-02T07:14:49.000Z",
-      "updated_at": "2025-10-20T07:42:44.994Z",
+      "updated_at": "2025-11-06T11:59:31.096Z",
       "position": 7,
       "description": "The Postgres database and the REST Data APIs powered by PostgREST",
       "showcase": true,
@@ -431,10 +431,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "r2jb8d02rmdt",
+      "name": "Delays and intermittent drops in log ingestion across multiple projects",
+      "status": "identified",
+      "created_at": "2025-11-06T11:59:31.059Z",
+      "updated_at": "2025-11-06T12:06:17.785Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/8nrnsqkjycg3",
+      "started_at": "2025-11-06T11:59:31.000Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "fkhrrqg03gxh",
+          "status": "identified",
+          "body": "We’re experiencing delays and intermittent drops in log ingestion across multiple projects.\n\nImpact\nAll products are impacted to varying degrees. \nWhere possible we will look to retry and backfill but some logs may be permanently lost. \n\nThe cause of the issue looks to be rate limiting by an upstream provider and we are working with them to resolve the issue",
+          "incident_id": "r2jb8d02rmdt",
+          "created_at": "2025-11-06T11:59:31.138Z",
+          "updated_at": "2025-11-06T12:06:17.691Z",
+          "display_at": "2025-11-06T11:59:31.000Z",
+          "affected_components": [
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "yz6pcnlscwpb",
+          "name": "Database",
+          "status": "degraded_performance",
+          "created_at": "2024-05-02T07:14:49.000Z",
+          "updated_at": "2025-11-06T11:59:31.096Z",
+          "position": 7,
+          "description": "The Postgres database and the REST Data APIs powered by PostgREST",
+          "showcase": true,
+          "start_date": "2024-05-02",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
