@@ -4,7 +4,7 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-07T22:02:07.593Z"
+    "updated_at": "2025-11-07T22:24:53.617Z"
   },
   "components": [
     {
@@ -3915,9 +3915,9 @@
     {
       "id": "fjfvdrs8h5sl",
       "name": "Pittsburgh, PA, United States - (PIT)",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2018-02-09T06:37:47.402Z",
-      "updated_at": "2025-10-23T23:56:13.667Z",
+      "updated_at": "2025-11-07T22:22:05.115Z",
       "position": 35,
       "description": null,
       "showcase": false,
@@ -4605,9 +4605,9 @@
     {
       "id": "hv4x3xbmz8b4",
       "name": "Sorocaba, Brazil - (SOD)",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2021-08-25T13:02:27.926Z",
-      "updated_at": "2025-10-30T21:45:11.751Z",
+      "updated_at": "2025-11-07T22:24:53.614Z",
       "position": 44,
       "description": null,
       "showcase": false,
@@ -5445,9 +5445,9 @@
     {
       "id": "cl9hc9q83k9n",
       "name": "Lyon, France - (LYS)",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2023-05-25T18:00:48.504Z",
-      "updated_at": "2025-11-07T20:47:42.216Z",
+      "updated_at": "2025-11-07T22:12:54.844Z",
       "position": 57,
       "description": null,
       "showcase": false,
@@ -6060,9 +6060,9 @@
     {
       "id": "hb7g5sq2zz0h",
       "name": "R2",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2022-07-05T10:55:24.503Z",
-      "updated_at": "2025-11-07T20:40:01.128Z",
+      "updated_at": "2025-11-07T22:10:24.348Z",
       "position": 71,
       "description": "High-performance storage for files and objects with zero egress charges",
       "showcase": false,
@@ -6360,9 +6360,9 @@
     {
       "id": "47xg28c02lnk",
       "name": "Stream",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2019-01-24T16:53:34.953Z",
-      "updated_at": "2025-11-07T20:40:01.150Z",
+      "updated_at": "2025-11-07T22:10:24.370Z",
       "position": 86,
       "description": "Cloudflare Stream lets you or your end users upload, store, encode, and deliver live and on-demand video with one API, without configuring or maintaining infrastructure",
       "showcase": false,
@@ -6810,9 +6810,9 @@
     {
       "id": "pqt7t1dwt0dz",
       "name": "Workers Observability",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2024-12-12T22:27:27.098Z",
-      "updated_at": "2025-10-30T17:55:14.511Z",
+      "updated_at": "2025-11-07T22:22:07.958Z",
       "position": 107,
       "description": "Workers Logs",
       "showcase": false,
@@ -7410,106 +7410,6 @@
   ],
   "incidents": [
     {
-      "id": "7dmxbv808l1w",
-      "name": "Increase latency on R2 operations on WNAM buckets",
-      "status": "monitoring",
-      "created_at": "2025-11-07T20:40:01.087Z",
-      "updated_at": "2025-11-07T22:02:07.591Z",
-      "monitoring_at": "2025-11-07T22:02:07.574Z",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/59x3yl4wl4n8",
-      "started_at": "2025-11-07T20:40:01.078Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "3l2k4s8lrx8g",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "7dmxbv808l1w",
-          "created_at": "2025-11-07T22:02:07.574Z",
-          "updated_at": "2025-11-07T22:02:07.574Z",
-          "display_at": "2025-11-07T22:02:07.574Z",
-          "affected_components": [
-            {
-              "code": "hb7g5sq2zz0h",
-              "name": "Cloudflare Sites and Services - R2",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "47xg28c02lnk",
-              "name": "Cloudflare Sites and Services - Stream",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ttm1d8h6ndsk",
-          "status": "investigating",
-          "body": "We are currently investigating high long-tail latency on some R2 requests with buckets in the WNAM region. Impacted buckets will see increased latency on PutObject operations. Impacting Stream Live broadcasts, R2. Stream on-demand and media transformations are not affected.",
-          "incident_id": "7dmxbv808l1w",
-          "created_at": "2025-11-07T20:40:01.225Z",
-          "updated_at": "2025-11-07T20:40:01.225Z",
-          "display_at": "2025-11-07T20:40:01.225Z",
-          "affected_components": [
-            {
-              "code": "hb7g5sq2zz0h",
-              "name": "Cloudflare Sites and Services - R2",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "47xg28c02lnk",
-              "name": "Cloudflare Sites and Services - Stream",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "hb7g5sq2zz0h",
-          "name": "R2",
-          "status": "degraded_performance",
-          "created_at": "2022-07-05T10:55:24.503Z",
-          "updated_at": "2025-11-07T20:40:01.128Z",
-          "position": 71,
-          "description": "High-performance storage for files and objects with zero egress charges",
-          "showcase": false,
-          "start_date": "2022-07-05",
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "47xg28c02lnk",
-          "name": "Stream",
-          "status": "degraded_performance",
-          "created_at": "2019-01-24T16:53:34.953Z",
-          "updated_at": "2025-11-07T20:40:01.150Z",
-          "position": 86,
-          "description": "Cloudflare Stream lets you or your end users upload, store, encode, and deliver live and on-demand video with one API, without configuring or maintaining infrastructure",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
       "id": "46b4jc89xqq9",
       "name": "Android Zero Trust WARP Connectivity",
       "status": "identified",
@@ -7721,59 +7621,6 @@
         }
       ],
       "reminder_intervals": null
-    },
-    {
-      "id": "z2q5c25qghvp",
-      "name": "Workers Tracing has been temporarily disabled",
-      "status": "identified",
-      "created_at": "2025-10-30T17:55:14.476Z",
-      "updated_at": "2025-10-30T17:55:14.565Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/xdf18wmpv2p7",
-      "started_at": "2025-10-30T17:55:14.468Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "m7yfmygr7716",
-          "status": "identified",
-          "body": "Workers Tracing (beta) has been temporarily disabled for maintenance and will be re-enabled as soon as possible. This will also impact exporting OTel Workers Logs and Traces. This does not impact Workers Logpush.",
-          "incident_id": "z2q5c25qghvp",
-          "created_at": "2025-10-30T17:55:14.562Z",
-          "updated_at": "2025-10-30T17:55:14.562Z",
-          "display_at": "2025-10-30T17:55:14.562Z",
-          "affected_components": [
-            {
-              "code": "pqt7t1dwt0dz",
-              "name": "Cloudflare Sites and Services - Workers Observability",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "pqt7t1dwt0dz",
-          "name": "Workers Observability",
-          "status": "degraded_performance",
-          "created_at": "2024-12-12T22:27:27.098Z",
-          "updated_at": "2025-10-30T17:55:14.511Z",
-          "position": 107,
-          "description": "Workers Logs",
-          "showcase": false,
-          "start_date": "2024-12-12",
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
     }
   ],
   "scheduled_maintenances": [
@@ -7886,114 +7733,6 @@
       "scheduled_until": "2025-11-10T04:00:00.000Z"
     },
     {
-      "id": "ct9g3xzd52l0",
-      "name": "MXP (Milan) on 2025-11-10",
-      "status": "scheduled",
-      "created_at": "2025-11-07T01:34:42.537Z",
-      "updated_at": "2025-11-07T01:34:42.597Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/dxyjqn0g72pv",
-      "started_at": "2025-11-07T01:34:42.530Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "ds4455dfs2tm",
-          "status": "scheduled",
-          "body": "We will be performing scheduled maintenance in MXP (Milan) datacenter on 2025-11-10 between 01:00 and 05:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
-          "incident_id": "ct9g3xzd52l0",
-          "created_at": "2025-11-07T01:34:42.594Z",
-          "updated_at": "2025-11-07T01:34:42.594Z",
-          "display_at": "2025-11-07T01:34:42.594Z",
-          "affected_components": [
-            {
-              "code": "k8q1kmz4gfms",
-              "name": "Europe - Milan, Italy - (MXP)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "k8q1kmz4gfms",
-          "name": "Milan, Italy - (MXP)",
-          "status": "operational",
-          "created_at": "2014-10-27T21:07:56.923Z",
-          "updated_at": "2024-12-07T21:05:01.545Z",
-          "position": 30,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "zqxhg7y54vy8",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2025-11-10T01:00:00.000Z",
-      "scheduled_until": "2025-11-10T05:00:00.000Z"
-    },
-    {
-      "id": "43jtfnch5zrk",
-      "name": "ALG (Algiers) on 2025-11-10",
-      "status": "scheduled",
-      "created_at": "2025-10-31T03:04:15.400Z",
-      "updated_at": "2025-10-31T03:04:15.464Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/gd3csvg5h8hv",
-      "started_at": "2025-10-31T03:04:15.392Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "rrrxyq3f665w",
-          "status": "scheduled",
-          "body": "We will be performing scheduled maintenance in ALG (Algiers) datacenter on 2025-11-10 between 01:00 and 05:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
-          "incident_id": "43jtfnch5zrk",
-          "created_at": "2025-10-31T03:04:15.462Z",
-          "updated_at": "2025-10-31T03:04:15.462Z",
-          "display_at": "2025-10-31T03:04:15.462Z",
-          "affected_components": [
-            {
-              "code": "rfkpkllgfmrq",
-              "name": "Africa - Algiers, Algeria - (ALG)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "rfkpkllgfmrq",
-          "name": "Algiers, Algeria - (ALG)",
-          "status": "operational",
-          "created_at": "2021-08-06T15:49:20.304Z",
-          "updated_at": "2025-10-31T08:45:43.682Z",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": "2021-08-06",
-          "group_id": "00gpj4s37mz4",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2025-11-10T01:00:00.000Z",
-      "scheduled_until": "2025-11-10T05:00:00.000Z"
-    },
-    {
       "id": "bcmgpsrmzlpl",
       "name": "FRA (Frankfurt) on 2025-11-10",
       "status": "scheduled",
@@ -8035,6 +7774,60 @@
           "created_at": "2014-10-27T20:37:25.480Z",
           "updated_at": "2024-09-14T13:55:21.360Z",
           "position": 16,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "zqxhg7y54vy8",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-11-10T01:00:00.000Z",
+      "scheduled_until": "2025-11-10T05:00:00.000Z"
+    },
+    {
+      "id": "ct9g3xzd52l0",
+      "name": "MXP (Milan) on 2025-11-10",
+      "status": "scheduled",
+      "created_at": "2025-11-07T01:34:42.537Z",
+      "updated_at": "2025-11-07T01:34:42.597Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/dxyjqn0g72pv",
+      "started_at": "2025-11-07T01:34:42.530Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "ds4455dfs2tm",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance in MXP (Milan) datacenter on 2025-11-10 between 01:00 and 05:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "ct9g3xzd52l0",
+          "created_at": "2025-11-07T01:34:42.594Z",
+          "updated_at": "2025-11-07T01:34:42.594Z",
+          "display_at": "2025-11-07T01:34:42.594Z",
+          "affected_components": [
+            {
+              "code": "k8q1kmz4gfms",
+              "name": "Europe - Milan, Italy - (MXP)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "k8q1kmz4gfms",
+          "name": "Milan, Italy - (MXP)",
+          "status": "operational",
+          "created_at": "2014-10-27T21:07:56.923Z",
+          "updated_at": "2024-12-07T21:05:01.545Z",
+          "position": 30,
           "description": null,
           "showcase": false,
           "start_date": null,
@@ -8100,6 +7893,60 @@
       ],
       "scheduled_for": "2025-11-10T01:00:00.000Z",
       "scheduled_until": "2025-11-10T18:00:00.000Z"
+    },
+    {
+      "id": "43jtfnch5zrk",
+      "name": "ALG (Algiers) on 2025-11-10",
+      "status": "scheduled",
+      "created_at": "2025-10-31T03:04:15.400Z",
+      "updated_at": "2025-10-31T03:04:15.464Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/gd3csvg5h8hv",
+      "started_at": "2025-10-31T03:04:15.392Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "rrrxyq3f665w",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance in ALG (Algiers) datacenter on 2025-11-10 between 01:00 and 05:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "43jtfnch5zrk",
+          "created_at": "2025-10-31T03:04:15.462Z",
+          "updated_at": "2025-10-31T03:04:15.462Z",
+          "display_at": "2025-10-31T03:04:15.462Z",
+          "affected_components": [
+            {
+              "code": "rfkpkllgfmrq",
+              "name": "Africa - Algiers, Algeria - (ALG)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "rfkpkllgfmrq",
+          "name": "Algiers, Algeria - (ALG)",
+          "status": "operational",
+          "created_at": "2021-08-06T15:49:20.304Z",
+          "updated_at": "2025-10-31T08:45:43.682Z",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": "2021-08-06",
+          "group_id": "00gpj4s37mz4",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-11-10T01:00:00.000Z",
+      "scheduled_until": "2025-11-10T05:00:00.000Z"
     },
     {
       "id": "tk0hmrkbc3z1",
@@ -8966,60 +8813,6 @@
       "scheduled_until": "2025-11-12T01:00:00.000Z"
     },
     {
-      "id": "mbp9hpfhzvky",
-      "name": "KIV (Chișinău) on 2025-11-12",
-      "status": "scheduled",
-      "created_at": "2025-11-07T01:26:41.534Z",
-      "updated_at": "2025-11-07T01:26:41.592Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/cx9h15987fd3",
-      "started_at": "2025-11-07T01:26:41.528Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "nrzmwd63sjrf",
-          "status": "scheduled",
-          "body": "We will be performing scheduled maintenance in KIV (Chișinău) datacenter on 2025-11-12 between 00:00 and 04:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
-          "incident_id": "mbp9hpfhzvky",
-          "created_at": "2025-11-07T01:26:41.590Z",
-          "updated_at": "2025-11-07T01:26:41.590Z",
-          "display_at": "2025-11-07T01:26:41.590Z",
-          "affected_components": [
-            {
-              "code": "6h2876nh78k9",
-              "name": "Europe - Chișinău, Moldova - (KIV)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "6h2876nh78k9",
-          "name": "Chișinău, Moldova - (KIV)",
-          "status": "operational",
-          "created_at": "2018-04-02T08:55:56.587Z",
-          "updated_at": "2025-10-23T09:57:41.186Z",
-          "position": 10,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "zqxhg7y54vy8",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2025-11-12T00:00:00.000Z",
-      "scheduled_until": "2025-11-12T04:00:00.000Z"
-    },
-    {
       "id": "7n3j3x924dgl",
       "name": "TLV (Tel Aviv) on 2025-11-12",
       "status": "scheduled",
@@ -9065,6 +8858,60 @@
           "showcase": false,
           "start_date": null,
           "group_id": "m3639x4txd08",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-11-12T00:00:00.000Z",
+      "scheduled_until": "2025-11-12T04:00:00.000Z"
+    },
+    {
+      "id": "mbp9hpfhzvky",
+      "name": "KIV (Chișinău) on 2025-11-12",
+      "status": "scheduled",
+      "created_at": "2025-11-07T01:26:41.534Z",
+      "updated_at": "2025-11-07T01:26:41.592Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/cx9h15987fd3",
+      "started_at": "2025-11-07T01:26:41.528Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "nrzmwd63sjrf",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance in KIV (Chișinău) datacenter on 2025-11-12 between 00:00 and 04:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "mbp9hpfhzvky",
+          "created_at": "2025-11-07T01:26:41.590Z",
+          "updated_at": "2025-11-07T01:26:41.590Z",
+          "display_at": "2025-11-07T01:26:41.590Z",
+          "affected_components": [
+            {
+              "code": "6h2876nh78k9",
+              "name": "Europe - Chișinău, Moldova - (KIV)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "6h2876nh78k9",
+          "name": "Chișinău, Moldova - (KIV)",
+          "status": "operational",
+          "created_at": "2018-04-02T08:55:56.587Z",
+          "updated_at": "2025-10-23T09:57:41.186Z",
+          "position": 10,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "zqxhg7y54vy8",
           "page_id": "yh6f0r4529hb",
           "group": false,
           "only_show_if_degraded": false
@@ -9344,6 +9191,60 @@
       "scheduled_until": "2025-11-12T14:00:00.000Z"
     },
     {
+      "id": "wpj8czf8w7q8",
+      "name": "KCH (Kuching) on 2025-11-12",
+      "status": "scheduled",
+      "created_at": "2025-11-07T22:20:36.534Z",
+      "updated_at": "2025-11-07T22:20:36.614Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/dkxmsl22x55n",
+      "started_at": "2025-11-07T22:20:36.524Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "zk09b5pgcwz5",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance in KCH (Kuching) datacenter on 2025-11-12 between 18:00 and 22:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "wpj8czf8w7q8",
+          "created_at": "2025-11-07T22:20:36.609Z",
+          "updated_at": "2025-11-07T22:20:36.609Z",
+          "display_at": "2025-11-07T22:20:36.609Z",
+          "affected_components": [
+            {
+              "code": "f8thsvkzg572",
+              "name": "Asia - Kuching, Malaysia - (KCH)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "f8thsvkzg572",
+          "name": "Kuching, Malaysia - (KCH)",
+          "status": "operational",
+          "created_at": "2024-10-21T12:20:16.067Z",
+          "updated_at": "2025-11-03T20:26:47.134Z",
+          "position": 370,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-10-21",
+          "group_id": "77867vxkttgw",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-11-12T18:00:00.000Z",
+      "scheduled_until": "2025-11-12T22:00:00.000Z"
+    },
+    {
       "id": "xhdbs1h3z8zz",
       "name": "IXC (Chandigarh) on 2025-11-12",
       "status": "scheduled",
@@ -9506,30 +9407,30 @@
       "scheduled_until": "2025-11-13T03:00:00.000Z"
     },
     {
-      "id": "267hvmy0c413",
-      "name": "CDG (Paris) on 2025-11-13",
+      "id": "gm2970pd4hbp",
+      "name": "AMS (Amsterdam) on 2025-11-13",
       "status": "scheduled",
-      "created_at": "2025-11-07T00:40:40.832Z",
-      "updated_at": "2025-11-07T00:40:40.903Z",
+      "created_at": "2025-11-07T00:56:42.156Z",
+      "updated_at": "2025-11-07T00:56:42.213Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
-      "shortlink": "https://stspg.io/lyz74s1s8l91",
-      "started_at": "2025-11-07T00:40:40.824Z",
+      "shortlink": "https://stspg.io/cqldhsl8flv6",
+      "started_at": "2025-11-07T00:56:42.149Z",
       "page_id": "yh6f0r4529hb",
       "incident_updates": [
         {
-          "id": "rvw24wwtc880",
+          "id": "2yp8jbv1xpyq",
           "status": "scheduled",
-          "body": "We will be performing scheduled maintenance in CDG (Paris) datacenter on 2025-11-13 between 01:00 and 05:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
-          "incident_id": "267hvmy0c413",
-          "created_at": "2025-11-07T00:40:40.899Z",
-          "updated_at": "2025-11-07T00:40:40.899Z",
-          "display_at": "2025-11-07T00:40:40.899Z",
+          "body": "We will be performing scheduled maintenance in AMS (Amsterdam) datacenter on 2025-11-13 between 01:00 and 05:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "gm2970pd4hbp",
+          "created_at": "2025-11-07T00:56:42.210Z",
+          "updated_at": "2025-11-07T00:56:42.210Z",
+          "display_at": "2025-11-07T00:56:42.210Z",
           "affected_components": [
             {
-              "code": "w1br383gmlwj",
-              "name": "Europe - Paris, France - (CDG)",
+              "code": "57ctn3f2qsyj",
+              "name": "Europe - Amsterdam, Netherlands - (AMS)",
               "old_status": "operational",
               "new_status": "operational"
             }
@@ -9541,12 +9442,66 @@
       ],
       "components": [
         {
-          "id": "w1br383gmlwj",
-          "name": "Paris, France - (CDG)",
+          "id": "57ctn3f2qsyj",
+          "name": "Amsterdam, Netherlands - (AMS)",
           "status": "operational",
-          "created_at": "2014-10-27T20:36:46.182Z",
-          "updated_at": "2025-03-04T03:03:48.345Z",
-          "position": 37,
+          "created_at": "2014-10-27T20:35:05.259Z",
+          "updated_at": "2025-11-05T02:16:43.718Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "zqxhg7y54vy8",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-11-13T01:00:00.000Z",
+      "scheduled_until": "2025-11-13T05:00:00.000Z"
+    },
+    {
+      "id": "5xshpv88q99w",
+      "name": "MAD (Madrid) on 2025-11-13",
+      "status": "scheduled",
+      "created_at": "2025-11-07T02:04:41.915Z",
+      "updated_at": "2025-11-07T02:04:41.974Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/qqvbvsq782mw",
+      "started_at": "2025-11-07T02:04:41.908Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "07rt8df6f6vn",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance in MAD (Madrid) datacenter on 2025-11-13 between 01:00 and 05:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "5xshpv88q99w",
+          "created_at": "2025-11-07T02:04:41.971Z",
+          "updated_at": "2025-11-07T02:04:41.971Z",
+          "display_at": "2025-11-07T02:04:41.971Z",
+          "affected_components": [
+            {
+              "code": "qwrpqdwqxy7r",
+              "name": "Europe - Madrid, Spain - (MAD)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "qwrpqdwqxy7r",
+          "name": "Madrid, Spain - (MAD)",
+          "status": "operational",
+          "created_at": "2014-10-27T21:41:47.350Z",
+          "updated_at": "2025-04-28T21:34:24.354Z",
+          "position": 27,
           "description": null,
           "showcase": false,
           "start_date": null,
@@ -9668,30 +9623,30 @@
       "scheduled_until": "2025-11-13T05:00:00.000Z"
     },
     {
-      "id": "5xshpv88q99w",
-      "name": "MAD (Madrid) on 2025-11-13",
+      "id": "267hvmy0c413",
+      "name": "CDG (Paris) on 2025-11-13",
       "status": "scheduled",
-      "created_at": "2025-11-07T02:04:41.915Z",
-      "updated_at": "2025-11-07T02:04:41.974Z",
+      "created_at": "2025-11-07T00:40:40.832Z",
+      "updated_at": "2025-11-07T00:40:40.903Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
-      "shortlink": "https://stspg.io/qqvbvsq782mw",
-      "started_at": "2025-11-07T02:04:41.908Z",
+      "shortlink": "https://stspg.io/lyz74s1s8l91",
+      "started_at": "2025-11-07T00:40:40.824Z",
       "page_id": "yh6f0r4529hb",
       "incident_updates": [
         {
-          "id": "07rt8df6f6vn",
+          "id": "rvw24wwtc880",
           "status": "scheduled",
-          "body": "We will be performing scheduled maintenance in MAD (Madrid) datacenter on 2025-11-13 between 01:00 and 05:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
-          "incident_id": "5xshpv88q99w",
-          "created_at": "2025-11-07T02:04:41.971Z",
-          "updated_at": "2025-11-07T02:04:41.971Z",
-          "display_at": "2025-11-07T02:04:41.971Z",
+          "body": "We will be performing scheduled maintenance in CDG (Paris) datacenter on 2025-11-13 between 01:00 and 05:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "267hvmy0c413",
+          "created_at": "2025-11-07T00:40:40.899Z",
+          "updated_at": "2025-11-07T00:40:40.899Z",
+          "display_at": "2025-11-07T00:40:40.899Z",
           "affected_components": [
             {
-              "code": "qwrpqdwqxy7r",
-              "name": "Europe - Madrid, Spain - (MAD)",
+              "code": "w1br383gmlwj",
+              "name": "Europe - Paris, France - (CDG)",
               "old_status": "operational",
               "new_status": "operational"
             }
@@ -9703,66 +9658,12 @@
       ],
       "components": [
         {
-          "id": "qwrpqdwqxy7r",
-          "name": "Madrid, Spain - (MAD)",
+          "id": "w1br383gmlwj",
+          "name": "Paris, France - (CDG)",
           "status": "operational",
-          "created_at": "2014-10-27T21:41:47.350Z",
-          "updated_at": "2025-04-28T21:34:24.354Z",
-          "position": 27,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "zqxhg7y54vy8",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2025-11-13T01:00:00.000Z",
-      "scheduled_until": "2025-11-13T05:00:00.000Z"
-    },
-    {
-      "id": "gm2970pd4hbp",
-      "name": "AMS (Amsterdam) on 2025-11-13",
-      "status": "scheduled",
-      "created_at": "2025-11-07T00:56:42.156Z",
-      "updated_at": "2025-11-07T00:56:42.213Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/cqldhsl8flv6",
-      "started_at": "2025-11-07T00:56:42.149Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "2yp8jbv1xpyq",
-          "status": "scheduled",
-          "body": "We will be performing scheduled maintenance in AMS (Amsterdam) datacenter on 2025-11-13 between 01:00 and 05:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
-          "incident_id": "gm2970pd4hbp",
-          "created_at": "2025-11-07T00:56:42.210Z",
-          "updated_at": "2025-11-07T00:56:42.210Z",
-          "display_at": "2025-11-07T00:56:42.210Z",
-          "affected_components": [
-            {
-              "code": "57ctn3f2qsyj",
-              "name": "Europe - Amsterdam, Netherlands - (AMS)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "57ctn3f2qsyj",
-          "name": "Amsterdam, Netherlands - (AMS)",
-          "status": "operational",
-          "created_at": "2014-10-27T20:35:05.259Z",
-          "updated_at": "2025-11-05T02:16:43.718Z",
-          "position": 1,
+          "created_at": "2014-10-27T20:36:46.182Z",
+          "updated_at": "2025-03-04T03:03:48.345Z",
+          "position": 37,
           "description": null,
           "showcase": false,
           "start_date": null,
@@ -10046,60 +9947,6 @@
       "scheduled_until": "2025-11-14T03:00:00.000Z"
     },
     {
-      "id": "s3nlqnrq9gjx",
-      "name": "ARN (Stockholm) on 2025-11-14",
-      "status": "scheduled",
-      "created_at": "2025-11-07T02:14:42.474Z",
-      "updated_at": "2025-11-07T02:14:42.544Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/39wzftygcm97",
-      "started_at": "2025-11-07T02:14:42.466Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "p2ttcwq3n5hy",
-          "status": "scheduled",
-          "body": "We will be performing scheduled maintenance in ARN (Stockholm) datacenter on 2025-11-14 between 01:00 and 05:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
-          "incident_id": "s3nlqnrq9gjx",
-          "created_at": "2025-11-07T02:14:42.540Z",
-          "updated_at": "2025-11-07T02:14:42.540Z",
-          "display_at": "2025-11-07T02:14:42.540Z",
-          "affected_components": [
-            {
-              "code": "755n430pjn1s",
-              "name": "Europe - Stockholm, Sweden - (ARN)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "755n430pjn1s",
-          "name": "Stockholm, Sweden - (ARN)",
-          "status": "operational",
-          "created_at": "2014-10-27T20:36:25.956Z",
-          "updated_at": "2025-04-22T13:10:06.672Z",
-          "position": 44,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "zqxhg7y54vy8",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2025-11-14T01:00:00.000Z",
-      "scheduled_until": "2025-11-14T05:00:00.000Z"
-    },
-    {
       "id": "312md41trhcq",
       "name": "MXP (Milan) on 2025-11-14",
       "status": "scheduled",
@@ -10141,6 +9988,60 @@
           "created_at": "2014-10-27T21:07:56.923Z",
           "updated_at": "2024-12-07T21:05:01.545Z",
           "position": 30,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "zqxhg7y54vy8",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-11-14T01:00:00.000Z",
+      "scheduled_until": "2025-11-14T05:00:00.000Z"
+    },
+    {
+      "id": "s3nlqnrq9gjx",
+      "name": "ARN (Stockholm) on 2025-11-14",
+      "status": "scheduled",
+      "created_at": "2025-11-07T02:14:42.474Z",
+      "updated_at": "2025-11-07T02:14:42.544Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/39wzftygcm97",
+      "started_at": "2025-11-07T02:14:42.466Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "p2ttcwq3n5hy",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance in ARN (Stockholm) datacenter on 2025-11-14 between 01:00 and 05:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "s3nlqnrq9gjx",
+          "created_at": "2025-11-07T02:14:42.540Z",
+          "updated_at": "2025-11-07T02:14:42.540Z",
+          "display_at": "2025-11-07T02:14:42.540Z",
+          "affected_components": [
+            {
+              "code": "755n430pjn1s",
+              "name": "Europe - Stockholm, Sweden - (ARN)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "755n430pjn1s",
+          "name": "Stockholm, Sweden - (ARN)",
+          "status": "operational",
+          "created_at": "2014-10-27T20:36:25.956Z",
+          "updated_at": "2025-04-22T13:10:06.672Z",
+          "position": 44,
           "description": null,
           "showcase": false,
           "start_date": null,
@@ -10208,60 +10109,6 @@
       "scheduled_until": "2025-11-14T23:30:00.000Z"
     },
     {
-      "id": "3xcljdsvhwt1",
-      "name": "SIN (Singapore) on 2025-11-17",
-      "status": "scheduled",
-      "created_at": "2025-11-07T06:16:19.681Z",
-      "updated_at": "2025-11-07T06:16:19.751Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/8dn2v0z7zjw9",
-      "started_at": "2025-11-07T06:16:19.674Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "34hky9f8vjh3",
-          "status": "scheduled",
-          "body": "We will be performing scheduled maintenance in SIN (Singapore) datacenter between 2025-11-17 16:00 and 2025-11-18 01:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
-          "incident_id": "3xcljdsvhwt1",
-          "created_at": "2025-11-07T06:16:19.748Z",
-          "updated_at": "2025-11-07T06:16:19.748Z",
-          "display_at": "2025-11-07T06:16:19.748Z",
-          "affected_components": [
-            {
-              "code": "18p6r93swmbl",
-              "name": "Asia - Singapore, Singapore - (SIN)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "18p6r93swmbl",
-          "name": "Singapore, Singapore - (SIN)",
-          "status": "operational",
-          "created_at": "2014-10-27T21:44:15.897Z",
-          "updated_at": "2025-09-09T17:13:38.516Z",
-          "position": 59,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "77867vxkttgw",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2025-11-17T16:00:00.000Z",
-      "scheduled_until": "2025-11-18T01:00:00.000Z"
-    },
-    {
       "id": "bnv66f75y6hp",
       "name": "ICN (Seoul) on 2025-11-17",
       "status": "scheduled",
@@ -10314,6 +10161,60 @@
       ],
       "scheduled_for": "2025-11-17T16:00:00.000Z",
       "scheduled_until": "2025-11-17T22:00:00.000Z"
+    },
+    {
+      "id": "3xcljdsvhwt1",
+      "name": "SIN (Singapore) on 2025-11-17",
+      "status": "scheduled",
+      "created_at": "2025-11-07T06:16:19.681Z",
+      "updated_at": "2025-11-07T06:16:19.751Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/8dn2v0z7zjw9",
+      "started_at": "2025-11-07T06:16:19.674Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "34hky9f8vjh3",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance in SIN (Singapore) datacenter between 2025-11-17 16:00 and 2025-11-18 01:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "3xcljdsvhwt1",
+          "created_at": "2025-11-07T06:16:19.748Z",
+          "updated_at": "2025-11-07T06:16:19.748Z",
+          "display_at": "2025-11-07T06:16:19.748Z",
+          "affected_components": [
+            {
+              "code": "18p6r93swmbl",
+              "name": "Asia - Singapore, Singapore - (SIN)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "18p6r93swmbl",
+          "name": "Singapore, Singapore - (SIN)",
+          "status": "operational",
+          "created_at": "2014-10-27T21:44:15.897Z",
+          "updated_at": "2025-09-09T17:13:38.516Z",
+          "position": 59,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "77867vxkttgw",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2025-11-17T16:00:00.000Z",
+      "scheduled_until": "2025-11-18T01:00:00.000Z"
     },
     {
       "id": "9j37fvy02xpn",
