@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-11-06T19:20:30.697-08:00"
+    "updated_at": "2025-11-06T19:39:36.714-08:00"
   },
   "components": [
     {
@@ -143,9 +143,9 @@
     {
       "id": "ys1jhy2ys04z",
       "name": "Group Rooms",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2019-01-10T08:35:00.743-08:00",
-      "updated_at": "2025-11-06T17:37:56.967-08:00",
+      "updated_at": "2025-11-06T19:39:36.628-08:00",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -373,9 +373,9 @@
     {
       "id": "39mb8cmw8y2v",
       "name": "SMS Short Code, North America",
-      "status": "under_maintenance",
+      "status": "degraded_performance",
       "created_at": "2016-04-07T15:07:25.830-07:00",
-      "updated_at": "2025-11-06T19:00:21.860-08:00",
+      "updated_at": "2025-11-06T19:34:25.046-08:00",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -694,9 +694,9 @@
     {
       "id": "jncbcddlmbhn",
       "name": "Network Traversal Service",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2016-02-11T15:54:16.923-08:00",
-      "updated_at": "2025-11-06T18:11:09.589-08:00",
+      "updated_at": "2025-11-06T19:39:36.652-08:00",
       "position": 5,
       "description": "Network Traversal Service",
       "showcase": false,
@@ -1089,7 +1089,7 @@
     {
       "id": "31pkbykrvbwr",
       "name": "PROGRAMMABLE VIDEO",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2016-04-07T15:26:37.032-07:00",
       "updated_at": "2023-07-03T12:51:21.502-07:00",
       "position": 10,
@@ -1936,6 +1936,245 @@
   ],
   "incidents": [
     {
+      "id": "4yjwb5b4l1xs",
+      "name": "Video-Rtc-Services-Register Cannot Access dynamoDB",
+      "status": "monitoring",
+      "created_at": "2025-11-06T17:37:56.921-08:00",
+      "updated_at": "2025-11-06T19:39:36.711-08:00",
+      "monitoring_at": "2025-11-06T19:39:36.692-08:00",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/rfml9b1507sq",
+      "started_at": "2025-11-06T17:37:57.000-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "7z9z6pc4k5fm",
+          "status": "monitoring",
+          "body": "The Video Service’s connectivity issue with DynamoDB is now operating normally. Users should be able to use all Video functionality without errors. We will continue to monitor for system stability. We'll provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "4yjwb5b4l1xs",
+          "created_at": "2025-11-06T19:39:36.692-08:00",
+          "updated_at": "2025-11-06T19:39:36.692-08:00",
+          "display_at": "2025-11-06T19:39:36.692-08:00",
+          "affected_components": [
+            {
+              "code": "ys1jhy2ys04z",
+              "name": "PROGRAMMABLE VIDEO - Group Rooms",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "jncbcddlmbhn",
+              "name": "PROGRAMMABLE VIDEO - Network Traversal Service",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "y90808snnpnb",
+          "status": "investigating",
+          "body": "We are currently investigating an issue in which some video participants are unable to generate tokens correctly/ taking longer due to the video-rtc-services-register service’s inability to access dynamoDB. This impacts the production Twilio environment, affecting users attempting to join or establish video sessions through Video Rooms. While the service remains degraded but usable, affected participants may experience delays or failures when attempting to join video calls. The scope of customer impact depends on the percentage of requests currently failing and how long the dynamoDB access issue persists. Users should be advised that video functionality may be intermittently unavailable during this incident.  Our engineers are working to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "4yjwb5b4l1xs",
+          "created_at": "2025-11-06T18:52:59.979-08:00",
+          "updated_at": "2025-11-06T18:52:59.979-08:00",
+          "display_at": "2025-11-06T18:52:59.979-08:00",
+          "affected_components": [
+            {
+              "code": "ys1jhy2ys04z",
+              "name": "PROGRAMMABLE VIDEO - Group Rooms",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "jncbcddlmbhn",
+              "name": "PROGRAMMABLE VIDEO - Network Traversal Service",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "t8h1skffk2kh",
+          "status": "investigating",
+          "body": "We are currently investigating an issue in which some video participants are unable to generate tokens correctly/ taking longer due to the video-rtc-services-register service’s inability to access dynamoDB. This impacts the production Twilio environment, affecting users attempting to join or establish video sessions through Video Rooms. While the service remains degraded but usable, affected participants may experience delays or failures when attempting to join video calls. The scope of customer impact depends on the percentage of requests currently failing and how long the dynamoDB access issue persists. Users should be advised that video functionality may be intermittently unavailable during this incident.  Our engineers are working to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "4yjwb5b4l1xs",
+          "created_at": "2025-11-06T18:11:09.640-08:00",
+          "updated_at": "2025-11-06T18:11:32.750-08:00",
+          "display_at": "2025-11-06T18:11:09.000-08:00",
+          "affected_components": [
+            {
+              "code": "ys1jhy2ys04z",
+              "name": "PROGRAMMABLE VIDEO - Group Rooms",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "jncbcddlmbhn",
+              "name": "PROGRAMMABLE VIDEO - Network Traversal Service",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "m1p9nlbbv5dg",
+          "status": "investigating",
+          "body": "We are currently investigating an issue in which some video participants are unable to generate tokens correctly/ taking longer due to the video-rtc-services-register service’s inability to access dynamoDB. This impacts the production Twilio environment, affecting users attempting to join or establish video sessions through Video Rooms. While the service remains degraded but usable, affected participants may experience delays or failures when attempting to join video calls. The scope of customer impact depends on the percentage of requests currently failing and how long the dynamoDB access issue persists. Users should be advised that video functionality may be intermittently unavailable during this incident.  Our engineers are working to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "4yjwb5b4l1xs",
+          "created_at": "2025-11-06T18:07:48.383-08:00",
+          "updated_at": "2025-11-06T18:07:48.383-08:00",
+          "display_at": "2025-11-06T18:07:48.383-08:00",
+          "affected_components": [
+            {
+              "code": "ys1jhy2ys04z",
+              "name": "PROGRAMMABLE VIDEO - Group Rooms",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "26rfs1y70jjx",
+          "status": "investigating",
+          "body": "We are currently investigating an issue in which some video participants are unable to generate tokens correctly/ taking longer due to the video-rtc-services-register service’s inability to access dynamoDB. This impacts the production Twilio environment, affecting users attempting to join or establish video sessions through Video Rooms. While the service remains degraded but usable, affected participants may experience delays or failures when attempting to join video calls. The scope of customer impact depends on the percentage of requests currently failing and how long the dynamoDB access issue persists. Users should be advised that video functionality may be intermittently unavailable during this incident.  Our engineers are working to resolve the issue. We will provide another update in 30 minutes or as soon as more information becomes available.",
+          "incident_id": "4yjwb5b4l1xs",
+          "created_at": "2025-11-06T17:37:57.026-08:00",
+          "updated_at": "2025-11-06T17:43:17.924-08:00",
+          "display_at": "2025-11-06T17:37:57.000-08:00",
+          "affected_components": [
+            {
+              "code": "ys1jhy2ys04z",
+              "name": "PROGRAMMABLE VIDEO - Group Rooms",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "ys1jhy2ys04z",
+          "name": "Group Rooms",
+          "status": "operational",
+          "created_at": "2019-01-10T08:35:00.743-08:00",
+          "updated_at": "2025-11-06T19:39:36.628-08:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "31pkbykrvbwr",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "jncbcddlmbhn",
+          "name": "Network Traversal Service",
+          "status": "operational",
+          "created_at": "2016-02-11T15:54:16.923-08:00",
+          "updated_at": "2025-11-06T19:39:36.652-08:00",
+          "position": 5,
+          "description": "Network Traversal Service",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "31pkbykrvbwr",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "t72fh4mc9zmg",
+      "name": "SMS Delivery Report Delays to Verizon Wireless in US via  Subset of Shortcode",
+      "status": "investigating",
+      "created_at": "2025-11-06T18:34:54.566-08:00",
+      "updated_at": "2025-11-06T19:34:25.102-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/fj7m7cnrrtlj",
+      "started_at": "2025-11-06T18:34:54.558-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "qnq29f7hlr0d",
+          "status": "investigating",
+          "body": "We are continuing to investigate SMS Delivery Report Delays to Verizon Wireless in US via  Subset of Shortcode. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "t72fh4mc9zmg",
+          "created_at": "2025-11-06T19:34:25.098-08:00",
+          "updated_at": "2025-11-06T19:34:25.098-08:00",
+          "display_at": "2025-11-06T19:34:25.098-08:00",
+          "affected_components": [
+            {
+              "code": "39mb8cmw8y2v",
+              "name": "CARRIER NETWORK - SMS Short Code, North America",
+              "old_status": "under_maintenance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "261b3wgk9qvl",
+          "status": "investigating",
+          "body": "We are continuing to investigate SMS Delivery Report Delays to Verizon Wireless in US via  Subset of Shortcode. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "t72fh4mc9zmg",
+          "created_at": "2025-11-06T18:34:54.683-08:00",
+          "updated_at": "2025-11-06T18:34:54.683-08:00",
+          "display_at": "2025-11-06T18:34:54.683-08:00",
+          "affected_components": [
+            {
+              "code": "39mb8cmw8y2v",
+              "name": "CARRIER NETWORK - SMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "39mb8cmw8y2v",
+          "name": "SMS Short Code, North America",
+          "status": "degraded_performance",
+          "created_at": "2016-04-07T15:07:25.830-07:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "mlgtzsq7sf69",
       "name": "Inbound Calls From Carrier Peering Experiencing Drops in the United States",
       "status": "investigating",
@@ -2153,199 +2392,6 @@
           "description": null,
           "showcase": false,
           "start_date": "2023-03-23",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "4yjwb5b4l1xs",
-      "name": "Video-Rtc-Services-Register Cannot Access dynamoDB",
-      "status": "investigating",
-      "created_at": "2025-11-06T17:37:56.921-08:00",
-      "updated_at": "2025-11-06T18:52:59.982-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/rfml9b1507sq",
-      "started_at": "2025-11-06T17:37:57.000-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "y90808snnpnb",
-          "status": "investigating",
-          "body": "We are currently investigating an issue in which some video participants are unable to generate tokens correctly/ taking longer due to the video-rtc-services-register service’s inability to access dynamoDB. This impacts the production Twilio environment, affecting users attempting to join or establish video sessions through Video Rooms. While the service remains degraded but usable, affected participants may experience delays or failures when attempting to join video calls. The scope of customer impact depends on the percentage of requests currently failing and how long the dynamoDB access issue persists. Users should be advised that video functionality may be intermittently unavailable during this incident.  Our engineers are working to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "4yjwb5b4l1xs",
-          "created_at": "2025-11-06T18:52:59.979-08:00",
-          "updated_at": "2025-11-06T18:52:59.979-08:00",
-          "display_at": "2025-11-06T18:52:59.979-08:00",
-          "affected_components": [
-            {
-              "code": "ys1jhy2ys04z",
-              "name": "PROGRAMMABLE VIDEO - Group Rooms",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jncbcddlmbhn",
-              "name": "PROGRAMMABLE VIDEO - Network Traversal Service",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "t8h1skffk2kh",
-          "status": "investigating",
-          "body": "We are currently investigating an issue in which some video participants are unable to generate tokens correctly/ taking longer due to the video-rtc-services-register service’s inability to access dynamoDB. This impacts the production Twilio environment, affecting users attempting to join or establish video sessions through Video Rooms. While the service remains degraded but usable, affected participants may experience delays or failures when attempting to join video calls. The scope of customer impact depends on the percentage of requests currently failing and how long the dynamoDB access issue persists. Users should be advised that video functionality may be intermittently unavailable during this incident.  Our engineers are working to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "4yjwb5b4l1xs",
-          "created_at": "2025-11-06T18:11:09.640-08:00",
-          "updated_at": "2025-11-06T18:11:32.750-08:00",
-          "display_at": "2025-11-06T18:11:09.000-08:00",
-          "affected_components": [
-            {
-              "code": "ys1jhy2ys04z",
-              "name": "PROGRAMMABLE VIDEO - Group Rooms",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "jncbcddlmbhn",
-              "name": "PROGRAMMABLE VIDEO - Network Traversal Service",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "m1p9nlbbv5dg",
-          "status": "investigating",
-          "body": "We are currently investigating an issue in which some video participants are unable to generate tokens correctly/ taking longer due to the video-rtc-services-register service’s inability to access dynamoDB. This impacts the production Twilio environment, affecting users attempting to join or establish video sessions through Video Rooms. While the service remains degraded but usable, affected participants may experience delays or failures when attempting to join video calls. The scope of customer impact depends on the percentage of requests currently failing and how long the dynamoDB access issue persists. Users should be advised that video functionality may be intermittently unavailable during this incident.  Our engineers are working to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "4yjwb5b4l1xs",
-          "created_at": "2025-11-06T18:07:48.383-08:00",
-          "updated_at": "2025-11-06T18:07:48.383-08:00",
-          "display_at": "2025-11-06T18:07:48.383-08:00",
-          "affected_components": [
-            {
-              "code": "ys1jhy2ys04z",
-              "name": "PROGRAMMABLE VIDEO - Group Rooms",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "26rfs1y70jjx",
-          "status": "investigating",
-          "body": "We are currently investigating an issue in which some video participants are unable to generate tokens correctly/ taking longer due to the video-rtc-services-register service’s inability to access dynamoDB. This impacts the production Twilio environment, affecting users attempting to join or establish video sessions through Video Rooms. While the service remains degraded but usable, affected participants may experience delays or failures when attempting to join video calls. The scope of customer impact depends on the percentage of requests currently failing and how long the dynamoDB access issue persists. Users should be advised that video functionality may be intermittently unavailable during this incident.  Our engineers are working to resolve the issue. We will provide another update in 30 minutes or as soon as more information becomes available.",
-          "incident_id": "4yjwb5b4l1xs",
-          "created_at": "2025-11-06T17:37:57.026-08:00",
-          "updated_at": "2025-11-06T17:43:17.924-08:00",
-          "display_at": "2025-11-06T17:37:57.000-08:00",
-          "affected_components": [
-            {
-              "code": "ys1jhy2ys04z",
-              "name": "PROGRAMMABLE VIDEO - Group Rooms",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "ys1jhy2ys04z",
-          "name": "Group Rooms",
-          "status": "degraded_performance",
-          "created_at": "2019-01-10T08:35:00.743-08:00",
-          "updated_at": "2025-11-06T17:37:56.967-08:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "31pkbykrvbwr",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "jncbcddlmbhn",
-          "name": "Network Traversal Service",
-          "status": "degraded_performance",
-          "created_at": "2016-02-11T15:54:16.923-08:00",
-          "updated_at": "2025-11-06T18:11:09.589-08:00",
-          "position": 5,
-          "description": "Network Traversal Service",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "31pkbykrvbwr",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "t72fh4mc9zmg",
-      "name": "SMS Delivery Report Delays to Verizon Wireless in US via  Subset of Shortcode",
-      "status": "investigating",
-      "created_at": "2025-11-06T18:34:54.566-08:00",
-      "updated_at": "2025-11-06T18:34:54.687-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/fj7m7cnrrtlj",
-      "started_at": "2025-11-06T18:34:54.558-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "261b3wgk9qvl",
-          "status": "investigating",
-          "body": "We are continuing to investigate SMS Delivery Report Delays to Verizon Wireless in US via  Subset of Shortcode. Our engineers are working with our carrier partner to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "t72fh4mc9zmg",
-          "created_at": "2025-11-06T18:34:54.683-08:00",
-          "updated_at": "2025-11-06T18:34:54.683-08:00",
-          "display_at": "2025-11-06T18:34:54.683-08:00",
-          "affected_components": [
-            {
-              "code": "39mb8cmw8y2v",
-              "name": "CARRIER NETWORK - SMS Short Code, North America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "39mb8cmw8y2v",
-          "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
-          "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
-          "position": 3,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
           "group_id": "j8hlnyphbbs0",
           "page_id": "gpkpyklzq55q",
           "group": false,
@@ -2700,9 +2746,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -2769,9 +2815,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -2898,9 +2944,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -3000,9 +3046,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -3102,9 +3148,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -3510,9 +3556,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -3642,9 +3688,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -3711,9 +3757,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -3798,9 +3844,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -4161,9 +4207,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -4269,9 +4315,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -4374,9 +4420,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -4704,9 +4750,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -4887,9 +4933,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -5364,9 +5410,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -5607,9 +5653,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -5835,9 +5881,9 @@
         {
           "id": "39mb8cmw8y2v",
           "name": "SMS Short Code, North America",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2025-11-06T19:00:21.860-08:00",
+          "updated_at": "2025-11-06T19:34:25.046-08:00",
           "position": 3,
           "description": null,
           "showcase": false,
