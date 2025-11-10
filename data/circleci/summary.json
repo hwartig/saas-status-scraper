@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-10T08:50:56.953Z"
+    "updated_at": "2025-11-10T11:24:36.552Z"
   },
   "components": [
     {
@@ -636,61 +636,7 @@
       ]
     }
   ],
-  "incidents": [
-    {
-      "id": "pr52byhlns18",
-      "name": "RAM Disk is currently not usable in Docker jobs",
-      "status": "monitoring",
-      "created_at": "2025-11-07T10:40:46.079Z",
-      "updated_at": "2025-11-07T10:40:46.129Z",
-      "monitoring_at": "2025-11-07T10:40:46.120Z",
-      "resolved_at": null,
-      "impact": "none",
-      "shortlink": "https://stspg.io/2ksr36jc49px",
-      "started_at": "2025-11-07T10:40:46.074Z",
-      "page_id": "6w4r0ttlx5ft",
-      "incident_updates": [
-        {
-          "id": "218vvltc87df",
-          "status": "monitoring",
-          "body": "At present customers running Docker containers cannot use /mnt/ramdisk. Customers will need to modify their configuration to use the filesystem instead.\n\nThis has occurred in order to update the Docker Infrastructure that supports our `working_directory: /mnt/ramdisk` feature. This is a necessary step in order to address CVE-2025-31133, CVE-2025-52565, and CVE-2025-52881. \n\nThis bug affects any Docker jobs utilizing `working_directory: /mnt/ramdisk`. Jobs will fail on checkout and workspace attachments. \n\nThe immediate workaround will be to remove any usage of `working_directory: /mnt/ramdisk` from your job which will require an update of `.circleci/config.yml` \n\nOnce this maintenance is complete, customers will be unable to utilize `working_directory: /mnt/ramdisk`until further notice.",
-          "incident_id": "pr52byhlns18",
-          "created_at": "2025-11-07T10:40:46.120Z",
-          "updated_at": "2025-11-07T10:40:46.120Z",
-          "display_at": "2025-11-07T10:40:46.120Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "x1v3t5qrnlhk",
-          "name": "Docker Jobs",
-          "status": "operational",
-          "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2025-11-07T06:15:21.112Z",
-          "position": 1,
-          "description": "CircleCI jobs using the docker executor.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": "[]"
-    }
-  ],
+  "incidents": [],
   "scheduled_maintenances": [],
   "status": {
     "indicator": "none",
