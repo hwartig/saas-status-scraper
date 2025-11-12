@@ -4,7 +4,7 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-12T02:25:52.342Z"
+    "updated_at": "2025-11-12T04:36:09.592Z"
   },
   "incidents": [
     {
@@ -832,9 +832,9 @@
     {
       "id": "pb23xhx755dt",
       "name": "Jira Platform Incident - viewIssue and createIssue Service Disruption",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-10-27T16:33:50.755Z",
-      "updated_at": "2025-10-27T17:50:17.861Z",
+      "updated_at": "2025-11-12T04:36:09.589Z",
       "monitoring_at": null,
       "resolved_at": "2025-10-27T17:50:17.836Z",
       "impact": "minor",
@@ -842,6 +842,19 @@
       "started_at": "2025-10-27T16:33:50.747Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "3cqntt75pzxg",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn Oct 27, 2025, between 2025-10-27 15:06 UTC and 2025-10-27 17:14 UTC, some Atlassian customers using work item view in Jira and JSM could not access the page and received a \"Something went wrong\" error message. The issue was caused by a code error in a product update utilising a fast rollout process.\n\nThe incident was detected within 8 minutes of the update rollout via automated monitoring and was mitigated by reverting the code change, which put Atlassian systems into a known good state. The total time to resolution was 2 hours and 8 minutes.\n\n### **IMPACT**\n\nThe overall impact was between 2025-10-27 15:06 UTC and 2025-10-27 17:14 UTC on work item view for a subset of users. During this period, affected users experienced full degradation of the page, with a \"Something went wrong\" error message.\n\n### **ROOT CAUSE**\n\nThe issue was caused by a code error in a product update that was intended to introduce additional monitoring to track any partial failure to the page requests. The faulty code resulted in the page not rendering, instead of displaying empty data fields, due to partial failures; that, along with the fast rollout process, led to an increased impact.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. While we have several testing and preventative processes in place, this specific issue wasn’t identified because the associated change was related to a very specific kind of legacy case that could not be detected by our automated continuous deployment suites and manual test scripts.\n\nWe are prioritizing the following improvement actions to avoid this type of incident from occurring in the future:\n\n* Additional testing controls during the code development process.\n* Enhanced monitoring to detect regressions earlier during a release.\n* Improvements to deployment automations to reduce the risk of similar incidents in the future.\n\nWe apologize to customers whose services were impacted during this incident.\n\n  \nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "pb23xhx755dt",
+          "created_at": "2025-11-12T04:35:16.443Z",
+          "updated_at": "2025-11-12T04:36:09.586Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "8kcgzgd0sv2n",
           "status": "resolved",
