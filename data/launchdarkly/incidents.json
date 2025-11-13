@@ -4,9 +4,83 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2025-11-13T03:55:52.183-08:00"
+    "updated_at": "2025-11-13T13:49:35.357-08:00"
   },
   "incidents": [
+    {
+      "id": "pyfjdbh4jl3f",
+      "name": "Investigating elevated latency",
+      "status": "investigating",
+      "created_at": "2025-11-13T13:49:34.636-08:00",
+      "updated_at": "2025-11-13T13:49:35.350-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/lrg28v7m8tbn",
+      "started_at": "2025-11-13T13:49:34.622-08:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "mky80zkhjstp",
+          "status": "investigating",
+          "body": "We detected elevated latencies loading the flag list and AI configs list pages. The flag list’s performance has recovered, and we continue to investigate remediation on the AI configs list page.",
+          "incident_id": "pyfjdbh4jl3f",
+          "created_at": "2025-11-13T13:49:34.766-08:00",
+          "updated_at": "2025-11-13T13:49:35.344-08:00",
+          "display_at": "2025-11-13T13:49:34.766-08:00",
+          "affected_components": [
+            {
+              "code": "s57hhrpqqwk1",
+              "name": "Global (core functionality) - Web app (app.launchdarkly.com)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "gvntrywbr2h3",
+              "name": "AI Configs (non-core functionality) - AI Config management",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1989088276205240418
+        }
+      ],
+      "components": [
+        {
+          "id": "gvntrywbr2h3",
+          "name": "AI Config management",
+          "status": "degraded_performance",
+          "created_at": "2025-05-14T11:58:29.513-07:00",
+          "updated_at": "2025-11-13T13:49:34.686-08:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2025-05-14",
+          "group_id": "hhd9mc43rhcp",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "s57hhrpqqwk1",
+          "name": "Web app (app.launchdarkly.com)",
+          "status": "degraded_performance",
+          "created_at": "2023-07-07T11:07:04.790-07:00",
+          "updated_at": "2025-11-13T13:49:34.711-08:00",
+          "position": 3,
+          "description": "The website app.launchdarkly.com",
+          "showcase": true,
+          "start_date": "2023-07-07",
+          "group_id": "17840mm6444k",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "d6j66j022g2s",
       "name": "Elevated error rates for a small number of customers",
@@ -268,9 +342,9 @@
         {
           "id": "gvntrywbr2h3",
           "name": "AI Config management",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2025-05-14T11:58:29.513-07:00",
-          "updated_at": "2025-11-03T10:22:53.702-08:00",
+          "updated_at": "2025-11-13T13:49:34.686-08:00",
           "position": 1,
           "description": null,
           "showcase": false,
@@ -3483,9 +3557,9 @@
         {
           "id": "s57hhrpqqwk1",
           "name": "Web app (app.launchdarkly.com)",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-07-07T11:07:04.790-07:00",
-          "updated_at": "2025-10-24T16:48:42.280-07:00",
+          "updated_at": "2025-11-13T13:49:34.711-08:00",
           "position": 3,
           "description": "The website app.launchdarkly.com",
           "showcase": true,
@@ -4882,9 +4956,9 @@
         {
           "id": "s57hhrpqqwk1",
           "name": "Web app (app.launchdarkly.com)",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-07-07T11:07:04.790-07:00",
-          "updated_at": "2025-10-24T16:48:42.280-07:00",
+          "updated_at": "2025-11-13T13:49:34.711-08:00",
           "position": 3,
           "description": "The website app.launchdarkly.com",
           "showcase": true,
@@ -7174,132 +7248,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "2868qx437p9m",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "dvjwd29x99x6",
-      "name": "Guarded rollouts and progressive rollouts are experiencing elevated errors",
-      "status": "resolved",
-      "created_at": "2025-05-05T11:42:24.702-07:00",
-      "updated_at": "2025-05-05T12:33:56.143-07:00",
-      "monitoring_at": "2025-05-05T11:51:58.311-07:00",
-      "resolved_at": "2025-05-05T12:33:55.816-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/qpclbt15nwjm",
-      "started_at": "2025-05-05T11:42:24.688-07:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "nhcqnn19c3zp",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "dvjwd29x99x6",
-          "created_at": "2025-05-05T12:33:55.816-07:00",
-          "updated_at": "2025-05-05T12:33:56.137-07:00",
-          "display_at": "2025-05-05T12:33:55.816-07:00",
-          "affected_components": [
-            {
-              "code": "2xhvx01jmqrw",
-              "name": "Feature management (core functionality) - Progressive rollouts",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "02b3z1h4j5cl",
-              "name": "Guarded Rollouts (Core Functionality) - Rollout management",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1919475667785449521
-        },
-        {
-          "id": "z9py7n3tm645",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "dvjwd29x99x6",
-          "created_at": "2025-05-05T11:51:58.311-07:00",
-          "updated_at": "2025-05-05T11:51:58.311-07:00",
-          "display_at": "2025-05-05T11:51:58.311-07:00",
-          "affected_components": [
-            {
-              "code": "2xhvx01jmqrw",
-              "name": "Feature management (core functionality) - Progressive rollouts",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "02b3z1h4j5cl",
-              "name": "Guarded Rollouts (Core Functionality) - Rollout management",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2mg9hg9zc9mp",
-          "status": "identified",
-          "body": "We are currently seeing elevated errors when creating guarded and progressive rollouts. Ongoing rollouts are not impacted.",
-          "incident_id": "dvjwd29x99x6",
-          "created_at": "2025-05-05T11:42:24.835-07:00",
-          "updated_at": "2025-05-05T11:42:25.321-07:00",
-          "display_at": "2025-05-05T11:42:24.835-07:00",
-          "affected_components": [
-            {
-              "code": "2xhvx01jmqrw",
-              "name": "Feature management (core functionality) - Progressive rollouts",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "02b3z1h4j5cl",
-              "name": "Guarded Rollouts (Core Functionality) - Rollout management",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1919462704064168293
-        }
-      ],
-      "components": [
-        {
-          "id": "02b3z1h4j5cl",
-          "name": "Rollout management",
-          "status": "operational",
-          "created_at": "2025-03-26T10:09:16.261-07:00",
-          "updated_at": "2025-10-24T16:45:00.210-07:00",
-          "position": 1,
-          "description": "Coordinate and oversee feature rollouts across multiple environments",
-          "showcase": true,
-          "start_date": "2025-03-26",
-          "group_id": "d3hpvmdzv2tk",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "2xhvx01jmqrw",
-          "name": "Progressive rollouts",
-          "status": "operational",
-          "created_at": "2025-03-26T10:02:50.370-07:00",
-          "updated_at": "2025-10-24T16:34:19.458-07:00",
-          "position": 4,
-          "description": "Gradually release features to minimize risk and enhance control",
-          "showcase": true,
-          "start_date": "2025-03-26",
-          "group_id": "j4z3sqx09pkg",
           "page_id": "9404kdk7lkn7",
           "group": false,
           "only_show_if_degraded": false
