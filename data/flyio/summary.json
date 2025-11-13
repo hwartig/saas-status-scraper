@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-13T11:55:56.949Z"
+    "updated_at": "2025-11-13T16:59:38.355Z"
   },
   "components": [
     {
@@ -220,7 +220,7 @@
     {
       "id": "mrcyzlkkw8z9",
       "name": "Regional Availability",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T19:19:04.424Z",
       "updated_at": "2024-07-24T19:09:19.587Z",
       "position": 4,
@@ -332,9 +332,9 @@
     {
       "id": "k6fbt4mk0xv1",
       "name": "BOM - Mumbai, India",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-06-09T13:32:39.446Z",
-      "updated_at": "2025-11-07T23:20:25.018Z",
+      "updated_at": "2025-11-13T16:59:38.296Z",
       "position": 5,
       "description": null,
       "showcase": false,
@@ -1071,7 +1071,61 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "qhmcmkf1gcb6",
+      "name": "Static egress IPv6 issues in BOM",
+      "status": "identified",
+      "created_at": "2025-11-13T16:59:38.264Z",
+      "updated_at": "2025-11-13T16:59:38.352Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/1cqhr1477x9d",
+      "started_at": "2025-11-13T16:59:38.257Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "wcyx0zbkyb0j",
+          "status": "identified",
+          "body": "We have identified an upstream issue that prevented static egress IPv6 addresses in BOM from reaching parts of the Internet and are currently working with upstreams for a fix. Machines without a static egress IPv6 address are not affected. For affected machines, consider forcing IPv4 for outbound connectivity or de-allocating the egress IP if not needed via `fly m egress-ip release`.",
+          "incident_id": "qhmcmkf1gcb6",
+          "created_at": "2025-11-13T16:59:38.350Z",
+          "updated_at": "2025-11-13T16:59:38.350Z",
+          "display_at": "2025-11-13T16:59:38.350Z",
+          "affected_components": [
+            {
+              "code": "k6fbt4mk0xv1",
+              "name": "Regional Availability - BOM - Mumbai, India",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "k6fbt4mk0xv1",
+          "name": "BOM - Mumbai, India",
+          "status": "degraded_performance",
+          "created_at": "2023-06-09T13:32:39.446Z",
+          "updated_at": "2025-11-13T16:59:38.296Z",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-06-07",
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "93kykwxdc7b1",
@@ -1129,7 +1183,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }

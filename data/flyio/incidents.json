@@ -4,9 +4,62 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-13T11:55:56.949Z"
+    "updated_at": "2025-11-13T16:59:38.355Z"
   },
   "incidents": [
+    {
+      "id": "qhmcmkf1gcb6",
+      "name": "Static egress IPv6 issues in BOM",
+      "status": "identified",
+      "created_at": "2025-11-13T16:59:38.264Z",
+      "updated_at": "2025-11-13T16:59:38.352Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/1cqhr1477x9d",
+      "started_at": "2025-11-13T16:59:38.257Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "wcyx0zbkyb0j",
+          "status": "identified",
+          "body": "We have identified an upstream issue that prevented static egress IPv6 addresses in BOM from reaching parts of the Internet and are currently working with upstreams for a fix. Machines without a static egress IPv6 address are not affected. For affected machines, consider forcing IPv4 for outbound connectivity or de-allocating the egress IP if not needed via `fly m egress-ip release`.",
+          "incident_id": "qhmcmkf1gcb6",
+          "created_at": "2025-11-13T16:59:38.350Z",
+          "updated_at": "2025-11-13T16:59:38.350Z",
+          "display_at": "2025-11-13T16:59:38.350Z",
+          "affected_components": [
+            {
+              "code": "k6fbt4mk0xv1",
+              "name": "Regional Availability - BOM - Mumbai, India",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "k6fbt4mk0xv1",
+          "name": "BOM - Mumbai, India",
+          "status": "degraded_performance",
+          "created_at": "2023-06-09T13:32:39.446Z",
+          "updated_at": "2025-11-13T16:59:38.296Z",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-06-07",
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "qghj8t2lcgqx",
       "name": "[MPG] Restores Failing",
@@ -493,9 +546,9 @@
         {
           "id": "k6fbt4mk0xv1",
           "name": "BOM - Mumbai, India",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-06-09T13:32:39.446Z",
-          "updated_at": "2025-11-07T23:20:25.018Z",
+          "updated_at": "2025-11-13T16:59:38.296Z",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -2943,9 +2996,9 @@
         {
           "id": "k6fbt4mk0xv1",
           "name": "BOM - Mumbai, India",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-06-09T13:32:39.446Z",
-          "updated_at": "2025-11-07T23:20:25.018Z",
+          "updated_at": "2025-11-13T16:59:38.296Z",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -4125,9 +4178,9 @@
         {
           "id": "k6fbt4mk0xv1",
           "name": "BOM - Mumbai, India",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-06-09T13:32:39.446Z",
-          "updated_at": "2025-11-07T23:20:25.018Z",
+          "updated_at": "2025-11-13T16:59:38.296Z",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -4218,9 +4271,9 @@
         {
           "id": "k6fbt4mk0xv1",
           "name": "BOM - Mumbai, India",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-06-09T13:32:39.446Z",
-          "updated_at": "2025-11-07T23:20:25.018Z",
+          "updated_at": "2025-11-13T16:59:38.296Z",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -4407,9 +4460,9 @@
         {
           "id": "k6fbt4mk0xv1",
           "name": "BOM - Mumbai, India",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-06-09T13:32:39.446Z",
-          "updated_at": "2025-11-07T23:20:25.018Z",
+          "updated_at": "2025-11-13T16:59:38.296Z",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -5556,99 +5609,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "d77986s1fjnb",
-      "name": "Intermittent networking issues in IAD",
-      "status": "resolved",
-      "created_at": "2025-09-06T10:55:36.498Z",
-      "updated_at": "2025-09-06T11:13:12.615Z",
-      "monitoring_at": "2025-09-06T11:07:08.219Z",
-      "resolved_at": "2025-09-06T11:13:12.598Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/5sdl6sdcmlgh",
-      "started_at": "2025-09-06T10:55:36.490Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "gt62xpw01mmy",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "d77986s1fjnb",
-          "created_at": "2025-09-06T11:13:12.598Z",
-          "updated_at": "2025-09-06T11:13:12.598Z",
-          "display_at": "2025-09-06T11:13:12.598Z",
-          "affected_components": [
-            {
-              "code": "qyh8qlklk7mx",
-              "name": "Regional Availability - IAD - Ashburn, Virginia (US)",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gy4j5859z753",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results",
-          "incident_id": "d77986s1fjnb",
-          "created_at": "2025-09-06T11:07:08.219Z",
-          "updated_at": "2025-09-06T11:07:08.219Z",
-          "display_at": "2025-09-06T11:07:08.219Z",
-          "affected_components": [
-            {
-              "code": "qyh8qlklk7mx",
-              "name": "Regional Availability - IAD - Ashburn, Virginia (US)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bc1kc3mlp8rq",
-          "status": "investigating",
-          "body": "We are seeing intermittent networking issues on some nodes in IAD",
-          "incident_id": "d77986s1fjnb",
-          "created_at": "2025-09-06T10:55:36.581Z",
-          "updated_at": "2025-09-06T10:55:36.581Z",
-          "display_at": "2025-09-06T10:55:36.581Z",
-          "affected_components": [
-            {
-              "code": "qyh8qlklk7mx",
-              "name": "Regional Availability - IAD - Ashburn, Virginia (US)",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "qyh8qlklk7mx",
-          "name": "IAD - Ashburn, Virginia (US)",
-          "status": "operational",
-          "created_at": "2019-07-01T19:28:38.853Z",
-          "updated_at": "2025-10-21T15:46:12.815Z",
-          "position": 16,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "mrcyzlkkw8z9",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
