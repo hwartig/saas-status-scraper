@@ -4,9 +4,62 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-17T23:20:44.151Z"
+    "updated_at": "2025-11-17T23:38:44.003Z"
   },
   "incidents": [
+    {
+      "id": "w8w1044ndps9",
+      "name": "Delay for Digital Experience Monitoring (DEX) tests results ingestion",
+      "status": "investigating",
+      "created_at": "2025-11-17T23:36:49.789Z",
+      "updated_at": "2025-11-17T23:36:49.905Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/2z42cltqr6sq",
+      "started_at": "2025-11-17T23:36:49.780Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "mj2686x8jfnk",
+          "status": "investigating",
+          "body": "DEX is currently experiencing consumption lag for a subset of synthetic test results. Scheduled tests will continue to run but results may not be available until lag has caught up. Customers who have alerts configured for synthetic tests may receive some notifications at this time. Most customers are not affected.",
+          "incident_id": "w8w1044ndps9",
+          "created_at": "2025-11-17T23:36:49.901Z",
+          "updated_at": "2025-11-17T23:36:49.901Z",
+          "display_at": "2025-11-17T23:36:49.901Z",
+          "affected_components": [
+            {
+              "code": "nmp96vgn1hpl",
+              "name": "Cloudflare Sites and Services - Digital Experience Monitoring (DEX)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "nmp96vgn1hpl",
+          "name": "Digital Experience Monitoring (DEX)",
+          "status": "degraded_performance",
+          "created_at": "2023-03-23T09:33:12.310Z",
+          "updated_at": "2025-11-17T23:36:49.836Z",
+          "position": 37,
+          "description": "Digital Experience Monitoring (DEX) enables Zero Trust administrators to pinpoint and resolve issues impacting end-user connectivity and performance.",
+          "showcase": false,
+          "start_date": "2023-03-23",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "ygk8q7rzt4rg",
       "name": "Workers AI: @cf/meta/llama-3.3-70b-instruct-sd high error rate",
@@ -7428,9 +7481,9 @@
         {
           "id": "vl0s9mnn4gfb",
           "name": "Hanoi, Vietnam - (HAN)",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2018-12-18T06:51:18.979Z",
-          "updated_at": "2025-11-17T21:07:56.249Z",
+          "updated_at": "2025-11-17T23:31:38.450Z",
           "position": 22,
           "description": null,
           "showcase": false,
@@ -8943,99 +8996,6 @@
           "description": null,
           "showcase": false,
           "start_date": "2023-01-13",
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "w0khksxd68fn",
-      "name": "Issues with Digital Experience Monitoring (DEX) Remote Commands",
-      "status": "resolved",
-      "created_at": "2025-11-05T13:43:59.948Z",
-      "updated_at": "2025-11-05T14:31:00.312Z",
-      "monitoring_at": "2025-11-05T14:10:51.531Z",
-      "resolved_at": "2025-11-05T14:31:00.285Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/y92khrdxsb93",
-      "started_at": "2025-11-05T13:43:59.940Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "hcc2bfndktjz",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "w0khksxd68fn",
-          "created_at": "2025-11-05T14:31:00.285Z",
-          "updated_at": "2025-11-05T14:31:00.285Z",
-          "display_at": "2025-11-05T14:31:00.285Z",
-          "affected_components": [
-            {
-              "code": "nmp96vgn1hpl",
-              "name": "Cloudflare Sites and Services - Digital Experience Monitoring (DEX)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "yf60qgm2nyrr",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "w0khksxd68fn",
-          "created_at": "2025-11-05T14:10:51.531Z",
-          "updated_at": "2025-11-05T14:10:51.531Z",
-          "display_at": "2025-11-05T14:10:51.531Z",
-          "affected_components": [
-            {
-              "code": "nmp96vgn1hpl",
-              "name": "Cloudflare Sites and Services - Digital Experience Monitoring (DEX)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vw7jr88p60y2",
-          "status": "investigating",
-          "body": "We have identified an issue causing intermittent failures for remote diagnostic commands (including warp-diag and packet captures) run from the Digital Experience Monitoring (DEX) dashboard.\n\nWe are currently investigating the cause of this issue and will provide an update on our progress shortly.",
-          "incident_id": "w0khksxd68fn",
-          "created_at": "2025-11-05T13:44:00.012Z",
-          "updated_at": "2025-11-05T13:44:00.012Z",
-          "display_at": "2025-11-05T13:44:00.012Z",
-          "affected_components": [
-            {
-              "code": "nmp96vgn1hpl",
-              "name": "Cloudflare Sites and Services - Digital Experience Monitoring (DEX)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "nmp96vgn1hpl",
-          "name": "Digital Experience Monitoring (DEX)",
-          "status": "operational",
-          "created_at": "2023-03-23T09:33:12.310Z",
-          "updated_at": "2025-10-21T15:13:13.190Z",
-          "position": 37,
-          "description": "Digital Experience Monitoring (DEX) enables Zero Trust administrators to pinpoint and resolve issues impacting end-user connectivity and performance.",
-          "showcase": false,
-          "start_date": "2023-03-23",
           "group_id": "1km35smx8p41",
           "page_id": "yh6f0r4529hb",
           "group": false,
