@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-17T13:51:01.788Z"
+    "updated_at": "2025-11-17T16:20:21.608Z"
   },
   "components": [
     {
@@ -85,9 +85,9 @@
     {
       "id": "0l5xn1l7qs8f",
       "name": "Machine Jobs",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-05-02T20:42:22.366Z",
-      "updated_at": "2025-10-27T15:24:22.686Z",
+      "updated_at": "2025-11-17T16:18:42.716Z",
       "position": 2,
       "description": "CircleCI jobs using the machine executor, and jobs using the setup_remote_docker step.",
       "showcase": true,
@@ -636,10 +636,64 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "9h89qqmfh97n",
+      "name": "Machine and Remote Docker jobs are delayed",
+      "status": "investigating",
+      "created_at": "2025-11-17T16:18:42.675Z",
+      "updated_at": "2025-11-17T16:18:45.163Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/sxmctstzkdx6",
+      "started_at": "2025-11-17T16:18:42.670Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "g458rgkmsvqy",
+          "status": "investigating",
+          "body": "We are investigating Machine and Remote Docker delays. We are working on resolving this as quickly as possible. All jobs will continue to run normally after the delay. Thank you for your patience.",
+          "incident_id": "9h89qqmfh97n",
+          "created_at": "2025-11-17T16:18:42.765Z",
+          "updated_at": "2025-11-17T16:18:44.960Z",
+          "display_at": "2025-11-17T16:18:42.765Z",
+          "affected_components": [
+            {
+              "code": "0l5xn1l7qs8f",
+              "name": "Machine Jobs",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1990454568770290087
+        }
+      ],
+      "components": [
+        {
+          "id": "0l5xn1l7qs8f",
+          "name": "Machine Jobs",
+          "status": "degraded_performance",
+          "created_at": "2019-05-02T20:42:22.366Z",
+          "updated_at": "2025-11-17T16:18:42.716Z",
+          "position": 2,
+          "description": "CircleCI jobs using the machine executor, and jobs using the setup_remote_docker step.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
