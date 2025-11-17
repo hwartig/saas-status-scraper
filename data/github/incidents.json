@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-17T22:16:07.376Z"
+    "updated_at": "2025-11-17T23:01:13.714Z"
   },
   "incidents": [
+    {
+      "id": "ql19qqqmdf99",
+      "name": "Disruption with some GitHub services",
+      "status": "investigating",
+      "created_at": "2025-11-17T23:01:06.613Z",
+      "updated_at": "2025-11-17T23:01:13.705Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/x4mn2m8t1ssf",
+      "started_at": "2025-11-17T23:01:06.606Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "5kfyf2509c3b",
+          "status": "investigating",
+          "body": "We are investigating reports of 404s creating gists.",
+          "incident_id": "ql19qqqmdf99",
+          "created_at": "2025-11-17T23:01:13.702Z",
+          "updated_at": "2025-11-17T23:01:13.702Z",
+          "display_at": "2025-11-17T23:01:13.702Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "8dqfp82936f1",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "ql19qqqmdf99",
+          "created_at": "2025-11-17T23:01:06.649Z",
+          "updated_at": "2025-11-17T23:01:06.649Z",
+          "display_at": "2025-11-17T23:01:06.649Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "3bmqzkljz8s3",
       "name": "Disruption with some GitHub services",
@@ -6765,159 +6808,6 @@
           "updated_at": "2025-10-09T15:39:04.309Z",
           "position": 5,
           "description": "Requests for Issues on GitHub.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "c7kq3ctclddp",
-      "name": "Incident with Actions",
-      "status": "resolved",
-      "created_at": "2025-08-21T15:54:34.791Z",
-      "updated_at": "2025-08-26T12:44:42.785Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-08-21T18:13:02.522Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/w29xpxytjyk5",
-      "started_at": "2025-08-21T15:54:34.783Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "1blzqvqhlpnw",
-          "status": "resolved",
-          "body": "On August 21, 2025, from approximately 15:37 UTC to 18:10 UTC, customers experienced increased delays and failures when starting jobs on GitHub Actions using standard hosted runners. This was caused by connectivity issues in our East US region, which prevented runners from retrieving jobs and sending progress updates. As a result, capacity was significantly reduced, especially for busier configurations, leading to queuing and service interruptions. Approximately 8.05% of jobs on public standard Ubuntu24 runners and 3.4% of jobs on private standard Ubuntu24 runners did not start as expected.<br /><br />By 18:10 UTC, we had mitigated the issue by provisioning additional resources in the affected region and burning down the backlog of queued runner assignments. By the end of that day, we deployed changes to improve runner connectivity resilience and graceful degradation in similar situations.  We are also taking further steps to improve system resiliency by enhancing observability of network connection health with runners and improving load distribution and failover handling to help prevent similar issues in the future.",
-          "incident_id": "c7kq3ctclddp",
-          "created_at": "2025-08-21T18:13:02.522Z",
-          "updated_at": "2025-08-26T12:44:42.782Z",
-          "display_at": "2025-08-21T18:13:02.522Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9jlwlkgzdbp1",
-          "status": "investigating",
-          "body": "We've applied a mitigation to fix the issues with queuing and running Actions jobs. We are seeing improvements in telemetry and are monitoring for full recovery.",
-          "incident_id": "c7kq3ctclddp",
-          "created_at": "2025-08-21T17:58:04.478Z",
-          "updated_at": "2025-08-21T17:58:04.478Z",
-          "display_at": "2025-08-21T17:58:04.478Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cgcs1w42nw9b",
-          "status": "investigating",
-          "body": "The team continues to investigate issues with some Actions jobs on Hosted Runners being queued for a long time and a percentage of jobs failing. We are increasing runner capacity and will continue providing updates on the progress towards mitigation.",
-          "incident_id": "c7kq3ctclddp",
-          "created_at": "2025-08-21T17:21:37.387Z",
-          "updated_at": "2025-08-21T17:21:37.387Z",
-          "display_at": "2025-08-21T17:21:37.387Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dwcx88hwsgz6",
-          "status": "investigating",
-          "body": "The team continues to investigate issues with some Actions jobs on Hosted Runners being queued for a long time and a percentage of jobs failing. We will continue providing updates on the progress towards mitigation.",
-          "incident_id": "c7kq3ctclddp",
-          "created_at": "2025-08-21T16:43:49.606Z",
-          "updated_at": "2025-08-21T16:43:49.606Z",
-          "display_at": "2025-08-21T16:43:49.606Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0vz1vv5rtk6l",
-          "status": "investigating",
-          "body": "We are investigating reports of slow queue times for Hosted Runners, leading to high wait times.",
-          "incident_id": "c7kq3ctclddp",
-          "created_at": "2025-08-21T16:05:31.842Z",
-          "updated_at": "2025-08-21T16:05:31.842Z",
-          "display_at": "2025-08-21T16:05:31.842Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l60rm14qvp0y",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Actions",
-          "incident_id": "c7kq3ctclddp",
-          "created_at": "2025-08-21T15:54:34.884Z",
-          "updated_at": "2025-08-21T15:54:34.884Z",
-          "display_at": "2025-08-21T15:54:34.884Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "br0l2tvcx85d",
-          "name": "Actions",
-          "status": "operational",
-          "created_at": "2019-11-13T18:02:19.432Z",
-          "updated_at": "2025-11-01T06:14:38.765Z",
-          "position": 7,
-          "description": "Workflows, Compute and Orchestration for GitHub Actions",
           "showcase": false,
           "start_date": null,
           "group_id": null,
