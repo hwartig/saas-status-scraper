@@ -4,7 +4,7 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-18T19:36:11.979Z"
+    "updated_at": "2025-11-18T20:10:21.412Z"
   },
   "incidents": [
     {
@@ -533,9 +533,9 @@
     {
       "id": "h255yv1rsq2d",
       "name": "Increased 404s in Oregon (Web Services) and Static Sites",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-11-05T19:19:57.382Z",
-      "updated_at": "2025-11-18T19:36:11.970Z",
+      "updated_at": "2025-11-18T20:10:21.404Z",
       "monitoring_at": "2025-11-05T19:58:14.061Z",
       "resolved_at": "2025-11-05T21:52:58.049Z",
       "impact": "major",
@@ -543,6 +543,19 @@
       "started_at": "2025-11-05T19:19:57.375Z",
       "page_id": "tyfhm2rrt1tl",
       "incident_updates": [
+        {
+          "id": "6f5tc05k7cdz",
+          "status": "postmortem",
+          "body": "# Summary\n\nAs an infrastructure provider, providing a reliable platform that allows our customers to build and scale their applications with confidence is our highest obligation. We invest heavily to ensure our platform is highly reliable and secure, including in our routing layer that handles billions of HTTP requests every day.\n\nOn November 5, 2025, we inadvertently rolled back a performance improvement that was gated behind a feature flag. This led to disruption in the form of intermittent 404s for some web services and static sites deployed to the Oregon region.\n\nWe have fully identified the sequence of events that led to this outage and are in the process of taking steps to prevent it from recurring.\n\n# Impact\n\nThere were two periods where some customers hosting web services and static sites in the Oregon region experienced a partial outage with intermittent 404s. The first period occurred between 10:39 AM PST and 11:25 AM PST . At this time, two Render clusters had slightly degraded service. One cluster returned a negligible number of 404 responses, and the other cluster returned 404 responses for approximately 10% of requests.\n\nThe second period occurred between 11:59 AM PST to 12:34 AM PST and saw more significant service degradation. During this period, about 50% of all requests to services in the affected cluster received a 404 response.\n\nAll newly created services in these clusters were affected and received 404 responses during the incident. Updates to existing services were also slow to propagate. Free tier services that were recently deployed or waking from sleep were also affected.\n\n# Root Cause\n\nRender's routing service depends on a metadata service to receive information about the user services it routes traffic to. When the routing service first starts and upon occasional reconnection, it will request and receive a large volume of data from the metadata service.\n\nEarlier in 2025, we successfully deployed a memory optimization related to data transfer between the metadata and routing services using a feature flag. In late October, we removed the flag from code and redeployed, but we didn't redeploy the metadata service, which still depended on the flag.\n\nOn November 5th, we cleaned up unreferenced feature flags from our system. This caused the metadata service to revert to its less efficient data transfer method, leading to memory exhaustion and crashes.\n\nOur routing service is designed to handle metadata service outages and continue serving traffic based on its last known state. However, newly created instances that could not load their initial state were incorrectly sent requests, resulting in 404 errors.\n\nDuring the first period of impact, the metadata service was crashing in two of our clusters, and only a small fraction of routing service instances were impacted.\n\nDuring the second period of impact, we saw a large increase in HTTP requests for services in the affected cluster. This triggered scale-ups of the routing service, all of which returned 404 errors.\n\n# Mitigations\n\n## Completed\n\n* Increased memory available to the metadata service \\(this has since been reverted\\)\n* Temporarily re-enabled the feature flag to support more efficient data transfer between the routing and metadata services \\(this has since been removed\\)\n* Deployed the metadata service to no longer rely on the feature flag\n* Enhanced our monitoring of the metadata service to alert us of this particular failure mode\n\n## Planned\n\n* Improve our feature flag hygiene practice to prevent the removal of a feature flag while it is still being evaluated\n* Prevent the routing service from receiving traffic if it never successfully loaded state from the metadata service",
+          "incident_id": "h255yv1rsq2d",
+          "created_at": "2025-11-18T18:48:55.724Z",
+          "updated_at": "2025-11-18T20:10:21.399Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our November 5th incident: https://stspg.io/91fx5kh60n1s",
+          "tweet_id": null
+        },
         {
           "id": "m4jj71tpydwr",
           "status": "resolved",
