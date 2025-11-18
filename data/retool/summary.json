@@ -4,7 +4,7 @@
     "name": "Retool",
     "url": "https://status.retool.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-18T18:21:19.378Z"
+    "updated_at": "2025-11-18T21:36:55.756Z"
   },
   "components": [
     {
@@ -130,9 +130,9 @@
     {
       "id": "j1t5hjnbhs91",
       "name": "Source Control",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-06-21T19:43:41.680Z",
-      "updated_at": "2025-11-18T14:46:37.821Z",
+      "updated_at": "2025-11-18T21:36:55.709Z",
       "position": 9,
       "description": "Source Control allows organizations to manage changes using source control management providers, such as GitHub, GitLab, AWS CodeCommit, Bitbucket, and Azure Repos. Provider outages can cause temporary Retool source control outages.",
       "showcase": true,
@@ -173,10 +173,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "phtljz0ls05v",
+      "name": "Source Control Temporarily Impacted (GitHub Users)",
+      "status": "monitoring",
+      "created_at": "2025-11-18T21:36:40.480Z",
+      "updated_at": "2025-11-18T21:36:55.746Z",
+      "monitoring_at": "2025-11-18T21:36:40.558Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/m8dv71tg89c3",
+      "started_at": "2025-11-18T21:36:40.474Z",
+      "page_id": "0qnsgqt7vsht",
+      "incident_updates": [
+        {
+          "id": "v0zr27g0xqjm",
+          "status": "monitoring",
+          "body": "We are continuing to monitor for any further issues.",
+          "incident_id": "phtljz0ls05v",
+          "created_at": "2025-11-18T21:36:55.743Z",
+          "updated_at": "2025-11-18T21:36:55.743Z",
+          "display_at": "2025-11-18T21:36:55.743Z",
+          "affected_components": [
+            {
+              "code": "j1t5hjnbhs91",
+              "name": "Source Control",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "z8wnjry0gydp",
+          "status": "monitoring",
+          "body": "GitHub is currently experiencing service issues that may affect Retool users who use GitHub as their source control provider.",
+          "incident_id": "phtljz0ls05v",
+          "created_at": "2025-11-18T21:36:40.558Z",
+          "updated_at": "2025-11-18T21:36:40.558Z",
+          "display_at": "2025-11-18T21:36:40.558Z",
+          "affected_components": [
+            {
+              "code": "j1t5hjnbhs91",
+              "name": "Source Control",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "j1t5hjnbhs91",
+          "name": "Source Control",
+          "status": "degraded_performance",
+          "created_at": "2024-06-21T19:43:41.680Z",
+          "updated_at": "2025-11-18T21:36:55.709Z",
+          "position": 9,
+          "description": "Source Control allows organizations to manage changes using source control management providers, such as GitHub, GitLab, AWS CodeCommit, Bitbucket, and Azure Repos. Provider outages can cause temporary Retool source control outages.",
+          "showcase": true,
+          "start_date": "2024-06-21",
+          "group_id": null,
+          "page_id": "0qnsgqt7vsht",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
