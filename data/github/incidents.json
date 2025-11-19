@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-19T16:39:55.338Z"
+    "updated_at": "2025-11-19T17:39:58.015Z"
   },
   "incidents": [
     {
@@ -55,7 +55,7 @@
       "name": "Git operation failures",
       "status": "resolved",
       "created_at": "2025-11-18T20:39:46.416Z",
-      "updated_at": "2025-11-18T21:59:21.183Z",
+      "updated_at": "2025-11-19T17:39:58.003Z",
       "monitoring_at": null,
       "resolved_at": "2025-11-18T21:59:21.165Z",
       "impact": "major",
@@ -66,10 +66,10 @@
         {
           "id": "ns10r79x61t4",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "From Nov 18, 2025 20:30 UTC to Nov 18, 2025 21:34 UTC we experienced failures on all Git operations, including both SSH and HTTP Git client interactions, as well as raw file access. These failures also impacted products that rely on Git operations.<br /><br />The root cause was an expired TLS certificate used for internal service-to-service communication. We mitigated the incident by replacing the expired certificate and restarting impacted services. Once those services were restarted we saw a full recovery.<br /><br />We have updated our alerting to cover the expired certificate and are performing an audit of other certificates in this area to ensure they also have the proper alerting and automation before expiration. In parallel, we are accelerating efforts to eliminate our remaining manually managed certificates, ensuring all service-to-service communication is fully automated and aligned with modern security practices.",
           "incident_id": "5q7nmlxz30sk",
           "created_at": "2025-11-18T21:59:21.165Z",
-          "updated_at": "2025-11-18T21:59:21.165Z",
+          "updated_at": "2025-11-19T17:39:57.997Z",
           "display_at": "2025-11-18T21:59:21.165Z",
           "affected_components": [
             {
