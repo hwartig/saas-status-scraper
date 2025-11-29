@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-29T17:20:54.466Z"
+    "updated_at": "2025-11-29T17:32:15.109Z"
   },
   "components": [
     {
@@ -70,9 +70,9 @@
     {
       "id": "15knchzwl5np",
       "name": "Customer Applications",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-07-24T19:09:04.958Z",
-      "updated_at": "2025-10-08T16:42:48.392Z",
+      "updated_at": "2025-11-29T17:32:15.063Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -818,16 +818,36 @@
     {
       "id": "5tq8dhvz8w01",
       "name": "General Network Issues with IPv6",
-      "status": "investigating",
+      "status": "identified",
       "created_at": "2025-11-29T17:20:54.417Z",
-      "updated_at": "2025-11-29T17:20:54.463Z",
+      "updated_at": "2025-11-29T17:32:15.102Z",
       "monitoring_at": null,
       "resolved_at": null,
-      "impact": "none",
+      "impact": "minor",
       "shortlink": "https://stspg.io/p2qfkb6z8xch",
       "started_at": "2025-11-29T17:20:54.410Z",
       "page_id": "65rccr4mbblw",
       "incident_updates": [
+        {
+          "id": "sjjzhthl298t",
+          "status": "identified",
+          "body": "We have identified an issue affecting newly-allocated Anycast ingress IPv6 addresses for some apps and are working to deploy a fix. These apps may experience timeouts when connecting over IPv6 (which some clients default to).",
+          "incident_id": "5tq8dhvz8w01",
+          "created_at": "2025-11-29T17:32:15.100Z",
+          "updated_at": "2025-11-29T17:32:15.100Z",
+          "display_at": "2025-11-29T17:32:15.100Z",
+          "affected_components": [
+            {
+              "code": "15knchzwl5np",
+              "name": "Customer Applications",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "djjvqm5l927n",
           "status": "investigating",
@@ -842,13 +862,29 @@
           "tweet_id": null
         }
       ],
-      "components": [],
+      "components": [
+        {
+          "id": "15knchzwl5np",
+          "name": "Customer Applications",
+          "status": "degraded_performance",
+          "created_at": "2024-07-24T19:09:04.958Z",
+          "updated_at": "2025-11-29T17:32:15.063Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-07-24",
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
       "reminder_intervals": null
     }
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
