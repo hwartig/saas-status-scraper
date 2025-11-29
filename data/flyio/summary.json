@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-11-29T01:17:07.254Z"
+    "updated_at": "2025-11-29T02:58:35.273Z"
   },
   "components": [
     {
@@ -85,9 +85,9 @@
     {
       "id": "q5hm9x2qx9l9",
       "name": "Management Plane - ORD",
-      "status": "partial_outage",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:28:07.965Z",
-      "updated_at": "2025-11-28T21:36:36.536Z",
+      "updated_at": "2025-11-29T02:58:35.079Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -160,9 +160,9 @@
     {
       "id": "nv3vps27z635",
       "name": "Management Plane - IAD",
-      "status": "partial_outage",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:31:42.559Z",
-      "updated_at": "2025-11-28T21:36:36.577Z",
+      "updated_at": "2025-11-29T02:58:35.104Z",
       "position": 2,
       "description": null,
       "showcase": true,
@@ -175,9 +175,9 @@
     {
       "id": "80ykv2p95qgy",
       "name": "Machines API",
-      "status": "partial_outage",
+      "status": "degraded_performance",
       "created_at": "2020-04-01T21:30:26.075Z",
-      "updated_at": "2025-11-28T22:17:04.103Z",
+      "updated_at": "2025-11-29T02:58:35.122Z",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -190,9 +190,9 @@
     {
       "id": "dz36cj1q2s1r",
       "name": "Management Plane - FRA",
-      "status": "partial_outage",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:31:59.019Z",
-      "updated_at": "2025-11-28T21:36:36.616Z",
+      "updated_at": "2025-11-29T02:58:35.146Z",
       "position": 3,
       "description": null,
       "showcase": true,
@@ -255,9 +255,9 @@
     {
       "id": "vnhk0y6jtn3q",
       "name": "Management Plane - GRU",
-      "status": "partial_outage",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:32:12.829Z",
-      "updated_at": "2025-11-28T21:36:36.637Z",
+      "updated_at": "2025-11-29T02:58:35.167Z",
       "position": 4,
       "description": null,
       "showcase": true,
@@ -300,9 +300,9 @@
     {
       "id": "rc5yp3480n5g",
       "name": "Management Plane - LAX",
-      "status": "partial_outage",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:32:27.155Z",
-      "updated_at": "2025-11-28T21:36:36.657Z",
+      "updated_at": "2025-11-29T02:58:35.188Z",
       "position": 5,
       "description": null,
       "showcase": true,
@@ -360,9 +360,9 @@
     {
       "id": "k2t9fbjfxj8r",
       "name": "Management Plane - SYD",
-      "status": "partial_outage",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:32:53.250Z",
-      "updated_at": "2025-11-28T21:36:36.696Z",
+      "updated_at": "2025-11-29T02:58:35.209Z",
       "position": 6,
       "description": null,
       "showcase": true,
@@ -673,7 +673,7 @@
     {
       "id": "h2hndffd5ysc",
       "name": "Managed Postgres",
-      "status": "partial_outage",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:28:07.922Z",
       "updated_at": "2025-03-24T09:28:07.922Z",
       "position": 19,
@@ -818,16 +818,152 @@
     {
       "id": "2c8mdf1b5wqs",
       "name": "Increased API Errors",
-      "status": "identified",
+      "status": "monitoring",
       "created_at": "2025-11-28T21:16:19.825Z",
-      "updated_at": "2025-11-29T01:17:07.245Z",
-      "monitoring_at": null,
+      "updated_at": "2025-11-29T02:58:35.270Z",
+      "monitoring_at": "2025-11-29T02:58:35.249Z",
       "resolved_at": null,
       "impact": "major",
       "shortlink": "https://stspg.io/vg16m4jqkj3q",
       "started_at": "2025-11-28T21:16:19.819Z",
       "page_id": "65rccr4mbblw",
       "incident_updates": [
+        {
+          "id": "mcjq1hcv32qt",
+          "status": "monitoring",
+          "body": "We have identified and implemented a fix for the root cause of this incident and are monitoring the results. Machines API should be seeing recovery.\n\nOn the Managed Postgres side, New MPG creates should be working. A small number of clusters remain degraded, or are experiencing connectivity issues. We are continuing to restore these as quickly as possible.",
+          "incident_id": "2c8mdf1b5wqs",
+          "created_at": "2025-11-29T02:58:35.249Z",
+          "updated_at": "2025-11-29T02:58:35.249Z",
+          "display_at": "2025-11-29T02:58:35.249Z",
+          "affected_components": [
+            {
+              "code": "66r6rhq3hn9n",
+              "name": "Dashboard",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "q5hm9x2qx9l9",
+              "name": "Managed Postgres - Management Plane - ORD",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "nv3vps27z635",
+              "name": "Managed Postgres - Management Plane - IAD",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "dz36cj1q2s1r",
+              "name": "Managed Postgres - Management Plane - FRA",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "vnhk0y6jtn3q",
+              "name": "Managed Postgres - Management Plane - GRU",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "rc5yp3480n5g",
+              "name": "Managed Postgres - Management Plane - LAX",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "k2t9fbjfxj8r",
+              "name": "Managed Postgres - Management Plane - SYD",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "4yd5pk35qrcl",
+          "status": "identified",
+          "body": "We are continuing to work on a fix for this issue. Users will still see elevated error rates creating new apps, machines, and MPG clusters, as well as other API operations. Users may also see newly created machines remaining in a `created` state for an extended period before starting.",
+          "incident_id": "2c8mdf1b5wqs",
+          "created_at": "2025-11-29T02:30:10.746Z",
+          "updated_at": "2025-11-29T02:30:10.746Z",
+          "display_at": "2025-11-29T02:30:10.746Z",
+          "affected_components": [
+            {
+              "code": "66r6rhq3hn9n",
+              "name": "Dashboard",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "q5hm9x2qx9l9",
+              "name": "Managed Postgres - Management Plane - ORD",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "nv3vps27z635",
+              "name": "Managed Postgres - Management Plane - IAD",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "dz36cj1q2s1r",
+              "name": "Managed Postgres - Management Plane - FRA",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "vnhk0y6jtn3q",
+              "name": "Managed Postgres - Management Plane - GRU",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "rc5yp3480n5g",
+              "name": "Managed Postgres - Management Plane - LAX",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "k2t9fbjfxj8r",
+              "name": "Managed Postgres - Management Plane - SYD",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "2fwzjfkzj3lk",
           "status": "identified",
@@ -1273,9 +1409,9 @@
         {
           "id": "q5hm9x2qx9l9",
           "name": "Management Plane - ORD",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2025-03-24T09:28:07.965Z",
-          "updated_at": "2025-11-28T21:36:36.536Z",
+          "updated_at": "2025-11-29T02:58:35.079Z",
           "position": 1,
           "description": null,
           "showcase": true,
@@ -1303,9 +1439,9 @@
         {
           "id": "nv3vps27z635",
           "name": "Management Plane - IAD",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2025-03-24T09:31:42.559Z",
-          "updated_at": "2025-11-28T21:36:36.577Z",
+          "updated_at": "2025-11-29T02:58:35.104Z",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -1318,9 +1454,9 @@
         {
           "id": "80ykv2p95qgy",
           "name": "Machines API",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2020-04-01T21:30:26.075Z",
-          "updated_at": "2025-11-28T22:17:04.103Z",
+          "updated_at": "2025-11-29T02:58:35.122Z",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -1333,9 +1469,9 @@
         {
           "id": "dz36cj1q2s1r",
           "name": "Management Plane - FRA",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2025-03-24T09:31:59.019Z",
-          "updated_at": "2025-11-28T21:36:36.616Z",
+          "updated_at": "2025-11-29T02:58:35.146Z",
           "position": 3,
           "description": null,
           "showcase": true,
@@ -1348,9 +1484,9 @@
         {
           "id": "vnhk0y6jtn3q",
           "name": "Management Plane - GRU",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2025-03-24T09:32:12.829Z",
-          "updated_at": "2025-11-28T21:36:36.637Z",
+          "updated_at": "2025-11-29T02:58:35.167Z",
           "position": 4,
           "description": null,
           "showcase": true,
@@ -1363,9 +1499,9 @@
         {
           "id": "rc5yp3480n5g",
           "name": "Management Plane - LAX",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2025-03-24T09:32:27.155Z",
-          "updated_at": "2025-11-28T21:36:36.657Z",
+          "updated_at": "2025-11-29T02:58:35.188Z",
           "position": 5,
           "description": null,
           "showcase": true,
@@ -1393,9 +1529,9 @@
         {
           "id": "k2t9fbjfxj8r",
           "name": "Management Plane - SYD",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2025-03-24T09:32:53.250Z",
-          "updated_at": "2025-11-28T21:36:36.696Z",
+          "updated_at": "2025-11-29T02:58:35.209Z",
           "position": 6,
           "description": null,
           "showcase": true,
@@ -1485,6 +1621,6 @@
   "scheduled_maintenances": [],
   "status": {
     "indicator": "minor",
-    "description": "Minor Service Outage"
+    "description": "Partially Degraded Service"
   }
 }
