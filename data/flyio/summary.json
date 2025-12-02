@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-12-02T16:41:50.406Z"
+    "updated_at": "2025-12-02T18:54:13.628Z"
   },
   "components": [
     {
@@ -330,9 +330,9 @@
     {
       "id": "49yq6v65b33l",
       "name": "Deployments",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-04-01T21:53:18.234Z",
-      "updated_at": "2025-11-28T21:54:07.817Z",
+      "updated_at": "2025-12-02T18:54:13.560Z",
       "position": 6,
       "description": "flyctl and GitHub Action app deployments",
       "showcase": false,
@@ -375,9 +375,9 @@
     {
       "id": "ffsz24mbcxfz",
       "name": "Remote Builds",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-04-01T21:34:45.495Z",
-      "updated_at": "2025-10-28T21:21:14.723Z",
+      "updated_at": "2025-12-02T18:54:13.582Z",
       "position": 7,
       "description": null,
       "showcase": false,
@@ -814,10 +814,85 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "x5mnskd6x3hx",
+      "name": "Depot docker builders are failing",
+      "status": "investigating",
+      "created_at": "2025-12-02T18:54:13.520Z",
+      "updated_at": "2025-12-02T18:54:13.624Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/czc7rftw913d",
+      "started_at": "2025-12-02T18:54:13.511Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "d5lrfj2c9myg",
+          "status": "investigating",
+          "body": "Deploys and image builds can fail in the \"Waiting for Depot builder\" step. We are investigating why Depot builders are not coming up, and have switched all builds to use Fly native builders temporarily. If you're still stuck in \"Waiting for Depot builder\", stop and restart your deploy, or use `fly deploy --depot=false`.",
+          "incident_id": "x5mnskd6x3hx",
+          "created_at": "2025-12-02T18:54:13.621Z",
+          "updated_at": "2025-12-02T18:54:13.621Z",
+          "display_at": "2025-12-02T18:54:13.621Z",
+          "affected_components": [
+            {
+              "code": "ffsz24mbcxfz",
+              "name": "Remote Builds",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "49yq6v65b33l",
+          "name": "Deployments",
+          "status": "degraded_performance",
+          "created_at": "2020-04-01T21:53:18.234Z",
+          "updated_at": "2025-12-02T18:54:13.560Z",
+          "position": 6,
+          "description": "flyctl and GitHub Action app deployments",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "ffsz24mbcxfz",
+          "name": "Remote Builds",
+          "status": "degraded_performance",
+          "created_at": "2020-04-01T21:34:45.495Z",
+          "updated_at": "2025-12-02T18:54:13.582Z",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
