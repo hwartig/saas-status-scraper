@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-12-04T16:04:26.224Z"
+    "updated_at": "2025-12-04T16:29:42.328Z"
   },
   "components": [
     {
@@ -115,9 +115,9 @@
     {
       "id": "bpfmy8wy8wq2",
       "name": "macOS Jobs",
-      "status": "partial_outage",
+      "status": "degraded_performance",
       "created_at": "2017-11-09T08:22:00.885Z",
-      "updated_at": "2025-12-04T16:04:20.834Z",
+      "updated_at": "2025-12-04T16:29:41.801Z",
       "position": 3,
       "description": "CircleCI jobs using the macos executor.",
       "showcase": true,
@@ -642,7 +642,7 @@
       "name": "MacOS jobs without a resource class set will not run",
       "status": "identified",
       "created_at": "2025-12-04T16:04:20.795Z",
-      "updated_at": "2025-12-04T16:04:26.214Z",
+      "updated_at": "2025-12-04T16:29:42.323Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -650,6 +650,26 @@
       "started_at": "2025-12-04T16:04:20.790Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "sdk121czw5g2",
+          "status": "identified",
+          "body": "We have mitigated the issue and MacOS jobs which do not have a resource class specified should run normally. Customers can rerun jobs which failed an they should now run normally without any modification to their config. Thank you for your patience whillst we resolved this.\n\nCustomers using M4 machine jobs may experience minor delays in jobs starting during this period as there are a large number of re-runs occurring.",
+          "incident_id": "gk9pcm1jz8s0",
+          "created_at": "2025-12-04T16:29:41.844Z",
+          "updated_at": "2025-12-04T16:29:42.318Z",
+          "display_at": "2025-12-04T16:29:41.844Z",
+          "affected_components": [
+            {
+              "code": "bpfmy8wy8wq2",
+              "name": "macOS Jobs",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 1996617920101900433
+        },
         {
           "id": "43djmvppj9z4",
           "status": "identified",
@@ -675,9 +695,9 @@
         {
           "id": "bpfmy8wy8wq2",
           "name": "macOS Jobs",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2025-12-04T16:04:20.834Z",
+          "updated_at": "2025-12-04T16:29:41.801Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
           "showcase": true,
@@ -694,6 +714,6 @@
   "scheduled_maintenances": [],
   "status": {
     "indicator": "minor",
-    "description": "Minor Service Outage"
+    "description": "Partially Degraded Service"
   }
 }
