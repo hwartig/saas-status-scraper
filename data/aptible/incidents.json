@@ -4,9 +4,62 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2025-12-05T05:36:24.703-05:00"
+    "updated_at": "2025-12-05T09:39:55.869-05:00"
   },
   "incidents": [
+    {
+      "id": "zn1s5n5rhts7",
+      "name": "CVE-2025-55182: React server component vulnerability",
+      "status": "investigating",
+      "created_at": "2025-12-05T09:39:55.817-05:00",
+      "updated_at": "2025-12-05T09:39:55.865-05:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/fgzksnqqdt6d",
+      "started_at": "2025-12-05T09:39:55.812-05:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "fqkn42x01mzs",
+          "status": "investigating",
+          "body": "We are aware of the recently disclosed critical vulnerability CVE-2025-55182 (https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components) affecting React Server Components, which could allow remote code execution under certain conditions. This vulnerability affects certain React 19.x and frameworks that implement React Server Components, including Next.js.\n\n*Aptible Platform Impact:*\nAptible has reviewed all infrastructure components that we manage and has confirmed that all are unaffected by this vulnerability.\n\n*Customer Application Impact:*\nIf you are running applications on Aptible that use React Server Components, you may be affected. We have seen active exploitation of this vulnerability, and we recommend upgrading to the patched versions immediately.\n\nSpecifically, applications using:\n- React 19.0.0, 19.1.0, 19.1.1, or 19.2.0 with react-server-dom-webpack, react-server-dom-turbopack, or react-server-dom-parcel\n- Next.js versions 14.3.0-canary.77 and all subsequent 14.3.x canary releases, 15.0.0, 15.0.1, 15.0.2, 15.0.3, 15.0.4, 15.1.0, 15.1.1, 15.1.2, 15.1.3, 15.1.4, 15.1.5, 15.1.6, 15.1.7, 15.1.8, 15.2.0, 15.2.1, 15.2.2, 15.2.3, 15.2.4, 15.2.5, 15.3.0, 15.3.1, 15.3.2, 15.3.3, 15.3.4, 15.3.5, 15.4.0, 15.4.1, 15.4.2, 15.4.3, 15.4.4, 15.4.5, 15.4.6, 15.4.7, 15.5.0, 15.5.1, 15.5.2, 15.5.3, 15.5.4, 15.5.5, 15.5.6, 15.6.0-canary.0 through 15.6.0-canary.57, 16.0.0, 16.0.1, 16.0.2, 16.0.3, 16.0.4, 16.0.5, 16.0.6\n- Other frameworks implementing React Server Components including Vite, Parcel, React Router, RedwoodSDK, Waku\n\n*Additional Resources:*\nReact Security Advisory: https://github.com/facebook/react/security/advisories/GHSA-fv66-9v8q-g76r\nNext.js Security Advisory: https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp\n\nWe will continue to update this incident page as more information becomes available.",
+          "incident_id": "zn1s5n5rhts7",
+          "created_at": "2025-12-05T09:39:55.863-05:00",
+          "updated_at": "2025-12-05T09:39:55.863-05:00",
+          "display_at": "2025-12-05T09:39:55.863-05:00",
+          "affected_components": [
+            {
+              "code": "3f2df1dmxn4b",
+              "name": "Aptible Deploy",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "3f2df1dmxn4b",
+          "name": "Aptible Deploy",
+          "status": "operational",
+          "created_at": "2017-07-25T12:40:40.556-04:00",
+          "updated_at": "2025-11-05T11:05:04.937-05:00",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "xdk19624144h",
       "name": "Platform API Performance Degradation",
@@ -3822,99 +3875,6 @@
           "showcase": true,
           "start_date": null,
           "group_id": null,
-          "page_id": "fmwgqnbnbc4r",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "rq1ztscg3qq4",
-      "name": "AWS us-east-2 power failure",
-      "status": "resolved",
-      "created_at": "2022-07-28T13:42:10.000-04:00",
-      "updated_at": "2022-07-28T14:46:30.271-04:00",
-      "monitoring_at": "2022-07-28T14:24:27.142-04:00",
-      "resolved_at": "2022-07-28T14:46:29.746-04:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/yb3p9rxfq3yy",
-      "started_at": "2022-07-28T13:42:10.000-04:00",
-      "page_id": "fmwgqnbnbc4r",
-      "incident_updates": [
-        {
-          "id": "m7l3dpxxy5q7",
-          "status": "resolved",
-          "body": "Everything appears to be operational at this time. Please open a ticket with support if you continue to experience issues in us-east-2.",
-          "incident_id": "rq1ztscg3qq4",
-          "created_at": "2022-07-28T14:46:29.746-04:00",
-          "updated_at": "2022-07-28T14:46:30.265-04:00",
-          "display_at": "2022-07-28T14:46:29.746-04:00",
-          "affected_components": [
-            {
-              "code": "mzdnq5j3s98p",
-              "name": "AWS EC2 - AWS EC2 (us-east-2 — Ohio)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1552727211181948928
-        },
-        {
-          "id": "2s0j2vk0pm9p",
-          "status": "monitoring",
-          "body": "It looks like AWS has recovered most services, and we are continuing to monitor operations in us-east-2 to ensure everything is working properly.",
-          "incident_id": "rq1ztscg3qq4",
-          "created_at": "2022-07-28T14:24:27.142-04:00",
-          "updated_at": "2022-07-28T14:24:28.135-04:00",
-          "display_at": "2022-07-28T14:24:27.142-04:00",
-          "affected_components": [
-            {
-              "code": "mzdnq5j3s98p",
-              "name": "AWS EC2 - AWS EC2 (us-east-2 — Ohio)",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1552721665892552704
-        },
-        {
-          "id": "8b74j73sdy1t",
-          "status": "identified",
-          "body": "AWS experienced a power failure in a single availability zone the us-east-2 Region.  This affected networking in that AZ, and has also impacted load balancer registration times. We are working to ensure any resources we can identify as impact are moved to another AZ, but the impact to load balancer registration, and an issue creating/updating/deleting Route 53 records are both impacting our ability to mitigate availability issues.",
-          "incident_id": "rq1ztscg3qq4",
-          "created_at": "2022-07-28T13:42:10.674-04:00",
-          "updated_at": "2022-07-28T14:12:58.891-04:00",
-          "display_at": "2022-07-28T13:42:10.000-04:00",
-          "affected_components": [
-            {
-              "code": "mzdnq5j3s98p",
-              "name": "AWS EC2 - AWS EC2 (us-east-2 — Ohio)",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1552711024842641410
-        }
-      ],
-      "components": [
-        {
-          "id": "mzdnq5j3s98p",
-          "name": "AWS EC2 (us-east-2 — Ohio)",
-          "status": "operational",
-          "created_at": "2020-07-29T11:54:58.111-04:00",
-          "updated_at": "2022-07-28T14:24:27.109-04:00",
-          "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "rsfy9xx9rmg8",
           "page_id": "fmwgqnbnbc4r",
           "group": false,
           "only_show_if_degraded": false
