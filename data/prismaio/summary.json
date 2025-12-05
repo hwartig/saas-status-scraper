@@ -4,15 +4,15 @@
     "name": "Prisma Data Platform",
     "url": "https://www.prisma-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-12-05T08:35:49.209Z"
+    "updated_at": "2025-12-05T09:15:04.442Z"
   },
   "components": [
     {
       "id": "2954z91ljjsn",
       "name": "Prisma Accelerate",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2023-10-26T13:07:16.811Z",
-      "updated_at": "2025-12-03T22:36:17.982Z",
+      "updated_at": "2025-12-05T09:12:39.099Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -25,9 +25,9 @@
     {
       "id": "llb0lm2djdlc",
       "name": "Prisma Data Platform Console",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2023-10-26T14:24:11.686Z",
-      "updated_at": "2025-08-28T10:37:12.267Z",
+      "updated_at": "2025-12-05T09:12:39.177Z",
       "position": 3,
       "description": null,
       "showcase": true,
@@ -55,9 +55,9 @@
     {
       "id": "w5pj4w5gs117",
       "name": "Prisma Postgres",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2025-01-13T10:01:00.986Z",
-      "updated_at": "2025-12-02T11:01:39.713Z",
+      "updated_at": "2025-12-05T09:12:39.263Z",
       "position": 5,
       "description": null,
       "showcase": true,
@@ -83,10 +83,158 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "ndrj682nr1mg",
+      "name": "Prisma Console is experiencing a partial outage",
+      "status": "monitoring",
+      "created_at": "2025-12-05T09:03:23.302Z",
+      "updated_at": "2025-12-05T09:15:04.439Z",
+      "monitoring_at": "2025-12-05T09:15:04.423Z",
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/v78h4t1kfhdb",
+      "started_at": "2025-12-05T09:03:23.297Z",
+      "page_id": "21tdsvytt5d6",
+      "incident_updates": [
+        {
+          "id": "vwd87p9wf1ls",
+          "status": "monitoring",
+          "body": "A fix has been deployed by Cloudflare and our all services appear to have come back online. We're continuing to monitor.",
+          "incident_id": "ndrj682nr1mg",
+          "created_at": "2025-12-05T09:15:04.423Z",
+          "updated_at": "2025-12-05T09:15:04.423Z",
+          "display_at": "2025-12-05T09:15:04.423Z",
+          "affected_components": [
+            {
+              "code": "2954z91ljjsn",
+              "name": "Prisma Accelerate",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "llb0lm2djdlc",
+              "name": "Prisma Data Platform Console",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "w5pj4w5gs117",
+              "name": "Prisma Postgres",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "d2b587dqry8j",
+          "status": "investigating",
+          "body": "Description: An upstream provider, Cloudflare, is experiencing an outage of critical services. The following services are impacted:\n\nAccelerate: Users are unable to connect to their database via Accelerate\n\nConsole: Console is unavailable and returns a 500 error page.\n\nPrisma Postgres: Direct TCP is unaffected, users querying via Accelerate will be unable to to connection.\n\nAffected users: All users\n\nRoot cause: Upstream infrastructure provider\n\nWorkarounds: Please use direct TCP when connecting to your Prisma Postgres database.",
+          "incident_id": "ndrj682nr1mg",
+          "created_at": "2025-12-05T09:12:39.329Z",
+          "updated_at": "2025-12-05T09:12:39.329Z",
+          "display_at": "2025-12-05T09:12:39.329Z",
+          "affected_components": [
+            {
+              "code": "2954z91ljjsn",
+              "name": "Prisma Accelerate",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "llb0lm2djdlc",
+              "name": "Prisma Data Platform Console",
+              "old_status": "partial_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "w5pj4w5gs117",
+              "name": "Prisma Postgres",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "cfh13yd01mdt",
+          "status": "investigating",
+          "body": "An upstream infra provider is experiencing issues which is impacting our services. We are monitoring the situation.",
+          "incident_id": "ndrj682nr1mg",
+          "created_at": "2025-12-05T09:03:23.445Z",
+          "updated_at": "2025-12-05T09:03:23.445Z",
+          "display_at": "2025-12-05T09:03:23.445Z",
+          "affected_components": [
+            {
+              "code": "llb0lm2djdlc",
+              "name": "Prisma Data Platform Console",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "2954z91ljjsn",
+          "name": "Prisma Accelerate",
+          "status": "major_outage",
+          "created_at": "2023-10-26T13:07:16.811Z",
+          "updated_at": "2025-12-05T09:12:39.099Z",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": "2023-09-12",
+          "group_id": null,
+          "page_id": "21tdsvytt5d6",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "llb0lm2djdlc",
+          "name": "Prisma Data Platform Console",
+          "status": "major_outage",
+          "created_at": "2023-10-26T14:24:11.686Z",
+          "updated_at": "2025-12-05T09:12:39.177Z",
+          "position": 3,
+          "description": null,
+          "showcase": true,
+          "start_date": "2023-10-26",
+          "group_id": null,
+          "page_id": "21tdsvytt5d6",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "w5pj4w5gs117",
+          "name": "Prisma Postgres",
+          "status": "partial_outage",
+          "created_at": "2025-01-13T10:01:00.986Z",
+          "updated_at": "2025-12-05T09:12:39.263Z",
+          "position": 5,
+          "description": null,
+          "showcase": true,
+          "start_date": "2024-11-01",
+          "group_id": null,
+          "page_id": "21tdsvytt5d6",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "major",
+    "description": "Partial System Outage"
   }
 }
