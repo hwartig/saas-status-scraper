@@ -4,15 +4,15 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-12-08T00:01:18.606Z"
+    "updated_at": "2025-12-08T05:25:14.227Z"
   },
   "incidents": [
     {
       "id": "jbg47pt7vlws",
       "name": "Multiple Atlassian services experiencing degraded performance",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-11-21T14:55:09.138Z",
-      "updated_at": "2025-11-21T16:49:34.189Z",
+      "updated_at": "2025-12-08T05:25:14.221Z",
       "monitoring_at": "2025-11-21T16:14:13.705Z",
       "resolved_at": "2025-11-21T16:49:34.172Z",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2025-11-21T14:55:09.119Z",
       "page_id": "4g2my7tbhjsq",
       "incident_updates": [
+        {
+          "id": "c0xr8b9fdpbd",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn November 21, 2025, between 13:44 and 15:16 UTC, Trello customers were intermittently unable to view and update data on their boards. Customers also may have experienced issues authenticating with Atlassian products, and creating new GitHub and Slack integrations.\n\nThe event was triggered by a bug encountered in the software running our edge proxy fleet, which proxies customer traffic to Atlassian cloud services. The changes included the migration of our edge proxy fleet to hosts running an ARM CPU architecture, rather than the AMD64 CPU architecture they had previously been running, which impacted US East customers.\n\nThe incident was detected within 1 minute by our automated monitoring systems, and mitigated by a scale up of of fleet size, which put Atlassian systems into a known good state. This was followed by a global migration of edge proxy fleet hosts back to AMD64 CPU architecture the following day.\n\n### **IMPACT**\n\nDuring the impact window, US East customers intermittently could not view or update data in Trello.\n\nThe same underlying issue also impacted our Identity services and integrations with GitHub and Slack, meaning some customers had trouble signing in to Atlassian products or creating new integrations. At the incident’s peak, the incident impacted up to:\n\n* 52% of new Trello network connections.\n* 9% of new GitHub and Slack integrations.\n* 8% of new Identity network connections.\n\n### **ROOT CAUSE**\n\nThe issue was caused by a change to CPU architecture from AMD64 to ARM on our edge proxy fleet. This led to a bug that caused these instances to stall under high load, and refuse up to 52% of new connections. As a result, some customers of the products above could not make new connections to Atlassian services, and customers received CloudFront 504 gateway timeout error responses.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. While we deploy our changes progressively by cloud region to avoid broad impact, on this occasion, our pre-change load testing had not accurately reflected production loads.\n\nAs part of our response to this incident, and to help prevent recurrence, we rolled back all edge proxy fleets from ARM to AMD64 CPU architecture globally.\n\nTo minimise the impact of breaking changes to our environments, we plan to implement additional preventative measures such as:\n\n* Adding improved load tests into edge proxy fleet deployment pipelines to catch load-related bugs before deployment to production.\n* Adding alerts to our edge proxy fleet to catch rises in TCP connect times before customer impact.\n\nWe apologize to customers whose services were impacted during this incident; we are taking steps to help improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "jbg47pt7vlws",
+          "created_at": "2025-12-08T05:25:12.364Z",
+          "updated_at": "2025-12-08T05:25:14.219Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "y0pd5cktz2s6",
           "status": "resolved",
