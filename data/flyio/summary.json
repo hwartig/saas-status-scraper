@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-12-08T07:32:25.176Z"
+    "updated_at": "2025-12-08T08:00:04.866Z"
   },
   "components": [
     {
@@ -160,9 +160,9 @@
     {
       "id": "nv3vps27z635",
       "name": "Management Plane - IAD",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:31:42.559Z",
-      "updated_at": "2025-12-04T21:52:43.352Z",
+      "updated_at": "2025-12-08T07:59:48.625Z",
       "position": 2,
       "description": null,
       "showcase": true,
@@ -673,7 +673,7 @@
     {
       "id": "h2hndffd5ysc",
       "name": "Managed Postgres",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:28:07.922Z",
       "updated_at": "2025-03-24T09:28:07.922Z",
       "position": 19,
@@ -814,7 +814,61 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "rxcnr9h0cd95",
+      "name": "MPG management may be unavailable in IAD",
+      "status": "investigating",
+      "created_at": "2025-12-08T07:59:48.589Z",
+      "updated_at": "2025-12-08T07:59:48.670Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/mt071t1dbwvy",
+      "started_at": "2025-12-08T07:59:48.581Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "1jwkq1sq349c",
+          "status": "investigating",
+          "body": "Management for some MPG clusters in IAD might be unavailable. We are working to fix them ASAP.",
+          "incident_id": "rxcnr9h0cd95",
+          "created_at": "2025-12-08T07:59:48.668Z",
+          "updated_at": "2025-12-08T07:59:48.668Z",
+          "display_at": "2025-12-08T07:59:48.668Z",
+          "affected_components": [
+            {
+              "code": "nv3vps27z635",
+              "name": "Managed Postgres - Management Plane - IAD",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "nv3vps27z635",
+          "name": "Management Plane - IAD",
+          "status": "degraded_performance",
+          "created_at": "2025-03-24T09:31:42.559Z",
+          "updated_at": "2025-12-08T07:59:48.625Z",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-03-24",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "gl6mx29c3gh2",
@@ -869,150 +923,10 @@
       ],
       "scheduled_for": "2025-12-10T15:00:00.000Z",
       "scheduled_until": "2025-12-10T19:00:00.000Z"
-    },
-    {
-      "id": "p51wmcw5z22q",
-      "name": "Network maintenance in IAD (Ashburn, Virginia)",
-      "status": "verifying",
-      "created_at": "2025-12-07T23:41:44.701Z",
-      "updated_at": "2025-12-08T07:32:25.173Z",
-      "monitoring_at": "2025-12-08T07:31:15.672Z",
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/fbyfw932gfdh",
-      "started_at": "2025-12-07T23:41:44.697Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "cc9lxs6yjrt1",
-          "status": "verifying",
-          "body": "This maintenance has been completed, and we're continuing to monitor service connectivity in IAD.\n\nManagement for some managed postgres clusters in IAD might be unavailable. We are working to fix them ASAP.",
-          "incident_id": "p51wmcw5z22q",
-          "created_at": "2025-12-08T07:31:15.672Z",
-          "updated_at": "2025-12-08T07:32:25.151Z",
-          "display_at": "2025-12-08T07:31:15.672Z",
-          "affected_components": [
-            {
-              "code": "qyh8qlklk7mx",
-              "name": "Regional Availability - IAD - Ashburn, Virginia (US)",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1nskz0cx2t0r",
-          "status": "in_progress",
-          "body": "Management for some managed postgres clusters in IAD might be unavailable. We are working to fix them ASAP.",
-          "incident_id": "p51wmcw5z22q",
-          "created_at": "2025-12-08T07:21:44.172Z",
-          "updated_at": "2025-12-08T07:21:44.172Z",
-          "display_at": "2025-12-08T07:21:44.172Z",
-          "affected_components": [
-            {
-              "code": "qyh8qlklk7mx",
-              "name": "Regional Availability - IAD - Ashburn, Virginia (US)",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gxvt8rnlgps1",
-          "status": "in_progress",
-          "body": "We are seeing most services in IAD regain connectivity. We are continuing to work through any remaining connectivity issues.",
-          "incident_id": "p51wmcw5z22q",
-          "created_at": "2025-12-08T07:17:37.458Z",
-          "updated_at": "2025-12-08T07:17:37.458Z",
-          "display_at": "2025-12-08T07:17:37.458Z",
-          "affected_components": [
-            {
-              "code": "qyh8qlklk7mx",
-              "name": "Regional Availability - IAD - Ashburn, Virginia (US)",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "v06z0lq0mqp6",
-          "status": "in_progress",
-          "body": "We are seeing connectivity issues in IAD as a result of this maintenance. We will continue to investigate.",
-          "incident_id": "p51wmcw5z22q",
-          "created_at": "2025-12-08T06:51:24.735Z",
-          "updated_at": "2025-12-08T06:51:24.735Z",
-          "display_at": "2025-12-08T06:51:24.735Z",
-          "affected_components": [
-            {
-              "code": "qyh8qlklk7mx",
-              "name": "Regional Availability - IAD - Ashburn, Virginia (US)",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vx9l9gcmjl3s",
-          "status": "in_progress",
-          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
-          "incident_id": "p51wmcw5z22q",
-          "created_at": "2025-12-08T05:00:21.706Z",
-          "updated_at": "2025-12-08T05:00:21.706Z",
-          "display_at": "2025-12-08T05:00:21.706Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "m6p8z2rj7fkf",
-          "status": "scheduled",
-          "body": "An upstream provider is performing network maintenance in IAD, from 2025-12-08 at 5:00 UTC to 8:00 UTC.  You may experience a loss of connectivity within the scheduled maintenance window.",
-          "incident_id": "p51wmcw5z22q",
-          "created_at": "2025-12-07T23:41:44.747Z",
-          "updated_at": "2025-12-07T23:41:44.747Z",
-          "display_at": "2025-12-07T23:41:44.747Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "qyh8qlklk7mx",
-          "name": "IAD - Ashburn, Virginia (US)",
-          "status": "operational",
-          "created_at": "2019-07-01T19:28:38.853Z",
-          "updated_at": "2025-12-08T07:31:15.619Z",
-          "position": 16,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "mrcyzlkkw8z9",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2025-12-08T05:00:00.000Z",
-      "scheduled_until": "2025-12-08T08:00:00.000Z"
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
