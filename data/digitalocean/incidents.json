@@ -4,9 +4,62 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-12-09T12:00:21.965Z"
+    "updated_at": "2025-12-09T20:41:33.281Z"
   },
   "incidents": [
+    {
+      "id": "lqyryfqpm9x5",
+      "name": "DOCR Access Errors for New App Creation",
+      "status": "investigating",
+      "created_at": "2025-12-09T20:41:33.171Z",
+      "updated_at": "2025-12-09T20:41:33.276Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/yvgt6nnn1ylm",
+      "started_at": "2025-12-09T20:41:33.162Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "thgkwrvn3wxp",
+          "status": "investigating",
+          "body": "Our Engineering team is currently investigating an issue affecting the creation of new apps in the BLR1 region. Customers who have not previously created an app may encounter DOCR (DigitalOcean Container Registry) access errors.\n\nOur team is actively deploying a fix to restore normal functionality.\n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "lqyryfqpm9x5",
+          "created_at": "2025-12-09T20:41:33.272Z",
+          "updated_at": "2025-12-09T20:41:33.272Z",
+          "display_at": "2025-12-09T20:41:33.272Z",
+          "affected_components": [
+            {
+              "code": "ggjq7y0mqt4y",
+              "name": "Container Registry - BLR1",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "ggjq7y0mqt4y",
+          "name": "BLR1",
+          "status": "degraded_performance",
+          "created_at": "2024-10-29T09:55:33.800Z",
+          "updated_at": "2025-12-09T20:41:33.215Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-10-29",
+          "group_id": "nmb3bbtqfgsj",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "528ghwz6806b",
       "name": "Control Panel Access",
@@ -5568,132 +5621,6 @@
           "showcase": false,
           "start_date": "2025-01-22",
           "group_id": null,
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "4t8kjwvn0tlq",
-      "name": "Managed Database Provisioning and App Platform",
-      "status": "resolved",
-      "created_at": "2025-07-02T16:59:14.000Z",
-      "updated_at": "2025-07-02T18:40:05.925Z",
-      "monitoring_at": "2025-07-02T17:43:48.620Z",
-      "resolved_at": "2025-07-02T18:40:05.908Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/xkx8k9h0mp9l",
-      "started_at": "2025-07-02T16:59:14.000Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "vrths3vlyxb0",
-          "status": "resolved",
-          "body": "Our Engineering team has resolved the issue affecting all control plane operations (Create, Read, Update, Delete) for non-MongoDB Managed Database clusters. All services and App Platform deployments with Managed Databases should now be operating normally. If you continue to experience problems, please open a ticket with our support team. We apologize for any inconvenience.",
-          "incident_id": "4t8kjwvn0tlq",
-          "created_at": "2025-07-02T18:40:05.908Z",
-          "updated_at": "2025-07-02T18:40:05.908Z",
-          "display_at": "2025-07-02T18:40:05.908Z",
-          "affected_components": [
-            {
-              "code": "txysr8r0gn1n",
-              "name": "App Platform - Global",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dps29ghpzswy",
-          "status": "monitoring",
-          "body": "Our Engineering team has deployed a fix to address the issue affecting all control plane operations (Create, Read, Update, Delete) for non-MongoDB Managed Database clusters. Users should now be able to perform standard database operations successfully. App Platform deployments with Managed Databases should also be succeeding now. \n\nWe are now monitoring the situation in order to ensure stability and will post an update once the issue is resolved completely.",
-          "incident_id": "4t8kjwvn0tlq",
-          "created_at": "2025-07-02T17:43:48.620Z",
-          "updated_at": "2025-07-02T17:43:48.620Z",
-          "display_at": "2025-07-02T17:43:48.620Z",
-          "affected_components": [
-            {
-              "code": "txysr8r0gn1n",
-              "name": "App Platform - Global",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fdlxm71wmsmf",
-          "status": "investigating",
-          "body": "Our Engineering team is investigating an issue that is impacting all control plane operations (Create, Read, Update, Delete) for all non-Mongo Managed Database clusters. During this time, users may encounter 401/403 errors when attempting those operations, including provisioning new clusters, listing clusters, etc.\n\nIn addition, App Platform deploys with Managed Databases are also affected, which may result in delayed or failed deployments for some applications.\n\nWe will provide updates as more information becomes available.",
-          "incident_id": "4t8kjwvn0tlq",
-          "created_at": "2025-07-02T16:59:14.278Z",
-          "updated_at": "2025-07-02T17:09:40.444Z",
-          "display_at": "2025-07-02T16:59:14.000Z",
-          "affected_components": [
-            {
-              "code": "txysr8r0gn1n",
-              "name": "App Platform - Global",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "txysr8r0gn1n",
-          "name": "Global",
-          "status": "operational",
-          "created_at": "2023-03-28T21:01:12.838Z",
-          "updated_at": "2025-11-18T19:31:50.287Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-03-28",
-          "group_id": "jjs48vwjlqjr",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "mzkgffp35tq4",
-          "name": "Global",
-          "status": "operational",
-          "created_at": "2024-08-16T11:21:56.097Z",
-          "updated_at": "2025-12-04T21:22:03.226Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2024-08-16",
-          "group_id": "kl8qv98c9brp",
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
