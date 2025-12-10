@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-12-10T14:52:42.637Z"
+    "updated_at": "2025-12-10T16:38:05.831Z"
   },
   "incidents": [
     {
@@ -436,7 +436,7 @@
       "name": "Team synchronization is experiencing delays for non enterprise managed users",
       "status": "resolved",
       "created_at": "2025-12-05T18:38:55.184Z",
-      "updated_at": "2025-12-05T22:20:19.233Z",
+      "updated_at": "2025-12-10T16:38:05.822Z",
       "monitoring_at": null,
       "resolved_at": "2025-12-05T22:20:19.216Z",
       "impact": "minor",
@@ -447,10 +447,10 @@
         {
           "id": "kzf15mnf5m91",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On December 5th, 2025, between 12:00 pm UTC and 9:00 pm UTC, our Team Synchronization service experienced a significant degradation, preventing over 209,000 organization teams from syncing their identity provider (IdP) groups. The incident was triggered by a buildup of synchronization requests, resulting in elevated Redis key usage and high CPU consumption on the underlying Redis cluster.<br /><br />To mitigate further impact, we proactively paused all team synchronization requests between 3:00 pm UTC and 8:15 pm UTC, allowing us to stabilize the Redis cluster. Our engineering team also resolved the issue by flushing the affected Redis keys and queues, which promptly stopped runaway growth and restored service health. Additionally, we scaled up our infrastructure resources to improve our ability to process the high volume of synchronization requests. All pending team synchronizations were successfully processed following service restoration.<br /><br />We are working to strengthen the Team Synchronization service by implementing a killswitch, adding throttling to prevent excessive enqueueing of synchronization requests, and improving the scheduler to avoid duplicate job requests. Additionally, we’re investing in better observability to alert when job drops occur. These efforts are focused on preventing similar incidents and improving overall reliability going forward.",
           "incident_id": "3hdjjpkvz895",
           "created_at": "2025-12-05T22:20:19.216Z",
-          "updated_at": "2025-12-05T22:20:19.216Z",
+          "updated_at": "2025-12-10T16:38:05.816Z",
           "display_at": "2025-12-05T22:20:19.216Z",
           "affected_components": null,
           "deliver_notifications": true,
