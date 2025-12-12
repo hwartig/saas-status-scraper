@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-12-12T20:56:31.073Z"
+    "updated_at": "2025-12-12T21:34:38.647Z"
   },
   "incidents": [
     {
@@ -1178,6 +1178,36 @@
           "display_at": "2025-12-05T18:38:55.221Z",
           "affected_components": null,
           "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
+    {
+      "id": "k95d6yq4tmly",
+      "name": "Webhooks delivery degradation",
+      "status": "resolved",
+      "created_at": "2025-12-03T22:30:00.000Z",
+      "updated_at": "2025-12-12T21:34:38.642Z",
+      "monitoring_at": null,
+      "resolved_at": "2025-12-03T22:30:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/p2n390140cfb",
+      "started_at": "2025-12-12T21:34:38.582Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "65g56zlzmlzx",
+          "status": "resolved",
+          "body": "On December 3, 2025, between 22:21 UTC and 23:44 UTC, the Webhooks service experienced a degradation that delayed writes of webhook delivery records to our database. During this period, many webhook deliveries were not visible in the webhook delivery UI or API for more than an hour after they were sent. As a result, customers were temporarily unable to request redeliveries for those delayed records. The underlying cause was throttling of database writes due to high replication lag.\n\nWe mitigated the incident by temporarily disabling delivery history for a small number of very high‑volume webhook owners to reduce write pressure and stabilize the service. We are contacting the affected customers directly with more details.\n\nWe are improving our webhook delivery storage architecture so it can scale with current and future webhook traffic, reducing the likelihood and impact of similar issues.",
+          "incident_id": "k95d6yq4tmly",
+          "created_at": "2025-12-12T21:34:38.630Z",
+          "updated_at": "2025-12-12T21:34:38.630Z",
+          "display_at": "2025-12-03T22:30:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
           "custom_tweet": null,
           "tweet_id": null
         }
@@ -7395,62 +7425,6 @@
           "created_at": "2025-09-25T17:00:25.175Z",
           "updated_at": "2025-09-25T17:00:25.175Z",
           "display_at": "2025-09-25T17:00:25.175Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "pm0l7tdd6nyk",
-      "name": "Disruption with some GitHub services",
-      "status": "resolved",
-      "created_at": "2025-09-24T14:46:30.885Z",
-      "updated_at": "2025-09-29T17:34:12.310Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-09-24T15:36:09.055Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/8kt3sy4m3v3v",
-      "started_at": "2025-09-24T14:46:30.879Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "d4mmytyv9f29",
-          "status": "resolved",
-          "body": "On September 23, 2025, between 15:29 UTC and 17:38 UTC and also on September 24, 2025 between 15:02 UTC and 15:12, email deliveries were delayed up to 50 minutes which resulted in significant delays for most types of email notifications. This occurred due to an unusually high volume of traffic which caused resource contention on some of our outbound email servers.<br /><br />We have updated the configuration we use to better allocate capacity when there is a high volume of traffic and are also updating our monitors so we can detect this type of issue before it becomes a customer impacting incident.",
-          "incident_id": "pm0l7tdd6nyk",
-          "created_at": "2025-09-24T15:36:09.055Z",
-          "updated_at": "2025-09-29T17:34:12.303Z",
-          "display_at": "2025-09-24T15:36:09.055Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fwqr804cvltj",
-          "status": "investigating",
-          "body": "We are seeing delays in email delivery, which is impacting notifications and user signup email verification. We are investigating and working on mitigation.",
-          "incident_id": "pm0l7tdd6nyk",
-          "created_at": "2025-09-24T14:55:07.157Z",
-          "updated_at": "2025-09-24T14:55:07.157Z",
-          "display_at": "2025-09-24T14:55:07.157Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1vm3q0w2681k",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "pm0l7tdd6nyk",
-          "created_at": "2025-09-24T14:46:30.919Z",
-          "updated_at": "2025-09-24T14:46:30.919Z",
-          "display_at": "2025-09-24T14:46:30.919Z",
           "affected_components": null,
           "deliver_notifications": true,
           "custom_tweet": null,
