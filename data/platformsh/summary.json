@@ -4,7 +4,7 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-12-12T07:02:05.836Z"
+    "updated_at": "2025-12-12T11:20:43.041Z"
   },
   "components": [
     {
@@ -25,9 +25,9 @@
     {
       "id": "w62ktynq8s8d",
       "name": "Console",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-23T19:37:12.161Z",
-      "updated_at": "2025-11-18T19:41:33.010Z",
+      "updated_at": "2025-12-12T11:10:55.538Z",
       "position": 1,
       "description": "Project console for Platform Professional.",
       "showcase": false,
@@ -325,7 +325,7 @@
     {
       "id": "fyqkwqq92sxm",
       "name": "Accounts",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-07-06T08:55:17.023Z",
       "updated_at": "2021-04-13T23:00:57.451Z",
       "position": 19,
@@ -389,10 +389,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "0kpqn2bylsck",
+      "name": "Console Metrics not shown on Dedicated Staging Enterprise clusters",
+      "status": "identified",
+      "created_at": "2025-12-12T11:10:55.500Z",
+      "updated_at": "2025-12-12T11:10:55.590Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/dmdc95lyszjh",
+      "started_at": "2025-12-12T11:10:55.492Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "db7jj9jfn9cg",
+          "status": "identified",
+          "body": "We have detected an issue affecting our console metrics services on dedicated staging enterprise clusters. Our Operations team has been notified, and they are currently working to restore service. \n\nThis outage does not affect Production Dedicated Enterprise Clusters or their metrics.\n\nWe will update you as soon as we have further information.",
+          "incident_id": "0kpqn2bylsck",
+          "created_at": "2025-12-12T11:10:55.587Z",
+          "updated_at": "2025-12-12T11:10:55.587Z",
+          "display_at": "2025-12-12T11:10:55.587Z",
+          "affected_components": [
+            {
+              "code": "w62ktynq8s8d",
+              "name": "Accounts - Console",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "w62ktynq8s8d",
+          "name": "Console",
+          "status": "degraded_performance",
+          "created_at": "2019-07-23T19:37:12.161Z",
+          "updated_at": "2025-12-12T11:10:55.538Z",
+          "position": 1,
+          "description": "Project console for Platform Professional.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "fyqkwqq92sxm",
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": "[]"
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
