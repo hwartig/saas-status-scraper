@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-12-17T20:36:02.610Z"
+    "updated_at": "2025-12-17T22:07:05.968Z"
   },
   "components": [
     {
@@ -73,9 +73,9 @@
     {
       "id": "43453sylqk7v",
       "name": "API Gateway",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-05-02T07:20:18.177Z",
-      "updated_at": "2025-12-05T15:45:55.309Z",
+      "updated_at": "2025-12-17T22:03:05.238Z",
       "position": 3,
       "description": "API Gateway for all Supabase Products",
       "showcase": true,
@@ -431,10 +431,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "k00xq1fzt9ff",
+      "name": "Increased latency and occasional timeouts on requests to Data APIs for projects in US-East-1",
+      "status": "identified",
+      "created_at": "2025-12-17T22:03:05.206Z",
+      "updated_at": "2025-12-17T22:07:05.959Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/xdcwn3p1829r",
+      "started_at": "2025-12-17T22:03:05.201Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "76pg0b78qwtk",
+          "status": "identified",
+          "body": "We have identified increased errors with an upstream provider. We are currently working with them on resolution.",
+          "incident_id": "k00xq1fzt9ff",
+          "created_at": "2025-12-17T22:07:05.956Z",
+          "updated_at": "2025-12-17T22:07:05.956Z",
+          "display_at": "2025-12-17T22:07:05.956Z",
+          "affected_components": [
+            {
+              "code": "43453sylqk7v",
+              "name": "API Gateway",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "97vhjv5ws86x",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "k00xq1fzt9ff",
+          "created_at": "2025-12-17T22:03:05.284Z",
+          "updated_at": "2025-12-17T22:03:05.284Z",
+          "display_at": "2025-12-17T22:03:05.284Z",
+          "affected_components": [
+            {
+              "code": "43453sylqk7v",
+              "name": "API Gateway",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "43453sylqk7v",
+          "name": "API Gateway",
+          "status": "degraded_performance",
+          "created_at": "2024-05-02T07:20:18.177Z",
+          "updated_at": "2025-12-17T22:03:05.238Z",
+          "position": 3,
+          "description": "API Gateway for all Supabase Products",
+          "showcase": true,
+          "start_date": "2024-05-02",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
