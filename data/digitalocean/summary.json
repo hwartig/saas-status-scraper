@@ -4,15 +4,15 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-12-15T16:21:21.133Z"
+    "updated_at": "2025-12-18T18:46:46.895Z"
   },
   "components": [
     {
       "id": "p1x9rv4137gx",
       "name": "API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-03-06T18:42:45.160Z",
-      "updated_at": "2025-12-10T20:00:22.297Z",
+      "updated_at": "2025-12-18T18:46:46.322Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -835,9 +835,9 @@
     {
       "id": "czck17wcspr5",
       "name": "Cloud Control Panel",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-03-06T18:42:46.098Z",
-      "updated_at": "2025-12-10T20:00:22.849Z",
+      "updated_at": "2025-12-18T18:46:46.339Z",
       "position": 4,
       "description": null,
       "showcase": false,
@@ -3549,10 +3549,85 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "q39pqxrdmfxx",
+      "name": "API and Cloud Requests",
+      "status": "investigating",
+      "created_at": "2025-12-18T18:46:46.287Z",
+      "updated_at": "2025-12-18T18:46:46.890Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/pt2c38386cj0",
+      "started_at": "2025-12-18T18:46:46.282Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "28wmmg5ytphc",
+          "status": "investigating",
+          "body": "As of 17:47 UTC, our Engineering team is investigating reports of intermittent 504 errors when making requests to api.digitalocean.com and cloud.digitalocean.com. Users may experience sporadic errors, resulting in a 504 response code, when attempting to interact with our API or Cloud services.\n\nAt this point, the issue appears to be intermittent, and not all requests are being affected. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "q39pqxrdmfxx",
+          "created_at": "2025-12-18T18:46:46.383Z",
+          "updated_at": "2025-12-18T18:46:46.885Z",
+          "display_at": "2025-12-18T18:46:46.383Z",
+          "affected_components": [
+            {
+              "code": "p1x9rv4137gx",
+              "name": "API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "czck17wcspr5",
+              "name": "Cloud Control Panel",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2001725846487466272
+        }
+      ],
+      "components": [
+        {
+          "id": "p1x9rv4137gx",
+          "name": "API",
+          "status": "degraded_performance",
+          "created_at": "2023-03-06T18:42:45.160Z",
+          "updated_at": "2025-12-18T18:46:46.322Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "czck17wcspr5",
+          "name": "Cloud Control Panel",
+          "status": "degraded_performance",
+          "created_at": "2023-03-06T18:42:46.098Z",
+          "updated_at": "2025-12-18T18:46:46.339Z",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
