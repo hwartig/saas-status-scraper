@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2025-12-19T21:15:46.093Z"
+    "updated_at": "2025-12-19T22:30:23.692Z"
   },
   "incidents": [
     {
@@ -307,7 +307,7 @@
       "name": "Copilot Code Review is degraded, and not returning responses to users",
       "status": "resolved",
       "created_at": "2025-12-15T17:43:43.075Z",
-      "updated_at": "2025-12-15T18:22:12.876Z",
+      "updated_at": "2025-12-19T22:30:23.678Z",
       "monitoring_at": null,
       "resolved_at": "2025-12-15T18:22:12.858Z",
       "impact": "major",
@@ -318,10 +318,10 @@
         {
           "id": "815ktf4cm40l",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On December 15, 2025, between 15:15 UTC and 18:22 UTC, Copilot Code Review experienced a service degradation that caused 46.97% of pull request review requests to fail, requiring users to re-request a review. Impacted users saw the error message: “Copilot encountered an error and was unable to review this pull request. You can try again by re-requesting a review.” The remaining requests completed successfully.<br /><br />The degradation was caused by elevated response times in an internal, model-backed dependency, which led to request timeouts and backpressure in the review processing pipeline, resulting in sustained queue growth and failed review completion.<br /><br />We mitigated the issue by temporarily bypassing fix suggestions to reduce latency, increasing worker capacity to drain the backlog, and rolling out a model configuration change that reduced end-to-end latency. Queue depth and request success rates returned to normal and remained stable through peak traffic.<br /><br />Following the incident, we increased baseline worker capacity, added instrumentation for worker utilization and queue health, and are improving automatic load-shedding, fallback behavior, and alerting to reduce time to detection and mitigation for similar issues.",
           "incident_id": "qkr3gcys0lzx",
           "created_at": "2025-12-15T18:22:12.858Z",
-          "updated_at": "2025-12-15T18:22:12.858Z",
+          "updated_at": "2025-12-19T22:30:23.674Z",
           "display_at": "2025-12-15T18:22:12.858Z",
           "affected_components": null,
           "deliver_notifications": true,
