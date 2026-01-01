@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-01-01T10:45:54.310Z"
+    "updated_at": "2026-01-01T21:24:47.681Z"
   },
   "incidents": [
+    {
+      "id": "d5t56pdnjxhd",
+      "name": "Disruption with some GitHub services",
+      "status": "investigating",
+      "created_at": "2026-01-01T21:24:39.283Z",
+      "updated_at": "2026-01-01T21:24:47.672Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/hp9bvntbr9xq",
+      "started_at": "2026-01-01T21:24:39.276Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "ts2z2gd9lfnb",
+          "status": "investigating",
+          "body": "Our Copilot feature page (https://github.com/features/copilot) is returning 500s. We are currently investigating. This does not impact the core GitHub application.",
+          "incident_id": "d5t56pdnjxhd",
+          "created_at": "2026-01-01T21:24:47.669Z",
+          "updated_at": "2026-01-01T21:24:47.669Z",
+          "display_at": "2026-01-01T21:24:47.669Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2ymq3ytbb270",
+          "status": "investigating",
+          "body": "We are investigating reports of impacted performance for some GitHub services.",
+          "incident_id": "d5t56pdnjxhd",
+          "created_at": "2026-01-01T21:24:39.331Z",
+          "updated_at": "2026-01-01T21:24:39.331Z",
+          "display_at": "2026-01-01T21:24:39.331Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "ccrzb3ms9j2d",
       "name": "Incident with Issues and Pull Requests",
@@ -7223,62 +7266,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "kk58nfytx0c7",
-      "name": "Multiple GitHub API endpoints are experiencing errors",
-      "status": "resolved",
-      "created_at": "2025-10-09T13:52:49.468Z",
-      "updated_at": "2025-10-15T12:45:49.450Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-10-09T13:56:06.757Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/39l7xqys9k5l",
-      "started_at": "2025-10-09T13:52:49.460Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "nbxf6fnyv73j",
-          "status": "resolved",
-          "body": "Between 13:39 UTC and 13:42 UTC on Oct 9, 2025, around 2.3% of REST API calls and 0.4% Web traffic were impacted due to the partial rollout of a new feature that had more impact on one of our primary databases than anticipated. When the feature was partially rolled out it performed an excessive number of writes per request which caused excessive latency for writes from other API and Web endpoints and resulted in 5xx errors to customers. <br /><br />The issue was identified by our automatic alerting and reverted by turning down the percentage of traffic to the new feature, which led to recovery of the data cluster and services. <br /><br />We are working to improve the way we roll out new features like this and move the specific writes from this incident to a storage solution more suited to this type of activity. We have also optimized this particular feature to avoid its rollout from having future impact on other areas of the site. We are also investigating how we can even more quickly identify issues like this.",
-          "incident_id": "kk58nfytx0c7",
-          "created_at": "2025-10-09T13:56:06.757Z",
-          "updated_at": "2025-10-15T12:45:49.444Z",
-          "display_at": "2025-10-09T13:56:06.757Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bv11xl45zfw2",
-          "status": "investigating",
-          "body": "A feature was partially rolled out that had high impact on one of our primary databases but we were able to roll it back. All services are recovered but we will monitor for recovery before statusing green.",
-          "incident_id": "kk58nfytx0c7",
-          "created_at": "2025-10-09T13:54:59.457Z",
-          "updated_at": "2025-10-09T13:54:59.457Z",
-          "display_at": "2025-10-09T13:54:59.457Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jm4zsh9w0pb2",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "kk58nfytx0c7",
-          "created_at": "2025-10-09T13:52:49.507Z",
-          "updated_at": "2025-10-09T13:52:49.507Z",
-          "display_at": "2025-10-09T13:52:49.507Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
