@@ -4,9 +4,39 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-01-02T15:15:58.603-08:00"
+    "updated_at": "2026-01-02T16:20:28.051-08:00"
   },
   "incidents": [
+    {
+      "id": "qjfrndl5bzhq",
+      "name": "[Major] Issue with Enterprise Reporting",
+      "status": "resolved",
+      "created_at": "2026-01-02T05:30:00.000-08:00",
+      "updated_at": "2026-01-02T16:16:47.630-08:00",
+      "monitoring_at": null,
+      "resolved_at": "2026-01-02T05:30:00.000-08:00",
+      "impact": "major",
+      "shortlink": "https://stspg.io/x1yq403gshls",
+      "started_at": "2026-01-02T16:16:11.445-08:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "cs80j612jrcq",
+          "status": "resolved",
+          "body": "From approximately 05:30 AM to 02:30 PM US Pacific time, we observed an issue impacting Enterprise Reporting. Customers that attempted to run a report or had a scheduled report during this window may not have the report generated. Reports run during this window should be run again if they have not appeared as expected. There is no current impact and no further updates will be provided here. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
+          "incident_id": "qjfrndl5bzhq",
+          "created_at": "2026-01-02T16:16:11.492-08:00",
+          "updated_at": "2026-01-02T16:16:11.492-08:00",
+          "display_at": "2026-01-02T05:30:00.000-08:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "2vpq71t668t4",
       "name": "[Major] Issues with Box Sign",
@@ -13522,49 +13552,6 @@
           "created_at": "2024-06-27T10:44:43.869-07:00",
           "updated_at": "2024-06-27T10:44:43.869-07:00",
           "display_at": "2024-06-25T14:30:00.000-07:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "665d43660sj5",
-      "name": "[Major] Issue Accessing Box All Files, Notes and API",
-      "status": "postmortem",
-      "created_at": "2024-06-25T07:30:00.000-07:00",
-      "updated_at": "2025-03-05T09:31:00.769-08:00",
-      "monitoring_at": null,
-      "resolved_at": "2024-06-25T09:30:00.000-07:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/08bb5chwyl6k",
-      "started_at": "2024-06-25T09:30:00.000-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "89qlhbhlckh8",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting downloads, uploads, and Events API. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 9:38am and 9:50am on June 25th, 2024, some users may have experienced difficulties while working in Box. During this time, users may have encountered issues uploading and downloading files as well as retrieving results from our events API. The issue occurred as a result of an unexpected upstream failure in our database infrastructure that did not recover automatically. We were able to resolve the issue by manually triggering a failover operation of the impacted database and verifying successful completion of transactions after failover. In addition, we identified and fixed a bug in our database remediation tools that prevented our automated failover process from completing quickly for this type of failure.  We are constantly testing our automated failover processes and working to improve any shortcomings as they are identified to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nThe issue occurred due to a failure in our database remediation service using a suboptimal upstream API to recreate failed database nodes under certain conditions.  In order to ensure data integrity, our database remediation service paused further actions and escalated to our team to review the issue, at which point our engineers validated that a manual failover operation was the correct operation to restore service.  Our team consulted with the upstream vendor to identify a methodology that would ensure the database remediation service would succeed for all classes of unexpected database node failures.\n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Implement fixes to database remediation service to always succeed at recreating failed database nodes during unexpected failures.\n* Increase retries in database remediation service when unexpected failures occur to ensure automated failover succeeds.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
-          "incident_id": "665d43660sj5",
-          "created_at": "2025-03-05T09:30:28.819-08:00",
-          "updated_at": "2025-03-05T09:31:00.767-08:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "d6q96jmz43cl",
-          "status": "resolved",
-          "body": "From approximately 9:38 AM to 9:53 AM PDT on June 25th 2024, some users may have experienced issues logging in to Box, accessing Box content, and using the Public API. Our team has taken action to remediate this behavior and is seeing recovery to affected services. No further impact has been observed and we are considering this issue to be resolved. If you are still experiencing any issues, please let us know at https://support.box.com.",
-          "incident_id": "665d43660sj5",
-          "created_at": "2024-06-25T10:04:52.001-07:00",
-          "updated_at": "2024-06-25T10:14:45.272-07:00",
-          "display_at": "2024-06-25T09:30:00.000-07:00",
           "affected_components": null,
           "deliver_notifications": false,
           "custom_tweet": null,
