@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-01-08T07:57:16.374-08:00"
+    "updated_at": "2026-01-08T10:46:45.998-08:00"
   },
   "components": [
     {
@@ -308,9 +308,9 @@
     {
       "id": "cz3hzygdr4w2",
       "name": "Rollout results processing",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-03-26T10:11:49.980-07:00",
-      "updated_at": "2025-11-18T09:00:22.396-08:00",
+      "updated_at": "2026-01-08T10:46:45.362-08:00",
       "position": 2,
       "description": "Aggregate and process data from feature rollouts for analysis",
       "showcase": true,
@@ -479,9 +479,9 @@
     {
       "id": "02v76bhy9lgc",
       "name": "Rollout results analysis",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-03-26T10:12:27.904-07:00",
-      "updated_at": "2025-11-18T09:00:22.527-08:00",
+      "updated_at": "2026-01-08T10:46:45.384-08:00",
       "position": 3,
       "description": "Evaluate the impact and performance of feature rollouts",
       "showcase": true,
@@ -584,7 +584,7 @@
     {
       "id": "d3hpvmdzv2tk",
       "name": "Guarded Rollouts (core functionality)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-03-26T10:09:16.218-07:00",
       "updated_at": "2025-09-17T10:02:22.650-07:00",
       "position": 4,
@@ -867,7 +867,82 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "0yr1kv8n87g9",
+      "name": "Guarded releases event ingestion delays",
+      "status": "identified",
+      "created_at": "2026-01-08T10:46:45.317-08:00",
+      "updated_at": "2026-01-08T10:46:45.991-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/z2wgs2mlkplt",
+      "started_at": "2026-01-08T10:46:45.307-08:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "fj42lblppf6k",
+          "status": "identified",
+          "body": "We are currently experiencing delays with guarded releases event ingestion. We are investigating and will provide updates as they become available.",
+          "incident_id": "0yr1kv8n87g9",
+          "created_at": "2026-01-08T10:46:45.432-08:00",
+          "updated_at": "2026-01-08T10:46:45.986-08:00",
+          "display_at": "2026-01-08T10:46:45.432-08:00",
+          "affected_components": [
+            {
+              "code": "cz3hzygdr4w2",
+              "name": "Guarded Rollouts (core functionality) - Rollout results processing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "02v76bhy9lgc",
+              "name": "Guarded Rollouts (core functionality) - Rollout results analysis",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2009335987864846541
+        }
+      ],
+      "components": [
+        {
+          "id": "cz3hzygdr4w2",
+          "name": "Rollout results processing",
+          "status": "degraded_performance",
+          "created_at": "2025-03-26T10:11:49.980-07:00",
+          "updated_at": "2026-01-08T10:46:45.362-08:00",
+          "position": 2,
+          "description": "Aggregate and process data from feature rollouts for analysis",
+          "showcase": true,
+          "start_date": "2025-03-26",
+          "group_id": "d3hpvmdzv2tk",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "02v76bhy9lgc",
+          "name": "Rollout results analysis",
+          "status": "degraded_performance",
+          "created_at": "2025-03-26T10:12:27.904-07:00",
+          "updated_at": "2026-01-08T10:46:45.384-08:00",
+          "position": 3,
+          "description": "Evaluate the impact and performance of feature rollouts",
+          "showcase": true,
+          "start_date": "2025-03-26",
+          "group_id": "d3hpvmdzv2tk",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "wy3jccg50r43",
@@ -1189,7 +1264,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }

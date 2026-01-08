@@ -4,9 +4,83 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-01-08T07:57:16.374-08:00"
+    "updated_at": "2026-01-08T10:46:45.998-08:00"
   },
   "incidents": [
+    {
+      "id": "0yr1kv8n87g9",
+      "name": "Guarded releases event ingestion delays",
+      "status": "identified",
+      "created_at": "2026-01-08T10:46:45.317-08:00",
+      "updated_at": "2026-01-08T10:46:45.991-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/z2wgs2mlkplt",
+      "started_at": "2026-01-08T10:46:45.307-08:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "fj42lblppf6k",
+          "status": "identified",
+          "body": "We are currently experiencing delays with guarded releases event ingestion. We are investigating and will provide updates as they become available.",
+          "incident_id": "0yr1kv8n87g9",
+          "created_at": "2026-01-08T10:46:45.432-08:00",
+          "updated_at": "2026-01-08T10:46:45.986-08:00",
+          "display_at": "2026-01-08T10:46:45.432-08:00",
+          "affected_components": [
+            {
+              "code": "cz3hzygdr4w2",
+              "name": "Guarded Rollouts (core functionality) - Rollout results processing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "02v76bhy9lgc",
+              "name": "Guarded Rollouts (core functionality) - Rollout results analysis",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2009335987864846541
+        }
+      ],
+      "components": [
+        {
+          "id": "cz3hzygdr4w2",
+          "name": "Rollout results processing",
+          "status": "degraded_performance",
+          "created_at": "2025-03-26T10:11:49.980-07:00",
+          "updated_at": "2026-01-08T10:46:45.362-08:00",
+          "position": 2,
+          "description": "Aggregate and process data from feature rollouts for analysis",
+          "showcase": true,
+          "start_date": "2025-03-26",
+          "group_id": "d3hpvmdzv2tk",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "02v76bhy9lgc",
+          "name": "Rollout results analysis",
+          "status": "degraded_performance",
+          "created_at": "2025-03-26T10:12:27.904-07:00",
+          "updated_at": "2026-01-08T10:46:45.384-08:00",
+          "position": 3,
+          "description": "Evaluate the impact and performance of feature rollouts",
+          "showcase": true,
+          "start_date": "2025-03-26",
+          "group_id": "d3hpvmdzv2tk",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "x1mnrzwp8x5d",
       "name": "Delay in Observability product data ingest",
@@ -4614,9 +4688,9 @@
         {
           "id": "cz3hzygdr4w2",
           "name": "Rollout results processing",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2025-03-26T10:11:49.980-07:00",
-          "updated_at": "2025-11-18T09:00:22.396-08:00",
+          "updated_at": "2026-01-08T10:46:45.362-08:00",
           "position": 2,
           "description": "Aggregate and process data from feature rollouts for analysis",
           "showcase": true,
@@ -7438,224 +7512,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "v1np1l7lpdrd",
-      "name": "Browser SDKs are unable to connect to LaunchDarkly",
-      "status": "resolved",
-      "created_at": "2025-05-27T06:54:55.338-07:00",
-      "updated_at": "2025-05-28T15:44:16.712-07:00",
-      "monitoring_at": "2025-05-27T07:38:45.617-07:00",
-      "resolved_at": "2025-05-27T09:44:44.000-07:00",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/d5041mz291fm",
-      "started_at": "2025-05-27T07:11:15.000-07:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "d7sfzm147tb9",
-          "status": "resolved",
-          "body": "Between 1:08 PM UTC (6:08 AM PT) and 4:25 PM UTC (9:25 AM PT) on Tuesday, May 27, 2025, customers may have experienced issues with their browser SDKs connecting to the Flag Delivery Network's polling services. This time window represents the outer bounds of potential impact; each customer's actual impact may vary depending on the cache expiry of their environment data.\n\nCustomers who have implemented their own caching mechanisms outside of LaunchDarkly's SDKs may have had additional recovery time.\n\nWe resolved the issue and impacted services have returned to normal operation.",
-          "incident_id": "v1np1l7lpdrd",
-          "created_at": "2025-05-27T09:44:44.145-07:00",
-          "updated_at": "2025-05-28T08:07:45.057-07:00",
-          "display_at": "2025-05-27T09:44:44.000-07:00",
-          "affected_components": [
-            {
-              "code": "w5565sdz2kfj",
-              "name": "Flag Delivery Network (core functionality) - Polling API",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "nxbw9v3lmdtl",
-              "name": "SDKs",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1927405622493892635
-        },
-        {
-          "id": "wwpvd4l3cyb3",
-          "status": "monitoring",
-          "body": "Polling connections are continuing to fully recover for impacted browser SDKs.",
-          "incident_id": "v1np1l7lpdrd",
-          "created_at": "2025-05-27T09:40:23.042-07:00",
-          "updated_at": "2025-05-27T09:40:23.459-07:00",
-          "display_at": "2025-05-27T09:40:23.042-07:00",
-          "affected_components": [
-            {
-              "code": "w5565sdz2kfj",
-              "name": "Flag Delivery Network (core functionality) - Polling API",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "nxbw9v3lmdtl",
-              "name": "SDKs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1927404526761386256
-        },
-        {
-          "id": "phc8b29rfzm7",
-          "status": "monitoring",
-          "body": "A fix has been implemented and Browser SDK connections continue to recover while we clear cached errors from the polling service.",
-          "incident_id": "v1np1l7lpdrd",
-          "created_at": "2025-05-27T07:38:45.617-07:00",
-          "updated_at": "2025-05-27T07:38:46.368-07:00",
-          "display_at": "2025-05-27T07:38:45.617-07:00",
-          "affected_components": [
-            {
-              "code": "w5565sdz2kfj",
-              "name": "Flag Delivery Network (core functionality) - Polling API",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "nxbw9v3lmdtl",
-              "name": "SDKs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1927373919339577855
-        },
-        {
-          "id": "t4131fkpsq79",
-          "status": "identified",
-          "body": "Only browser SDKs are affected by this incident. The team has determined that non-browser SDKs (e.g. mobile and desktop SDKs) are unaffected.\n\nSDK connections are starting to come back online and recover.",
-          "incident_id": "v1np1l7lpdrd",
-          "created_at": "2025-05-27T07:29:57.579-07:00",
-          "updated_at": "2025-05-27T07:29:58.174-07:00",
-          "display_at": "2025-05-27T07:29:57.579-07:00",
-          "affected_components": [
-            {
-              "code": "w5565sdz2kfj",
-              "name": "Flag Delivery Network (core functionality) - Polling API",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "nxbw9v3lmdtl",
-              "name": "SDKs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1927371704285737278
-        },
-        {
-          "id": "mwtz9sgmz98f",
-          "status": "identified",
-          "body": "Client-side and mobile SDKs are unable to connect to the Flag Delivery Network’s polling capability. Impacted SDKs will continue to serve last known-good flag values.\n\nServer-side SDK connectivity is unaffected, as is client-side and mobile streaming connectivity. The ability to manage flags is also unaffected.",
-          "incident_id": "v1np1l7lpdrd",
-          "created_at": "2025-05-27T07:11:15.348-07:00",
-          "updated_at": "2025-05-27T07:27:01.238-07:00",
-          "display_at": "2025-05-27T07:11:15.000-07:00",
-          "affected_components": [
-            {
-              "code": "w5565sdz2kfj",
-              "name": "Flag Delivery Network (core functionality) - Polling API",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "nxbw9v3lmdtl",
-              "name": "SDKs",
-              "old_status": "major_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1927366998398246972
-        },
-        {
-          "id": "kj87ylbj5625",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "v1np1l7lpdrd",
-          "created_at": "2025-05-27T06:56:55.179-07:00",
-          "updated_at": "2025-05-27T06:56:55.779-07:00",
-          "display_at": "2025-05-27T06:56:55.179-07:00",
-          "affected_components": [
-            {
-              "code": "nxbw9v3lmdtl",
-              "name": "SDKs",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1927363389912678746
-        },
-        {
-          "id": "hf07smb45jfs",
-          "status": "investigating",
-          "body": "Client SDK users are experiencing CORS errors",
-          "incident_id": "v1np1l7lpdrd",
-          "created_at": "2025-05-27T06:54:55.384-07:00",
-          "updated_at": "2025-05-27T06:54:55.895-07:00",
-          "display_at": "2025-05-27T06:54:55.384-07:00",
-          "affected_components": [
-            {
-              "code": "nxbw9v3lmdtl",
-              "name": "SDKs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1927362887275724908
-        }
-      ],
-      "components": [
-        {
-          "id": "w5565sdz2kfj",
-          "name": "Polling API",
-          "status": "operational",
-          "created_at": "2017-04-17T09:40:25.815-07:00",
-          "updated_at": "2025-12-15T08:20:49.653-08:00",
-          "position": 3,
-          "description": "Flag updates for SDKs in polling mode",
-          "showcase": true,
-          "start_date": null,
-          "group_id": "vvb9wn53mspf",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "nxbw9v3lmdtl",
-          "name": "SDKs",
-          "status": "operational",
-          "created_at": "2022-02-28T13:52:00.274-08:00",
-          "updated_at": "2025-11-18T12:47:02.072-08:00",
-          "position": 15,
-          "description": "Notices about LaunchDarkly SDKs for topics like critical security vulnerabilities and versions approaching their end of life",
-          "showcase": false,
-          "start_date": "2022-02-28",
-          "group_id": null,
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
