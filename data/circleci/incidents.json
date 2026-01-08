@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-01-08T21:57:12.154Z"
+    "updated_at": "2026-01-08T23:29:49.748Z"
   },
   "incidents": [
     {
@@ -12,7 +12,7 @@
       "name": "Issues with jobs starting for certain Bitbucket users",
       "status": "investigating",
       "created_at": "2026-01-08T11:23:57.566Z",
-      "updated_at": "2026-01-08T15:48:52.491Z",
+      "updated_at": "2026-01-08T23:29:49.740Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -20,6 +20,26 @@
       "started_at": "2026-01-08T11:23:57.561Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "rbqs9wrf71mh",
+          "status": "investigating",
+          "body": "We are continuing to investigate an issue affecting Bitbucket users with a large number of projects. Jobs are failing to start for these users, and we are working to understand and mitigate the underlying rate limiting behavior.\n\nWhat's impacted: Bitbucket users with a large number of projects may experience job failures during the build start process. Failed jobs will present with a 404 error page.\n\nWhat's happening: We're continuing to investigate an issue where retrieving user identities from Bitbucket is encountering rate limiting for accounts with extensive project configurations. This prevents the user profile build process from completing, which blocks jobs from starting.\n\nWhat to expect: Bitbucket users with large numbers of projects may continue to experience intermittent job start failures until we can resolve the rate limiting issue.\n\nNext update: Our engineering team is continuing to investigate and work toward mitigation.  We will update our users as we have new information to share or by Jan 09, 2026 - 22:00 UTC (within 24 hours).  If you are impacted by this issue and have any other questions, please reach out to us via your regular support channels.",
+          "incident_id": "wtsg771pdb09",
+          "created_at": "2026-01-08T23:29:49.426Z",
+          "updated_at": "2026-01-08T23:29:49.733Z",
+          "display_at": "2026-01-08T23:29:49.426Z",
+          "affected_components": [
+            {
+              "code": "zxxnbynf4dkm",
+              "name": "Pipelines & Workflows",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2009407222938485110
+        },
         {
           "id": "747td900xtf0",
           "status": "investigating",
