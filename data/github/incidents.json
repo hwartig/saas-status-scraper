@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-01-22T22:49:32.296Z"
+    "updated_at": "2026-01-23T01:36:08.127Z"
   },
   "incidents": [
     {
@@ -406,7 +406,7 @@
       "name": "Incident affecting actions-runner-controller",
       "status": "resolved",
       "created_at": "2026-01-20T16:02:58.483Z",
-      "updated_at": "2026-01-20T16:23:09.260Z",
+      "updated_at": "2026-01-23T01:36:08.117Z",
       "monitoring_at": null,
       "resolved_at": "2026-01-20T16:23:09.238Z",
       "impact": "minor",
@@ -417,10 +417,10 @@
         {
           "id": "dzkyv69pnrcj",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On January 20, 2026, between 14:39 UTC and 16:03 UTC, actions-runner-controller users experienced a 1% failure rate for API requests managing GitHub Actions runner scale sets. This caused delays in runner creation, resulting in delayed job starts for workflows targeting those runners. The root cause was a service to service circuit breaker that incorrectly tripped for all users when a single user hit rate limits for runner registration. The issue was mitigated by bypassing the circuit breaker, and users saw immediate and full service recovery following the fix.<br /><br />We have updated our circuit breakers to exclude individual customer rate limits from their triggering logic and are continuing work to improve detection and mitigation times.",
           "incident_id": "m4xfyzd8mn2n",
           "created_at": "2026-01-20T16:23:09.238Z",
-          "updated_at": "2026-01-20T16:23:09.238Z",
+          "updated_at": "2026-01-23T01:36:08.111Z",
           "display_at": "2026-01-20T16:23:09.238Z",
           "affected_components": [
             {
