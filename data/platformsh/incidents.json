@@ -4,9 +4,62 @@
     "name": "Platform.sh",
     "url": "https://status.platform.sh",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-01-25T13:31:18.421Z"
+    "updated_at": "2026-01-25T17:07:30.562Z"
   },
   "incidents": [
+    {
+      "id": "g7twqpcvv2mj",
+      "name": "Outage on US Region",
+      "status": "investigating",
+      "created_at": "2026-01-25T17:07:30.477Z",
+      "updated_at": "2026-01-25T17:07:30.559Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/v2xknlvtv34b",
+      "started_at": "2026-01-25T17:07:30.472Z",
+      "page_id": "l2x5n4czt1ph",
+      "incident_updates": [
+        {
+          "id": "f8r7knbrqqgn",
+          "status": "investigating",
+          "body": "We have detected an issue affecting service on the US region, which is resulting in outages for live sites.\n\nWe are currently working to restore service.\n\nThis outage does not affect Dedicated Enterprise Clusters from what we can tell for now.\n\nWe will update you as soon as we have further information.",
+          "incident_id": "g7twqpcvv2mj",
+          "created_at": "2026-01-25T17:07:30.556Z",
+          "updated_at": "2026-01-25T17:07:30.556Z",
+          "display_at": "2026-01-25T17:07:30.556Z",
+          "affected_components": [
+            {
+              "code": "zn912j34l6sp",
+              "name": "USA (East) (us.platform.sh)",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "zn912j34l6sp",
+          "name": "USA (East) (us.platform.sh)",
+          "status": "major_outage",
+          "created_at": "2015-10-06T13:57:44.771Z",
+          "updated_at": "2026-01-25T17:07:30.510Z",
+          "position": 14,
+          "description": "us.platform.sh",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "l2x5n4czt1ph",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "40g01r6zww8q",
       "name": "Degrated Performance on Upsun Console",
@@ -1125,9 +1178,9 @@
         {
           "id": "zn912j34l6sp",
           "name": "USA (East) (us.platform.sh)",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2015-10-06T13:57:44.771Z",
-          "updated_at": "2026-01-14T06:00:21.162Z",
+          "updated_at": "2026-01-25T17:07:30.510Z",
           "position": 14,
           "description": "us.platform.sh",
           "showcase": false,
@@ -2514,9 +2567,9 @@
         {
           "id": "zn912j34l6sp",
           "name": "USA (East) (us.platform.sh)",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2015-10-06T13:57:44.771Z",
-          "updated_at": "2026-01-14T06:00:21.162Z",
+          "updated_at": "2026-01-25T17:07:30.510Z",
           "position": 14,
           "description": "us.platform.sh",
           "showcase": false,
@@ -7151,145 +7204,6 @@
           "description": "ca-1.platform.sh",
           "showcase": false,
           "start_date": null,
-          "group_id": null,
-          "page_id": "l2x5n4czt1ph",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "yywv2f1jk6xb",
-      "name": "Partial Outage on fr-3.platform.sh",
-      "status": "postmortem",
-      "created_at": "2024-09-12T11:35:19.888Z",
-      "updated_at": "2024-10-16T14:56:24.858Z",
-      "monitoring_at": "2024-09-12T13:26:46.389Z",
-      "resolved_at": "2024-09-12T15:18:43.241Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/txqhvzw2jcv1",
-      "started_at": "2024-09-12T11:35:19.880Z",
-      "page_id": "l2x5n4czt1ph",
-      "incident_updates": [
-        {
-          "id": "mh8vf379v45j",
-          "status": "postmortem",
-          "body": "## **What happened**\n\nOur rate limiter started throttling connections between the region and our API resulting in an inability to load the Console UI and use the CLI in some projects.\n\nThis incident did not affect live environments on Grid or Dedicated infrastructure.\n\n## **Customer Impact**\n\nBetween 2024-09-12 11:32 and 12:19 UTC, some customers were unable to load the Console UI and use the CLI.\n\nThere was no impact on environments or production sites.\n\n## **What was done to resolve the incident**\n\nWe have raised the connection limit between the region and API.",
-          "incident_id": "yywv2f1jk6xb",
-          "created_at": "2024-10-16T14:54:59.511Z",
-          "updated_at": "2024-10-16T14:56:24.855Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "cs3lvryyz0cc",
-          "status": "resolved",
-          "body": "What happened:\n\nOur rate limiter started throttling connections between the region and our API resulting in an inability to load the Console UI and use the CLI for some of the projects\n\nThis incident did not affect live environments on Grid or Dedicated infrastructure.\n\nCustomer Impact\n\nBetween 2024-09-12 07:25 and 10:25 UTC, some customers were unable to load the Console UI and use the CLI.\n\nThere was no impact on environments or production sites.\n\nWhat was done to resolve the incident\n\nWe have raised the connection limit between the region and API.",
-          "incident_id": "yywv2f1jk6xb",
-          "created_at": "2024-09-12T15:18:43.241Z",
-          "updated_at": "2024-09-12T15:18:43.241Z",
-          "display_at": "2024-09-12T15:18:43.241Z",
-          "affected_components": [
-            {
-              "code": "w62ktynq8s8d",
-              "name": "Accounts - Console",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ws93z9zsqbb6",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "yywv2f1jk6xb",
-          "created_at": "2024-09-12T13:26:46.389Z",
-          "updated_at": "2024-09-12T13:26:46.389Z",
-          "display_at": "2024-09-12T13:26:46.389Z",
-          "affected_components": [
-            {
-              "code": "w62ktynq8s8d",
-              "name": "Accounts - Console",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dlk76ftp7z8c",
-          "status": "identified",
-          "body": "We have detected an issue affecting our console and CLI on the fr-3.platform.sh region. Our Operations team has been notified and is currently working to restore service. Some projects on affected region may experience inability to access the Console UI, connect via SSH and use the CLI.\nWe will update you as soon as we have further information.",
-          "incident_id": "yywv2f1jk6xb",
-          "created_at": "2024-09-12T11:35:19.961Z",
-          "updated_at": "2024-09-12T11:35:19.961Z",
-          "display_at": "2024-09-12T11:35:19.961Z",
-          "affected_components": [
-            {
-              "code": "w62ktynq8s8d",
-              "name": "Accounts - Console",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "gzncjfm5zxp6",
-              "name": "Europe (France 3) (fr-3.platform.sh)",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "w62ktynq8s8d",
-          "name": "Console",
-          "status": "operational",
-          "created_at": "2019-07-23T19:37:12.161Z",
-          "updated_at": "2026-01-20T19:25:33.891Z",
-          "position": 1,
-          "description": "Project console for Platform Professional.",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "fyqkwqq92sxm",
-          "page_id": "l2x5n4czt1ph",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "gzncjfm5zxp6",
-          "name": "Europe (France 3) (fr-3.platform.sh)",
-          "status": "operational",
-          "created_at": "2021-04-06T15:26:41.226Z",
-          "updated_at": "2026-01-08T20:00:21.685Z",
-          "position": 5,
-          "description": "fr-3.platform.sh",
-          "showcase": false,
-          "start_date": "2021-04-06",
           "group_id": null,
           "page_id": "l2x5n4czt1ph",
           "group": false,
