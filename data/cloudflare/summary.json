@@ -4,7 +4,7 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-01-27T22:00:26.584Z"
+    "updated_at": "2026-01-27T22:33:32.804Z"
   },
   "components": [
     {
@@ -344,9 +344,9 @@
     {
       "id": "w4k8yvhfb3vp",
       "name": "Access",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2018-02-09T21:46:39.049Z",
-      "updated_at": "2026-01-27T19:35:59.743Z",
+      "updated_at": "2026-01-27T22:28:53.734Z",
       "position": 2,
       "description": "Cloudflare Access determines who can reach your application by applying the Access policies you configure",
       "showcase": false,
@@ -6096,9 +6096,9 @@
     {
       "id": "vgxj684rcw7t",
       "name": "Pages",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2021-04-16T21:04:08.018Z",
-      "updated_at": "2026-01-27T19:35:59.766Z",
+      "updated_at": "2026-01-27T22:28:53.756Z",
       "position": 71,
       "description": null,
       "showcase": false,
@@ -6771,9 +6771,9 @@
     {
       "id": "57srcl8zcn7c",
       "name": "Workers",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-24T16:49:08.728Z",
-      "updated_at": "2026-01-27T19:35:59.789Z",
+      "updated_at": "2026-01-27T22:28:53.777Z",
       "position": 104,
       "description": "Cloudflare Workers provides a serverless execution environment that allows you to create new applications or augment existing ones without configuring or maintaining infrastructure",
       "showcase": false,
@@ -6831,9 +6831,9 @@
     {
       "id": "tmh50tx2nprs",
       "name": "Workers KV",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-24T16:49:32.394Z",
-      "updated_at": "2026-01-27T19:35:59.811Z",
+      "updated_at": "2026-01-27T22:28:53.799Z",
       "position": 108,
       "description": "Workers KV is a data storage that allows you to store and retrieve data globally to build dynamic and performant APIs and websites that support high read volumes with low latency",
       "showcase": false,
@@ -7506,11 +7506,165 @@
   ],
   "incidents": [
     {
+      "id": "85ppdy2cll1d",
+      "name": "Workers KV elevated latency and errors",
+      "status": "monitoring",
+      "created_at": "2026-01-27T22:28:53.682Z",
+      "updated_at": "2026-01-27T22:33:32.801Z",
+      "monitoring_at": "2026-01-27T22:33:32.784Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/v3cclb2z6l2n",
+      "started_at": "2026-01-27T22:28:53.669Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "g4rfljywq790",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "85ppdy2cll1d",
+          "created_at": "2026-01-27T22:33:32.784Z",
+          "updated_at": "2026-01-27T22:33:32.784Z",
+          "display_at": "2026-01-27T22:33:32.784Z",
+          "affected_components": [
+            {
+              "code": "w4k8yvhfb3vp",
+              "name": "Cloudflare Sites and Services - Access",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "vgxj684rcw7t",
+              "name": "Cloudflare Sites and Services - Pages",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "57srcl8zcn7c",
+              "name": "Cloudflare Sites and Services - Workers",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "tmh50tx2nprs",
+              "name": "Cloudflare Sites and Services - Workers KV",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "t80k77bxw478",
+          "status": "investigating",
+          "body": "Cloudflare is aware of issues impacting Workers KV and downstream services such as Cloudflare Access, Cloudflare Pages and Workers Assets.\n\nAccess customers may be experiencing issues logging in or changing configuration. Existing authenticated traffic is not impacted.\n\nPages and Workers Assets customers may have issues uploading new assets.",
+          "incident_id": "85ppdy2cll1d",
+          "created_at": "2026-01-27T22:28:53.859Z",
+          "updated_at": "2026-01-27T22:28:53.859Z",
+          "display_at": "2026-01-27T22:28:53.859Z",
+          "affected_components": [
+            {
+              "code": "w4k8yvhfb3vp",
+              "name": "Cloudflare Sites and Services - Access",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "vgxj684rcw7t",
+              "name": "Cloudflare Sites and Services - Pages",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "57srcl8zcn7c",
+              "name": "Cloudflare Sites and Services - Workers",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "tmh50tx2nprs",
+              "name": "Cloudflare Sites and Services - Workers KV",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "w4k8yvhfb3vp",
+          "name": "Access",
+          "status": "degraded_performance",
+          "created_at": "2018-02-09T21:46:39.049Z",
+          "updated_at": "2026-01-27T22:28:53.734Z",
+          "position": 2,
+          "description": "Cloudflare Access determines who can reach your application by applying the Access policies you configure",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "vgxj684rcw7t",
+          "name": "Pages",
+          "status": "degraded_performance",
+          "created_at": "2021-04-16T21:04:08.018Z",
+          "updated_at": "2026-01-27T22:28:53.756Z",
+          "position": 71,
+          "description": null,
+          "showcase": false,
+          "start_date": "2021-04-16",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "57srcl8zcn7c",
+          "name": "Workers",
+          "status": "degraded_performance",
+          "created_at": "2019-01-24T16:49:08.728Z",
+          "updated_at": "2026-01-27T22:28:53.777Z",
+          "position": 104,
+          "description": "Cloudflare Workers provides a serverless execution environment that allows you to create new applications or augment existing ones without configuring or maintaining infrastructure",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "tmh50tx2nprs",
+          "name": "Workers KV",
+          "status": "degraded_performance",
+          "created_at": "2019-01-24T16:49:32.394Z",
+          "updated_at": "2026-01-27T22:28:53.799Z",
+          "position": 108,
+          "description": "Workers KV is a data storage that allows you to store and retrieve data globally to build dynamic and performant APIs and websites that support high read volumes with low latency",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "3xb30dhqfkw7",
       "name": "Network Degraded in Chicago, IL",
       "status": "identified",
       "created_at": "2026-01-27T18:36:14.134Z",
-      "updated_at": "2026-01-27T19:26:02.619Z",
+      "updated_at": "2026-01-27T22:30:39.585Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -7518,6 +7672,26 @@
       "started_at": "2026-01-27T18:36:14.127Z",
       "page_id": "yh6f0r4529hb",
       "incident_updates": [
+        {
+          "id": "8138l8816bsf",
+          "status": "identified",
+          "body": "Engineering teams are working to restore services at our Chicago (ORD) data center. In the meantime, traffic is being automatically rerouted to nearby regions to ensure continued availability.",
+          "incident_id": "3xb30dhqfkw7",
+          "created_at": "2026-01-27T22:30:39.582Z",
+          "updated_at": "2026-01-27T22:30:39.582Z",
+          "display_at": "2026-01-27T22:30:39.582Z",
+          "affected_components": [
+            {
+              "code": "z9v8znl25w0f",
+              "name": "North America - Chicago, IL, United States - (ORD)",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "5rvrz8pmxq6x",
           "status": "identified",
@@ -10232,6 +10406,73 @@
       ],
       "scheduled_for": "2026-02-05T09:00:00.000Z",
       "scheduled_until": "2026-02-05T15:00:00.000Z"
+    },
+    {
+      "id": "lkx8h7fcyfth",
+      "name": "VIE (Vienna) on 2026-01-27",
+      "status": "in_progress",
+      "created_at": "2026-01-27T22:16:28.037Z",
+      "updated_at": "2026-01-27T22:30:21.702Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/0xbl526ypswc",
+      "started_at": "2026-01-27T22:16:28.029Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "0bnc5xnpxwn6",
+          "status": "in_progress",
+          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
+          "incident_id": "lkx8h7fcyfth",
+          "created_at": "2026-01-27T22:30:21.699Z",
+          "updated_at": "2026-01-27T22:30:21.699Z",
+          "display_at": "2026-01-27T22:30:21.699Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2wx8vsvcj8wp",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance in VIE (Vienna) datacenter between 2026-01-27 22:30 and 2026-01-28 05:30 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "lkx8h7fcyfth",
+          "created_at": "2026-01-27T22:16:28.099Z",
+          "updated_at": "2026-01-27T22:16:28.099Z",
+          "display_at": "2026-01-27T22:16:28.099Z",
+          "affected_components": [
+            {
+              "code": "lfp6vhw43pt3",
+              "name": "Europe - Vienna, Austria - (VIE)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "lfp6vhw43pt3",
+          "name": "Vienna, Austria - (VIE)",
+          "status": "operational",
+          "created_at": "2014-10-27T21:41:22.043Z",
+          "updated_at": "2026-01-14T23:54:32.450Z",
+          "position": 52,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "zqxhg7y54vy8",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-01-27T22:30:00.000Z",
+      "scheduled_until": "2026-01-28T05:30:00.000Z"
     },
     {
       "id": "xw8d9791nnd7",
