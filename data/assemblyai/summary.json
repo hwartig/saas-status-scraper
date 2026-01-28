@@ -4,13 +4,13 @@
     "name": "AssemblyAI",
     "url": "https://status.assemblyai.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-01-28T14:25:46.040Z"
+    "updated_at": "2026-01-28T18:06:55.190Z"
   },
   "components": [
     {
       "id": "50txf4qfk2kv",
       "name": "APIs",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2021-10-25T15:23:09.725Z",
       "updated_at": "2023-07-29T17:52:35.503Z",
       "position": 1,
@@ -30,9 +30,9 @@
     {
       "id": "kygwc83t1rfg",
       "name": "Asynchronous API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2021-10-25T15:23:09.740Z",
-      "updated_at": "2025-11-20T08:47:50.723Z",
+      "updated_at": "2026-01-28T17:50:14.171Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -314,10 +314,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "h0ntm8sj3cdn",
+      "name": "Higher latency when using the EU endpoint",
+      "status": "investigating",
+      "created_at": "2026-01-28T17:50:14.089Z",
+      "updated_at": "2026-01-28T18:06:55.180Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/drrcpk48b6vd",
+      "started_at": "2026-01-28T17:50:14.077Z",
+      "page_id": "8yxng9m82rr4",
+      "incident_updates": [
+        {
+          "id": "gqhfndg9k8dr",
+          "status": "investigating",
+          "body": "This issue is also affecting the EU DELETE endpoint. Some DELETE requests for transcriptions are resulting in an error.",
+          "incident_id": "h0ntm8sj3cdn",
+          "created_at": "2026-01-28T18:06:55.176Z",
+          "updated_at": "2026-01-28T18:06:55.176Z",
+          "display_at": "2026-01-28T18:06:55.176Z",
+          "affected_components": [
+            {
+              "code": "kygwc83t1rfg",
+              "name": "APIs - Asynchronous API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "tvwrtww42kt1",
+          "status": "investigating",
+          "body": "Our team is actively investigating an issue that is causing increased latency for transcriptions using the EU endpoint for pre-recorded transcriptions. Customers may experience transcripts being queued. This is not affecting streaming usage on the EU endpoint.",
+          "incident_id": "h0ntm8sj3cdn",
+          "created_at": "2026-01-28T17:50:14.257Z",
+          "updated_at": "2026-01-28T17:50:14.257Z",
+          "display_at": "2026-01-28T17:50:14.257Z",
+          "affected_components": [
+            {
+              "code": "kygwc83t1rfg",
+              "name": "APIs - Asynchronous API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "kygwc83t1rfg",
+          "name": "Asynchronous API",
+          "status": "degraded_performance",
+          "created_at": "2021-10-25T15:23:09.740Z",
+          "updated_at": "2026-01-28T17:50:14.171Z",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": "2021-10-25",
+          "group_id": "50txf4qfk2kv",
+          "page_id": "8yxng9m82rr4",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
