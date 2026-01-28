@@ -4,9 +4,344 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-01-28T13:13:00.508Z"
+    "updated_at": "2026-01-28T14:48:37.658Z"
   },
   "incidents": [
+    {
+      "id": "dk0d6pjt9vjx",
+      "name": "Workers Ratelimit Degredation",
+      "status": "investigating",
+      "created_at": "2026-01-28T14:38:35.635Z",
+      "updated_at": "2026-01-28T14:38:35.765Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/xc3y0b7fzg9b",
+      "started_at": "2026-01-28T14:38:35.626Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "1x8jx1sfj15f",
+          "status": "investigating",
+          "body": "We are aware that workers rate limiting may be triggering below the defined limit, and we are working to resolve this issue",
+          "incident_id": "dk0d6pjt9vjx",
+          "created_at": "2026-01-28T14:38:35.761Z",
+          "updated_at": "2026-01-28T14:38:35.761Z",
+          "display_at": "2026-01-28T14:38:35.761Z",
+          "affected_components": [
+            {
+              "code": "57srcl8zcn7c",
+              "name": "Cloudflare Sites and Services - Workers",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "57srcl8zcn7c",
+          "name": "Workers",
+          "status": "degraded_performance",
+          "created_at": "2019-01-24T16:49:08.728Z",
+          "updated_at": "2026-01-28T14:38:35.678Z",
+          "position": 104,
+          "description": "Cloudflare Workers provides a serverless execution environment that allows you to create new applications or augment existing ones without configuring or maintaining infrastructure",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "54h1hbfvchlf",
+      "name": "Elevated Errors and Query Timeouts for D1 Databases and SQLite Durable Objects",
+      "status": "resolved",
+      "created_at": "2026-01-25T21:07:55.548Z",
+      "updated_at": "2026-01-28T14:14:34.820Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-01-28T14:14:34.803Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/smsy1cd1jwnl",
+      "started_at": "2026-01-25T21:07:55.538Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "63mdwclcw5gf",
+          "status": "resolved",
+          "body": "We have put in place a series of mitigations to prevent a reoccurrence of severe query timeouts for affected databases. \n\nThis includes improvements to our watchdog logic, updates to our internal metrics, and the pre-existing / ongoing (short & medium term) improvements to D1 & Durable Objects SQL performance in these cases.",
+          "incident_id": "54h1hbfvchlf",
+          "created_at": "2026-01-28T14:14:34.803Z",
+          "updated_at": "2026-01-28T14:14:34.803Z",
+          "display_at": "2026-01-28T14:14:34.803Z",
+          "affected_components": [
+            {
+              "code": "z0yd3sxqjqdm",
+              "name": "Cloudflare Sites and Services - D1",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "bty1yz6dhh0v",
+              "name": "Cloudflare Sites and Services - Durable Objects",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "1c9yz46x2ywc",
+          "status": "identified",
+          "body": "We are continuing to work on a fix for this issue.",
+          "incident_id": "54h1hbfvchlf",
+          "created_at": "2026-01-28T11:09:11.821Z",
+          "updated_at": "2026-01-28T11:09:11.821Z",
+          "display_at": "2026-01-28T11:09:11.821Z",
+          "affected_components": [
+            {
+              "code": "z0yd3sxqjqdm",
+              "name": "Cloudflare Sites and Services - D1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "bty1yz6dhh0v",
+              "name": "Cloudflare Sites and Services - Durable Objects",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "xrq5wy27dhz1",
+          "status": "identified",
+          "body": "After monitoring today, we still see intermittent elevated errors and query timeouts. Multiple, in-parallel code changes are being implemented or rolling out as additional remediation.",
+          "incident_id": "54h1hbfvchlf",
+          "created_at": "2026-01-27T23:01:50.153Z",
+          "updated_at": "2026-01-27T23:01:50.153Z",
+          "display_at": "2026-01-27T23:01:50.153Z",
+          "affected_components": [
+            {
+              "code": "z0yd3sxqjqdm",
+              "name": "Cloudflare Sites and Services - D1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "bty1yz6dhh0v",
+              "name": "Cloudflare Sites and Services - Durable Objects",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "d3pvxw7k0xy1",
+          "status": "identified",
+          "body": "A code change was rolled out and we're monitoring throughout NAMER business hours for reduction in errors and timeouts. Additionally in parallel, we are rolling out more changes that should reduce the impact of these small fraction of errors and timeouts.",
+          "incident_id": "54h1hbfvchlf",
+          "created_at": "2026-01-27T16:44:18.207Z",
+          "updated_at": "2026-01-27T16:45:07.981Z",
+          "display_at": "2026-01-27T15:54:18.000Z",
+          "affected_components": [
+            {
+              "code": "z0yd3sxqjqdm",
+              "name": "Cloudflare Sites and Services - D1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "bty1yz6dhh0v",
+              "name": "Cloudflare Sites and Services - Durable Objects",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "kgqhmc618gqb",
+          "status": "identified",
+          "body": "One implemented fix is being rolled out across Cloudflare's network but has not yet reached locations running Durable Objects or D1. The release will progress over several more hours after which we will monitor throughout 2025-01-27 for the desired reduction in errors and timeouts.",
+          "incident_id": "54h1hbfvchlf",
+          "created_at": "2026-01-26T23:29:40.603Z",
+          "updated_at": "2026-01-26T23:29:40.603Z",
+          "display_at": "2026-01-26T23:29:40.603Z",
+          "affected_components": [
+            {
+              "code": "z0yd3sxqjqdm",
+              "name": "Cloudflare Sites and Services - D1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "bty1yz6dhh0v",
+              "name": "Cloudflare Sites and Services - Durable Objects",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "xq4qfv36p931",
+          "status": "identified",
+          "body": "We are continuing to work on a fix for this issue. Observed errors target only a small number of Durable Objects and D1 databases (D1 errors are less than 0.1% of total requests).",
+          "incident_id": "54h1hbfvchlf",
+          "created_at": "2026-01-26T15:22:33.073Z",
+          "updated_at": "2026-01-26T15:22:33.073Z",
+          "display_at": "2026-01-26T15:22:33.073Z",
+          "affected_components": [
+            {
+              "code": "z0yd3sxqjqdm",
+              "name": "Cloudflare Sites and Services - D1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "bty1yz6dhh0v",
+              "name": "Cloudflare Sites and Services - Durable Objects",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "jk1266mxwdrq",
+          "status": "identified",
+          "body": "Investigation identified the issue is a recurrence of https://www.cloudflarestatus.com/incidents/kzvk0c2s5fy7, whose remediation did not fully address the elevated errors and query timeouts. We are actively implementing additional fixes to address the errors and timeouts.",
+          "incident_id": "54h1hbfvchlf",
+          "created_at": "2026-01-26T14:21:31.038Z",
+          "updated_at": "2026-01-26T14:21:31.038Z",
+          "display_at": "2026-01-26T14:21:31.038Z",
+          "affected_components": [
+            {
+              "code": "z0yd3sxqjqdm",
+              "name": "Cloudflare Sites and Services - D1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "bty1yz6dhh0v",
+              "name": "Cloudflare Sites and Services - Durable Objects",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "zh0lr2vs21n5",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue.",
+          "incident_id": "54h1hbfvchlf",
+          "created_at": "2026-01-26T09:06:46.552Z",
+          "updated_at": "2026-01-26T09:06:46.552Z",
+          "display_at": "2026-01-26T09:06:46.552Z",
+          "affected_components": [
+            {
+              "code": "z0yd3sxqjqdm",
+              "name": "Cloudflare Sites and Services - D1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "bty1yz6dhh0v",
+              "name": "Cloudflare Sites and Services - Durable Objects",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "88nn63nm1mtx",
+          "status": "investigating",
+          "body": "A small number of users are reporting severe increases in query latency when querying D1 databases and SQLite-backed Durable Objects. This is resulting in timeouts and/or hard errors for those queries.\n\nWe are investigating the cause and potential fixes and will provide updates with our findings.",
+          "incident_id": "54h1hbfvchlf",
+          "created_at": "2026-01-25T21:07:55.678Z",
+          "updated_at": "2026-01-25T21:07:55.678Z",
+          "display_at": "2026-01-25T21:07:55.678Z",
+          "affected_components": [
+            {
+              "code": "z0yd3sxqjqdm",
+              "name": "Cloudflare Sites and Services - D1",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "bty1yz6dhh0v",
+              "name": "Cloudflare Sites and Services - Durable Objects",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "z0yd3sxqjqdm",
+          "name": "D1",
+          "status": "operational",
+          "created_at": "2024-02-09T08:57:38.825Z",
+          "updated_at": "2026-01-28T14:14:34.730Z",
+          "position": 33,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-02-09",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "bty1yz6dhh0v",
+          "name": "Durable Objects",
+          "status": "operational",
+          "created_at": "2023-06-12T14:55:22.631Z",
+          "updated_at": "2026-01-28T14:14:34.753Z",
+          "position": 43,
+          "description": "Durable Objects provide low-latency coordination and consistent permanent storage for the Workers platform.",
+          "showcase": false,
+          "start_date": "2023-06-12",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "p05nr4fb48xt",
       "name": "Network Performance Issues",
@@ -724,9 +1059,9 @@
         {
           "id": "57srcl8zcn7c",
           "name": "Workers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-24T16:49:08.728Z",
-          "updated_at": "2026-01-28T01:53:53.265Z",
+          "updated_at": "2026-01-28T14:38:35.678Z",
           "position": 104,
           "description": "Cloudflare Workers provides a serverless execution environment that allows you to create new applications or augment existing ones without configuring or maintaining infrastructure",
           "showcase": false,
@@ -916,9 +1251,9 @@
         {
           "id": "57srcl8zcn7c",
           "name": "Workers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-24T16:49:08.728Z",
-          "updated_at": "2026-01-28T01:53:53.265Z",
+          "updated_at": "2026-01-28T14:38:35.678Z",
           "position": 104,
           "description": "Cloudflare Workers provides a serverless execution environment that allows you to create new applications or augment existing ones without configuring or maintaining infrastructure",
           "showcase": false,
@@ -1113,262 +1448,6 @@
       "reminder_intervals": null
     },
     {
-      "id": "54h1hbfvchlf",
-      "name": "Elevated Errors and Query Timeouts for D1 Databases and SQLite Durable Objects",
-      "status": "identified",
-      "created_at": "2026-01-25T21:07:55.548Z",
-      "updated_at": "2026-01-28T11:09:11.824Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/smsy1cd1jwnl",
-      "started_at": "2026-01-25T21:07:55.538Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "1c9yz46x2ywc",
-          "status": "identified",
-          "body": "We are continuing to work on a fix for this issue.",
-          "incident_id": "54h1hbfvchlf",
-          "created_at": "2026-01-28T11:09:11.821Z",
-          "updated_at": "2026-01-28T11:09:11.821Z",
-          "display_at": "2026-01-28T11:09:11.821Z",
-          "affected_components": [
-            {
-              "code": "z0yd3sxqjqdm",
-              "name": "Cloudflare Sites and Services - D1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bty1yz6dhh0v",
-              "name": "Cloudflare Sites and Services - Durable Objects",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xrq5wy27dhz1",
-          "status": "identified",
-          "body": "After monitoring today, we still see intermittent elevated errors and query timeouts. Multiple, in-parallel code changes are being implemented or rolling out as additional remediation.",
-          "incident_id": "54h1hbfvchlf",
-          "created_at": "2026-01-27T23:01:50.153Z",
-          "updated_at": "2026-01-27T23:01:50.153Z",
-          "display_at": "2026-01-27T23:01:50.153Z",
-          "affected_components": [
-            {
-              "code": "z0yd3sxqjqdm",
-              "name": "Cloudflare Sites and Services - D1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bty1yz6dhh0v",
-              "name": "Cloudflare Sites and Services - Durable Objects",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "d3pvxw7k0xy1",
-          "status": "identified",
-          "body": "A code change was rolled out and we're monitoring throughout NAMER business hours for reduction in errors and timeouts. Additionally in parallel, we are rolling out more changes that should reduce the impact of these small fraction of errors and timeouts.",
-          "incident_id": "54h1hbfvchlf",
-          "created_at": "2026-01-27T16:44:18.207Z",
-          "updated_at": "2026-01-27T16:45:07.981Z",
-          "display_at": "2026-01-27T15:54:18.000Z",
-          "affected_components": [
-            {
-              "code": "z0yd3sxqjqdm",
-              "name": "Cloudflare Sites and Services - D1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bty1yz6dhh0v",
-              "name": "Cloudflare Sites and Services - Durable Objects",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "kgqhmc618gqb",
-          "status": "identified",
-          "body": "One implemented fix is being rolled out across Cloudflare's network but has not yet reached locations running Durable Objects or D1. The release will progress over several more hours after which we will monitor throughout 2025-01-27 for the desired reduction in errors and timeouts.",
-          "incident_id": "54h1hbfvchlf",
-          "created_at": "2026-01-26T23:29:40.603Z",
-          "updated_at": "2026-01-26T23:29:40.603Z",
-          "display_at": "2026-01-26T23:29:40.603Z",
-          "affected_components": [
-            {
-              "code": "z0yd3sxqjqdm",
-              "name": "Cloudflare Sites and Services - D1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bty1yz6dhh0v",
-              "name": "Cloudflare Sites and Services - Durable Objects",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xq4qfv36p931",
-          "status": "identified",
-          "body": "We are continuing to work on a fix for this issue. Observed errors target only a small number of Durable Objects and D1 databases (D1 errors are less than 0.1% of total requests).",
-          "incident_id": "54h1hbfvchlf",
-          "created_at": "2026-01-26T15:22:33.073Z",
-          "updated_at": "2026-01-26T15:22:33.073Z",
-          "display_at": "2026-01-26T15:22:33.073Z",
-          "affected_components": [
-            {
-              "code": "z0yd3sxqjqdm",
-              "name": "Cloudflare Sites and Services - D1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bty1yz6dhh0v",
-              "name": "Cloudflare Sites and Services - Durable Objects",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jk1266mxwdrq",
-          "status": "identified",
-          "body": "Investigation identified the issue is a recurrence of https://www.cloudflarestatus.com/incidents/kzvk0c2s5fy7, whose remediation did not fully address the elevated errors and query timeouts. We are actively implementing additional fixes to address the errors and timeouts.",
-          "incident_id": "54h1hbfvchlf",
-          "created_at": "2026-01-26T14:21:31.038Z",
-          "updated_at": "2026-01-26T14:21:31.038Z",
-          "display_at": "2026-01-26T14:21:31.038Z",
-          "affected_components": [
-            {
-              "code": "z0yd3sxqjqdm",
-              "name": "Cloudflare Sites and Services - D1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bty1yz6dhh0v",
-              "name": "Cloudflare Sites and Services - Durable Objects",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "zh0lr2vs21n5",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "54h1hbfvchlf",
-          "created_at": "2026-01-26T09:06:46.552Z",
-          "updated_at": "2026-01-26T09:06:46.552Z",
-          "display_at": "2026-01-26T09:06:46.552Z",
-          "affected_components": [
-            {
-              "code": "z0yd3sxqjqdm",
-              "name": "Cloudflare Sites and Services - D1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bty1yz6dhh0v",
-              "name": "Cloudflare Sites and Services - Durable Objects",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "88nn63nm1mtx",
-          "status": "investigating",
-          "body": "A small number of users are reporting severe increases in query latency when querying D1 databases and SQLite-backed Durable Objects. This is resulting in timeouts and/or hard errors for those queries.\n\nWe are investigating the cause and potential fixes and will provide updates with our findings.",
-          "incident_id": "54h1hbfvchlf",
-          "created_at": "2026-01-25T21:07:55.678Z",
-          "updated_at": "2026-01-25T21:07:55.678Z",
-          "display_at": "2026-01-25T21:07:55.678Z",
-          "affected_components": [
-            {
-              "code": "z0yd3sxqjqdm",
-              "name": "Cloudflare Sites and Services - D1",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "bty1yz6dhh0v",
-              "name": "Cloudflare Sites and Services - Durable Objects",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "z0yd3sxqjqdm",
-          "name": "D1",
-          "status": "degraded_performance",
-          "created_at": "2024-02-09T08:57:38.825Z",
-          "updated_at": "2026-01-25T21:07:55.593Z",
-          "position": 33,
-          "description": null,
-          "showcase": false,
-          "start_date": "2024-02-09",
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "bty1yz6dhh0v",
-          "name": "Durable Objects",
-          "status": "degraded_performance",
-          "created_at": "2023-06-12T14:55:22.631Z",
-          "updated_at": "2026-01-25T21:07:55.616Z",
-          "position": 43,
-          "description": "Durable Objects provide low-latency coordination and consistent permanent storage for the Workers platform.",
-          "showcase": false,
-          "start_date": "2023-06-12",
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
       "id": "kzvk0c2s5fy7",
       "name": "Durable Objects elevated errors",
       "status": "resolved",
@@ -1464,9 +1543,9 @@
         {
           "id": "z0yd3sxqjqdm",
           "name": "D1",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2024-02-09T08:57:38.825Z",
-          "updated_at": "2026-01-25T21:07:55.593Z",
+          "updated_at": "2026-01-28T14:14:34.730Z",
           "position": 33,
           "description": null,
           "showcase": false,
@@ -1479,9 +1558,9 @@
         {
           "id": "bty1yz6dhh0v",
           "name": "Durable Objects",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2023-06-12T14:55:22.631Z",
-          "updated_at": "2026-01-25T21:07:55.616Z",
+          "updated_at": "2026-01-28T14:14:34.753Z",
           "position": 43,
           "description": "Durable Objects provide low-latency coordination and consistent permanent storage for the Workers platform.",
           "showcase": false,
@@ -2115,9 +2194,9 @@
         {
           "id": "z0yd3sxqjqdm",
           "name": "D1",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2024-02-09T08:57:38.825Z",
-          "updated_at": "2026-01-25T21:07:55.593Z",
+          "updated_at": "2026-01-28T14:14:34.730Z",
           "position": 33,
           "description": null,
           "showcase": false,
@@ -2130,9 +2209,9 @@
         {
           "id": "bty1yz6dhh0v",
           "name": "Durable Objects",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2023-06-12T14:55:22.631Z",
-          "updated_at": "2026-01-25T21:07:55.616Z",
+          "updated_at": "2026-01-28T14:14:34.753Z",
           "position": 43,
           "description": "Durable Objects provide low-latency coordination and consistent permanent storage for the Workers platform.",
           "showcase": false,
@@ -2706,9 +2785,9 @@
         {
           "id": "bty1yz6dhh0v",
           "name": "Durable Objects",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2023-06-12T14:55:22.631Z",
-          "updated_at": "2026-01-25T21:07:55.616Z",
+          "updated_at": "2026-01-28T14:14:34.753Z",
           "position": 43,
           "description": "Durable Objects provide low-latency coordination and consistent permanent storage for the Workers platform.",
           "showcase": false,
@@ -3110,9 +3189,9 @@
         {
           "id": "57srcl8zcn7c",
           "name": "Workers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-24T16:49:08.728Z",
-          "updated_at": "2026-01-28T01:53:53.265Z",
+          "updated_at": "2026-01-28T14:38:35.678Z",
           "position": 104,
           "description": "Cloudflare Workers provides a serverless execution environment that allows you to create new applications or augment existing ones without configuring or maintaining infrastructure",
           "showcase": false,
@@ -4142,9 +4221,9 @@
         {
           "id": "57srcl8zcn7c",
           "name": "Workers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-24T16:49:08.728Z",
-          "updated_at": "2026-01-28T01:53:53.265Z",
+          "updated_at": "2026-01-28T14:38:35.678Z",
           "position": 104,
           "description": "Cloudflare Workers provides a serverless execution environment that allows you to create new applications or augment existing ones without configuring or maintaining infrastructure",
           "showcase": false,
@@ -5310,9 +5389,9 @@
         {
           "id": "bty1yz6dhh0v",
           "name": "Durable Objects",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2023-06-12T14:55:22.631Z",
-          "updated_at": "2026-01-25T21:07:55.616Z",
+          "updated_at": "2026-01-28T14:14:34.753Z",
           "position": 43,
           "description": "Durable Objects provide low-latency coordination and consistent permanent storage for the Workers platform.",
           "showcase": false,
@@ -5476,62 +5555,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "rk3dgkmy89kc",
-      "name": "Global Issues with 1.1.1.1 public resolver",
-      "status": "resolved",
-      "created_at": "2026-01-08T18:51:49.644Z",
-      "updated_at": "2026-01-08T20:25:10.092Z",
-      "monitoring_at": "2026-01-08T20:01:04.016Z",
-      "resolved_at": "2026-01-08T20:25:10.075Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/16tp86lf5589",
-      "started_at": "2026-01-08T18:51:49.638Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "yxh2771mfwfz",
-          "status": "resolved",
-          "body": "A recent software update inadvertently altered the ordering of DNS records within our cached responses. Specifically, the sequence of CNAME and non-CNAME records in the \"answer\" section was changed, which conflicted with the expectations of certain DNS client implementations. Upon identifying this behavior, we reverted the release to restore standard record ordering and resolve connectivity issues for affected users.",
-          "incident_id": "rk3dgkmy89kc",
-          "created_at": "2026-01-08T20:25:10.075Z",
-          "updated_at": "2026-01-08T20:25:10.075Z",
-          "display_at": "2026-01-08T20:25:10.075Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "z2rl3ynq037s",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "rk3dgkmy89kc",
-          "created_at": "2026-01-08T20:01:04.016Z",
-          "updated_at": "2026-01-08T20:01:04.016Z",
-          "display_at": "2026-01-08T20:01:04.016Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nj9dhvwc85cs",
-          "status": "identified",
-          "body": "Cloudflare is aware of, and investigating, an issue which potentially impacts users globally that use 1.1.1.1 public resolver. Further detail will be provided as more information becomes available.",
-          "incident_id": "rk3dgkmy89kc",
-          "created_at": "2026-01-08T18:51:49.697Z",
-          "updated_at": "2026-01-08T18:51:49.697Z",
-          "display_at": "2026-01-08T18:51:49.697Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
