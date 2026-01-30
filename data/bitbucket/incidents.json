@@ -4,7 +4,7 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-01-30T12:30:46.459Z"
+    "updated_at": "2026-01-30T16:06:42.655Z"
   },
   "incidents": [
     {
@@ -53,9 +53,9 @@
     {
       "id": "bvc0xy1vlfgy",
       "name": "Unable to reach bitbucket site",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-01-07T16:23:29.492Z",
-      "updated_at": "2026-01-07T18:53:23.653Z",
+      "updated_at": "2026-01-30T16:06:42.651Z",
       "monitoring_at": "2026-01-07T17:49:25.126Z",
       "resolved_at": "2026-01-07T18:53:23.637Z",
       "impact": "critical",
@@ -63,6 +63,19 @@
       "started_at": "2026-01-07T16:23:29.479Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "3s87ymj8kj5c",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn Jan 7, 2026, between 15:28 UTC and 17:04 UTC, Atlassian customers using Bitbucket Cloud could not load the dashboard landing page. Users also faced degraded performance and intermittent failures navigating other parts of the application or using public REST APIs.\n\nThe event was caused by an unexpected load on a public API, causing long-running queries on a database which resulted in failed web and api requests. The incident was detected within three minutes by automated monitoring systems and mitigated by introducing stricter limits on the API for certain traffic, while taking manual actions on the impacted database, restoring Bitbucket to a healthy state.\n\n### **IMPACT**\n\nOccurring on Bitbucket Cloud on Jan 7, 2026, between 15:28 UTC and 17:04 UTC, the incident caused degraded performance and intermittent failures to a subset of customers interacting with the Bitbucket web application and public APIs.  Git operations over SSH and HTTPS were not impacted.\n\n### **ROOT CAUSE**\n\nThe event was caused by an unexpected load on a public API. The request volume during this period resulted in high resource utilization our central database’s read replicas, impacting website and our API performance and reliability. \n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know outages reduce your productivity. Although we have several testing and prevention processes, this issue went undetected because a specific request pattern on a public API was not tested against the traffic volume seen during the incident.\n\nWe prioritized the following actions to prevent repeating this type of incident:\n\n* Improve rate limiting and caching capabilities at multiple points in our networking and application layers.\n* Apply stricter rate limits for specific public APIs to protect infrastructure health and shared application resources.\n* Optimize performance of specific queries and codepaths on these APIs to handle high request loads.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "bvc0xy1vlfgy",
+          "created_at": "2026-01-30T16:02:20.693Z",
+          "updated_at": "2026-01-30T16:06:42.647Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "cr7v3spch5mg",
           "status": "resolved",
