@@ -4,7 +4,7 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-01-30T01:30:52.225Z"
+    "updated_at": "2026-01-30T04:20:21.369Z"
   },
   "incidents": [
     {
@@ -779,9 +779,9 @@
     {
       "id": "466dz5g4jk3s",
       "name": "Outbound Email, Mobile Push Notifications, and Support Ticket Delivery Impacting All Cloud Products",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-12-27T04:42:31.916Z",
-      "updated_at": "2025-12-27T05:20:21.736Z",
+      "updated_at": "2026-01-30T04:20:21.362Z",
       "monitoring_at": "2025-12-27T04:42:32.017Z",
       "resolved_at": "2025-12-27T05:20:21.718Z",
       "impact": "critical",
@@ -789,6 +789,19 @@
       "started_at": "2025-12-27T04:42:31.908Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "f8vy0msr69y8",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn **December 27, 2025**, between **02:48 UTC and 05:20 UTC**, some Atlassian cloud customers experienced failures in sending and receiving emails and mobile notifications. Core Jira and Confluence functionality remained available.\n\nThe issue was triggered when **TLS certificates used by Atlassian’s monitoring infrastructure expired**, causing parts of our metrics pipeline to stop accepting traffic. Services responsible for email and mobile notifications had a critical path dependency on monitoring path leading to service disruptions.\n\nAll impacted services were fully restored by **05:20 UTC**, around **2.5 hours** after customer impact began.\n\n### IMPACT\n\nDuring the impact window, customers experienced:\n\n* **Outbound product email failures** \\(notifications and other product emails did not send\\).\n* **Identity and account flow failures** where emails were required \\(e.g. sign‑ups, password resets, one‑time‑password / step‑up challenges\\).\n* **Jira and Confluence mobile push notifications**\n* **Customer site activations and some admin policy changes** failing and requiring later reprocessing.\n\n### ROOT CAUSE\n\nThe incident was caused by:\n\n1. **Expired TLS certificates** on domains used by our monitoring and metrics infrastructure caused by **misconfigured DNS authorization record** which prevented automatic renewal.\n2. **Tight coupling of services to metrics publishing**, which caused them to fail when monitoring endpoints became unavailable, instead of degrading gracefully.\n\n### REMEDIAL ACTIONS PLAN & NEXT STEPS\n\nWe recognize that outages like this have a direct impact on customers’ ability to receive important notifications, complete account tasks, and operate their sites.\n\nWe are prioritizing the following actions to improve our existing testing, monitoring and certificate management processes:\n\n* **Hardening monitoring and certificate infrastructure**\n\n    * We are refining DNS and certificate configuration across our monitoring domains and strengthening proactive checks to detect and address failed renewals and certificate issues well before expiry.\n    * We are also improving alerting on our monitoring and metrics pipeline.\n    \n* **Decoupling monitoring from critical customer flows**  \n  We are updating services such as outbound email, identity, mobile push, provisioning, and admin policy changes so they no longer depend on metrics publishing to operate. If monitoring becomes unavailable, these services will continue to run and degrade gracefully by dropping or buffering metrics instead of failing customer operations.\n\nWe apologize to customers impacted during this incident. We are implementing the improvements above to help ensure that similar issues are avoided.\n\nThanks,  \nAtlassian Customer Support",
+          "incident_id": "466dz5g4jk3s",
+          "created_at": "2026-01-30T04:08:54.096Z",
+          "updated_at": "2026-01-30T04:20:21.356Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our December 27th incident: https://stspg.io/5ptmqqb7jd52",
+          "tweet_id": null
+        },
         {
           "id": "wyw1jp7tht7y",
           "status": "resolved",
