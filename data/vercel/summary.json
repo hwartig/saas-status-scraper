@@ -4,7 +4,7 @@
     "name": "Vercel",
     "url": "https://www.vercel-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-03T15:22:46.046Z"
+    "updated_at": "2026-02-03T16:22:08.677Z"
   },
   "components": [
     {
@@ -25,9 +25,9 @@
     {
       "id": "7ckq6xr6nsbv",
       "name": "Builds",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2020-04-22T16:48:44.914Z",
-      "updated_at": "2026-01-14T02:22:46.373Z",
+      "updated_at": "2026-02-03T16:22:08.633Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -115,9 +115,9 @@
     {
       "id": "rxynwj392p81",
       "name": "API",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2020-04-21T16:08:01.662Z",
-      "updated_at": "2025-12-10T07:04:32.748Z",
+      "updated_at": "2026-02-03T15:43:11.677Z",
       "position": 2,
       "description": null,
       "showcase": true,
@@ -220,7 +220,7 @@
     {
       "id": "47ltvgp4g9fb",
       "name": "Build & Deploy",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2023-07-14T21:02:53.123Z",
       "updated_at": "2025-08-28T17:33:47.281Z",
       "position": 3,
@@ -926,10 +926,10 @@
   "incidents": [
     {
       "id": "l2dzfxmss51w",
-      "name": "Elevated Errors on Dashboard",
-      "status": "investigating",
+      "name": "Elevated Errors on API & Dashboard, Delayed Builds",
+      "status": "identified",
       "created_at": "2026-02-03T15:22:45.927Z",
-      "updated_at": "2026-02-03T15:22:46.043Z",
+      "updated_at": "2026-02-03T16:22:08.669Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -938,13 +938,97 @@
       "page_id": "lvglq8h0mdyh",
       "incident_updates": [
         {
+          "id": "4d33ds7x1h0m",
+          "status": "identified",
+          "body": "We have begun applying fixes and are seeing partial recovery across API, dashboard, and builds. We are continuing to apply fixes. We will share additional updates as they become available.",
+          "incident_id": "l2dzfxmss51w",
+          "created_at": "2026-02-03T16:22:08.667Z",
+          "updated_at": "2026-02-03T16:22:08.667Z",
+          "display_at": "2026-02-03T16:22:08.667Z",
+          "affected_components": [
+            {
+              "code": "rxynwj392p81",
+              "name": "API",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "7ckq6xr6nsbv",
+              "name": "Build & Deploy - Builds",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "fk66q26xp7hh",
+              "name": "Dashboard - Dashboard",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "lrd64mwfcb29",
+          "status": "identified",
+          "body": "The issue has been identified, and we are working on a fix.",
+          "incident_id": "l2dzfxmss51w",
+          "created_at": "2026-02-03T15:43:50.042Z",
+          "updated_at": "2026-02-03T15:43:50.042Z",
+          "display_at": "2026-02-03T15:43:50.042Z",
+          "affected_components": [
+            {
+              "code": "rxynwj392p81",
+              "name": "API",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "fk66q26xp7hh",
+              "name": "Dashboard - Dashboard",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "9bpfdw9k1j1h",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue.",
+          "incident_id": "l2dzfxmss51w",
+          "created_at": "2026-02-03T15:43:11.710Z",
+          "updated_at": "2026-02-03T15:43:11.710Z",
+          "display_at": "2026-02-03T15:43:11.710Z",
+          "affected_components": [
+            {
+              "code": "rxynwj392p81",
+              "name": "API",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "fk66q26xp7hh",
+              "name": "Dashboard - Dashboard",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
           "id": "8cwms328dh63",
           "status": "investigating",
-          "body": "We are currently investigating reports of elevated error rates and slowness on the Vercel Dashboard. Existing deployments and live traffic are not affected by this issue. We will share updates as they become available.",
+          "body": "We are currently investigating reports of elevated error rates and slowness on the Vercel Dashboard and APIs. Existing deployments and live traffic are not affected by this issue. We will share updates as they become available.",
           "incident_id": "l2dzfxmss51w",
           "created_at": "2026-02-03T15:22:46.039Z",
-          "updated_at": "2026-02-03T15:22:46.039Z",
-          "display_at": "2026-02-03T15:22:46.039Z",
+          "updated_at": "2026-02-03T15:42:06.176Z",
+          "display_at": "2026-02-03T15:22:46.000Z",
           "affected_components": [
             {
               "code": "fk66q26xp7hh",
@@ -970,6 +1054,36 @@
           "showcase": true,
           "start_date": null,
           "group_id": "gyymyc4bc36j",
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "7ckq6xr6nsbv",
+          "name": "Builds",
+          "status": "partial_outage",
+          "created_at": "2020-04-22T16:48:44.914Z",
+          "updated_at": "2026-02-03T16:22:08.633Z",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": "47ltvgp4g9fb",
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "rxynwj392p81",
+          "name": "API",
+          "status": "partial_outage",
+          "created_at": "2020-04-21T16:08:01.662Z",
+          "updated_at": "2026-02-03T15:43:11.677Z",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
           "page_id": "lvglq8h0mdyh",
           "group": false,
           "only_show_if_degraded": false
