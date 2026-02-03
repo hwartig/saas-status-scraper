@@ -4,7 +4,7 @@
     "name": "Vercel",
     "url": "https://www.vercel-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-03T19:51:29.321Z"
+    "updated_at": "2026-02-03T20:48:00.083Z"
   },
   "components": [
     {
@@ -25,9 +25,9 @@
     {
       "id": "7ckq6xr6nsbv",
       "name": "Builds",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-04-22T16:48:44.914Z",
-      "updated_at": "2026-02-03T17:30:38.547Z",
+      "updated_at": "2026-02-03T20:48:00.026Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -220,7 +220,7 @@
     {
       "id": "47ltvgp4g9fb",
       "name": "Build & Deploy",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-07-14T21:02:53.123Z",
       "updated_at": "2025-08-28T17:33:47.281Z",
       "position": 3,
@@ -809,9 +809,9 @@
     {
       "id": "d77dj4pvw5y8",
       "name": "Sandbox",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2026-02-03T18:48:04.376Z",
-      "updated_at": "2026-02-03T19:12:04.744Z",
+      "updated_at": "2026-02-03T20:14:32.364Z",
       "position": 21,
       "description": null,
       "showcase": true,
@@ -940,18 +940,91 @@
   ],
   "incidents": [
     {
+      "id": "cdr3g3fpw8qt",
+      "name": "Elevated latency creating new deployments",
+      "status": "investigating",
+      "created_at": "2026-02-03T20:47:59.988Z",
+      "updated_at": "2026-02-03T20:48:00.079Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/gppsvjnh77wf",
+      "started_at": "2026-02-03T20:47:59.977Z",
+      "page_id": "lvglq8h0mdyh",
+      "incident_updates": [
+        {
+          "id": "k5nrtgnhjb1h",
+          "status": "investigating",
+          "body": "We are investigating elevated latency creating new deployments. Some deployments may be delayed.",
+          "incident_id": "cdr3g3fpw8qt",
+          "created_at": "2026-02-03T20:48:00.076Z",
+          "updated_at": "2026-02-03T20:48:00.076Z",
+          "display_at": "2026-02-03T20:48:00.076Z",
+          "affected_components": [
+            {
+              "code": "7ckq6xr6nsbv",
+              "name": "Build & Deploy - Builds",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "7ckq6xr6nsbv",
+          "name": "Builds",
+          "status": "degraded_performance",
+          "created_at": "2020-04-22T16:48:44.914Z",
+          "updated_at": "2026-02-03T20:48:00.026Z",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": "47ltvgp4g9fb",
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "dgdbzr1rh74s",
       "name": "Elevated Error Rates on Sandboxes",
-      "status": "identified",
+      "status": "monitoring",
       "created_at": "2026-02-03T18:38:52.084Z",
-      "updated_at": "2026-02-03T19:51:29.310Z",
-      "monitoring_at": null,
+      "updated_at": "2026-02-03T20:14:32.422Z",
+      "monitoring_at": "2026-02-03T20:14:32.403Z",
       "resolved_at": null,
       "impact": "minor",
       "shortlink": "https://stspg.io/n59q0kkt9m34",
       "started_at": "2026-02-03T18:38:52.077Z",
       "page_id": "lvglq8h0mdyh",
       "incident_updates": [
+        {
+          "id": "j532drshhx8g",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "dgdbzr1rh74s",
+          "created_at": "2026-02-03T20:14:32.403Z",
+          "updated_at": "2026-02-03T20:14:32.403Z",
+          "display_at": "2026-02-03T20:14:32.403Z",
+          "affected_components": [
+            {
+              "code": "d77dj4pvw5y8",
+              "name": "Sandbox",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "sbdd0dy2b8bz",
           "status": "identified",
@@ -1010,9 +1083,9 @@
         {
           "id": "d77dj4pvw5y8",
           "name": "Sandbox",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2026-02-03T18:48:04.376Z",
-          "updated_at": "2026-02-03T19:12:04.744Z",
+          "updated_at": "2026-02-03T20:14:32.364Z",
           "position": 21,
           "description": null,
           "showcase": true,
@@ -1029,6 +1102,6 @@
   "scheduled_maintenances": [],
   "status": {
     "indicator": "minor",
-    "description": "Minor Service Outage"
+    "description": "Partially Degraded Service"
   }
 }
