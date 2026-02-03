@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-03T22:15:57.341Z"
+    "updated_at": "2026-02-03T23:07:19.759Z"
   },
   "incidents": [
     {
@@ -1062,7 +1062,7 @@
       "name": "Degraded Experience - Failing to finalize some CCA Jobs",
       "status": "resolved",
       "created_at": "2026-01-30T20:59:51.229Z",
-      "updated_at": "2026-01-30T21:22:23.141Z",
+      "updated_at": "2026-02-03T23:07:19.746Z",
       "monitoring_at": null,
       "resolved_at": "2026-01-30T21:22:23.126Z",
       "impact": "minor",
@@ -1073,10 +1073,10 @@
         {
           "id": "kry6pgwkqw3f",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between 2026-01-30 19:06 UTC and 2026-01-30 20:04 UTC, Copilot Coding Agent experienced sessions getting stuck, with a mismatch between the UI-reported session status and the underlying Actions and job execution state. Impacted users could observe Actions finish successfully but the session UI continuing to show in-progress state, or sessions remaining in queued state.<br /><br />The issue was caused by a feature flag that resulted in events being published to a new Kafka topic. Publishing failures led to buffer/queue overflows in the shared event publishing client, preventing other critical events from being emitted. We mitigated the incident by disabling the feature flag and redeploying production pods, which resumed normal event delivery. We are working to improve safeguards and detection around event publishing failures to reduce time to mitigation for similar issues in the future.",
           "incident_id": "szwg1z6zjsvx",
           "created_at": "2026-01-30T21:22:23.126Z",
-          "updated_at": "2026-01-30T21:22:23.126Z",
+          "updated_at": "2026-02-03T23:07:19.739Z",
           "display_at": "2026-01-30T21:22:23.126Z",
           "affected_components": [
             {
