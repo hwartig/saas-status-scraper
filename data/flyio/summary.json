@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-05T17:03:08.801Z"
+    "updated_at": "2026-02-05T17:42:08.355Z"
   },
   "components": [
     {
@@ -330,9 +330,9 @@
     {
       "id": "49yq6v65b33l",
       "name": "Deployments",
-      "status": "degraded_performance",
+      "status": "partial_outage",
       "created_at": "2020-04-01T21:53:18.234Z",
-      "updated_at": "2026-02-05T16:43:05.054Z",
+      "updated_at": "2026-02-05T17:42:08.302Z",
       "position": 6,
       "description": "flyctl and GitHub Action app deployments",
       "showcase": false,
@@ -912,92 +912,44 @@
   ],
   "incidents": [
     {
-      "id": "rkd3xz4g7m1b",
-      "name": "MPG Degraded clusters in AMS and IAD",
-      "status": "identified",
-      "created_at": "2026-02-05T17:03:08.691Z",
-      "updated_at": "2026-02-05T17:03:08.798Z",
+      "id": "3npj6935byt4",
+      "name": "Delayed Machine Registration + Token Errors",
+      "status": "investigating",
+      "created_at": "2026-02-05T16:43:04.990Z",
+      "updated_at": "2026-02-05T17:42:08.346Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
-      "shortlink": "https://stspg.io/vwqc64kgxxgf",
-      "started_at": "2026-02-05T17:03:08.682Z",
+      "shortlink": "https://stspg.io/hnq5p3z6lc53",
+      "started_at": "2026-02-05T16:43:04.984Z",
       "page_id": "65rccr4mbblw",
       "incident_updates": [
         {
-          "id": "v0t2c8dd948d",
-          "status": "identified",
-          "body": "A small number of MPG clusters in the AMS and IAD region are currently in degraded states due to downstream impact from this Machines API issue: https://manage.statuspage.io/pages/65rccr4mbblw/incidents/3npj6935byt4\n\nMost of the impacted clusters may see a degraded replica or PG Bouncer in their statuspage. A very small number may be unable to connect to their MPG primary  node, the team is working to restore connectivity as the top priority. \nUsers may also see delays registering new clusters in these regions at this time.",
-          "incident_id": "rkd3xz4g7m1b",
-          "created_at": "2026-02-05T17:03:08.796Z",
-          "updated_at": "2026-02-05T17:03:08.796Z",
-          "display_at": "2026-02-05T17:03:08.796Z",
+          "id": "sls66q36pxzl",
+          "status": "investigating",
+          "body": "While Machine registration error rates have improved, we are now seeing elevated error rates verifying user tokens during some actions. \n\nUsers may see errors like \"failed to launch VM: permission_denied: bolt token: failed to verify service token: no verified tokens\" when deploying or creating machines. \n\nWe are investigating",
+          "incident_id": "3npj6935byt4",
+          "created_at": "2026-02-05T17:42:08.342Z",
+          "updated_at": "2026-02-05T17:42:08.342Z",
+          "display_at": "2026-02-05T17:42:08.342Z",
           "affected_components": [
             {
-              "code": "nv3vps27z635",
-              "name": "Managed Postgres - Management Plane - IAD",
-              "old_status": "operational",
-              "new_status": "partial_outage"
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
             },
             {
-              "code": "6b3gdnt5jyf2",
-              "name": "Managed Postgres - Management Plane - AMS",
-              "old_status": "operational",
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "degraded_performance",
               "new_status": "partial_outage"
             }
           ],
           "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "nv3vps27z635",
-          "name": "Management Plane - IAD",
-          "status": "partial_outage",
-          "created_at": "2025-03-24T09:31:42.559Z",
-          "updated_at": "2026-02-05T17:03:08.730Z",
-          "position": 2,
-          "description": null,
-          "showcase": true,
-          "start_date": "2025-03-24",
-          "group_id": "h2hndffd5ysc",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
         },
-        {
-          "id": "6b3gdnt5jyf2",
-          "name": "Management Plane - AMS",
-          "status": "partial_outage",
-          "created_at": "2025-12-15T10:20:50.996Z",
-          "updated_at": "2026-02-05T17:03:08.751Z",
-          "position": 7,
-          "description": null,
-          "showcase": true,
-          "start_date": "2025-12-15",
-          "group_id": "h2hndffd5ysc",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "3npj6935byt4",
-      "name": "Delayed Machine Registration",
-      "status": "identified",
-      "created_at": "2026-02-05T16:43:04.990Z",
-      "updated_at": "2026-02-05T16:59:14.494Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/hnq5p3z6lc53",
-      "started_at": "2026-02-05T16:43:04.984Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
         {
           "id": "lktrv0x62b40",
           "status": "identified",
@@ -1070,14 +1022,88 @@
         {
           "id": "49yq6v65b33l",
           "name": "Deployments",
-          "status": "degraded_performance",
+          "status": "partial_outage",
           "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-02-05T16:43:05.054Z",
+          "updated_at": "2026-02-05T17:42:08.302Z",
           "position": 6,
           "description": "flyctl and GitHub Action app deployments",
           "showcase": false,
           "start_date": null,
           "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "rkd3xz4g7m1b",
+      "name": "MPG Degraded clusters in AMS and IAD",
+      "status": "identified",
+      "created_at": "2026-02-05T17:03:08.691Z",
+      "updated_at": "2026-02-05T17:25:33.340Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/vwqc64kgxxgf",
+      "started_at": "2026-02-05T17:03:08.000Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "v0t2c8dd948d",
+          "status": "identified",
+          "body": "A small number of MPG clusters in the AMS and IAD region are currently in degraded states due to downstream impact from this Machines API issue: https://status.flyio.net/incidents/3npj6935byt4\n\nMost of the impacted clusters may see a degraded replica or PG Bouncer in their statuspage. A very small number may be unable to connect to their MPG primary  node, the team is working to restore connectivity as the top priority. \nUsers may also see delays registering new clusters in these regions at this time.",
+          "incident_id": "rkd3xz4g7m1b",
+          "created_at": "2026-02-05T17:03:08.796Z",
+          "updated_at": "2026-02-05T17:25:33.235Z",
+          "display_at": "2026-02-05T17:03:08.000Z",
+          "affected_components": [
+            {
+              "code": "nv3vps27z635",
+              "name": "Managed Postgres - Management Plane - IAD",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "6b3gdnt5jyf2",
+              "name": "Managed Postgres - Management Plane - AMS",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "nv3vps27z635",
+          "name": "Management Plane - IAD",
+          "status": "partial_outage",
+          "created_at": "2025-03-24T09:31:42.559Z",
+          "updated_at": "2026-02-05T17:03:08.730Z",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-03-24",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "6b3gdnt5jyf2",
+          "name": "Management Plane - AMS",
+          "status": "partial_outage",
+          "created_at": "2025-12-15T10:20:50.996Z",
+          "updated_at": "2026-02-05T17:03:08.751Z",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-12-15",
+          "group_id": "h2hndffd5ysc",
           "page_id": "65rccr4mbblw",
           "group": false,
           "only_show_if_degraded": false
