@@ -4,15 +4,15 @@
     "name": "AssemblyAI",
     "url": "https://status.assemblyai.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-05T14:16:36.124Z"
+    "updated_at": "2026-02-05T18:35:57.102Z"
   },
   "incidents": [
     {
       "id": "cshs4z0mkvr7",
       "name": "Async + LLM gateway APIs returning 5xx",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-01-29T17:54:28.327Z",
-      "updated_at": "2026-01-29T19:32:30.831Z",
+      "updated_at": "2026-02-05T18:35:57.099Z",
       "monitoring_at": "2026-01-29T18:30:13.000Z",
       "resolved_at": "2026-01-29T19:32:30.817Z",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2026-01-29T17:54:28.313Z",
       "page_id": "8yxng9m82rr4",
       "incident_updates": [
+        {
+          "id": "m0xzyhp5ftq3",
+          "status": "postmortem",
+          "body": "**Summary: January 29 Outage**\n\nOn January 29, our Async Transcription and LLM Gateway went down for 25 minutes, followed by two hours of degraded performance. Here's what happened.\n\nOur traffic has been steadily increasing and we received an influx of batch transcription jobs that were higher than usual. Autoscaling did what it should—spun up workers. We ran out of spot instances, fell back to on-demand, then hit AWS's Elastic Network Interface limit. Every ECS task needs an ENI. With no ENIs available, our authentication service couldn't rotate its tasks. It scaled to zero. Everything stopped.\n\nWhen we tried to recover, a Lambda function meant to help with failures was hammering the AWS API with describe calls, rate-limiting the very operations we needed to bring things back. A tool built for recovery was blocking recovery.\n\n**What actually went wrong:**\n\nWe didn't monitor ENI utilization and our authentication service shared resources with batch workers. Traffic spike in one starved the other.\n\n**What we're doing:**\n\nShort-term: ENI alerts, isolate auth on dedicated capacity, fix the Lambda.\n\nMedium-term: Full multi-region for everything.\n\nThis was preventable. We had the warning signs and didn't connect them. We're sorry, and we're fixing it.",
+          "incident_id": "cshs4z0mkvr7",
+          "created_at": "2026-02-05T18:35:29.698Z",
+          "updated_at": "2026-02-05T18:35:57.095Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "vwfnv47s37jz",
           "status": "resolved",
