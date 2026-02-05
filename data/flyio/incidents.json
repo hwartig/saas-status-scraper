@@ -4,9 +4,183 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-05T14:16:43.632Z"
+    "updated_at": "2026-02-05T17:03:08.801Z"
   },
   "incidents": [
+    {
+      "id": "rkd3xz4g7m1b",
+      "name": "MPG Degraded clusters in AMS and IAD",
+      "status": "identified",
+      "created_at": "2026-02-05T17:03:08.691Z",
+      "updated_at": "2026-02-05T17:03:08.798Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/vwqc64kgxxgf",
+      "started_at": "2026-02-05T17:03:08.682Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "v0t2c8dd948d",
+          "status": "identified",
+          "body": "A small number of MPG clusters in the AMS and IAD region are currently in degraded states due to downstream impact from this Machines API issue: https://manage.statuspage.io/pages/65rccr4mbblw/incidents/3npj6935byt4\n\nMost of the impacted clusters may see a degraded replica or PG Bouncer in their statuspage. A very small number may be unable to connect to their MPG primary  node, the team is working to restore connectivity as the top priority. \nUsers may also see delays registering new clusters in these regions at this time.",
+          "incident_id": "rkd3xz4g7m1b",
+          "created_at": "2026-02-05T17:03:08.796Z",
+          "updated_at": "2026-02-05T17:03:08.796Z",
+          "display_at": "2026-02-05T17:03:08.796Z",
+          "affected_components": [
+            {
+              "code": "nv3vps27z635",
+              "name": "Managed Postgres - Management Plane - IAD",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "6b3gdnt5jyf2",
+              "name": "Managed Postgres - Management Plane - AMS",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "nv3vps27z635",
+          "name": "Management Plane - IAD",
+          "status": "partial_outage",
+          "created_at": "2025-03-24T09:31:42.559Z",
+          "updated_at": "2026-02-05T17:03:08.730Z",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-03-24",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "6b3gdnt5jyf2",
+          "name": "Management Plane - AMS",
+          "status": "partial_outage",
+          "created_at": "2025-12-15T10:20:50.996Z",
+          "updated_at": "2026-02-05T17:03:08.751Z",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-12-15",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "3npj6935byt4",
+      "name": "Delayed Machine Registration",
+      "status": "identified",
+      "created_at": "2026-02-05T16:43:04.990Z",
+      "updated_at": "2026-02-05T16:59:14.494Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/hnq5p3z6lc53",
+      "started_at": "2026-02-05T16:43:04.984Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "lktrv0x62b40",
+          "status": "identified",
+          "body": "A fix has been rolled out and most hosts are registering machines as normal. A few hosts remain with elevated error rates, we are continuing to fix these. \nUsers who experience an error creating or deploying a new machine should re-try the operation.",
+          "incident_id": "3npj6935byt4",
+          "created_at": "2026-02-05T16:59:14.490Z",
+          "updated_at": "2026-02-05T16:59:14.490Z",
+          "display_at": "2026-02-05T16:59:14.490Z",
+          "affected_components": [
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "9c4lp7crjyv0",
+          "status": "identified",
+          "body": "We have identified elevated error rates registering new machines with our global state tracking service on some hosts. We have identified the issue and are deploying a fix. \n\nUsers may have seen elevated machine create, start, or deployment failures over the past ~20 minutes.",
+          "incident_id": "3npj6935byt4",
+          "created_at": "2026-02-05T16:43:05.102Z",
+          "updated_at": "2026-02-05T16:43:31.318Z",
+          "display_at": "2026-02-05T16:43:05.000Z",
+          "affected_components": [
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "80ykv2p95qgy",
+          "name": "Machines API",
+          "status": "degraded_performance",
+          "created_at": "2020-04-01T21:30:26.075Z",
+          "updated_at": "2026-02-05T16:43:05.033Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "49yq6v65b33l",
+          "name": "Deployments",
+          "status": "degraded_performance",
+          "created_at": "2020-04-01T21:53:18.234Z",
+          "updated_at": "2026-02-05T16:43:05.054Z",
+          "position": 6,
+          "description": "flyctl and GitHub Action app deployments",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "5g4r83vxys49",
       "name": "Network maintenance in YYZ",
@@ -1349,9 +1523,9 @@
         {
           "id": "49yq6v65b33l",
           "name": "Deployments",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-01-16T01:35:01.969Z",
+          "updated_at": "2026-02-05T16:43:05.054Z",
           "position": 6,
           "description": "flyctl and GitHub Action app deployments",
           "showcase": false,
@@ -2126,9 +2300,9 @@
         {
           "id": "49yq6v65b33l",
           "name": "Deployments",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-01-16T01:35:01.969Z",
+          "updated_at": "2026-02-05T16:43:05.054Z",
           "position": 6,
           "description": "flyctl and GitHub Action app deployments",
           "showcase": false,
@@ -3265,9 +3439,9 @@
         {
           "id": "nv3vps27z635",
           "name": "Management Plane - IAD",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2025-03-24T09:31:42.559Z",
-          "updated_at": "2026-02-02T20:00:21.181Z",
+          "updated_at": "2026-02-05T17:03:08.730Z",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -3280,9 +3454,9 @@
         {
           "id": "80ykv2p95qgy",
           "name": "Machines API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-04-01T21:30:26.075Z",
-          "updated_at": "2026-01-06T19:30:52.988Z",
+          "updated_at": "2026-02-05T16:43:05.033Z",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -3340,9 +3514,9 @@
         {
           "id": "49yq6v65b33l",
           "name": "Deployments",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-01-16T01:35:01.969Z",
+          "updated_at": "2026-02-05T16:43:05.054Z",
           "position": 6,
           "description": "flyctl and GitHub Action app deployments",
           "showcase": false,
@@ -3370,9 +3544,9 @@
         {
           "id": "6b3gdnt5jyf2",
           "name": "Management Plane - AMS",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2025-12-15T10:20:50.996Z",
-          "updated_at": "2026-01-06T08:59:23.701Z",
+          "updated_at": "2026-02-05T17:03:08.751Z",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -4848,9 +5022,9 @@
         {
           "id": "80ykv2p95qgy",
           "name": "Machines API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-04-01T21:30:26.075Z",
-          "updated_at": "2026-01-06T19:30:52.988Z",
+          "updated_at": "2026-02-05T16:43:05.033Z",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -5029,9 +5203,9 @@
         {
           "id": "nv3vps27z635",
           "name": "Management Plane - IAD",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2025-03-24T09:31:42.559Z",
-          "updated_at": "2026-02-02T20:00:21.181Z",
+          "updated_at": "2026-02-05T17:03:08.730Z",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -5214,9 +5388,9 @@
         {
           "id": "nv3vps27z635",
           "name": "Management Plane - IAD",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2025-03-24T09:31:42.559Z",
-          "updated_at": "2026-02-02T20:00:21.181Z",
+          "updated_at": "2026-02-05T17:03:08.730Z",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -5229,9 +5403,9 @@
         {
           "id": "49yq6v65b33l",
           "name": "Deployments",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-01-16T01:35:01.969Z",
+          "updated_at": "2026-02-05T16:43:05.054Z",
           "position": 6,
           "description": "flyctl and GitHub Action app deployments",
           "showcase": false,
@@ -5387,9 +5561,9 @@
         {
           "id": "49yq6v65b33l",
           "name": "Deployments",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-01-16T01:35:01.969Z",
+          "updated_at": "2026-02-05T16:43:05.054Z",
           "position": 6,
           "description": "flyctl and GitHub Action app deployments",
           "showcase": false,
@@ -5515,9 +5689,9 @@
         {
           "id": "80ykv2p95qgy",
           "name": "Machines API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-04-01T21:30:26.075Z",
-          "updated_at": "2026-01-06T19:30:52.988Z",
+          "updated_at": "2026-02-05T16:43:05.033Z",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -5719,9 +5893,9 @@
         {
           "id": "49yq6v65b33l",
           "name": "Deployments",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-01-16T01:35:01.969Z",
+          "updated_at": "2026-02-05T16:43:05.054Z",
           "position": 6,
           "description": "flyctl and GitHub Action app deployments",
           "showcase": false,
@@ -6698,9 +6872,9 @@
         {
           "id": "nv3vps27z635",
           "name": "Management Plane - IAD",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2025-03-24T09:31:42.559Z",
-          "updated_at": "2026-02-02T20:00:21.181Z",
+          "updated_at": "2026-02-05T17:03:08.730Z",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -6713,9 +6887,9 @@
         {
           "id": "80ykv2p95qgy",
           "name": "Machines API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-04-01T21:30:26.075Z",
-          "updated_at": "2026-01-06T19:30:52.988Z",
+          "updated_at": "2026-02-05T16:43:05.033Z",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -6773,9 +6947,9 @@
         {
           "id": "49yq6v65b33l",
           "name": "Deployments",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-01-16T01:35:01.969Z",
+          "updated_at": "2026-02-05T16:43:05.054Z",
           "position": 6,
           "description": "flyctl and GitHub Action app deployments",
           "showcase": false,
@@ -7615,135 +7789,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "wj2wtc8ct2gy",
-      "name": "Wireguard errors in Flyctl v0.3.214",
-      "status": "resolved",
-      "created_at": "2025-11-14T15:52:32.000Z",
-      "updated_at": "2025-11-14T17:45:20.857Z",
-      "monitoring_at": "2025-11-14T17:00:52.552Z",
-      "resolved_at": "2025-11-14T17:45:20.841Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/2nzhbmzn1lcb",
-      "started_at": "2025-11-14T15:52:32.000Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "x6vhqkvjv13r",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "wj2wtc8ct2gy",
-          "created_at": "2025-11-14T17:45:20.841Z",
-          "updated_at": "2025-11-14T17:45:20.841Z",
-          "display_at": "2025-11-14T17:45:20.841Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qdhjg4wfg0g2",
-          "status": "monitoring",
-          "body": "A new version of Flyctl has been released with a fix for this issue. Users on flyctl version v0.3.214 should upgrade to Flyctl v0.3.216 using `fly version update`.",
-          "incident_id": "wj2wtc8ct2gy",
-          "created_at": "2025-11-14T17:00:52.552Z",
-          "updated_at": "2025-11-14T17:00:52.552Z",
-          "display_at": "2025-11-14T17:00:52.552Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qqv1kzdbsrc7",
-          "status": "identified",
-          "body": "We have identified an issue in the latest Flyctl release (v0.3.214)  that impacts commands using wireguard connectivity for some users. Impacted users may see `tunnel unavailable` or `no such organization` errors when running commands like `fly wireguard` , `fly proxy` or `fly mpg proxy` with their default Personal org. We are working on a fix.\n\n In the meantime, impacted users can install the previous flyctl version with `curl -L https://fly.io/install.sh | sh -s 0.3.213`. Users that normally install flyctl via package managers (eg. homebrew) should uninstall the package manager version first to avoid conflicts.",
-          "incident_id": "wj2wtc8ct2gy",
-          "created_at": "2025-11-14T15:52:32.954Z",
-          "updated_at": "2025-11-14T15:54:18.850Z",
-          "display_at": "2025-11-14T15:52:32.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "qhmcmkf1gcb6",
-      "name": "Static egress IPv6 issues in BOM",
-      "status": "resolved",
-      "created_at": "2025-11-13T16:59:38.264Z",
-      "updated_at": "2025-11-13T21:57:33.039Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-11-13T21:57:33.016Z",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/1cqhr1477x9d",
-      "started_at": "2025-11-13T16:59:38.257Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "znppv1kd6ps7",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "qhmcmkf1gcb6",
-          "created_at": "2025-11-13T21:57:33.016Z",
-          "updated_at": "2025-11-13T21:57:33.016Z",
-          "display_at": "2025-11-13T21:57:33.016Z",
-          "affected_components": [
-            {
-              "code": "k6fbt4mk0xv1",
-              "name": "Regional Availability - BOM - Mumbai, India",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wcyx0zbkyb0j",
-          "status": "identified",
-          "body": "We have identified an upstream issue that prevented static egress IPv6 addresses in BOM from reaching parts of the Internet and are currently working with upstreams for a fix. Machines without a static egress IPv6 address are not affected. For affected machines, consider forcing IPv4 for outbound connectivity or de-allocating the egress IP if not needed via `fly m egress-ip release`.",
-          "incident_id": "qhmcmkf1gcb6",
-          "created_at": "2025-11-13T16:59:38.350Z",
-          "updated_at": "2025-11-13T16:59:38.350Z",
-          "display_at": "2025-11-13T16:59:38.350Z",
-          "affected_components": [
-            {
-              "code": "k6fbt4mk0xv1",
-              "name": "Regional Availability - BOM - Mumbai, India",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "k6fbt4mk0xv1",
-          "name": "BOM - Mumbai, India",
-          "status": "operational",
-          "created_at": "2023-06-09T13:32:39.446Z",
-          "updated_at": "2025-12-17T02:27:08.982Z",
-          "position": 5,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-06-07",
-          "group_id": "mrcyzlkkw8z9",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
