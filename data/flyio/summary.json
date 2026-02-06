@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-05T23:55:49.438Z"
+    "updated_at": "2026-02-06T02:49:17.612Z"
   },
   "components": [
     {
@@ -912,6 +912,79 @@
   ],
   "incidents": [
     {
+      "id": "c5btnv5wkqd8",
+      "name": "Network issues on newly-created machines",
+      "status": "monitoring",
+      "created_at": "2026-02-05T21:52:57.578Z",
+      "updated_at": "2026-02-06T02:49:17.609Z",
+      "monitoring_at": "2026-02-06T02:49:17.593Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/f43x8yszt2h5",
+      "started_at": "2026-02-05T21:52:57.573Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "wjk0ddwyjycm",
+          "status": "monitoring",
+          "body": "We have successfully run a fix to re-sync our global and regional state stores in order to bring machines back to a healthy state, and we're monitoring the situation to confirm that there are no more issues.",
+          "incident_id": "c5btnv5wkqd8",
+          "created_at": "2026-02-06T02:49:17.593Z",
+          "updated_at": "2026-02-06T02:49:17.593Z",
+          "display_at": "2026-02-06T02:49:17.593Z",
+          "affected_components": [
+            {
+              "code": "15knchzwl5np",
+              "name": "Customer Applications",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "5mbq1m2v59yg",
+          "status": "identified",
+          "body": "Machines created after the delayed machine registration incident (https://status.flyio.net/incidents/3npj6935byt4) may have incomplete networking configurations and could be unable to receive traffic. We've identified the issue and are deploying code fixes as well as updating created machines. This affects a small number of machines on all our regions.",
+          "incident_id": "c5btnv5wkqd8",
+          "created_at": "2026-02-05T21:52:57.655Z",
+          "updated_at": "2026-02-05T21:52:57.655Z",
+          "display_at": "2026-02-05T21:52:57.655Z",
+          "affected_components": [
+            {
+              "code": "15knchzwl5np",
+              "name": "Customer Applications",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "15knchzwl5np",
+          "name": "Customer Applications",
+          "status": "degraded_performance",
+          "created_at": "2024-07-24T19:09:04.958Z",
+          "updated_at": "2026-02-05T21:52:57.610Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-07-24",
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": "[]"
+    },
+    {
       "id": "rkd3xz4g7m1b",
       "name": "MPG Degraded clusters in AMS, IAD and SIN regions",
       "status": "identified",
@@ -1127,59 +1200,6 @@
         }
       ],
       "reminder_intervals": null
-    },
-    {
-      "id": "c5btnv5wkqd8",
-      "name": "Network issues on newly-created machines",
-      "status": "identified",
-      "created_at": "2026-02-05T21:52:57.578Z",
-      "updated_at": "2026-02-05T21:52:57.657Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/f43x8yszt2h5",
-      "started_at": "2026-02-05T21:52:57.573Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "5mbq1m2v59yg",
-          "status": "identified",
-          "body": "Machines created after the delayed machine registration incident (https://status.flyio.net/incidents/3npj6935byt4) may have incomplete networking configurations and could be unable to receive traffic. We've identified the issue and are deploying code fixes as well as updating created machines. This affects a small number of machines on all our regions.",
-          "incident_id": "c5btnv5wkqd8",
-          "created_at": "2026-02-05T21:52:57.655Z",
-          "updated_at": "2026-02-05T21:52:57.655Z",
-          "display_at": "2026-02-05T21:52:57.655Z",
-          "affected_components": [
-            {
-              "code": "15knchzwl5np",
-              "name": "Customer Applications",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "15knchzwl5np",
-          "name": "Customer Applications",
-          "status": "degraded_performance",
-          "created_at": "2024-07-24T19:09:04.958Z",
-          "updated_at": "2026-02-05T21:52:57.610Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2024-07-24",
-          "group_id": null,
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": "[]"
     }
   ],
   "scheduled_maintenances": [
