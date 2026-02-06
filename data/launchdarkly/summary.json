@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-02-05T23:26:06.392-08:00"
+    "updated_at": "2026-02-06T04:20:23.469-08:00"
   },
   "components": [
     {
@@ -449,9 +449,9 @@
     {
       "id": "s57hhrpqqwk1",
       "name": "Web app (app.launchdarkly.com)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-07-07T11:07:04.790-07:00",
-      "updated_at": "2025-11-13T16:36:31.934-08:00",
+      "updated_at": "2026-02-06T03:55:08.233-08:00",
       "position": 3,
       "description": "The website app.launchdarkly.com",
       "showcase": true,
@@ -634,7 +634,7 @@
     {
       "id": "17840mm6444k",
       "name": "Global (core functionality)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-07-07T11:02:17.177-07:00",
       "updated_at": "2025-03-26T10:09:57.452-07:00",
       "position": 5,
@@ -867,7 +867,61 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "mq53fr13x6ly",
+      "name": "Increased error rate in our UI and API endpoints",
+      "status": "investigating",
+      "created_at": "2026-02-06T03:55:08.182-08:00",
+      "updated_at": "2026-02-06T03:55:08.815-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/9lpnsb5v33p6",
+      "started_at": "2026-02-06T03:55:08.171-08:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "vjvh21wnlkrj",
+          "status": "investigating",
+          "body": "We are investigating an issue where a small number of customers may experience errors when accessing the LaunchDarkly UI and API. Feature flag delivery is not impacted. We will provide updates as the investigation continues.",
+          "incident_id": "mq53fr13x6ly",
+          "created_at": "2026-02-06T03:55:08.295-08:00",
+          "updated_at": "2026-02-06T03:55:08.812-08:00",
+          "display_at": "2026-02-06T03:55:08.295-08:00",
+          "affected_components": [
+            {
+              "code": "s57hhrpqqwk1",
+              "name": "Global (core functionality) - Web app (app.launchdarkly.com)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2019741648578822364
+        }
+      ],
+      "components": [
+        {
+          "id": "s57hhrpqqwk1",
+          "name": "Web app (app.launchdarkly.com)",
+          "status": "degraded_performance",
+          "created_at": "2023-07-07T11:07:04.790-07:00",
+          "updated_at": "2026-02-06T03:55:08.233-08:00",
+          "position": 3,
+          "description": "The website app.launchdarkly.com",
+          "showcase": true,
+          "start_date": "2023-07-07",
+          "group_id": "17840mm6444k",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "9f1j7jp01j93",
@@ -988,7 +1042,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
