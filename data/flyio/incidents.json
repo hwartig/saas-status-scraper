@@ -4,22 +4,127 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-07T15:46:32.547Z"
+    "updated_at": "2026-02-07T16:42:48.134Z"
   },
   "incidents": [
     {
+      "id": "w9dz70y1c6p6",
+      "name": "Machines API issues",
+      "status": "identified",
+      "created_at": "2026-02-07T16:23:44.104Z",
+      "updated_at": "2026-02-07T16:42:48.124Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/jmmtrbg43vvz",
+      "started_at": "2026-02-07T16:23:44.099Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "vmj1sbn9hgjc",
+          "status": "identified",
+          "body": "The issue has been identified and we are seeing Machines API performance improve in most regions since ~16:20 UTC. \n\nMachines API calls in the SYD, NRT, SIN region may continue to see 5xx errors or higher latency at this time. We are continuing to work on restoring full API performance in all regions",
+          "incident_id": "w9dz70y1c6p6",
+          "created_at": "2026-02-07T16:40:55.128Z",
+          "updated_at": "2026-02-07T16:42:48.119Z",
+          "display_at": "2026-02-07T16:40:55.000Z",
+          "affected_components": [
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "p837gf9t12jh",
+          "status": "investigating",
+          "body": "We are investigating widespread Machines API issues since 16:00 UTC. You may experience 5xx errors or higher latency at this time.",
+          "incident_id": "w9dz70y1c6p6",
+          "created_at": "2026-02-07T16:23:44.201Z",
+          "updated_at": "2026-02-07T16:23:44.201Z",
+          "display_at": "2026-02-07T16:23:44.201Z",
+          "affected_components": [
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "80ykv2p95qgy",
+          "name": "Machines API",
+          "status": "partial_outage",
+          "created_at": "2020-04-01T21:30:26.075Z",
+          "updated_at": "2026-02-07T16:23:44.142Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "4jdkkt7ncy1g",
       "name": "Private Networking and Certificate Resolution Issues in SYD",
-      "status": "investigating",
-      "created_at": "2026-02-07T15:19:44.827Z",
-      "updated_at": "2026-02-07T15:46:32.538Z",
-      "monitoring_at": null,
+      "status": "monitoring",
+      "created_at": "2026-02-07T15:19:44.000Z",
+      "updated_at": "2026-02-07T16:24:51.445Z",
+      "monitoring_at": "2026-02-07T16:24:51.428Z",
       "resolved_at": null,
       "impact": "major",
       "shortlink": "https://stspg.io/xdjrb66mwt42",
       "started_at": "2026-02-07T15:19:44.000Z",
       "page_id": "65rccr4mbblw",
       "incident_updates": [
+        {
+          "id": "j8ygwppym313",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are seeing private networking / certificates in SYD improving. We are continuing to monitor for full recovery.",
+          "incident_id": "4jdkkt7ncy1g",
+          "created_at": "2026-02-07T16:24:51.428Z",
+          "updated_at": "2026-02-07T16:24:51.428Z",
+          "display_at": "2026-02-07T16:24:51.428Z",
+          "affected_components": [
+            {
+              "code": "6g1pz83ylj1r",
+              "name": "Regional Availability - SYD - Sydney, Australia",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "mvnft391hph6",
+              "name": "SSL/TLS Certificate Provisioning",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "k2t9fbjfxj8r",
+              "name": "Managed Postgres - Management Plane - SYD",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "zfdbw1yqj07b",
           "status": "investigating",
@@ -115,9 +220,9 @@
         {
           "id": "k2t9fbjfxj8r",
           "name": "Management Plane - SYD",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2025-03-24T09:32:53.250Z",
-          "updated_at": "2026-02-07T15:21:10.103Z",
+          "updated_at": "2026-02-07T16:24:51.351Z",
           "position": 6,
           "description": null,
           "showcase": true,
@@ -130,9 +235,9 @@
         {
           "id": "mvnft391hph6",
           "name": "SSL/TLS Certificate Provisioning",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2020-06-26T21:31:00.282Z",
-          "updated_at": "2026-02-07T15:19:44.884Z",
+          "updated_at": "2026-02-07T16:24:51.370Z",
           "position": 10,
           "description": null,
           "showcase": false,
@@ -145,9 +250,9 @@
         {
           "id": "6g1pz83ylj1r",
           "name": "SYD - Sydney, Australia",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2019-07-01T19:30:32.230Z",
-          "updated_at": "2026-02-07T15:46:32.488Z",
+          "updated_at": "2026-02-07T16:24:51.391Z",
           "position": 32,
           "description": null,
           "showcase": false,
@@ -766,9 +871,9 @@
         {
           "id": "80ykv2p95qgy",
           "name": "Machines API",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2020-04-01T21:30:26.075Z",
-          "updated_at": "2026-02-05T20:53:07.364Z",
+          "updated_at": "2026-02-07T16:23:44.142Z",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -1670,9 +1775,9 @@
         {
           "id": "mvnft391hph6",
           "name": "SSL/TLS Certificate Provisioning",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2020-06-26T21:31:00.282Z",
-          "updated_at": "2026-02-07T15:19:44.884Z",
+          "updated_at": "2026-02-07T16:24:51.370Z",
           "position": 10,
           "description": null,
           "showcase": false,
@@ -4069,9 +4174,9 @@
         {
           "id": "80ykv2p95qgy",
           "name": "Machines API",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2020-04-01T21:30:26.075Z",
-          "updated_at": "2026-02-05T20:53:07.364Z",
+          "updated_at": "2026-02-07T16:23:44.142Z",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -4144,9 +4249,9 @@
         {
           "id": "k2t9fbjfxj8r",
           "name": "Management Plane - SYD",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2025-03-24T09:32:53.250Z",
-          "updated_at": "2026-02-07T15:21:10.103Z",
+          "updated_at": "2026-02-07T16:24:51.351Z",
           "position": 6,
           "description": null,
           "showcase": true,
@@ -5213,9 +5318,9 @@
         {
           "id": "6g1pz83ylj1r",
           "name": "SYD - Sydney, Australia",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2019-07-01T19:30:32.230Z",
-          "updated_at": "2026-02-07T15:46:32.488Z",
+          "updated_at": "2026-02-07T16:24:51.391Z",
           "position": 32,
           "description": null,
           "showcase": false,
@@ -5637,9 +5742,9 @@
         {
           "id": "80ykv2p95qgy",
           "name": "Machines API",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2020-04-01T21:30:26.075Z",
-          "updated_at": "2026-02-05T20:53:07.364Z",
+          "updated_at": "2026-02-07T16:23:44.142Z",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -6304,9 +6409,9 @@
         {
           "id": "80ykv2p95qgy",
           "name": "Machines API",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2020-04-01T21:30:26.075Z",
-          "updated_at": "2026-02-05T20:53:07.364Z",
+          "updated_at": "2026-02-07T16:23:44.142Z",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -6397,9 +6502,9 @@
         {
           "id": "6g1pz83ylj1r",
           "name": "SYD - Sydney, Australia",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2019-07-01T19:30:32.230Z",
-          "updated_at": "2026-02-07T15:46:32.488Z",
+          "updated_at": "2026-02-07T16:24:51.391Z",
           "position": 32,
           "description": null,
           "showcase": false,
@@ -7502,9 +7607,9 @@
         {
           "id": "80ykv2p95qgy",
           "name": "Machines API",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2020-04-01T21:30:26.075Z",
-          "updated_at": "2026-02-05T20:53:07.364Z",
+          "updated_at": "2026-02-07T16:23:44.142Z",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -7577,9 +7682,9 @@
         {
           "id": "k2t9fbjfxj8r",
           "name": "Management Plane - SYD",
-          "status": "partial_outage",
+          "status": "degraded_performance",
           "created_at": "2025-03-24T09:32:53.250Z",
-          "updated_at": "2026-02-07T15:21:10.103Z",
+          "updated_at": "2026-02-07T16:24:51.351Z",
           "position": 6,
           "description": null,
           "showcase": true,
@@ -8223,79 +8328,6 @@
           "showcase": false,
           "start_date": "2021-11-30",
           "group_id": "mrcyzlkkw8z9",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "nbyshlysscs8",
-      "name": "Google SSO errors",
-      "status": "resolved",
-      "created_at": "2025-11-17T16:13:11.196Z",
-      "updated_at": "2025-11-17T16:25:03.344Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-11-17T16:25:03.325Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/mt9dd69606hs",
-      "started_at": "2025-11-17T16:13:11.191Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "7lhj3rnpsw3p",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "nbyshlysscs8",
-          "created_at": "2025-11-17T16:25:03.325Z",
-          "updated_at": "2025-11-17T16:25:03.325Z",
-          "display_at": "2025-11-17T16:25:03.325Z",
-          "affected_components": [
-            {
-              "code": "66r6rhq3hn9n",
-              "name": "Dashboard",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "hxbqg56kq642",
-          "status": "investigating",
-          "body": "We are investigating \"SSO error\" messages when trying to access organizations with Required SSO through Google.",
-          "incident_id": "nbyshlysscs8",
-          "created_at": "2025-11-17T16:13:11.291Z",
-          "updated_at": "2025-11-17T16:13:11.291Z",
-          "display_at": "2025-11-17T16:13:11.291Z",
-          "affected_components": [
-            {
-              "code": "66r6rhq3hn9n",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "66r6rhq3hn9n",
-          "name": "Dashboard",
-          "status": "operational",
-          "created_at": "2019-07-10T17:28:27.083Z",
-          "updated_at": "2026-01-11T20:44:02.680Z",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
           "page_id": "65rccr4mbblw",
           "group": false,
           "only_show_if_degraded": false
