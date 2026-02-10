@@ -4,9 +4,109 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-02-09T21:23:37.016-08:00"
+    "updated_at": "2026-02-10T01:03:33.747-08:00"
   },
   "incidents": [
+    {
+      "id": "nxjwm5hzjjy3",
+      "name": "Degraded Observability for Customers Using AWS CloudWatch Metric Streams or Firehose Log Export",
+      "status": "resolved",
+      "created_at": "2026-02-09T23:30:28.000-08:00",
+      "updated_at": "2026-02-10T01:01:27.550-08:00",
+      "monitoring_at": null,
+      "resolved_at": "2026-02-10T01:01:27.534-08:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/mbtwvwxzl77r",
+      "started_at": "2026-02-09T23:30:28.000-08:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "q0p3tt86p9ms",
+          "status": "resolved",
+          "body": "This issue has been resolved. Observability ingestion from AWS CloudWatch Metric Streams and CloudWatch Firehose log export has returned to normal. Data sent during the incident window may not have been ingested, and customers may see gaps in metrics or logs for that period.",
+          "incident_id": "nxjwm5hzjjy3",
+          "created_at": "2026-02-10T01:01:27.534-08:00",
+          "updated_at": "2026-02-10T01:01:27.534-08:00",
+          "display_at": "2026-02-10T01:01:27.534-08:00",
+          "affected_components": [
+            {
+              "code": "2ndk16wxw8jt",
+              "name": "Observability (core functionality) - Observability Data Ingest (Sessions, Errors)",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "12y9mq78j7hh",
+              "name": "Observability (core functionality) - OpenTelemetry (Logs, Traces, Metrics)",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "hxb626bbw0nr",
+          "status": "investigating",
+          "body": "Some customers using LaunchDarkly Observability with AWS CloudWatch Metric Stream and/or CloudWatch Firehose log export may experience delayed ingestion of metrics/logs into Observability. The impact is limited to Observability data ingestion and related dashboards/alerts.",
+          "incident_id": "nxjwm5hzjjy3",
+          "created_at": "2026-02-10T00:42:28.336-08:00",
+          "updated_at": "2026-02-10T00:48:45.985-08:00",
+          "display_at": "2026-02-09T23:30:28.000-08:00",
+          "affected_components": [
+            {
+              "code": "2ndk16wxw8jt",
+              "name": "Observability (core functionality) - Observability Data Ingest (Sessions, Errors)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "12y9mq78j7hh",
+              "name": "Observability (core functionality) - OpenTelemetry (Logs, Traces, Metrics)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "2ndk16wxw8jt",
+          "name": "Observability Data Ingest (Sessions, Errors)",
+          "status": "operational",
+          "created_at": "2025-11-18T12:44:13.771-08:00",
+          "updated_at": "2026-02-10T01:01:27.484-08:00",
+          "position": 3,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-11-18",
+          "group_id": "qwwp500n0czc",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "12y9mq78j7hh",
+          "name": "OpenTelemetry (Logs, Traces, Metrics)",
+          "status": "operational",
+          "created_at": "2025-11-18T12:44:28.358-08:00",
+          "updated_at": "2026-02-10T01:01:27.504-08:00",
+          "position": 4,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-11-18",
+          "group_id": "qwwp500n0czc",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "mq53fr13x6ly",
       "name": "Increased error rate in our UI and API endpoints",
@@ -282,7 +382,7 @@
           "name": "Observability Data Ingest (Sessions, Errors)",
           "status": "operational",
           "created_at": "2025-11-18T12:44:13.771-08:00",
-          "updated_at": "2026-01-31T03:35:13.318-08:00",
+          "updated_at": "2026-02-10T01:01:27.484-08:00",
           "position": 3,
           "description": null,
           "showcase": true,
@@ -297,7 +397,7 @@
           "name": "OpenTelemetry (Logs, Traces, Metrics)",
           "status": "operational",
           "created_at": "2025-11-18T12:44:28.358-08:00",
-          "updated_at": "2026-01-31T03:35:13.347-08:00",
+          "updated_at": "2026-02-10T01:01:27.504-08:00",
           "position": 4,
           "description": null,
           "showcase": true,
@@ -788,7 +888,7 @@
           "name": "Observability Data Ingest (Sessions, Errors)",
           "status": "operational",
           "created_at": "2025-11-18T12:44:13.771-08:00",
-          "updated_at": "2026-01-31T03:35:13.318-08:00",
+          "updated_at": "2026-02-10T01:01:27.484-08:00",
           "position": 3,
           "description": null,
           "showcase": true,
@@ -7611,79 +7711,6 @@
           "showcase": false,
           "start_date": "2022-02-28",
           "group_id": null,
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "yj54sz9mt3ks",
-      "name": "CUPED-Adjusted Iterations Delayed",
-      "status": "resolved",
-      "created_at": "2025-06-13T09:43:13.276-07:00",
-      "updated_at": "2025-06-13T12:33:21.863-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2025-06-13T12:33:21.850-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/qxjw6pq8jcx7",
-      "started_at": "2025-06-13T09:43:13.268-07:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "l70gz6fkn6rx",
-          "status": "resolved",
-          "body": "All missing data has been successfully backfilled.",
-          "incident_id": "yj54sz9mt3ks",
-          "created_at": "2025-06-13T12:33:21.850-07:00",
-          "updated_at": "2025-06-13T12:33:21.850-07:00",
-          "display_at": "2025-06-13T12:33:21.850-07:00",
-          "affected_components": [
-            {
-              "code": "2f264mc5ls7f",
-              "name": "Experimentation (core functionality) - Experiment results analysis",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dmd3s1pfbr6l",
-          "status": "identified",
-          "body": "Users of CUPED-adjusted iterations in experimentation may be missing data from June 11th 4:30AM PST to June 13th 10AM PST. There is no underlying data loss and our engineers are working to backfill this data as quickly as possible.  We will provide another update once the missing data has been fully restored.",
-          "incident_id": "yj54sz9mt3ks",
-          "created_at": "2025-06-13T09:43:13.368-07:00",
-          "updated_at": "2025-06-13T09:43:13.368-07:00",
-          "display_at": "2025-06-13T09:43:13.368-07:00",
-          "affected_components": [
-            {
-              "code": "2f264mc5ls7f",
-              "name": "Experimentation (core functionality) - Experiment results analysis",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "2f264mc5ls7f",
-          "name": "Experiment results analysis",
-          "status": "operational",
-          "created_at": "2022-09-16T15:25:58.310-07:00",
-          "updated_at": "2025-11-18T09:00:22.565-08:00",
-          "position": 4,
-          "description": "Display of experiment results",
-          "showcase": true,
-          "start_date": "2022-09-16",
-          "group_id": "j28fw96kw68y",
           "page_id": "9404kdk7lkn7",
           "group": false,
           "only_show_if_degraded": false
