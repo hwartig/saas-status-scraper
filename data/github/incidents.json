@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-10T18:28:40.174Z"
+    "updated_at": "2026-02-11T00:28:49.002Z"
   },
   "incidents": [
     {
@@ -424,9 +424,9 @@
       "name": "Incident with Issues, Actions and Git Operations",
       "status": "resolved",
       "created_at": "2026-02-09T19:01:33.060Z",
-      "updated_at": "2026-02-09T20:09:32.911Z",
+      "updated_at": "2026-02-11T00:28:48.998Z",
       "monitoring_at": null,
-      "resolved_at": "2026-02-09T20:09:32.866Z",
+      "resolved_at": "2026-02-09T20:09:32.000Z",
       "impact": "major",
       "shortlink": "https://stspg.io/k16wk8tbvdvk",
       "started_at": "2026-02-09T19:01:33.049Z",
@@ -435,11 +435,11 @@
         {
           "id": "vmcqf71h1w58",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On February 9, 2026, GitHub experienced two related periods of degraded availability affecting GitHub.com, the GitHub API, GitHub Actions, Git operations, GitHub Copilot, and other services. The first period occurred between 16:12 UTC and 17:39 UTC, and the second between 18:53 UTC and 20:09 UTC. In total, users experienced approximately 2 hours and 43 minutes of degraded service across the two incidents.\n\nDuring both incidents, users encountered errors loading pages on GitHub.com, failures when pushing or pulling code over HTTPS, failures starting or completing GitHub Actions workflow runs, and errors using GitHub Copilot. Additional services including GitHub Issues, pull requests, webhooks, Dependabot, GitHub Pages, and GitHub Codespaces experienced intermittent errors. SSH-based Git operations were not affected during either incident.\n\nOur investigation determined that both incidents shared the same underlying cause: a configuration change to a user settings caching mechanism caused a large volume of cache rewrites to occur simultaneously. During the first incident, asynchronous rewrites overwhelmed a shared infrastructure component responsible for coordinating background work, triggering cascading failures. Increased load caused the service responsible for proxying Git operations over HTTPS to exhaust available connections, preventing it from accepting new requests. We mitigated this incident by disabling async cache rewrites and restarting the affected Git proxy service across multiple datacenters.\n\nAn additional source of updates to the same cache circumvented our initial mitigations and caused the second incident. This generated a high volume of synchronous writes, causing replication delays that cascaded in a similar pattern and again exhausted the Git proxy’s connection capacity, degrading availability across multiple services. We mitigated by disabling the source of the cache rewrites and again restarting Git proxy.\n\nWe know these incidents disrupted the workflows of millions of developers. While we have made substantial, long-term investments in how GitHub is built and operated to improve resilience, GitHub's availability is not yet meeting our expectations. Getting there requires deep architectural work that is already underway, as well as urgent, targeted improvements. We are taking the following immediate steps:\n\n1. We have already optimized the caching mechanism to avoid write amplification and added self-throttling during bulk updates.\n2. We are adding safeguards to ensure the caching mechanism responds more quickly to rollbacks and strengthening how changes to these caching systems are planned, validated, and rolled out with additional checks.\n3. We are fixing the underlying cause of connection exhaustion in our Git HTTPS proxy layer so the proxy can recover from this failure mode automatically without requiring manual restarts.\n\nGitHub is critical infrastructure for your work, your teams, and your businesses. We're focusing on these mitigations and long-term infrastructure work so GitHub is available, at scale, when and where you need it.",
           "incident_id": "lcw3tg2f6zsd",
           "created_at": "2026-02-09T20:09:32.866Z",
-          "updated_at": "2026-02-09T20:09:32.866Z",
-          "display_at": "2026-02-09T20:09:32.866Z",
+          "updated_at": "2026-02-11T00:28:48.974Z",
+          "display_at": "2026-02-09T20:09:32.000Z",
           "affected_components": [
             {
               "code": "kr09ddfgbfsf",
@@ -1345,22 +1345,22 @@
       "name": "Incident with Pull Requests",
       "status": "resolved",
       "created_at": "2026-02-09T16:19:22.233Z",
-      "updated_at": "2026-02-09T17:40:57.206Z",
+      "updated_at": "2026-02-11T00:26:27.373Z",
       "monitoring_at": null,
-      "resolved_at": "2026-02-09T17:40:57.190Z",
+      "resolved_at": "2026-02-09T17:40:57.000Z",
       "impact": "major",
       "shortlink": "https://stspg.io/0bh72947r0m2",
-      "started_at": "2026-02-09T16:19:22.223Z",
+      "started_at": "2026-02-09T17:40:57.000Z",
       "page_id": "kctbh9vrtdwd",
       "incident_updates": [
         {
           "id": "vvs26dcgfbyj",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On February 9, 2026, GitHub experienced two related periods of degraded availability affecting GitHub.com, the GitHub API, GitHub Actions, Git operations, GitHub Copilot, and other services. The first period occurred between 16:12 UTC and 17:39 UTC, and the second between 18:53 UTC and 20:09 UTC. In total, users experienced approximately 2 hours and 43 minutes of degraded service across the two incidents.\n\nDuring both incidents, users encountered errors loading pages on GitHub.com, failures when pushing or pulling code over HTTPS, failures starting or completing GitHub Actions workflow runs, and errors using GitHub Copilot. Additional services including GitHub Issues, pull requests, webhooks, Dependabot, GitHub Pages, and GitHub Codespaces experienced intermittent errors. SSH-based Git operations were not affected during either incident.\n\nOur investigation determined that both incidents shared the same underlying cause: a configuration change to a user settings caching mechanism caused a large volume of cache rewrites to occur simultaneously. During the first incident, asynchronous rewrites overwhelmed a shared infrastructure component responsible for coordinating background work, triggering cascading failures. Increased load caused the service responsible for proxying Git operations over HTTPS to exhaust available connections, preventing it from accepting new requests. We mitigated this incident by disabling async cache rewrites and restarting the affected Git proxy service across multiple datacenters.\n\nAn additional source of updates to the same cache circumvented our initial mitigations and caused the second incident. This generated a high volume of synchronous writes, causing replication delays that cascaded in a similar pattern and again exhausted the Git proxy’s connection capacity, degrading availability across multiple services. We mitigated by disabling the source of the cache rewrites and again restarting Git proxy.\n\nWe know these incidents disrupted the workflows of millions of developers. While we have made substantial, long-term investments in how GitHub is built and operated to improve resilience, GitHub's availability is not yet meeting our expectations. Getting there requires deep architectural work that is already underway, as well as urgent, targeted improvements. We are taking the following immediate steps:\n\n1. We have already optimized the caching mechanism to avoid write amplification and added self-throttling during bulk updates.\n2. We are adding safeguards to ensure the caching mechanism responds more quickly to rollbacks and strengthening how changes to these caching systems are planned, validated, and rolled out with additional checks.\n3. We are fixing the underlying cause of connection exhaustion in our Git HTTPS proxy layer so the proxy can recover from this failure mode automatically without requiring manual restarts.\n\nGitHub is critical infrastructure for your work, your teams, and your businesses. We're focusing on these mitigations and long-term infrastructure work so GitHub is available, at scale, when and where you need it.",
           "incident_id": "smf24rvl67v9",
           "created_at": "2026-02-09T17:40:57.190Z",
-          "updated_at": "2026-02-09T17:40:57.190Z",
-          "display_at": "2026-02-09T17:40:57.190Z",
+          "updated_at": "2026-02-11T00:26:27.367Z",
+          "display_at": "2026-02-09T17:40:57.000Z",
           "affected_components": [
             {
               "code": "kr09ddfgbfsf",
