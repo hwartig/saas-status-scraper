@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-12T15:33:22.090Z"
+    "updated_at": "2026-02-12T16:41:50.794Z"
   },
   "incidents": [
     {
@@ -1910,7 +1910,7 @@
       "name": "Notifications are delayed",
       "status": "resolved",
       "created_at": "2026-02-09T15:54:52.823Z",
-      "updated_at": "2026-02-09T19:29:45.729Z",
+      "updated_at": "2026-02-12T16:41:50.781Z",
       "monitoring_at": null,
       "resolved_at": "2026-02-09T19:29:45.715Z",
       "impact": "minor",
@@ -1921,10 +1921,10 @@
         {
           "id": "v10h0ms4qvx7",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On February 9th notifications service started showing degradation around 13:50 UTC, resulting in an increase in notification delivery delays. Our team started investigating. <br /><br />Around 14:30 UTC the service started to recover as the team continued investigating the incident. Around 15:20 UTC degradation resurfaced, with increasing delays in notification deliveries and small error rate (below 1%) on UI and API endpoints related to notifications. <br /><br />At 16:30 UTC, we mitigated the incident by reducing contention through throttling workloads and performing a database failover. The median delay for notification deliveries was 80 minutes at this point and queues started emptying. Around 19:30 UTC the backlog of notifications was processed, bringing the service back to normal and declaring the incident closed.<br /><br />The incident was caused by the notifications database showing degradation under intense load. Most notifications-related asynchronous workloads, including notifications deliveries, were stopped to try to reduce the pressure on the database. To ensure system stability, a database failover was executed. Following the failover, we applied a configuration change to improve the performance. The service started recovering after these changes.<br /><br />We are reviewing the configuration of our databases to understand the performance drop and prevent similar issues from happening in the future. We are also investing in monitoring to detect and mitigate this class of incidents faster.",
           "incident_id": "54hndjxft5bx",
           "created_at": "2026-02-09T19:29:45.715Z",
-          "updated_at": "2026-02-09T19:29:45.715Z",
+          "updated_at": "2026-02-12T16:41:50.776Z",
           "display_at": "2026-02-09T19:29:45.715Z",
           "affected_components": null,
           "deliver_notifications": true,
