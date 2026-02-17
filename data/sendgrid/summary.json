@@ -4,7 +4,7 @@
     "name": "SendGrid",
     "url": "https://status.sendgrid.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-02-17T07:53:44.894-08:00"
+    "updated_at": "2026-02-17T12:20:23.932-08:00"
   },
   "components": [
     {
@@ -45,9 +45,9 @@
     {
       "id": "p9560qrfxy9k",
       "name": "Event Webhook",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2015-11-18T06:23:17.600-08:00",
-      "updated_at": "2026-01-23T10:13:23.376-08:00",
+      "updated_at": "2026-02-17T12:00:07.603-08:00",
       "position": 1,
       "description": "Real-time POST of event data to a provided URL.",
       "showcase": false,
@@ -108,9 +108,9 @@
     {
       "id": "9mk6xltks0dj",
       "name": "Parse API",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2015-11-18T06:24:07.424-08:00",
-      "updated_at": "2025-08-15T11:09:38.769-07:00",
+      "updated_at": "2026-02-17T12:00:07.655-08:00",
       "position": 2,
       "description": "Inbound mail that is parsed out and POSTed to a provided URL.",
       "showcase": false,
@@ -138,7 +138,7 @@
     {
       "id": "dcvwpwy7361c",
       "name": "Webhooks",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2015-11-18T06:23:17.591-08:00",
       "updated_at": "2015-11-18T06:26:08.590-08:00",
       "position": 3,
@@ -261,9 +261,111 @@
     }
   ],
   "incidents": [],
-  "scheduled_maintenances": [],
+  "scheduled_maintenances": [
+    {
+      "id": "lkzxs32z10d4",
+      "name": "On-Prem Forwarder Maintenance: Tuesday - Friday, Febuary 17th - 20th",
+      "status": "in_progress",
+      "created_at": "2026-02-17T11:55:30.284-08:00",
+      "updated_at": "2026-02-17T12:00:07.709-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/l1t6cxhnffmj",
+      "started_at": "2026-02-17T11:55:30.275-08:00",
+      "page_id": "3tgl2vf85cht",
+      "incident_updates": [
+        {
+          "id": "kb8gkdsx6lqr",
+          "status": "in_progress",
+          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
+          "incident_id": "lkzxs32z10d4",
+          "created_at": "2026-02-17T12:00:07.705-08:00",
+          "updated_at": "2026-02-17T12:00:07.705-08:00",
+          "display_at": "2026-02-17T12:00:07.705-08:00",
+          "affected_components": [
+            {
+              "code": "p9560qrfxy9k",
+              "name": "Webhooks - Event Webhook",
+              "old_status": "operational",
+              "new_status": "under_maintenance"
+            },
+            {
+              "code": "9mk6xltks0dj",
+              "name": "Webhooks - Parse API",
+              "old_status": "operational",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "7lfl6xm4vmlq",
+          "status": "scheduled",
+          "body": "In order to increase the stability and scalability of our systems, we are performing scheduled maintenance on the current On-Prem Forwarder infrastructure which is being decommissioned. We will be turning off the legacy On-prem forwarders and migrating to new IP ranges. From February 17th - 20th the On-prem forwarder will be disabled for 6 hours, then re-enabled affecting webhook deliveries (both Event Webhooks and Inbound Parse). Customers who haven't allowlisted our new IP ranges will see all their webhook posts delayed and eventually fail during that 6 hour timespan.\n\nThank you for your patience through this maintenance.",
+          "incident_id": "lkzxs32z10d4",
+          "created_at": "2026-02-17T11:55:30.333-08:00",
+          "updated_at": "2026-02-17T11:55:30.623-08:00",
+          "display_at": "2026-02-17T11:55:30.333-08:00",
+          "affected_components": [
+            {
+              "code": "p9560qrfxy9k",
+              "name": "Webhooks - Event Webhook",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "9mk6xltks0dj",
+              "name": "Webhooks - Parse API",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2023848802600579402
+        }
+      ],
+      "components": [
+        {
+          "id": "p9560qrfxy9k",
+          "name": "Event Webhook",
+          "status": "under_maintenance",
+          "created_at": "2015-11-18T06:23:17.600-08:00",
+          "updated_at": "2026-02-17T12:00:07.603-08:00",
+          "position": 1,
+          "description": "Real-time POST of event data to a provided URL.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "dcvwpwy7361c",
+          "page_id": "3tgl2vf85cht",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "9mk6xltks0dj",
+          "name": "Parse API",
+          "status": "under_maintenance",
+          "created_at": "2015-11-18T06:24:07.424-08:00",
+          "updated_at": "2026-02-17T12:00:07.655-08:00",
+          "position": 2,
+          "description": "Inbound mail that is parsed out and POSTed to a provided URL.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "dcvwpwy7361c",
+          "page_id": "3tgl2vf85cht",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-02-17T12:00:00.000-08:00",
+      "scheduled_until": "2026-02-17T18:00:00.000-08:00"
+    }
+  ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "maintenance",
+    "description": "Service Under Maintenance"
   }
 }
