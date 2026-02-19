@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-02-19T05:38:35.994-08:00"
+    "updated_at": "2026-02-19T07:54:32.818-08:00"
   },
   "components": [
     {
@@ -464,9 +464,9 @@
     {
       "id": "2ndk16wxw8jt",
       "name": "Observability Data Ingest (Sessions, Errors)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-11-18T12:44:13.771-08:00",
-      "updated_at": "2026-02-10T01:01:27.484-08:00",
+      "updated_at": "2026-02-19T07:39:58.482-08:00",
       "position": 3,
       "description": null,
       "showcase": true,
@@ -624,7 +624,7 @@
     {
       "id": "qwwp500n0czc",
       "name": "Observability (core functionality)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-11-18T12:43:41.525-08:00",
       "updated_at": "2026-01-29T13:03:49.435-08:00",
       "position": 6,
@@ -786,7 +786,81 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "jbgdfj2x2dmh",
+      "name": "Observability Data Delay",
+      "status": "identified",
+      "created_at": "2026-02-19T07:39:58.439-08:00",
+      "updated_at": "2026-02-19T07:54:32.813-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/3qw1vmjrt7nq",
+      "started_at": "2026-02-19T07:39:58.430-08:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "smlj9684dwzn",
+          "status": "identified",
+          "body": "We've identified the root cause and have deployed a fix. We're catching up on the session/error data backlog and should be caught up in ~15 minutes. No data has been lost.",
+          "incident_id": "jbgdfj2x2dmh",
+          "created_at": "2026-02-19T07:54:32.470-08:00",
+          "updated_at": "2026-02-19T07:54:32.809-08:00",
+          "display_at": "2026-02-19T07:54:32.470-08:00",
+          "affected_components": [
+            {
+              "code": "2ndk16wxw8jt",
+              "name": "Observability (core functionality) - Observability Data Ingest (Sessions, Errors)",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2024512937625600423
+        },
+        {
+          "id": "7f6hc64bkcg1",
+          "status": "investigating",
+          "body": "Sessions and errors may be delayed by up to 1 hours. We are investigating the root cause. No data is lost.",
+          "incident_id": "jbgdfj2x2dmh",
+          "created_at": "2026-02-19T07:39:58.537-08:00",
+          "updated_at": "2026-02-19T07:39:58.973-08:00",
+          "display_at": "2026-02-19T07:39:58.537-08:00",
+          "affected_components": [
+            {
+              "code": "2ndk16wxw8jt",
+              "name": "Observability (core functionality) - Observability Data Ingest (Sessions, Errors)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2024509272739180931
+        }
+      ],
+      "components": [
+        {
+          "id": "2ndk16wxw8jt",
+          "name": "Observability Data Ingest (Sessions, Errors)",
+          "status": "degraded_performance",
+          "created_at": "2025-11-18T12:44:13.771-08:00",
+          "updated_at": "2026-02-19T07:39:58.482-08:00",
+          "position": 3,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-11-18",
+          "group_id": "qwwp500n0czc",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "7m88zf5jkbdp",
@@ -961,7 +1035,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
