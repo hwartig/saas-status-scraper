@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-02-19T21:00:07.698-08:00"
+    "updated_at": "2026-02-19T21:30:07.777-08:00"
   },
   "components": [
     {
@@ -540,9 +540,9 @@
     {
       "id": "lv1md8v28lhr",
       "name": "Flex Insights",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2019-02-27T16:48:42.335-08:00",
-      "updated_at": "2026-02-07T03:00:22.641-08:00",
+      "updated_at": "2026-02-19T21:30:07.555-08:00",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -1338,9 +1338,9 @@
     {
       "id": "42zx9w2kmtvf",
       "name": "SMS, Latin America",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:53:08.618-08:00",
-      "updated_at": "2026-02-17T04:01:07.136-08:00",
+      "updated_at": "2026-02-19T21:19:50.294-08:00",
       "position": 9,
       "description": null,
       "showcase": false,
@@ -1676,7 +1676,7 @@
     {
       "id": "p750yl3t5mwk",
       "name": "FLEX",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2019-01-10T08:22:22.077-08:00",
       "updated_at": "2026-01-19T11:24:06.470-08:00",
       "position": 12,
@@ -2659,6 +2659,59 @@
   ],
   "incidents": [
     {
+      "id": "ry4vh887sw92",
+      "name": "SMS Delivery Delays from Twilio to Claro Puerto Rico",
+      "status": "investigating",
+      "created_at": "2026-02-19T21:19:50.255-08:00",
+      "updated_at": "2026-02-19T21:19:50.374-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/07n75vb5wh8v",
+      "started_at": "2026-02-19T21:19:50.248-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "0q0wlmwt50zd",
+          "status": "investigating",
+          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio to Claro network subscribers in Puerto Rico. Our team is actively investigating this issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "ry4vh887sw92",
+          "created_at": "2026-02-19T21:19:50.371-08:00",
+          "updated_at": "2026-02-19T21:19:50.371-08:00",
+          "display_at": "2026-02-19T21:19:50.371-08:00",
+          "affected_components": [
+            {
+              "code": "42zx9w2kmtvf",
+              "name": "CARRIER NETWORK - SMS, Latin America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "42zx9w2kmtvf",
+          "name": "SMS, Latin America",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:53:08.618-08:00",
+          "updated_at": "2026-02-19T21:19:50.294-08:00",
+          "position": 9,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "v8tl5tyg0sbx",
       "name": "Voice Call Failures from Network Subscribers to a Subset of Twilio Philippines Phone Numbers",
       "status": "investigating",
@@ -3100,73 +3153,6 @@
   ],
   "scheduled_maintenances": [
     {
-      "id": "fmllpnc4c7y2",
-      "name": "Twilio Flex insights OpenSearch version upgrade - Maintenance",
-      "status": "scheduled",
-      "created_at": "2026-02-11T14:28:52.878-08:00",
-      "updated_at": "2026-02-19T20:30:07.308-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/ydxftq6k72md",
-      "started_at": "2026-02-11T14:28:52.869-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "d3vj5t61dch4",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "fmllpnc4c7y2",
-          "created_at": "2026-02-19T20:30:07.180-08:00",
-          "updated_at": "2026-02-19T20:30:07.180-08:00",
-          "display_at": "2026-02-19T20:30:07.180-08:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "31ky5n0ysjyj",
-          "status": "scheduled",
-          "body": "This communication is related to a previous maintenance post which was communicated at https://status.twilio.com/incidents/mgtlpkppdw57? on February 6, 2026, 06:23 PST.  We’re creating a new post to correct the scheduled date for clarification. Please find the updated date hereunder:\n\nWe’re conducting a planned maintenance in US1 region between 9:30 PM and 12:00 AM Pacific Time on 02/19/2026. During the maintenance window, customers may experience the below issue:\n-Increased rejections for incoming requests as the cluster load increases during blue/green deployments.\n-Increased API latency on sync insights APIs.\n-Possible loss of Taskrouter data on Sync Insights platform, that could lead to stale data on Teams View UI and API/SDK requests.\n-Sync Insights APIs timeouts for API and Twilsock (SDK) requests.",
-          "incident_id": "fmllpnc4c7y2",
-          "created_at": "2026-02-11T14:28:52.947-08:00",
-          "updated_at": "2026-02-11T14:28:52.947-08:00",
-          "display_at": "2026-02-11T14:28:52.947-08:00",
-          "affected_components": [
-            {
-              "code": "lv1md8v28lhr",
-              "name": "FLEX - Flex Insights",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "lv1md8v28lhr",
-          "name": "Flex Insights",
-          "status": "operational",
-          "created_at": "2019-02-27T16:48:42.335-08:00",
-          "updated_at": "2026-02-07T03:00:22.641-08:00",
-          "position": 3,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "p750yl3t5mwk",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-02-19T21:30:00.000-08:00",
-      "scheduled_until": "2026-02-20T00:00:00.000-08:00"
-    },
-    {
       "id": "6vsnk89q2z0y",
       "name": "United Kingdom Account Security Carrier Partner Maintenance - Three",
       "status": "scheduled",
@@ -3354,9 +3340,9 @@
         {
           "id": "42zx9w2kmtvf",
           "name": "SMS, Latin America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:53:08.618-08:00",
-          "updated_at": "2026-02-17T04:01:07.136-08:00",
+          "updated_at": "2026-02-19T21:19:50.294-08:00",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -4109,60 +4095,30 @@
       "scheduled_until": "2026-02-26T23:00:00.000-08:00"
     },
     {
-      "id": "cbp49yfmw1fb",
-      "name": "Twilio Voice Maintenance",
+      "id": "d5vgvhh33j08",
+      "name": "Twilio Interconnect Maintenance",
       "status": "scheduled",
-      "created_at": "2026-01-26T16:19:09.671-08:00",
-      "updated_at": "2026-01-26T16:20:22.984-08:00",
+      "created_at": "2026-01-26T17:02:28.693-08:00",
+      "updated_at": "2026-01-26T17:02:28.746-08:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
-      "shortlink": "https://stspg.io/g2t516v54ng7",
-      "started_at": "2026-01-26T16:19:09.652-08:00",
+      "shortlink": "https://stspg.io/s6y8brcc2s0n",
+      "started_at": "2026-01-26T17:02:28.689-08:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
         {
-          "id": "0dys77yryw71",
+          "id": "pz7465gnzcq7",
           "status": "scheduled",
-          "body": "Twilio will conduct a planned maintenance from 27 February 2026 at 22:00 PST until 28 February 2026 at 05:30 PST on the Twilio Network. During the maintenance window there could be intermittent impact on calls to and from the US connecting through Twilio’s US2/San Jose edge location.",
-          "incident_id": "cbp49yfmw1fb",
-          "created_at": "2026-01-26T16:19:09.737-08:00",
-          "updated_at": "2026-01-26T16:20:22.980-08:00",
-          "display_at": "2026-01-26T16:19:09.737-08:00",
+          "body": "Twilio will conduct a planned maintenance from 27 February 2026 at 22:00 PST until 28 February 2026 at 05:30 PST on the Twilio Network. During the maintenance window there could be intermittent impact on Interconnect services to and from the US connecting through Twilio’s US2/San Jose edge location.",
+          "incident_id": "d5vgvhh33j08",
+          "created_at": "2026-01-26T17:02:28.743-08:00",
+          "updated_at": "2026-01-26T17:02:28.743-08:00",
+          "display_at": "2026-01-26T17:02:28.743-08:00",
           "affected_components": [
             {
-              "code": "h056tfqk3q97",
-              "name": "FLEX - Flex Programmable Voice",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "2v3v92mz2m4h",
-              "name": "CARRIER NETWORK - Voice, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "xwk1gqcj57bw",
-              "name": "PROGRAMMABLE VOICE US2 - PSTN US2",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "zp417pdtkfhq",
-              "name": "PROGRAMMABLE VOICE US2 - SIP Interface US2",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "jxqhzd0jkncb",
-              "name": "ELASTIC SIP TRUNKING US2 - Origination US2",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "9zfq976gykc4",
-              "name": "ELASTIC SIP TRUNKING US2 - Termination US2",
+              "code": "hjfntfyhnn4l",
+              "name": "INTERCONNECT",
               "old_status": "operational",
               "new_status": "operational"
             }
@@ -4174,31 +4130,16 @@
       ],
       "components": [
         {
-          "id": "2v3v92mz2m4h",
-          "name": "Voice, North America",
+          "id": "hjfntfyhnn4l",
+          "name": "INTERCONNECT",
           "status": "operational",
-          "created_at": "2019-01-10T08:55:23.441-08:00",
-          "updated_at": "2026-02-13T10:20:18.880-08:00",
-          "position": 7,
+          "created_at": "2017-03-28T14:28:05.669-07:00",
+          "updated_at": "2026-01-20T05:00:21.269-08:00",
+          "position": 13,
           "description": null,
           "showcase": false,
           "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "h056tfqk3q97",
-          "name": "Flex Programmable Voice",
-          "status": "operational",
-          "created_at": "2023-07-03T12:54:53.471-07:00",
-          "updated_at": "2025-10-20T12:34:49.117-07:00",
-          "position": 11,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-07-03",
-          "group_id": "p750yl3t5mwk",
+          "group_id": null,
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
@@ -4325,80 +4266,26 @@
       "scheduled_until": "2026-02-28T05:30:00.000-08:00"
     },
     {
-      "id": "d5vgvhh33j08",
-      "name": "Twilio Interconnect Maintenance",
-      "status": "scheduled",
-      "created_at": "2026-01-26T17:02:28.693-08:00",
-      "updated_at": "2026-01-26T17:02:28.746-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/s6y8brcc2s0n",
-      "started_at": "2026-01-26T17:02:28.689-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "pz7465gnzcq7",
-          "status": "scheduled",
-          "body": "Twilio will conduct a planned maintenance from 27 February 2026 at 22:00 PST until 28 February 2026 at 05:30 PST on the Twilio Network. During the maintenance window there could be intermittent impact on Interconnect services to and from the US connecting through Twilio’s US2/San Jose edge location.",
-          "incident_id": "d5vgvhh33j08",
-          "created_at": "2026-01-26T17:02:28.743-08:00",
-          "updated_at": "2026-01-26T17:02:28.743-08:00",
-          "display_at": "2026-01-26T17:02:28.743-08:00",
-          "affected_components": [
-            {
-              "code": "hjfntfyhnn4l",
-              "name": "INTERCONNECT",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "hjfntfyhnn4l",
-          "name": "INTERCONNECT",
-          "status": "operational",
-          "created_at": "2017-03-28T14:28:05.669-07:00",
-          "updated_at": "2026-01-20T05:00:21.269-08:00",
-          "position": 13,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-02-27T22:00:00.000-08:00",
-      "scheduled_until": "2026-02-28T05:30:00.000-08:00"
-    },
-    {
-      "id": "jtzwcs9g9wt1",
+      "id": "cbp49yfmw1fb",
       "name": "Twilio Voice Maintenance",
       "status": "scheduled",
-      "created_at": "2026-01-26T16:25:05.369-08:00",
-      "updated_at": "2026-01-26T16:25:05.460-08:00",
+      "created_at": "2026-01-26T16:19:09.671-08:00",
+      "updated_at": "2026-01-26T16:20:22.984-08:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
-      "shortlink": "https://stspg.io/40t5zky09fmm",
-      "started_at": "2026-01-26T16:25:05.343-08:00",
+      "shortlink": "https://stspg.io/g2t516v54ng7",
+      "started_at": "2026-01-26T16:19:09.652-08:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
         {
-          "id": "rc2lfcq65s91",
+          "id": "0dys77yryw71",
           "status": "scheduled",
-          "body": "Twilio will conduct a planned maintenance from 28 February 2026 at 22:00 PST until 01 March 2026 at 05:30 PST on the Twilio Network. During the maintenance window there could be intermittent impact on calls to and from the US connecting through Twilio’s US2/San Jose edge location.",
-          "incident_id": "jtzwcs9g9wt1",
-          "created_at": "2026-01-26T16:25:05.456-08:00",
-          "updated_at": "2026-01-26T16:25:05.456-08:00",
-          "display_at": "2026-01-26T16:25:05.456-08:00",
+          "body": "Twilio will conduct a planned maintenance from 27 February 2026 at 22:00 PST until 28 February 2026 at 05:30 PST on the Twilio Network. During the maintenance window there could be intermittent impact on calls to and from the US connecting through Twilio’s US2/San Jose edge location.",
+          "incident_id": "cbp49yfmw1fb",
+          "created_at": "2026-01-26T16:19:09.737-08:00",
+          "updated_at": "2026-01-26T16:20:22.980-08:00",
+          "display_at": "2026-01-26T16:19:09.737-08:00",
           "affected_components": [
             {
               "code": "h056tfqk3q97",
@@ -4469,6 +4356,60 @@
           "showcase": false,
           "start_date": "2023-07-03",
           "group_id": "p750yl3t5mwk",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-02-27T22:00:00.000-08:00",
+      "scheduled_until": "2026-02-28T05:30:00.000-08:00"
+    },
+    {
+      "id": "x0z22h91wtjq",
+      "name": "Twilio Interconnect Maintenance",
+      "status": "scheduled",
+      "created_at": "2026-01-26T17:03:59.179-08:00",
+      "updated_at": "2026-01-26T17:03:59.237-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/bkxcd86msnzz",
+      "started_at": "2026-01-26T17:03:59.174-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "ntqtg2yb61fp",
+          "status": "scheduled",
+          "body": "Twilio will conduct a planned maintenance from 28 February 2026 at 22:00 PST until 01 March 2026 at 05:30 PST on the Twilio Network. During the maintenance window there could be intermittent impact on Interconnect services to and from the US connecting through Twilio’s US2/San Jose edge location.",
+          "incident_id": "x0z22h91wtjq",
+          "created_at": "2026-01-26T17:03:59.235-08:00",
+          "updated_at": "2026-01-26T17:03:59.235-08:00",
+          "display_at": "2026-01-26T17:03:59.235-08:00",
+          "affected_components": [
+            {
+              "code": "hjfntfyhnn4l",
+              "name": "INTERCONNECT",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "hjfntfyhnn4l",
+          "name": "INTERCONNECT",
+          "status": "operational",
+          "created_at": "2017-03-28T14:28:05.669-07:00",
+          "updated_at": "2026-01-20T05:00:21.269-08:00",
+          "position": 13,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
@@ -4595,30 +4536,60 @@
       "scheduled_until": "2026-03-01T05:30:00.000-08:00"
     },
     {
-      "id": "x0z22h91wtjq",
-      "name": "Twilio Interconnect Maintenance",
+      "id": "jtzwcs9g9wt1",
+      "name": "Twilio Voice Maintenance",
       "status": "scheduled",
-      "created_at": "2026-01-26T17:03:59.179-08:00",
-      "updated_at": "2026-01-26T17:03:59.237-08:00",
+      "created_at": "2026-01-26T16:25:05.369-08:00",
+      "updated_at": "2026-01-26T16:25:05.460-08:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
-      "shortlink": "https://stspg.io/bkxcd86msnzz",
-      "started_at": "2026-01-26T17:03:59.174-08:00",
+      "shortlink": "https://stspg.io/40t5zky09fmm",
+      "started_at": "2026-01-26T16:25:05.343-08:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
         {
-          "id": "ntqtg2yb61fp",
+          "id": "rc2lfcq65s91",
           "status": "scheduled",
-          "body": "Twilio will conduct a planned maintenance from 28 February 2026 at 22:00 PST until 01 March 2026 at 05:30 PST on the Twilio Network. During the maintenance window there could be intermittent impact on Interconnect services to and from the US connecting through Twilio’s US2/San Jose edge location.",
-          "incident_id": "x0z22h91wtjq",
-          "created_at": "2026-01-26T17:03:59.235-08:00",
-          "updated_at": "2026-01-26T17:03:59.235-08:00",
-          "display_at": "2026-01-26T17:03:59.235-08:00",
+          "body": "Twilio will conduct a planned maintenance from 28 February 2026 at 22:00 PST until 01 March 2026 at 05:30 PST on the Twilio Network. During the maintenance window there could be intermittent impact on calls to and from the US connecting through Twilio’s US2/San Jose edge location.",
+          "incident_id": "jtzwcs9g9wt1",
+          "created_at": "2026-01-26T16:25:05.456-08:00",
+          "updated_at": "2026-01-26T16:25:05.456-08:00",
+          "display_at": "2026-01-26T16:25:05.456-08:00",
           "affected_components": [
             {
-              "code": "hjfntfyhnn4l",
-              "name": "INTERCONNECT",
+              "code": "h056tfqk3q97",
+              "name": "FLEX - Flex Programmable Voice",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "2v3v92mz2m4h",
+              "name": "CARRIER NETWORK - Voice, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "xwk1gqcj57bw",
+              "name": "PROGRAMMABLE VOICE US2 - PSTN US2",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "zp417pdtkfhq",
+              "name": "PROGRAMMABLE VOICE US2 - SIP Interface US2",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "jxqhzd0jkncb",
+              "name": "ELASTIC SIP TRUNKING US2 - Origination US2",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "9zfq976gykc4",
+              "name": "ELASTIC SIP TRUNKING US2 - Termination US2",
               "old_status": "operational",
               "new_status": "operational"
             }
@@ -4630,16 +4601,31 @@
       ],
       "components": [
         {
-          "id": "hjfntfyhnn4l",
-          "name": "INTERCONNECT",
+          "id": "2v3v92mz2m4h",
+          "name": "Voice, North America",
           "status": "operational",
-          "created_at": "2017-03-28T14:28:05.669-07:00",
-          "updated_at": "2026-01-20T05:00:21.269-08:00",
-          "position": 13,
+          "created_at": "2019-01-10T08:55:23.441-08:00",
+          "updated_at": "2026-02-13T10:20:18.880-08:00",
+          "position": 7,
           "description": null,
           "showcase": false,
           "start_date": null,
-          "group_id": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "h056tfqk3q97",
+          "name": "Flex Programmable Voice",
+          "status": "operational",
+          "created_at": "2023-07-03T12:54:53.471-07:00",
+          "updated_at": "2025-10-20T12:34:49.117-07:00",
+          "position": 11,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-07-03",
+          "group_id": "p750yl3t5mwk",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
@@ -4701,6 +4687,123 @@
       ],
       "scheduled_for": "2026-03-02T15:00:00.000-08:00",
       "scheduled_until": "2026-03-02T18:00:00.000-08:00"
+    },
+    {
+      "id": "8h1kf7042mjv",
+      "name": "Twilio Messaging Maintenance",
+      "status": "scheduled",
+      "created_at": "2026-01-26T17:00:13.240-08:00",
+      "updated_at": "2026-01-26T17:00:13.320-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/9h7s3q63m19j",
+      "started_at": "2026-01-26T17:00:13.224-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "bjxp45wl66gc",
+          "status": "scheduled",
+          "body": "Twilio will conduct a planned maintenance from 02 March 2026 at 22:00 PST until 03 March 2026 at 05:30 PST on the Twilio Network. During the maintenance window there could be intermittent message delivery failures and delivery delays to and from the US connecting through Twilio’s US2/San Jose edge location.",
+          "incident_id": "8h1kf7042mjv",
+          "created_at": "2026-01-26T17:00:13.316-08:00",
+          "updated_at": "2026-01-26T17:00:13.316-08:00",
+          "display_at": "2026-01-26T17:00:13.316-08:00",
+          "affected_components": [
+            {
+              "code": "yvvy3vlp4djf",
+              "name": "PROGRAMMABLE MESSAGING - SMS",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "7d8w22hqrh6s",
+              "name": "CARRIER NETWORK - SMS Long Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "39mb8cmw8y2v",
+              "name": "CARRIER NETWORK - SMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "32f2bm54nkvv",
+              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "7d8w22hqrh6s",
+          "name": "SMS Long Code, North America",
+          "status": "operational",
+          "created_at": "2019-01-10T08:24:19.107-08:00",
+          "updated_at": "2026-02-19T00:00:07.144-08:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "39mb8cmw8y2v",
+          "name": "SMS Short Code, North America",
+          "status": "operational",
+          "created_at": "2016-04-07T15:07:25.830-07:00",
+          "updated_at": "2026-02-19T21:00:07.482-08:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "32f2bm54nkvv",
+          "name": "SMS Toll-Free, North America",
+          "status": "operational",
+          "created_at": "2019-01-10T08:52:48.226-08:00",
+          "updated_at": "2026-02-19T00:00:07.330-08:00",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "yvvy3vlp4djf",
+          "name": "SMS",
+          "status": "operational",
+          "created_at": "2016-04-07T15:15:38.816-07:00",
+          "updated_at": "2026-02-17T00:24:09.821-08:00",
+          "position": 12,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s2k3h0mkqnth",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-03-02T22:00:00.000-08:00",
+      "scheduled_until": "2026-03-03T05:30:00.000-08:00"
     },
     {
       "id": "0dr09ggxcc85",
@@ -4847,123 +4950,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": null,
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-03-02T22:00:00.000-08:00",
-      "scheduled_until": "2026-03-03T05:30:00.000-08:00"
-    },
-    {
-      "id": "8h1kf7042mjv",
-      "name": "Twilio Messaging Maintenance",
-      "status": "scheduled",
-      "created_at": "2026-01-26T17:00:13.240-08:00",
-      "updated_at": "2026-01-26T17:00:13.320-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/9h7s3q63m19j",
-      "started_at": "2026-01-26T17:00:13.224-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "bjxp45wl66gc",
-          "status": "scheduled",
-          "body": "Twilio will conduct a planned maintenance from 02 March 2026 at 22:00 PST until 03 March 2026 at 05:30 PST on the Twilio Network. During the maintenance window there could be intermittent message delivery failures and delivery delays to and from the US connecting through Twilio’s US2/San Jose edge location.",
-          "incident_id": "8h1kf7042mjv",
-          "created_at": "2026-01-26T17:00:13.316-08:00",
-          "updated_at": "2026-01-26T17:00:13.316-08:00",
-          "display_at": "2026-01-26T17:00:13.316-08:00",
-          "affected_components": [
-            {
-              "code": "yvvy3vlp4djf",
-              "name": "PROGRAMMABLE MESSAGING - SMS",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "7d8w22hqrh6s",
-              "name": "CARRIER NETWORK - SMS Long Code, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "39mb8cmw8y2v",
-              "name": "CARRIER NETWORK - SMS Short Code, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "32f2bm54nkvv",
-              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "7d8w22hqrh6s",
-          "name": "SMS Long Code, North America",
-          "status": "operational",
-          "created_at": "2019-01-10T08:24:19.107-08:00",
-          "updated_at": "2026-02-19T00:00:07.144-08:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "39mb8cmw8y2v",
-          "name": "SMS Short Code, North America",
-          "status": "operational",
-          "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2026-02-19T21:00:07.482-08:00",
-          "position": 3,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "32f2bm54nkvv",
-          "name": "SMS Toll-Free, North America",
-          "status": "operational",
-          "created_at": "2019-01-10T08:52:48.226-08:00",
-          "updated_at": "2026-02-19T00:00:07.330-08:00",
-          "position": 5,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "yvvy3vlp4djf",
-          "name": "SMS",
-          "status": "operational",
-          "created_at": "2016-04-07T15:15:38.816-07:00",
-          "updated_at": "2026-02-17T00:24:09.821-08:00",
-          "position": 12,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "s2k3h0mkqnth",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
@@ -6051,6 +6037,93 @@
       ],
       "scheduled_for": "2026-03-25T20:00:00.000-07:00",
       "scheduled_until": "2026-03-26T00:00:00.000-07:00"
+    },
+    {
+      "id": "fmllpnc4c7y2",
+      "name": "Twilio Flex insights OpenSearch version upgrade - Maintenance",
+      "status": "in_progress",
+      "created_at": "2026-02-11T14:28:52.878-08:00",
+      "updated_at": "2026-02-19T21:30:07.723-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/ydxftq6k72md",
+      "started_at": "2026-02-11T14:28:52.869-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "n8xv7bsy2rlm",
+          "status": "in_progress",
+          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
+          "incident_id": "fmllpnc4c7y2",
+          "created_at": "2026-02-19T21:30:07.707-08:00",
+          "updated_at": "2026-02-19T21:30:07.707-08:00",
+          "display_at": "2026-02-19T21:30:07.707-08:00",
+          "affected_components": [
+            {
+              "code": "lv1md8v28lhr",
+              "name": "FLEX - Flex Insights",
+              "old_status": "operational",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "d3vj5t61dch4",
+          "status": "scheduled",
+          "body": "Maintenance will begin as scheduled in 60 minutes.",
+          "incident_id": "fmllpnc4c7y2",
+          "created_at": "2026-02-19T20:30:07.180-08:00",
+          "updated_at": "2026-02-19T20:30:07.180-08:00",
+          "display_at": "2026-02-19T20:30:07.180-08:00",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "31ky5n0ysjyj",
+          "status": "scheduled",
+          "body": "This communication is related to a previous maintenance post which was communicated at https://status.twilio.com/incidents/mgtlpkppdw57? on February 6, 2026, 06:23 PST.  We’re creating a new post to correct the scheduled date for clarification. Please find the updated date hereunder:\n\nWe’re conducting a planned maintenance in US1 region between 9:30 PM and 12:00 AM Pacific Time on 02/19/2026. During the maintenance window, customers may experience the below issue:\n-Increased rejections for incoming requests as the cluster load increases during blue/green deployments.\n-Increased API latency on sync insights APIs.\n-Possible loss of Taskrouter data on Sync Insights platform, that could lead to stale data on Teams View UI and API/SDK requests.\n-Sync Insights APIs timeouts for API and Twilsock (SDK) requests.",
+          "incident_id": "fmllpnc4c7y2",
+          "created_at": "2026-02-11T14:28:52.947-08:00",
+          "updated_at": "2026-02-11T14:28:52.947-08:00",
+          "display_at": "2026-02-11T14:28:52.947-08:00",
+          "affected_components": [
+            {
+              "code": "lv1md8v28lhr",
+              "name": "FLEX - Flex Insights",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "lv1md8v28lhr",
+          "name": "Flex Insights",
+          "status": "under_maintenance",
+          "created_at": "2019-02-27T16:48:42.335-08:00",
+          "updated_at": "2026-02-19T21:30:07.555-08:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "p750yl3t5mwk",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-02-19T21:30:00.000-08:00",
+      "scheduled_until": "2026-02-20T00:00:00.000-08:00"
     },
     {
       "id": "mr3gnsrjxkyq",
