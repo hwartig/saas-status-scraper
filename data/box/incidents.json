@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-02-23T16:38:32.193-08:00"
+    "updated_at": "2026-02-23T17:48:41.012-08:00"
   },
   "incidents": [
     {
@@ -1101,9 +1101,9 @@
     {
       "id": "2vpq71t668t4",
       "name": "[Major] Issues with Box Sign",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2025-12-17T16:21:38.894-08:00",
-      "updated_at": "2025-12-17T16:45:12.230-08:00",
+      "updated_at": "2026-02-23T17:11:35.218-08:00",
       "monitoring_at": null,
       "resolved_at": "2025-12-17T16:45:12.213-08:00",
       "impact": "major",
@@ -1111,6 +1111,19 @@
       "started_at": "2025-12-17T16:21:38.884-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "gr3y114cn3qq",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting several features of Box. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n‌\n\nOn December 17, 2025, from 11:15 AM PST to 4:46 PM PST, some users may have experienced difficulties while working in Box Sign, Box AI, and Box Doc Gen. During this time, users may have noticed service degradation and delayed email delivery. The issue was caused by a missing schema, which was itself caused by a corrupted schema deployment. We were able to resolve the issue by rolling back the change that temporarily created issues.\n\n‌\n\n**Analysis** \n\nBox Sign, Box AI, and Box Doc Gen rely on a definition of the schemas that describe the events that they need to process. As we deliver new products, these schemas may occasionally need to be updated, and we have a standard process and pipeline to deploy these schema. As part of a project to upgrade our pipeline infrastructure, the schema deployment pipeline migrated to a new infrastructure. During the migration process, an external library version upgrade introduced a new default behavior that was not compatible with the existing pipeline. This resulted in a temporary degradation of the service. Additionally, the migration process exposed some observability and guardrail gaps in the pipeline that would have prevented this issue from happening and that extended the impact for a longer period of time.\n\nOnce identified, the incompatible library was reverted to the previous version and the system resumed to normal.\n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Introduce a schema validation step in the deployment pipeline so that incompatible schemas cannot be deployed\n* Enforce the environment promotion process as part of the schema deployment pipeline\n* Uplift the observability of the pipeline to enable more visibility around the different phases of the deployment process\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n‌\n\nSincerely,  \nThe Box Team",
+          "incident_id": "2vpq71t668t4",
+          "created_at": "2026-02-23T17:10:44.017-08:00",
+          "updated_at": "2026-02-23T17:11:35.215-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "cvym93nj2kks",
           "status": "resolved",
