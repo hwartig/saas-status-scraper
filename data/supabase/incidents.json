@@ -4,9 +4,104 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-24T10:58:59.422Z"
+    "updated_at": "2026-02-24T14:55:55.162Z"
   },
   "incidents": [
+    {
+      "id": "xmgq69x4brfk",
+      "name": "Connectivity Issues in AP-south-1",
+      "status": "investigating",
+      "created_at": "2026-02-24T14:46:17.352Z",
+      "updated_at": "2026-02-24T14:55:55.157Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/kcpw1yj9wqzh",
+      "started_at": "2026-02-24T14:46:17.342Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "js7lm6q4bv2h",
+          "status": "investigating",
+          "body": "We have reports of customers having difficulties connecting to Supabase from locations accessing AP-south-1, including a number of reports from India. We are actively investigating the issue.",
+          "incident_id": "xmgq69x4brfk",
+          "created_at": "2026-02-24T14:46:17.391Z",
+          "updated_at": "2026-02-24T14:46:17.391Z",
+          "display_at": "2026-02-24T14:46:17.391Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "fznyj00kpng2",
+              "name": "Auth",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "prrc7382xy5j",
+              "name": "Compute capacity - ap-south-1",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "fznyj00kpng2",
+          "name": "Auth",
+          "status": "operational",
+          "created_at": "2023-06-21T09:23:42.781Z",
+          "updated_at": "2026-02-13T09:01:52.953Z",
+          "position": 4,
+          "description": "Authenticate and authorize users",
+          "showcase": true,
+          "start_date": "2023-06-21",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "prrc7382xy5j",
+          "name": "ap-south-1",
+          "status": "operational",
+          "created_at": "2025-01-10T16:56:37.612Z",
+          "updated_at": "2025-10-08T08:37:47.586Z",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": "2025-01-10",
+          "group_id": "36n3k66s7n2v",
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "mvs609wqrsf7",
+          "name": "Edge Functions",
+          "status": "operational",
+          "created_at": "2022-08-10T18:16:24.352Z",
+          "updated_at": "2026-02-13T08:54:45.505Z",
+          "position": 8,
+          "description": "Globally deployed serverless functions",
+          "showcase": true,
+          "start_date": "2022-08-10",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "c7svgmllh6qy",
       "name": "Resource Metrics Collection Delays in US-West-2",
@@ -7003,159 +7098,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "kkx6fyh7tkw0",
-      "name": "Project and branch lifecycle workflows affected in eu-central-1 (Frankfurt)",
-      "status": "resolved",
-      "created_at": "2025-09-29T09:26:32.687Z",
-      "updated_at": "2025-10-03T08:47:55.752Z",
-      "monitoring_at": "2025-09-29T15:17:14.440Z",
-      "resolved_at": "2025-10-03T08:47:45.117Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/ncpxfbxhhl99",
-      "started_at": "2025-09-29T09:26:32.679Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "6j8s6jfnjf0v",
-          "status": "resolved",
-          "body": "We are no longer observing capacity issues with our cloud provider, and there have been no capacity related errors with new project creation, restores, restarts, or upgrades in the past 24 hours.\n\nSome projects remain stuck and require manual intervention. Our team is actively working through these requests.",
-          "incident_id": "kkx6fyh7tkw0",
-          "created_at": "2025-10-03T08:47:45.117Z",
-          "updated_at": "2025-10-03T08:47:45.117Z",
-          "display_at": "2025-10-03T08:47:45.117Z",
-          "affected_components": [
-            {
-              "code": "hzvb6v63k20m",
-              "name": "Compute capacity - eu-central-1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "31b5j5b82n2d",
-          "status": "monitoring",
-          "body": "The following project and branch workflows have been re-enabled\n\n- project creation\n- project restore\n- project restart\n- project resize\n- database upgrade\n- read replica creation\n- branch creation\n\nWe may temporarily disable these workflows in this region as needed, based on capacity constraints, while we continue working with our cloud provider on a permanent solution.\n\nExisting active projects in the region remain unaffected.",
-          "incident_id": "kkx6fyh7tkw0",
-          "created_at": "2025-10-01T11:14:29.999Z",
-          "updated_at": "2025-10-01T11:14:29.999Z",
-          "display_at": "2025-10-01T11:14:29.999Z",
-          "affected_components": [
-            {
-              "code": "hzvb6v63k20m",
-              "name": "Compute capacity - eu-central-1",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jgcrvl2hxybw",
-          "status": "monitoring",
-          "body": "The following project and branch workflows have been temporarily disabled in eu-central-1 (Frankfurt)\n- project creation\n- project restore\n- project restart\n- project resize\n- database upgrade\n- read replica creation\n- branch creation\n\nWe may temporarily disable these workflows in this region as needed, based on capacity constraints, while we continue working with our cloud provider on a permanent solution.\n\nExisting active projects in the region remain unaffected.",
-          "incident_id": "kkx6fyh7tkw0",
-          "created_at": "2025-09-30T10:23:40.810Z",
-          "updated_at": "2025-09-30T10:23:40.810Z",
-          "display_at": "2025-09-30T10:23:40.810Z",
-          "affected_components": [
-            {
-              "code": "hzvb6v63k20m",
-              "name": "Compute capacity - eu-central-1",
-              "old_status": "degraded_performance",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5nvk1rfsqq06",
-          "status": "monitoring",
-          "body": "Project creation in eu-central-1 (Frankfurt) has been enabled now. We are monitoring to ensure stability.",
-          "incident_id": "kkx6fyh7tkw0",
-          "created_at": "2025-09-29T15:17:14.440Z",
-          "updated_at": "2025-09-29T15:17:14.440Z",
-          "display_at": "2025-09-29T15:17:14.440Z",
-          "affected_components": [
-            {
-              "code": "hzvb6v63k20m",
-              "name": "Compute capacity - eu-central-1",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "82pfhnq5xzgk",
-          "status": "investigating",
-          "body": "We have temporarily disabled project creation in eu-central-1 while we investigate this issue. \nThis will continue to impact:\n- project creation\n- project restore\n- project restart\n- project resize\n- database upgrade\n- read replica creation\n- branch creation\n\nExisting active projects in the region remain unaffected.",
-          "incident_id": "kkx6fyh7tkw0",
-          "created_at": "2025-09-29T10:25:06.528Z",
-          "updated_at": "2025-09-29T10:25:06.528Z",
-          "display_at": "2025-09-29T10:25:06.528Z",
-          "affected_components": [
-            {
-              "code": "hzvb6v63k20m",
-              "name": "Compute capacity - eu-central-1",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "sr0626z3szry",
-          "status": "investigating",
-          "body": "Users have reported issues with the following services in eu-central-1 (Frankfurt) \n\n- project creation\n- project restore\n- project restart\n- project resize\n- database upgrade\n- read replica creation\n- branch creation\n\nExisting active projects in the region remain unaffected.\nWe are currently investigating this issue and will provide further updates when available",
-          "incident_id": "kkx6fyh7tkw0",
-          "created_at": "2025-09-29T09:26:32.771Z",
-          "updated_at": "2025-09-29T09:26:32.771Z",
-          "display_at": "2025-09-29T09:26:32.771Z",
-          "affected_components": [
-            {
-              "code": "hzvb6v63k20m",
-              "name": "Compute capacity - eu-central-1",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "hzvb6v63k20m",
-          "name": "eu-central-1",
-          "status": "operational",
-          "created_at": "2025-01-10T16:57:29.169Z",
-          "updated_at": "2025-10-15T04:13:36.582Z",
-          "position": 8,
-          "description": null,
-          "showcase": false,
-          "start_date": "2025-01-10",
-          "group_id": "36n3k66s7n2v",
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
