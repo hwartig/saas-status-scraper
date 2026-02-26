@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-26T12:53:38.832Z"
+    "updated_at": "2026-02-26T13:51:49.246Z"
   },
   "incidents": [
     {
@@ -2147,7 +2147,7 @@
       "name": "Copilot Policy Propagation Delays",
       "status": "resolved",
       "created_at": "2026-02-09T16:29:41.378Z",
-      "updated_at": "2026-02-10T09:57:57.407Z",
+      "updated_at": "2026-02-26T13:51:49.237Z",
       "monitoring_at": null,
       "resolved_at": "2026-02-10T09:57:57.385Z",
       "impact": "minor",
@@ -2158,10 +2158,10 @@
         {
           "id": "c90kx186brl3",
           "status": "resolved",
-          "body": "This incident has been resolved.",
+          "body": "GitHub experienced degraded Copilot policy propagation from enterprise to organizations between February 3 at 21:00 UTC through February 10 at 16:00 UTC. During this period, policy changes could take up to 24 hours to apply. We mitigated the issue on February 10 at 16:00 UTC after rolling back a regression that caused the delays. The propagation queue fully caught up on the delayed items by February 11 at 10:35 UTC, and policy changes now propagate normally.<br /><br />During this incident, whenever an enterprise updated a Copilot policy (including model policies), there were significant delays before those policy changes reached their child organizations and assigned users. The delay was caused by a large backlog in the background job queue responsible for propagating Copilot policy updates.<br /><br />Our investigation determined the incident was caused by a code change shipped on February 3 that increased the number of background jobs enqueued per policy update, in order to accommodate upcoming feature work. When new Copilot models launched on February 5th and 7th, triggering policy updates across many enterprises, the higher job volume overwhelmed the shared background worker queue, resulting in prolonged propagation delays. No policy updates were lost; they were queued and processed once the backlog cleared.<br /><br />We understand these delays disrupted policy management for customers using Copilot at scale and have taken the following immediate steps:<br /><br />1. Restored the optimized propagation path and put tests in place to avoid a regression.<br />2. Ensured upcoming features are compatible with this design. <br />3. Added alerting on queue depth to detect propagation backlogs immediately.<br /><br />GitHub is critical infrastructure for your work, your teams, and your businesses. We are focused on these mitigations and continued improvements so Copilot policy changes propagate reliably and quickly.<br />",
           "incident_id": "t5qmhtg29933",
           "created_at": "2026-02-10T09:57:57.385Z",
-          "updated_at": "2026-02-10T09:57:57.385Z",
+          "updated_at": "2026-02-26T13:51:49.233Z",
           "display_at": "2026-02-10T09:57:57.385Z",
           "affected_components": [
             {
