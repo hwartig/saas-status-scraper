@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-26T17:08:35.648Z"
+    "updated_at": "2026-02-26T22:55:02.487Z"
   },
   "incidents": [
     {
@@ -178,7 +178,7 @@
       "name": "Code search experiencing degraded performance",
       "status": "resolved",
       "created_at": "2026-02-23T19:59:55.629Z",
-      "updated_at": "2026-02-24T00:46:29.466Z",
+      "updated_at": "2026-02-26T22:55:02.470Z",
       "monitoring_at": null,
       "resolved_at": "2026-02-24T00:46:29.447Z",
       "impact": "minor",
@@ -189,10 +189,10 @@
         {
           "id": "zhfjc7tb2f1h",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between 2026-02-23 19:10 and 2026-02-24 00:46 UTC, all lexical code search queries in GitHub.com and the code search API were significantly slowed, and during this incident, between 5 and 10% of search queries timed out. This was caused by a single customer who had created a network of hundreds of orchestrated accounts which searched with a uniquely expensive search query. This search query concentrated load on a single hot shard within the search index, slowing down all queries. After we identified the source of the load and stopped the traffic, latency returned to normal.<br /><br />To avoid this situation occurring again in the future, we are making a number of improvements to our systems, including: improved rate limiting that accounts for highly skewed load on hot shards, improved system resilience for when a small number of shards time out, improved tooling to recognize abusive actors, and capabilities that will allow us to shed load on a single shard in emergencies.",
           "incident_id": "jn8kcmg5ydch",
           "created_at": "2026-02-24T00:46:29.447Z",
-          "updated_at": "2026-02-24T00:46:29.447Z",
+          "updated_at": "2026-02-26T22:55:02.464Z",
           "display_at": "2026-02-24T00:46:29.447Z",
           "affected_components": null,
           "deliver_notifications": true,
