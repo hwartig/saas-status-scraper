@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-27T00:20:26.715Z"
+    "updated_at": "2026-02-27T03:28:00.445Z"
   },
   "incidents": [
+    {
+      "id": "kv1lzpgzr9yp",
+      "name": "Code view fails to load when content contains some non-ASCII characters",
+      "status": "investigating",
+      "created_at": "2026-02-27T03:08:23.495Z",
+      "updated_at": "2026-02-27T03:28:00.436Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/5zqmjwwn4z1q",
+      "started_at": "2026-02-27T03:08:23.488Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "x60vfvsc1t8w",
+          "status": "investigating",
+          "body": "We are looking into recent code changes to mitigate the error loading some code view pages.",
+          "incident_id": "kv1lzpgzr9yp",
+          "created_at": "2026-02-27T03:28:00.433Z",
+          "updated_at": "2026-02-27T03:28:00.433Z",
+          "display_at": "2026-02-27T03:28:00.433Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "m69g0pkbqj12",
+          "status": "investigating",
+          "body": "We are investigating reports of impacted performance for some GitHub services.",
+          "incident_id": "kv1lzpgzr9yp",
+          "created_at": "2026-02-27T03:08:23.536Z",
+          "updated_at": "2026-02-27T03:08:23.536Z",
+          "display_at": "2026-02-27T03:08:23.536Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "vd3xqfq36rgm",
       "name": "High latency on webhook API requests",
@@ -724,7 +767,7 @@
       "name": "Extended job start delays for larger hosted runners",
       "status": "resolved",
       "created_at": "2026-02-20T20:00:07.517Z",
-      "updated_at": "2026-02-20T20:41:24.117Z",
+      "updated_at": "2026-02-27T02:49:58.041Z",
       "monitoring_at": null,
       "resolved_at": "2026-02-20T20:41:24.099Z",
       "impact": "minor",
@@ -735,10 +778,10 @@
         {
           "id": "gpbbnxsd6j4y",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On February 20, 2026, between 17:45 UTC and 20:41 UTC, 4.2% of workflows running on GitHub Larger Hosted Runners were delayed by an average of 18 minutes. Standard, Mac, and Self-Hosted Runners were not impacted. <br /><br />The delays were caused by communication failures between backend services for one deployment of larger runners. Those failures prevented expected automated scaling and provisioning of larger hosted runner capacity within that deployment. This was mitigated when the affected infrastructure was recycled, larger runner pools in the affected deployment successfully scaled up, and queued jobs processed. <br /><br />We are working to improve the time to detect and diagnose this class of failures and improve the performance of recovery mechanisms for this degraded network state. In addition, we have architectural changes underway that will enable other deployments to pick up work in similar situations, so there is no customer impact due to deployment-specific infrastructure issues like this.",
           "incident_id": "zhfdlzldgh51",
           "created_at": "2026-02-20T20:41:24.099Z",
-          "updated_at": "2026-02-20T20:41:24.099Z",
+          "updated_at": "2026-02-27T02:49:58.033Z",
           "display_at": "2026-02-20T20:41:24.099Z",
           "affected_components": null,
           "deliver_notifications": true,
@@ -8244,75 +8287,6 @@
           "display_at": "2026-01-14T18:00:00.000Z",
           "affected_components": null,
           "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "4htf8bgy1xlz",
-      "name": "Claude Opus 4.5 model experiencing degraded performance",
-      "status": "resolved",
-      "created_at": "2026-01-14T10:56:17.718Z",
-      "updated_at": "2026-01-15T21:21:39.709Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-01-14T12:23:28.571Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/lb3p41jsyj37",
-      "started_at": "2026-01-14T10:56:17.711Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "59jxks81mr8g",
-          "status": "resolved",
-          "body": "On January 14th, 2026, between approximately 10:20 and 11:25 UTC, the Copilot service experienced a degradation of the Claude Opus 4.5 model due to an issue with our upstream provider. During this time period, users encountered a 4.5% error rate when using Claude Opus 4.5. No other models were impacted.<br />The issue was resolved by a mitigation put in place by our provider. GitHub is working with our provider to further improve the resiliency of the service to prevent similar incidents in the future.",
-          "incident_id": "4htf8bgy1xlz",
-          "created_at": "2026-01-14T12:23:28.571Z",
-          "updated_at": "2026-01-15T21:21:39.704Z",
-          "display_at": "2026-01-14T12:23:28.571Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xwngj2m42tgg",
-          "status": "investigating",
-          "body": "We are continuing to investigate issues with Claude Opus 4.5 and are working to restore performance across our model providers.",
-          "incident_id": "4htf8bgy1xlz",
-          "created_at": "2026-01-14T11:45:21.388Z",
-          "updated_at": "2026-01-14T11:45:21.388Z",
-          "display_at": "2026-01-14T11:45:21.388Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "85tbv01d3hmb",
-          "status": "investigating",
-          "body": "We are experiencing issues with our Claude Opus 4.5 providers and are investigating remediation.",
-          "incident_id": "4htf8bgy1xlz",
-          "created_at": "2026-01-14T11:00:15.338Z",
-          "updated_at": "2026-01-14T11:00:15.338Z",
-          "display_at": "2026-01-14T11:00:15.338Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "czp29vs3z6cg",
-          "status": "investigating",
-          "body": "We are investigating reports of impacted performance for some GitHub services.",
-          "incident_id": "4htf8bgy1xlz",
-          "created_at": "2026-01-14T10:56:17.756Z",
-          "updated_at": "2026-01-14T10:56:17.756Z",
-          "display_at": "2026-01-14T10:56:17.756Z",
-          "affected_components": null,
-          "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": null
         }
