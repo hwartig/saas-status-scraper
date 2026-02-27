@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-27T19:06:37.378Z"
+    "updated_at": "2026-02-27T19:41:58.271Z"
   },
   "components": [
     {
@@ -115,9 +115,9 @@
     {
       "id": "66r6rhq3hn9n",
       "name": "Dashboard",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2019-07-10T17:28:27.083Z",
-      "updated_at": "2026-02-27T19:05:14.024Z",
+      "updated_at": "2026-02-27T19:41:58.160Z",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -175,9 +175,9 @@
     {
       "id": "80ykv2p95qgy",
       "name": "Machines API",
-      "status": "major_outage",
+      "status": "partial_outage",
       "created_at": "2020-04-01T21:30:26.075Z",
-      "updated_at": "2026-02-27T19:05:14.048Z",
+      "updated_at": "2026-02-27T19:23:49.504Z",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -330,9 +330,9 @@
     {
       "id": "49yq6v65b33l",
       "name": "Deployments",
-      "status": "major_outage",
+      "status": "partial_outage",
       "created_at": "2020-04-01T21:53:18.234Z",
-      "updated_at": "2026-02-27T19:05:14.071Z",
+      "updated_at": "2026-02-27T19:41:58.185Z",
       "position": 6,
       "description": "flyctl and GitHub Action app deployments",
       "showcase": false,
@@ -375,9 +375,9 @@
     {
       "id": "ffsz24mbcxfz",
       "name": "Remote Builds",
-      "status": "major_outage",
+      "status": "partial_outage",
       "created_at": "2020-04-01T21:34:45.495Z",
-      "updated_at": "2026-02-27T19:05:14.094Z",
+      "updated_at": "2026-02-27T19:41:58.207Z",
       "position": 7,
       "description": null,
       "showcase": false,
@@ -931,7 +931,7 @@
       "name": "Slow API requests",
       "status": "identified",
       "created_at": "2026-02-27T18:50:43.606Z",
-      "updated_at": "2026-02-27T19:06:37.367Z",
+      "updated_at": "2026-02-27T19:41:58.258Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -939,6 +939,94 @@
       "started_at": "2026-02-27T18:50:43.600Z",
       "page_id": "65rccr4mbblw",
       "incident_updates": [
+        {
+          "id": "cq1vtks4696s",
+          "status": "identified",
+          "body": "A second fix has been deployed and database load has returned to normal, resulting in API response times beginning to normalize. Most Machines API requests should succeed as normal, and deploys to existing apps should also work.\n\nWe are working through a backlog of background jobs. New app / organization creations and other other operations that use these will continue to see increased latency or failures while we work thorough these. New MPG cluster and new Sprite creation continues to be impacted.",
+          "incident_id": "8ncr1mvjcj5h",
+          "created_at": "2026-02-27T19:41:58.254Z",
+          "updated_at": "2026-02-27T19:41:58.254Z",
+          "display_at": "2026-02-27T19:41:58.254Z",
+          "affected_components": [
+            {
+              "code": "66r6rhq3hn9n",
+              "name": "Dashboard",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "ffsz24mbcxfz",
+              "name": "Remote Builds",
+              "old_status": "major_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "major_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "gfjxlcdf8bf4",
+              "name": "Sprites",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "7vjw24q5j5xt",
+          "status": "identified",
+          "body": "An initial fix has been deployed and we are seeing improvements in load and API performance. Some operations that rely on the Graphql API, such as new app creations and some deployments, will continue to fail at this time. \n\nWe are continuing to work on restoring full availability.",
+          "incident_id": "8ncr1mvjcj5h",
+          "created_at": "2026-02-27T19:23:49.541Z",
+          "updated_at": "2026-02-27T19:23:49.541Z",
+          "display_at": "2026-02-27T19:23:49.541Z",
+          "affected_components": [
+            {
+              "code": "66r6rhq3hn9n",
+              "name": "Dashboard",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "major_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "ffsz24mbcxfz",
+              "name": "Remote Builds",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "gfjxlcdf8bf4",
+              "name": "Sprites",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "krt94lvz44xv",
           "status": "identified",
@@ -1128,9 +1216,9 @@
         {
           "id": "66r6rhq3hn9n",
           "name": "Dashboard",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2019-07-10T17:28:27.083Z",
-          "updated_at": "2026-02-27T19:05:14.024Z",
+          "updated_at": "2026-02-27T19:41:58.160Z",
           "position": 2,
           "description": null,
           "showcase": false,
@@ -1143,9 +1231,9 @@
         {
           "id": "80ykv2p95qgy",
           "name": "Machines API",
-          "status": "major_outage",
+          "status": "partial_outage",
           "created_at": "2020-04-01T21:30:26.075Z",
-          "updated_at": "2026-02-27T19:05:14.048Z",
+          "updated_at": "2026-02-27T19:23:49.504Z",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -1158,9 +1246,9 @@
         {
           "id": "49yq6v65b33l",
           "name": "Deployments",
-          "status": "major_outage",
+          "status": "partial_outage",
           "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-02-27T19:05:14.071Z",
+          "updated_at": "2026-02-27T19:41:58.185Z",
           "position": 6,
           "description": "flyctl and GitHub Action app deployments",
           "showcase": false,
@@ -1173,9 +1261,9 @@
         {
           "id": "ffsz24mbcxfz",
           "name": "Remote Builds",
-          "status": "major_outage",
+          "status": "partial_outage",
           "created_at": "2020-04-01T21:34:45.495Z",
-          "updated_at": "2026-02-27T19:05:14.094Z",
+          "updated_at": "2026-02-27T19:41:58.207Z",
           "position": 7,
           "description": null,
           "showcase": false,
@@ -1261,7 +1349,7 @@
     }
   ],
   "status": {
-    "indicator": "major",
-    "description": "Partial System Outage"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
