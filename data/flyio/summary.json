@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-02-27T17:54:43.517Z"
+    "updated_at": "2026-02-27T19:06:37.378Z"
   },
   "components": [
     {
@@ -115,9 +115,9 @@
     {
       "id": "66r6rhq3hn9n",
       "name": "Dashboard",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2019-07-10T17:28:27.083Z",
-      "updated_at": "2026-02-20T11:57:37.815Z",
+      "updated_at": "2026-02-27T19:05:14.024Z",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -175,9 +175,9 @@
     {
       "id": "80ykv2p95qgy",
       "name": "Machines API",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2020-04-01T21:30:26.075Z",
-      "updated_at": "2026-02-20T00:05:17.213Z",
+      "updated_at": "2026-02-27T19:05:14.048Z",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -330,9 +330,9 @@
     {
       "id": "49yq6v65b33l",
       "name": "Deployments",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2020-04-01T21:53:18.234Z",
-      "updated_at": "2026-02-27T17:54:43.456Z",
+      "updated_at": "2026-02-27T19:05:14.071Z",
       "position": 6,
       "description": "flyctl and GitHub Action app deployments",
       "showcase": false,
@@ -375,9 +375,9 @@
     {
       "id": "ffsz24mbcxfz",
       "name": "Remote Builds",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2020-04-01T21:34:45.495Z",
-      "updated_at": "2026-02-26T22:28:19.538Z",
+      "updated_at": "2026-02-27T19:05:14.094Z",
       "position": 7,
       "description": null,
       "showcase": false,
@@ -822,9 +822,9 @@
     {
       "id": "gfjxlcdf8bf4",
       "name": "Sprites",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2026-02-11T06:08:35.401Z",
-      "updated_at": "2026-02-24T17:51:58.402Z",
+      "updated_at": "2026-02-27T18:53:41.783Z",
       "position": 22,
       "description": null,
       "showcase": false,
@@ -925,7 +925,285 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "8ncr1mvjcj5h",
+      "name": "Slow API requests",
+      "status": "identified",
+      "created_at": "2026-02-27T18:50:43.606Z",
+      "updated_at": "2026-02-27T19:06:37.367Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/rmwz0sxbrv3p",
+      "started_at": "2026-02-27T18:50:43.600Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "krt94lvz44xv",
+          "status": "identified",
+          "body": "We are currently seeing full API failures for requests to our Graphql API and elevated failures for the machines API. Direct calls to these apis may fail, along with many flyctl commands. \n\nWe have identified the cause of the issue and are continuing to work on a fix. \n\nExisting running machines and apps should continue to be reachable, but creates, deploys, or other features relying on platform API calls will fail at this time.",
+          "incident_id": "8ncr1mvjcj5h",
+          "created_at": "2026-02-27T19:05:14.142Z",
+          "updated_at": "2026-02-27T19:06:37.360Z",
+          "display_at": "2026-02-27T19:05:14.000Z",
+          "affected_components": [
+            {
+              "code": "66r6rhq3hn9n",
+              "name": "Dashboard",
+              "old_status": "degraded_performance",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "degraded_performance",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "ffsz24mbcxfz",
+              "name": "Remote Builds",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "degraded_performance",
+              "new_status": "major_outage"
+            },
+            {
+              "code": "gfjxlcdf8bf4",
+              "name": "Sprites",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "872zsz5k73fn",
+          "status": "identified",
+          "body": "New Sprite creations are also timing out or failing at this time. We are continuing to work on a fix for this issue.",
+          "incident_id": "8ncr1mvjcj5h",
+          "created_at": "2026-02-27T18:59:12.225Z",
+          "updated_at": "2026-02-27T18:59:12.225Z",
+          "display_at": "2026-02-27T18:59:12.225Z",
+          "affected_components": [
+            {
+              "code": "66r6rhq3hn9n",
+              "name": "Dashboard",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "gfjxlcdf8bf4",
+              "name": "Sprites",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "65z4plhsftk0",
+          "status": "identified",
+          "body": "We are continuing to work on a fix for this issue.",
+          "incident_id": "8ncr1mvjcj5h",
+          "created_at": "2026-02-27T18:53:41.828Z",
+          "updated_at": "2026-02-27T18:53:41.828Z",
+          "display_at": "2026-02-27T18:53:41.828Z",
+          "affected_components": [
+            {
+              "code": "66r6rhq3hn9n",
+              "name": "Dashboard",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "gfjxlcdf8bf4",
+              "name": "Sprites",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "r2mmd6ypp3cl",
+          "status": "identified",
+          "body": "We have identified the cause of the increased latency and are working on a fix.\n\nThe most common errors we are seeing is timeouts when users attempt to perform an action against a newly created app / machine resource. Those may timeout or fail with an `app|machine not found` error",
+          "incident_id": "8ncr1mvjcj5h",
+          "created_at": "2026-02-27T18:52:28.588Z",
+          "updated_at": "2026-02-27T18:52:28.588Z",
+          "display_at": "2026-02-27T18:52:28.588Z",
+          "affected_components": [
+            {
+              "code": "66r6rhq3hn9n",
+              "name": "Dashboard",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "qwlrsv193n87",
+          "status": "investigating",
+          "body": "We are investigating increased in API request latency and timeouts with the main platform API.\n This is impacting multiple operations, including creating, querying or performing actions against machines, as well as platform level operations like adding payment methods.",
+          "incident_id": "8ncr1mvjcj5h",
+          "created_at": "2026-02-27T18:50:43.721Z",
+          "updated_at": "2026-02-27T18:50:43.721Z",
+          "display_at": "2026-02-27T18:50:43.721Z",
+          "affected_components": [
+            {
+              "code": "66r6rhq3hn9n",
+              "name": "Dashboard",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "80ykv2p95qgy",
+              "name": "Machines API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "66r6rhq3hn9n",
+          "name": "Dashboard",
+          "status": "partial_outage",
+          "created_at": "2019-07-10T17:28:27.083Z",
+          "updated_at": "2026-02-27T19:05:14.024Z",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "80ykv2p95qgy",
+          "name": "Machines API",
+          "status": "major_outage",
+          "created_at": "2020-04-01T21:30:26.075Z",
+          "updated_at": "2026-02-27T19:05:14.048Z",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "49yq6v65b33l",
+          "name": "Deployments",
+          "status": "major_outage",
+          "created_at": "2020-04-01T21:53:18.234Z",
+          "updated_at": "2026-02-27T19:05:14.071Z",
+          "position": 6,
+          "description": "flyctl and GitHub Action app deployments",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "ffsz24mbcxfz",
+          "name": "Remote Builds",
+          "status": "major_outage",
+          "created_at": "2020-04-01T21:34:45.495Z",
+          "updated_at": "2026-02-27T19:05:14.094Z",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "gfjxlcdf8bf4",
+          "name": "Sprites",
+          "status": "partial_outage",
+          "created_at": "2026-02-11T06:08:35.401Z",
+          "updated_at": "2026-02-27T18:53:41.783Z",
+          "position": 22,
+          "description": null,
+          "showcase": false,
+          "start_date": "2026-02-11",
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "l40y19sksgz4",
@@ -983,7 +1261,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "major",
+    "description": "Partial System Outage"
   }
 }
