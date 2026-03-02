@@ -4,7 +4,7 @@
     "name": "Vercel",
     "url": "https://www.vercel-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-03-02T12:08:39.206Z"
+    "updated_at": "2026-03-02T13:00:15.148Z"
   },
   "incidents": [
     {
@@ -164,7 +164,7 @@
       "name": "Elevated deployment and function invocations failures in Dubai region (dxb1)",
       "status": "identified",
       "created_at": "2026-03-02T06:06:28.469Z",
-      "updated_at": "2026-03-02T12:06:03.324Z",
+      "updated_at": "2026-03-02T13:00:15.138Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -172,6 +172,44 @@
       "started_at": "2026-03-02T06:06:28.000Z",
       "page_id": "lvglq8h0mdyh",
       "incident_updates": [
+        {
+          "id": "49v1nzvrzw88",
+          "status": "identified",
+          "body": "We have rolled out a first mitigation for elevated Build errors. Builds that use Middleware are now excluding the Dubai region (dxb1) from their deployment targets as a temporary measure, and should complete successfully again. We are now working on a mitigation for Builds that are using Edge Functions.",
+          "incident_id": "nt2llc4k0p41",
+          "created_at": "2026-03-02T13:00:15.134Z",
+          "updated_at": "2026-03-02T13:00:15.134Z",
+          "display_at": "2026-03-02T13:00:15.134Z",
+          "affected_components": [
+            {
+              "code": "kgcsn9c73xzf",
+              "name": "Serverless Functions",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "1w4lc3s3q2pz",
+              "name": "Edge Middleware",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "pdnc30nkdqth",
+              "name": "Edge Functions",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "7ckq6xr6nsbv",
+              "name": "Build & Deploy - Builds",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "c6x7fvm2xrxv",
           "status": "identified",
