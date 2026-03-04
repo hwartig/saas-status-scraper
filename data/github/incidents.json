@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-03-04T18:12:15.640Z"
+    "updated_at": "2026-03-04T20:46:37.744Z"
   },
   "incidents": [
     {
@@ -1595,7 +1595,7 @@
       "name": "Delayed visibility of newly added issues on project boards",
       "status": "resolved",
       "created_at": "2026-03-02T23:10:28.140Z",
-      "updated_at": "2026-03-03T05:54:17.993Z",
+      "updated_at": "2026-03-04T20:46:37.732Z",
       "monitoring_at": null,
       "resolved_at": "2026-03-03T05:54:17.975Z",
       "impact": "minor",
@@ -1606,10 +1606,10 @@
         {
           "id": "hp7tj4151mgv",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between March 2, 21:42 UTC and March 3, 05:54 UTC project board updates, including adding new issues, PRs, and draft items to boards, were delayed from 30 minutes to over 2 hours, as a large backlog of messages accumulated in the Projects data denormalization pipeline.<br /><br />The incident was caused by an anomalously large event that required longer processing time than expected. Processing this message exceeded the Kafka consumer heartbeat timeout, triggering repeated consumer group rebalances. As a result, the consumer group was unable to make forward progress, creating head-of-line blocking that delayed processing of subsequent project board updates.<br /><br />We mitigated the issue by deploying a targeted fix that safely bypassed the offending message and allowed normal message consumption to resume. Consumer group stability recovered at 04:10 UTC, after which the backlog began draining. All queued messages were fully processed by 05:53 UTC, returning project board updates to normal processing latency.<br /><br />We have identified several follow-up improvements to reduce the likelihood and impact of similar incidents in the future, including improved monitoring and alerting, as well as introducing limits for unusually large project events.",
           "incident_id": "0yjbtp1d2cpc",
           "created_at": "2026-03-03T05:54:17.975Z",
-          "updated_at": "2026-03-03T05:54:17.975Z",
+          "updated_at": "2026-03-04T20:46:37.727Z",
           "display_at": "2026-03-03T05:54:17.975Z",
           "affected_components": [
             {
