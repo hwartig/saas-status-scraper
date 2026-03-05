@@ -4,15 +4,15 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-03-05T13:28:36.311-08:00"
+    "updated_at": "2026-03-05T14:49:33.387-08:00"
   },
   "incidents": [
     {
       "id": "hbkyb6npjb8w",
       "name": "[Medium] Increased FTP 530 Captcha errors",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-02-27T12:02:45.000-08:00",
-      "updated_at": "2026-03-03T09:48:32.645-08:00",
+      "updated_at": "2026-03-05T14:43:31.258-08:00",
       "monitoring_at": "2026-02-27T13:58:08.343-08:00",
       "resolved_at": "2026-02-27T15:51:54.322-08:00",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2026-02-27T12:02:45.000-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "n758gt48n2k2",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Box FTP and SFTP services. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n \n\nFrom February 25th, 2026 at 9:20 AM PST to February 27th at 4:10 PM PST, some users may have experienced difficulties while working in Box. During this time, Box FTP and SFTP users may have seen CAPTCHA messages while logging in through FTP. The issue occurred due to a change in internal traffic routing which affected the Box FTP and SFTP services. We were able to resolve the issue by reverting the internal routing change and clearing CAPTCHAs for affected users. We are now working to harden the system against internal rate limiting going forward to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nOn February 23rd at 8:20 AM PST, a change was made to send a subset of login traffic through a new route. After this change, no issues were observed and no customer issues were reported.  On February 25th at 8:20 AM PST, a subsequent change was made to send more of the same login traffic through the new route. Roughly one hour after this change was completed, the Box FTP service started to receive an increased rate of CAPTCHA failures, blocking users from logging in. The second routing change was identified as the root cause and reverted on February 27th at 12:49 PM PST. After revert, a number of Box FTP users needed to clear an additional CAPTCHA. Box Support assisted in clearing the CAPTCHAs manually and by 4:10 PM PST, all Box FTP and SFTP login errors were resolved.\n\n‌\n\nOur analysis determined that the root cause of this issue was a service that was added to the call stack in the new route. The service in question did not properly communicate rate limiting information sent by the Box FTP service. This led to Box FTP being internally rate limited, which prompted users to improperly complete a CAPTCHA when logging in to Box FTP. \n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* The service in question has been fixed to properly forward required rate limiting information.\n* We are implementing enhanced monitoring to enable faster responses in the case of similar occurrences.\n* A comprehensive review is being performed to find any instances of missing rate limiting information within the stack.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "hbkyb6npjb8w",
+          "created_at": "2026-03-05T14:43:18.383-08:00",
+          "updated_at": "2026-03-05T14:43:31.256-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "29h36l2d1yjv",
           "status": "resolved",
@@ -143,9 +156,9 @@
     {
       "id": "8fz6wqqt5csw",
       "name": "[Medium] Customers may experience issues with Uploads and Downloads for the UK zone",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-02-25T05:00:14.000-08:00",
-      "updated_at": "2026-03-03T09:50:40.147-08:00",
+      "updated_at": "2026-03-05T14:49:33.383-08:00",
       "monitoring_at": "2026-02-25T05:45:52.000-08:00",
       "resolved_at": "2026-02-25T06:16:45.788-08:00",
       "impact": "major",
@@ -153,6 +166,19 @@
       "started_at": "2026-02-25T05:00:14.000-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "g157p8x56c6s",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\n \n\nOn February 25, 2026 between 4:45 am PST and 5:40 am PST, some users may have experienced difficulties while working in Box. During this time, customers of Box Zones UK may have had issues with uploading, downloading, and previewing files.\n\n‌\n\nThe issue occurred when some instances of a backend service in the impacted region ran into memory pressure. We resolved the issue by temporarily redirecting certain compute processes from the impacted region to the US region. Of note, even during the period of temporary traffic redirection, all Box Zones customer content continued to be stored in the correct Box Zones region. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "8fz6wqqt5csw",
+          "created_at": "2026-03-05T14:49:28.458-08:00",
+          "updated_at": "2026-03-05T14:49:33.379-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "sr4pfzpq189t",
           "status": "resolved",
@@ -256,9 +282,9 @@
     {
       "id": "yb6gsksvbkzf",
       "name": "[Critical] Issue with Box API",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-02-24T15:32:12.938-08:00",
-      "updated_at": "2026-02-24T16:15:38.633-08:00",
+      "updated_at": "2026-03-05T14:32:06.989-08:00",
       "monitoring_at": "2026-02-24T16:02:06.499-08:00",
       "resolved_at": "2026-02-24T16:15:38.617-08:00",
       "impact": "critical",
@@ -266,6 +292,19 @@
       "started_at": "2026-02-24T15:32:12.931-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "kt9qcmdm56c6",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\n \n\nOn February 24, 2026 between 1:15 PM PST and 3:59 PM PST, some users may have experienced difficulties while working in Box. The most significant impact occurred from 1:42 PM PST to 1:59 PM PST, when Uploads, Downloads, Logins, APIs, and Notes saw elevated latency and errors. A small subset of functionality continued to experience some degradation through 3:59 PM PST. The issue occurred due to our cache cluster becoming temporarily overloaded due to a traffic spike concentrated on a single hot key. We were able to resolve the majority of the impact by rate limiting peripheral workloads and fully resolve the issue by stopping the offending traffic source. We are now implementing automated hot key detection and introducing dynamic rate limiting at the caching layer to prevent similar issues from occurring in the future.\n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\n \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "yb6gsksvbkzf",
+          "created_at": "2026-03-05T14:31:43.573-08:00",
+          "updated_at": "2026-03-05T14:32:06.986-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "k9hxz6n18vk4",
           "status": "resolved",
