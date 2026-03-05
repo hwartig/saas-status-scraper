@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-03-05T20:43:41.688Z"
+    "updated_at": "2026-03-05T21:17:06.215Z"
   },
   "incidents": [
     {
@@ -2766,7 +2766,7 @@
       "name": "High latency on webhook API requests",
       "status": "resolved",
       "created_at": "2026-02-27T00:01:45.135Z",
-      "updated_at": "2026-02-27T00:04:01.046Z",
+      "updated_at": "2026-03-05T21:17:06.202Z",
       "monitoring_at": null,
       "resolved_at": "2026-02-27T00:04:01.026Z",
       "impact": "minor",
@@ -2777,10 +2777,10 @@
         {
           "id": "112jvvkgc60p",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between February 26, 2026 UTC and February 27, 2026 UTC, customers hitting the webhooks delivery API may have experienced higher latency or failed requests. During the impact window, 0.82% of requests took longer than 3s and 0.004% resulted in a 500 error response.<br /><br />Our monitors caught the impact on the individual backing data source, and we were able to attribute the degradation to a noisy neighbor effect due requests to a specific webhook generating excessive load on the API. The incident was mitigated once traffic from the specific hook decreased.<br /><br />We have since added a rate limiter for this webhooks API to prevent similar spikes in usage impacting others and will further refine the rate limits for other webhook API routes to help prevent similar occurrences in the future.",
           "incident_id": "vd3xqfq36rgm",
           "created_at": "2026-02-27T00:04:01.026Z",
-          "updated_at": "2026-02-27T00:04:01.026Z",
+          "updated_at": "2026-03-05T21:17:06.198Z",
           "display_at": "2026-02-27T00:04:01.026Z",
           "affected_components": [
             {
