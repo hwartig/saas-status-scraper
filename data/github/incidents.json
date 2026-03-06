@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-03-05T23:55:20.087Z"
+    "updated_at": "2026-03-06T00:31:53.829Z"
   },
   "incidents": [
     {
@@ -782,7 +782,7 @@
       "name": "Incident with all GitHub services",
       "status": "resolved",
       "created_at": "2026-03-03T18:59:49.439Z",
-      "updated_at": "2026-03-04T11:31:54.205Z",
+      "updated_at": "2026-03-06T00:31:53.818Z",
       "monitoring_at": null,
       "resolved_at": "2026-03-03T20:09:16.863Z",
       "impact": "major",
@@ -793,10 +793,10 @@
         {
           "id": "4tpmb29bfbv5",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On March 3, 2026, between 18:46 UTC and 20:09 UTC, GitHub experienced a period of degraded availability impacting GitHub.com, the GitHub API, GitHub Actions, Git operations, GitHub Copilot, and other dependent services. At the peak of the incident, GitHub.com request failures reached approximately 40%. During the same period, approximately 43% of GitHub API requests failed. Git operations over HTTP had an error rate of approximately 6%, while SSH was not impacted. GitHub Copilot requests had an error rate of approximately 21%. GitHub Actions experienced less than 1% impact.  <br /><br />This incident shared the same underlying cause as an incident in early February where we saw a large volume of writes to the user settings caching mechanism. While deploying a change to reduce the burden of these writes, a bug caused every user’s cache to expire, get recalculated, and get rewritten. The increased load caused replication delays that cascaded down to all affected services. We mitigated this issue by immediately rolling back the faulty deployment. <br /><br />We understand these incidents disrupted the workflows of developers. While we have made substantial, long-term investments in how GitHub is built and operated to improve resilience, we acknowledge we have more work to do. Getting there requires deep architectural work that is already underway, as well as urgent, targeted improvements. We are taking the following immediate steps: <br /><br />- We have added a killswitch and improved monitoring to the caching mechanism to ensure we are notified before there is user impact and can respond swiftly. <br />- We are moving the cache mechanism to a dedicated host, ensuring that any future issues will solely affect services that rely on it.",
           "incident_id": "n07yy1bk6kc4",
           "created_at": "2026-03-03T20:09:16.863Z",
-          "updated_at": "2026-03-03T20:09:16.863Z",
+          "updated_at": "2026-03-06T00:31:53.812Z",
           "display_at": "2026-03-03T20:09:16.863Z",
           "affected_components": [
             {
