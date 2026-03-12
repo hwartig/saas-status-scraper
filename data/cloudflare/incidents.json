@@ -4,9 +4,155 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-03-12T19:58:41.029Z"
+    "updated_at": "2026-03-12T20:40:40.875Z"
   },
   "incidents": [
+    {
+      "id": "y4728lkyp8xq",
+      "name": "Fix for Bot Management Cookie Issue with Cloudflare for SaaS (O2O) Deployments",
+      "status": "resolved",
+      "created_at": "2026-03-12T20:40:40.806Z",
+      "updated_at": "2026-03-12T20:40:40.872Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-03-12T20:40:40.864Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/nqg3w8xkzj86",
+      "started_at": "2026-03-12T20:40:40.801Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "jn4n9lhbj7d0",
+          "status": "resolved",
+          "body": "Cloudflare is deploying a fix for a bug affecting customers using Bot Management with Cloudflare for SaaS origin-to-origin (O2O) configurations. \n\nThese customers may have observed an issue where the __cf_bm cookie was repeatedly being reset on each O2O request. This occurred because the bot cookie code runs twice during O2O requests – once on the eyeball zone and once on the origin zone – causing the cookie to be overwritten due to a mismatch in origin and eyeball domains.\n\nA fix is being implemented to prevent the __cf_bm cookie from being set on the origin hop of O2O requests. This will allow eyeball zones to properly utilize session scoring functionality and improve cacheability for O2O requests. The fix is expected to be completed by March 16, 2026.",
+          "incident_id": "y4728lkyp8xq",
+          "created_at": "2026-03-12T20:40:40.864Z",
+          "updated_at": "2026-03-12T20:40:40.864Z",
+          "display_at": "2026-03-12T20:40:40.864Z",
+          "affected_components": [
+            {
+              "code": "s0991jwsqllx",
+              "name": "Cloudflare Sites and Services - Bot Management",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "s0991jwsqllx",
+          "name": "Bot Management",
+          "status": "operational",
+          "created_at": "2022-12-02T09:33:01.317Z",
+          "updated_at": "2026-03-11T18:12:26.737Z",
+          "position": 20,
+          "description": "Bot Management provides sophisticated bot protection for your domain. Customers can identify automated traffic, take appropriate action, and view detailed analytics within the dashboard. Bot Management also supports custom solutions via Workers and Logs.",
+          "showcase": false,
+          "start_date": "2022-12-02",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "xg4spbjxrhgt",
+      "name": "Cloudchamber Service Degradation",
+      "status": "resolved",
+      "created_at": "2026-03-12T14:22:41.810Z",
+      "updated_at": "2026-03-12T20:28:35.948Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-03-12T19:58:02.000Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/7sn2nmywf0jh",
+      "started_at": "2026-03-12T20:00:02.000Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "tkjxb1938jrw",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "xg4spbjxrhgt",
+          "created_at": "2026-03-12T20:28:02.100Z",
+          "updated_at": "2026-03-12T20:28:35.882Z",
+          "display_at": "2026-03-12T19:58:02.000Z",
+          "affected_components": [
+            {
+              "code": "nd77krz8224v",
+              "name": "Cloudflare Sites and Services - Containers",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "bmp9t0tq821z",
+          "status": "identified",
+          "body": "The issue has been identified and a fix is being implemented.",
+          "incident_id": "xg4spbjxrhgt",
+          "created_at": "2026-03-12T15:36:26.435Z",
+          "updated_at": "2026-03-12T15:36:26.435Z",
+          "display_at": "2026-03-12T15:36:26.435Z",
+          "affected_components": [
+            {
+              "code": "nd77krz8224v",
+              "name": "Cloudflare Sites and Services - Containers",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "sjs4c6pkyj81",
+          "status": "investigating",
+          "body": "We are currently investigating an issue causing a degradation in the Cloudchamber service, which is preventing some customers from provisioning new containers. Our engineering team is focused on immediate mitigation and root cause resolution. The issue began at approximately 12:59 UTC.",
+          "incident_id": "xg4spbjxrhgt",
+          "created_at": "2026-03-12T14:22:41.915Z",
+          "updated_at": "2026-03-12T14:22:41.915Z",
+          "display_at": "2026-03-12T14:22:41.915Z",
+          "affected_components": [
+            {
+              "code": "nd77krz8224v",
+              "name": "Cloudflare Sites and Services - Containers",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "nd77krz8224v",
+          "name": "Containers",
+          "status": "operational",
+          "created_at": "2025-07-23T11:03:53.266Z",
+          "updated_at": "2026-03-12T20:28:02.056Z",
+          "position": 32,
+          "description": "Cloudflare Containers",
+          "showcase": false,
+          "start_date": "2025-07-23",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "42ks97f78px8",
       "name": "Increased Error Rates in North America West",
@@ -61,79 +207,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "xg4spbjxrhgt",
-      "name": "Cloudchamber Service Degradation",
-      "status": "identified",
-      "created_at": "2026-03-12T14:22:41.810Z",
-      "updated_at": "2026-03-12T16:34:27.248Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/7sn2nmywf0jh",
-      "started_at": "2026-03-12T14:22:41.802Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "bmp9t0tq821z",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "xg4spbjxrhgt",
-          "created_at": "2026-03-12T15:36:26.435Z",
-          "updated_at": "2026-03-12T15:36:26.435Z",
-          "display_at": "2026-03-12T15:36:26.435Z",
-          "affected_components": [
-            {
-              "code": "nd77krz8224v",
-              "name": "Cloudflare Sites and Services - Containers",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "sjs4c6pkyj81",
-          "status": "investigating",
-          "body": "We are currently investigating an issue causing a degradation in the Cloudchamber service, which is preventing some customers from provisioning new containers. Our engineering team is focused on immediate mitigation and root cause resolution. The issue began at approximately 12:59 UTC.",
-          "incident_id": "xg4spbjxrhgt",
-          "created_at": "2026-03-12T14:22:41.915Z",
-          "updated_at": "2026-03-12T14:22:41.915Z",
-          "display_at": "2026-03-12T14:22:41.915Z",
-          "affected_components": [
-            {
-              "code": "nd77krz8224v",
-              "name": "Cloudflare Sites and Services - Containers",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "nd77krz8224v",
-          "name": "Containers",
-          "status": "degraded_performance",
-          "created_at": "2025-07-23T11:03:53.266Z",
-          "updated_at": "2026-03-12T14:22:41.853Z",
-          "position": 32,
-          "description": "Cloudflare Containers",
-          "showcase": false,
-          "start_date": "2025-07-23",
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     },
     {
@@ -4435,36 +4508,6 @@
           "created_at": "2026-02-25T17:00:21.342Z",
           "updated_at": "2026-02-25T17:00:21.342Z",
           "display_at": "2026-02-25T16:30:00.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "8t2kvqlhd1hg",
-      "name": "Dashboard SSO Briefly Experienced Errors",
-      "status": "resolved",
-      "created_at": "2026-02-25T01:30:00.000Z",
-      "updated_at": "2026-02-25T14:34:45.497Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-02-25T13:30:00.000Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/y2r0v1tf27jz",
-      "started_at": "2026-02-25T01:30:00.000Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "9y9l38cjm8mm",
-          "status": "resolved",
-          "body": "For a brief period, logging into the Dashboard via SSO was resulting in an error for all users.\n\nImpacted Services: Dashboard",
-          "incident_id": "8t2kvqlhd1hg",
-          "created_at": "2026-02-25T14:32:20.453Z",
-          "updated_at": "2026-02-25T14:34:45.454Z",
-          "display_at": "2026-02-25T13:30:00.000Z",
           "affected_components": null,
           "deliver_notifications": false,
           "custom_tweet": null,
