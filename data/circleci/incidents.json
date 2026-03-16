@@ -4,9 +4,82 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-03-16T02:13:38.313Z"
+    "updated_at": "2026-03-16T03:52:47.936Z"
   },
   "incidents": [
+    {
+      "id": "01zmcr93tysy",
+      "name": "Insights API and Dashboard displaying stale data for reporting windows greater than 24 hours",
+      "status": "resolved",
+      "created_at": "2026-03-16T03:02:28.023Z",
+      "updated_at": "2026-03-16T03:52:47.933Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-03-16T03:52:47.915Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/hk09l57sybkn",
+      "started_at": "2026-03-16T03:02:28.018Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "09pmtpv3srg0",
+          "status": "resolved",
+          "body": "Our engineering team has identified the root cause and has fixes prepared. Due to the nature of the data refresh process, the fix will require a deployment followed by a full refresh cycle before data is fully up to date. We expect that the data should be available within 24-36 hours. The last-24-hours reporting window continues to work normally, and all pipeline pages and job runs remain unaffected.",
+          "incident_id": "01zmcr93tysy",
+          "created_at": "2026-03-16T03:52:47.915Z",
+          "updated_at": "2026-03-16T03:52:47.915Z",
+          "display_at": "2026-03-16T03:52:47.915Z",
+          "affected_components": [
+            {
+              "code": "gs1qyd7g3l17",
+              "name": "CircleCI Insights",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "mmyvnpwdj488",
+          "status": "investigating",
+          "body": "We are investigating an issue where the Insights API and dashboard are returning outdated metrics for reporting windows longer than 24 hours (last 7 days, last 30 days, last 60 days, last 90 days). The last-24-hours window is unaffected and returning current data.\n\nThis issue is limited to the display of aggregated metrics on Insights Page only. All pipeline pages, job runs, and builds remain fully operational and are not impacted. We will provide updates as our investigation progresses.",
+          "incident_id": "01zmcr93tysy",
+          "created_at": "2026-03-16T03:02:28.104Z",
+          "updated_at": "2026-03-16T03:02:28.104Z",
+          "display_at": "2026-03-16T03:02:28.104Z",
+          "affected_components": [
+            {
+              "code": "gs1qyd7g3l17",
+              "name": "CircleCI Insights",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "gs1qyd7g3l17",
+          "name": "CircleCI Insights",
+          "status": "operational",
+          "created_at": "2021-09-08T16:47:55.711Z",
+          "updated_at": "2026-03-16T03:52:47.878Z",
+          "position": 11,
+          "description": "The CircleCI Insights dashboard provides an overview of the health and usage of your repository build processes.",
+          "showcase": true,
+          "start_date": "2021-09-08",
+          "group_id": null,
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "v86p9jb46jt1",
       "name": "Unable to view orb list on Organization Settings page",
@@ -1811,7 +1884,7 @@
           "name": "CircleCI Insights",
           "status": "operational",
           "created_at": "2021-09-08T16:47:55.711Z",
-          "updated_at": "2025-12-12T19:07:37.630Z",
+          "updated_at": "2026-03-16T03:52:47.878Z",
           "position": 11,
           "description": "The CircleCI Insights dashboard provides an overview of the health and usage of your repository build processes.",
           "showcase": true,
@@ -5079,7 +5152,7 @@
           "name": "CircleCI Insights",
           "status": "operational",
           "created_at": "2021-09-08T16:47:55.711Z",
-          "updated_at": "2025-12-12T19:07:37.630Z",
+          "updated_at": "2026-03-16T03:52:47.878Z",
           "position": 11,
           "description": "The CircleCI Insights dashboard provides an overview of the health and usage of your repository build processes.",
           "showcase": true,
@@ -5919,99 +5992,6 @@
           "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": 1955265582439469076
-        }
-      ],
-      "components": [
-        {
-          "id": "t489m38xq83m",
-          "name": "CircleCI API",
-          "status": "operational",
-          "created_at": "2025-05-02T13:47:11.283Z",
-          "updated_at": "2026-03-11T02:24:16.304Z",
-          "position": 6,
-          "description": "Public facing APIs",
-          "showcase": true,
-          "start_date": "2025-05-02",
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "c7qnqd2hd8gv",
-      "name": "Usage API data delayed",
-      "status": "resolved",
-      "created_at": "2025-07-30T14:49:07.808Z",
-      "updated_at": "2025-07-30T15:13:21.195Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-07-30T15:13:20.845Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/bh09cmlht628",
-      "started_at": "2025-07-30T14:49:07.801Z",
-      "page_id": "6w4r0ttlx5ft",
-      "incident_updates": [
-        {
-          "id": "k52zztfv8n03",
-          "status": "resolved",
-          "body": "The Usage API data is current through yesterday, July 29. The issue is resolved.",
-          "incident_id": "c7qnqd2hd8gv",
-          "created_at": "2025-07-30T15:13:20.845Z",
-          "updated_at": "2025-07-30T15:13:21.190Z",
-          "display_at": "2025-07-30T15:13:20.845Z",
-          "affected_components": [
-            {
-              "code": "t489m38xq83m",
-              "name": "CircleCI API",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1950575446644662586
-        },
-        {
-          "id": "8nncs7wm531t",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "c7qnqd2hd8gv",
-          "created_at": "2025-07-30T15:10:24.072Z",
-          "updated_at": "2025-07-30T15:10:24.370Z",
-          "display_at": "2025-07-30T15:10:24.072Z",
-          "affected_components": [
-            {
-              "code": "t489m38xq83m",
-              "name": "CircleCI API",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1950574704982663434
-        },
-        {
-          "id": "cbc6rn2cvz0b",
-          "status": "investigating",
-          "body": "Usage API data is delayed. Data for yesterday July 29 is not yet available. Data prior to July 29 is still available.",
-          "incident_id": "c7qnqd2hd8gv",
-          "created_at": "2025-07-30T14:49:07.921Z",
-          "updated_at": "2025-07-30T14:49:08.346Z",
-          "display_at": "2025-07-30T14:49:07.921Z",
-          "affected_components": [
-            {
-              "code": "t489m38xq83m",
-              "name": "CircleCI API",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1950569352883016140
         }
       ],
       "components": [
