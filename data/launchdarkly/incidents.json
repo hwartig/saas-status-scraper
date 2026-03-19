@@ -4,9 +4,39 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-03-19T08:38:38.472-07:00"
+    "updated_at": "2026-03-19T10:23:42.116-07:00"
   },
   "incidents": [
+    {
+      "id": "dfqd9pff4533",
+      "name": "Server-side streaming rejected new connections across all commercial regions",
+      "status": "resolved",
+      "created_at": "2026-03-19T09:58:41.127-07:00",
+      "updated_at": "2026-03-19T09:58:50.409-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2026-03-19T09:58:41.170-07:00",
+      "impact": "major",
+      "shortlink": "https://stspg.io/9v1n684p4wtp",
+      "started_at": "2026-03-19T09:58:41.120-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "4mzrkdn9t5tk",
+          "status": "resolved",
+          "body": "Server-side streaming began rejecting new connections across all commercial regions, causing 500/503 errors for customers attempting to establish new SDK streaming connections for a brief period of time.\n\nDetailed timelines of the incident:\n- us-east-1 : 7:53 AM  PST to 8:24 AM PST\n- ap-southeast-1: 7:53 AM  PST to 7:55 AM PST\n- eu-west-1: 7:53 AM  PST to 8:35 AM PST\n\nThe team was quickly able to deploy the mitigation before an incident could be declared in our status pages, this is why we're posting it, retroactively.\nBy 8:35am PST connections were re-established successfully in all commercial regions.",
+          "incident_id": "dfqd9pff4533",
+          "created_at": "2026-03-19T09:58:41.170-07:00",
+          "updated_at": "2026-03-19T09:58:41.170-07:00",
+          "display_at": "2026-03-19T09:58:41.170-07:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "crt49d3kx5xd",
       "name": "Experiment Data Missing for Some Experiment Iterations",
@@ -7928,36 +7958,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "gzsd0mpslk2j",
-      "name": "Observability [EAP] Logs and Traces Ingest Failures",
-      "status": "resolved",
-      "created_at": "2025-07-30T13:18:47.148-07:00",
-      "updated_at": "2025-07-30T13:18:47.199-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2025-07-30T13:18:47.189-07:00",
-      "impact": "none",
-      "shortlink": "https://stspg.io/hwt1xrdg31k2",
-      "started_at": "2025-07-30T13:18:47.144-07:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "lklhyjbdy3fd",
-          "status": "resolved",
-          "body": "Between 18:42-19:52 UTC (11:42-12:52 PDT), Logs and Traces were not ingested due to an issue in the hosted OpenTelemetry collector. Logs and Traces sent during this time will not appear in the Observability product. We apologize for the inconvenience and have taken measures to prevent such an incident in the future.",
-          "incident_id": "gzsd0mpslk2j",
-          "created_at": "2025-07-30T13:18:47.189-07:00",
-          "updated_at": "2025-07-30T13:18:47.189-07:00",
-          "display_at": "2025-07-30T13:18:47.189-07:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
