@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-03-22T08:48:41.238Z"
+    "updated_at": "2026-03-22T09:27:39.782Z"
   },
   "incidents": [
+    {
+      "id": "7vwbds3snh28",
+      "name": "Disruption with some GitHub services",
+      "status": "investigating",
+      "created_at": "2026-03-22T09:08:38.800Z",
+      "updated_at": "2026-03-22T09:27:39.771Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/l939pt92g9sj",
+      "started_at": "2026-03-22T09:08:38.793Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "441n64vzwwr4",
+          "status": "investigating",
+          "body": "We are investigating intermittently high latency and errors from Git operations.",
+          "incident_id": "7vwbds3snh28",
+          "created_at": "2026-03-22T09:27:39.768Z",
+          "updated_at": "2026-03-22T09:27:39.768Z",
+          "display_at": "2026-03-22T09:27:39.768Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "xtm3grhwqnc2",
+          "status": "investigating",
+          "body": "We are investigating reports of impacted performance for some GitHub services.",
+          "incident_id": "7vwbds3snh28",
+          "created_at": "2026-03-22T09:08:38.840Z",
+          "updated_at": "2026-03-22T09:08:38.840Z",
+          "display_at": "2026-03-22T09:08:38.840Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "9jyjvxkz735j",
       "name": "Disruption with Copilot Coding Agent Sessions",
@@ -8413,127 +8456,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "54hndjxft5bx",
-      "name": "Notifications are delayed",
-      "status": "resolved",
-      "created_at": "2026-02-09T15:54:52.823Z",
-      "updated_at": "2026-02-12T16:41:50.781Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-02-09T19:29:45.715Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/4k2cyb4hg0nk",
-      "started_at": "2026-02-09T15:54:52.815Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "v10h0ms4qvx7",
-          "status": "resolved",
-          "body": "On February 9th notifications service started showing degradation around 13:50 UTC, resulting in an increase in notification delivery delays. Our team started investigating. <br /><br />Around 14:30 UTC the service started to recover as the team continued investigating the incident. Around 15:20 UTC degradation resurfaced, with increasing delays in notification deliveries and small error rate (below 1%) on UI and API endpoints related to notifications. <br /><br />At 16:30 UTC, we mitigated the incident by reducing contention through throttling workloads and performing a database failover. The median delay for notification deliveries was 80 minutes at this point and queues started emptying. Around 19:30 UTC the backlog of notifications was processed, bringing the service back to normal and declaring the incident closed.<br /><br />The incident was caused by the notifications database showing degradation under intense load. Most notifications-related asynchronous workloads, including notifications deliveries, were stopped to try to reduce the pressure on the database. To ensure system stability, a database failover was executed. Following the failover, we applied a configuration change to improve the performance. The service started recovering after these changes.<br /><br />We are reviewing the configuration of our databases to understand the performance drop and prevent similar issues from happening in the future. We are also investing in monitoring to detect and mitigate this class of incidents faster.",
-          "incident_id": "54hndjxft5bx",
-          "created_at": "2026-02-09T19:29:45.715Z",
-          "updated_at": "2026-02-12T16:41:50.776Z",
-          "display_at": "2026-02-09T19:29:45.715Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "705fpyzl7l9d",
-          "status": "investigating",
-          "body": "We continue observing recovery of the notifications.   Notification delivery delays have been resolved.",
-          "incident_id": "54hndjxft5bx",
-          "created_at": "2026-02-09T19:14:53.425Z",
-          "updated_at": "2026-02-09T19:14:53.425Z",
-          "display_at": "2026-02-09T19:14:53.425Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bxxb65bk1zxr",
-          "status": "investigating",
-          "body": "We are continuing to recover from notification delivery delays. Notifications are currently being delivered with an average delay of approximately 15 minutes. We are working through the remaining backlog.",
-          "incident_id": "54hndjxft5bx",
-          "created_at": "2026-02-09T18:33:40.413Z",
-          "updated_at": "2026-02-09T18:33:40.413Z",
-          "display_at": "2026-02-09T18:33:40.413Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2k18hgv86hyc",
-          "status": "investigating",
-          "body": "We are continuing to recover from notification delivery delays. Notifications are currently being delivered with an average delay of approximately 30 minutes. We are working through the remaining backlog.",
-          "incident_id": "54hndjxft5bx",
-          "created_at": "2026-02-09T17:57:19.014Z",
-          "updated_at": "2026-02-09T17:57:19.014Z",
-          "display_at": "2026-02-09T17:57:19.014Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "tvk8yfr1rcj7",
-          "status": "investigating",
-          "body": "We are seeing recovery in notification delivery. Notifications are currently being delivered with an average delay of approximately 1 hour as we work through the backlog. We continue to monitor the situation closely.",
-          "incident_id": "54hndjxft5bx",
-          "created_at": "2026-02-09T17:25:50.777Z",
-          "updated_at": "2026-02-09T17:25:50.777Z",
-          "display_at": "2026-02-09T17:25:50.777Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wl802xc7ln1q",
-          "status": "investigating",
-          "body": "We continue to investigate delays in notification delivery with average delivery latency now nearing 1 hour 20 minutes. We are just now starting to see some signs of recovery.",
-          "incident_id": "54hndjxft5bx",
-          "created_at": "2026-02-09T16:51:19.937Z",
-          "updated_at": "2026-02-09T16:51:19.937Z",
-          "display_at": "2026-02-09T16:51:19.937Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gy5k6jj077l5",
-          "status": "investigating",
-          "body": "We are investigating notification delivery delays with the current delay being around 50 minutes. We are working on mitigation.",
-          "incident_id": "54hndjxft5bx",
-          "created_at": "2026-02-09T16:12:13.476Z",
-          "updated_at": "2026-02-09T16:12:13.476Z",
-          "display_at": "2026-02-09T16:12:13.476Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "whsqdfl72cy9",
-          "status": "investigating",
-          "body": "We are investigating reports of impacted performance for some GitHub services.",
-          "incident_id": "54hndjxft5bx",
-          "created_at": "2026-02-09T15:54:52.863Z",
-          "updated_at": "2026-02-09T15:54:52.863Z",
-          "display_at": "2026-02-09T15:54:52.863Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
