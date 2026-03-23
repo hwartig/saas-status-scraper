@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-03-23T14:43:45.189Z"
+    "updated_at": "2026-03-23T16:38:48.984Z"
   },
   "components": [
     {
@@ -43,9 +43,9 @@
     {
       "id": "108mxl185pmb",
       "name": "Analytics",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-10-27T05:10:21.998Z",
-      "updated_at": "2026-03-12T12:54:25.517Z",
+      "updated_at": "2026-03-23T16:28:46.179Z",
       "position": 2,
       "description": "Supabase Analytics powers logs, metrics and reports for all users.",
       "showcase": true,
@@ -433,32 +433,32 @@
   ],
   "incidents": [
     {
-      "id": "0dxpk3gb86ql",
-      "name": "Elevated error rates affecting Edge Functions in the eu-central-1 (Frankfurt) region",
-      "status": "monitoring",
-      "created_at": "2026-03-23T14:16:44.730Z",
-      "updated_at": "2026-03-23T14:32:03.243Z",
-      "monitoring_at": "2026-03-23T14:32:03.226Z",
+      "id": "yd9665bmp63c",
+      "name": "Degraded Logging Ingestion impacting all regions",
+      "status": "identified",
+      "created_at": "2026-03-23T16:28:46.136Z",
+      "updated_at": "2026-03-23T16:38:48.976Z",
+      "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
-      "shortlink": "https://stspg.io/xfjz920m0m27",
-      "started_at": "2026-03-23T14:16:44.723Z",
+      "shortlink": "https://stspg.io/3x7fx7wrr5c5",
+      "started_at": "2026-03-23T16:28:46.125Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
         {
-          "id": "p7r98tt5l7yd",
-          "status": "monitoring",
-          "body": "We carried out a controlled redeployment of the affected services to restore stability. \nThe system is now operating normally, and we will continue to monitor.",
-          "incident_id": "0dxpk3gb86ql",
-          "created_at": "2026-03-23T14:32:03.226Z",
-          "updated_at": "2026-03-23T14:32:03.226Z",
-          "display_at": "2026-03-23T14:32:03.226Z",
+          "id": "mp4ypnsf4cx4",
+          "status": "identified",
+          "body": "The cause of the issue has been identified. Our engineering team is working on a fix.",
+          "incident_id": "yd9665bmp63c",
+          "created_at": "2026-03-23T16:38:48.973Z",
+          "updated_at": "2026-03-23T16:38:48.973Z",
+          "display_at": "2026-03-23T16:38:48.973Z",
           "affected_components": [
             {
-              "code": "mvs609wqrsf7",
-              "name": "Edge Functions",
+              "code": "108mxl185pmb",
+              "name": "Analytics",
               "old_status": "degraded_performance",
-              "new_status": "operational"
+              "new_status": "degraded_performance"
             }
           ],
           "deliver_notifications": true,
@@ -466,17 +466,17 @@
           "tweet_id": null
         },
         {
-          "id": "rq1pysl5g4k5",
+          "id": "3rkr3rfb0rbg",
           "status": "investigating",
-          "body": "We are currently investigating elevated error rates affecting Edge Functions in the eu-central-1 (Frankfurt) region",
-          "incident_id": "0dxpk3gb86ql",
-          "created_at": "2026-03-23T14:16:44.823Z",
-          "updated_at": "2026-03-23T14:16:44.823Z",
-          "display_at": "2026-03-23T14:16:44.823Z",
+          "body": "We are currently investigating an issue affecting Supabase Logs, resulting in partial log ingestion for some services.\nUsers may experience delays or errors when accessing logs. In some cases, logs may be partially ingested or not ingested at all.\nProjects remain fully functional. This issue is limited to logging only.\n\nOur team is actively working to identify the root cause and restore normal performance as quickly as possible. \nWe will provide further updates as more information becomes available.",
+          "incident_id": "yd9665bmp63c",
+          "created_at": "2026-03-23T16:28:46.233Z",
+          "updated_at": "2026-03-23T16:28:46.233Z",
+          "display_at": "2026-03-23T16:28:46.233Z",
           "affected_components": [
             {
-              "code": "mvs609wqrsf7",
-              "name": "Edge Functions",
+              "code": "108mxl185pmb",
+              "name": "Analytics",
               "old_status": "operational",
               "new_status": "degraded_performance"
             }
@@ -488,15 +488,15 @@
       ],
       "components": [
         {
-          "id": "mvs609wqrsf7",
-          "name": "Edge Functions",
-          "status": "operational",
-          "created_at": "2022-08-10T18:16:24.352Z",
-          "updated_at": "2026-03-23T14:32:03.191Z",
-          "position": 8,
-          "description": "Globally deployed serverless functions",
+          "id": "108mxl185pmb",
+          "name": "Analytics",
+          "status": "degraded_performance",
+          "created_at": "2023-10-27T05:10:21.998Z",
+          "updated_at": "2026-03-23T16:28:46.179Z",
+          "position": 2,
+          "description": "Supabase Analytics powers logs, metrics and reports for all users.",
           "showcase": true,
-          "start_date": "2022-08-10",
+          "start_date": "2023-10-27",
           "group_id": null,
           "page_id": "q7pxfmcf2sbx",
           "group": false,
@@ -508,7 +508,7 @@
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
