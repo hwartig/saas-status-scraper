@@ -4,7 +4,7 @@
     "name": "Atlassian Bitbucket",
     "url": "https://bitbucket.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-03-26T13:20:22.825Z"
+    "updated_at": "2026-03-26T17:09:48.359Z"
   },
   "incidents": [
     {
@@ -638,9 +638,9 @@
     {
       "id": "kp6zgtgk83mc",
       "name": "Disrupted Bitbucket availability",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-03-06T02:44:40.605Z",
-      "updated_at": "2026-03-06T05:11:40.862Z",
+      "updated_at": "2026-03-26T17:09:48.357Z",
       "monitoring_at": null,
       "resolved_at": "2026-03-06T05:11:40.845Z",
       "impact": "critical",
@@ -648,6 +648,19 @@
       "started_at": "2026-03-06T02:44:40.592Z",
       "page_id": "bqlf8qjztdtr",
       "incident_updates": [
+        {
+          "id": "plhx4psx4bvj",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn March 6, 2026, between 02:19 UTC and 04:00 UTC, Bitbucket Cloud experienced an incident impacting the web app, API, CLI, and Pipelines operations. This was caused by the Bitbucket application hitting a regional provisioning API rate limit with our hosting provider, preventing application workers from handling website traffic. The incident was detected within 1 minute by automated monitoring and mitigated by scaling systems down and then back up to full capacity which put Atlassian systems into a known good state.\n\n### **IMPACT**\n\nThe incident resulted in a Bitbucket Cloud services being unavailable for 1 hour and 6 minutes on March 6, 2026 between 02:19 UTC and 03:25 UTC, followed by degraded website performance until 04:00 UTC. During this time, customers were unable to access Bitbucket services including the web app, Git operations \\(clone, push, pull over HTTPS and SSH\\), API, and running builds in Pipelines.\n\n### **ROOT CAUSE**\n\nThe issue stemmed from a change to an internal deployment system that increased use of a platform credential service, hitting a quota with our hosting provider. This blocked Bitbucket services from deploying additional capacity because new application nodes request the credential service on startup and were rate limited. This caused degradation of Bitbucket experiences and more failed requests to Bitbucket Cloud’s website and public APIs.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nThe incident response team manually scaled down Bitbucket services, then gradually scaled them back up while closely monitoring our quota. We simultaneously engaged with our hosting provider to temporarily increasing this limit to unblock bringing more Bitbucket service capacity online.\n\nWe know that outages impact your productivity. While we have a number of testing and preventative processes in place, Bitbucket services lacked necessary boundaries to be resilient to upstream platform system changes. To help minimise the impact of breaking changes to our environments, we will implement additional preventative measures such as:\n\n* Improve monitoring of shared Atlassian platform resources.\n* Update Bitbucket application bootstrapping to prevent new capacity from failing during resource contention of shared platform services.\n* Reduce Bitbucket’s dependency on shared hosting provider services.\n* Deploy Bitbucket services across multiple regions to reduce single-region failure risk.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "kp6zgtgk83mc",
+          "created_at": "2026-03-26T17:09:33.716Z",
+          "updated_at": "2026-03-26T17:09:48.355Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "xmqv40yjc0jr",
           "status": "resolved",
