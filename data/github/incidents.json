@@ -4,9 +4,39 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-03-27T17:08:50.579Z"
+    "updated_at": "2026-03-27T19:20:25.687Z"
   },
   "incidents": [
+    {
+      "id": "9vyj2jwsk8by",
+      "name": "Incident with Copilot",
+      "status": "resolved",
+      "created_at": "2026-03-27T05:00:00.000Z",
+      "updated_at": "2026-03-27T18:42:58.384Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-03-27T05:00:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/41dqjldm4dwt",
+      "started_at": "2026-03-27T18:42:58.329Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "l2s81zpzc7yc",
+          "status": "resolved",
+          "body": "On March 27, 2026, from 02:30 to 04:56 UTC, a misconfiguration in our rate limiting system caused users on Copilot Free, Student, Pro, and Pro+ plans to experience unexpected rate limit errors. The configuration that was incorrectly applied was intended solely for internal staff testing of rate-limiting experiences. Copilot Business and Copilot Enterprise accounts were not affected.\n\nDuring this period, affected users received error messages instructing them to retry after a certain time. Approximately 32% of active Free users, 35% of active Student users, 46% of active Pro users, and 66% of active Pro+ users were affected.\n\nAfter identifying the root cause, we reverted the change and restored the expected rate limits. We are reviewing our deployment and validation processes to help ensure configurations used for internal testing cannot be inadvertently applied to production environments.",
+          "incident_id": "9vyj2jwsk8by",
+          "created_at": "2026-03-27T18:42:58.376Z",
+          "updated_at": "2026-03-27T18:42:58.376Z",
+          "display_at": "2026-03-27T05:00:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "kp06czybl7dw",
       "name": "Disruption with some GitHub services",
@@ -7603,185 +7633,6 @@
           "description": null,
           "showcase": true,
           "start_date": "2022-06-21",
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "wkgqj4546z1c",
-      "name": "Disruption with some GitHub services",
-      "status": "resolved",
-      "created_at": "2026-02-10T15:07:05.484Z",
-      "updated_at": "2026-02-13T20:43:26.251Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-02-10T15:58:49.895Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/16q4k5y5b8m9",
-      "started_at": "2026-02-10T15:07:05.477Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "dh2fx9p88335",
-          "status": "resolved",
-          "body": "On February 10th, 2026, between 14:35 UTC and 15:58 UTC web experiences on GitHub.com were degraded including Pull Requests and Authentication, resulting in intermittent 5xx errors and timeouts. The error rate on web traffic peaked at approximately 2%. This was due to increased load on a critical database, which caused significant memory pressure resulting in intermittent errors. <br /><br />We mitigated the incident by applying a configuration change to the database to increase available memory on the host. <br /><br />We are working to identify changes in load patterns and are reviewing the configuration of our databases to ensure there is sufficient capacity to meet growth. Additionally, we are improving monitoring and self-healing functionalities for database memory issues to reduce our time to detect and mitigation.",
-          "incident_id": "wkgqj4546z1c",
-          "created_at": "2026-02-10T15:58:49.895Z",
-          "updated_at": "2026-02-13T20:43:26.244Z",
-          "display_at": "2026-02-10T15:58:49.895Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wgrgms66jt01",
-          "status": "investigating",
-          "body": "Pull Requests is operating normally.",
-          "incident_id": "wkgqj4546z1c",
-          "created_at": "2026-02-10T15:58:47.610Z",
-          "updated_at": "2026-02-10T15:58:47.610Z",
-          "display_at": "2026-02-10T15:58:47.610Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7p0yz5mz6jq1",
-          "status": "investigating",
-          "body": "We have deployed a mitigation for the issue and are observing what we believe is the start of recovery. We will continue to monitor.",
-          "incident_id": "wkgqj4546z1c",
-          "created_at": "2026-02-10T15:51:08.884Z",
-          "updated_at": "2026-02-10T15:51:08.884Z",
-          "display_at": "2026-02-10T15:51:08.884Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jjcl8mwgczg5",
-          "status": "investigating",
-          "body": "We believe we have found the cause of the problem and are working on mitigation.",
-          "incident_id": "wkgqj4546z1c",
-          "created_at": "2026-02-10T15:47:07.101Z",
-          "updated_at": "2026-02-10T15:47:07.101Z",
-          "display_at": "2026-02-10T15:47:07.101Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jlz6wdfztnrp",
-          "status": "investigating",
-          "body": "We continue investigating intermittent timeouts on some pages.",
-          "incident_id": "wkgqj4546z1c",
-          "created_at": "2026-02-10T15:33:18.647Z",
-          "updated_at": "2026-02-10T15:33:18.647Z",
-          "display_at": "2026-02-10T15:33:18.647Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fk1fl53svxd1",
-          "status": "investigating",
-          "body": "Pull Requests is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "wkgqj4546z1c",
-          "created_at": "2026-02-10T15:08:36.629Z",
-          "updated_at": "2026-02-10T15:08:36.629Z",
-          "display_at": "2026-02-10T15:08:36.629Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dzvk6ynl42np",
-          "status": "investigating",
-          "body": "We are seeing intermittent timeouts on some pages and are investigating.",
-          "incident_id": "wkgqj4546z1c",
-          "created_at": "2026-02-10T15:08:13.428Z",
-          "updated_at": "2026-02-10T15:08:13.428Z",
-          "display_at": "2026-02-10T15:08:13.428Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bvb96pdw4s7c",
-          "status": "investigating",
-          "body": "We are investigating reports of impacted performance for some GitHub services.",
-          "incident_id": "wkgqj4546z1c",
-          "created_at": "2026-02-10T15:07:05.534Z",
-          "updated_at": "2026-02-10T15:07:05.534Z",
-          "display_at": "2026-02-10T15:07:05.534Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "hhtssxt0f5v2",
-          "name": "Pull Requests",
-          "status": "operational",
-          "created_at": "2020-09-02T15:39:06.329Z",
-          "updated_at": "2026-03-24T20:56:05.216Z",
-          "position": 6,
-          "description": "Requests for Pull Requests on GitHub.com",
-          "showcase": true,
-          "start_date": null,
           "group_id": null,
           "page_id": "kctbh9vrtdwd",
           "group": false,
