@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-03-31T16:35:22.219Z"
+    "updated_at": "2026-03-31T17:23:54.907Z"
   },
   "incidents": [
     {
@@ -120,7 +120,7 @@
       "name": "Incident with Pull Requests: High percentage of 500s",
       "status": "investigating",
       "created_at": "2026-03-31T15:05:39.330Z",
-      "updated_at": "2026-03-31T16:35:22.209Z",
+      "updated_at": "2026-03-31T17:16:32.974Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -128,6 +128,26 @@
       "started_at": "2026-03-31T15:05:39.322Z",
       "page_id": "kctbh9vrtdwd",
       "incident_updates": [
+        {
+          "id": "3gwn0zk0qfxp",
+          "status": "investigating",
+          "body": "We identified an issue causing increased errors when accessing Pull Requests. The mitigation is being applied across our infrastructure and we will continue to provide updates as the mitigation rolls out.",
+          "incident_id": "ml7wplmxbt5l",
+          "created_at": "2026-03-31T17:16:32.971Z",
+          "updated_at": "2026-03-31T17:16:32.971Z",
+          "display_at": "2026-03-31T17:16:32.971Z",
+          "affected_components": [
+            {
+              "code": "hhtssxt0f5v2",
+              "name": "Pull Requests",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "r5wljgn8s1fl",
           "status": "investigating",
@@ -912,7 +932,7 @@
       "name": "Git operations for users in the west coast are experiencing an increase in latency",
       "status": "resolved",
       "created_at": "2026-03-19T16:25:04.692Z",
-      "updated_at": "2026-03-20T00:05:15.588Z",
+      "updated_at": "2026-03-31T17:01:09.320Z",
       "monitoring_at": null,
       "resolved_at": "2026-03-20T00:05:15.572Z",
       "impact": "minor",
@@ -923,10 +943,10 @@
         {
           "id": "y8bmghzdtbd3",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On March 19, 2026 between 16:10 UTC and 00:05 UTC (March 20), Git operations (clone, fetch, push) from the US west coast experienced elevated latency and degraded throughput. Users reported clone speeds dropping from typical speeds to under 1 MiB/s in extreme cases. The root cause was network transport link saturation at our Seattle edge site, where a fiber cut affecting our backbone transport resulted in saturation and packet loss. We had a planned scale-up in progress for the site that was accelerated to resolve the backbone capacity pressure. We also brought online additional edge capacity in a cloud region and redirected some users there. Current scale with the upgraded network capacity is sufficient to prevent reoccurrence, as we upgraded from 800Gbps to 3.2Tbps total capacity on this path. We will continue to monitor network health and respond to any further issues.",
           "incident_id": "p08cncy05m4k",
           "created_at": "2026-03-20T00:05:15.572Z",
-          "updated_at": "2026-03-20T00:05:15.572Z",
+          "updated_at": "2026-03-31T17:01:09.314Z",
           "display_at": "2026-03-20T00:05:15.572Z",
           "affected_components": [
             {
