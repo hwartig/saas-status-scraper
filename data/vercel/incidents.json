@@ -4,9 +4,62 @@
     "name": "Vercel",
     "url": "https://www.vercel-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-02T03:14:19.359Z"
+    "updated_at": "2026-04-02T14:20:32.371Z"
   },
   "incidents": [
+    {
+      "id": "5r9bp5y8rql2",
+      "name": "Elevated errors (SIGSEGV) for Vercel Functions running Node.js 20",
+      "status": "investigating",
+      "created_at": "2026-04-02T14:10:14.765Z",
+      "updated_at": "2026-04-02T14:10:14.877Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/2zy4m92qfj2n",
+      "started_at": "2026-04-02T14:10:14.757Z",
+      "page_id": "lvglq8h0mdyh",
+      "incident_updates": [
+        {
+          "id": "vwx72v96r7l8",
+          "status": "investigating",
+          "body": "We are currently investigating increased rates of Vercel Functions running on Node.js 20 terminating with SIGSEGV. We recommend redeploying affected Vercel Functions or upgrading them to either Node.js 22 or 24.",
+          "incident_id": "5r9bp5y8rql2",
+          "created_at": "2026-04-02T14:10:14.873Z",
+          "updated_at": "2026-04-02T14:10:14.873Z",
+          "display_at": "2026-04-02T14:10:14.873Z",
+          "affected_components": [
+            {
+              "code": "kgcsn9c73xzf",
+              "name": "Serverless Functions",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "kgcsn9c73xzf",
+          "name": "Serverless Functions",
+          "status": "degraded_performance",
+          "created_at": "2020-04-23T06:52:31.365Z",
+          "updated_at": "2026-04-02T14:10:14.810Z",
+          "position": 22,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "3lm82hkft7tg",
       "name": "Elevated errors creating deployments with integrations and increased delays in delivering webhooks",
@@ -1658,9 +1711,9 @@
         {
           "id": "kgcsn9c73xzf",
           "name": "Serverless Functions",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-04-23T06:52:31.365Z",
-          "updated_at": "2026-03-02T14:59:44.517Z",
+          "updated_at": "2026-04-02T14:10:14.810Z",
           "position": 22,
           "description": null,
           "showcase": true,
@@ -5620,79 +5673,6 @@
           "showcase": true,
           "start_date": "2025-03-03",
           "group_id": "ftq3y4yvmv3t",
-          "page_id": "lvglq8h0mdyh",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "fyfq59vtzjtl",
-      "name": "Drains delayed in iad1",
-      "status": "resolved",
-      "created_at": "2025-10-21T17:06:38.655Z",
-      "updated_at": "2025-10-22T01:25:53.905Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-10-22T01:25:40.000Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/xt13rgqg266b",
-      "started_at": "2025-10-21T17:06:38.650Z",
-      "page_id": "lvglq8h0mdyh",
-      "incident_updates": [
-        {
-          "id": "9bh0dzqb3xqv",
-          "status": "resolved",
-          "body": "The delay affecting data delivery to drains in the iad1 region has been resolved. All services are now operating normally.",
-          "incident_id": "fyfq59vtzjtl",
-          "created_at": "2025-10-22T01:25:40.096Z",
-          "updated_at": "2025-10-22T01:25:53.890Z",
-          "display_at": "2025-10-22T01:25:40.000Z",
-          "affected_components": [
-            {
-              "code": "r1xxpy1znh4j",
-              "name": "Log Drains",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fmx9k51h4fkp",
-          "status": "investigating",
-          "body": "Data delivered to drains, like logs, traces, web analytics and speed insights, may be delayed in iad1",
-          "incident_id": "fyfq59vtzjtl",
-          "created_at": "2025-10-21T17:06:38.739Z",
-          "updated_at": "2025-10-21T17:06:38.739Z",
-          "display_at": "2025-10-21T17:06:38.739Z",
-          "affected_components": [
-            {
-              "code": "r1xxpy1znh4j",
-              "name": "Log Drains",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "r1xxpy1znh4j",
-          "name": "Drains",
-          "status": "operational",
-          "created_at": "2020-04-23T06:50:57.609Z",
-          "updated_at": "2026-03-02T08:49:38.518Z",
-          "position": 17,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
           "page_id": "lvglq8h0mdyh",
           "group": false,
           "only_show_if_degraded": false
