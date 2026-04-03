@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-03T16:13:40.951Z"
+    "updated_at": "2026-04-03T19:59:42.023Z"
   },
   "incidents": [
     {
@@ -340,7 +340,7 @@
       "name": "Incident with Copilot",
       "status": "resolved",
       "created_at": "2026-04-01T09:58:13.543Z",
-      "updated_at": "2026-04-01T12:41:38.252Z",
+      "updated_at": "2026-04-03T19:59:42.012Z",
       "monitoring_at": "2026-04-01T10:56:30.495Z",
       "resolved_at": "2026-04-01T12:41:38.233Z",
       "impact": "minor",
@@ -351,10 +351,10 @@
         {
           "id": "y3swsm63sr56",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On April 1, 2026, between 07:29 and 12:41 UTC, some customers experienced elevated 5xx errors and increased latency when using GitHub Copilot features that rely on `/agents/sessions` endpoints (including creating or viewing agent sessions). The issue was caused by resource exhaustion in one of the Copilot backend services handling these requests, in turn, causing timeouts and failed requests. We mitigated the incident by increasing the service’s available compute resources and tuning its runtime concurrency settings. Service health returned to normal and the incident was fully resolved by 12:41 UTC.",
           "incident_id": "tstkmx7pcs5d",
           "created_at": "2026-04-01T12:41:38.233Z",
-          "updated_at": "2026-04-01T12:41:38.233Z",
+          "updated_at": "2026-04-03T19:59:42.006Z",
           "display_at": "2026-04-01T12:41:38.233Z",
           "affected_components": [
             {
@@ -553,7 +553,7 @@
       "name": "Incident with Pull Requests: High percentage of 500s",
       "status": "resolved",
       "created_at": "2026-03-31T15:05:39.330Z",
-      "updated_at": "2026-03-31T21:23:43.033Z",
+      "updated_at": "2026-04-03T19:37:17.233Z",
       "monitoring_at": "2026-03-31T21:16:01.703Z",
       "resolved_at": "2026-03-31T21:23:43.015Z",
       "impact": "minor",
@@ -564,10 +564,10 @@
         {
           "id": "lfv66d6q577b",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On Monday March 31st, 2026, between 13:53 UTC and 21:23 UTC the Pull Requests service experienced elevated latency and failures. On average, the error rate was 0.15% and peaked at 0.28% of requests to the service. This was due to a change in garbage collection (GC) settings for a Go-based internal service that provides access to Git repository data. The changes caused more frequent GC activity and elevated CPU consumption on a subset of storage nodes, increasing latency and failure rates for some internal API operations.<br /><br />We mitigated the incident by reverting the GC changes. To prevent future incidents and improve time to detection and mitigation, we are instrumenting additional metrics and alerting for GC-related behavior, improving our visibility into other signals that could cause degraded impact of this type, and updating our best practices and standards for garbage collection in Go-based services.<br />",
           "incident_id": "ml7wplmxbt5l",
           "created_at": "2026-03-31T21:23:43.015Z",
-          "updated_at": "2026-03-31T21:23:43.015Z",
+          "updated_at": "2026-04-03T19:37:17.228Z",
           "display_at": "2026-03-31T21:23:43.015Z",
           "affected_components": [
             {
