@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-07T13:20:50.695Z"
+    "updated_at": "2026-04-07T15:50:48.321Z"
   },
   "components": [
     {
@@ -2455,9 +2455,9 @@
     {
       "id": "br95fz33h6td",
       "name": "Gradient AI",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2025-01-22T14:37:25.334Z",
-      "updated_at": "2026-04-07T12:49:27.367Z",
+      "updated_at": "2026-04-07T15:50:48.251Z",
       "position": 11,
       "description": null,
       "showcase": false,
@@ -3564,81 +3564,7 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [
-    {
-      "id": "bx60kdvsvtvb",
-      "name": "Serverless Inference - High error rates for open source models ( Qwen 3 32B)",
-      "status": "identified",
-      "created_at": "2026-04-07T12:49:27.325Z",
-      "updated_at": "2026-04-07T12:55:16.704Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/k6d360ll8gbm",
-      "started_at": "2026-04-07T12:49:27.319Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "3dmwjkhmxthg",
-          "status": "identified",
-          "body": "We are currently investigating reports of elevated latency affecting requests to this model when using Serverless Inference and Agents.\n\nEarlier observations indicated increased error rates for the open-source Qwen 3 32B model. The Ray dashboard also showed multiple workers in a pending state, suggesting capacity constraints.\n\nOur analysis determined that the model was experiencing higher-than-expected request volume without sufficient resources to scale accordingly. To address this, the node pool size has been increased to improve available capacity. However, there are still insufficient nodes to fully support the desired number of model replicas.\n\nFollowing the node pool expansion, a new pod-related error has been identified. Our Engineering team is actively working to resolve this issue and restore full service performance.",
-          "incident_id": "bx60kdvsvtvb",
-          "created_at": "2026-04-07T12:55:16.700Z",
-          "updated_at": "2026-04-07T12:55:16.700Z",
-          "display_at": "2026-04-07T12:55:16.700Z",
-          "affected_components": [
-            {
-              "code": "br95fz33h6td",
-              "name": "Gradient AI",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "pjm7vn8qykz7",
-          "status": "investigating",
-          "body": "Serverless inference for alibaba-qwen3-32b (Qwen 3 32B) in tor1 is experiencing high error rates starting at 10:46 UTC.",
-          "incident_id": "bx60kdvsvtvb",
-          "created_at": "2026-04-07T12:49:27.417Z",
-          "updated_at": "2026-04-07T12:49:27.417Z",
-          "display_at": "2026-04-07T12:49:27.417Z",
-          "affected_components": [
-            {
-              "code": "br95fz33h6td",
-              "name": "Gradient AI",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "br95fz33h6td",
-          "name": "Gradient AI",
-          "status": "degraded_performance",
-          "created_at": "2025-01-22T14:37:25.334Z",
-          "updated_at": "2026-04-07T12:49:27.367Z",
-          "position": 11,
-          "description": null,
-          "showcase": false,
-          "start_date": "2025-01-22",
-          "group_id": null,
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    }
-  ],
+  "incidents": [],
   "scheduled_maintenances": [
     {
       "id": "njbgw45nywk1",
@@ -3801,7 +3727,7 @@
     }
   ],
   "status": {
-    "indicator": "minor",
-    "description": "Partially Degraded Service"
+    "indicator": "none",
+    "description": "All Systems Operational"
   }
 }
