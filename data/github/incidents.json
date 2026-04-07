@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-07T17:58:38.927Z"
+    "updated_at": "2026-04-07T19:26:03.207Z"
   },
   "incidents": [
     {
@@ -120,7 +120,7 @@
       "name": "Copilot Coding Agent failing to start some jobs",
       "status": "resolved",
       "created_at": "2026-04-02T16:18:04.776Z",
-      "updated_at": "2026-04-02T16:30:05.102Z",
+      "updated_at": "2026-04-07T19:09:23.970Z",
       "monitoring_at": null,
       "resolved_at": "2026-04-02T16:30:05.082Z",
       "impact": "minor",
@@ -131,10 +131,10 @@
         {
           "id": "bnbf5pq5736z",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between 15:20 and 20:18 UTC on Thursday April 2, Copilot Cloud Agent entered a period of reduced performance. Due to an internal feature being developed for Copilot Code Review, the Copilot Cloud Agent infrastructure started to receive an increased number of jobs. This load eventually caused us to hit an internal rate limit, causing all work to suspend for an hour. During this hour, some new jobs would time out, while others would resume once rate limiting ended. Roughly 40% of jobs in this period were affected.<br /><br />Once the cause of this rate limiting was identified, we were able to disable the new CCR feature via a feature flag. Once the jobs that were already in the queue were able to clear, we didn't see additional instances of rate limiting afterwards.<br /><br />This was the same incident declared in https://www.githubstatus.com/incidents/d96l71t3h63k",
           "incident_id": "j3sgbdw2lw3c",
           "created_at": "2026-04-02T16:30:05.082Z",
-          "updated_at": "2026-04-02T16:30:05.082Z",
+          "updated_at": "2026-04-07T19:09:23.963Z",
           "display_at": "2026-04-02T16:30:05.082Z",
           "affected_components": null,
           "deliver_notifications": true,
@@ -1981,7 +1981,7 @@
       "name": "Disruption with some GitHub services",
       "status": "resolved",
       "created_at": "2026-03-18T22:36:15.348Z",
-      "updated_at": "2026-03-19T01:44:01.072Z",
+      "updated_at": "2026-04-07T19:22:44.273Z",
       "monitoring_at": null,
       "resolved_at": "2026-03-19T01:44:01.056Z",
       "impact": "minor",
@@ -1992,10 +1992,10 @@
         {
           "id": "c3rqpqwlp88w",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On March 19, 2026 between 16:10 UTC and 00:05 UTC (March 20), Git operations (clone, fetch, push) from the US west coast experienced elevated latency and degraded throughput. Users reported clone speeds dropping from typical speeds to under 1 MiB/s in extreme cases. The root cause was network transport link saturation at our Seattle edge site, where a fiber cut affecting our backbone transport resulted in saturation and packet loss. We had a planned scale-up in progress for the site that was accelerated to resolve the backbone capacity pressure. We also brought online additional edge capacity in a cloud region and redirected some users there. Current scale with the upgraded network capacity is sufficient to prevent reoccurrence, as we upgraded from 800Gbps to 3.2Tbps total capacity on this path. We will continue to monitor network health and respond to any further issues.<br /><br />This was the same incident declared in https://www.githubstatus.com/incidents/xs6xtcv196g7",
           "incident_id": "49xnkj77r7vl",
           "created_at": "2026-03-19T01:44:01.056Z",
-          "updated_at": "2026-03-19T01:44:01.056Z",
+          "updated_at": "2026-04-07T19:22:44.266Z",
           "display_at": "2026-03-19T01:44:01.056Z",
           "affected_components": [
             {
@@ -7572,7 +7572,7 @@
       "name": "Degraded performance in merge queue",
       "status": "resolved",
       "created_at": "2026-02-18T18:25:38.234Z",
-      "updated_at": "2026-02-18T19:20:16.888Z",
+      "updated_at": "2026-04-07T19:26:03.198Z",
       "monitoring_at": null,
       "resolved_at": "2026-02-18T19:20:16.866Z",
       "impact": "minor",
@@ -7583,10 +7583,10 @@
         {
           "id": "rh56nnctsttf",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On February 17, 2026, between 17:07 UTC and 19:06 UTC, some customers experienced intermittent authentication failures affecting GitHub Actions, parts of Git operations, and other authentication-dependent requests. On average, the Actions error rate was approximately 0.6% of affected API requests. Git operations ssh read error rate was approximately 0.29%, while ssh write and http operations were not impacted. During the incident, a subset of requests failed due to token verification lookups intermittently failing, leading to 401 errors and degraded reliability for impacted workflows.<br /><br />The issue was caused by elevated replication lag in the token verification database cluster. In the days leading up to the incident, the token store’s write volume grew enough to exceed the cluster’s available capacity. Under peak load, older replica hosts were unable to keep up, replica lag increased, and some token lookups became inconsistent, resulting in intermittent authentication failures.<br /><br />We mitigated the incident by adjusting the database replica topology to route reads away from lagging replicas and by adding/bringing additional replica capacity online. Service health improved progressively after the change, with GitHub Actions recovering by ~19:00 UTC and the incident resolved at 19:06 UTC.<br /><br />We are working to prevent recurrence by improving the resilience and scalability of our underlying token verification data stores to better handle continued growth.<br /><br />This was the same incident declared in https://www.githubstatus.com/incidents/xs6xtcv196g7",
           "incident_id": "p1ymhg64hdfq",
           "created_at": "2026-02-18T19:20:16.866Z",
-          "updated_at": "2026-02-18T19:20:16.866Z",
+          "updated_at": "2026-04-07T19:26:03.192Z",
           "display_at": "2026-02-18T19:20:16.866Z",
           "affected_components": [
             {
