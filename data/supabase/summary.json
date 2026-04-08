@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-08T17:38:47.722Z"
+    "updated_at": "2026-04-08T19:48:54.351Z"
   },
   "components": [
     {
@@ -45,7 +45,7 @@
       "name": "Analytics",
       "status": "operational",
       "created_at": "2023-10-27T05:10:21.998Z",
-      "updated_at": "2026-04-01T01:11:57.394Z",
+      "updated_at": "2026-04-08T19:41:31.605Z",
       "position": 2,
       "description": "Supabase Analytics powers logs, metrics and reports for all users.",
       "showcase": true,
@@ -431,7 +431,101 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "xt9yl88y2wkk",
+      "name": "Logs currently inaccessible via the Dashboard and Log Drains",
+      "status": "monitoring",
+      "created_at": "2026-04-08T19:10:59.912Z",
+      "updated_at": "2026-04-08T19:41:31.660Z",
+      "monitoring_at": "2026-04-08T19:41:31.641Z",
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/lsyydsq7fn9f",
+      "started_at": "2026-04-08T19:10:59.906Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "fhhv59mg5nrx",
+          "status": "monitoring",
+          "body": "All log sources have been restored and logs should be available to users again now. We are keeping an eye on things to ensure ongoing stability.",
+          "incident_id": "xt9yl88y2wkk",
+          "created_at": "2026-04-08T19:41:31.641Z",
+          "updated_at": "2026-04-08T19:41:31.641Z",
+          "display_at": "2026-04-08T19:41:31.641Z",
+          "affected_components": [
+            {
+              "code": "108mxl185pmb",
+              "name": "Analytics",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "p18xn99s3c3w",
+          "status": "identified",
+          "body": "The underlying logging platform has stabilized, and some log sources have been restored and are successfully ingesting logs. The team is working to restore the rest of the log sources now.",
+          "incident_id": "xt9yl88y2wkk",
+          "created_at": "2026-04-08T19:24:50.538Z",
+          "updated_at": "2026-04-08T19:24:50.538Z",
+          "display_at": "2026-04-08T19:24:50.538Z",
+          "affected_components": [
+            {
+              "code": "108mxl185pmb",
+              "name": "Analytics",
+              "old_status": "major_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "dmqx3hv6z5hp",
+          "status": "identified",
+          "body": "Users may see errors when attempting to retrieve logs via the Supabase dashboard or may not see new logs arriving via log drains. The team has identified the issue and is working on a fix. Underlying projects are unaffected, this is only affecting the logging service.",
+          "incident_id": "xt9yl88y2wkk",
+          "created_at": "2026-04-08T19:11:00.009Z",
+          "updated_at": "2026-04-08T19:11:00.009Z",
+          "display_at": "2026-04-08T19:11:00.009Z",
+          "affected_components": [
+            {
+              "code": "108mxl185pmb",
+              "name": "Analytics",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "108mxl185pmb",
+          "name": "Analytics",
+          "status": "operational",
+          "created_at": "2023-10-27T05:10:21.998Z",
+          "updated_at": "2026-04-08T19:41:31.605Z",
+          "position": 2,
+          "description": "Supabase Analytics powers logs, metrics and reports for all users.",
+          "showcase": true,
+          "start_date": "2023-10-27",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
     "indicator": "none",
