@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-09T16:38:50.641Z"
+    "updated_at": "2026-04-09T19:29:08.056Z"
   },
   "components": [
     {
@@ -205,7 +205,7 @@
     {
       "id": "mrcyzlkkw8z9",
       "name": "Regional Availability",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2019-07-01T19:19:04.424Z",
       "updated_at": "2024-07-24T19:09:19.587Z",
       "position": 4,
@@ -852,9 +852,9 @@
     {
       "id": "vfq82tp9wp5r",
       "name": "ORD - Chicago, Illinois (US)",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2019-07-01T19:29:02.173Z",
-      "updated_at": "2026-03-26T17:54:48.174Z",
+      "updated_at": "2026-04-09T19:29:07.995Z",
       "position": 24,
       "description": null,
       "showcase": false,
@@ -925,10 +925,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "mrfwgw307rd3",
+      "name": "Unavailable hosts in ORD region",
+      "status": "investigating",
+      "created_at": "2026-04-09T19:29:07.949Z",
+      "updated_at": "2026-04-09T19:29:08.053Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/n2vgq77dpl8n",
+      "started_at": "2026-04-09T19:29:07.940Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "zl5s7hdskgtz",
+          "status": "investigating",
+          "body": "Some hosts in our Chicago (ORD) region are currently inaccessible. We are working with our provider to resolve this issue.\nTo see if you are affected, please visit the personalized status page: https://fly.io/status\n\nA small amount of Managed Postgres clusters may also be inaccessible at this time.",
+          "incident_id": "mrfwgw307rd3",
+          "created_at": "2026-04-09T19:29:08.050Z",
+          "updated_at": "2026-04-09T19:29:08.050Z",
+          "display_at": "2026-04-09T19:29:08.050Z",
+          "affected_components": [
+            {
+              "code": "vfq82tp9wp5r",
+              "name": "Regional Availability - ORD - Chicago, Illinois (US)",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "vfq82tp9wp5r",
+          "name": "ORD - Chicago, Illinois (US)",
+          "status": "partial_outage",
+          "created_at": "2019-07-01T19:29:02.173Z",
+          "updated_at": "2026-04-09T19:29:07.995Z",
+          "position": 24,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
