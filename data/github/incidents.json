@@ -4,9 +4,78 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-09T08:26:59.813Z"
+    "updated_at": "2026-04-09T10:20:30.752Z"
   },
   "incidents": [
+    {
+      "id": "zn1t56bfxdzg",
+      "name": "Disruption with some GitHub services",
+      "status": "resolved",
+      "created_at": "2026-04-09T09:50:21.547Z",
+      "updated_at": "2026-04-09T10:15:37.501Z",
+      "monitoring_at": "2026-04-09T10:15:35.976Z",
+      "resolved_at": "2026-04-09T10:15:37.484Z",
+      "impact": "major",
+      "shortlink": "https://stspg.io/v15brqnhy95t",
+      "started_at": "2026-04-09T09:50:21.538Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "l2ffqynv742l",
+          "status": "resolved",
+          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "incident_id": "zn1t56bfxdzg",
+          "created_at": "2026-04-09T10:15:37.484Z",
+          "updated_at": "2026-04-09T10:15:37.484Z",
+          "display_at": "2026-04-09T10:15:37.484Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "fx2jmnp1kb70",
+          "status": "monitoring",
+          "body": "The degradation has been mitigated. We are monitoring to ensure stability.",
+          "incident_id": "zn1t56bfxdzg",
+          "created_at": "2026-04-09T10:15:35.976Z",
+          "updated_at": "2026-04-09T10:15:35.976Z",
+          "display_at": "2026-04-09T10:15:35.976Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "xwl1920l89q9",
+          "status": "investigating",
+          "body": "We are investigating an issue affecting GitHub Copilot coding agent. Users may experience significant delays when starting new agent sessions, with jobs remaining queued longer than expected. Our team has identified increased load as a contributing factor and is actively working to restore normal performance.",
+          "incident_id": "zn1t56bfxdzg",
+          "created_at": "2026-04-09T09:57:01.165Z",
+          "updated_at": "2026-04-09T09:57:01.165Z",
+          "display_at": "2026-04-09T09:57:01.165Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "spqwghgtqdp5",
+          "status": "investigating",
+          "body": "We are investigating reports of impacted performance for some GitHub services.",
+          "incident_id": "zn1t56bfxdzg",
+          "created_at": "2026-04-09T09:50:21.595Z",
+          "updated_at": "2026-04-09T09:50:21.595Z",
+          "display_at": "2026-04-09T09:50:21.595Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "bnvg7qml7krl",
       "name": "Disruption with GitHub notifications",
@@ -7615,132 +7684,6 @@
           "description": null,
           "showcase": true,
           "start_date": "2022-06-21",
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "p1ymhg64hdfq",
-      "name": "Degraded performance in merge queue",
-      "status": "resolved",
-      "created_at": "2026-02-18T18:25:38.234Z",
-      "updated_at": "2026-04-07T19:26:03.198Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-02-18T19:20:16.866Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/kv62hwwldqd6",
-      "started_at": "2026-02-18T18:25:38.228Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "rh56nnctsttf",
-          "status": "resolved",
-          "body": "On February 17, 2026, between 17:07 UTC and 19:06 UTC, some customers experienced intermittent authentication failures affecting GitHub Actions, parts of Git operations, and other authentication-dependent requests. On average, the Actions error rate was approximately 0.6% of affected API requests. Git operations ssh read error rate was approximately 0.29%, while ssh write and http operations were not impacted. During the incident, a subset of requests failed due to token verification lookups intermittently failing, leading to 401 errors and degraded reliability for impacted workflows.<br /><br />The issue was caused by elevated replication lag in the token verification database cluster. In the days leading up to the incident, the token store’s write volume grew enough to exceed the cluster’s available capacity. Under peak load, older replica hosts were unable to keep up, replica lag increased, and some token lookups became inconsistent, resulting in intermittent authentication failures.<br /><br />We mitigated the incident by adjusting the database replica topology to route reads away from lagging replicas and by adding/bringing additional replica capacity online. Service health improved progressively after the change, with GitHub Actions recovering by ~19:00 UTC and the incident resolved at 19:06 UTC.<br /><br />We are working to prevent recurrence by improving the resilience and scalability of our underlying token verification data stores to better handle continued growth.<br /><br />This was the same incident declared in https://www.githubstatus.com/incidents/xs6xtcv196g7",
-          "incident_id": "p1ymhg64hdfq",
-          "created_at": "2026-02-18T19:20:16.866Z",
-          "updated_at": "2026-04-07T19:26:03.192Z",
-          "display_at": "2026-02-18T19:20:16.866Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "01l7z6x5m698",
-          "status": "investigating",
-          "body": "We have seen significant recovery in merge queue we are continuing to monitor for any other degraded services.",
-          "incident_id": "p1ymhg64hdfq",
-          "created_at": "2026-02-18T19:18:06.727Z",
-          "updated_at": "2026-02-18T19:18:06.727Z",
-          "display_at": "2026-02-18T19:18:06.727Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qpyy5hjcw0y0",
-          "status": "investigating",
-          "body": "We are investigating reports of issues with merge queue. We will continue to keep users updated on progress towards mitigation.",
-          "incident_id": "p1ymhg64hdfq",
-          "created_at": "2026-02-18T18:27:00.682Z",
-          "updated_at": "2026-02-18T18:27:00.682Z",
-          "display_at": "2026-02-18T18:27:00.682Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4wh1jssyyqdk",
-          "status": "investigating",
-          "body": "Pull Requests is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "p1ymhg64hdfq",
-          "created_at": "2026-02-18T18:26:02.822Z",
-          "updated_at": "2026-02-18T18:26:02.822Z",
-          "display_at": "2026-02-18T18:26:02.822Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "03hmn6t069q9",
-          "status": "investigating",
-          "body": "We are investigating reports of impacted performance for some GitHub services.",
-          "incident_id": "p1ymhg64hdfq",
-          "created_at": "2026-02-18T18:25:38.272Z",
-          "updated_at": "2026-02-18T18:25:38.272Z",
-          "display_at": "2026-02-18T18:25:38.272Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "hhtssxt0f5v2",
-          "name": "Pull Requests",
-          "status": "operational",
-          "created_at": "2020-09-02T15:39:06.329Z",
-          "updated_at": "2026-03-31T21:16:01.674Z",
-          "position": 6,
-          "description": "Requests for Pull Requests on GitHub.com",
-          "showcase": true,
-          "start_date": null,
           "group_id": null,
           "page_id": "kctbh9vrtdwd",
           "group": false,
