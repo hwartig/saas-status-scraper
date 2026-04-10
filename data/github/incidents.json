@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-10T13:28:23.120Z"
+    "updated_at": "2026-04-10T19:02:47.943Z"
   },
   "incidents": [
     {
@@ -465,7 +465,7 @@
       "name": "Disruption with GitHub's code search",
       "status": "resolved",
       "created_at": "2026-04-01T15:02:54.256Z",
-      "updated_at": "2026-04-01T23:45:45.477Z",
+      "updated_at": "2026-04-10T19:02:47.932Z",
       "monitoring_at": null,
       "resolved_at": "2026-04-01T23:45:45.461Z",
       "impact": "major",
@@ -476,10 +476,10 @@
         {
           "id": "zg5m3gqq5h6g",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On April 1st, 2026 between 14:40 and 17:00 UTC the GitHub code search service had an outage which resulted in users being unable to perform searches.<br /><br />The issue was initially caused by an upgrade to the code search Kafka cluster ZooKeeper instances which caused a loss of quorum.  This resulted in application-level data inconsistencies which required the index to be reset to a point in time before the loss of quorum occurred. Meanwhile, an accidental deploy resulted in query services losing their shard-to-host mappings, which are typically propagated by Kafka.<br /><br />We remediated the problem by performing rolling restarts in the Kafka cluster, allowing quorum to be reestablished. From there we were able to reset our index to a point in time before the inconsistencies occurred.<br /><br />The team is working on ways to improve our time to respond and mitigate issues relating to Kafka in the future.",
           "incident_id": "xs2p9z3b73r3",
           "created_at": "2026-04-01T23:45:45.461Z",
-          "updated_at": "2026-04-01T23:45:45.461Z",
+          "updated_at": "2026-04-10T19:02:47.926Z",
           "display_at": "2026-04-01T23:45:45.461Z",
           "affected_components": null,
           "deliver_notifications": true,
