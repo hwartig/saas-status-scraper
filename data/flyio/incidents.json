@@ -4,22 +4,62 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-10T19:20:59.425Z"
+    "updated_at": "2026-04-10T20:32:50.206Z"
   },
   "incidents": [
     {
       "id": "1jvnnd3m10sf",
       "name": "Managed Postgres control plane instability in NRT (Tokyo)",
-      "status": "investigating",
+      "status": "monitoring",
       "created_at": "2026-04-10T18:42:52.835Z",
-      "updated_at": "2026-04-10T18:42:52.920Z",
-      "monitoring_at": null,
+      "updated_at": "2026-04-10T20:32:50.204Z",
+      "monitoring_at": "2026-04-10T20:32:50.191Z",
       "resolved_at": null,
       "impact": "minor",
       "shortlink": "https://stspg.io/n76lq4ns9trb",
       "started_at": "2026-04-10T18:42:52.826Z",
       "page_id": "65rccr4mbblw",
       "incident_updates": [
+        {
+          "id": "n7b24mcjqfsd",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are seeing MPG performance in NRT normalize. We are continuing to monitor to ensure a stable recovery",
+          "incident_id": "1jvnnd3m10sf",
+          "created_at": "2026-04-10T20:32:50.191Z",
+          "updated_at": "2026-04-10T20:32:50.191Z",
+          "display_at": "2026-04-10T20:32:50.191Z",
+          "affected_components": [
+            {
+              "code": "d8dmkvyb21x5",
+              "name": "Managed Postgres - Management Plane - NRT",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "rtggzlc4777j",
+          "status": "identified",
+          "body": "The issue has been identified and a fix is being implemented. Users with clusters in NRT may continue to see instability at this time",
+          "incident_id": "1jvnnd3m10sf",
+          "created_at": "2026-04-10T20:13:11.788Z",
+          "updated_at": "2026-04-10T20:13:11.788Z",
+          "display_at": "2026-04-10T20:13:11.788Z",
+          "affected_components": [
+            {
+              "code": "d8dmkvyb21x5",
+              "name": "Managed Postgres - Management Plane - NRT",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "jc0tg5xjkt3m",
           "status": "investigating",
@@ -45,9 +85,9 @@
         {
           "id": "d8dmkvyb21x5",
           "name": "Management Plane - NRT",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2025-12-15T10:21:35.537Z",
-          "updated_at": "2026-04-10T18:42:52.873Z",
+          "updated_at": "2026-04-10T20:32:50.164Z",
           "position": 9,
           "description": null,
           "showcase": true,
