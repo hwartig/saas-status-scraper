@@ -4,9 +4,82 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-13T17:40:09.982Z"
+    "updated_at": "2026-04-13T19:57:17.698Z"
   },
   "incidents": [
+    {
+      "id": "96r9hyz795sv",
+      "name": "Incident with Pages",
+      "status": "investigating",
+      "created_at": "2026-04-13T19:56:04.146Z",
+      "updated_at": "2026-04-13T19:57:17.689Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/4fgzqt720l93",
+      "started_at": "2026-04-13T19:56:04.127Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "ck5n37w8jg9v",
+          "status": "investigating",
+          "body": "We are investigating reports of issues with Pages. We will continue to keep users updated on progress towards mitigation.",
+          "incident_id": "96r9hyz795sv",
+          "created_at": "2026-04-13T19:57:17.687Z",
+          "updated_at": "2026-04-13T19:57:17.687Z",
+          "display_at": "2026-04-13T19:57:17.687Z",
+          "affected_components": [
+            {
+              "code": "vg70hn9s2tyj",
+              "name": "Pages",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "xj3z023kx144",
+          "status": "investigating",
+          "body": "We are investigating reports of degraded availability for Pages",
+          "incident_id": "96r9hyz795sv",
+          "created_at": "2026-04-13T19:56:04.215Z",
+          "updated_at": "2026-04-13T19:56:04.215Z",
+          "display_at": "2026-04-13T19:56:04.215Z",
+          "affected_components": [
+            {
+              "code": "vg70hn9s2tyj",
+              "name": "Pages",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "vg70hn9s2tyj",
+          "name": "Pages",
+          "status": "major_outage",
+          "created_at": "2017-01-31T20:04:33.923Z",
+          "updated_at": "2026-04-13T19:56:04.178Z",
+          "position": 9,
+          "description": "Frontend application and API servers for Pages builds",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "kctbh9vrtdwd",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "1ghdqdbyyjmt",
       "name": "Disruption with some GitHub services",
@@ -7474,79 +7547,6 @@
           "updated_at": "2026-03-31T21:16:01.674Z",
           "position": 6,
           "description": "Requests for Pull Requests on GitHub.com",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "59rjsk76t3rf",
-      "name": "Incident with Actions",
-      "status": "resolved",
-      "created_at": "2026-02-23T16:17:35.130Z",
-      "updated_at": "2026-03-03T17:40:47.725Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-02-23T17:03:56.515Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/c10wfx1zgs7j",
-      "started_at": "2026-02-23T16:17:35.122Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "3tmps4j9lg96",
-          "status": "resolved",
-          "body": "On February 23, 2026, between 15:00 UTC and 17:00 UTC, GitHub Actions experienced degraded performance. During the time, 1.8% of Actions workflow runs experienced delayed starts with an average delay of 15 minutes. The issue was caused by a connection rebalancing event in our internal load balancing layer, which temporarily created uneven traffic distribution across sites and led to request throttling. <br /><br />To prevent recurrence, we are tuning connection rebalancing behavior to spread client reconnections more gradually during load balancer reloads. We are also evaluating improvements to site-level traffic affinity to eliminate the uneven distribution at its source. We have overprovisioned critical paths to prevent any impact if a similar event occurs before those workstreams finish. Finally, we are enhancing our monitoring to detect capacity imbalances proactively.",
-          "incident_id": "59rjsk76t3rf",
-          "created_at": "2026-02-23T17:03:56.515Z",
-          "updated_at": "2026-03-03T17:40:47.720Z",
-          "display_at": "2026-02-23T17:03:56.515Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l9ryy6tjzl63",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Actions",
-          "incident_id": "59rjsk76t3rf",
-          "created_at": "2026-02-23T16:17:35.215Z",
-          "updated_at": "2026-02-23T16:17:35.215Z",
-          "display_at": "2026-02-23T16:17:35.215Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "br0l2tvcx85d",
-          "name": "Actions",
-          "status": "operational",
-          "created_at": "2019-11-13T18:02:19.432Z",
-          "updated_at": "2026-03-30T13:20:00.561Z",
-          "position": 7,
-          "description": "Workflows, Compute and Orchestration for GitHub Actions",
           "showcase": true,
           "start_date": null,
           "group_id": null,
