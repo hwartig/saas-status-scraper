@@ -4,15 +4,15 @@
     "name": "New Relic",
     "url": "https://status.newrelic.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-14T08:12:54.251Z"
+    "updated_at": "2026-04-14T10:24:48.289Z"
   },
   "incidents": [
     {
       "id": "mgly7jkjkmkr",
       "name": "Issue when querying live edge data in the US region",
-      "status": "postmortem",
+      "status": "resolved",
       "created_at": "2026-04-13T12:44:01.104Z",
-      "updated_at": "2026-04-14T08:12:54.249Z",
+      "updated_at": "2026-04-14T10:24:48.283Z",
       "monitoring_at": null,
       "resolved_at": "2026-04-13T15:17:33.776Z",
       "impact": "minor",
@@ -20,19 +20,6 @@
       "started_at": "2026-04-13T12:49:56.000Z",
       "page_id": "nwg5xmnm9d17",
       "incident_updates": [
-        {
-          "id": "k76xskdls3d6",
-          "status": "postmortem",
-          "body": "Starting at 10:30 AM UTC, we began seeing an increase in customers cases specifically calling out missing log data in customers dashboards. There were 4 cases being called out specifically with all similar issues. An RPI was created by @ghoran at 11:37 AM UTC in which the CM oncall was engaged. After briefly reviewing the cases it was decided to start a full incident at 11:55 AM UTC.  \n  \n[#incident-nr-11992](https://newrelic.enterprise.slack.com/archives/C0ASH66B8N6) was created and he NERF oncall \\(@[jgalbraith](mailto:jgalbraith@newrelic.com)\\) was engaged to join the initial incident call. While looking through their metrics no impact was seen to ingest or logs and thus was slowing down engaging the correct engineering teams. It was noticed soon after that another incident \\([#incident-nr-11989](https://newrelic.enterprise.slack.com/archives/C0ASVKNJRDF)\\) was being ran alongside the 11992 incident which was calling out MAPI issues for Azure customers. This was identified as a likely link to what issues were being seen by customers.  \n  \nThe CM’s and NERF joined the Zoom call for [incident-nr-11989](https://newrelic.enterprise.slack.com/archives/C0ASVKNJRDF) and confirmed that this was related to what customers were seeing. It was also confirmed that data was not lost, and was just unable to query live edge data. Cases continued to rise at this point and we had seen 12 cases by 12:30 PM UTC. It was decided that a notification should be sent to the status page to make customers aware of the issue. At 12:44 PM UTC, the message was created on the status page.  \n  \nEngineering teams engaged the Azure technical teams to assist with the investigation. Engineering teams identified that Azure metadata, database sharding, and replication problems causing MAPI errors, IW and file close errors was likely the cause to the impact on New Relics side. Teams tried restarting MAPI pods but minimal recovery was seen by this attempt. Communications were updated on the status page at 01:58 PM UTC as we continued to troubleshoot the issue. Customer cases continued to rise with approx. 25 cases at this point  \n  \nTraffic shifting from Azure to AWS was discussed, but that was an option they were only willing to act upon as a last resort due to the vast number of users that would need to be shifted \\(240K\\). While working with the Azure team, NR’s engineering team saw a big drop in errors, which was confirmed to be due to actions taking by the Azure team. The root cause of the incident was identified as a failure to retrieve instance metadata from Azure, which led to scheduling issues and resource constraints. The problem was exacerbated by Azure's zone-specific resource locking, which restricted the ability to recover data efficiently.  \n  \nAnother status page update was sent at 02:41 PM UTC, alongside the confirmation of recovery. Due to the uncertainty of the recovery, it was opted to hold off on sending recovery communications until we saw multiple datapoints of recovery. At 3:10 PM UTC, recovery was confirmed with no further impact being seen to customers. Recovery messaging was sent at 3:25 PM UTC with no further communications required. Final case count for this incident was 46.",
-          "incident_id": "mgly7jkjkmkr",
-          "created_at": "2026-04-14T07:47:30.518Z",
-          "updated_at": "2026-04-14T08:12:54.247Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
         {
           "id": "xksltst4lgjc",
           "status": "resolved",
