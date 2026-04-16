@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-16T10:53:43.702Z"
+    "updated_at": "2026-04-16T13:20:53.996Z"
   },
   "incidents": [
     {
@@ -378,7 +378,7 @@
       "name": "Disruption with some GitHub services",
       "status": "resolved",
       "created_at": "2026-04-09T16:20:03.691Z",
-      "updated_at": "2026-04-09T20:36:53.002Z",
+      "updated_at": "2026-04-16T13:17:39.023Z",
       "monitoring_at": null,
       "resolved_at": "2026-04-09T20:36:52.987Z",
       "impact": "major",
@@ -389,10 +389,10 @@
         {
           "id": "432085xhzks1",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On April 9, 2026, between 16:05 UTC and 20:36 UTC, the Copilot cloud agent service was degraded, causing new agent sessions to be delayed or fail to start. Users who attempted to start Copilot cloud agent sessions during this period experienced jobs getting stuck in the queue, with wait times peaking at 54 minutes compared to the normal 15–40 seconds. On average, approximately 84% of requests to start agent sessions failed, peaking at 97.5% during the worst period.<br /><br />This was due to an internal service exceeding API rate limits, compounded by a caching bug that persisted the rate-limited state beyond the actual rate limit window, causing recurring outage waves rather than a single recovery.<br /><br />We mitigated the incident by deploying a configuration change to bypass the affected cache and shifting API traffic to an alternative authentication path that reduced rate limit exposure. We have since added automated monitoring and alerting for this failure mode, deployed per-endpoint rate limit controls, and added caching for high-traffic API calls to reduce overall load. We are also working on longer-term improvements to rate limit isolation and traffic management to prevent similar issues in the future.<br /><br />This incident shared the same underlying root causes with an incident declared in the time frame https://www.githubstatus.com/incidents/zn1t56bfxdzg",
           "incident_id": "2rqwxl8y7m0j",
           "created_at": "2026-04-09T20:36:52.987Z",
-          "updated_at": "2026-04-09T20:36:52.987Z",
+          "updated_at": "2026-04-16T13:17:39.018Z",
           "display_at": "2026-04-09T20:36:52.987Z",
           "affected_components": null,
           "deliver_notifications": true,
@@ -486,7 +486,7 @@
       "name": "Disruption with some GitHub services",
       "status": "resolved",
       "created_at": "2026-04-09T09:50:21.547Z",
-      "updated_at": "2026-04-09T10:15:37.501Z",
+      "updated_at": "2026-04-16T13:20:53.985Z",
       "monitoring_at": "2026-04-09T10:15:35.976Z",
       "resolved_at": "2026-04-09T10:15:37.484Z",
       "impact": "major",
@@ -497,10 +497,10 @@
         {
           "id": "l2ffqynv742l",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On April 9, 2026, between 09:05 UTC and 19:05 UTC, the Copilot coding agent service was degraded and users experienced significant delays starting new agent sessions. Approximately 84% of new agent session requests were delayed across four separate outage waves, with queue wait times peaking at 54 minutes compared to a normal baseline of 15–40 seconds. On average, the error rate was 83.9% and peaked at 97.5% of requests to the service. Approximately 22,700 workflow creations were delayed or failed during the incident.<br /><br />This was due to a bug in our rate limiting logic that incorrectly applied a rate limit globally across all users, rather than scoping it to the individual installation that triggered the limit. A contributing factor was a surge in API traffic from a client update that increased requests to an internal endpoint by 3–4x, which accelerated rate limit exhaustion.<br /><br />We mitigated the incident by disabling the faulty rate limit caching mechanism via feature flag and updating our service to use per-installation credentials for API calls, ensuring rate limits are correctly scoped to individual installations.<br /><br />We have since added automated monitoring and alerting to detect this failure mode proactively, deployed fixes to reduce unnecessary API traffic through caching improvements, and are continuing work to further isolate rate limit scoping across client types to prevent similar issues in the future.<br /><br />This incident shared the same underlying root causes with an incident declared in the time frame https://www.githubstatus.com/incidents/2rqwxl8y7m0j",
           "incident_id": "zn1t56bfxdzg",
           "created_at": "2026-04-09T10:15:37.484Z",
-          "updated_at": "2026-04-09T10:15:37.484Z",
+          "updated_at": "2026-04-16T13:20:53.980Z",
           "display_at": "2026-04-09T10:15:37.484Z",
           "affected_components": null,
           "deliver_notifications": true,
