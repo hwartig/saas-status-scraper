@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-17T19:22:35.330Z"
+    "updated_at": "2026-04-17T21:22:52.476Z"
   },
   "components": [
     {
@@ -1615,9 +1615,9 @@
     {
       "id": "qdnryq0lymfk",
       "name": "DNS",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-03-06T18:42:44.851Z",
-      "updated_at": "2025-10-02T14:21:34.417Z",
+      "updated_at": "2026-04-17T21:22:52.426Z",
       "position": 7,
       "description": null,
       "showcase": false,
@@ -3564,7 +3564,61 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "v6qdbpt1dcd3",
+      "name": "DNS Resolution Issues with .co TLD",
+      "status": "identified",
+      "created_at": "2026-04-17T21:22:52.396Z",
+      "updated_at": "2026-04-17T21:22:52.474Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/2s124dt3v3gl",
+      "started_at": "2026-04-17T21:22:52.391Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "qj3zyd71q4rh",
+          "status": "identified",
+          "body": "Our Engineering team is aware of a widespread, external issue affecting .co top-level domain (TLD). While this incident originates outside of DigitalOcean's infrastructure, you may experience errors when querying a .co domain, regardless of the DNS resolver being used.\n\nOur Engineers are actively deploying temporary backend mitigations to help minimize the impact on our customers. We will continue to monitor the situation closely and post updates as more information becomes available.",
+          "incident_id": "v6qdbpt1dcd3",
+          "created_at": "2026-04-17T21:22:52.471Z",
+          "updated_at": "2026-04-17T21:22:52.471Z",
+          "display_at": "2026-04-17T21:22:52.471Z",
+          "affected_components": [
+            {
+              "code": "qdnryq0lymfk",
+              "name": "DNS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "qdnryq0lymfk",
+          "name": "DNS",
+          "status": "degraded_performance",
+          "created_at": "2023-03-06T18:42:44.851Z",
+          "updated_at": "2026-04-17T21:22:52.426Z",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "tc8w4zwkvkn7",
@@ -3675,7 +3729,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
