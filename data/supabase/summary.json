@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-17T13:51:42.277Z"
+    "updated_at": "2026-04-17T15:09:13.917Z"
   },
   "components": [
     {
@@ -73,9 +73,9 @@
     {
       "id": "43453sylqk7v",
       "name": "API Gateway",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2024-05-02T07:20:18.177Z",
-      "updated_at": "2026-02-13T08:54:22.611Z",
+      "updated_at": "2026-04-17T14:29:59.996Z",
       "position": 3,
       "description": "API Gateway for all Supabase Products",
       "showcase": true,
@@ -193,9 +193,9 @@
     {
       "id": "yz6pcnlscwpb",
       "name": "Database",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2024-05-02T07:14:49.000Z",
-      "updated_at": "2026-03-03T06:31:05.116Z",
+      "updated_at": "2026-04-17T14:30:00.010Z",
       "position": 7,
       "description": "The Postgres database and the REST Data APIs powered by PostgREST",
       "showcase": true,
@@ -223,9 +223,9 @@
     {
       "id": "mvs609wqrsf7",
       "name": "Edge Functions",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2022-08-10T18:16:24.352Z",
-      "updated_at": "2026-03-23T14:32:03.191Z",
+      "updated_at": "2026-04-17T14:30:00.023Z",
       "position": 8,
       "description": "Globally deployed serverless functions",
       "showcase": true,
@@ -283,9 +283,9 @@
     {
       "id": "l3gnd4rfxc2y",
       "name": "Realtime",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2024-05-02T07:16:45.824Z",
-      "updated_at": "2026-03-27T02:58:55.749Z",
+      "updated_at": "2026-04-17T14:30:00.037Z",
       "position": 10,
       "description": "Send and receive messages to connected clients.",
       "showcase": true,
@@ -313,9 +313,9 @@
     {
       "id": "f867wqkvs7ct",
       "name": "Storage",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2023-02-13T10:46:23.745Z",
-      "updated_at": "2026-03-18T18:21:53.495Z",
+      "updated_at": "2026-04-17T14:30:00.049Z",
       "position": 11,
       "description": "Store and serve any type of digital content",
       "showcase": true,
@@ -434,10 +434,10 @@
   "incidents": [
     {
       "id": "kj2hm399j9cw",
-      "name": "Login Issues with Supabase Auth",
-      "status": "investigating",
+      "name": "Increased Errors on HTTP Endpoints",
+      "status": "identified",
       "created_at": "2026-04-17T13:02:16.449Z",
-      "updated_at": "2026-04-17T13:51:42.267Z",
+      "updated_at": "2026-04-17T15:09:13.910Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -445,6 +445,176 @@
       "started_at": "2026-04-17T13:02:16.444Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "nk7j09pcbrlf",
+          "status": "identified",
+          "body": "Our upstream networking provider has discovered an issue and has declared an incident on their side. They are currently working toward resolution. We are actively working with them and will provide updates on progress as more information is available.",
+          "incident_id": "kj2hm399j9cw",
+          "created_at": "2026-04-17T15:09:13.908Z",
+          "updated_at": "2026-04-17T15:09:13.908Z",
+          "display_at": "2026-04-17T15:09:13.908Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "f867wqkvs7ct",
+              "name": "Storage",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "fznyj00kpng2",
+              "name": "Auth",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "l3gnd4rfxc2y",
+              "name": "Realtime",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "43453sylqk7v",
+              "name": "API Gateway",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "yfcwnms94kqw",
+          "status": "investigating",
+          "body": "We continue to have active lines of investigation going with our upstream network provider partners, and are still working toward a resolution.\n\nThis issue affects the network-level access to projects. The projects themselves and the data in them are safe and unaffected.\n\nUsers are seeing two separate symptoms of these networking issues:\n\n1. DNS Lookup failures for supabase project URLs\n2. 530 responses to HTTP requests to supabase project API Endpoints",
+          "incident_id": "kj2hm399j9cw",
+          "created_at": "2026-04-17T14:53:01.024Z",
+          "updated_at": "2026-04-17T14:58:47.819Z",
+          "display_at": "2026-04-17T14:53:01.000Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "f867wqkvs7ct",
+              "name": "Storage",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "fznyj00kpng2",
+              "name": "Auth",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "l3gnd4rfxc2y",
+              "name": "Realtime",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "43453sylqk7v",
+              "name": "API Gateway",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "kdhd15hz6v4v",
+          "status": "investigating",
+          "body": "We continue to work with partners and investigate.",
+          "incident_id": "kj2hm399j9cw",
+          "created_at": "2026-04-17T14:30:00.081Z",
+          "updated_at": "2026-04-17T14:30:00.081Z",
+          "display_at": "2026-04-17T14:30:00.081Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "f867wqkvs7ct",
+              "name": "Storage",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "fznyj00kpng2",
+              "name": "Auth",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "l3gnd4rfxc2y",
+              "name": "Realtime",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "43453sylqk7v",
+              "name": "API Gateway",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "ynk88xvyp0qh",
+          "status": "investigating",
+          "body": "We have further clarified the scope and impact of the issues currently affecting users. A subset of users across North and South America are experiencing DNS resolution failures and HTTP 530 errors.\nThese symptoms indicate a networking-related issue impacting the availability of Supabase projects. We are actively working with both internal teams and external network providers to isolate the root cause and determine the most effective path to resolution.\nWe will continue to provide updates as more information becomes available.",
+          "incident_id": "kj2hm399j9cw",
+          "created_at": "2026-04-17T14:16:55.324Z",
+          "updated_at": "2026-04-17T14:16:55.324Z",
+          "display_at": "2026-04-17T14:16:55.324Z",
+          "affected_components": [
+            {
+              "code": "fznyj00kpng2",
+              "name": "Auth",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "0g44q0zt9zpt",
           "status": "investigating",
@@ -508,6 +678,21 @@
       ],
       "components": [
         {
+          "id": "43453sylqk7v",
+          "name": "API Gateway",
+          "status": "partial_outage",
+          "created_at": "2024-05-02T07:20:18.177Z",
+          "updated_at": "2026-04-17T14:29:59.996Z",
+          "position": 3,
+          "description": "API Gateway for all Supabase Products",
+          "showcase": true,
+          "start_date": "2024-05-02",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
           "id": "fznyj00kpng2",
           "name": "Auth",
           "status": "partial_outage",
@@ -517,6 +702,66 @@
           "description": "Authenticate and authorize users",
           "showcase": true,
           "start_date": "2023-06-21",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "yz6pcnlscwpb",
+          "name": "Database",
+          "status": "partial_outage",
+          "created_at": "2024-05-02T07:14:49.000Z",
+          "updated_at": "2026-04-17T14:30:00.010Z",
+          "position": 7,
+          "description": "The Postgres database and the REST Data APIs powered by PostgREST",
+          "showcase": true,
+          "start_date": "2024-05-02",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "mvs609wqrsf7",
+          "name": "Edge Functions",
+          "status": "partial_outage",
+          "created_at": "2022-08-10T18:16:24.352Z",
+          "updated_at": "2026-04-17T14:30:00.023Z",
+          "position": 8,
+          "description": "Globally deployed serverless functions",
+          "showcase": true,
+          "start_date": "2022-08-10",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "l3gnd4rfxc2y",
+          "name": "Realtime",
+          "status": "partial_outage",
+          "created_at": "2024-05-02T07:16:45.824Z",
+          "updated_at": "2026-04-17T14:30:00.037Z",
+          "position": 10,
+          "description": "Send and receive messages to connected clients.",
+          "showcase": true,
+          "start_date": "2024-05-02",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "f867wqkvs7ct",
+          "name": "Storage",
+          "status": "partial_outage",
+          "created_at": "2023-02-13T10:46:23.745Z",
+          "updated_at": "2026-04-17T14:30:00.049Z",
+          "position": 11,
+          "description": "Store and serve any type of digital content",
+          "showcase": true,
+          "start_date": "2023-02-13",
           "group_id": null,
           "page_id": "q7pxfmcf2sbx",
           "group": false,
