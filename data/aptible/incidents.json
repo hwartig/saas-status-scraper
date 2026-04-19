@@ -4,9 +4,102 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2026-04-18T18:58:37.443-04:00"
+    "updated_at": "2026-04-18T23:10:17.858-04:00"
   },
   "incidents": [
+    {
+      "id": "7t6qthmnxg3g",
+      "name": "Service degradation affecting api.aptible.com",
+      "status": "resolved",
+      "created_at": "2026-04-18T22:03:58.794-04:00",
+      "updated_at": "2026-04-18T23:10:17.855-04:00",
+      "monitoring_at": "2026-04-18T22:54:26.146-04:00",
+      "resolved_at": "2026-04-18T23:10:17.839-04:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/0rm59lr8vytq",
+      "started_at": "2026-04-18T22:03:58.790-04:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "bnm7r5xttzsx",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "7t6qthmnxg3g",
+          "created_at": "2026-04-18T23:10:17.839-04:00",
+          "updated_at": "2026-04-18T23:10:17.839-04:00",
+          "display_at": "2026-04-18T23:10:17.839-04:00",
+          "affected_components": [
+            {
+              "code": "qb0csdk23619",
+              "name": "api.aptible.com",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "5hl0ht01c1zw",
+          "status": "monitoring",
+          "body": "A fix has been implemented and operations that were failing to enqueue during the availability outage have been retried. We will continue monitoring the situation.",
+          "incident_id": "7t6qthmnxg3g",
+          "created_at": "2026-04-18T22:54:26.146-04:00",
+          "updated_at": "2026-04-18T22:54:26.146-04:00",
+          "display_at": "2026-04-18T22:54:26.146-04:00",
+          "affected_components": [
+            {
+              "code": "qb0csdk23619",
+              "name": "api.aptible.com",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "g2yxbf6mms3l",
+          "status": "investigating",
+          "body": "We are investigating an incident impacting api.aptible.com. Viewing current resources and running operations are currently impacted, however running applications and databases are unaffected",
+          "incident_id": "7t6qthmnxg3g",
+          "created_at": "2026-04-18T22:03:58.836-04:00",
+          "updated_at": "2026-04-18T22:03:58.836-04:00",
+          "display_at": "2026-04-18T22:03:58.836-04:00",
+          "affected_components": [
+            {
+              "code": "qb0csdk23619",
+              "name": "api.aptible.com",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "qb0csdk23619",
+          "name": "api.aptible.com",
+          "status": "operational",
+          "created_at": "2014-10-24T12:00:39.142-04:00",
+          "updated_at": "2026-01-17T22:31:21.177-05:00",
+          "position": 1,
+          "description": "Aptible PaaS API Server",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "bv7vvty5wxhz",
       "name": "us-east-1 Intermittent DNS Resolution Errors",
@@ -3694,152 +3787,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "9zw8g651rh4h",
-      "name": "AWS Outage",
-      "status": "postmortem",
-      "created_at": "2022-11-02T17:45:18.747-04:00",
-      "updated_at": "2022-11-03T16:37:30.536-04:00",
-      "monitoring_at": "2022-11-02T18:18:07.779-04:00",
-      "resolved_at": "2022-11-02T18:28:47.332-04:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/q7g9qmn51p7k",
-      "started_at": "2022-11-02T17:45:18.743-04:00",
-      "page_id": "fmwgqnbnbc4r",
-      "incident_updates": [
-        {
-          "id": "z8l80dgc87s9",
-          "status": "postmortem",
-          "body": "AWS has identified the root cause of the Endpoint unavailability:\n\n> Between 2:26 PM and 3:04 PM PDT\\(9:26PM ~ 10:04 PM UTC\\) we experienced increased packet loss for traffic destined to public endpoints in the US-EAST-1 Region, which affected Internet and public Direct Connect connectivity for endpoints in the US-EAST-1 Region.\n\nThis is, unfortunately, essentially the same impact we've seen in two previous incidents, although AWS's description of the cause is slightly different:\n\nOctober 15th 2022: [https://status.aptible.com/incidents/grf6gdrrszf9](https://status.aptible.com/incidents/grf6gdrrszf9)\n\n> Between 12:20 AM and 11:28 AM PDT, we experienced intermittent failures in Route53 Health Checks impacting Target Health evaluation in US-EAST-1. The issue has been resolved and the service is operating normally.\n\nSeptember 27th, 2021: \\(Only a couple of Endpoints were impacted, so no incident was created\\)\n\n> On September 27, 2021, between 8:45 AM and 2:09 PM PDT, Route53 experienced increased change propagation times for Health Check edits where unexpected failover to their secondary application load balancer \\(ALB\\) occurred despite their primary ALB targets being healthy. The issue has been resolved and the service is operating normally.\n\nWhile AWS describes these incidents as \"increased change propagation times\", \"intermittent failures\", and \"increased packet loss\", and apparently do not qualify as an incident to be posted to [https://status.aws.amazon.com,](https://status.aws.amazon.com,) the observed impact to our customers is very clear: the impacted Endpoints are totally unreachable for a period.\n\nAs such, we will permanently implement the \"temporary\" change we made on October 15th: we will be disabling the Route53 health checks \\(and the associated custom error page\\) for all Endpoints, as this has been the root cause of these availability incidents.\n\nAs we indicated to customers during the Oct 15th and Nov 3rd incidents, you may restart any App in order to immediately disable the Route53 health check. Any App which has been deployed, restarted, or scaled since October 15th will already have it disabled, and we will make another announcement when we intend to disable it globally on all Apps for which it remains enabled.",
-          "incident_id": "9zw8g651rh4h",
-          "created_at": "2022-11-03T16:32:55.273-04:00",
-          "updated_at": "2022-11-03T16:37:30.534-04:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3p0rkck71b21",
-          "status": "resolved",
-          "body": "We no longer see any impact, and will continue investigating for an RCA.",
-          "incident_id": "9zw8g651rh4h",
-          "created_at": "2022-11-02T18:28:47.332-04:00",
-          "updated_at": "2022-11-02T18:28:47.827-04:00",
-          "display_at": "2022-11-02T18:28:47.332-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1587934776283267072
-        },
-        {
-          "id": "d79hzsg8xqvx",
-          "status": "monitoring",
-          "body": "Based on a random sampling, and reported affected Endpoints, we are no longer seeing any impact. We will continue to monitor the situation.",
-          "incident_id": "9zw8g651rh4h",
-          "created_at": "2022-11-02T18:18:07.779-04:00",
-          "updated_at": "2022-11-02T18:18:08.326-04:00",
-          "display_at": "2022-11-02T18:18:07.779-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1587932093979721730
-        },
-        {
-          "id": "txdckq3rv2qp",
-          "status": "identified",
-          "body": "We're seeing many Endpoints recover without action being taken, so we're looking into ways to identify Endpoints that remain impacted so that we can efficiently fix them.\n\nRestarting known impacted Apps remains the quickest solution that we know of.",
-          "incident_id": "9zw8g651rh4h",
-          "created_at": "2022-11-02T18:08:23.971-04:00",
-          "updated_at": "2022-11-02T18:08:24.900-04:00",
-          "display_at": "2022-11-02T18:08:23.971-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1587929646901112832
-        },
-        {
-          "id": "z99hjv0w087l",
-          "status": "identified",
-          "body": "We've observed that running `aptible restart --app $handle` can resolve the underlying issue with the ELB, and recommend restarting any of your impacted Apps at this time.",
-          "incident_id": "9zw8g651rh4h",
-          "created_at": "2022-11-02T17:54:53.479-04:00",
-          "updated_at": "2022-11-02T17:54:54.463-04:00",
-          "display_at": "2022-11-02T17:54:53.479-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1587926247681970176
-        },
-        {
-          "id": "ymhg8tl7b2x2",
-          "status": "investigating",
-          "body": "We are currently investigating a large number of unreachable ELBs in AWS's us-east-1 region, and are wait for acknowledgement from AWS and trying to narrow the scope of the failures in order to provide failover/workarounds if possible.",
-          "incident_id": "9zw8g651rh4h",
-          "created_at": "2022-11-02T17:45:18.812-04:00",
-          "updated_at": "2022-11-02T17:45:19.171-04:00",
-          "display_at": "2022-11-02T17:45:18.812-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1587923834719834114
-        }
-      ],
-      "components": [
-        {
-          "id": "3f2df1dmxn4b",
-          "name": "Aptible Deploy",
-          "status": "operational",
-          "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2026-03-13T07:35:22.904-04:00",
-          "position": 7,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "fmwgqnbnbc4r",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
