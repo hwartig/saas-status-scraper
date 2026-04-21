@@ -4,7 +4,7 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-20T20:13:39.240Z"
+    "updated_at": "2026-04-21T02:33:54.016Z"
   },
   "incidents": [
     {
@@ -413,9 +413,9 @@
     {
       "id": "5b6kytgmnt43",
       "name": "Users experiencing issues with login across Atlassian products",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-04-13T07:29:45.417Z",
-      "updated_at": "2026-04-13T10:17:20.744Z",
+      "updated_at": "2026-04-21T02:33:54.013Z",
       "monitoring_at": "2026-04-13T07:29:45.538Z",
       "resolved_at": "2026-04-13T10:17:20.728Z",
       "impact": "minor",
@@ -423,6 +423,19 @@
       "started_at": "2026-04-13T07:29:45.408Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "g12vtyfqzlx6",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn April 13, 2026, between 05:49 and 06:29 UTC, customers experienced failures when attempting to log in, sign up, reset passwords, and complete multi-factor authentication flows across Atlassian cloud products. Approximately 90% of authentication requests failed during the peak impact window, affecting users in the US East and EU regions. The incident was mitigated within 40 minutes through manual intervention, and full service was restored by 06:29 UTC.\n\n### **IMPACT**\n\n* **Duration**: ~40 minutes \\(05:49–06:29 UTC, April 13, 2026\\)\n* **Affected regions**: US East and EU \\(authentication infrastructure serves EU traffic from US East, with traffic primarily from EU at this time of day\\).\n* **Affected products**: All Atlassian cloud products requiring authentication, including Jira, Confluence, Jira Service Management, and Trello.\n* **Customer experience**: Users attempting to log in, sign up, reset passwords, or complete MFA flows received errors. Users already logged in with active sessions were unaffected.\n\n### **ROOT CAUSE**\n\nThis incident had several contributing factors that combined to produce a failure that the system could not recover from without manual intervention.\n\n**The primary cause** was a recently enabled change that caused our authentication infrastructure to retry requests to a downstream identity service when those requests were slow to respond. This retry behaviour was rolled out to 100% of traffic earlier the same day. Under normal conditions this would be benign, but it meant that any slowness in the downstream service was amplified. Since multiple upstream services were also independently retrying their own failed requests, the amplification compounded further into a retry storm.\n\n**The trigger** was a burst of legitimate user traffic. A pattern of many parallel link preview requests for a single user caused a concentrated load spike on a downstream identity service, pushing its response times above the retry threshold. On its own, this kind of spike had occurred many times before and always recovered. With the retry amplification now in effect, the spike instead created a runaway feedback loop: slow responses caused retries, retries increased load, increased load caused slower responses, preventing recovery.\n\nThe incident was mitigated by manually scaling up the downstream identity service to provide sufficient capacity to absorb the amplified load. Once scaled, the service recovered immediately, bringing authentication error rates to zero within one minute.\n\n**REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe are taking the following actions designed to prevent recurrence and improve our resilience:\n\n1. **Immediate**: The retry-on-timeout change has been disabled.\n2. **Load shedding and self-healing**: We are adding load shedding capabilities to our authentication services so that they can automatically shed excess load and self-recover during traffic spikes, without requiring action before automatic scaling starts.\n3. **Reducing request fan-out**: We are reviewing patterns where a single user action can generate many parallel downstream requests, and will introduce methods where possible to reduce the amplification potential.\n\nWe apologize to customers whose services were interrupted by this incident and we are taking immediate steps to improve the platform’s reliability.\n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "5b6kytgmnt43",
+          "created_at": "2026-04-21T02:33:52.301Z",
+          "updated_at": "2026-04-21T02:33:54.011Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "x8w5t5k566mn",
           "status": "resolved",
