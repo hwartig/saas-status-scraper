@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-22T04:28:44.356Z"
+    "updated_at": "2026-04-22T15:43:55.224Z"
   },
   "incidents": [
+    {
+      "id": "8790jgb3ky6t",
+      "name": "Disruption with Copilot chat and Copilot Coding Agent",
+      "status": "investigating",
+      "created_at": "2026-04-22T15:35:45.298Z",
+      "updated_at": "2026-04-22T15:43:55.213Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/0m0g0r5htdxy",
+      "started_at": "2026-04-22T15:35:45.288Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "45f1ph7n5073",
+          "status": "investigating",
+          "body": "We are aware of users seeing errors interacting with Copilot chat on github.com and Copilot cloud agent. We have identified the cause and are investigating remediations.",
+          "incident_id": "8790jgb3ky6t",
+          "created_at": "2026-04-22T15:43:55.210Z",
+          "updated_at": "2026-04-22T15:43:55.210Z",
+          "display_at": "2026-04-22T15:43:55.210Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "k6dtnvjg1cty",
+          "status": "investigating",
+          "body": "We are investigating reports of impacted performance for some GitHub services.",
+          "incident_id": "8790jgb3ky6t",
+          "created_at": "2026-04-22T15:35:45.369Z",
+          "updated_at": "2026-04-22T15:35:45.369Z",
+          "display_at": "2026-04-22T15:35:45.369Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "b4235qyfzx2z",
       "name": "Disruption with projects service",
@@ -7846,101 +7889,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "kv1lzpgzr9yp",
-      "name": "Code view fails to load when content contains some non-ASCII characters",
-      "status": "resolved",
-      "created_at": "2026-02-27T03:08:23.495Z",
-      "updated_at": "2026-02-27T21:04:29.293Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-02-27T06:04:02.145Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/5zqmjwwn4z1q",
-      "started_at": "2026-02-27T03:08:23.488Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "77pffb5ytr9v",
-          "status": "resolved",
-          "body": "Starting February 26, 2026 at 22:10 UTC through February 27, 05:50 UTC, the repository browsing UI was degraded and users were unable to load pages for files and directories with non-ASCII characters (including Japanese, Chinese, and other non-Latin scripts). On average, the error rate was 0.014% and peaked at 0.06% of requests to the service. Affected users saw 404 errors when navigating to repository directories and files with non-ASCII names. This was due to a code change that altered how file and directory names were processed, which caused incorrectly formatted data to be stored in an application cache.<br /><br />We mitigated the incident by deploying a fix that invalidated the affected cache entries and progressively rolling it out across all production environments.<br /><br />We are working to improve our pre-production testing to cover non-ASCII character handling, establish better cache invalidation mechanisms, and enhance our monitoring to detect this type of failure mode earlier, to reduce our time to detection and mitigation of issues like this one in the future.",
-          "incident_id": "kv1lzpgzr9yp",
-          "created_at": "2026-02-27T06:04:02.145Z",
-          "updated_at": "2026-02-27T21:04:29.288Z",
-          "display_at": "2026-02-27T06:04:02.145Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l13n0tl9m8gb",
-          "status": "investigating",
-          "body": "We have cleared all caches and everything is operating normally.",
-          "incident_id": "kv1lzpgzr9yp",
-          "created_at": "2026-02-27T06:03:50.845Z",
-          "updated_at": "2026-02-27T06:03:50.845Z",
-          "display_at": "2026-02-27T06:03:50.845Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3py91jz493m9",
-          "status": "investigating",
-          "body": "We have mitigated the issue but are working on invalidating caches in order to fix the issue for all impacted repos.",
-          "incident_id": "kv1lzpgzr9yp",
-          "created_at": "2026-02-27T05:21:07.396Z",
-          "updated_at": "2026-02-27T05:21:07.396Z",
-          "display_at": "2026-02-27T05:21:07.396Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0k9f599xxcy1",
-          "status": "investigating",
-          "body": "We have performed a mitigation but some repositories may still see issues. We are working on a full mitigation.",
-          "incident_id": "kv1lzpgzr9yp",
-          "created_at": "2026-02-27T04:17:21.974Z",
-          "updated_at": "2026-02-27T04:17:21.974Z",
-          "display_at": "2026-02-27T04:17:21.974Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "x60vfvsc1t8w",
-          "status": "investigating",
-          "body": "We are looking into recent code changes to mitigate the error loading some code view pages.",
-          "incident_id": "kv1lzpgzr9yp",
-          "created_at": "2026-02-27T03:28:00.433Z",
-          "updated_at": "2026-02-27T03:28:00.433Z",
-          "display_at": "2026-02-27T03:28:00.433Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "m69g0pkbqj12",
-          "status": "investigating",
-          "body": "We are investigating reports of impacted performance for some GitHub services.",
-          "incident_id": "kv1lzpgzr9yp",
-          "created_at": "2026-02-27T03:08:23.536Z",
-          "updated_at": "2026-02-27T03:08:23.536Z",
-          "display_at": "2026-02-27T03:08:23.536Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
