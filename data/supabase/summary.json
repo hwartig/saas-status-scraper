@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-27T16:22:27.220Z"
+    "updated_at": "2026-04-27T17:31:01.575Z"
   },
   "components": [
     {
@@ -163,9 +163,9 @@
     {
       "id": "45jcpkfhw6hd",
       "name": "Dashboard",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2020-11-27T15:23:00.100Z",
-      "updated_at": "2026-04-27T13:12:21.946Z",
+      "updated_at": "2026-04-27T17:31:01.529Z",
       "position": 6,
       "description": "The studio, docs and primary website at https://supabase.com",
       "showcase": true,
@@ -433,6 +433,179 @@
   ],
   "incidents": [
     {
+      "id": "m9lv5ttn4bny",
+      "name": "Some Projects Unreachable following Project Restart",
+      "status": "monitoring",
+      "created_at": "2026-04-27T10:54:37.695Z",
+      "updated_at": "2026-04-27T17:31:01.565Z",
+      "monitoring_at": "2026-04-27T13:12:21.978Z",
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/7rqcm4yftl23",
+      "started_at": "2026-04-27T10:54:37.684Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "78ljrdf17r78",
+          "status": "monitoring",
+          "body": "The fix has been rolled out, and we are monitoring for continued stability. Any remaining impacted projects are being manually patched.",
+          "incident_id": "m9lv5ttn4bny",
+          "created_at": "2026-04-27T17:31:01.561Z",
+          "updated_at": "2026-04-27T17:31:01.561Z",
+          "display_at": "2026-04-27T17:31:01.561Z",
+          "affected_components": [
+            {
+              "code": "45jcpkfhw6hd",
+              "name": "Dashboard",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "d8v0qvqlm7gz",
+          "status": "identified",
+          "body": "The permanent fix has now been rolled out across the fleet. We are continuing to manually patch any remaining impacted projects to restore service.",
+          "incident_id": "m9lv5ttn4bny",
+          "created_at": "2026-04-27T16:05:07.212Z",
+          "updated_at": "2026-04-27T16:05:07.212Z",
+          "display_at": "2026-04-27T16:05:07.212Z",
+          "affected_components": [
+            {
+              "code": "45jcpkfhw6hd",
+              "name": "Dashboard",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "t721cgjhg057",
+          "status": "identified",
+          "body": "We’ve identified additional impacted projects and are currently working to manually patch and restore them. \nWe are also continuing to roll out a fix across the fleet to prevent further impact.",
+          "incident_id": "m9lv5ttn4bny",
+          "created_at": "2026-04-27T14:21:59.487Z",
+          "updated_at": "2026-04-27T14:21:59.487Z",
+          "display_at": "2026-04-27T14:21:59.487Z",
+          "affected_components": [
+            {
+              "code": "45jcpkfhw6hd",
+              "name": "Dashboard",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "rhx7b4lfhzzm",
+          "status": "monitoring",
+          "body": "All impacted projects with open support tickets have now been manually patched and restored. \nWe are currently rolling out a fix across the fleet to prevent further impact. \nWe will continue to monitor progress and provide updates.",
+          "incident_id": "m9lv5ttn4bny",
+          "created_at": "2026-04-27T13:12:21.978Z",
+          "updated_at": "2026-04-27T13:12:21.978Z",
+          "display_at": "2026-04-27T13:12:21.978Z",
+          "affected_components": [
+            {
+              "code": "45jcpkfhw6hd",
+              "name": "Dashboard",
+              "old_status": "degraded_performance",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "4vgmm4dl901n",
+          "status": "identified",
+          "body": "Our team is actively working on a fix and is manually patching impacted projects to restore service as quickly as possible.\n\nIf you are running a version of Postgres older than 15.1.1.57, please avoid restarting your project until this issue is resolved.",
+          "incident_id": "m9lv5ttn4bny",
+          "created_at": "2026-04-27T11:40:24.998Z",
+          "updated_at": "2026-04-27T11:40:24.998Z",
+          "display_at": "2026-04-27T11:40:24.998Z",
+          "affected_components": [
+            {
+              "code": "45jcpkfhw6hd",
+              "name": "Dashboard",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "ytcv2sh5r6q7",
+          "status": "identified",
+          "body": "We’ve identified that a recent change to the Postgres systemd service has a dependency on a prestart script.\nThis script is not present on some older projects, and when those projects restart, Postgres may fail to start successfully.\nThis can result in projects remaining offline.\nWe are working on a fix to restore service.\n\nIf you are running a version of Postgres older than 15.1.1.57, please avoid restarting your project until this issue is resolved.",
+          "incident_id": "m9lv5ttn4bny",
+          "created_at": "2026-04-27T11:11:48.476Z",
+          "updated_at": "2026-04-27T11:11:48.476Z",
+          "display_at": "2026-04-27T11:11:48.476Z",
+          "affected_components": [
+            {
+              "code": "45jcpkfhw6hd",
+              "name": "Dashboard",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "4vmv045j1115",
+          "status": "identified",
+          "body": "We’ve identified that a recent change to the Postgres systemd service has a dependency on a prestart script.\nThis script is not present on some older projects, and when those projects restart, Postgres may fail to start successfully.\nThis can result in projects remaining offline. We are working on a fix to restore service.",
+          "incident_id": "m9lv5ttn4bny",
+          "created_at": "2026-04-27T10:54:37.812Z",
+          "updated_at": "2026-04-27T10:54:37.812Z",
+          "display_at": "2026-04-27T10:54:37.812Z",
+          "affected_components": [
+            {
+              "code": "45jcpkfhw6hd",
+              "name": "Dashboard",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "45jcpkfhw6hd",
+          "name": "Dashboard",
+          "status": "operational",
+          "created_at": "2020-11-27T15:23:00.100Z",
+          "updated_at": "2026-04-27T17:31:01.529Z",
+          "position": 6,
+          "description": "The studio, docs and primary website at https://supabase.com",
+          "showcase": true,
+          "start_date": "2020-11-27",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "m8fzj42277s1",
       "name": "Some projects unavailable across multiple regions",
       "status": "identified",
@@ -625,9 +798,9 @@
         {
           "id": "45jcpkfhw6hd",
           "name": "Dashboard",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2020-11-27T15:23:00.100Z",
-          "updated_at": "2026-04-27T13:12:21.946Z",
+          "updated_at": "2026-04-27T17:31:01.529Z",
           "position": 6,
           "description": "The studio, docs and primary website at https://supabase.com",
           "showcase": true,
@@ -647,159 +820,6 @@
           "description": "The Postgres database and the REST Data APIs powered by PostgREST",
           "showcase": true,
           "start_date": "2024-05-02",
-          "group_id": null,
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "m9lv5ttn4bny",
-      "name": "Some Projects Unreachable following Project Restart",
-      "status": "identified",
-      "created_at": "2026-04-27T10:54:37.695Z",
-      "updated_at": "2026-04-27T16:05:07.214Z",
-      "monitoring_at": "2026-04-27T13:12:21.978Z",
-      "resolved_at": null,
-      "impact": "major",
-      "shortlink": "https://stspg.io/7rqcm4yftl23",
-      "started_at": "2026-04-27T10:54:37.684Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "d8v0qvqlm7gz",
-          "status": "identified",
-          "body": "The permanent fix has now been rolled out across the fleet. We are continuing to manually patch any remaining impacted projects to restore service.",
-          "incident_id": "m9lv5ttn4bny",
-          "created_at": "2026-04-27T16:05:07.212Z",
-          "updated_at": "2026-04-27T16:05:07.212Z",
-          "display_at": "2026-04-27T16:05:07.212Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "t721cgjhg057",
-          "status": "identified",
-          "body": "We’ve identified additional impacted projects and are currently working to manually patch and restore them. \nWe are also continuing to roll out a fix across the fleet to prevent further impact.",
-          "incident_id": "m9lv5ttn4bny",
-          "created_at": "2026-04-27T14:21:59.487Z",
-          "updated_at": "2026-04-27T14:21:59.487Z",
-          "display_at": "2026-04-27T14:21:59.487Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rhx7b4lfhzzm",
-          "status": "monitoring",
-          "body": "All impacted projects with open support tickets have now been manually patched and restored. \nWe are currently rolling out a fix across the fleet to prevent further impact. \nWe will continue to monitor progress and provide updates.",
-          "incident_id": "m9lv5ttn4bny",
-          "created_at": "2026-04-27T13:12:21.978Z",
-          "updated_at": "2026-04-27T13:12:21.978Z",
-          "display_at": "2026-04-27T13:12:21.978Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "degraded_performance",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4vgmm4dl901n",
-          "status": "identified",
-          "body": "Our team is actively working on a fix and is manually patching impacted projects to restore service as quickly as possible.\n\nIf you are running a version of Postgres older than 15.1.1.57, please avoid restarting your project until this issue is resolved.",
-          "incident_id": "m9lv5ttn4bny",
-          "created_at": "2026-04-27T11:40:24.998Z",
-          "updated_at": "2026-04-27T11:40:24.998Z",
-          "display_at": "2026-04-27T11:40:24.998Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ytcv2sh5r6q7",
-          "status": "identified",
-          "body": "We’ve identified that a recent change to the Postgres systemd service has a dependency on a prestart script.\nThis script is not present on some older projects, and when those projects restart, Postgres may fail to start successfully.\nThis can result in projects remaining offline.\nWe are working on a fix to restore service.\n\nIf you are running a version of Postgres older than 15.1.1.57, please avoid restarting your project until this issue is resolved.",
-          "incident_id": "m9lv5ttn4bny",
-          "created_at": "2026-04-27T11:11:48.476Z",
-          "updated_at": "2026-04-27T11:11:48.476Z",
-          "display_at": "2026-04-27T11:11:48.476Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4vmv045j1115",
-          "status": "identified",
-          "body": "We’ve identified that a recent change to the Postgres systemd service has a dependency on a prestart script.\nThis script is not present on some older projects, and when those projects restart, Postgres may fail to start successfully.\nThis can result in projects remaining offline. We are working on a fix to restore service.",
-          "incident_id": "m9lv5ttn4bny",
-          "created_at": "2026-04-27T10:54:37.812Z",
-          "updated_at": "2026-04-27T10:54:37.812Z",
-          "display_at": "2026-04-27T10:54:37.812Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "45jcpkfhw6hd",
-          "name": "Dashboard",
-          "status": "partial_outage",
-          "created_at": "2020-11-27T15:23:00.100Z",
-          "updated_at": "2026-04-27T13:12:21.946Z",
-          "position": 6,
-          "description": "The studio, docs and primary website at https://supabase.com",
-          "showcase": true,
-          "start_date": "2020-11-27",
           "group_id": null,
           "page_id": "q7pxfmcf2sbx",
           "group": false,
