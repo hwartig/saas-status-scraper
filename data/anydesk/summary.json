@@ -4,13 +4,13 @@
     "name": "AnyDesk",
     "url": "https://status.anydesk.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-28T10:34:01.939Z"
+    "updated_at": "2026-04-28T11:59:53.207Z"
   },
   "components": [
     {
       "id": "7rjfqpg0vsy3",
       "name": "AnyDesk Global Network",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-10-01T12:27:21.517Z",
       "updated_at": "2020-10-01T12:27:29.797Z",
       "position": 1,
@@ -77,9 +77,9 @@
     {
       "id": "0xb4s9kdt39y",
       "name": "Asia",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2020-10-01T12:28:04.803Z",
-      "updated_at": "2026-04-25T18:00:07.348Z",
+      "updated_at": "2026-04-28T11:59:53.162Z",
       "position": 3,
       "description": null,
       "showcase": true,
@@ -180,10 +180,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "w5ld2wv9cwxt",
+      "name": "Partial outage - Taiwan and Hong Kong",
+      "status": "identified",
+      "created_at": "2026-04-28T11:20:47.748Z",
+      "updated_at": "2026-04-28T11:59:53.198Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/ytf4x3m102xz",
+      "started_at": "2026-04-28T11:20:47.741Z",
+      "page_id": "tl94xqsdynv4",
+      "incident_updates": [
+        {
+          "id": "q7cm5jmfzc5v",
+          "status": "identified",
+          "body": "Due to networking issues associated with one of our upstream providers, to reduce customer impact we will be re-routing customers from Taiwan and Hong Kong to our infrastructure in Japan.",
+          "incident_id": "w5ld2wv9cwxt",
+          "created_at": "2026-04-28T11:59:53.196Z",
+          "updated_at": "2026-04-28T11:59:53.196Z",
+          "display_at": "2026-04-28T11:59:53.196Z",
+          "affected_components": [
+            {
+              "code": "0xb4s9kdt39y",
+              "name": "AnyDesk Global Network - Asia",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "5bgv3z947xyh",
+          "status": "investigating",
+          "body": "We are currently facing degraded performance in our Asia zone, specifically Taiwan and Hong Kong. \nEngineers are investigating and a further update will be provided once a root cause has been identified.\n\nWe apologise for any inconvenience caused.",
+          "incident_id": "w5ld2wv9cwxt",
+          "created_at": "2026-04-28T11:20:47.819Z",
+          "updated_at": "2026-04-28T11:20:47.819Z",
+          "display_at": "2026-04-28T11:20:47.819Z",
+          "affected_components": [
+            {
+              "code": "0xb4s9kdt39y",
+              "name": "AnyDesk Global Network - Asia",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "0xb4s9kdt39y",
+          "name": "Asia",
+          "status": "degraded_performance",
+          "created_at": "2020-10-01T12:28:04.803Z",
+          "updated_at": "2026-04-28T11:59:53.162Z",
+          "position": 3,
+          "description": null,
+          "showcase": true,
+          "start_date": "2020-10-01",
+          "group_id": "7rjfqpg0vsy3",
+          "page_id": "tl94xqsdynv4",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
