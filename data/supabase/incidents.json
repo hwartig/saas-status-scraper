@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-29T16:43:43.854Z"
+    "updated_at": "2026-04-29T18:20:30.223Z"
   },
   "incidents": [
     {
@@ -624,6 +624,36 @@
           "only_show_if_degraded": false
         }
       ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "2t3nn82wxj97",
+      "name": "Inadvertently disabled pg_graphql for some projects",
+      "status": "resolved",
+      "created_at": "2026-04-26T17:52:09.000Z",
+      "updated_at": "2026-04-29T17:52:45.049Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-04-26T17:52:09.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/nvh7xrhybk66",
+      "started_at": "2026-04-26T17:52:09.000Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "2bbjtcfhv662",
+          "status": "resolved",
+          "body": "A modification to existing projects was deployed due to the recently communicated Data API and pg_graphql changes. https://github.com/orgs/supabase/discussions/45329\n\nThis modification was supposed to disable pg_graphql for projects that had not seen usage in the last 30 days. Due to a misconfiguration, this targeted more projects than intended.\n\nWe are deeply sorry for the inconvenience and have since addressed the issue.\n\nFor those using pg_graphql actively, you may have seen pg_graphql extension is not enabled in the logs for your project and you can safely re-enable this.\n\nIf you have been impacted, or you are unable to re-enable pg_graphql, please contact success@supabase.io",
+          "incident_id": "2t3nn82wxj97",
+          "created_at": "2026-04-29T17:52:09.422Z",
+          "updated_at": "2026-04-29T17:52:44.940Z",
+          "display_at": "2026-04-26T17:52:09.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
       "reminder_intervals": null
     },
     {
@@ -6993,179 +7023,6 @@
           "showcase": true,
           "start_date": "2024-05-02",
           "group_id": null,
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "4ydyhb0wrtkc",
-      "name": "Project Creation Issues - eu-west-1",
-      "status": "resolved",
-      "created_at": "2026-01-28T17:02:18.412Z",
-      "updated_at": "2026-01-28T21:32:11.261Z",
-      "monitoring_at": "2026-01-28T20:13:52.698Z",
-      "resolved_at": "2026-01-28T21:32:11.239Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/r36457kysl2q",
-      "started_at": "2026-01-28T17:02:18.402Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "mbsf3jhyr14t",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "4ydyhb0wrtkc",
-          "created_at": "2026-01-28T21:32:11.239Z",
-          "updated_at": "2026-01-28T21:32:11.239Z",
-          "display_at": "2026-01-28T21:32:11.239Z",
-          "affected_components": [
-            {
-              "code": "0qtzyc40p8q9",
-              "name": "Compute capacity - eu-west-1",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jw4c3t0g6xdb",
-          "status": "monitoring",
-          "body": "Project actions (creation, unpauses, read replica creation, upgrades) have been re-enabled, and the team is monitoring.",
-          "incident_id": "4ydyhb0wrtkc",
-          "created_at": "2026-01-28T20:13:52.698Z",
-          "updated_at": "2026-01-28T20:13:52.698Z",
-          "display_at": "2026-01-28T20:13:52.698Z",
-          "affected_components": [
-            {
-              "code": "0qtzyc40p8q9",
-              "name": "Compute capacity - eu-west-1",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "247l35xgqwz8",
-          "status": "identified",
-          "body": "We have received word from our upstream partner that their issue has been resolved. The team is currently testing all functionality on our side and cleaning up previously errored requests. Once we're confident things are back to normal, we'll resume project actions in the region.",
-          "incident_id": "4ydyhb0wrtkc",
-          "created_at": "2026-01-28T20:01:14.724Z",
-          "updated_at": "2026-01-28T20:01:14.724Z",
-          "display_at": "2026-01-28T20:01:14.724Z",
-          "affected_components": [
-            {
-              "code": "0qtzyc40p8q9",
-              "name": "Compute capacity - eu-west-1",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "93f75wl3tv0v",
-          "status": "identified",
-          "body": "We are continuing to monitor for resolution of the upstream provider incident.",
-          "incident_id": "4ydyhb0wrtkc",
-          "created_at": "2026-01-28T19:55:22.598Z",
-          "updated_at": "2026-01-28T19:55:22.598Z",
-          "display_at": "2026-01-28T19:55:22.598Z",
-          "affected_components": [
-            {
-              "code": "0qtzyc40p8q9",
-              "name": "Compute capacity - eu-west-1",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "m1z9844p8xyz",
-          "status": "identified",
-          "body": "We continue to monitor for resolution of the upstream provider incident.",
-          "incident_id": "4ydyhb0wrtkc",
-          "created_at": "2026-01-28T18:45:11.496Z",
-          "updated_at": "2026-01-28T18:45:11.496Z",
-          "display_at": "2026-01-28T18:45:11.496Z",
-          "affected_components": [
-            {
-              "code": "0qtzyc40p8q9",
-              "name": "Compute capacity - eu-west-1",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fxxc4xjsrn5p",
-          "status": "investigating",
-          "body": "Instance operations in eu-west-1 are impacted by an ongoing infrastructure provider incident causing network issues in the region. \n\nAffected operations include new project creation, unpauses, read replica creation, and upgrades. Existing projects are unaffected. \n\nOur provider is aware of the issue and we already see error rates and latency trending down. We will update as the situation progresses.",
-          "incident_id": "4ydyhb0wrtkc",
-          "created_at": "2026-01-28T17:56:46.283Z",
-          "updated_at": "2026-01-28T17:56:46.283Z",
-          "display_at": "2026-01-28T17:56:46.283Z",
-          "affected_components": [
-            {
-              "code": "0qtzyc40p8q9",
-              "name": "Compute capacity - eu-west-1",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ymjq6lryx65g",
-          "status": "investigating",
-          "body": "We are investigating issues affecting instance operations in the eu-west-1 region. This may impact new project creation, project unpauses, read replica creation, and upgrades. Existing projects remain unaffected.",
-          "incident_id": "4ydyhb0wrtkc",
-          "created_at": "2026-01-28T17:02:18.480Z",
-          "updated_at": "2026-01-28T17:02:18.480Z",
-          "display_at": "2026-01-28T17:02:18.480Z",
-          "affected_components": [
-            {
-              "code": "0qtzyc40p8q9",
-              "name": "Compute capacity - eu-west-1",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "0qtzyc40p8q9",
-          "name": "eu-west-1",
-          "status": "operational",
-          "created_at": "2025-01-10T16:54:57.835Z",
-          "updated_at": "2026-01-28T20:13:52.664Z",
-          "position": 11,
-          "description": null,
-          "showcase": false,
-          "start_date": "2025-01-10",
-          "group_id": "36n3k66s7n2v",
           "page_id": "q7pxfmcf2sbx",
           "group": false,
           "only_show_if_degraded": false
