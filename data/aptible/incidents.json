@@ -4,9 +4,39 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2026-04-29T16:03:41.613-04:00"
+    "updated_at": "2026-04-29T19:20:21.913-04:00"
   },
   "incidents": [
+    {
+      "id": "mpqvng52qt7s",
+      "name": "Aptible response to CVE-2026-31431",
+      "status": "resolved",
+      "created_at": "2026-04-29T18:40:43.273-04:00",
+      "updated_at": "2026-04-29T18:40:43.327-04:00",
+      "monitoring_at": null,
+      "resolved_at": "2026-04-29T18:40:43.316-04:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/p5q6dvc5wrtj",
+      "started_at": "2026-04-29T18:40:43.268-04:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "zvq89t61zkgq",
+          "status": "resolved",
+          "body": "Aptible is aware of CVE-2026-31431, also known as “Copy Fail,” a recently disclosed Linux kernel vulnerability that may allow local privilege escalation under certain conditions [0].\n\nWe have taken action across the Aptible platform to protect all customer workloads against this vulnerability. No customer action is required at this time.\n\nWe will continue to monitor upstream kernel, distribution, and security vendor guidance related to this CVE and will take any additional action if needed.\n\n[0] https://copy.fail/",
+          "incident_id": "mpqvng52qt7s",
+          "created_at": "2026-04-29T18:40:43.316-04:00",
+          "updated_at": "2026-04-29T18:40:43.316-04:00",
+          "display_at": "2026-04-29T18:40:43.316-04:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "7t6qthmnxg3g",
       "name": "Service degradation affecting api.aptible.com",
@@ -3731,62 +3761,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "xtf7kg1lhkl3",
-      "name": "High vulnerabilities in OpenSSL (CVE-2022-3602 & CVE-2022-3786)",
-      "status": "resolved",
-      "created_at": "2022-10-31T16:21:24.000-04:00",
-      "updated_at": "2022-11-03T09:53:27.903-04:00",
-      "monitoring_at": "2022-10-31T16:21:24.000-04:00",
-      "resolved_at": "2022-11-03T09:53:27.435-04:00",
-      "impact": "none",
-      "shortlink": "https://stspg.io/hq98c485xkzy",
-      "started_at": "2022-10-31T16:21:24.000-04:00",
-      "page_id": "fmwgqnbnbc4r",
-      "incident_updates": [
-        {
-          "id": "1ldfy3wwqfkb",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "xtf7kg1lhkl3",
-          "created_at": "2022-11-03T09:53:27.435-04:00",
-          "updated_at": "2022-11-03T09:53:27.863-04:00",
-          "display_at": "2022-11-03T09:53:27.435-04:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1588167476260765696
-        },
-        {
-          "id": "wjnw2h0q12hy",
-          "status": "monitoring",
-          "body": "OpenSSL's pre-announcements of CVE-2022-3602 described this issue as CRITICAL but has since been downgraded to HIGH [0]. Aptible remains unaffected by this vulnerability. We still recommend every Aptible customer check the OpenSSL versions used in their apps to confirm they're unaffected. Please follow the aforementioned steps to check the version and update OpenSSL accordingly.\n\nAdditional Context & Guidance from OpenSSL: https://www.openssl.org/blog/blog/2022/11/01/email-address-overflows/\n\n[0] https://www.openssl.org/news/secadv/20221101.txt",
-          "incident_id": "xtf7kg1lhkl3",
-          "created_at": "2022-11-01T13:21:58.431-04:00",
-          "updated_at": "2022-11-01T14:20:28.394-04:00",
-          "display_at": "2022-11-01T13:21:58.000-04:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1587495175722795008
-        },
-        {
-          "id": "rh0mq8ccdrxn",
-          "status": "monitoring",
-          "body": "OpenSSL has announced a critical vulnerability [0] for which a patch will be released tomorrow, November 1, 2022 between 13:00 and 17:00 UTC. The nature of the vulnerability has not been disclosed, but based on how it's being handled, Aptible expects it could be a serious vulnerability affecting data confidentiality for those running affected OpenSSL versions (>= 3.0.0, < 3.0.7).\n \nAptible has reviewed all infrastructure components that we manage and have confirmed that all are unaffected by this vulnerability. These components include:\n\n- Our Managed TLS endpoints\n- The TLS endpoints for our REST API services (Auth and Deploy APIs)\n- All versions of our managed databases\n- Our log forwarding infrastructure\n- Our metrics collection infrastructure\n- Our SSH and Git server infrastructure\n\nStill, every Aptible customer should check the OpenSSL versions used in their apps to confirm they're unaffected. To do so, run:\n\n$ aptible ssh --app $APP_HANDLE openssl version\n\nIf the version is >= 3.0.0, you should plan to upgrade your apps' Docker image(s) tomorrow as soon as OpenSSL 3.0.7 is released.\n\nWe will continue to update this incident page as more information is revealed about the vulnerability. If the vulnerability is only exploitable for *server-side* OpenSSL functionality, the impact to Aptible customers would be significantly reduced. Only those customers who use plain TCP endpoints [1] with their own OpenSSL for TLS termination would be affected in this scenario.\n\n[0] https://mta.openssl.org/pipermail/openssl-announce/2022-October/000238.html\n[1] https://deploy-docs.aptible.com/docs/tcp-endpoints",
-          "incident_id": "xtf7kg1lhkl3",
-          "created_at": "2022-10-31T16:21:24.724-04:00",
-          "updated_at": "2022-10-31T16:21:47.053-04:00",
-          "display_at": "2022-10-31T16:21:24.000-04:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1587177944585469952
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
