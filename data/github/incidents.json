@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-30T13:23:50.177Z"
+    "updated_at": "2026-04-30T18:33:43.304Z"
   },
   "incidents": [
     {
@@ -1338,7 +1338,7 @@
       "name": "Incident with multiple GitHub services",
       "status": "resolved",
       "created_at": "2026-04-23T16:12:47.744Z",
-      "updated_at": "2026-04-23T17:30:49.733Z",
+      "updated_at": "2026-04-30T17:48:53.955Z",
       "monitoring_at": null,
       "resolved_at": "2026-04-23T17:30:49.716Z",
       "impact": "critical",
@@ -1349,10 +1349,10 @@
         {
           "id": "gg1bvv6q3v4g",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On April 23, 2026, between 16:03 UTC and 17:27 UTC, multiple GitHub services experienced elevated error rates and degraded performance due to DNS resolution failures originating from our DNS infrastructure in our VA3 datacenter. Approximately 5–7% of overall traffic was affected during the impact window: <br /><br />- Webhooks: ~0.35% of API requests returned 5xx (peak ~0.39%). ~0.88% of requests exceeded 3s latency; at peak, >3s responses represented ~10% of Webhooks API traffic. <br /><br />- Copilot Metrics: ~9% of Copilot Insights dashboard requests returned 5xx. <br /><br />- Copilot cloud agents: ~10% of cloud agent sessions were affected and failing. <br /><br />- Octoshift: 0.88% of active repo migrations failed and 79% saw elevated durations (avg. 5.2 min) during this period. <br /><br />- Git Operations: averaged 1.25% errors over the duration of the incident, with a peak of 2.07% errors. <br /><br />- Actions: Workflow run status updates experienced delays of up to ~8s over the duration of the incident window. <br /><br />Our DNS infrastructure in VA3 entered a degraded state and began intermittently returning NXDOMAIN responses and timing out on lookups for both internal service discovery and external endpoints. This caused a cascading impact across the dependent services listed above. <br /><br />We identified a specific load pattern under which our DNS resolvers began failing. The evidence points to a recently introduced traffic-balancing mechanism, rolled out progressively to support our growth, as the root cause. We have since reverted this change. <br /><br />We are immediately prioritizing investments in a more controlled rollout and validation process, including a dedicated environment to safely shadow production DNS traffic and detect these failure modes before they can affect production.",
           "incident_id": "myrbk7jvvs6p",
           "created_at": "2026-04-23T17:30:49.716Z",
-          "updated_at": "2026-04-23T17:30:49.716Z",
+          "updated_at": "2026-04-30T17:48:53.950Z",
           "display_at": "2026-04-23T17:30:49.716Z",
           "affected_components": [
             {
