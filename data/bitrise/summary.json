@@ -4,7 +4,7 @@
     "name": "Bitrise",
     "url": "https://status.bitrise.io",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-04-30T05:43:44.637Z"
+    "updated_at": "2026-04-30T13:04:00.888Z"
   },
   "components": [
     {
@@ -40,9 +40,9 @@
     {
       "id": "jmwzblpshvb7",
       "name": "⚙️ Builds (CI)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-10-31T15:46:48.508Z",
-      "updated_at": "2026-04-29T20:24:42.550Z",
+      "updated_at": "2026-04-30T11:34:31.709Z",
       "position": 2,
       "description": "Any outages related to running builds on Bitrise. Some examples: build queues, builds fail to start, issues with scheduled builds, Steps, the Workflow Editor, and failures on app.bitrise.io.",
       "showcase": true,
@@ -503,7 +503,81 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "19rfbpxckhkw",
+      "name": "Elevated error rate with Android builds",
+      "status": "identified",
+      "created_at": "2026-04-30T11:34:31.683Z",
+      "updated_at": "2026-04-30T13:04:00.878Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/dykldtycr0q0",
+      "started_at": "2026-04-30T11:34:31.679Z",
+      "page_id": "1q8r4n02vb2k",
+      "incident_updates": [
+        {
+          "id": "7tq1hv4v6bp2",
+          "status": "identified",
+          "body": "<b>We are seeing some timeouts when connecting to the Maven Central proxy in one of our datacenters and are investigating. Dependency verification support is still in progress. We are exploring options to auto-enable the Gradle mirrors for our Bitrise customers.</b>\n\n<b>When will the next update be available?</b>\n\nYou can expect a status update approximately <b>1 hour</b> from now.",
+          "incident_id": "19rfbpxckhkw",
+          "created_at": "2026-04-30T13:04:00.874Z",
+          "updated_at": "2026-04-30T13:04:00.874Z",
+          "display_at": "2026-04-30T13:04:00.874Z",
+          "affected_components": [
+            {
+              "code": "jmwzblpshvb7",
+              "name": "⚙️ Builds (CI)",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "xxn6y9j2fbwd",
+          "status": "identified",
+          "body": "<b>We are tackling edge cases where the Maven Central mirror cannot be applied. We are working on a fix to make the Maven Central mirror compatible with dependency verification. We have released new versions of the affected steps (Install Android SDK components and Activate Gradle mirrors) to cover a larger subset of artifacts to proxy</b>\n\n<b>Services impacted:</b>\nAndroid builds\n\n<b>Severity:</b>\nSEV-2\n\n<b>When will the next update be available?<b>\n\nYou can expect a status update approximately <b>1 hour</b> from now.",
+          "incident_id": "19rfbpxckhkw",
+          "created_at": "2026-04-30T11:34:31.744Z",
+          "updated_at": "2026-04-30T11:34:31.744Z",
+          "display_at": "2026-04-30T11:34:31.744Z",
+          "affected_components": [
+            {
+              "code": "jmwzblpshvb7",
+              "name": "⚙️ Builds (CI)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "jmwzblpshvb7",
+          "name": "⚙️ Builds (CI)",
+          "status": "degraded_performance",
+          "created_at": "2015-10-31T15:46:48.508Z",
+          "updated_at": "2026-04-30T11:34:31.709Z",
+          "position": 2,
+          "description": "Any outages related to running builds on Bitrise. Some examples: build queues, builds fail to start, issues with scheduled builds, Steps, the Workflow Editor, and failures on app.bitrise.io.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "1q8r4n02vb2k",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": "[]"
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
     "indicator": "minor",
