@@ -4,7 +4,7 @@
     "name": "Bitrise",
     "url": "https://status.bitrise.io",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-01T21:33:29.495Z"
+    "updated_at": "2026-05-01T21:50:36.651Z"
   },
   "components": [
     {
@@ -40,9 +40,9 @@
     {
       "id": "jmwzblpshvb7",
       "name": "⚙️ Builds (CI)",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2015-10-31T15:46:48.508Z",
-      "updated_at": "2026-04-30T11:34:31.709Z",
+      "updated_at": "2026-05-01T21:50:36.598Z",
       "position": 2,
       "description": "Any outages related to running builds on Bitrise. Some examples: build queues, builds fail to start, issues with scheduled builds, Steps, the Workflow Editor, and failures on app.bitrise.io.",
       "showcase": true,
@@ -503,144 +503,10 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [
-    {
-      "id": "19rfbpxckhkw",
-      "name": "Elevated error rate with Android builds",
-      "status": "identified",
-      "created_at": "2026-04-30T11:34:31.683Z",
-      "updated_at": "2026-04-30T19:45:17.686Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/dykldtycr0q0",
-      "started_at": "2026-04-30T11:34:31.679Z",
-      "page_id": "1q8r4n02vb2k",
-      "incident_updates": [
-        {
-          "id": "j6mrrpym3jgc",
-          "status": "identified",
-          "body": "We are continuing to fine-tune our mirror for reduced latency. Customers using our mirror are no longer experiencing rate limiting. We are continuing to monitor for edge cases and help customers migrate to using the mirror by using the following <b><a href=\"https://discuss.bitrise.io/t/new-gradle-mirrors-on-bitrise-to-help-avoid-maven-central-rate-limits/25888\">guide</a></b>.\n\n\n<b>When will the next update be available?</b>\n\nYou can expect a status update approximately <b>1 hour</b> from now.",
-          "incident_id": "19rfbpxckhkw",
-          "created_at": "2026-04-30T19:45:17.682Z",
-          "updated_at": "2026-04-30T19:45:17.682Z",
-          "display_at": "2026-04-30T19:45:17.682Z",
-          "affected_components": [
-            {
-              "code": "jmwzblpshvb7",
-              "name": "⚙️ Builds (CI)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6yd58h765gwc",
-          "status": "identified",
-          "body": "<b>What we’re doing?</b>\n\nWe have rolled out a change so that all builds have the redirection enabled by default; there is no need to add the specific steps for this, except for dependency verification (which requires a specific step version pin).\n\nWe identified upstream 401 errors and are working on a fix.\n\nWe identified a gap in the mirroring logic for Roboelectric tests, exploring our options to help mitigate the issue.\n\nWe are seeing larger latencies from Maven Central upstream, which we are investigating.\n\n<b>When will the next update be available?</b>\n\nYou can expect a status update approximately <b>1 hour</b> from now.",
-          "incident_id": "19rfbpxckhkw",
-          "created_at": "2026-04-30T15:32:00.111Z",
-          "updated_at": "2026-04-30T15:32:00.111Z",
-          "display_at": "2026-04-30T15:32:00.111Z",
-          "affected_components": [
-            {
-              "code": "jmwzblpshvb7",
-              "name": "⚙️ Builds (CI)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "29dmlh8tv6xp",
-          "status": "identified",
-          "body": "For customers having dependency verification enabled for their Android builds, you will need to update your configuration based on our updated <b><a href=\"https://docs.google.com/document/d/1mrquZ-n7dNNmQo0o4ddzY73JTsY5xkYRgRKARoKNFvs/edit?tab=t.0#heading=h.hldkjykpbhvu\n\">guide</a></b>.\n\nWe have identified cases where customers have cached the init scripts performing the mirror redirection. This can break the builds as the mirrors are deployed inside the datacenters, so one URL in a build won't work in another. We strongly suggest that customers to not cache anything in ~/.gradle/init.d/, and if you do, clear these contents / re-add our steps that activate the mirror.\n\n<b>When will the next update be available?</b>\n\nYou can expect a status update approximately <b>1 hour</b> from now.",
-          "incident_id": "19rfbpxckhkw",
-          "created_at": "2026-04-30T14:01:06.209Z",
-          "updated_at": "2026-04-30T14:01:06.209Z",
-          "display_at": "2026-04-30T14:01:06.209Z",
-          "affected_components": [
-            {
-              "code": "jmwzblpshvb7",
-              "name": "⚙️ Builds (CI)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7tq1hv4v6bp2",
-          "status": "identified",
-          "body": "<b>We are seeing some timeouts when connecting to the Maven Central proxy in one of our datacenters and are investigating. Dependency verification support is still in progress. We are exploring options to auto-enable the Gradle mirrors for our Bitrise customers.</b>\n\n<b>When will the next update be available?</b>\n\nYou can expect a status update approximately <b>1 hour</b> from now.",
-          "incident_id": "19rfbpxckhkw",
-          "created_at": "2026-04-30T13:04:00.874Z",
-          "updated_at": "2026-04-30T13:04:00.874Z",
-          "display_at": "2026-04-30T13:04:00.874Z",
-          "affected_components": [
-            {
-              "code": "jmwzblpshvb7",
-              "name": "⚙️ Builds (CI)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xxn6y9j2fbwd",
-          "status": "identified",
-          "body": "<b>We are tackling edge cases where the Maven Central mirror cannot be applied. We are working on a fix to make the Maven Central mirror compatible with dependency verification. We have released new versions of the affected steps (Install Android SDK components and Activate Gradle mirrors) to cover a larger subset of artifacts to proxy</b>\n\n<b>Services impacted:</b>\nAndroid builds\n\n<b>Severity:</b>\nSEV-2\n\n<b>When will the next update be available?<b>\n\nYou can expect a status update approximately <b>1 hour</b> from now.",
-          "incident_id": "19rfbpxckhkw",
-          "created_at": "2026-04-30T11:34:31.744Z",
-          "updated_at": "2026-04-30T11:34:31.744Z",
-          "display_at": "2026-04-30T11:34:31.744Z",
-          "affected_components": [
-            {
-              "code": "jmwzblpshvb7",
-              "name": "⚙️ Builds (CI)",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "jmwzblpshvb7",
-          "name": "⚙️ Builds (CI)",
-          "status": "degraded_performance",
-          "created_at": "2015-10-31T15:46:48.508Z",
-          "updated_at": "2026-04-30T11:34:31.709Z",
-          "position": 2,
-          "description": "Any outages related to running builds on Bitrise. Some examples: build queues, builds fail to start, issues with scheduled builds, Steps, the Workflow Editor, and failures on app.bitrise.io.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "1q8r4n02vb2k",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": "[]"
-    }
-  ],
+  "incidents": [],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "minor",
-    "description": "Partially Degraded Service"
+    "indicator": "none",
+    "description": "All Systems Operational"
   }
 }
