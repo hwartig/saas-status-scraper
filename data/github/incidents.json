@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-05T18:35:41.903Z"
+    "updated_at": "2026-05-05T19:42:34.207Z"
   },
   "incidents": [
     {
@@ -1958,7 +1958,7 @@
       "name": "GitHub search is degraded",
       "status": "resolved",
       "created_at": "2026-04-27T16:31:07.245Z",
-      "updated_at": "2026-04-27T22:46:42.345Z",
+      "updated_at": "2026-05-05T19:42:34.196Z",
       "monitoring_at": "2026-04-27T21:33:20.434Z",
       "resolved_at": "2026-04-27T22:46:42.326Z",
       "impact": "critical",
@@ -1969,10 +1969,10 @@
         {
           "id": "s0g1qphwhmpl",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On April 27, 2026 between 16:15 UTC and 22:46 UTC, GitHub search services experienced degraded connectivity due to saturation of the load balancing tier deployed in front of our search infrastructure. This resulted in intermittent failures for services relying on our search data including Issues, Pull Requests, Projects, Repositories, Actions, Package Registry and Dependabot Alerts. The impact was varied by search target, with services seeing up to 65% of searches timing out or returning an error between 16:15 UTC and 18:00 UTC.  <br /><br />We detected the drop in search results through our ongoing monitoring and declared an incident at 16:21 UTC when we determined the issues would not self-heal. We tracked the incident as mitigated as of 21:33 UTC and monitored the systems until 22:46 UTC when we declared the incident resolved. Our existing monitoring did not classify the increased scraping as a risk and this dimension of the incident was only discovered while working to mitigate. <br /><br />The saturation was caused by a large influx of anonymous distributed scraping traffic that was crafted to avoid our public API rate limits. This scraping traffic made up 30% of the day’s total search traffic, but it was concentrated within a four-hour period.  The traffic originated from over 600,000 Unique IP addresses, with matching actor information across the board.  <br /><br />To mitigate, we immediately focused on relieving pressure from the load balancers while simultaneously working on scaling the load balancing tier, blocking the anomalous traffic and applying tuning to the balancers to fully resolve the incident.  <br /><br />Looking ahead, we’ve not only scaled the load balancer tier, but applied optimizations to improve our connection handling and re-use to reduce the possibility that a saturation event like this can re-occur. We’ve also added new monitors and controls within the platform to allow us to restrict anonymous traffic to mitigate the impact to our registered users. <br /><br />",
           "incident_id": "ql942tw29yl6",
           "created_at": "2026-04-27T22:46:42.326Z",
-          "updated_at": "2026-04-27T22:46:42.326Z",
+          "updated_at": "2026-05-05T19:42:34.190Z",
           "display_at": "2026-04-27T22:46:42.326Z",
           "affected_components": [
             {
