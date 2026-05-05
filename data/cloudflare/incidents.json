@@ -4,9 +4,82 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-05T14:24:39.432Z"
+    "updated_at": "2026-05-05T16:21:44.941Z"
   },
   "incidents": [
+    {
+      "id": "hpp89fn4g199",
+      "name": "Slower build start time in Workers Builds",
+      "status": "identified",
+      "created_at": "2026-05-05T15:24:56.577Z",
+      "updated_at": "2026-05-05T16:15:51.318Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/4y67jr09fvc5",
+      "started_at": "2026-05-05T15:24:56.569Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "wpz52l6tzzws",
+          "status": "identified",
+          "body": "The issue has been identified and a fix is being implemented.",
+          "incident_id": "hpp89fn4g199",
+          "created_at": "2026-05-05T16:15:51.315Z",
+          "updated_at": "2026-05-05T16:15:51.315Z",
+          "display_at": "2026-05-05T16:15:51.315Z",
+          "affected_components": [
+            {
+              "code": "vcpsk0w6g86k",
+              "name": "Cloudflare Sites and Services - Workers Builds",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "g06hsjswkfgv",
+          "status": "investigating",
+          "body": "Some Workers Builds users may experience increased build dequeue times",
+          "incident_id": "hpp89fn4g199",
+          "created_at": "2026-05-05T15:24:56.681Z",
+          "updated_at": "2026-05-05T15:24:56.681Z",
+          "display_at": "2026-05-05T15:24:56.681Z",
+          "affected_components": [
+            {
+              "code": "vcpsk0w6g86k",
+              "name": "Cloudflare Sites and Services - Workers Builds",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "vcpsk0w6g86k",
+          "name": "Workers Builds",
+          "status": "degraded_performance",
+          "created_at": "2025-05-27T17:04:31.385Z",
+          "updated_at": "2026-05-05T15:24:56.618Z",
+          "position": 109,
+          "description": "Workers Builds is Cloudflare's native CI/CD system that allows you to integrate with GitHub or GitLab to automatically deploy changes with each new push to a selected branch (e.g. main).",
+          "showcase": false,
+          "start_date": "2025-05-27",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "hswtxrx0fkd1",
       "name": "Errors adding R2 custom domains",
@@ -125,7 +198,7 @@
       "name": "Bot Management Issues",
       "status": "identified",
       "created_at": "2026-05-05T08:04:41.960Z",
-      "updated_at": "2026-05-05T09:17:42.487Z",
+      "updated_at": "2026-05-05T15:59:59.521Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -133,6 +206,26 @@
       "started_at": "2026-05-05T08:04:41.951Z",
       "page_id": "yh6f0r4529hb",
       "incident_updates": [
+        {
+          "id": "1xv3t2splz7b",
+          "status": "identified",
+          "body": "We have identified an issue with our Bot Management feature causing rules with IDs 50331648 and 50331649 to match traffic unexpectedly.  Customers using Bot Management may have seen an increase in requests flagged by these rules.  We have disabled the affected feature to prevent further impact. Our team is actively working on a fix.",
+          "incident_id": "xlh20wf0hd70",
+          "created_at": "2026-05-05T15:59:59.518Z",
+          "updated_at": "2026-05-05T15:59:59.518Z",
+          "display_at": "2026-05-05T15:59:59.518Z",
+          "affected_components": [
+            {
+              "code": "s0991jwsqllx",
+              "name": "Cloudflare Sites and Services - Bot Management",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "phm1kqkqypz0",
           "status": "identified",
@@ -555,9 +648,9 @@
         {
           "id": "vcpsk0w6g86k",
           "name": "Workers Builds",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2025-05-27T17:04:31.385Z",
-          "updated_at": "2026-05-04T22:01:50.509Z",
+          "updated_at": "2026-05-05T15:24:56.618Z",
           "position": 109,
           "description": "Workers Builds is Cloudflare's native CI/CD system that allows you to integrate with GitHub or GitLab to automatically deploy changes with each new push to a selected branch (e.g. main).",
           "showcase": false,
@@ -5226,159 +5319,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "w6z0dx54d2l5",
-      "name": "HTTP Log Analytics Issue",
-      "status": "resolved",
-      "created_at": "2026-04-18T09:42:33.260Z",
-      "updated_at": "2026-04-20T16:27:20.841Z",
-      "monitoring_at": "2026-04-20T12:25:48.548Z",
-      "resolved_at": "2026-04-20T16:27:20.826Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/z7555fn7b5zz",
-      "started_at": "2026-04-18T09:42:33.252Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "rhf6mr3j9n5r",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "w6z0dx54d2l5",
-          "created_at": "2026-04-20T16:27:20.826Z",
-          "updated_at": "2026-04-20T16:27:20.826Z",
-          "display_at": "2026-04-20T16:27:20.826Z",
-          "affected_components": [
-            {
-              "code": "4c231tkdlpcl",
-              "name": "Cloudflare Sites and Services - Analytics",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2lhv82v9nxlf",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "w6z0dx54d2l5",
-          "created_at": "2026-04-20T12:25:48.548Z",
-          "updated_at": "2026-04-20T12:25:48.548Z",
-          "display_at": "2026-04-20T12:25:48.548Z",
-          "affected_components": [
-            {
-              "code": "4c231tkdlpcl",
-              "name": "Cloudflare Sites and Services - Analytics",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fchqktg67gdx",
-          "status": "identified",
-          "body": "We are continuing to work on a fix for this issue.\n\nCurrent impact is restricted to a small number of customers with custom metadata boundaries.  There has not been any data loss in Analytics.",
-          "incident_id": "w6z0dx54d2l5",
-          "created_at": "2026-04-20T01:00:03.623Z",
-          "updated_at": "2026-04-20T01:00:03.623Z",
-          "display_at": "2026-04-20T01:00:03.623Z",
-          "affected_components": [
-            {
-              "code": "4c231tkdlpcl",
-              "name": "Cloudflare Sites and Services - Analytics",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rdwwvbvzfn34",
-          "status": "identified",
-          "body": "We identified that 0.05% of customers may see http analytics delayed by up to about 6 hours before being shown in the Cloudflare Dashboard. All Cloudflare traffic and security services remain operational and unimpacted.\nRemediation is in progress",
-          "incident_id": "w6z0dx54d2l5",
-          "created_at": "2026-04-18T13:45:52.968Z",
-          "updated_at": "2026-04-18T13:45:52.968Z",
-          "display_at": "2026-04-18T13:45:52.968Z",
-          "affected_components": [
-            {
-              "code": "4c231tkdlpcl",
-              "name": "Cloudflare Sites and Services - Analytics",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9rndp6v7g0m3",
-          "status": "identified",
-          "body": "We identified that a small percentage of customers may see http analytics delayed by up to about 6 hours before being shown in the Cloudflare Dashboard. All Cloudflare traffic and security services remain operational and unimpacted.\nRemediation is in progress",
-          "incident_id": "w6z0dx54d2l5",
-          "created_at": "2026-04-18T13:42:21.375Z",
-          "updated_at": "2026-04-18T13:42:21.375Z",
-          "display_at": "2026-04-18T13:42:21.375Z",
-          "affected_components": [
-            {
-              "code": "4c231tkdlpcl",
-              "name": "Cloudflare Sites and Services - Analytics",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5nm18vxfd01h",
-          "status": "investigating",
-          "body": "Some customers in US may observe inaccurate HTTP analytics metrics being shown in the Cloudflare Dashboard. All Cloudflare traffic and security services remain operational and unimpacted.\n\nWe are working to mitigate this problem.  More updates to follow shortly.",
-          "incident_id": "w6z0dx54d2l5",
-          "created_at": "2026-04-18T09:42:33.361Z",
-          "updated_at": "2026-04-18T09:42:33.361Z",
-          "display_at": "2026-04-18T09:42:33.361Z",
-          "affected_components": [
-            {
-              "code": "4c231tkdlpcl",
-              "name": "Cloudflare Sites and Services - Analytics",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "4c231tkdlpcl",
-          "name": "Analytics",
-          "status": "operational",
-          "created_at": "2014-11-13T11:54:10.191Z",
-          "updated_at": "2026-05-04T14:29:42.229Z",
-          "position": 6,
-          "description": "Customer analytics aggregation service",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
