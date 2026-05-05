@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-05T19:42:34.207Z"
+    "updated_at": "2026-05-05T23:24:10.165Z"
   },
   "incidents": [
     {
@@ -1526,7 +1526,7 @@
       "name": "Incomplete pull request results in repositories",
       "status": "resolved",
       "created_at": "2026-04-28T14:17:34.682Z",
-      "updated_at": "2026-05-01T04:15:09.843Z",
+      "updated_at": "2026-05-05T23:24:10.153Z",
       "monitoring_at": null,
       "resolved_at": "2026-05-01T04:15:09.831Z",
       "impact": "minor",
@@ -1537,10 +1537,10 @@
         {
           "id": "qp92bd2zsmgv",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On April 28, 2026, at approximately 14:07 UTC, GitHub received reports that pull requests were missing from search results across global and repository /pulls pages.  <br /><br />The issue was caused by a manually invoked repair job intended for a single repository, which was executed without the required safety flags. During execution of the repair job, the database query remained correctly scoped to the repo’s PR IDs. However, the Elasticsearch reconciliation logic did not apply the same scope.  It interpreted the min and max PR IDs as a continuous range, causing unrelated PR documents across other repos to be marked for deletion. This resulted in the removal of 1,789,756,838 PR documents from the search index, approximately 49% of indexed PR documents. <br /><br />Customer impact was limited to PR search and list discoverability. Primary storage was unaffected, and there was no impact to opening, updating, or merging PRs.  <br /><br />The issue was identified ~10 minutes after initial customer reports. Because it affected search index completeness rather than service availability, it was not caught by existing monitoring. <br /><br />The root cause was a flaw in the search document repair framework: it allowed a scoped reconciliation to run without enforcing a matching Elasticsearch query scope. This created a destructive mismatch between the source-of-truth and the index. The issue was compounded by the ability to trigger the job from the production console without safety defaults. Prior testing focused only on safe backfill scenarios and did not cover this reconciliation path. Additionally, there was no automated detection for large-volume deletions in Elasticsearch. <br /><br />We mitigated the incident through three parallel actions: (1) Deployed a MySQL-backed search fallback for the most active repos by traffic to restore PR visibility for highly impacted users (2) Initiated a snapshot restore and reindex process to repopulate missing pull request documents in Elasticsearch (3) Added a degradation notice on PR pages to inform users of incomplete search results while recovery was in progress. The incident was resolved on May 1, 2026 at 4:15 UTC, following completion and validation of the reindex process. <br /><br />To prevent recurrence, we are prioritizing improvements to the repair framework and safeguards. These include enforcing scoped query alignment between primary storage and Elasticsearch, preventing destructive operations without explicit opt-in, strengthening guardrails for manual repair jobs, and evaluating restrictions on production console access. <br /><br />In parallel, we are expanding automated test coverage for reconciliation safety invariants and introducing detection for anomalous deletion patterns in Elasticsearch so similar issues can be identified or blocked earlier. <br /><br />We are committed to improving the safety and reliability of our repair systems and ensuring that operational workflows are resilient to both software defects and manual invocation risks.",
           "incident_id": "x69zbgdyfzg0",
           "created_at": "2026-05-01T04:15:09.831Z",
-          "updated_at": "2026-05-01T04:15:09.831Z",
+          "updated_at": "2026-05-05T23:24:10.148Z",
           "display_at": "2026-05-01T04:15:09.831Z",
           "affected_components": [
             {
