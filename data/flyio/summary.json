@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-07T07:47:04.530Z"
+    "updated_at": "2026-05-07T10:20:58.148Z"
   },
   "components": [
     {
@@ -205,7 +205,7 @@
     {
       "id": "mrcyzlkkw8z9",
       "name": "Regional Availability",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T19:19:04.424Z",
       "updated_at": "2024-07-24T19:09:19.587Z",
       "position": 4,
@@ -285,9 +285,9 @@
     {
       "id": "k6fbt4mk0xv1",
       "name": "BOM - Mumbai, India",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-06-09T13:32:39.446Z",
-      "updated_at": "2025-12-17T02:27:08.982Z",
+      "updated_at": "2026-05-07T10:16:39.747Z",
       "position": 5,
       "description": null,
       "showcase": false,
@@ -925,10 +925,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "9095k4g4nczj",
+      "name": "Intermittent machines issues in BOM",
+      "status": "identified",
+      "created_at": "2026-05-07T10:16:39.715Z",
+      "updated_at": "2026-05-07T10:16:39.788Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/k4byljx3pb3p",
+      "started_at": "2026-05-07T10:16:39.708Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "0stgvjky3n70",
+          "status": "identified",
+          "body": "Creation and updating of machines in BOM are affected. Some metrics and logs for resources in BOM may be delayed.",
+          "incident_id": "9095k4g4nczj",
+          "created_at": "2026-05-07T10:16:39.786Z",
+          "updated_at": "2026-05-07T10:16:39.786Z",
+          "display_at": "2026-05-07T10:16:39.786Z",
+          "affected_components": [
+            {
+              "code": "k6fbt4mk0xv1",
+              "name": "Regional Availability - BOM - Mumbai, India",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "k6fbt4mk0xv1",
+          "name": "BOM - Mumbai, India",
+          "status": "degraded_performance",
+          "created_at": "2023-06-09T13:32:39.446Z",
+          "updated_at": "2026-05-07T10:16:39.747Z",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-06-07",
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
