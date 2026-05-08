@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-08T15:33:40.912Z"
+    "updated_at": "2026-05-08T17:28:48.091Z"
   },
   "incidents": [
     {
@@ -343,7 +343,7 @@
       "name": "Incident with Actions, we are investigating reports of degraded availability",
       "status": "resolved",
       "created_at": "2026-05-06T07:19:07.862Z",
-      "updated_at": "2026-05-06T09:44:26.222Z",
+      "updated_at": "2026-05-08T17:13:58.724Z",
       "monitoring_at": "2026-05-06T09:19:48.488Z",
       "resolved_at": "2026-05-06T09:44:26.204Z",
       "impact": "major",
@@ -354,10 +354,10 @@
         {
           "id": "j21d3v6ssmr6",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On May 6, 2026, from approximately 06:45 UTC to 09:15 UTC, GitHub Actions Standard Ubuntu hosted runners were degraded. 17.1% of jobs requesting a standard runner failed.<br /><br />This was caused by an unexpected data shape in the allocation configuration data for standard runners. That data was introduced as part of post-incident remediation work for an incident the previous day and caused new allocations to be blocked as load ramped up for the day. Removing that data at 08:51 allowed allocations to proceed and hosted runner pools to scale up and recover.<br /><br />We are updating the filter logic for this allocation data to be resilient to abnormal data shapes and improving monitoring to alert when allocations are blocked, allowing the team to respond before customer impact starts.",
           "incident_id": "1qzncbrxcsy4",
           "created_at": "2026-05-06T09:44:26.204Z",
-          "updated_at": "2026-05-06T09:44:26.204Z",
+          "updated_at": "2026-05-08T17:13:58.720Z",
           "display_at": "2026-05-06T09:44:26.204Z",
           "affected_components": [
             {
@@ -655,7 +655,7 @@
       "name": "Incident with Actions",
       "status": "resolved",
       "created_at": "2026-05-05T13:37:58.322Z",
-      "updated_at": "2026-05-05T17:26:52.183Z",
+      "updated_at": "2026-05-08T17:10:43.680Z",
       "monitoring_at": null,
       "resolved_at": "2026-05-05T17:26:52.164Z",
       "impact": "critical",
@@ -666,10 +666,10 @@
         {
           "id": "b5k2gd6kp3fn",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On May 5, 2026, from approximately 13:22 UTC to 17:05 UTC, GitHub Actions hosted runners in the East US region were degraded. 13.5% of jobs requesting a standard runner failed and ~16% of requested Larger Runners with private networking pinned to East US failed or were delayed by more than 5 minutes. Copilot Code Review requests were also impacted. Approximately 8,500 code review requests timed out during this window. Affected users saw an error comment on their pull requests and were able to retry by re-requesting a review. Most runner requests were picked up by other regions automatically, but a portion of requests still routing to East US were impacted.<br /><br />This was triggered by a scale-up operation for hosted runner VMs in the East US region. This is a regular operation, but the VM create load hit an internal rate limit when VM creates pull images from storage. Existing backoff logic was not triggered because of the response code returned in this case. The rate limiting and VM creation failures were mitigated by reducing load to allow for recovery and allowing queued work to be processed.  By 15:34 UTC, queued and failed job assignments were mostly mitigated, with less than 0.5% of runner assignments impacted between 15:34 and full recovery at 17:05.<br /><br />We are improving our system’s throttling behavior when limits occur, improving our controls to more quickly mitigate similar situations in the future, and reviewing all limits end-to-end for similar operations. We also immediately paused all scale and similar operations until these changes are in place and validated.",
           "incident_id": "1j40g94rn22j",
           "created_at": "2026-05-05T17:26:52.164Z",
-          "updated_at": "2026-05-05T17:26:52.164Z",
+          "updated_at": "2026-05-08T17:10:43.677Z",
           "display_at": "2026-05-05T17:26:52.164Z",
           "affected_components": [
             {
