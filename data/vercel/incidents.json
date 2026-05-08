@@ -4,15 +4,15 @@
     "name": "Vercel",
     "url": "https://www.vercel-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-08T01:24:04.093Z"
+    "updated_at": "2026-05-08T02:33:12.699Z"
   },
   "incidents": [
     {
       "id": "c5zv0h9jh4g4",
-      "name": "Elevated function invocation failures in IAD1",
+      "name": "Elevated errors across multiple services in IAD1",
       "status": "identified",
       "created_at": "2026-05-08T01:18:59.122Z",
-      "updated_at": "2026-05-08T01:18:59.257Z",
+      "updated_at": "2026-05-08T02:33:12.688Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -20,6 +20,158 @@
       "started_at": "2026-05-08T01:18:59.114Z",
       "page_id": "lvglq8h0mdyh",
       "incident_updates": [
+        {
+          "id": "6wj4bbvp8lvb",
+          "status": "identified",
+          "body": "New workflow runs and queue messages are being processed now. Processing the backlog of existing workflow runs and queued messages is still being investigated.",
+          "incident_id": "c5zv0h9jh4g4",
+          "created_at": "2026-05-08T02:33:12.684Z",
+          "updated_at": "2026-05-08T02:33:12.684Z",
+          "display_at": "2026-05-08T02:33:12.684Z",
+          "affected_components": [
+            {
+              "code": "kgcsn9c73xzf",
+              "name": "Serverless Functions",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "1w4lc3s3q2pz",
+              "name": "Edge Middleware",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "pdnc30nkdqth",
+              "name": "Edge Functions",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "y0nl08tmsz12",
+              "name": "Queues",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "c3yjhlfbv34z",
+              "name": "Workflow",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "5n5t37652d32",
+          "status": "identified",
+          "body": "We are continuing to work on a fix for this issue.",
+          "incident_id": "c5zv0h9jh4g4",
+          "created_at": "2026-05-08T02:18:42.225Z",
+          "updated_at": "2026-05-08T02:18:42.225Z",
+          "display_at": "2026-05-08T02:18:42.225Z",
+          "affected_components": [
+            {
+              "code": "kgcsn9c73xzf",
+              "name": "Serverless Functions",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "1w4lc3s3q2pz",
+              "name": "Edge Middleware",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "pdnc30nkdqth",
+              "name": "Edge Functions",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "y0nl08tmsz12",
+              "name": "Queues",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "c3yjhlfbv34z",
+              "name": "Workflow",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "8hjgqv9ym07r",
+          "status": "identified",
+          "body": "New messages to Vercel Workflows and Vercel Queues are being queued, but message processing is paused. Queued messages will be processed when service is restored.",
+          "incident_id": "c5zv0h9jh4g4",
+          "created_at": "2026-05-08T02:13:23.684Z",
+          "updated_at": "2026-05-08T02:18:57.983Z",
+          "display_at": "2026-05-08T02:13:23.000Z",
+          "affected_components": [
+            {
+              "code": "kgcsn9c73xzf",
+              "name": "Serverless Functions",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "1w4lc3s3q2pz",
+              "name": "Edge Middleware",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "pdnc30nkdqth",
+              "name": "Edge Functions",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "9wv61b8jjjc8",
+          "status": "identified",
+          "body": "Traffic to the IAD1 region has been re-routed to nearby regions. Functions configured in IAD1 will be invoked in a different region if failover regions are configured, but if no other regions are configured, the function will still be invoked in IAD1.",
+          "incident_id": "c5zv0h9jh4g4",
+          "created_at": "2026-05-08T01:47:09.881Z",
+          "updated_at": "2026-05-08T01:47:09.881Z",
+          "display_at": "2026-05-08T01:47:09.881Z",
+          "affected_components": [
+            {
+              "code": "kgcsn9c73xzf",
+              "name": "Serverless Functions",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "1w4lc3s3q2pz",
+              "name": "Edge Middleware",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "pdnc30nkdqth",
+              "name": "Edge Functions",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "s5r9lhmz8gkr",
           "status": "identified",
@@ -94,6 +246,36 @@
           "description": null,
           "showcase": true,
           "start_date": null,
+          "group_id": null,
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "y0nl08tmsz12",
+          "name": "Queues",
+          "status": "degraded_performance",
+          "created_at": "2026-03-06T20:43:12.390Z",
+          "updated_at": "2026-05-08T02:18:42.169Z",
+          "position": 29,
+          "description": null,
+          "showcase": true,
+          "start_date": "2026-03-06",
+          "group_id": null,
+          "page_id": "lvglq8h0mdyh",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "c3yjhlfbv34z",
+          "name": "Workflow",
+          "status": "degraded_performance",
+          "created_at": "2026-03-06T20:44:24.003Z",
+          "updated_at": "2026-05-08T02:18:42.184Z",
+          "position": 30,
+          "description": null,
+          "showcase": true,
+          "start_date": "2026-03-06",
           "group_id": null,
           "page_id": "lvglq8h0mdyh",
           "group": false,
@@ -698,9 +880,9 @@
         {
           "id": "c3yjhlfbv34z",
           "name": "Workflow",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2026-03-06T20:44:24.003Z",
-          "updated_at": "2026-05-06T00:19:54.228Z",
+          "updated_at": "2026-05-08T02:18:42.184Z",
           "position": 30,
           "description": null,
           "showcase": true,
@@ -4050,9 +4232,9 @@
         {
           "id": "y0nl08tmsz12",
           "name": "Queues",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2026-03-06T20:43:12.390Z",
-          "updated_at": "2026-03-06T21:22:01.275Z",
+          "updated_at": "2026-05-08T02:18:42.169Z",
           "position": 29,
           "description": null,
           "showcase": true,
@@ -4065,9 +4247,9 @@
         {
           "id": "c3yjhlfbv34z",
           "name": "Workflow",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2026-03-06T20:44:24.003Z",
-          "updated_at": "2026-05-06T00:19:54.228Z",
+          "updated_at": "2026-05-08T02:18:42.184Z",
           "position": 30,
           "description": null,
           "showcase": true,
