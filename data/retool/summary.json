@@ -4,15 +4,15 @@
     "name": "Retool",
     "url": "https://status.retool.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-08T13:33:52.544Z"
+    "updated_at": "2026-05-08T15:38:31.013Z"
   },
   "components": [
     {
       "id": "y59y6j4ms04l",
       "name": "Web Application and APIs",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2020-01-09T00:35:30.857Z",
-      "updated_at": "2026-05-05T23:59:48.377Z",
+      "updated_at": "2026-05-08T15:38:30.930Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -25,9 +25,9 @@
     {
       "id": "vg3lmkyc7zyt",
       "name": "Infrastructure",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2020-01-09T00:35:30.874Z",
-      "updated_at": "2026-05-05T23:59:48.391Z",
+      "updated_at": "2026-05-08T15:38:30.949Z",
       "position": 2,
       "description": "Retool infrastructure runs on top of AWS. AWS outages can cause temporary Retool outages as well.",
       "showcase": true,
@@ -188,241 +188,10 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [
-    {
-      "id": "tkwvlgtrs9vz",
-      "name": "Front-end assets from retool-edge.com failing to load for some customers",
-      "status": "monitoring",
-      "created_at": "2026-05-05T23:59:48.343Z",
-      "updated_at": "2026-05-08T00:26:38.039Z",
-      "monitoring_at": "2026-05-07T18:47:02.726Z",
-      "resolved_at": null,
-      "impact": "major",
-      "shortlink": "https://stspg.io/1kjmjtyrz0ks",
-      "started_at": "2026-05-05T23:59:48.337Z",
-      "page_id": "0qnsgqt7vsht",
-      "incident_updates": [
-        {
-          "id": "0wvym56bhh02",
-          "status": "monitoring",
-          "body": "We are no longer receiving new reports of users being affected. We will continue to monitor this incident over the next 24 hours before marking it as resolved.",
-          "incident_id": "tkwvlgtrs9vz",
-          "created_at": "2026-05-08T00:26:38.036Z",
-          "updated_at": "2026-05-08T00:26:38.036Z",
-          "display_at": "2026-05-08T00:26:38.036Z",
-          "affected_components": [
-            {
-              "code": "y59y6j4ms04l",
-              "name": "Web Application and APIs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "vg3lmkyc7zyt",
-              "name": "Infrastructure",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ph9r2vdpf1xn",
-          "status": "monitoring",
-          "body": "We are seeing reports of some users returning to normal operation. We are continuing to work with ISPs to remove the block on retool-edge.com and will keep you posted on our progress. If you are still experiencing issues, the workaround below remains available.",
-          "incident_id": "tkwvlgtrs9vz",
-          "created_at": "2026-05-07T18:47:02.726Z",
-          "updated_at": "2026-05-07T18:47:02.726Z",
-          "display_at": "2026-05-07T18:47:02.726Z",
-          "affected_components": [
-            {
-              "code": "y59y6j4ms04l",
-              "name": "Web Application and APIs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "vg3lmkyc7zyt",
-              "name": "Infrastructure",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "b7gpyg082513",
-          "status": "identified",
-          "body": "TALOS has reclassified our domain. We have escalated directly to affected ISPs to have the block fully lifted and are actively working toward a resolution. We will provide another update once full resolution is confirmed.",
-          "incident_id": "tkwvlgtrs9vz",
-          "created_at": "2026-05-06T20:51:02.254Z",
-          "updated_at": "2026-05-06T20:51:02.254Z",
-          "display_at": "2026-05-06T20:51:02.254Z",
-          "affected_components": [
-            {
-              "code": "y59y6j4ms04l",
-              "name": "Web Application and APIs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "vg3lmkyc7zyt",
-              "name": "Infrastructure",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l2f0yh4nl8pn",
-          "status": "identified",
-          "body": "Comcast Business SecurityEdge customers may find that the workaround mentioned does not work, and neither does allowlisting the retool-edge.com domain. In these cases, disabling SecurityEdge has been successful.\n\nIf you are still experiencing issues after trying the DNS workaround, we recommend reaching out to your IT team to check whether retool-edge.com has been added to a block list at the device profile or network level. Some filtering policies may be blocking the domain regardless of your DNS settings.\n\nWe are continuing to work with ISPs to unblock the domain and will provide updates as we have them.",
-          "incident_id": "tkwvlgtrs9vz",
-          "created_at": "2026-05-06T16:23:40.871Z",
-          "updated_at": "2026-05-06T16:23:40.871Z",
-          "display_at": "2026-05-06T16:23:40.871Z",
-          "affected_components": [
-            {
-              "code": "y59y6j4ms04l",
-              "name": "Web Application and APIs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "vg3lmkyc7zyt",
-              "name": "Infrastructure",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "p13n3fn3xz4q",
-          "status": "identified",
-          "body": "While we work on removing the ISP blocks, here is a workaround.\n\nYou can temporarily resolve this by switching to a trusted public DNS resolver such as 1.1.1.1 (Cloudflare) or 8.8.8.8 (Google).\n\nMac:\n1. System Settings → Network → select your connection → Details\n2. Click the DNS tab\n3. Add 1.1.1.1 or another trusted DNS resolver\n4. Click OK\n\nWindows 11:\n1. Settings → Network & Internet → select your connection (WiFi or Ethernet)\n2. Scroll down to DNS server assignment → click Edit\n3. Change to Manual, toggle on IPv4, enter 1.1.1.1 or another trusted DNS resolver\n4. Click Save\n\nIf you are not familiar with making these changes or your devices are managed by your organization, please reach out to your IT or infrastructure team for assistance.\n\nWe are actively working to resolve the underlying issue. We will provide updates as we have them.",
-          "incident_id": "tkwvlgtrs9vz",
-          "created_at": "2026-05-06T01:52:05.126Z",
-          "updated_at": "2026-05-06T01:52:05.126Z",
-          "display_at": "2026-05-06T01:52:05.126Z",
-          "affected_components": [
-            {
-              "code": "y59y6j4ms04l",
-              "name": "Web Application and APIs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "vg3lmkyc7zyt",
-              "name": "Infrastructure",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "pgvymgmlznfq",
-          "status": "identified",
-          "body": "We've identified the issue is due to certain ISPs blocking the retool-edge.com domain. Confirmed ISPs are Comcast Business and Optimum (Altice USA / Cabelvision).\n\nWe are actively working to remove the block.",
-          "incident_id": "tkwvlgtrs9vz",
-          "created_at": "2026-05-06T00:41:49.352Z",
-          "updated_at": "2026-05-06T00:41:49.352Z",
-          "display_at": "2026-05-06T00:41:49.352Z",
-          "affected_components": [
-            {
-              "code": "y59y6j4ms04l",
-              "name": "Web Application and APIs",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "vg3lmkyc7zyt",
-              "name": "Infrastructure",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "d9x04wk7p8f9",
-          "status": "investigating",
-          "body": "We are investigating errors for some users preventing Retool Apps from loading due to errors with retool-edge.com",
-          "incident_id": "tkwvlgtrs9vz",
-          "created_at": "2026-05-05T23:59:48.431Z",
-          "updated_at": "2026-05-05T23:59:48.431Z",
-          "display_at": "2026-05-05T23:59:48.431Z",
-          "affected_components": [
-            {
-              "code": "y59y6j4ms04l",
-              "name": "Web Application and APIs",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "vg3lmkyc7zyt",
-              "name": "Infrastructure",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "y59y6j4ms04l",
-          "name": "Web Application and APIs",
-          "status": "partial_outage",
-          "created_at": "2020-01-09T00:35:30.857Z",
-          "updated_at": "2026-05-05T23:59:48.377Z",
-          "position": 1,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "0qnsgqt7vsht",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "vg3lmkyc7zyt",
-          "name": "Infrastructure",
-          "status": "partial_outage",
-          "created_at": "2020-01-09T00:35:30.874Z",
-          "updated_at": "2026-05-05T23:59:48.391Z",
-          "position": 2,
-          "description": "Retool infrastructure runs on top of AWS. AWS outages can cause temporary Retool outages as well.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "0qnsgqt7vsht",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    }
-  ],
+  "incidents": [],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "minor",
-    "description": "Minor Service Outage"
+    "indicator": "none",
+    "description": "All Systems Operational"
   }
 }
