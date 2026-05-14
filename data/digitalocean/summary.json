@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-14T14:20:42.110Z"
+    "updated_at": "2026-05-14T16:43:30.703Z"
   },
   "components": [
     {
@@ -115,9 +115,9 @@
     {
       "id": "mzkgffp35tq4",
       "name": "Global",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-08-16T11:21:56.097Z",
-      "updated_at": "2026-05-08T21:54:44.510Z",
+      "updated_at": "2026-05-14T15:52:48.741Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -3253,7 +3253,7 @@
     {
       "id": "kl8qv98c9brp",
       "name": "Managed Databases",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T19:29:09.360Z",
       "updated_at": "2025-08-06T12:30:25.569Z",
       "position": 18,
@@ -3567,17 +3567,69 @@
   "incidents": [
     {
       "id": "gwgh41d5r0nz",
-      "name": "DNS service and Certificates",
-      "status": "investigating",
+      "name": "DNS service, Certificates and Managed MongoDB",
+      "status": "monitoring",
       "created_at": "2026-05-14T13:57:38.574Z",
-      "updated_at": "2026-05-14T13:57:38.668Z",
-      "monitoring_at": null,
+      "updated_at": "2026-05-14T16:43:30.700Z",
+      "monitoring_at": "2026-05-14T16:42:45.862Z",
       "resolved_at": null,
       "impact": "minor",
       "shortlink": "https://stspg.io/r6dtr7gc9pch",
       "started_at": "2026-05-14T13:57:38.566Z",
       "page_id": "w4cz49tckxhp",
       "incident_updates": [
+        {
+          "id": "0xhxv2z3t9n0",
+          "status": "monitoring",
+          "body": "Our Engineering team has implemented a fix for the issue affecting our DNS service and are now seeing DNS record updates successfully propagate to the edge.\n\nAs a result, Let's Encrypt certificate issuance and Managed MongoDB provisioning (including scaling operations) should resume. We are currently monitoring the systems as they process the backlog of delayed requests. Affected MongoDB clusters and certificate requests should complete their provisioning automatically.\n\nWe will continue to monitor the situation closely to ensure full stability. We appreciate your patience throughout this process and will provide an update once the issue is fully confirmed as resolved.",
+          "incident_id": "gwgh41d5r0nz",
+          "created_at": "2026-05-14T16:42:45.862Z",
+          "updated_at": "2026-05-14T16:42:45.862Z",
+          "display_at": "2026-05-14T16:42:45.862Z",
+          "affected_components": [
+            {
+              "code": "mzkgffp35tq4",
+              "name": "Managed Databases - Global",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "qdnryq0lymfk",
+              "name": "DNS",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "gzyj856wdqkm",
+          "status": "investigating",
+          "body": "Our engineering team continues to investigate an issue affecting our DNS service. At this time, DNS resolution remains functional; however, new changes to DNS records are currently not being reflected at the edge.\n\nThis issue is also impacting related services. Specifically, customers may be unable to create new Let's Encrypt certificates. Regarding Managed MongoDB, customers will be able to submit requests to create new clusters or scale existing ones, but the completion of the provisioning process is currently delayed. This is due to the dependency on Let's Encrypt certificate issuance, which requires functional DNS propagation.\n\nAffected clusters will automatically recover and complete their provisioning once the DNS issue is resolved. Our engineering team is actively working to restore full functionality across all affected services.\n\nWe apologize for the inconvenience and will share more information as it becomes available.",
+          "incident_id": "gwgh41d5r0nz",
+          "created_at": "2026-05-14T15:52:48.778Z",
+          "updated_at": "2026-05-14T15:52:48.778Z",
+          "display_at": "2026-05-14T15:52:48.778Z",
+          "affected_components": [
+            {
+              "code": "mzkgffp35tq4",
+              "name": "Managed Databases - Global",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "qdnryq0lymfk",
+              "name": "DNS",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "lk8c10l53dfn",
           "status": "investigating",
@@ -3600,6 +3652,21 @@
         }
       ],
       "components": [
+        {
+          "id": "mzkgffp35tq4",
+          "name": "Global",
+          "status": "degraded_performance",
+          "created_at": "2024-08-16T11:21:56.097Z",
+          "updated_at": "2026-05-14T15:52:48.741Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-08-16",
+          "group_id": "kl8qv98c9brp",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
         {
           "id": "qdnryq0lymfk",
           "name": "DNS",
