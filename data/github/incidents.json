@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "http://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-15T08:48:30.034Z"
+    "updated_at": "2026-05-15T23:22:37.377Z"
   },
   "incidents": [
     {
@@ -12,7 +12,7 @@
       "name": "Actions is experiencing degraded availability",
       "status": "resolved",
       "created_at": "2026-05-15T08:13:44.570Z",
-      "updated_at": "2026-05-15T08:48:30.031Z",
+      "updated_at": "2026-05-15T23:22:37.368Z",
       "monitoring_at": "2026-05-15T08:41:47.677Z",
       "resolved_at": "2026-05-15T08:48:30.015Z",
       "impact": "critical",
@@ -23,10 +23,10 @@
         {
           "id": "yl4cm4mjg7qw",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On May 15, 2026, from approximately 07:43 UTC to 08:48 UTC, GitHub Actions experienced a degradation that caused workflow runs to fail or experience delayed starts for a subset of customers. The incident was triggered by a planned failover of supporting infrastructure used by GitHub Actions. During that operation, an automated service discovery update did not propagate correctly, which caused traffic to be routed incorrectly and increased request timeouts in a core dependency for workflow orchestration.  <br /><br />At peak impact, 42% of Actions runs failed. Downstream services that depend on Actions workflow execution were also impacted, including GitHub Pages and Copilot cloud services. At 08:12 UTC, responders manually corrected the service discovery routing issue. Timeout and failure rates recovered shortly after, and we continued monitoring until full stabilization was confirmed across all affected services. The incident was marked resolved at 08:48 UTC.  <br /><br />To prevent recurrence, we are implementing failover guardrails that validate service discovery state before completing failover operations, strengthening pre-flight and post-flight verification checks, and improving dependency resilience to reduce timeout cascades during infrastructure events.",
           "incident_id": "ctf7nxpq5jzn",
           "created_at": "2026-05-15T08:48:30.015Z",
-          "updated_at": "2026-05-15T08:48:30.015Z",
+          "updated_at": "2026-05-15T23:22:37.365Z",
           "display_at": "2026-05-15T08:48:30.015Z",
           "affected_components": [
             {
