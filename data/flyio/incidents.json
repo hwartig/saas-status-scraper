@@ -4,9 +4,82 @@
     "name": "Fly.io",
     "url": "http://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-16T01:53:02.355Z"
+    "updated_at": "2026-05-16T12:45:23.631Z"
   },
   "incidents": [
+    {
+      "id": "b3qmpffwwgyf",
+      "name": "Some Managed Postgres clusters in FRA are unreachable",
+      "status": "investigating",
+      "created_at": "2026-05-16T12:45:12.561Z",
+      "updated_at": "2026-05-16T12:45:23.623Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/8rprt0n5hh9p",
+      "started_at": "2026-05-16T12:45:12.553Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "z41ky7svz8fz",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue.",
+          "incident_id": "b3qmpffwwgyf",
+          "created_at": "2026-05-16T12:45:23.620Z",
+          "updated_at": "2026-05-16T12:45:23.620Z",
+          "display_at": "2026-05-16T12:45:23.620Z",
+          "affected_components": [
+            {
+              "code": "dz36cj1q2s1r",
+              "name": "Managed Postgres - Management Plane - FRA",
+              "old_status": "degraded_performance",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "vdj4ytxmwmr1",
+          "status": "investigating",
+          "body": "We are currently investigating this issue.",
+          "incident_id": "b3qmpffwwgyf",
+          "created_at": "2026-05-16T12:45:12.628Z",
+          "updated_at": "2026-05-16T12:45:12.628Z",
+          "display_at": "2026-05-16T12:45:12.628Z",
+          "affected_components": [
+            {
+              "code": "dz36cj1q2s1r",
+              "name": "Managed Postgres - Management Plane - FRA",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "dz36cj1q2s1r",
+          "name": "Management Plane - FRA",
+          "status": "partial_outage",
+          "created_at": "2025-03-24T09:31:59.019Z",
+          "updated_at": "2026-05-16T12:45:23.572Z",
+          "position": 3,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-03-24",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "hl35ck73pm83",
       "name": "fly ssh console returns error 500",
@@ -2817,9 +2890,9 @@
         {
           "id": "dz36cj1q2s1r",
           "name": "Management Plane - FRA",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2025-03-24T09:31:59.019Z",
-          "updated_at": "2026-03-26T14:19:30.410Z",
+          "updated_at": "2026-05-16T12:45:23.572Z",
           "position": 3,
           "description": null,
           "showcase": true,
@@ -5727,139 +5800,6 @@
           "showcase": true,
           "start_date": "2025-12-15",
           "group_id": "h2hndffd5ysc",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "3j0hrt7wgv0t",
-      "name": "Deploys hanging at waiting for Depot Builder",
-      "status": "resolved",
-      "created_at": "2026-02-20T16:14:29.438Z",
-      "updated_at": "2026-02-20T20:49:34.571Z",
-      "monitoring_at": "2026-02-20T16:14:29.504Z",
-      "resolved_at": "2026-02-20T20:49:34.553Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/t84mjm6cgzpy",
-      "started_at": "2026-02-20T16:14:29.430Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "3j34mdq1hjhp",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "3j0hrt7wgv0t",
-          "created_at": "2026-02-20T20:49:34.553Z",
-          "updated_at": "2026-02-20T20:49:34.553Z",
-          "display_at": "2026-02-20T20:49:34.553Z",
-          "affected_components": [
-            {
-              "code": "49yq6v65b33l",
-              "name": "Deployments",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4j3rxch9nkt9",
-          "status": "monitoring",
-          "body": "The fix has been rolled out and we are seeing deploys using depot builder succeeding normally. We continue to monitor to ensure full recovery. \n\nDepot builders have been reenabled as the default option for new deploys",
-          "incident_id": "3j0hrt7wgv0t",
-          "created_at": "2026-02-20T19:38:28.477Z",
-          "updated_at": "2026-02-20T19:38:28.477Z",
-          "display_at": "2026-02-20T19:38:28.477Z",
-          "affected_components": [
-            {
-              "code": "49yq6v65b33l",
-              "name": "Deployments",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "53fv1njp6nv8",
-          "status": "identified",
-          "body": "A fix is being rolled out. Fly builders continue to be the default while this is deployed",
-          "incident_id": "3j0hrt7wgv0t",
-          "created_at": "2026-02-20T17:59:38.343Z",
-          "updated_at": "2026-02-20T17:59:38.343Z",
-          "display_at": "2026-02-20T17:59:38.343Z",
-          "affected_components": [
-            {
-              "code": "49yq6v65b33l",
-              "name": "Deployments",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0lc29hwh5w23",
-          "status": "identified",
-          "body": "We are again seeing elevated latency provisioning depot builders on new deploys. Users may see deploys using Depot builders hang or timeout at the \"Waiting for Depot Builder\" step. We are working on a fix.\n\nWe are switching all deploys to use the default Fly builders in the meantime. \n\nIf desired users can manually switch back to depot builders using `fly deploy --depot=true` but may continue to see latency issues at this time.",
-          "incident_id": "3j0hrt7wgv0t",
-          "created_at": "2026-02-20T16:39:00.431Z",
-          "updated_at": "2026-02-20T16:39:00.431Z",
-          "display_at": "2026-02-20T16:39:00.431Z",
-          "affected_components": [
-            {
-              "code": "49yq6v65b33l",
-              "name": "Deployments",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0730w3mvk2wr",
-          "status": "monitoring",
-          "body": "We have seen elevated latency provisioning Depot builders during deployments over the past hour. This caused some deploys to hang or timeout at the \"Waiting for Depot Builder\" step in this period. \n\nLatency has improved and builder provision times are back to normal. We're continuing to monitor to ensure latency remains normal.",
-          "incident_id": "3j0hrt7wgv0t",
-          "created_at": "2026-02-20T16:14:29.504Z",
-          "updated_at": "2026-02-20T16:14:29.504Z",
-          "display_at": "2026-02-20T16:14:29.504Z",
-          "affected_components": [
-            {
-              "code": "49yq6v65b33l",
-              "name": "Deployments",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "49yq6v65b33l",
-          "name": "Deployments",
-          "status": "operational",
-          "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-04-29T00:40:41.798Z",
-          "position": 6,
-          "description": "flyctl and GitHub Action app deployments",
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
           "page_id": "65rccr4mbblw",
           "group": false,
           "only_show_if_degraded": false
