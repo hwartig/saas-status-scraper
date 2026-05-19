@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-05-19T06:13:34.533-07:00"
+    "updated_at": "2026-05-19T08:20:22.033-07:00"
   },
   "incidents": [
     {
@@ -382,36 +382,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "yf69l4vbl51n",
-      "name": "[Minor] Customers may have experienced issues using Public API",
-      "status": "resolved",
-      "created_at": "2026-04-06T17:00:00.000-07:00",
-      "updated_at": "2026-04-06T17:36:22.634-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2026-04-06T17:00:00.000-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/k226r1dnrn8z",
-      "started_at": "2026-04-06T17:36:16.345-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "zgm2wl7ljj5n",
-          "status": "resolved",
-          "body": "Between 4:57 and 5:05 PM PST, some users may have experienced difficulties using Public API. No further impact has been observed and we are considering this issue to be resolved. If you are still experiencing any issues, please let us know at https://support.box.com.",
-          "incident_id": "yf69l4vbl51n",
-          "created_at": "2026-04-06T17:36:16.397-07:00",
-          "updated_at": "2026-04-06T17:36:16.397-07:00",
-          "display_at": "2026-04-06T17:00:00.000-07:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     },
     {
@@ -14365,6 +14335,145 @@
           "created_at": "2018-10-01T20:06:36.188-07:00",
           "updated_at": "2026-03-19T21:44:37.643-07:00",
           "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "l6vzpnn62cgq",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "sksq3wj58spf",
+      "name": "[Critical] Issues with Uploads, Downloads and Logins",
+      "status": "postmortem",
+      "created_at": "2025-01-15T17:12:58.053-08:00",
+      "updated_at": "2025-02-06T20:40:07.591-08:00",
+      "monitoring_at": "2025-01-15T17:23:47.423-08:00",
+      "resolved_at": "2025-01-15T18:02:17.199-08:00",
+      "impact": "critical",
+      "shortlink": "https://stspg.io/zzfk0cyxty73",
+      "started_at": "2025-01-15T17:12:58.043-08:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "q91nx60dlvmq",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Box Logins and Webapp. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 3:52pm PST and 5:10pm PST on January 15th, 2025, some users may have experienced difficulties while working in Box. During this time, some of the load balancers taking customer traffic suffered from memory exhaustion leading to users experiencing intermittent issues logging in to Box and connecting to the Box Webapp. The issue occurred due to a latent memory exhaustion problem in some of our public load balancer instances and was exacerbated by peak traffic levels. We were able to resolve the issue by performing a rolling restart of the affected instances and increasing the available load balancer instances to support peak traffic levels. In addition, we are working on improving our observability into the latent memory issues and previously unknown signals on these systems to prevent similar issues from occurring in the future. \n\n**Analysis** \n\nStarting at 5:30am PST on January 15th, some external load balancer instances which are responsible for routing all customer traffic started to exhaust their shared memory allocation. This happened due to organic traffic growth and an increase in the number of backends to which the load balancers were proxying traffic. While the overall memory of these systems remained at an acceptable level throughout the incident window, the shared memory zone was not tracked as a separate metric; as a result, the team was not alerted to this resource exhaustion. As the day went on and traffic levels increased, at 3:52pm PST these instances started to experience intermittent problems passing traffic to their backends, which led to customers experiencing intermittent errors or slowdowns when accessing Box, \\(including logins as well as the Webapp\\). Once the problem was identified during the investigation, we performed a rolling restart of the affected load balancer instances and increased the number of available instances. As a result of these efforts, overall site health was immediately improved and was considered recovered at 5:10pm PST.\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Improving our tracking and alerting on shared memory zone utilization \\[DONE\\]\n* Improving external test coverage as well as internal SLO baselines\n* Automating process for rolling reloads or restarts across the load balancing fleet\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,\n\nThe Box Team",
+          "incident_id": "sksq3wj58spf",
+          "created_at": "2025-02-06T18:15:16.658-08:00",
+          "updated_at": "2025-02-06T20:40:07.589-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "ky7mvt1tls6v",
+          "status": "resolved",
+          "body": "After further monitoring, this incident is now considered resolved. Uploads, downloads, and logins have been restored to full functionality. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
+          "incident_id": "sksq3wj58spf",
+          "created_at": "2025-01-15T18:02:17.199-08:00",
+          "updated_at": "2025-01-15T18:02:17.199-08:00",
+          "display_at": "2025-01-15T18:02:17.199-08:00",
+          "affected_components": [
+            {
+              "code": "khm68x6zltbt",
+              "name": "Box Web Application - Login/SSO",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "wtcp7snm0429",
+              "name": "Box Web Application - Uploads/Downloads",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "9rw4gx4j2kch",
+          "status": "monitoring",
+          "body": "A fix has been implemented and services have recovered. We are monitoring the results.",
+          "incident_id": "sksq3wj58spf",
+          "created_at": "2025-01-15T17:23:47.423-08:00",
+          "updated_at": "2025-01-15T17:23:47.423-08:00",
+          "display_at": "2025-01-15T17:23:47.423-08:00",
+          "affected_components": [
+            {
+              "code": "khm68x6zltbt",
+              "name": "Box Web Application - Login/SSO",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "wtcp7snm0429",
+              "name": "Box Web Application - Uploads/Downloads",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "q94g8b5r1j5z",
+          "status": "investigating",
+          "body": "We are investigating an ongoing issue affecting  uploads, downloads and logins.  We will provide more information as soon as it is available.",
+          "incident_id": "sksq3wj58spf",
+          "created_at": "2025-01-15T17:12:58.148-08:00",
+          "updated_at": "2025-01-15T17:12:58.148-08:00",
+          "display_at": "2025-01-15T17:12:58.148-08:00",
+          "affected_components": [
+            {
+              "code": "khm68x6zltbt",
+              "name": "Box Web Application - Login/SSO",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "wtcp7snm0429",
+              "name": "Box Web Application - Uploads/Downloads",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "khm68x6zltbt",
+          "name": "Login/SSO",
+          "status": "operational",
+          "created_at": "2018-10-01T20:06:36.188-07:00",
+          "updated_at": "2026-03-19T21:44:37.643-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "l6vzpnn62cgq",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "wtcp7snm0429",
+          "name": "Uploads/Downloads",
+          "status": "operational",
+          "created_at": "2018-10-01T20:08:50.656-07:00",
+          "updated_at": "2026-03-01T02:00:07.289-08:00",
+          "position": 2,
           "description": null,
           "showcase": false,
           "start_date": null,
