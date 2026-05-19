@@ -4,15 +4,15 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-19T17:48:39.382Z"
+    "updated_at": "2026-05-19T19:28:41.868Z"
   },
   "incidents": [
     {
       "id": "zq3f0j7wph20",
       "name": "Users experiencing issues accessing multiple Atlassian products",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-05-14T04:54:57.981Z",
-      "updated_at": "2026-05-14T23:56:22.807Z",
+      "updated_at": "2026-05-19T19:04:23.901Z",
       "monitoring_at": "2026-05-14T05:43:24.232Z",
       "resolved_at": "2026-05-14T06:48:27.762Z",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2026-05-14T06:41:36.000Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "cstgyd74c80q",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn May 14, 2026, between 04:30 and 05:26 UTC, Atlassian customers experienced widespread service disruption across multiple Atlassian Cloud products. The issue was caused by a race condition in our internal deployment orchestration platform during a routine rollback operation of a core identity service in the us-east region. This race condition resulted in insufficient capacity for the identity service in the affected region which started returning errors to dependent products. The incident was detected within a minute by automated monitoring systems and mitigated in 56 minutes.\n\n### **IMPACT**\n\nDuring the incident, customers attempting to access Atlassian Cloud products in the us-east region experienced authentication and permission failures and were unable to access services. Customers also experienced errors when accessing the support portal until Atlassian fell back to an alternate support method. This was caused by a core identity service in the us-east region becoming unavailable. Affected products included Atlassian Administration, Atlassian Analytics, Bitbucket, Compass, Confluence, Jira, Jira Product Discovery, Jira Service Management and Trello. Some users outside us-east may have been affected in certain scenarios.\n\n### **ROOT CAUSE**\n\nThe incident was caused by a race condition in our internal deployment orchestration platform during a routine rollback operation of a core identity service in the us-east region. This race condition resulted in insufficient capacity for the identity service in the affected region which started returning errors to dependent products.\n\n### **REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\nWe know that outages impact your productivity. Atlassian is prioritizing the following actions to help prevent similar incidents in future:\n\n* **Refine deployment orchestration safeguards**\n\n    * Harden our deployment platform to prevent similar race conditions or resulting capacity loss during a rollback operation.\n    * Streamline mitigation steps when a service becomes unavailable in a region.\n    \n* **Reduce cross-region impact**\n\n    * Improve regional isolation and fallback handling so an issue affecting a single region is less likely to impact customers or product functionality in other regions.\n    \n\nWe recognise how critical reliable access to Atlassian products is for our customers' productivity, and we apologize to customers who were impacted by this incident.\n\nThanks,\n\nAtlassian",
+          "incident_id": "zq3f0j7wph20",
+          "created_at": "2026-05-19T19:04:06.366Z",
+          "updated_at": "2026-05-19T19:04:23.899Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "z1cjmy594tch",
           "status": "resolved",
