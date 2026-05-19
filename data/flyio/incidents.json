@@ -4,9 +4,135 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-19T10:18:45.493Z"
+    "updated_at": "2026-05-19T13:13:43.590Z"
   },
   "incidents": [
+    {
+      "id": "61rjq3l2ylyy",
+      "name": "Proxy issues in SIN region",
+      "status": "resolved",
+      "created_at": "2026-05-19T11:15:27.297Z",
+      "updated_at": "2026-05-19T12:00:00.521Z",
+      "monitoring_at": "2026-05-19T11:22:17.243Z",
+      "resolved_at": "2026-05-19T12:00:00.508Z",
+      "impact": "major",
+      "shortlink": "https://stspg.io/k35v1ryw72n8",
+      "started_at": "2026-05-19T11:15:27.285Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "nm1nb72lxsb1",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "61rjq3l2ylyy",
+          "created_at": "2026-05-19T12:00:00.508Z",
+          "updated_at": "2026-05-19T12:00:00.508Z",
+          "display_at": "2026-05-19T12:00:00.508Z",
+          "affected_components": [
+            {
+              "code": "b97pv9yxbzv7",
+              "name": "Regional Availability - SIN - Singapore",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "1nlcpj3qhzxl",
+              "name": "Managed Postgres - Management Plane - SIN",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "d1rdj2lp5fkq",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are seeing proxy performance in SIN return to normal. All Managed Postgres clusters in the region are reachable. We are continuing to monitor to ensure stable recovery.",
+          "incident_id": "61rjq3l2ylyy",
+          "created_at": "2026-05-19T11:22:17.243Z",
+          "updated_at": "2026-05-19T11:22:17.243Z",
+          "display_at": "2026-05-19T11:22:17.243Z",
+          "affected_components": [
+            {
+              "code": "b97pv9yxbzv7",
+              "name": "Regional Availability - SIN - Singapore",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "1nlcpj3qhzxl",
+              "name": "Managed Postgres - Management Plane - SIN",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "d2x7q8yqlfwy",
+          "status": "investigating",
+          "body": "We are investigating issues with fly-proxy on a subset of hosts in the Singapore region. Apps are still running, but requests to/from some apps may fail, and some Managed Postgres clusters may be inaccessible.",
+          "incident_id": "61rjq3l2ylyy",
+          "created_at": "2026-05-19T11:15:27.393Z",
+          "updated_at": "2026-05-19T11:15:27.393Z",
+          "display_at": "2026-05-19T11:15:27.393Z",
+          "affected_components": [
+            {
+              "code": "b97pv9yxbzv7",
+              "name": "Regional Availability - SIN - Singapore",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "1nlcpj3qhzxl",
+              "name": "Managed Postgres - Management Plane - SIN",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "1nlcpj3qhzxl",
+          "name": "Management Plane - SIN",
+          "status": "operational",
+          "created_at": "2025-12-15T10:22:19.512Z",
+          "updated_at": "2026-05-19T11:22:17.186Z",
+          "position": 10,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-12-15",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "b97pv9yxbzv7",
+          "name": "SIN - Singapore",
+          "status": "under_maintenance",
+          "created_at": "2019-07-01T19:31:49.625Z",
+          "updated_at": "2026-05-19T13:00:07.405Z",
+          "position": 30,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "b3qmpffwwgyf",
       "name": "Some Managed Postgres clusters in FRA are unreachable",
@@ -1543,9 +1669,9 @@
         {
           "id": "b97pv9yxbzv7",
           "name": "SIN - Singapore",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2019-07-01T19:31:49.625Z",
-          "updated_at": "2026-04-20T17:38:10.531Z",
+          "updated_at": "2026-05-19T13:00:07.405Z",
           "position": 30,
           "description": null,
           "showcase": false,
@@ -2522,9 +2648,9 @@
         {
           "id": "b97pv9yxbzv7",
           "name": "SIN - Singapore",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2019-07-01T19:31:49.625Z",
-          "updated_at": "2026-04-20T17:38:10.531Z",
+          "updated_at": "2026-05-19T13:00:07.405Z",
           "position": 30,
           "description": null,
           "showcase": false,
@@ -5753,133 +5879,6 @@
           "showcase": false,
           "start_date": "2026-02-11",
           "group_id": null,
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "d3tg9r1b856x",
-      "name": "Degraded Managed Postgres Control Plane",
-      "status": "resolved",
-      "created_at": "2026-02-23T15:00:09.045Z",
-      "updated_at": "2026-02-24T01:26:49.962Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-02-23T20:30:59.000Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/xylpxs7mwzlc",
-      "started_at": "2026-02-24T20:30:59.000Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "qpnpy8fqpyyf",
-          "status": "resolved",
-          "body": "This incident has been resolved as of 20:30 UTC.",
-          "incident_id": "d3tg9r1b856x",
-          "created_at": "2026-02-24T00:31:59.849Z",
-          "updated_at": "2026-02-24T01:26:49.861Z",
-          "display_at": "2026-02-23T20:30:59.000Z",
-          "affected_components": [
-            {
-              "code": "nv3vps27z635",
-              "name": "Managed Postgres - Management Plane - IAD",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "wsvw4rnbxf0k",
-              "name": "Managed Postgres - Management Plane - LHR",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "1nlcpj3qhzxl",
-              "name": "Managed Postgres - Management Plane - SIN",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "g7rf1plnt0gd",
-          "status": "investigating",
-          "body": "We are currently investigating issues with the MPG control plane. Users may experience delays or hanging when creating or deleting databases via the dashboard or CLI.",
-          "incident_id": "d3tg9r1b856x",
-          "created_at": "2026-02-23T15:00:09.116Z",
-          "updated_at": "2026-02-23T15:00:09.116Z",
-          "display_at": "2026-02-23T15:00:09.116Z",
-          "affected_components": [
-            {
-              "code": "nv3vps27z635",
-              "name": "Managed Postgres - Management Plane - IAD",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "wsvw4rnbxf0k",
-              "name": "Managed Postgres - Management Plane - LHR",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "1nlcpj3qhzxl",
-              "name": "Managed Postgres - Management Plane - SIN",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "nv3vps27z635",
-          "name": "Management Plane - IAD",
-          "status": "operational",
-          "created_at": "2025-03-24T09:31:42.559Z",
-          "updated_at": "2026-02-26T22:28:19.522Z",
-          "position": 2,
-          "description": null,
-          "showcase": true,
-          "start_date": "2025-03-24",
-          "group_id": "h2hndffd5ysc",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "wsvw4rnbxf0k",
-          "name": "Management Plane - LHR",
-          "status": "operational",
-          "created_at": "2025-12-15T10:21:16.965Z",
-          "updated_at": "2026-01-06T08:59:23.732Z",
-          "position": 8,
-          "description": null,
-          "showcase": true,
-          "start_date": "2025-12-15",
-          "group_id": "h2hndffd5ysc",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "1nlcpj3qhzxl",
-          "name": "Management Plane - SIN",
-          "status": "operational",
-          "created_at": "2025-12-15T10:22:19.512Z",
-          "updated_at": "2026-02-06T04:58:02.456Z",
-          "position": 10,
-          "description": null,
-          "showcase": true,
-          "start_date": "2025-12-15",
-          "group_id": "h2hndffd5ysc",
           "page_id": "65rccr4mbblw",
           "group": false,
           "only_show_if_degraded": false
