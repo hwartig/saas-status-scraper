@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-20T07:23:43.430Z"
+    "updated_at": "2026-05-20T10:43:42.368Z"
   },
   "components": [
     {
@@ -205,7 +205,7 @@
     {
       "id": "mrcyzlkkw8z9",
       "name": "Regional Availability",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T19:19:04.424Z",
       "updated_at": "2024-07-24T19:09:19.587Z",
       "position": 4,
@@ -510,9 +510,9 @@
     {
       "id": "1nlcpj3qhzxl",
       "name": "Management Plane - SIN",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-12-15T10:22:19.512Z",
-      "updated_at": "2026-05-19T11:22:17.186Z",
+      "updated_at": "2026-05-20T08:06:21.912Z",
       "position": 10,
       "description": null,
       "showcase": true,
@@ -763,7 +763,7 @@
     {
       "id": "h2hndffd5ysc",
       "name": "Managed Postgres",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:28:07.922Z",
       "updated_at": "2025-03-24T09:28:07.922Z",
       "position": 19,
@@ -867,9 +867,9 @@
     {
       "id": "b97pv9yxbzv7",
       "name": "SIN - Singapore",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T19:31:49.625Z",
-      "updated_at": "2026-05-19T14:30:07.155Z",
+      "updated_at": "2026-05-20T08:06:21.928Z",
       "position": 30,
       "description": null,
       "showcase": false,
@@ -927,87 +927,120 @@
   ],
   "incidents": [
     {
-      "id": "mqjsth77t97t",
-      "name": "Networking issues with egress IP addresses in SYD",
-      "status": "monitoring",
-      "created_at": "2026-05-20T05:05:54.000Z",
-      "updated_at": "2026-05-20T07:11:13.200Z",
-      "monitoring_at": "2026-05-20T07:11:13.180Z",
+      "id": "0qqxtmy6dymp",
+      "name": "Networking issues in SIN",
+      "status": "identified",
+      "created_at": "2026-05-20T08:06:21.877Z",
+      "updated_at": "2026-05-20T09:00:56.170Z",
+      "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
-      "shortlink": "https://stspg.io/zp3r27h402w3",
-      "started_at": "2026-05-20T05:05:54.000Z",
+      "shortlink": "https://stspg.io/7hj91q5h9snm",
+      "started_at": "2026-05-20T08:06:21.866Z",
       "page_id": "65rccr4mbblw",
       "incident_updates": [
         {
-          "id": "cw8dhy7qwwck",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "mqjsth77t97t",
-          "created_at": "2026-05-20T07:11:13.180Z",
-          "updated_at": "2026-05-20T07:11:13.180Z",
-          "display_at": "2026-05-20T07:11:13.180Z",
-          "affected_components": [
-            {
-              "code": "6g1pz83ylj1r",
-              "name": "Regional Availability - SYD - Sydney, Australia",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "79572ztb2fnm",
+          "id": "rbd5y53t5xw4",
           "status": "identified",
-          "body": "We've identified the issue and are working on a fix.",
-          "incident_id": "mqjsth77t97t",
-          "created_at": "2026-05-20T05:57:29.696Z",
-          "updated_at": "2026-05-20T05:57:29.696Z",
-          "display_at": "2026-05-20T05:57:29.696Z",
+          "body": "All MPGs in SIN are reachable again. We are seeing high latency to the affected provider. This may affect a subset of machines hosted in SIN.",
+          "incident_id": "0qqxtmy6dymp",
+          "created_at": "2026-05-20T08:59:42.198Z",
+          "updated_at": "2026-05-20T09:00:56.165Z",
+          "display_at": "2026-05-20T08:59:42.000Z",
           "affected_components": [
             {
-              "code": "6g1pz83ylj1r",
-              "name": "Regional Availability - SYD - Sydney, Australia",
+              "code": "b97pv9yxbzv7",
+              "name": "Regional Availability - SIN - Singapore",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "1nlcpj3qhzxl",
+              "name": "Managed Postgres - Management Plane - SIN",
               "old_status": "degraded_performance",
               "new_status": "degraded_performance"
             }
           ],
-          "deliver_notifications": true,
+          "deliver_notifications": false,
           "custom_tweet": null,
           "tweet_id": null
         },
         {
-          "id": "x1tg9cl90pgx",
-          "status": "investigating",
-          "body": "We are currently investigating an issue affecting networking for new machines whose apps have assigned egress IP addresses in our SYD region",
-          "incident_id": "mqjsth77t97t",
-          "created_at": "2026-05-20T05:05:54.245Z",
-          "updated_at": "2026-05-20T05:12:50.926Z",
-          "display_at": "2026-05-20T05:05:54.000Z",
+          "id": "6p069pphvp0y",
+          "status": "identified",
+          "body": "One of our upstreams is experiencing high packet loss and latency. We are actively working with them.",
+          "incident_id": "0qqxtmy6dymp",
+          "created_at": "2026-05-20T08:23:25.821Z",
+          "updated_at": "2026-05-20T08:23:25.821Z",
+          "display_at": "2026-05-20T08:23:25.821Z",
           "affected_components": [
             {
-              "code": "6g1pz83ylj1r",
-              "name": "Regional Availability - SYD - Sydney, Australia",
+              "code": "b97pv9yxbzv7",
+              "name": "Regional Availability - SIN - Singapore",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "1nlcpj3qhzxl",
+              "name": "Managed Postgres - Management Plane - SIN",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "ks5wx9y4lb6g",
+          "status": "investigating",
+          "body": "Machines may see high packet loss. Some MPGs are unable to connect to their config store and may be unreachable right now.",
+          "incident_id": "0qqxtmy6dymp",
+          "created_at": "2026-05-20T08:06:21.965Z",
+          "updated_at": "2026-05-20T08:06:21.965Z",
+          "display_at": "2026-05-20T08:06:21.965Z",
+          "affected_components": [
+            {
+              "code": "b97pv9yxbzv7",
+              "name": "Regional Availability - SIN - Singapore",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "1nlcpj3qhzxl",
+              "name": "Managed Postgres - Management Plane - SIN",
               "old_status": "operational",
               "new_status": "degraded_performance"
             }
           ],
-          "deliver_notifications": true,
+          "deliver_notifications": false,
           "custom_tweet": null,
           "tweet_id": null
         }
       ],
       "components": [
         {
-          "id": "6g1pz83ylj1r",
-          "name": "SYD - Sydney, Australia",
-          "status": "operational",
-          "created_at": "2019-07-01T19:30:32.230Z",
-          "updated_at": "2026-05-20T07:11:13.134Z",
-          "position": 32,
+          "id": "1nlcpj3qhzxl",
+          "name": "Management Plane - SIN",
+          "status": "degraded_performance",
+          "created_at": "2025-12-15T10:22:19.512Z",
+          "updated_at": "2026-05-20T08:06:21.912Z",
+          "position": 10,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-12-15",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "b97pv9yxbzv7",
+          "name": "SIN - Singapore",
+          "status": "degraded_performance",
+          "created_at": "2019-07-01T19:31:49.625Z",
+          "updated_at": "2026-05-20T08:06:21.928Z",
+          "position": 30,
           "description": null,
           "showcase": false,
           "start_date": null,
@@ -1022,7 +1055,7 @@
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
