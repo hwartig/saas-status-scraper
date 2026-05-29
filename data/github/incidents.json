@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-29T21:39:05.163Z"
+    "updated_at": "2026-05-29T23:09:03.752Z"
   },
   "incidents": [
     {
@@ -559,7 +559,7 @@
       "name": "Incident with Actions and Pages",
       "status": "resolved",
       "created_at": "2026-05-26T10:57:13.848Z",
-      "updated_at": "2026-05-27T04:00:22.608Z",
+      "updated_at": "2026-05-29T22:38:38.242Z",
       "monitoring_at": "2026-05-26T13:00:45.645Z",
       "resolved_at": "2026-05-26T13:18:48.000Z",
       "impact": "critical",
@@ -570,10 +570,10 @@
         {
           "id": "02rwzk66gv9v",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. During this incident, a small number of Issues, PRs, Comments, and Discussions were marked as hidden. We are working on correcting the underlying records. No data has been lost as part of this incident. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On May 26, 2026, between 10:40 UTC and 12:56 UTC, GitHub Actions jobs were degraded. From 10:40 to 12:16 UTC, all newly queued Actions runs failed to start. From 12:16 to 12:56 UTC, Actions runs that required downloading actions for their workflows continued to fail. GitHub Pages, Copilot Code Review, Copilot coding agent, Octoshift, and GitHub Enterprise Importer were also impacted due to their dependency on Actions. <br /><br />This was caused by our automated account review system incorrectly suspending the service account used by GitHub Actions to authenticate workflow runs and download actions. <br /><br />We mitigated by restoring the account at 12:16 UTC, marking it exempt from further automated review at 12:20 UTC, and redeploying a related service at 12:48 UTC to flush cached account state. Full recovery was confirmed at 12:56 UTC. <br /><br />During this incident, a small number of Issues, PRs, Comments, and Discussions were marked as hidden when the service account was disabled. No data was lost. All content hidden because of this incident has been restored and full search index restoration is in progress. <br /><br />To prevent a recurrence, we have added an allowlist of all service accounts that cannot be suspended by automated systems, and ensuring these protections are enforced consistently across all account management tooling. We are also improving diagnostic tooling for accounts and reducing cache propagation delays to shorten time to mitigate similar incidents in the future.",
           "incident_id": "gnftqj9htp0g",
           "created_at": "2026-05-26T13:18:48.540Z",
-          "updated_at": "2026-05-27T04:00:22.591Z",
+          "updated_at": "2026-05-29T22:38:38.234Z",
           "display_at": "2026-05-26T13:18:48.000Z",
           "affected_components": [
             {
