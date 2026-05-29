@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-05-29T16:59:01.561Z"
+    "updated_at": "2026-05-29T19:58:54.114Z"
   },
   "incidents": [
     {
@@ -261,7 +261,7 @@
       "name": "Incident with Pull Requests, Issues, Git Operations and API Requests",
       "status": "resolved",
       "created_at": "2026-05-27T12:10:09.592Z",
-      "updated_at": "2026-05-27T13:16:54.128Z",
+      "updated_at": "2026-05-29T18:28:56.886Z",
       "monitoring_at": null,
       "resolved_at": "2026-05-27T13:16:54.083Z",
       "impact": "minor",
@@ -272,10 +272,10 @@
         {
           "id": "4r5y2c5j12mq",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On May 27, 2026, between 12:07 UTC and 13:16 UTC, users experienced degraded performance for Git operations, Pull Requests, Issues, GraphQL API, and related services on github.com. During this time, operations that depended on Git file servers experienced elevated error rates (3.5% of pushes via HTTPS and 0.2% of pushes via SSH failed; no fetches/clones failed). An internal analytics component generated unexpectedly high load, which caused CPU saturation on the underlying infrastructure. This led to cascading slowdowns and errors across services that depend on Git operations. The issue was mitigated by stopping the offending component. Services began recovering shortly after mitigation and were fully restored by 13:16 UTC. We are taking steps to add resource limits and kill switches for internal analytics components to prevent similar issues in the future.",
           "incident_id": "xy1tt3hs572m",
           "created_at": "2026-05-27T13:16:54.083Z",
-          "updated_at": "2026-05-27T13:16:54.083Z",
+          "updated_at": "2026-05-29T18:28:56.875Z",
           "display_at": "2026-05-27T13:16:54.083Z",
           "affected_components": [
             {
@@ -815,22 +815,22 @@
       "name": "Intermittent errors with app installation token authentication",
       "status": "resolved",
       "created_at": "2026-05-23T16:00:55.001Z",
-      "updated_at": "2026-05-23T19:32:26.283Z",
+      "updated_at": "2026-05-29T19:49:33.149Z",
       "monitoring_at": null,
-      "resolved_at": "2026-05-23T19:32:26.229Z",
+      "resolved_at": "2026-05-23T19:32:26.000Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/0pb44wwxf426",
-      "started_at": "2026-05-23T16:00:54.984Z",
+      "started_at": "2026-05-23T19:32:26.000Z",
       "page_id": "kctbh9vrtdwd",
       "incident_updates": [
         {
           "id": "cy9j2flnmyhd",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On May 23, 2026 between 06:00 UTC and 19:12 UTC, GitHub experienced intermittent errors authenticating <a href=\"https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation\" target=\"_blank\">GitHub app installation tokens</a>. \n\nDuring this time, between 1-5% of app installation token authentication requests failed, with an average of 2.3% and the error rate peaking at approximately 5.4% around 14:00 UTC. Users may have experienced authentication failures when using GitHub Apps, including failures in Git operations and API calls using app installation tokens.\n\nThe issue was caused by an issue in a caching proxy component and was remediated by rolling back that component to a previous version. We are taking steps to improve monitoring for cache miss anomalies to ensure that token authentication remains functional during infrastructure changes and reviewing our protocol for testing and when we upgrade third-party dependencies.",
           "incident_id": "k5z4d1v1tqmt",
           "created_at": "2026-05-23T19:32:26.229Z",
-          "updated_at": "2026-05-23T19:32:26.229Z",
-          "display_at": "2026-05-23T19:32:26.229Z",
+          "updated_at": "2026-05-29T19:49:33.083Z",
+          "display_at": "2026-05-23T19:32:26.000Z",
           "affected_components": null,
           "deliver_notifications": true,
           "custom_tweet": null,
