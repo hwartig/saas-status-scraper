@@ -4,7 +4,7 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-01T15:49:10.925Z"
+    "updated_at": "2026-06-01T21:50:10.639Z"
   },
   "incidents": [
     {
@@ -1752,9 +1752,9 @@
     {
       "id": "90cyzwh234yl",
       "name": "Automations within Jira, Jira Service Management and JSM Assist experiencing delays for some users",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-05-13T01:37:35.031Z",
-      "updated_at": "2026-05-13T09:59:05.973Z",
+      "updated_at": "2026-06-01T21:50:10.635Z",
       "monitoring_at": null,
       "resolved_at": "2026-05-13T09:59:05.956Z",
       "impact": "major",
@@ -1762,6 +1762,19 @@
       "started_at": "2026-05-13T01:37:35.022Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "n7mvdgtwpy6h",
+          "status": "postmortem",
+          "body": "### Summary\n\n###   \n\nOn May 12, 2026 between 19:01 and 20:46 UTC, a subset of Atlassian customers may have experienced delays in background operations and automation processes. Some background operations, such as notifications or search indexing, were delayed until May 14, 2026 19:25 UTC due to increased cross-region traffic.\n\n  \n\nThe issue stemmed from a latent bug in the event processing pipeline. Automated monitoring detected the incident within 16 minutes, and it was mitigated through manual rollback within 1 hour and 45 minutes. Recovery of cross-region event delivery from the affected timeframe took 48 hours due to infrastructure scale constraints.\n\n  \n\n### IMPACT\n\n###   \n\nDuring the incident, customers may have experienced delays in background operations like automation, search indexing, notifications, and permission synchronization. The event processing pipeline distributes events between Atlassian services to support these background operations.\n\n-   On May 12, 2026, at 19:01 UTC, the deployment of a routing configuration increased event volume across cross-region services. At 20:46 UTC, rolling back routing configurations resolved the issue.\n-   Processing the accumulated cross-region message backlog finished by May 14, 2026, at 19:25 UTC.\n\n**Automation & Jira Service Management**\n\nSome Atlassian customers experienced event-triggered rules delayed or executed multiple times during the recovery window.\n\n  \n\n**Confluence**\n\nSome Atlassian customers experienced delays in search indexing and possible duplicate notifications and automation rule executions during the recovery window.\n\n### ROOT CAUSE\n\n###   \n\nThe issue arose from the deployment of a routing configuration change to the event processing platform, exposing a latent bug in legacy configurations. This change distributed higher volume of events to cross-region services. Cross-region services validated and discarded extra events but needed greater scale to handle the increased influx.\n\nThe mitigation involved rolling back the configuration change in the event platform. Recovery involved scaling cross-region services to handle higher inbound traffic.\n\n### REMEDIAL ACTIONS PLAN & NEXT STEPS\n\n###   \n\nWe know that performance degradations impact your productivity. While we have a number of testing and preventative processes in place, this specific issue wasn’t identified because the change was related to a very specific kind of legacy case that was not picked up by our automated continuous deployment suites and manual test scripts.\n\nWe are prioritizing the following improvements to help prevent similar incidents in future:\n\n-   Enhance runtime metrics across critical-path configurations to predict change impact before deployment.\n-   Enhance failover capabilities to create and replace infrastructure components to respond faster to increased processing demands.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\n  \n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "90cyzwh234yl",
+          "created_at": "2026-06-01T21:50:08.591Z",
+          "updated_at": "2026-06-01T21:50:10.628Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "tp4n91mp8ry2",
           "status": "resolved",
