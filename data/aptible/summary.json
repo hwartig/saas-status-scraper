@@ -4,7 +4,7 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2026-06-03T09:34:19.529-04:00"
+    "updated_at": "2026-06-03T14:49:08.046-04:00"
   },
   "components": [
     {
@@ -145,9 +145,9 @@
     {
       "id": "3f2df1dmxn4b",
       "name": "Aptible Deploy",
-      "status": "under_maintenance",
+      "status": "degraded_performance",
       "created_at": "2017-07-25T12:40:40.556-04:00",
-      "updated_at": "2026-06-01T17:01:55.360-04:00",
+      "updated_at": "2026-06-03T12:02:30.737-04:00",
       "position": 7,
       "description": null,
       "showcase": true,
@@ -340,7 +340,61 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "whdyl7vn7lyg",
+      "name": "Partial Service Degradation with Mezmo Log Drains",
+      "status": "investigating",
+      "created_at": "2026-06-03T12:02:30.705-04:00",
+      "updated_at": "2026-06-03T12:02:30.783-04:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/j7r65mwxr2tn",
+      "started_at": "2026-06-03T12:02:30.697-04:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "00dsdff944jz",
+          "status": "investigating",
+          "body": "There is some partial service degradation with log drains configured to send to Mezmo where not all log messages are being sent. Mezmo is rejecting logs over a certain size.\n\nWe are actively investigating this issue with the upstream provider.",
+          "incident_id": "whdyl7vn7lyg",
+          "created_at": "2026-06-03T12:02:30.781-04:00",
+          "updated_at": "2026-06-03T12:02:30.781-04:00",
+          "display_at": "2026-06-03T12:02:30.781-04:00",
+          "affected_components": [
+            {
+              "code": "3f2df1dmxn4b",
+              "name": "Aptible Deploy",
+              "old_status": "under_maintenance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "3f2df1dmxn4b",
+          "name": "Aptible Deploy",
+          "status": "degraded_performance",
+          "created_at": "2017-07-25T12:40:40.556-04:00",
+          "updated_at": "2026-06-03T12:02:30.737-04:00",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "kms5n047fcm6",
@@ -400,9 +454,9 @@
         {
           "id": "3f2df1dmxn4b",
           "name": "Aptible Deploy",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2026-06-01T17:01:55.360-04:00",
+          "updated_at": "2026-06-03T12:02:30.737-04:00",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -454,9 +508,9 @@
         {
           "id": "3f2df1dmxn4b",
           "name": "Aptible Deploy",
-          "status": "under_maintenance",
+          "status": "degraded_performance",
           "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2026-06-01T17:01:55.360-04:00",
+          "updated_at": "2026-06-03T12:02:30.737-04:00",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -472,7 +526,7 @@
     }
   ],
   "status": {
-    "indicator": "maintenance",
-    "description": "Service Under Maintenance"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
