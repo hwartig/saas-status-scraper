@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-02T23:28:55.426Z"
+    "updated_at": "2026-06-03T03:48:21.485Z"
   },
   "incidents": [
+    {
+      "id": "j240y90h4g0r",
+      "name": "Disruption with some GitHub services",
+      "status": "investigating",
+      "created_at": "2026-06-03T03:13:28.911Z",
+      "updated_at": "2026-06-03T03:48:21.471Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/mp1r6nlnzs0s",
+      "started_at": "2026-06-03T03:13:28.901Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "bmz83sd4f4km",
+          "status": "investigating",
+          "body": "We are investigating reports of impacted performance for some GitHub services.<br /><br />---<br />Relevant stamps: dotcom",
+          "incident_id": "j240y90h4g0r",
+          "created_at": "2026-06-03T03:45:54.486Z",
+          "updated_at": "2026-06-03T03:48:21.465Z",
+          "display_at": "2026-06-03T03:45:54.486Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "8q4k92m6cr5t",
+          "status": "investigating",
+          "body": "We are investigating reports of impacted performance for some GitHub services.",
+          "incident_id": "j240y90h4g0r",
+          "created_at": "2026-06-03T03:13:28.968Z",
+          "updated_at": "2026-06-03T03:13:28.968Z",
+          "display_at": "2026-06-03T03:13:28.968Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "5wdgxw2rvbt3",
       "name": "Delays with Code Scanning and Billing",
@@ -8067,259 +8110,6 @@
           "description": null,
           "showcase": true,
           "start_date": "2022-06-21",
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "ml7wplmxbt5l",
-      "name": "Incident with Pull Requests: High percentage of 500s",
-      "status": "resolved",
-      "created_at": "2026-03-31T15:05:39.330Z",
-      "updated_at": "2026-04-03T19:37:17.233Z",
-      "monitoring_at": "2026-03-31T21:16:01.703Z",
-      "resolved_at": "2026-03-31T21:23:43.015Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/lvkqg4h1rntp",
-      "started_at": "2026-03-31T15:05:39.322Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "lfv66d6q577b",
-          "status": "resolved",
-          "body": "On Monday March 31st, 2026, between 13:53 UTC and 21:23 UTC the Pull Requests service experienced elevated latency and failures. On average, the error rate was 0.15% and peaked at 0.28% of requests to the service. This was due to a change in garbage collection (GC) settings for a Go-based internal service that provides access to Git repository data. The changes caused more frequent GC activity and elevated CPU consumption on a subset of storage nodes, increasing latency and failure rates for some internal API operations.<br /><br />We mitigated the incident by reverting the GC changes. To prevent future incidents and improve time to detection and mitigation, we are instrumenting additional metrics and alerting for GC-related behavior, improving our visibility into other signals that could cause degraded impact of this type, and updating our best practices and standards for garbage collection in Go-based services.<br />",
-          "incident_id": "ml7wplmxbt5l",
-          "created_at": "2026-03-31T21:23:43.015Z",
-          "updated_at": "2026-04-03T19:37:17.228Z",
-          "display_at": "2026-03-31T21:23:43.015Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "mp23cbtbf1wp",
-          "status": "monitoring",
-          "body": "The degradation affecting Pull Requests has been mitigated. We are monitoring to ensure stability.",
-          "incident_id": "ml7wplmxbt5l",
-          "created_at": "2026-03-31T21:16:01.703Z",
-          "updated_at": "2026-03-31T21:16:01.703Z",
-          "display_at": "2026-03-31T21:16:01.703Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "sjw7tg95kk25",
-          "status": "investigating",
-          "body": "We continue to see a small subset of repositories experiencing timeouts and elevated latency in Pull Requests, affecting under 1% of requests.",
-          "incident_id": "ml7wplmxbt5l",
-          "created_at": "2026-03-31T21:12:17.179Z",
-          "updated_at": "2026-03-31T21:12:17.179Z",
-          "display_at": "2026-03-31T21:12:17.179Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l6j1tjwh19pp",
-          "status": "investigating",
-          "body": "Error rates remain elevated across multiple pull request endpoints. We are pursuing multiple potential mitigations.",
-          "incident_id": "ml7wplmxbt5l",
-          "created_at": "2026-03-31T19:28:29.659Z",
-          "updated_at": "2026-03-31T19:28:29.659Z",
-          "display_at": "2026-03-31T19:28:29.659Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xmrkfn1kbggh",
-          "status": "investigating",
-          "body": "We continue to experience elevated error rates affecting Pull Requests. An earlier fix resolved one component of the issue, but some users may still encounter intermittent timeouts when viewing or interacting with pull requests. Our teams are actively investigating the remaining causes.",
-          "incident_id": "ml7wplmxbt5l",
-          "created_at": "2026-03-31T18:42:04.963Z",
-          "updated_at": "2026-03-31T18:42:04.963Z",
-          "display_at": "2026-03-31T18:42:04.963Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3gwn0zk0qfxp",
-          "status": "investigating",
-          "body": "We identified an issue causing increased errors when accessing Pull Requests. The mitigation is being applied across our infrastructure and we will continue to provide updates as the mitigation rolls out.",
-          "incident_id": "ml7wplmxbt5l",
-          "created_at": "2026-03-31T17:16:32.971Z",
-          "updated_at": "2026-03-31T17:16:32.971Z",
-          "display_at": "2026-03-31T17:16:32.971Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "r5wljgn8s1fl",
-          "status": "investigating",
-          "body": "We are seeing recovery in latency and timeouts of requests related to pull requests, even though 500s are still elevated. While we are continuing to investigate, we are applying a mitigation and expect further recovery after it is applied.",
-          "incident_id": "ml7wplmxbt5l",
-          "created_at": "2026-03-31T16:35:22.206Z",
-          "updated_at": "2026-03-31T16:35:22.206Z",
-          "display_at": "2026-03-31T16:35:22.206Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ndjz3x8zqcfs",
-          "status": "investigating",
-          "body": "We are continuing to investigate increased 500 errors affecting GitHub services. You may experience intermittent failures when using Pull Requests and other features. We are actively working to identify and resolve the underlying cause.",
-          "incident_id": "ml7wplmxbt5l",
-          "created_at": "2026-03-31T16:15:37.558Z",
-          "updated_at": "2026-03-31T16:15:37.558Z",
-          "display_at": "2026-03-31T16:15:37.558Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "clw0hk60c7xq",
-          "status": "investigating",
-          "body": "We are investigating increased 500 errors affecting GitHub services. You may experience intermittent failures when using Pull Requests and other features. We are actively working to identify and resolve the underlying cause.",
-          "incident_id": "ml7wplmxbt5l",
-          "created_at": "2026-03-31T15:39:48.631Z",
-          "updated_at": "2026-03-31T15:39:48.631Z",
-          "display_at": "2026-03-31T15:39:48.631Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rdd0q45c16sc",
-          "status": "investigating",
-          "body": "We are seeing a higher than average number of 500s due to timeouts across GitHub services. We have a potential mitigation in flight and are continuing to investigate.",
-          "incident_id": "ml7wplmxbt5l",
-          "created_at": "2026-03-31T15:06:48.012Z",
-          "updated_at": "2026-03-31T15:06:48.012Z",
-          "display_at": "2026-03-31T15:06:48.012Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "zmyz2f63rm5l",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Pull Requests",
-          "incident_id": "ml7wplmxbt5l",
-          "created_at": "2026-03-31T15:05:39.448Z",
-          "updated_at": "2026-03-31T15:05:39.448Z",
-          "display_at": "2026-03-31T15:05:39.448Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "hhtssxt0f5v2",
-          "name": "Pull Requests",
-          "status": "operational",
-          "created_at": "2020-09-02T15:39:06.329Z",
-          "updated_at": "2026-05-27T13:16:54.010Z",
-          "position": 6,
-          "description": "Requests for Pull Requests on GitHub.com",
-          "showcase": true,
-          "start_date": null,
           "group_id": null,
           "page_id": "kctbh9vrtdwd",
           "group": false,
