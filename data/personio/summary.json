@@ -4,7 +4,7 @@
     "name": "Personio Statuspage",
     "url": "https://status.personio.de",
     "time_zone": "Europe/Berlin",
-    "updated_at": "2026-06-03T10:46:45.197+02:00"
+    "updated_at": "2026-06-03T15:34:13.546+02:00"
   },
   "components": [
     {
@@ -100,7 +100,7 @@
     {
       "id": "tw5kj6d15l50",
       "name": "Core Platform",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-11-07T14:18:21.916+01:00",
       "updated_at": "2025-11-07T14:23:20.649+01:00",
       "position": 2,
@@ -214,9 +214,9 @@
     {
       "id": "z7fz87tc25c1",
       "name": "Datev Integration",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2025-11-07T14:37:21.078+01:00",
-      "updated_at": "2026-05-19T12:19:16.357+02:00",
+      "updated_at": "2026-06-03T14:15:44.556+02:00",
       "position": 3,
       "description": "Information about the DATEV integration",
       "showcase": false,
@@ -229,7 +229,7 @@
     {
       "id": "7hqqrhmrq6qk",
       "name": "Payroll",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2025-11-07T14:19:37.785+01:00",
       "updated_at": "2025-11-07T14:23:20.679+01:00",
       "position": 4,
@@ -511,9 +511,9 @@
     {
       "id": "gr3v17kjmkpf",
       "name": "Time Management (Time Tracking, Time-off, Overtime)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-11-07T14:27:34.949+01:00",
-      "updated_at": "2026-05-07T11:48:21.837+02:00",
+      "updated_at": "2026-06-03T14:15:44.570+02:00",
       "position": 12,
       "description": "Information about Time Management",
       "showcase": false,
@@ -539,10 +539,106 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "jp0vzmxyyncq",
+      "name": "Partial service disruption",
+      "status": "investigating",
+      "created_at": "2026-06-03T14:15:44.521+02:00",
+      "updated_at": "2026-06-03T14:15:44.606+02:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/9w3vb96hr1b9",
+      "started_at": "2026-06-03T14:15:44.509+02:00",
+      "page_id": "68kf6yfjnk2d",
+      "incident_updates": [
+        {
+          "id": "gptvlvx6lnhm",
+          "status": "investigating",
+          "body": "We are currently experiencing some issues with the Time Off module. The following features are affected:\n- eAUs might be marked as failed and not retrieved although certificates present in DATEV\n\nPlease be aware that the remaining system is stable and running according to expectations. Our engineering teams are already working on a solution.\n \nWe will keep you posted with the latest information on this page and apologize for the inconveniences.",
+          "incident_id": "jp0vzmxyyncq",
+          "created_at": "2026-06-03T14:15:44.604+02:00",
+          "updated_at": "2026-06-03T14:15:44.604+02:00",
+          "display_at": "2026-06-03T14:15:44.604+02:00",
+          "affected_components": [
+            {
+              "code": "prkxj4m6hpm1",
+              "name": "Overall System availability",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "gr3v17kjmkpf",
+              "name": "Core Platform - Time Management (Time Tracking, Time-off, Overtime)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "z7fz87tc25c1",
+              "name": "Payroll - Datev Integration",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "prkxj4m6hpm1",
+          "name": "Overall System availability",
+          "status": "operational",
+          "created_at": "2018-02-27T10:31:25.271+01:00",
+          "updated_at": "2026-06-03T00:00:07.789+02:00",
+          "position": 1,
+          "description": "Information about general system availability, such as server outages or performance issues.",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "68kf6yfjnk2d",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "z7fz87tc25c1",
+          "name": "Datev Integration",
+          "status": "partial_outage",
+          "created_at": "2025-11-07T14:37:21.078+01:00",
+          "updated_at": "2026-06-03T14:15:44.556+02:00",
+          "position": 3,
+          "description": "Information about the DATEV integration",
+          "showcase": false,
+          "start_date": "2025-11-07",
+          "group_id": "7hqqrhmrq6qk",
+          "page_id": "68kf6yfjnk2d",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "gr3v17kjmkpf",
+          "name": "Time Management (Time Tracking, Time-off, Overtime)",
+          "status": "degraded_performance",
+          "created_at": "2025-11-07T14:27:34.949+01:00",
+          "updated_at": "2026-06-03T14:15:44.570+02:00",
+          "position": 12,
+          "description": "Information about Time Management",
+          "showcase": false,
+          "start_date": "2025-11-07",
+          "group_id": "tw5kj6d15l50",
+          "page_id": "68kf6yfjnk2d",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
