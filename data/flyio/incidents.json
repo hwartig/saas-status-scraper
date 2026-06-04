@@ -4,9 +4,39 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-04T11:49:16.079Z"
+    "updated_at": "2026-06-04T14:50:45.080Z"
   },
   "incidents": [
+    {
+      "id": "zt7sk5qwr8r8",
+      "name": "Consul cluster degradation",
+      "status": "identified",
+      "created_at": "2026-06-04T13:44:07.206Z",
+      "updated_at": "2026-06-04T13:44:07.315Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/xnnxmjvsqhnd",
+      "started_at": "2026-06-04T13:44:07.174Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "nctzjswmdctp",
+          "status": "identified",
+          "body": "One of our Consul clusters is in degraded state due to a failed node. This can cause issues with LiteFS primary node selection, Unmanaged Postgres (14.x and older *only*), and creation of new Unmanaged Postgres clusters.\n\nImpact is limited to these legacy products and does not affect deployments, running Fly applications in general, or Managed Postgres clusters.",
+          "incident_id": "zt7sk5qwr8r8",
+          "created_at": "2026-06-04T13:44:07.310Z",
+          "updated_at": "2026-06-04T13:44:07.310Z",
+          "display_at": "2026-06-04T13:44:07.310Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "hsrkp66c5kwk",
       "name": "Issues with flyctl ssh console and Machines OIDC",
@@ -5456,99 +5486,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "mrcyzlkkw8z9",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "l08xlp1gxpf3",
-      "name": "Metrics currently experiencing issues",
-      "status": "resolved",
-      "created_at": "2026-03-19T06:28:51.198Z",
-      "updated_at": "2026-03-19T10:37:15.555Z",
-      "monitoring_at": "2026-03-19T07:12:29.506Z",
-      "resolved_at": "2026-03-19T10:37:15.536Z",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/sdb9rkfq6knw",
-      "started_at": "2026-03-19T06:28:51.192Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "87bxsknp5cl5",
-          "status": "resolved",
-          "body": "This incident has been resolved. We're unable to recover the lost metrics from that one hour.",
-          "incident_id": "l08xlp1gxpf3",
-          "created_at": "2026-03-19T10:37:15.536Z",
-          "updated_at": "2026-03-19T10:37:15.536Z",
-          "display_at": "2026-03-19T10:37:15.536Z",
-          "affected_components": [
-            {
-              "code": "k2zhkw7wryv2",
-              "name": "Metrics",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "454kntsvk7xp",
-          "status": "monitoring",
-          "body": "We have implemented a fix. There has been approximately 1h of lost metrics from 06:07UTC. We're monitoring the cluster for further issues",
-          "incident_id": "l08xlp1gxpf3",
-          "created_at": "2026-03-19T07:12:29.506Z",
-          "updated_at": "2026-03-19T07:12:29.506Z",
-          "display_at": "2026-03-19T07:12:29.506Z",
-          "affected_components": [
-            {
-              "code": "k2zhkw7wryv2",
-              "name": "Metrics",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "68gk4fb9qkcp",
-          "status": "investigating",
-          "body": "We are currently investigating an issue with our metrics cluster.",
-          "incident_id": "l08xlp1gxpf3",
-          "created_at": "2026-03-19T06:28:51.273Z",
-          "updated_at": "2026-03-19T06:28:51.273Z",
-          "display_at": "2026-03-19T06:28:51.273Z",
-          "affected_components": [
-            {
-              "code": "k2zhkw7wryv2",
-              "name": "Metrics",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "k2zhkw7wryv2",
-          "name": "Metrics",
-          "status": "operational",
-          "created_at": "2021-11-30T19:14:31.480Z",
-          "updated_at": "2026-05-19T20:56:12.104Z",
-          "position": 9,
-          "description": "Customer metrics",
-          "showcase": false,
-          "start_date": "2021-11-30",
-          "group_id": null,
           "page_id": "65rccr4mbblw",
           "group": false,
           "only_show_if_degraded": false
