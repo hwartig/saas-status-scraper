@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-08T14:22:46.803Z"
+    "updated_at": "2026-06-08T18:20:28.654Z"
   },
   "incidents": [
     {
@@ -2008,21 +2008,21 @@
       "name": "Elevated rate of Git push errors",
       "status": "resolved",
       "created_at": "2026-05-25T09:02:00.000Z",
-      "updated_at": "2026-06-08T13:56:40.189Z",
+      "updated_at": "2026-06-08T18:08:51.998Z",
       "monitoring_at": null,
       "resolved_at": "2026-05-25T09:02:00.000Z",
       "impact": "major",
       "shortlink": "https://stspg.io/84pxgjmzgb04",
-      "started_at": "2026-06-08T13:56:31.438Z",
+      "started_at": "2026-05-25T09:02:00.000Z",
       "page_id": "kctbh9vrtdwd",
       "incident_updates": [
         {
           "id": "vxbhg6hq8ksn",
           "status": "resolved",
-          "body": "On May 25, 2026, between 09:02 UTC and 09:11 UTC, Git push operations over HTTPS and SSH experienced elevated failures. During this window, an average of 31% and a peak of 43% of push requests failed.\n\nThe incident was caused by a recently enabled code path that issued an unexpectedly expensive database query against a primary database. The resulting load exhausted the database's connection pool, which caused the push failures above. The acute impact resolved automatically as in-flight work completed.\n\nWe mitigated the incident by disabling the feature flag controlling the new code path.\n\nWe are working to route the affected read to a replica to reduce the likelihood of issues like this in the future.",
+          "body": "On May 25, 2026, between 09:02 UTC and 09:11 UTC, Git push operations over HTTPS and SSH experienced elevated failures. During this window, an average of 31% and a peak of 43% of push requests failed.\n\nThe incident was caused by a recently enabled code path that issued an unexpectedly expensive database query against a primary database. The resulting load exhausted the database's connection pool, which caused the push failures above. The acute impact resolved automatically as in-flight work completed. We mitigated the incident by disabling the feature flag controlling the new code path. To prevent recurrence, we have updated the affected background workflows to route reads to replica databases instead of the primary, removing the specific code pattern that caused this incident; broader follow-up work is underway to apply the same safeguard to similar workflows across GitHub.",
           "incident_id": "tm84vy58jq0h",
           "created_at": "2026-06-08T13:56:31.478Z",
-          "updated_at": "2026-06-08T13:56:31.478Z",
+          "updated_at": "2026-06-08T18:08:51.935Z",
           "display_at": "2026-05-25T09:02:00.000Z",
           "affected_components": null,
           "deliver_notifications": false,
