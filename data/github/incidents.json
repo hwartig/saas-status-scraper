@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-08T20:59:05.362Z"
+    "updated_at": "2026-06-08T23:49:28.912Z"
   },
   "incidents": [
     {
@@ -721,7 +721,7 @@
       "name": "Copilot Code Review Failing",
       "status": "resolved",
       "created_at": "2026-06-04T18:02:54.000Z",
-      "updated_at": "2026-06-04T19:59:27.405Z",
+      "updated_at": "2026-06-08T23:49:28.890Z",
       "monitoring_at": "2026-06-04T19:07:42.608Z",
       "resolved_at": "2026-06-04T19:59:27.372Z",
       "impact": "critical",
@@ -732,10 +732,10 @@
         {
           "id": "jzyhqxyt59jr",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On June 4, 2026, from 17:30 UTC to 18:55 UTC, Copilot Code Review experienced elevated failures for review requests on GitHub.com. Affected users saw “Copilot ran into an error” on pull requests when requesting a code review.<br /><br />During the incident window, an average of 81.6% of Copilot Code Review requests failed, with a peak failure rate of 93.9%. Approximately 36,800 code review requests failed. GitHub Enterprise Cloud with data residency was not impacted.<br /><br />The issue was caused by a newly released dependency used by the Copilot Code Review processing workflow. The release introduced an incompatibility with the runtime environment. Because the workflow automatically consumed the latest release, the incompatible version was picked up without sufficient compatibility validation and caused review processing to fail.<br /><br />We mitigated the incident by removing the problematic dependency version and redeploying the affected processing service. New code reviews began recovering at 18:44 UTC, and the failure rate returned to baseline by 18:55 UTC. Remaining timed-out work drained by 19:59 UTC.<br /><br />To reduce the risk of recurrence, we are pinning the dependency version instead of automatically consuming the latest release, adding compatibility checks for future releases, improving fast-failure behavior when the review processor cannot start, adding shorter timeout controls for review workflows, and improving monitoring for review completion failures.",
           "incident_id": "5h5lmbffp07c",
           "created_at": "2026-06-04T19:59:27.372Z",
-          "updated_at": "2026-06-04T19:59:27.372Z",
+          "updated_at": "2026-06-08T23:49:28.880Z",
           "display_at": "2026-06-04T19:59:27.372Z",
           "affected_components": null,
           "deliver_notifications": true,
