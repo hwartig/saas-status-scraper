@@ -4,7 +4,7 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2026-06-09T10:02:23.342-04:00"
+    "updated_at": "2026-06-09T12:00:10.259-04:00"
   },
   "components": [
     {
@@ -145,9 +145,9 @@
     {
       "id": "3f2df1dmxn4b",
       "name": "Aptible Deploy",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2017-07-25T12:40:40.556-04:00",
-      "updated_at": "2026-06-08T14:28:46.876-04:00",
+      "updated_at": "2026-06-09T12:00:09.960-04:00",
       "position": 7,
       "description": null,
       "showcase": true,
@@ -379,9 +379,9 @@
         {
           "id": "3f2df1dmxn4b",
           "name": "Aptible Deploy",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2026-06-08T14:28:46.876-04:00",
+          "updated_at": "2026-06-09T12:00:09.960-04:00",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -396,93 +396,6 @@
     }
   ],
   "scheduled_maintenances": [
-    {
-      "id": "kms5n047fcm6",
-      "name": "Enforcing deprecation of legacy app config variables",
-      "status": "scheduled",
-      "created_at": "2026-06-01T15:58:37.081-04:00",
-      "updated_at": "2026-06-09T10:00:19.414-04:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/gfh4b98zst2g",
-      "started_at": "2026-06-01T15:58:37.156-04:00",
-      "page_id": "fmwgqnbnbc4r",
-      "incident_updates": [
-        {
-          "id": "y6wcsln81b5h",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "kms5n047fcm6",
-          "created_at": "2026-06-09T10:00:19.244-04:00",
-          "updated_at": "2026-06-09T10:00:19.244-04:00",
-          "display_at": "2026-06-09T10:00:19.244-04:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xywknqtvcd1d",
-          "status": "scheduled",
-          "body": "We will be undergoing scheduled maintenance during this time.",
-          "incident_id": "kms5n047fcm6",
-          "created_at": "2026-06-01T17:01:55.402-04:00",
-          "updated_at": "2026-06-01T17:01:55.402-04:00",
-          "display_at": "2026-06-01T17:01:55.402-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "operational",
-              "new_status": "under_maintenance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "svd2sqk28jr5",
-          "status": "scheduled",
-          "body": "As <a href=\"https://www.aptible.com/changelog/introducing-endpoint-and-image-deployment-settings\" target=\"_blank\">previously announced</a>, we are completing the migration away from managing endpoint behavior and image deployment details through app environment variables. These settings are now managed as dedicated Endpoint Settings and Image Deployment Settings.\n\n<b>Rollout schedule</b>\n&bull; June 1, 2026: Enforcement begins on Shared Stacks.\n&bull; June 9, 2026: Enforcement begins on Dedicated Stacks.\n\n<b>What changes</b>\nAfter enforcement begins on a stack, any deploy or configure operation that submits one of the impacted variables below with a value will be rejected with the error \"Deprecated environment variable used,\" and the operation will not complete. This is triggered by what your deploy tooling sends on each operation, not by values already stored on your app, so an outdated CLI or a pre-v5 GitHub deploy action will fail because it resends these variables every time.\n\nOnce your tooling no longer sends these variables, your deploys and configures succeed as normal. At that point any of these values still present in your app environment are migrated to the appropriate Endpoint or Image Deployment Settings and removed from the app environment automatically, with no change to how your apps and endpoints behave.\n\n<b>What you need to do</b>\nMost users can resolve this by updating their tooling:\n&bull; Update the Aptible CLI to v0.26.6 or later: <a href=\"https://www.aptible.com/docs/reference/aptible-cli/overview\" target=\"_blank\">https://www.aptible.com/docs/reference/aptible-cli/overview</a>\n&bull; Update the Aptible GitHub Deploy Action to v5: <a href=\"https://github.com/marketplace/actions/deploy-to-aptible\" target=\"_blank\">https://github.com/marketplace/actions/deploy-to-aptible</a>\n&bull; If you use Terraform, update to the aptible/aptible v0.10.0 provider, which accepts these as parameters on the aptible_endpoint and aptible_app resources: <a href=\"https://github.com/aptible/terraform-provider-aptible/releases/tag/v0.10.0\" target=\"_blank\">https://github.com/aptible/terraform-provider-aptible/releases/tag/v0.10.0</a>\n\n<b>Impacted variables</b>\nAPTIBLE_DOCKER_IMAGE, APTIBLE_PRIVATE_REGISTRY_USERNAME, APTIBLE_PRIVATE_REGISTRY_PASSWORD, DISABLE_WEAK_CIPHER_SUITES, FORCE_SSL, IDLE_TIMEOUT, MAINTENANCE_PAGE_URL, RELEASE_HEALTHCHECK_TIMEOUT, SHOW_ELB_HEALTHCHECKS, SSL_CIPHERS_OVERRIDE, SSL_PROTOCOLS_OVERRIDE, STRICT_HEALTH_CHECKS\n\n<b>For background and migration guidance, see:</b>\n&bull; <a href=\"https://www.aptible.com/changelog/introducing-endpoint-and-image-deployment-settings\" target=\"_blank\">https://www.aptible.com/changelog/introducing-endpoint-and-image-deployment-settings</a>\n&bull; <a href=\"https://www.aptible.com/docs/core-concepts/apps/deploying-apps/configuration\" target=\"_blank\">https://www.aptible.com/docs/core-concepts/apps/deploying-apps/configuration</a>\n\nIf you have questions, contact Aptible Support.",
-          "incident_id": "kms5n047fcm6",
-          "created_at": "2026-06-01T15:58:37.156-04:00",
-          "updated_at": "2026-06-01T17:35:29.086-04:00",
-          "display_at": "2026-06-01T15:58:37.156-04:00",
-          "affected_components": [
-            {
-              "code": "3f2df1dmxn4b",
-              "name": "Aptible Deploy",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "3f2df1dmxn4b",
-          "name": "Aptible Deploy",
-          "status": "degraded_performance",
-          "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2026-06-08T14:28:46.876-04:00",
-          "position": 7,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "fmwgqnbnbc4r",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-06-09T11:00:00.000-04:00",
-      "scheduled_until": "2026-06-09T12:00:00.000-04:00"
-    },
     {
       "id": "q166g4z65d3p",
       "name": "In-Place Upgrade of Database Endpoint Load Balancers",
@@ -521,9 +434,9 @@
         {
           "id": "3f2df1dmxn4b",
           "name": "Aptible Deploy",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-07-25T12:40:40.556-04:00",
-          "updated_at": "2026-06-08T14:28:46.876-04:00",
+          "updated_at": "2026-06-09T12:00:09.960-04:00",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -539,7 +452,7 @@
     }
   ],
   "status": {
-    "indicator": "minor",
-    "description": "Partially Degraded Service"
+    "indicator": "none",
+    "description": "All Systems Operational"
   }
 }

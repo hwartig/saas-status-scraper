@@ -4,9 +4,102 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-09T14:02:26.139Z"
+    "updated_at": "2026-06-09T15:40:58.101Z"
   },
   "incidents": [
+    {
+      "id": "tkfr3cdcgt58",
+      "name": "Managed Postgres Control Plane Issues in IAD",
+      "status": "monitoring",
+      "created_at": "2026-06-09T14:57:49.540Z",
+      "updated_at": "2026-06-09T15:19:24.225Z",
+      "monitoring_at": "2026-06-09T15:19:24.212Z",
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/10x06rkhq88c",
+      "started_at": "2026-06-09T14:57:49.532Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "4r8980csdfhx",
+          "status": "monitoring",
+          "body": "An initial fix has been implemented and connectivity to all impacted clusters has been restored. We are continuing to monitor to ensure stable recovery.",
+          "incident_id": "tkfr3cdcgt58",
+          "created_at": "2026-06-09T15:19:24.212Z",
+          "updated_at": "2026-06-09T15:19:24.212Z",
+          "display_at": "2026-06-09T15:19:24.212Z",
+          "affected_components": [
+            {
+              "code": "nv3vps27z635",
+              "name": "Managed Postgres - Management Plane - IAD",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "581bq2zc260t",
+          "status": "identified",
+          "body": "We are continuing to address this issue. Some clusters in IAD are unavailable at this time, some users may have seen unexpected cluter restarts. We are working on restoring normal performance for all clusters in IAD",
+          "incident_id": "tkfr3cdcgt58",
+          "created_at": "2026-06-09T15:06:42.062Z",
+          "updated_at": "2026-06-09T15:06:42.062Z",
+          "display_at": "2026-06-09T15:06:42.062Z",
+          "affected_components": [
+            {
+              "code": "nv3vps27z635",
+              "name": "Managed Postgres - Management Plane - IAD",
+              "old_status": "degraded_performance",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "56pccm1w34z9",
+          "status": "investigating",
+          "body": "We are investigating MPG control plane instability in a subset of the IAD region. A small number of clusters in the region may have seen unexpected failovers or connection issues over the past 30m.",
+          "incident_id": "tkfr3cdcgt58",
+          "created_at": "2026-06-09T14:57:49.600Z",
+          "updated_at": "2026-06-09T14:57:49.600Z",
+          "display_at": "2026-06-09T14:57:49.600Z",
+          "affected_components": [
+            {
+              "code": "nv3vps27z635",
+              "name": "Managed Postgres - Management Plane - IAD",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "nv3vps27z635",
+          "name": "Management Plane - IAD",
+          "status": "operational",
+          "created_at": "2025-03-24T09:31:42.559Z",
+          "updated_at": "2026-06-09T15:19:24.188Z",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-03-24",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "h0m57pzbf31r",
       "name": "egress ips are broken in ORD",
@@ -5276,158 +5369,6 @@
           "created_at": "2019-07-01T19:29:02.173Z",
           "updated_at": "2026-06-09T10:01:14.930Z",
           "position": 24,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "mrcyzlkkw8z9",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "8nzjn7b3ll21",
-      "name": "Network issues in FRA region",
-      "status": "resolved",
-      "created_at": "2026-03-26T12:37:18.000Z",
-      "updated_at": "2026-03-26T14:19:30.460Z",
-      "monitoring_at": "2026-03-26T13:14:30.142Z",
-      "resolved_at": "2026-03-26T14:19:30.442Z",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/lnrrxqcnjknl",
-      "started_at": "2026-03-26T12:37:18.000Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "gl1ppmnlv7p9",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "8nzjn7b3ll21",
-          "created_at": "2026-03-26T14:19:30.442Z",
-          "updated_at": "2026-03-26T14:19:30.442Z",
-          "display_at": "2026-03-26T14:19:30.442Z",
-          "affected_components": [
-            {
-              "code": "zb68fzjgtq5s",
-              "name": "Regional Availability - FRA - Frankfurt, Germany",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "dz36cj1q2s1r",
-              "name": "Managed Postgres - Management Plane - FRA",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nklnsvh2x3ck",
-          "status": "identified",
-          "body": "Some Managed Postgres clusters in FRA region are still unreachable, we are investigating this issue.",
-          "incident_id": "8nzjn7b3ll21",
-          "created_at": "2026-03-26T13:16:05.673Z",
-          "updated_at": "2026-03-26T13:16:05.673Z",
-          "display_at": "2026-03-26T13:16:05.673Z",
-          "affected_components": [
-            {
-              "code": "zb68fzjgtq5s",
-              "name": "Regional Availability - FRA - Frankfurt, Germany",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "dz36cj1q2s1r",
-              "name": "Managed Postgres - Management Plane - FRA",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "q94vz5m5gngl",
-          "status": "monitoring",
-          "body": "Apps and Managed Postgres clusters in FRA region should be back online at this time. We are monitoring for any further issues.",
-          "incident_id": "8nzjn7b3ll21",
-          "created_at": "2026-03-26T13:14:30.142Z",
-          "updated_at": "2026-03-26T13:14:30.142Z",
-          "display_at": "2026-03-26T13:14:30.142Z",
-          "affected_components": [
-            {
-              "code": "zb68fzjgtq5s",
-              "name": "Regional Availability - FRA - Frankfurt, Germany",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "dz36cj1q2s1r",
-              "name": "Managed Postgres - Management Plane - FRA",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "v4xckcth7w40",
-          "status": "investigating",
-          "body": "We are investigating network issues in FRA region. Apps and/or Managed Postgres clusters in the region may be inaccessible at this time.",
-          "incident_id": "8nzjn7b3ll21",
-          "created_at": "2026-03-26T12:37:18.853Z",
-          "updated_at": "2026-03-26T12:38:23.822Z",
-          "display_at": "2026-03-26T12:37:18.000Z",
-          "affected_components": [
-            {
-              "code": "zb68fzjgtq5s",
-              "name": "Regional Availability - FRA - Frankfurt, Germany",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            },
-            {
-              "code": "dz36cj1q2s1r",
-              "name": "Managed Postgres - Management Plane - FRA",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "dz36cj1q2s1r",
-          "name": "Management Plane - FRA",
-          "status": "operational",
-          "created_at": "2025-03-24T09:31:59.019Z",
-          "updated_at": "2026-05-16T15:10:16.574Z",
-          "position": 3,
-          "description": null,
-          "showcase": true,
-          "start_date": "2025-03-24",
-          "group_id": "h2hndffd5ysc",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "zb68fzjgtq5s",
-          "name": "FRA - Frankfurt, Germany",
-          "status": "operational",
-          "created_at": "2019-07-01T19:29:59.556Z",
-          "updated_at": "2026-03-26T13:14:30.107Z",
-          "position": 11,
           "description": null,
           "showcase": false,
           "start_date": null,

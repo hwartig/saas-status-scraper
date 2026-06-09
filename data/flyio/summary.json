@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-09T14:02:26.139Z"
+    "updated_at": "2026-06-09T15:40:58.101Z"
   },
   "components": [
     {
@@ -162,7 +162,7 @@
       "name": "Management Plane - IAD",
       "status": "operational",
       "created_at": "2025-03-24T09:31:42.559Z",
-      "updated_at": "2026-02-26T22:28:19.522Z",
+      "updated_at": "2026-06-09T15:19:24.188Z",
       "position": 2,
       "description": null,
       "showcase": true,
@@ -925,7 +925,101 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "tkfr3cdcgt58",
+      "name": "Managed Postgres Control Plane Issues in IAD",
+      "status": "monitoring",
+      "created_at": "2026-06-09T14:57:49.540Z",
+      "updated_at": "2026-06-09T15:19:24.225Z",
+      "monitoring_at": "2026-06-09T15:19:24.212Z",
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/10x06rkhq88c",
+      "started_at": "2026-06-09T14:57:49.532Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "4r8980csdfhx",
+          "status": "monitoring",
+          "body": "An initial fix has been implemented and connectivity to all impacted clusters has been restored. We are continuing to monitor to ensure stable recovery.",
+          "incident_id": "tkfr3cdcgt58",
+          "created_at": "2026-06-09T15:19:24.212Z",
+          "updated_at": "2026-06-09T15:19:24.212Z",
+          "display_at": "2026-06-09T15:19:24.212Z",
+          "affected_components": [
+            {
+              "code": "nv3vps27z635",
+              "name": "Managed Postgres - Management Plane - IAD",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "581bq2zc260t",
+          "status": "identified",
+          "body": "We are continuing to address this issue. Some clusters in IAD are unavailable at this time, some users may have seen unexpected cluter restarts. We are working on restoring normal performance for all clusters in IAD",
+          "incident_id": "tkfr3cdcgt58",
+          "created_at": "2026-06-09T15:06:42.062Z",
+          "updated_at": "2026-06-09T15:06:42.062Z",
+          "display_at": "2026-06-09T15:06:42.062Z",
+          "affected_components": [
+            {
+              "code": "nv3vps27z635",
+              "name": "Managed Postgres - Management Plane - IAD",
+              "old_status": "degraded_performance",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "56pccm1w34z9",
+          "status": "investigating",
+          "body": "We are investigating MPG control plane instability in a subset of the IAD region. A small number of clusters in the region may have seen unexpected failovers or connection issues over the past 30m.",
+          "incident_id": "tkfr3cdcgt58",
+          "created_at": "2026-06-09T14:57:49.600Z",
+          "updated_at": "2026-06-09T14:57:49.600Z",
+          "display_at": "2026-06-09T14:57:49.600Z",
+          "affected_components": [
+            {
+              "code": "nv3vps27z635",
+              "name": "Managed Postgres - Management Plane - IAD",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "nv3vps27z635",
+          "name": "Management Plane - IAD",
+          "status": "operational",
+          "created_at": "2025-03-24T09:31:42.559Z",
+          "updated_at": "2026-06-09T15:19:24.188Z",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-03-24",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "0gnnvbxsgp4z",
