@@ -4,9 +4,62 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-06-10T15:19:05.746-07:00"
+    "updated_at": "2026-06-10T18:20:32.310-07:00"
   },
   "incidents": [
+    {
+      "id": "51dltrh13zzn",
+      "name": "[Major] Issue with Box API",
+      "status": "identified",
+      "created_at": "2026-06-10T17:34:13.920-07:00",
+      "updated_at": "2026-06-10T17:34:14.031-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/w10c0j6bntt4",
+      "started_at": "2026-06-10T17:34:13.908-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "mxkz5fzwmkdt",
+          "status": "identified",
+          "body": "Our team is investigating an issue with Box API authentication and has identified the underlying cause of this issue and is working to take remediating steps. We will provide additional updates as they become available.",
+          "incident_id": "51dltrh13zzn",
+          "created_at": "2026-06-10T17:34:14.028-07:00",
+          "updated_at": "2026-06-10T17:34:14.028-07:00",
+          "display_at": "2026-06-10T17:34:14.028-07:00",
+          "affected_components": [
+            {
+              "code": "3jx01d80kg17",
+              "name": "Box Platform / API - Authentication (OAuth 2.0 / JWT)",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "3jx01d80kg17",
+          "name": "Authentication (OAuth 2.0 / JWT)",
+          "status": "partial_outage",
+          "created_at": "2018-10-01T20:15:13.750-07:00",
+          "updated_at": "2026-06-10T17:34:13.971-07:00",
+          "position": 3,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "vggytbdllrjt",
+          "page_id": "208q92hckwws",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "hmldgmrlw7vw",
       "name": "[Critical] Issues with Multiple Box Services",
@@ -3153,9 +3206,9 @@
         {
           "id": "3jx01d80kg17",
           "name": "Authentication (OAuth 2.0 / JWT)",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2018-10-01T20:15:13.750-07:00",
-          "updated_at": "2026-03-01T02:00:07.385-08:00",
+          "updated_at": "2026-06-10T17:34:13.971-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -4388,9 +4441,9 @@
         {
           "id": "3jx01d80kg17",
           "name": "Authentication (OAuth 2.0 / JWT)",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2018-10-01T20:15:13.750-07:00",
-          "updated_at": "2026-03-01T02:00:07.385-08:00",
+          "updated_at": "2026-06-10T17:34:13.971-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -6466,9 +6519,9 @@
         {
           "id": "3jx01d80kg17",
           "name": "Authentication (OAuth 2.0 / JWT)",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2018-10-01T20:15:13.750-07:00",
-          "updated_at": "2026-03-01T02:00:07.385-08:00",
+          "updated_at": "2026-06-10T17:34:13.971-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -10131,9 +10184,9 @@
         {
           "id": "3jx01d80kg17",
           "name": "Authentication (OAuth 2.0 / JWT)",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2018-10-01T20:15:13.750-07:00",
-          "updated_at": "2026-03-01T02:00:07.385-08:00",
+          "updated_at": "2026-06-10T17:34:13.971-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -13986,49 +14039,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "8k98zlp911gt",
-      "name": "[Minor] Customers may have experienced issues using All Files page and Public API",
-      "status": "postmortem",
-      "created_at": "2025-03-03T03:00:00.000-08:00",
-      "updated_at": "2025-06-17T12:06:10.806-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2025-03-03T20:00:00.000-08:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/b3v5g1jcdlg2",
-      "started_at": "2025-03-03T20:00:00.000-08:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "18k8w2dtckq1",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting Box services. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 1:48 AM PT and 2:25 AM PT on March 3, 2025, some users may have experienced difficulties while working in Box. Additionally, starting at 8:44 PM PT that same day, some users may have once again encountered issues. The disruption ended before 9:59 PM PST.  During these time periods, a subset of users experienced slowness and intermittent errors with Notes, Public API, logins and uploads/downloads. The issue occurred as a result of a fragmented system table on a database cluster which ultimately led to the database crashing. The first instance was caused by increased traffic while the second occurred due to our manual remediation process putting additional load on the database. Our database remediation service attempted to resolve the issue both times but was unsuccessful due to the thread\\_cache\\_size setting being set too low. We were able to address the short-term problem by manually redirecting traffic to a healthy database node. To maintain medium-term stability of the database, the team rebuilt the cluster to eliminate the fragmented table. Additionally, we will be splitting the database cluster into smaller databases to prevent future overloads and improving our database remediation service to better handle this type of case.\n\n‌\n\n**Analysis**\n\nThe database cluster at issue experienced gradual performance degradation before the issue became apparent. This degradation was caused by the growing fragmented system table due to increasing database size and traffic. However, this degradation went unnoticed because the existing alerting system did not flag any problems.\n\nIn addition, the auto-remediation system was unsuccessful because it hit a case where two database configurations were incompatible. Specifically, the max\\_connections setting was increased without adjusting the thread\\_cache\\_size, resulting in frequent thread cache misses and preventing the failover procedure from having the resources needed to succeed.\n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Rebuilding the database cluster to eliminate the table fragmentation and prevent medium-term performance degradation \n* Adding metrics and alerting for table fragmentation to proactively monitor issues \n* Adjusting database configurations such that thread\\_cache\\_size dynamically adjusts with the max\\_connections database configuration settings\n* Improving the database remediation process by adjusting timeouts to accommodate large database clusters\n* Accelerating the database split process to quickly divide large clusters, reducing traffic overload and improving routine maintenance success\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\n \n\nSincerely,  \nThe Box Team",
-          "incident_id": "8k98zlp911gt",
-          "created_at": "2025-04-24T05:51:37.600-07:00",
-          "updated_at": "2025-06-17T12:06:10.803-07:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "lfvkzg07m1c1",
-          "status": "resolved",
-          "body": "Between 8:44 - 8:56 PM PT on March 3rd 2025, some users may have experienced difficulties using All Files page and Public API. No further impact has been observed and we are considering this issue to be resolved. If you are still experiencing any issues, please let us know at https://support.box.com.",
-          "incident_id": "8k98zlp911gt",
-          "created_at": "2025-03-03T21:50:07.238-08:00",
-          "updated_at": "2025-03-03T22:05:06.992-08:00",
-          "display_at": "2025-03-03T20:00:00.000-08:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
