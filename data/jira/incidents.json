@@ -4,7 +4,7 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-12T03:06:10.806Z"
+    "updated_at": "2026-06-12T08:49:02.155Z"
   },
   "incidents": [
     {
@@ -1201,9 +1201,9 @@
     {
       "id": "4jrw66wzznqx",
       "name": "For Jira-software viewIssues and viewBoard are degraded",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-06-01T07:40:53.142Z",
-      "updated_at": "2026-06-01T13:23:43.606Z",
+      "updated_at": "2026-06-12T06:49:17.843Z",
       "monitoring_at": "2026-06-01T09:07:50.078Z",
       "resolved_at": "2026-06-01T13:23:43.574Z",
       "impact": "major",
@@ -1211,6 +1211,19 @@
       "started_at": "2026-06-01T07:40:53.106Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "6hph50yd31kj",
+          "status": "postmortem",
+          "body": "**SUMMARY**\n\n  \n\nOn June 01, 2026, between 06:54 and 08:28 UTC, Atlassian customers using Jira, Jira Service Management, and Jira Work Management were unable to view issues, boards, and backlogs, and experienced errors when performing transitions, adding comments, and navigating the product. The event was triggered by caching infrastructure autoscaling failure. The issue only impacted customers hosted in Europe. The incident was detected within 8 minutes by our automated monitoring system and mitigated by progressively scaling the caching clusters manually. The total time to resolution was 1 hour and 34 minutes due to the progressive recovery.\n\n  \n\n**IMPACT**\n\n  \n\nThe incident caused service disruption for customers hosted in the Europe region who were unable to access core experiences across Jira Software, Jira Service Management, and Jira Work Management.\n\n  \n\n**ROOT CAUSE**\n\n  \n\nThe root cause of the incident was a capacity constraint on our caching infrastructure in one availability zone of our EU Central cloud region. As morning traffic increased, our caching clusters attempted to scale out automatically. However, the cloud infrastructure was unable to provision additional nodes in that availability zone due to insufficient underlying capacity.\n\nOur caching infrastructure is designed to scale across multiple availability zones to ensure balanced and resilient capacity. On this occasion, a capacity constraint in one availability zone prevented the scaling operation from completing as expected.\n\nWith the caching layer unable to grow to meet demand, the clusters began to experience network and/or CPU saturation and could not handle all incoming requests within the expected timeout window. Since a single user request to Jira typically involves multiple cache calls, timeouts compound rapidly. As more threads became blocked waiting on timed-out or slow cache operations, the application nodes reached its busy thread limit and began shedding load. While additional application nodes were added, these also experienced the same thread limit saturation due to the saturation of the cache layer resulting in widespread 503 service unavailable errors for customers.\n\n  \n\n**REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\n  \n\nWe know that outages impact your productivity. In addition to existing safeguards and monitoring, Atlassian is prioritizing the following actions to help prevent similar incidents in future:\n\n  \n\n-   **Increased minimum caching cluster size**: We have increased the minimum number of nodes in all affected caching clusters in the EU Central region. This ensures sufficient capacity headroom to handle peak traffic without relying on autoscaling, reducing the risk of a similar failure occurring.\n-   **Change autoscaling behaviour**: We are working on improvements to our autoscaling behaviour to fall back to other availability zones when capacity is unavailable in a single zone.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\n  \n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "4jrw66wzznqx",
+          "created_at": "2026-06-12T06:49:15.105Z",
+          "updated_at": "2026-06-12T06:49:17.838Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "xcrmkxv7rpnw",
           "status": "resolved",
