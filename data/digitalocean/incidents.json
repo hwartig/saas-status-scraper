@@ -4,9 +4,82 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-16T15:22:49.138Z"
+    "updated_at": "2026-06-16T23:29:22.738Z"
   },
   "incidents": [
+    {
+      "id": "bfsh34myw3bc",
+      "name": "Intermittent 500 Errors on Serverless/GenAI Inference API",
+      "status": "monitoring",
+      "created_at": "2026-06-16T22:00:52.000Z",
+      "updated_at": "2026-06-16T23:29:22.735Z",
+      "monitoring_at": "2026-06-16T23:29:14.560Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/40ln0gl1x56j",
+      "started_at": "2026-06-16T22:00:52.000Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "dxg6rkts9c07",
+          "status": "monitoring",
+          "body": "Our engineering teams have successfully begun implementing mitigation steps to resolve the connectivity issues affecting the inference API. We will provide another update once the API has fully recovered and error rates return to normal.",
+          "incident_id": "bfsh34myw3bc",
+          "created_at": "2026-06-16T23:29:14.560Z",
+          "updated_at": "2026-06-16T23:29:14.560Z",
+          "display_at": "2026-06-16T23:29:14.560Z",
+          "affected_components": [
+            {
+              "code": "2z9ldz1t4dgp",
+              "name": "Agentic Inference Cloud - Inference",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "6wqq0c1s3kl4",
+          "status": "investigating",
+          "body": "We are actively investigating an issue causing elevated HTTP 500 error rates for customers utilizing our Serverless/GenAI Inference API.\nCustomer Impact: Customers making calls to the inference API—specifically targeting /v1/* endpoints—will experience intermittent HTTP 500 errors and failed requests.",
+          "incident_id": "bfsh34myw3bc",
+          "created_at": "2026-06-16T22:52:52.338Z",
+          "updated_at": "2026-06-16T22:53:10.064Z",
+          "display_at": "2026-06-16T22:00:52.000Z",
+          "affected_components": [
+            {
+              "code": "2z9ldz1t4dgp",
+              "name": "Agentic Inference Cloud - Inference",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "2z9ldz1t4dgp",
+          "name": "Inference",
+          "status": "partial_outage",
+          "created_at": "2026-05-15T07:02:10.429Z",
+          "updated_at": "2026-06-16T22:52:52.282Z",
+          "position": 2,
+          "description": "Serverless access to foundation models (e.g. Llama, Mistral, GPT) via OpenAI-compatible API.",
+          "showcase": false,
+          "start_date": "2026-05-15",
+          "group_id": "gg1fsz7m9gvs",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "505mwh53nwl2",
       "name": "DeepSeek V4 Pro is returning HTTP 429 \"Rate limit exceeded\"",
@@ -5366,132 +5439,6 @@
           "showcase": false,
           "start_date": "2023-02-22",
           "group_id": "jg6pzd84p7bn",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "fv4s9bqmq41q",
-      "name": "Cloud Control Panel and API",
-      "status": "resolved",
-      "created_at": "2026-01-26T21:06:57.598Z",
-      "updated_at": "2026-01-26T22:44:06.145Z",
-      "monitoring_at": "2026-01-26T21:27:08.258Z",
-      "resolved_at": "2026-01-26T22:44:05.589Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/4prtndy9bd0t",
-      "started_at": "2026-01-26T21:06:57.593Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "z50lx9jgltvs",
-          "status": "resolved",
-          "body": "From 20:45 UTC to 21:06 UTC, users may have experienced issue affecting the Cloud Control Panel, API, and related services.\n\nOur Engineering team has confirmed that the issue is fully resolved, and all systems are now operating normally.\n\nIf you continue to experience problems, please open a ticket with our support team. We apologize for any inconvenience.",
-          "incident_id": "fv4s9bqmq41q",
-          "created_at": "2026-01-26T22:44:05.589Z",
-          "updated_at": "2026-01-26T22:44:06.138Z",
-          "display_at": "2026-01-26T22:44:05.589Z",
-          "affected_components": [
-            {
-              "code": "p1x9rv4137gx",
-              "name": "API",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "czck17wcspr5",
-              "name": "Cloud Control Panel",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2015918697001713993
-        },
-        {
-          "id": "33cpv2kfqj05",
-          "status": "monitoring",
-          "body": "Our Engineering team has implemented a fix for the issue affecting the Cloud Control Panel, API, and related services. \n\nWe are observing recovery, and users should now be able to access their accounts and use the API without errors.\n\nWe are continuing to monitor the situation closely and will provide an update once full resolution is confirmed.",
-          "incident_id": "fv4s9bqmq41q",
-          "created_at": "2026-01-26T21:27:08.258Z",
-          "updated_at": "2026-01-26T21:27:08.583Z",
-          "display_at": "2026-01-26T21:27:08.258Z",
-          "affected_components": [
-            {
-              "code": "p1x9rv4137gx",
-              "name": "API",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "czck17wcspr5",
-              "name": "Cloud Control Panel",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2015899329584873892
-        },
-        {
-          "id": "tqmlhq78hrkt",
-          "status": "investigating",
-          "body": "Our Engineering team is investigating an issue impacting multiple services including the Cloud Control Panel and API.\n\nUsers may encounter errors when accessing their accounts or using the API.\n\nWe are actively working to resolve this issue and will provide updates as soon as more information becomes available.",
-          "incident_id": "fv4s9bqmq41q",
-          "created_at": "2026-01-26T21:06:57.690Z",
-          "updated_at": "2026-01-26T21:06:58.195Z",
-          "display_at": "2026-01-26T21:06:57.690Z",
-          "affected_components": [
-            {
-              "code": "p1x9rv4137gx",
-              "name": "API",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "czck17wcspr5",
-              "name": "Cloud Control Panel",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2015894252895789261
-        }
-      ],
-      "components": [
-        {
-          "id": "p1x9rv4137gx",
-          "name": "API",
-          "status": "operational",
-          "created_at": "2023-03-06T18:42:45.160Z",
-          "updated_at": "2026-05-08T19:59:48.833Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-03-06",
-          "group_id": null,
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "czck17wcspr5",
-          "name": "Cloud Control Panel",
-          "status": "operational",
-          "created_at": "2023-03-06T18:42:46.098Z",
-          "updated_at": "2026-05-09T13:51:39.521Z",
-          "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-03-06",
-          "group_id": null,
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false

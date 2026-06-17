@@ -4,9 +4,39 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-06-16T14:31:19.407-07:00"
+    "updated_at": "2026-06-16T16:53:45.091-07:00"
   },
   "incidents": [
+    {
+      "id": "d660yn85057x",
+      "name": "[Minor] Issues with Downloads",
+      "status": "resolved",
+      "created_at": "2026-06-16T16:00:00.000-07:00",
+      "updated_at": "2026-06-16T16:16:45.783-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2026-06-16T16:00:00.000-07:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/bdf9jh2dc7t1",
+      "started_at": "2026-06-16T16:16:40.450-07:00",
+      "page_id": "208q92hckwws",
+      "incident_updates": [
+        {
+          "id": "111tb004kl8k",
+          "status": "resolved",
+          "body": "From approximately 3:40PM and 3:50 PM PDT, we observed an issue impacting downloads. Our systems automatically detected and corrected the underlying issue. There is no current impact and no further updates will be provided here. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
+          "incident_id": "d660yn85057x",
+          "created_at": "2026-06-16T16:16:40.496-07:00",
+          "updated_at": "2026-06-16T16:16:40.496-07:00",
+          "display_at": "2026-06-16T16:00:00.000-07:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "51dltrh13zzn",
       "name": "[Medium] Issue with Multiple Box Services",
@@ -13963,192 +13993,6 @@
           "showcase": false,
           "start_date": null,
           "group_id": "l6vzpnn62cgq",
-          "page_id": "208q92hckwws",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "54k4mwdqpvr0",
-      "name": "[Major] Some customers can have issues to load or open MS Office Online",
-      "status": "postmortem",
-      "created_at": "2025-03-12T03:44:38.819-07:00",
-      "updated_at": "2025-04-15T09:34:05.346-07:00",
-      "monitoring_at": "2025-03-12T05:45:09.767-07:00",
-      "resolved_at": "2025-03-12T06:00:54.845-07:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/62sy688s1ntg",
-      "started_at": "2025-03-12T03:44:38.812-07:00",
-      "page_id": "208q92hckwws",
-      "incident_updates": [
-        {
-          "id": "5f6n143q1n74",
-          "status": "postmortem",
-          "body": "We recently addressed issues affecting the Box For Office Integration. We would like to take the opportunity to further explain these issues and the steps taken to keep them from happening again.\n\nBetween 01:39 AM PT and 05:19 AM PT on March 12, 2025, some users may have experienced difficulties while working in Box. During this time, Box customers were unable to open or edit Microsoft Office files via Office Online. The issue occurred as a result of network connectivity issues with Microsoft's services. We were able to resolve the issue by restoring the network connectivity with our partner. In addition, we are working on making the Box For Office Integration more resilient to prevent similar problems in the future.\n\n‌\n\n**Analysis** \n\nThe Box For Office Integration enhances communication with Microsoft servers, enabling Office Online functionalities for files hosted in Box. This communication occurs through the Web Application Open Platform Interface \\(WOPI\\) protocol. Most WOPI operations require a process called WOPI discovery. During this phase, a WOPI host \\(like Box\\), identifies how to perform specific actions within the WOPI protocol. In this case, it is performed by retrieving a discovery XML file from Microsoft's Discovery Endpoint. This file contains essential information about the URLs needed for these actions and the keys required for validating signatures on each WOPI command. The file is then cached for a set period. \n\nBefore the outage that caused this issue, one of the discovery endpoints in Office Online faced significant slowdowns and longer response times than usual. At the same time, Box's cache expired, which prevented us from managing WOPI operations effectively. As a result, users may have experienced session terminations and disruption of the integration between the two services. \n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* The cache time-to-live for the discovery file will be increased to minimize Box's exposure to potential failures in reaching the discovery endpoint.\n* The discovery file will be periodically refreshed by a dedicated process. This approach aims to offload the operational endpoint, thereby minimizing its exposure to potential issues during periods of degradation.\n* The operations timeout will be reduced to enhance overall performance.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
-          "incident_id": "54k4mwdqpvr0",
-          "created_at": "2025-04-03T02:53:41.656-07:00",
-          "updated_at": "2025-04-15T09:34:05.343-07:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6q37r8cbpmjt",
-          "status": "resolved",
-          "body": "After further monitoring, this incident is now considered resolved. MS Office Onlive Service has been restored to full functionality. If you continue to experience any issues, please contact Box Support at https://support.box.com.",
-          "incident_id": "54k4mwdqpvr0",
-          "created_at": "2025-03-12T06:00:54.845-07:00",
-          "updated_at": "2025-03-12T06:00:54.845-07:00",
-          "display_at": "2025-03-12T06:00:54.845-07:00",
-          "affected_components": [
-            {
-              "code": "m9wrjsglbtpy",
-              "name": "Partners / Integrations - Microsoft Online",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "hcxmdb14mskz",
-          "status": "monitoring",
-          "body": "Our team has taken steps to remediate this issue and is seeing improvement for MS Office Online service. We are continuing to monitor for any additional impact.",
-          "incident_id": "54k4mwdqpvr0",
-          "created_at": "2025-03-12T05:45:09.767-07:00",
-          "updated_at": "2025-03-12T05:45:09.767-07:00",
-          "display_at": "2025-03-12T05:45:09.767-07:00",
-          "affected_components": [
-            {
-              "code": "m9wrjsglbtpy",
-              "name": "Partners / Integrations - Microsoft Online",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "r8d8r2qsdg51",
-          "status": "identified",
-          "body": "Our team has identified the underlying cause of this issue with MS Office Online. The problem is located at Microsoft only. We are working with them to resolve it as quickly as possible. We will provide additional information as it becomes available.",
-          "incident_id": "54k4mwdqpvr0",
-          "created_at": "2025-03-12T05:39:38.512-07:00",
-          "updated_at": "2025-03-12T05:39:38.512-07:00",
-          "display_at": "2025-03-12T05:39:38.512-07:00",
-          "affected_components": [
-            {
-              "code": "m9wrjsglbtpy",
-              "name": "Partners / Integrations - Microsoft Online",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "lngmrd335wzg",
-          "status": "identified",
-          "body": "Our team has identified the underlying cause of this issue with MS Office Online. The problem is located at Microsoft only. We are working with them to resolve it as quickly as possible. We will provide additional information as it becomes available.",
-          "incident_id": "54k4mwdqpvr0",
-          "created_at": "2025-03-12T05:07:44.170-07:00",
-          "updated_at": "2025-03-12T05:07:44.170-07:00",
-          "display_at": "2025-03-12T05:07:44.170-07:00",
-          "affected_components": [
-            {
-              "code": "m9wrjsglbtpy",
-              "name": "Partners / Integrations - Microsoft Online",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gyq5lzk0djhf",
-          "status": "identified",
-          "body": "Our team has identified the underlying cause of this issue with MS Office Online. The problem is located at Microsoft only. We are working with them to resolve it as quickly as possible. We will provide additional information as it becomes available.",
-          "incident_id": "54k4mwdqpvr0",
-          "created_at": "2025-03-12T04:38:00.451-07:00",
-          "updated_at": "2025-03-12T04:38:00.451-07:00",
-          "display_at": "2025-03-12T04:38:00.451-07:00",
-          "affected_components": [
-            {
-              "code": "m9wrjsglbtpy",
-              "name": "Partners / Integrations - Microsoft Online",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "756x3qx72hrz",
-          "status": "investigating",
-          "body": "Our team is investigating an issue with MS Office Online. Users may see errors or slowness when attempting to open MS Office files through MS Office Online. We will provide additional information as it becomes available.",
-          "incident_id": "54k4mwdqpvr0",
-          "created_at": "2025-03-12T04:07:38.847-07:00",
-          "updated_at": "2025-03-12T04:07:38.847-07:00",
-          "display_at": "2025-03-12T04:07:38.847-07:00",
-          "affected_components": [
-            {
-              "code": "m9wrjsglbtpy",
-              "name": "Partners / Integrations - Microsoft Online",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gw8hb0fwc31m",
-          "status": "investigating",
-          "body": "Our team is investigating an issue with MS Office Online. Users may see errors or slowness when attempting to open MS Office files through MS Office Online. We will provide additional information as it becomes available.",
-          "incident_id": "54k4mwdqpvr0",
-          "created_at": "2025-03-12T03:44:38.896-07:00",
-          "updated_at": "2025-03-12T03:44:38.896-07:00",
-          "display_at": "2025-03-12T03:44:38.896-07:00",
-          "affected_components": [
-            {
-              "code": "m9wrjsglbtpy",
-              "name": "Partners / Integrations - Microsoft Online",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "m9wrjsglbtpy",
-          "name": "Microsoft Office Integration",
-          "status": "operational",
-          "created_at": "2018-10-01T20:21:36.119-07:00",
-          "updated_at": "2026-06-15T11:18:15.631-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "jvy3knlf7n32",
           "page_id": "208q92hckwws",
           "group": false,
           "only_show_if_degraded": false

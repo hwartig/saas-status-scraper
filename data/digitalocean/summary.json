@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-16T15:22:49.138Z"
+    "updated_at": "2026-06-16T23:29:22.738Z"
   },
   "components": [
     {
@@ -520,9 +520,9 @@
     {
       "id": "2z9ldz1t4dgp",
       "name": "Inference",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2026-05-15T07:02:10.429Z",
-      "updated_at": "2026-05-15T07:02:10.429Z",
+      "updated_at": "2026-06-16T22:52:52.282Z",
       "position": 2,
       "description": "Serverless access to foundation models (e.g. Llama, Mistral, GPT) via OpenAI-compatible API.",
       "showcase": false,
@@ -2560,7 +2560,7 @@
     {
       "id": "gg1fsz7m9gvs",
       "name": "Agentic Inference Cloud",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2026-05-15T07:00:50.940Z",
       "updated_at": "2026-05-15T07:01:07.993Z",
       "position": 11,
@@ -3662,7 +3662,81 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "bfsh34myw3bc",
+      "name": "Intermittent 500 Errors on Serverless/GenAI Inference API",
+      "status": "monitoring",
+      "created_at": "2026-06-16T22:00:52.000Z",
+      "updated_at": "2026-06-16T23:29:22.735Z",
+      "monitoring_at": "2026-06-16T23:29:14.560Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/40ln0gl1x56j",
+      "started_at": "2026-06-16T22:00:52.000Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "dxg6rkts9c07",
+          "status": "monitoring",
+          "body": "Our engineering teams have successfully begun implementing mitigation steps to resolve the connectivity issues affecting the inference API. We will provide another update once the API has fully recovered and error rates return to normal.",
+          "incident_id": "bfsh34myw3bc",
+          "created_at": "2026-06-16T23:29:14.560Z",
+          "updated_at": "2026-06-16T23:29:14.560Z",
+          "display_at": "2026-06-16T23:29:14.560Z",
+          "affected_components": [
+            {
+              "code": "2z9ldz1t4dgp",
+              "name": "Agentic Inference Cloud - Inference",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "6wqq0c1s3kl4",
+          "status": "investigating",
+          "body": "We are actively investigating an issue causing elevated HTTP 500 error rates for customers utilizing our Serverless/GenAI Inference API.\nCustomer Impact: Customers making calls to the inference API—specifically targeting /v1/* endpoints—will experience intermittent HTTP 500 errors and failed requests.",
+          "incident_id": "bfsh34myw3bc",
+          "created_at": "2026-06-16T22:52:52.338Z",
+          "updated_at": "2026-06-16T22:53:10.064Z",
+          "display_at": "2026-06-16T22:00:52.000Z",
+          "affected_components": [
+            {
+              "code": "2z9ldz1t4dgp",
+              "name": "Agentic Inference Cloud - Inference",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "2z9ldz1t4dgp",
+          "name": "Inference",
+          "status": "partial_outage",
+          "created_at": "2026-05-15T07:02:10.429Z",
+          "updated_at": "2026-06-16T22:52:52.282Z",
+          "position": 2,
+          "description": "Serverless access to foundation models (e.g. Llama, Mistral, GPT) via OpenAI-compatible API.",
+          "showcase": false,
+          "start_date": "2026-05-15",
+          "group_id": "gg1fsz7m9gvs",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "jcz8lx6qhg7y",
@@ -3720,7 +3794,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
