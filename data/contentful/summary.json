@@ -4,15 +4,15 @@
     "name": "Contentful",
     "url": "https://www.contentfulstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-18T13:38:52.064Z"
+    "updated_at": "2026-06-18T17:14:10.879Z"
   },
   "components": [
     {
       "id": "0fdg751p3dxn",
       "name": "Content Management API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2013-11-01T17:17:34.168Z",
-      "updated_at": "2026-06-16T08:00:10.906Z",
+      "updated_at": "2026-06-18T16:11:55.598Z",
       "position": 1,
       "description": "API used for content management by editors",
       "showcase": false,
@@ -190,9 +190,9 @@
     {
       "id": "m9l315xy0kx3",
       "name": "Web App",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2013-11-01T17:27:36.310Z",
-      "updated_at": "2026-06-16T08:00:11.494Z",
+      "updated_at": "2026-06-18T16:11:55.628Z",
       "position": 5,
       "description": "The editing interface (app.contentful.com)",
       "showcase": false,
@@ -553,10 +553,137 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "s51xcmj69k5g",
+      "name": "Connection issues with the Management and Preview APIs",
+      "status": "identified",
+      "created_at": "2026-06-18T16:11:55.534Z",
+      "updated_at": "2026-06-18T17:14:10.862Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/4wz7d1p3xbl8",
+      "started_at": "2026-06-18T16:11:55.520Z",
+      "page_id": "4bv17htq00cz",
+      "incident_updates": [
+        {
+          "id": "zh9s743n7mqy",
+          "status": "identified",
+          "body": "We have identified the issue and are working to resolve it. The impact remains limited to specific points of presence in our CDN so the majority of customers should see no impact at all.",
+          "incident_id": "s51xcmj69k5g",
+          "created_at": "2026-06-18T17:14:10.857Z",
+          "updated_at": "2026-06-18T17:14:10.857Z",
+          "display_at": "2026-06-18T17:14:10.857Z",
+          "affected_components": [
+            {
+              "code": "0fdg751p3dxn",
+              "name": "Content Management API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "m9l315xy0kx3",
+              "name": "Web App",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "vwjz6g7pllyr",
+          "status": "investigating",
+          "body": "Some customers are receiving 500 error responses when accessing the Content Preview and Management APIs. The Management API also powers our Web App and therefore the Web App is also operating in degraded mode. We are investigating the issue",
+          "incident_id": "s51xcmj69k5g",
+          "created_at": "2026-06-18T16:13:22.422Z",
+          "updated_at": "2026-06-18T16:13:22.422Z",
+          "display_at": "2026-06-18T16:13:22.422Z",
+          "affected_components": [
+            {
+              "code": "0fdg751p3dxn",
+              "name": "Content Management API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "m9l315xy0kx3",
+              "name": "Web App",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "47sr6gnh69pm",
+          "status": "investigating",
+          "body": "Some customers are receiving 500 error responses when accessing the Content Preview API. The Management API also powers our Web App and therefore the Web App is also operating in degraded mode. We are investigating the issue.",
+          "incident_id": "s51xcmj69k5g",
+          "created_at": "2026-06-18T16:11:55.694Z",
+          "updated_at": "2026-06-18T16:11:55.694Z",
+          "display_at": "2026-06-18T16:11:55.694Z",
+          "affected_components": [
+            {
+              "code": "0fdg751p3dxn",
+              "name": "Content Management API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "m9l315xy0kx3",
+              "name": "Web App",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "0fdg751p3dxn",
+          "name": "Content Management API",
+          "status": "degraded_performance",
+          "created_at": "2013-11-01T17:17:34.168Z",
+          "updated_at": "2026-06-18T16:11:55.598Z",
+          "position": 1,
+          "description": "API used for content management by editors",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "4bv17htq00cz",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "m9l315xy0kx3",
+          "name": "Web App",
+          "status": "degraded_performance",
+          "created_at": "2013-11-01T17:27:36.310Z",
+          "updated_at": "2026-06-18T16:11:55.628Z",
+          "position": 5,
+          "description": "The editing interface (app.contentful.com)",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "4bv17htq00cz",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
