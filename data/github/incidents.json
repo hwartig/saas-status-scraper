@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-18T17:14:01.517Z"
+    "updated_at": "2026-06-18T19:48:54.372Z"
   },
   "incidents": [
     {
@@ -360,7 +360,7 @@
       "name": "Multiple services have elevated errors and endpoint failures when checking feature flags",
       "status": "resolved",
       "created_at": "2026-06-15T18:32:02.989Z",
-      "updated_at": "2026-06-15T19:10:15.177Z",
+      "updated_at": "2026-06-18T18:53:01.231Z",
       "monitoring_at": "2026-06-15T19:02:13.698Z",
       "resolved_at": "2026-06-15T19:10:15.147Z",
       "impact": "minor",
@@ -371,10 +371,10 @@
         {
           "id": "5mk8zn2388mn",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between 17:38 UTC and 18:22 UTC on June 15, 2026, approximately 83% of requests to the analytics endpoint serving the /chronicle feature failed.  The cause was an internal feature-flag service that encountered a transient error and failed to recover, causing feature flag checks to fail. The analytics endpoint was gated behind one of these flags, resulting in requests being rejected. We restored service health by removing the feature flag gating the analytics endpoint and deploying that change. To avoid recurrence of similar incidents, we have changed the feature-flag client so that errors that are not known to be permanent are retried, and we are improving alerting and startup behavior so this class of failure is detected and recovered from faster.",
           "incident_id": "d9b4dsg8d0r6",
           "created_at": "2026-06-15T19:10:15.147Z",
-          "updated_at": "2026-06-15T19:10:15.147Z",
+          "updated_at": "2026-06-18T18:53:01.225Z",
           "display_at": "2026-06-15T19:10:15.147Z",
           "affected_components": null,
           "deliver_notifications": true,
