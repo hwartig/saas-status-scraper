@@ -4,9 +4,102 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-19T15:39:24.922Z"
+    "updated_at": "2026-06-19T18:19:03.548Z"
   },
   "incidents": [
+    {
+      "id": "80c58chh4x77",
+      "name": "Log search unavailable",
+      "status": "monitoring",
+      "created_at": "2026-06-19T18:05:55.215Z",
+      "updated_at": "2026-06-19T18:19:03.546Z",
+      "monitoring_at": "2026-06-19T18:19:03.531Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/wctjc6hx9606",
+      "started_at": "2026-06-19T18:05:55.208Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "1ymfb2585wq1",
+          "status": "monitoring",
+          "body": "We've applied a fix for this issue. Historical logs are currently backfilling. We will post an update once logs have finished backfilling and current logs are being ingested normally.",
+          "incident_id": "80c58chh4x77",
+          "created_at": "2026-06-19T18:19:03.531Z",
+          "updated_at": "2026-06-19T18:19:03.531Z",
+          "display_at": "2026-06-19T18:19:03.531Z",
+          "affected_components": [
+            {
+              "code": "6sckg8qmrnzz",
+              "name": "Logs",
+              "old_status": "major_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "l2s7j06hzw3k",
+          "status": "investigating",
+          "body": "Log search is available; however, new app logs since ~1 hour ago are missing and new logs are not being ingested. We are continuing to investigate.",
+          "incident_id": "80c58chh4x77",
+          "created_at": "2026-06-19T18:10:26.373Z",
+          "updated_at": "2026-06-19T18:10:26.373Z",
+          "display_at": "2026-06-19T18:10:26.373Z",
+          "affected_components": [
+            {
+              "code": "6sckg8qmrnzz",
+              "name": "Logs",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "9x3yrchrxrgk",
+          "status": "investigating",
+          "body": "We are investigating an issue causing application log search to be unavailable. This is affecting the Fly Metrics log search panels, and historical application logs initially returned from the `fly logs` command.\n\nStreaming logs using `fly logs`, the Live Logs page in the dashboard, and Fly Log Shipper services continue to work as expected.",
+          "incident_id": "80c58chh4x77",
+          "created_at": "2026-06-19T18:05:55.263Z",
+          "updated_at": "2026-06-19T18:05:55.263Z",
+          "display_at": "2026-06-19T18:05:55.263Z",
+          "affected_components": [
+            {
+              "code": "6sckg8qmrnzz",
+              "name": "Logs",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "6sckg8qmrnzz",
+          "name": "Logs",
+          "status": "partial_outage",
+          "created_at": "2020-06-30T20:19:10.241Z",
+          "updated_at": "2026-06-19T18:19:03.490Z",
+          "position": 8,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "s3z2z50wzzv6",
       "name": "Network Issues in SIN",
@@ -4120,9 +4213,9 @@
         {
           "id": "6sckg8qmrnzz",
           "name": "Logs",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2020-06-30T20:19:10.241Z",
-          "updated_at": "2026-05-19T20:56:12.085Z",
+          "updated_at": "2026-06-19T18:19:03.490Z",
           "position": 8,
           "description": null,
           "showcase": false,
@@ -4563,9 +4656,9 @@
         {
           "id": "6sckg8qmrnzz",
           "name": "Logs",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2020-06-30T20:19:10.241Z",
-          "updated_at": "2026-05-19T20:56:12.085Z",
+          "updated_at": "2026-06-19T18:19:03.490Z",
           "position": 8,
           "description": null,
           "showcase": false,
@@ -5247,9 +5340,9 @@
         {
           "id": "6sckg8qmrnzz",
           "name": "Logs",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2020-06-30T20:19:10.241Z",
-          "updated_at": "2026-05-19T20:56:12.085Z",
+          "updated_at": "2026-06-19T18:19:03.490Z",
           "position": 8,
           "description": null,
           "showcase": false,
@@ -6030,119 +6123,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "1jvnnd3m10sf",
-      "name": "Managed Postgres control plane instability in NRT (Tokyo)",
-      "status": "resolved",
-      "created_at": "2026-04-10T18:42:52.835Z",
-      "updated_at": "2026-04-10T21:48:34.980Z",
-      "monitoring_at": "2026-04-10T20:32:50.191Z",
-      "resolved_at": "2026-04-10T21:48:34.958Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/n76lq4ns9trb",
-      "started_at": "2026-04-10T18:42:52.826Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "q9749pjqjwzd",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "1jvnnd3m10sf",
-          "created_at": "2026-04-10T21:48:34.958Z",
-          "updated_at": "2026-04-10T21:48:34.958Z",
-          "display_at": "2026-04-10T21:48:34.958Z",
-          "affected_components": [
-            {
-              "code": "d8dmkvyb21x5",
-              "name": "Managed Postgres - Management Plane - NRT",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "n7b24mcjqfsd",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are seeing MPG performance in NRT normalize. We are continuing to monitor to ensure a stable recovery",
-          "incident_id": "1jvnnd3m10sf",
-          "created_at": "2026-04-10T20:32:50.191Z",
-          "updated_at": "2026-04-10T20:32:50.191Z",
-          "display_at": "2026-04-10T20:32:50.191Z",
-          "affected_components": [
-            {
-              "code": "d8dmkvyb21x5",
-              "name": "Managed Postgres - Management Plane - NRT",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rtggzlc4777j",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented. Users with clusters in NRT may continue to see instability at this time",
-          "incident_id": "1jvnnd3m10sf",
-          "created_at": "2026-04-10T20:13:11.788Z",
-          "updated_at": "2026-04-10T20:13:11.788Z",
-          "display_at": "2026-04-10T20:13:11.788Z",
-          "affected_components": [
-            {
-              "code": "d8dmkvyb21x5",
-              "name": "Managed Postgres - Management Plane - NRT",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jc0tg5xjkt3m",
-          "status": "investigating",
-          "body": "We are investigating instability in the MPG control plane in the NRT (Toyko, Japan) region causing unexpected cluster failovers. Clusters return to health shortly after, but some users with clusters in NRT may see dropped connections or degraded performance  at this time.",
-          "incident_id": "1jvnnd3m10sf",
-          "created_at": "2026-04-10T18:42:52.917Z",
-          "updated_at": "2026-04-10T18:42:52.917Z",
-          "display_at": "2026-04-10T18:42:52.917Z",
-          "affected_components": [
-            {
-              "code": "d8dmkvyb21x5",
-              "name": "Managed Postgres - Management Plane - NRT",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "d8dmkvyb21x5",
-          "name": "Management Plane - NRT",
-          "status": "operational",
-          "created_at": "2025-12-15T10:21:35.537Z",
-          "updated_at": "2026-06-15T16:41:07.588Z",
-          "position": 9,
-          "description": null,
-          "showcase": true,
-          "start_date": "2025-12-15",
-          "group_id": "h2hndffd5ysc",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
