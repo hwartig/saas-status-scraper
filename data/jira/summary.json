@@ -4,7 +4,7 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-19T16:49:12.902Z"
+    "updated_at": "2026-06-19T23:04:09.645Z"
   },
   "components": [
     {
@@ -160,9 +160,9 @@
     {
       "id": "9hyf9lm0fswd",
       "name": "Automation for Jira",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2020-12-23T01:40:32.378Z",
-      "updated_at": "2026-06-02T16:51:29.540Z",
+      "updated_at": "2026-06-19T22:46:56.671Z",
       "position": 11,
       "description": null,
       "showcase": false,
@@ -173,10 +173,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "wz4nsfzcddyv",
+      "name": "Jira : Incoming emails partial outage",
+      "status": "monitoring",
+      "created_at": "2026-06-19T22:46:56.475Z",
+      "updated_at": "2026-06-19T22:46:56.794Z",
+      "monitoring_at": "2026-06-19T22:46:56.770Z",
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/kpj5zywxxynh",
+      "started_at": "2026-06-19T22:46:56.448Z",
+      "page_id": "7yh3h3y0c0x1",
+      "incident_updates": [
+        {
+          "id": "nn5kgqyprwtp",
+          "status": "monitoring",
+          "body": "Jira and JSM customers using Microsoft OAuth for automatic creation of Jira tickets from email were unable to read email. This is now fixed and functional for all new incoming email processing.\n\nThe impacted customers during the incident period need to re-authorise the Microsoft mail server to restore and below are the instructions.\n\nTo re-authorise an incoming Microsoft mail server:\n\nLogin in Jira as Admin\nSelect  > System\nSelect Mail > Incoming Mail.\nSelect Edit incoming mail server.\nSelect re-authorise .\n\nEnter your Microsoft credentials to continue using your Microsoft mail server.",
+          "incident_id": "wz4nsfzcddyv",
+          "created_at": "2026-06-19T22:46:56.770Z",
+          "updated_at": "2026-06-19T22:46:56.770Z",
+          "display_at": "2026-06-19T22:46:56.770Z",
+          "affected_components": [
+            {
+              "code": "9hyf9lm0fswd",
+              "name": "Automation for Jira",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "9hyf9lm0fswd",
+          "name": "Automation for Jira",
+          "status": "partial_outage",
+          "created_at": "2020-12-23T01:40:32.378Z",
+          "updated_at": "2026-06-19T22:46:56.671Z",
+          "position": 11,
+          "description": null,
+          "showcase": false,
+          "start_date": "2020-12-23",
+          "group_id": null,
+          "page_id": "7yh3h3y0c0x1",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
