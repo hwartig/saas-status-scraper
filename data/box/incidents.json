@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-06-24T12:33:43.862-07:00"
+    "updated_at": "2026-06-24T15:33:48.398-07:00"
   },
   "incidents": [
     {
@@ -318,9 +318,9 @@
     {
       "id": "51dltrh13zzn",
       "name": "[Medium] Issue with Multiple Box Services",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-06-10T17:34:13.920-07:00",
-      "updated_at": "2026-06-10T19:09:19.774-07:00",
+      "updated_at": "2026-06-24T15:10:17.837-07:00",
       "monitoring_at": "2026-06-10T18:41:18.099-07:00",
       "resolved_at": "2026-06-10T19:01:00.142-07:00",
       "impact": "major",
@@ -328,6 +328,19 @@
       "started_at": "2026-06-10T17:34:13.908-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "2drdjf5wkfm9",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Box Public API. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future. \n\nBetween 5:10 PM PDT and 6:40 PM PDT on June 10, 2026, some users may have experienced difficulties accessing or working within Box. During this period, there was a noticeable degradation affecting Public API request processing. This issue occurred as a result of a recent software change to our authentication infrastructure in our ongoing effort to improve performance and stability of Public API service. We were able to resolve the issue by scaling up the service, correcting its resource allocation, and rolling back the change. In addition, we are working to improve our resource provisioning to prevent similar issues from occurring in the future.  \n\n**Analysis** \n\nWe recently began rolling out an update to our authentication infrastructure designed to improve performance and stability of Public API service. Following the gradual rollout, an increase in resource utilization during peak traffic led to unexpected resource utilization on our authentication infrastructure. As a result, those servers became unresponsive, preventing them from processing Public API requests. We were able to resolve the issue by temporarily scaling up and adjusting the resource allocations of the authentication service.   \n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Rebalancing the resource allocations of the authentication service to accommodate higher traffic volumes\n* Tuning server timeouts across Public API components to ensure consistent, predictable API response times\n* Establishing processes and automation to reduce time to mitigation  \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
+          "incident_id": "51dltrh13zzn",
+          "created_at": "2026-06-24T15:02:43.747-07:00",
+          "updated_at": "2026-06-24T15:10:17.832-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "dc0jzkpzly1n",
           "status": "resolved",
