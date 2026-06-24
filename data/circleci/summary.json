@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-24T22:33:48.421Z"
+    "updated_at": "2026-06-24T23:33:58.534Z"
   },
   "components": [
     {
@@ -115,9 +115,9 @@
     {
       "id": "bpfmy8wy8wq2",
       "name": "macOS Jobs",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-11-09T08:22:00.885Z",
-      "updated_at": "2026-06-07T04:44:29.223Z",
+      "updated_at": "2026-06-24T23:13:45.064Z",
       "position": 3,
       "description": "CircleCI jobs using the macos executor.",
       "showcase": true,
@@ -652,10 +652,84 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "gvysjmkf4ct9",
+      "name": "Issues with network routing for Mac jobs",
+      "status": "identified",
+      "created_at": "2026-06-24T23:13:45.020Z",
+      "updated_at": "2026-06-24T23:33:58.525Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/mrq29l3fw2cm",
+      "started_at": "2026-06-24T23:13:45.011Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "gy29hjssj77q",
+          "status": "identified",
+          "body": "We have implemented a change to address the routing issues and are monitoring the results.",
+          "incident_id": "gvysjmkf4ct9",
+          "created_at": "2026-06-24T23:33:58.523Z",
+          "updated_at": "2026-06-24T23:33:58.523Z",
+          "display_at": "2026-06-24T23:33:58.523Z",
+          "affected_components": [
+            {
+              "code": "bpfmy8wy8wq2",
+              "name": "macOS Jobs",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2gfrrpd7x52l",
+          "status": "investigating",
+          "body": "What's happening\nOur engineers are investigating network routing issues for some Mac jobs.\n\nWhat's impacted\nMac jobs that make outbound requests, including checking out from GitHub.",
+          "incident_id": "gvysjmkf4ct9",
+          "created_at": "2026-06-24T23:13:45.127Z",
+          "updated_at": "2026-06-24T23:13:45.127Z",
+          "display_at": "2026-06-24T23:13:45.127Z",
+          "affected_components": [
+            {
+              "code": "bpfmy8wy8wq2",
+              "name": "macOS Jobs",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "bpfmy8wy8wq2",
+          "name": "macOS Jobs",
+          "status": "degraded_performance",
+          "created_at": "2017-11-09T08:22:00.885Z",
+          "updated_at": "2026-06-24T23:13:45.064Z",
+          "position": 3,
+          "description": "CircleCI jobs using the macos executor.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
