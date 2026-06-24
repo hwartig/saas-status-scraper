@@ -4,9 +4,52 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-24T13:08:59.143Z"
+    "updated_at": "2026-06-24T17:06:13.748Z"
   },
   "incidents": [
+    {
+      "id": "6tvmh4rnqwvc",
+      "name": "Degraded performance of the Shared Pooler cluster in ap-southeast-1",
+      "status": "resolved",
+      "created_at": "2026-06-24T15:59:23.877Z",
+      "updated_at": "2026-06-24T16:14:18.519Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-06-24T16:14:18.486Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/rqxdqp2043hs",
+      "started_at": "2026-06-24T15:59:23.865Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "wktlc8d783kn",
+          "status": "resolved",
+          "body": "One of the processes in the ap-southeast-1 Supavisor cluster became overloaded, causing difficulties in starting new pools.\n\nWe restarted a node to stabilize the cluster and scaled the cluster up. The issue appears resolved.",
+          "incident_id": "6tvmh4rnqwvc",
+          "created_at": "2026-06-24T16:14:18.486Z",
+          "updated_at": "2026-06-24T16:14:18.486Z",
+          "display_at": "2026-06-24T16:14:18.486Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "16xfsmdd8nr3",
+          "status": "investigating",
+          "body": "We are aware of a period of degraded performance of the Shared Pooler cluster in ap-southeast-1. Affected projects experienced increased ECHECKOUTTIMEOUT errors when running queries.\n\nThe window of the incident was between 14:48 to 15:25 UTC. The issue appears to be resolved. We are investigating the cause of this incident and will continue monitoring the cluster.",
+          "incident_id": "6tvmh4rnqwvc",
+          "created_at": "2026-06-24T15:59:23.939Z",
+          "updated_at": "2026-06-24T15:59:23.939Z",
+          "display_at": "2026-06-24T15:59:23.939Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "qmnmx4p35576",
       "name": "Project create and unpause errors in eu-west-1",
@@ -6534,139 +6577,6 @@
           "description": "Manage Supabase projects programmatically.",
           "showcase": true,
           "start_date": "2020-11-27",
-          "group_id": null,
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "8k5x70bfw6rx",
-      "name": "Storage errors in EU-Central-2",
-      "status": "resolved",
-      "created_at": "2026-03-07T20:12:22.750Z",
-      "updated_at": "2026-03-07T21:56:13.278Z",
-      "monitoring_at": "2026-03-07T21:16:37.380Z",
-      "resolved_at": "2026-03-07T21:56:13.265Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/tc6q1m1xkk26",
-      "started_at": "2026-03-07T20:12:22.744Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "mt24rrqyl0ps",
-          "status": "resolved",
-          "body": "All storage operations have returned to normal.",
-          "incident_id": "8k5x70bfw6rx",
-          "created_at": "2026-03-07T21:56:13.265Z",
-          "updated_at": "2026-03-07T21:56:13.265Z",
-          "display_at": "2026-03-07T21:56:13.265Z",
-          "affected_components": [
-            {
-              "code": "f867wqkvs7ct",
-              "name": "Storage",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dwx41jhn36q2",
-          "status": "monitoring",
-          "body": "The upstream incident has been resolved and we have not observed any additional errors. We will continue to monitor our storage infrastructure for continued stable operations.",
-          "incident_id": "8k5x70bfw6rx",
-          "created_at": "2026-03-07T21:16:37.380Z",
-          "updated_at": "2026-03-07T21:16:37.380Z",
-          "display_at": "2026-03-07T21:16:37.380Z",
-          "affected_components": [
-            {
-              "code": "f867wqkvs7ct",
-              "name": "Storage",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "g9m4f18g5bvf",
-          "status": "identified",
-          "body": "We are observing storage error rates returning to normal.",
-          "incident_id": "8k5x70bfw6rx",
-          "created_at": "2026-03-07T20:44:04.774Z",
-          "updated_at": "2026-03-07T20:44:04.774Z",
-          "display_at": "2026-03-07T20:44:04.774Z",
-          "affected_components": [
-            {
-              "code": "f867wqkvs7ct",
-              "name": "Storage",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vvx89fvptyxh",
-          "status": "identified",
-          "body": "We have identified the cause of the storage issue in EU-Central-2. The upstream provider is working to resolve the issue.",
-          "incident_id": "8k5x70bfw6rx",
-          "created_at": "2026-03-07T20:22:08.167Z",
-          "updated_at": "2026-03-07T20:22:08.167Z",
-          "display_at": "2026-03-07T20:22:08.167Z",
-          "affected_components": [
-            {
-              "code": "f867wqkvs7ct",
-              "name": "Storage",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5csk0gtnl3zy",
-          "status": "investigating",
-          "body": "We have noticed that storage uploads and downloads have become degraded in EU-Central-2. We are investigating.",
-          "incident_id": "8k5x70bfw6rx",
-          "created_at": "2026-03-07T20:12:22.787Z",
-          "updated_at": "2026-03-07T20:12:22.787Z",
-          "display_at": "2026-03-07T20:12:22.787Z",
-          "affected_components": [
-            {
-              "code": "f867wqkvs7ct",
-              "name": "Storage",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "f867wqkvs7ct",
-          "name": "Storage",
-          "status": "operational",
-          "created_at": "2023-02-13T10:46:23.745Z",
-          "updated_at": "2026-06-12T20:26:46.359Z",
-          "position": 11,
-          "description": "Store and serve any type of digital content",
-          "showcase": true,
-          "start_date": "2023-02-13",
           "group_id": null,
           "page_id": "q7pxfmcf2sbx",
           "group": false,
