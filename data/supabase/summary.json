@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-25T12:14:53.940Z"
+    "updated_at": "2026-06-25T15:20:46.591Z"
   },
   "components": [
     {
@@ -193,9 +193,9 @@
     {
       "id": "yz6pcnlscwpb",
       "name": "Database",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-05-02T07:14:49.000Z",
-      "updated_at": "2026-06-23T16:01:57.450Z",
+      "updated_at": "2026-06-25T14:20:31.769Z",
       "position": 7,
       "description": "The Postgres database and the REST Data APIs powered by PostgREST",
       "showcase": true,
@@ -431,7 +431,101 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "cz704f1bq0k4",
+      "name": "Upgrade Failures",
+      "status": "identified",
+      "created_at": "2026-06-25T14:20:31.710Z",
+      "updated_at": "2026-06-25T15:01:28.228Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/jprzt06z4f2j",
+      "started_at": "2026-06-25T14:20:31.695Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "9h7v4q4k12j8",
+          "status": "identified",
+          "body": "The upgrade delays have been caused by resource capacity limits. We are taking actions to increase the appropriate resources.",
+          "incident_id": "cz704f1bq0k4",
+          "created_at": "2026-06-25T15:01:28.212Z",
+          "updated_at": "2026-06-25T15:01:28.212Z",
+          "display_at": "2026-06-25T15:01:28.212Z",
+          "affected_components": [
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "09blfqnch8cm",
+          "status": "investigating",
+          "body": "Upgrades are taking longer than usual, but generally will complete if allowed to proceed. We are investigating the cause of the delays.",
+          "incident_id": "cz704f1bq0k4",
+          "created_at": "2026-06-25T14:41:28.680Z",
+          "updated_at": "2026-06-25T14:41:28.680Z",
+          "display_at": "2026-06-25T14:41:28.680Z",
+          "affected_components": [
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "3b5pzwtb562l",
+          "status": "investigating",
+          "body": "We are investigating potential upgrade issues in multiple regions. We are working to confirm impact and determine next steps.",
+          "incident_id": "cz704f1bq0k4",
+          "created_at": "2026-06-25T14:20:31.826Z",
+          "updated_at": "2026-06-25T14:20:31.826Z",
+          "display_at": "2026-06-25T14:20:31.826Z",
+          "affected_components": [
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "yz6pcnlscwpb",
+          "name": "Database",
+          "status": "degraded_performance",
+          "created_at": "2024-05-02T07:14:49.000Z",
+          "updated_at": "2026-06-25T14:20:31.769Z",
+          "position": 7,
+          "description": "The Postgres database and the REST Data APIs powered by PostgREST",
+          "showcase": true,
+          "start_date": "2024-05-02",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "vw3gz955kxb5",
@@ -466,7 +560,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
