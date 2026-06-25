@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-25T07:39:13.450Z"
+    "updated_at": "2026-06-25T12:14:48.743Z"
   },
   "components": [
     {
@@ -205,7 +205,7 @@
     {
       "id": "mrcyzlkkw8z9",
       "name": "Regional Availability",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T19:19:04.424Z",
       "updated_at": "2024-07-24T19:09:19.587Z",
       "position": 4,
@@ -285,9 +285,9 @@
     {
       "id": "k6fbt4mk0xv1",
       "name": "BOM - Mumbai, India",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-06-09T13:32:39.446Z",
-      "updated_at": "2026-05-23T02:14:15.911Z",
+      "updated_at": "2026-06-25T12:11:01.577Z",
       "position": 5,
       "description": null,
       "showcase": false,
@@ -837,9 +837,9 @@
     {
       "id": "m0gqlhds44dr",
       "name": "NRT - Tokyo, Japan",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T19:26:56.172Z",
-      "updated_at": "2026-06-22T21:56:34.897Z",
+      "updated_at": "2026-06-25T12:11:01.601Z",
       "position": 23,
       "description": null,
       "showcase": false,
@@ -925,7 +925,82 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "dpv9bhyp19zr",
+      "name": "Elevated control plane latency",
+      "status": "investigating",
+      "created_at": "2026-06-25T12:11:01.530Z",
+      "updated_at": "2026-06-25T12:11:01.656Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/t1gs0mq4cpgy",
+      "started_at": "2026-06-25T12:11:01.518Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "52pxg84jq4x9",
+          "status": "investigating",
+          "body": "We're addressing elevated control plane latency and saturation affecting the BOM and NRT regions. Apps with machines in this region might experience longer response times and possible timeouts (502 errors).",
+          "incident_id": "dpv9bhyp19zr",
+          "created_at": "2026-06-25T12:11:01.653Z",
+          "updated_at": "2026-06-25T12:11:01.653Z",
+          "display_at": "2026-06-25T12:11:01.653Z",
+          "affected_components": [
+            {
+              "code": "k6fbt4mk0xv1",
+              "name": "Regional Availability - BOM - Mumbai, India",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "m0gqlhds44dr",
+              "name": "Regional Availability - NRT - Tokyo, Japan",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "k6fbt4mk0xv1",
+          "name": "BOM - Mumbai, India",
+          "status": "degraded_performance",
+          "created_at": "2023-06-09T13:32:39.446Z",
+          "updated_at": "2026-06-25T12:11:01.577Z",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-06-07",
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "m0gqlhds44dr",
+          "name": "NRT - Tokyo, Japan",
+          "status": "degraded_performance",
+          "created_at": "2019-07-01T19:26:56.172Z",
+          "updated_at": "2026-06-25T12:11:01.601Z",
+          "position": 23,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "bfl0k8k3jt48",
@@ -983,7 +1058,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
