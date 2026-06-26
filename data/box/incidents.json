@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-06-25T16:58:48.084-07:00"
+    "updated_at": "2026-06-25T21:13:35.508-07:00"
   },
   "incidents": [
     {
@@ -790,7 +790,7 @@
       "name": "[Medium] Issues with Box Drive",
       "status": "postmortem",
       "created_at": "2026-05-22T01:46:15.327-07:00",
-      "updated_at": "2026-05-31T23:24:58.537-07:00",
+      "updated_at": "2026-06-25T17:04:09.367-07:00",
       "monitoring_at": "2026-05-22T02:15:47.014-07:00",
       "resolved_at": "2026-05-22T02:18:22.378-07:00",
       "impact": "major",
@@ -801,10 +801,10 @@
         {
           "id": "f2yts908b4nl",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nBetween May 21, 2026 at 10:56 PM and May 22, 2026 at 2:07 AM PDT, some customers attempting to sign into Box Drive may have experienced errors or been unable to complete the login process. The issue affected a subset of customers who use a particular Mobile Application Management \\(MAM\\) service that was not universal across all users. \n\nThe problem was caused by a change to our single sign-on configuration that prevented certain Box Drive logins from completing. Service was restored after we reverted the configuration and validated successful logins for impacted users.\n\nWe are reviewing our deployment and administrative procedures to reduce the risk of this type of issue recurring.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\n‌\n\nSincerely,  \nThe Box Team",
+          "body": "We recently addressed issues affecting Box Drive login and Single Sign-On \\(SSO\\) configuration. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 10:56 PM PDT on May 21, 2026 and 2:07 AM PDT on May 22, 2026, some users may have experienced difficulties while working in Box. During this time, enterprise customers with Intune Mobile Application Management \\(MAM\\) enabled experienced SSO login failures when attempting to access Box Drive, and administrators were unable to view, update, or manage SSO configurations in the Admin Console. The issue occurred as a result of an unintended configuration change where our primary, active identity provider administration console region was inadvertently flipped to passive mode. We were able to resolve the issue by restoring the primary administration console region back to active status, which immediately restored normal API and login flows. In addition, we are making updates to improve monitoring and alerting for related operational workflows to prevent similar issues from occurring in the future. \n\n**Analysis** \n\nThe active and standby regions were unintentionally reversed, causing the live production region to be switched into standby mode. As a result, the administrative API, which was used in for Intune MAM login flow, began rejecting requests for customers using Intune MAM-protected accounts and temporarily blocked certain SSO management actions in the Admin Console. End users affected by this saw login errors until the regions were restored to their correct state. We have since added safeguards to prevent unintended region switches and improved how our login flow handles this type of upstream failure.\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Add monitoring to catch certain configuration mismatches that could lead to unintended changes in service routing\n* Implement additional restrictions for administrative console region-flip\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.  \n\nSincerely,\n\nThe Box Team",
           "incident_id": "flg9088vj5bh",
           "created_at": "2026-05-28T17:41:46.495-07:00",
-          "updated_at": "2026-05-31T23:24:58.535-07:00",
+          "updated_at": "2026-06-25T17:04:09.365-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
