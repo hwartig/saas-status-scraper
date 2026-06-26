@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-26T21:19:59.494Z"
+    "updated_at": "2026-06-26T23:01:46.895Z"
   },
   "incidents": [
     {
@@ -306,7 +306,7 @@
       "name": "We are seeing elevated errors with Next Edit Suggestions and Completions",
       "status": "resolved",
       "created_at": "2026-06-23T23:04:50.369Z",
-      "updated_at": "2026-06-23T23:29:34.680Z",
+      "updated_at": "2026-06-26T23:01:46.877Z",
       "monitoring_at": "2026-06-23T23:27:25.809Z",
       "resolved_at": "2026-06-23T23:29:34.640Z",
       "impact": "minor",
@@ -317,10 +317,10 @@
         {
           "id": "pxwqgwvhwmvw",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On June 23, 2026, between 22:45 and 23:29 UTC, GitHub Copilot Completions and Next Edit Suggestions were degraded for users in all regions. During this window, affected users may have seen failed or missing code completions and Next Edit Suggestions. On average about 25% of Completions and Next Edit Suggestions requests failed during the impact window, peaking at roughly 27%. The cause was a configuration change that prevented the Copilot service from obtaining the authentication tokens it needs to reach its model backends; this both failed requests directly and caused the service to temporarily remove backends from rotation. GitHub engineers detected the elevated error rate within minutes, declared an incident, and mitigated the issue at 23:22 UTC by redeploying the service with a known-good configuration, which restored normal operation. As a follow-up, the team disabled the affected authentication path to prevent a future deployment from re-introducing the problem, and is making the change rollout safer. We apologize for the disruption and are taking steps to reduce the likelihood of similar incidents.",
           "incident_id": "9n670kvk0vw9",
           "created_at": "2026-06-23T23:29:34.640Z",
-          "updated_at": "2026-06-23T23:29:34.640Z",
+          "updated_at": "2026-06-26T23:01:46.872Z",
           "display_at": "2026-06-23T23:29:34.640Z",
           "affected_components": null,
           "deliver_notifications": true,
