@@ -4,7 +4,7 @@
     "name": "TeamViewer",
     "url": "https://status.teamviewer.com",
     "time_zone": "Europe/Berlin",
-    "updated_at": "2026-06-27T17:13:58.842+02:00"
+    "updated_at": "2026-06-27T19:46:03.791+02:00"
   },
   "components": [
     {
@@ -225,7 +225,7 @@
     {
       "id": "43rmykq96xj4",
       "name": "DEX Platform and Solutions",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2025-09-02T10:37:28.178+02:00",
       "updated_at": "2025-09-02T10:40:12.326+02:00",
       "position": 6,
@@ -403,9 +403,9 @@
     {
       "id": "0g1qf1117q2j",
       "name": "DEX On Premises Platform Updates",
-      "status": "operational",
+      "status": "major_outage",
       "created_at": "2025-09-26T11:59:42.082+02:00",
-      "updated_at": "2025-10-24T18:54:19.846+02:00",
+      "updated_at": "2026-06-27T19:46:03.748+02:00",
       "position": 11,
       "description": "DEX 1E Platform (v9.1) hotfixes and latest releases",
       "showcase": false,
@@ -434,14 +434,68 @@
       ]
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "7w1ccxlcxycr",
+      "name": "DEX Platform licensing service. Affected environments are unable to retrieve licensing information,",
+      "status": "investigating",
+      "created_at": "2026-06-27T19:46:03.719+02:00",
+      "updated_at": "2026-06-27T19:46:03.789+02:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/y84ptwfkqk2d",
+      "started_at": "2026-06-27T19:46:03.711+02:00",
+      "page_id": "gfggtctd0kh2",
+      "incident_updates": [
+        {
+          "id": "t03qqq0klw50",
+          "status": "investigating",
+          "body": "We are investigating an issue affecting the DEX Platform licensing service. Affected environments are unable to retrieve licensing information, which prevents instructions from being executed on the platform and/or preventing access.\n\nImpact\n\nSingle Tenancy and On-Premises environments are affected\n\nUsers see the error: \"Licence Error The system in unable to retrieve it's license information\" when trying to log in\n\nInfrastructure logs show: VerifyActivationSignature: failed(3)\n\nIf users are already in the platform Instruction execution is unavailable will be presented with Error Cannot retrieve licensing information. Please see log for details.\n\nClient connectivity is not affected\n\n\n\nCurrent Status\nOur engineering and support teams are actively investigating the root cause. An out-of-hours escalation has been triggered and the cloud engineering team has been engaged. We are working towards a resolution and will provide updates every two hours.\n\nNext Update\nWe will provide the next update by 20:00 UTC on 27 June 2026.",
+          "incident_id": "7w1ccxlcxycr",
+          "created_at": "2026-06-27T19:46:03.787+02:00",
+          "updated_at": "2026-06-27T19:46:03.787+02:00",
+          "display_at": "2026-06-27T19:46:03.787+02:00",
+          "affected_components": [
+            {
+              "code": "0g1qf1117q2j",
+              "name": "DEX Platform and Solutions - DEX On Premises Platform Updates",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "0g1qf1117q2j",
+          "name": "DEX On Premises Platform Updates",
+          "status": "major_outage",
+          "created_at": "2025-09-26T11:59:42.082+02:00",
+          "updated_at": "2026-06-27T19:46:03.748+02:00",
+          "position": 11,
+          "description": "DEX 1E Platform (v9.1) hotfixes and latest releases",
+          "showcase": false,
+          "start_date": "2025-09-25",
+          "group_id": "43rmykq96xj4",
+          "page_id": "gfggtctd0kh2",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": "2"
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "1xlny57954tx",
       "name": "Scheduled Maintenance",
       "status": "scheduled",
       "created_at": "2026-06-18T13:22:55.919+02:00",
-      "updated_at": "2026-06-18T13:22:56.007+02:00",
+      "updated_at": "2026-06-27T19:00:10.789+02:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
@@ -449,6 +503,19 @@
       "started_at": "2026-06-18T13:22:55.908+02:00",
       "page_id": "gfggtctd0kh2",
       "incident_updates": [
+        {
+          "id": "hscbzk1335nm",
+          "status": "scheduled",
+          "body": "Maintenance will begin as scheduled in 60 minutes.",
+          "incident_id": "1xlny57954tx",
+          "created_at": "2026-06-27T19:00:10.461+02:00",
+          "updated_at": "2026-06-27T19:00:10.461+02:00",
+          "display_at": "2026-06-27T19:00:10.461+02:00",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "mrnsv0st1xn2",
           "status": "scheduled",
@@ -534,7 +601,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "major",
+    "description": "Partial System Outage"
   }
 }
