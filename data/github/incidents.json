@@ -4,9 +4,65 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-27T11:03:56.988Z"
+    "updated_at": "2026-06-27T14:04:56.373Z"
   },
   "incidents": [
+    {
+      "id": "v0b3bpsyvqtk",
+      "name": "Disruption with some GitHub services",
+      "status": "monitoring",
+      "created_at": "2026-06-27T14:02:52.169Z",
+      "updated_at": "2026-06-27T14:04:56.368Z",
+      "monitoring_at": "2026-06-27T14:04:56.330Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/h85w6wz46mvk",
+      "started_at": "2026-06-27T14:02:52.158Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "b5v53rxf79sz",
+          "status": "monitoring",
+          "body": "The degradation has been mitigated. We are monitoring to ensure stability.",
+          "incident_id": "v0b3bpsyvqtk",
+          "created_at": "2026-06-27T14:04:56.330Z",
+          "updated_at": "2026-06-27T14:04:56.330Z",
+          "display_at": "2026-06-27T14:04:56.330Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "nbgz4q59q4dw",
+          "status": "investigating",
+          "body": "We are conducting routine maintenance on our network infrastructure in the EU. This will not impact production traffic, but may result in slightly increased latency for the remainder of our work. We expect this to last until 19:00 UTC.",
+          "incident_id": "v0b3bpsyvqtk",
+          "created_at": "2026-06-27T14:02:59.972Z",
+          "updated_at": "2026-06-27T14:02:59.972Z",
+          "display_at": "2026-06-27T14:02:59.972Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "4hdgjf41tgmq",
+          "status": "investigating",
+          "body": "We are investigating reports of impacted performance for some GitHub services.",
+          "incident_id": "v0b3bpsyvqtk",
+          "created_at": "2026-06-27T14:02:52.230Z",
+          "updated_at": "2026-06-27T14:02:52.230Z",
+          "display_at": "2026-06-27T14:02:52.230Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "9ndxtnrwjf37",
       "name": "Degradation with Webhooks, Pull Requests and Actions",
@@ -7743,313 +7799,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "myrbk7jvvs6p",
-      "name": "Incident with multiple GitHub services",
-      "status": "resolved",
-      "created_at": "2026-04-23T16:12:47.744Z",
-      "updated_at": "2026-04-30T17:48:53.955Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-04-23T17:30:49.716Z",
-      "impact": "critical",
-      "shortlink": "https://stspg.io/1wm8c7d53454",
-      "started_at": "2026-04-23T16:12:47.737Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "gg1bvv6q3v4g",
-          "status": "resolved",
-          "body": "On April 23, 2026, between 16:03 UTC and 17:27 UTC, multiple GitHub services experienced elevated error rates and degraded performance due to DNS resolution failures originating from our DNS infrastructure in our VA3 datacenter. Approximately 5–7% of overall traffic was affected during the impact window: <br /><br />- Webhooks: ~0.35% of API requests returned 5xx (peak ~0.39%). ~0.88% of requests exceeded 3s latency; at peak, >3s responses represented ~10% of Webhooks API traffic. <br /><br />- Copilot Metrics: ~9% of Copilot Insights dashboard requests returned 5xx. <br /><br />- Copilot cloud agents: ~10% of cloud agent sessions were affected and failing. <br /><br />- Octoshift: 0.88% of active repo migrations failed and 79% saw elevated durations (avg. 5.2 min) during this period. <br /><br />- Git Operations: averaged 1.25% errors over the duration of the incident, with a peak of 2.07% errors. <br /><br />- Actions: Workflow run status updates experienced delays of up to ~8s over the duration of the incident window. <br /><br />Our DNS infrastructure in VA3 entered a degraded state and began intermittently returning NXDOMAIN responses and timing out on lookups for both internal service discovery and external endpoints. This caused a cascading impact across the dependent services listed above. <br /><br />We identified a specific load pattern under which our DNS resolvers began failing. The evidence points to a recently introduced traffic-balancing mechanism, rolled out progressively to support our growth, as the root cause. We have since reverted this change. <br /><br />We are immediately prioritizing investments in a more controlled rollout and validation process, including a dedicated environment to safely shadow production DNS traffic and detect these failure modes before they can affect production.",
-          "incident_id": "myrbk7jvvs6p",
-          "created_at": "2026-04-23T17:30:49.716Z",
-          "updated_at": "2026-04-30T17:48:53.950Z",
-          "display_at": "2026-04-23T17:30:49.716Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4yctlwq6n1nt",
-          "status": "investigating",
-          "body": "Webhooks is operating normally.",
-          "incident_id": "myrbk7jvvs6p",
-          "created_at": "2026-04-23T17:10:29.671Z",
-          "updated_at": "2026-04-23T17:10:29.671Z",
-          "display_at": "2026-04-23T17:10:29.671Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "lk5hklw7dgcl",
-          "status": "investigating",
-          "body": "Many services are mitigated and are validating the remaining services.",
-          "incident_id": "myrbk7jvvs6p",
-          "created_at": "2026-04-23T17:04:30.623Z",
-          "updated_at": "2026-04-23T17:04:30.623Z",
-          "display_at": "2026-04-23T17:04:30.623Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qd6745fhn70j",
-          "status": "investigating",
-          "body": "The degradation affecting Actions and Copilot has been mitigated. We are monitoring to ensure stability.",
-          "incident_id": "myrbk7jvvs6p",
-          "created_at": "2026-04-23T17:03:00.933Z",
-          "updated_at": "2026-04-23T17:03:00.933Z",
-          "display_at": "2026-04-23T17:03:00.933Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bm9sgtpch4br",
-          "status": "investigating",
-          "body": "We have identified the root problem and are working on mitigation.",
-          "incident_id": "myrbk7jvvs6p",
-          "created_at": "2026-04-23T16:52:50.440Z",
-          "updated_at": "2026-04-23T16:52:50.440Z",
-          "display_at": "2026-04-23T16:52:50.440Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "g3cs1mmsg359",
-          "status": "investigating",
-          "body": "Actions is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "myrbk7jvvs6p",
-          "created_at": "2026-04-23T16:34:19.448Z",
-          "updated_at": "2026-04-23T16:34:19.448Z",
-          "display_at": "2026-04-23T16:34:19.448Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "hd70gvx1ftw8",
-          "status": "investigating",
-          "body": "We are investigating multiple unavailable services.",
-          "incident_id": "myrbk7jvvs6p",
-          "created_at": "2026-04-23T16:19:33.310Z",
-          "updated_at": "2026-04-23T16:19:33.310Z",
-          "display_at": "2026-04-23T16:19:33.310Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "major_outage",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1tgs7ngcvvs8",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded availability for Copilot and Webhooks",
-          "incident_id": "myrbk7jvvs6p",
-          "created_at": "2026-04-23T16:12:47.817Z",
-          "updated_at": "2026-04-23T16:12:47.817Z",
-          "display_at": "2026-04-23T16:12:47.817Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "pjmpxvq2cmr2",
-              "name": "Copilot",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "4230lsnqdsld",
-          "name": "Webhooks",
-          "status": "operational",
-          "created_at": "2019-11-13T18:00:24.256Z",
-          "updated_at": "2026-06-25T18:07:44.455Z",
-          "position": 2,
-          "description": "Real time HTTP callbacks of user-generated and system events",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "br0l2tvcx85d",
-          "name": "Actions",
-          "status": "operational",
-          "created_at": "2019-11-13T18:02:19.432Z",
-          "updated_at": "2026-06-25T18:07:44.549Z",
-          "position": 7,
-          "description": "Workflows, Compute and Orchestration for GitHub Actions",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "pjmpxvq2cmr2",
-          "name": "Copilot",
-          "status": "operational",
-          "created_at": "2022-06-21T16:04:33.017Z",
-          "updated_at": "2026-06-17T04:44:06.441Z",
-          "position": 10,
-          "description": null,
-          "showcase": true,
-          "start_date": "2022-06-21",
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
