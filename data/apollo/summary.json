@@ -3,11 +3,11 @@
     "id": "01JP7XTY7X5FN8960B9XM5EXHT",
     "name": "Apollo Graph, Inc.",
     "url": "https://status.apollographql.com/",
-    "updated_at": "2026-04-22T14:35:39Z"
+    "updated_at": "2026-06-28T04:21:10Z"
   },
   "status": {
-    "description": "All Systems Operational",
-    "indicator": "none"
+    "description": "Partial System Degradation",
+    "indicator": "minor"
   },
   "components": [
     {
@@ -63,7 +63,7 @@
     {
       "id": "01JP7XTY7XCMWAPPQP7X6BJX36",
       "name": "Metrics Ingestion",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-03-13T14:16:51Z",
       "updated_at": "2026-04-21T22:45:15Z",
       "position": 5,
@@ -149,6 +149,47 @@
       "position": 13,
       "description": "A feature of Apollo Studio that allows users to forward metrics observed via Apollo's telemetry pipeline to their Datadog instance(s).",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "01KW63F7XTV5JY2NVAG9TARMEG",
+      "name": "Field and coordinate usage metric ingestion",
+      "status": "monitoring",
+      "created_at": "2026-06-28T03:13:19Z",
+      "updated_at": "2026-06-28T04:21:10Z",
+      "monitoring_at": "2026-06-28T04:01:12Z",
+      "impact": "major",
+      "page_id": "01JP7XTY7X5FN8960B9XM5EXHT",
+      "incident_updates": [
+        {
+          "id": "01KW67BFHZK7H2MEK9YFN52QMJ",
+          "body": "The backlog of object field, input object field, and enum value metrics are now being processed but we expect the backlog to take 8-10 hours to be fully processed. For a period of time between 4 am and 9pm on June 27 UTC we expect there to be data loss for input object field and enum value metrics, as well as the client and operation breakdown of object field metrics. No other metrics (operation, trace, etc.) are impacted.",
+          "created_at": "2026-06-28T04:21:10Z",
+          "display_at": "2026-06-28T04:21:10Z",
+          "incident_id": "01KW63F7XTV5JY2NVAG9TARMEG",
+          "status": "monitoring",
+          "updated_at": "2026-06-28T04:22:07Z"
+        },
+        {
+          "id": "01KW666XMZ0H4MTCHQ1W863DRP",
+          "body": "Field and coordinate usage metric ingestion is functional and lag is trending downwards. We estimate 8-10 hours for full recovery.",
+          "created_at": "2026-06-28T04:01:12Z",
+          "display_at": "2026-06-28T04:01:12Z",
+          "incident_id": "01KW63F7XTV5JY2NVAG9TARMEG",
+          "status": "monitoring",
+          "updated_at": "2026-06-28T04:01:12Z"
+        },
+        {
+          "id": "01KW63F7XT5K2BJGRZF7V675WP",
+          "body": "We are investigating suspected data loss for field and coordinate usage metrics for all customers.",
+          "created_at": "2026-06-28T03:13:19Z",
+          "display_at": "2026-06-28T03:13:19Z",
+          "incident_id": "01KW63F7XTV5JY2NVAG9TARMEG",
+          "status": "investigating",
+          "updated_at": "2026-06-28T03:13:19Z"
+        }
+      ]
     }
   ]
 }
