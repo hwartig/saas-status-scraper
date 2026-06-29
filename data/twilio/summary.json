@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-06-29T11:40:35.157-07:00"
+    "updated_at": "2026-06-29T13:45:45.360-07:00"
   },
   "components": [
     {
@@ -769,9 +769,9 @@
     {
       "id": "jw9dh2mf4392",
       "name": "Billing",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-08-27T10:58:47.112-07:00",
-      "updated_at": "2026-06-04T02:24:40.037-07:00",
+      "updated_at": "2026-06-29T13:45:45.316-07:00",
       "position": 4,
       "description": null,
       "showcase": false,
@@ -1706,9 +1706,9 @@
     {
       "id": "8qjql0kqnd33",
       "name": "SMS, APAC",
-      "status": "under_maintenance",
+      "status": "operational",
       "created_at": "2019-01-10T08:53:31.990-08:00",
-      "updated_at": "2026-06-29T10:00:08.154-07:00",
+      "updated_at": "2026-06-29T12:00:10.359-07:00",
       "position": 11,
       "description": null,
       "showcase": false,
@@ -2077,9 +2077,9 @@
     {
       "id": "llgdln3dcs6p",
       "name": "SMS, Europe",
-      "status": "degraded_performance",
+      "status": "under_maintenance",
       "created_at": "2019-01-10T08:53:50.789-08:00",
-      "updated_at": "2026-06-29T03:38:32.989-07:00",
+      "updated_at": "2026-06-29T13:01:07.505-07:00",
       "position": 14,
       "description": null,
       "showcase": false,
@@ -2454,9 +2454,9 @@
     {
       "id": "fsxs9n9yf4m7",
       "name": "Lookup Identity Match",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2022-12-06T16:21:46.337-08:00",
-      "updated_at": "2026-06-26T19:45:09.207-07:00",
+      "updated_at": "2026-06-29T13:15:07.180-07:00",
       "position": 18,
       "description": null,
       "showcase": false,
@@ -2567,7 +2567,7 @@
     {
       "id": "t26k1dqws96h",
       "name": "TWILIO PLATFORM",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-12-14T16:29:35.487-08:00",
       "updated_at": "2026-05-06T06:17:10.971-07:00",
       "position": 20,
@@ -2659,9 +2659,9 @@
     {
       "id": "q0hp6vfr4vvh",
       "name": "Lookup SIM Swap",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2022-12-06T16:22:32.133-08:00",
-      "updated_at": "2026-06-24T20:30:07.364-07:00",
+      "updated_at": "2026-06-29T13:15:07.212-07:00",
       "position": 21,
       "description": null,
       "showcase": false,
@@ -2704,9 +2704,9 @@
     {
       "id": "qt4vzyg2g7b4",
       "name": "Legacy Identity MatchAndAttributes",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2022-12-06T16:22:47.060-08:00",
-      "updated_at": "2026-06-26T19:45:09.247-07:00",
+      "updated_at": "2026-06-29T13:15:07.244-07:00",
       "position": 22,
       "description": null,
       "showcase": false,
@@ -2804,6 +2804,172 @@
     }
   ],
   "incidents": [
+    {
+      "id": "fs0t1ngvnsv5",
+      "name": "USD charges are failing for customers in Twilio Mexico CISA subsidiary",
+      "status": "investigating",
+      "created_at": "2026-06-29T13:45:45.289-07:00",
+      "updated_at": "2026-06-29T13:45:45.358-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/4kl8211fp369",
+      "started_at": "2026-06-29T13:45:45.281-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "1qhr4rsz7kwy",
+          "status": "investigating",
+          "body": "Some Twilio customers in Mexico may be experiencing issues when attempting to make credit card payments. We have identified the root cause as related to a recent migration of certain existing customers to our Mexico entity, while their account currency remains in USD. This is causing payment processing failures for the impacted accounts. This issue only affects customers whose accounts were migrated to CISA Mexico. Invoiced customers can continue making payments using the bank transfer details provided on their invoice.\nPAYG customers: we are actively working on a resolution. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "fs0t1ngvnsv5",
+          "created_at": "2026-06-29T13:45:45.356-07:00",
+          "updated_at": "2026-06-29T13:45:45.356-07:00",
+          "display_at": "2026-06-29T13:45:45.356-07:00",
+          "affected_components": [
+            {
+              "code": "jw9dh2mf4392",
+              "name": "TWILIO PLATFORM - Billing",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "jw9dh2mf4392",
+          "name": "Billing",
+          "status": "degraded_performance",
+          "created_at": "2015-08-27T10:58:47.112-07:00",
+          "updated_at": "2026-06-29T13:45:45.316-07:00",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "t26k1dqws96h",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "r73vh769rgc7",
+      "name": "SMS Delivery Delays from Twilio Phone Numbers to Tigo Paraguay",
+      "status": "identified",
+      "created_at": "2026-06-29T12:22:05.056-07:00",
+      "updated_at": "2026-06-29T13:23:01.157-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/1s932g7l5bcf",
+      "started_at": "2026-06-29T12:22:05.041-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "s59rczcw8qg7",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio Phone Numbers to Tigo network subscribers in Paraguay. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "r73vh769rgc7",
+          "created_at": "2026-06-29T13:23:01.149-07:00",
+          "updated_at": "2026-06-29T13:23:01.149-07:00",
+          "display_at": "2026-06-29T13:23:01.149-07:00",
+          "affected_components": [
+            {
+              "code": "42zx9w2kmtvf",
+              "name": "CARRIER NETWORK - SMS, Latin America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "n4d5dtf8sfjv",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio Phone Numbers to Tigo network subscribers in Paraguay. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "r73vh769rgc7",
+          "created_at": "2026-06-29T13:22:27.909-07:00",
+          "updated_at": "2026-06-29T13:22:27.909-07:00",
+          "display_at": "2026-06-29T13:22:27.909-07:00",
+          "affected_components": [
+            {
+              "code": "42zx9w2kmtvf",
+              "name": "CARRIER NETWORK - SMS, Latin America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "bbt4ysby5jpn",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio Phone Numbers to Tigo network subscribers in Paraguay. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "r73vh769rgc7",
+          "created_at": "2026-06-29T12:22:35.690-07:00",
+          "updated_at": "2026-06-29T12:22:35.690-07:00",
+          "display_at": "2026-06-29T12:22:35.690-07:00",
+          "affected_components": [
+            {
+              "code": "42zx9w2kmtvf",
+              "name": "CARRIER NETWORK - SMS, Latin America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "5gp5d95x13rx",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio Phone Numbers to Tigo network subscribers in Paraguay. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "r73vh769rgc7",
+          "created_at": "2026-06-29T12:22:05.148-07:00",
+          "updated_at": "2026-06-29T12:22:05.148-07:00",
+          "display_at": "2026-06-29T12:22:05.148-07:00",
+          "affected_components": [
+            {
+              "code": "42zx9w2kmtvf",
+              "name": "CARRIER NETWORK - SMS, Latin America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "42zx9w2kmtvf",
+          "name": "SMS, Latin America",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:53:08.618-08:00",
+          "updated_at": "2026-06-28T18:14:02.271-07:00",
+          "position": 9,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "xlfshnftls2z",
       "name": "SMS Delivery Delays from Twilio to Etisalat United Arab Emirates",
@@ -3075,9 +3241,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "degraded_performance",
+          "status": "under_maintenance",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2026-06-29T03:38:32.989-07:00",
+          "updated_at": "2026-06-29T13:01:07.505-07:00",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -3496,156 +3662,6 @@
   ],
   "scheduled_maintenances": [
     {
-      "id": "fqmw9lvfbzgq",
-      "name": "Russia SMS Carrier Maintenance - Tele2",
-      "status": "scheduled",
-      "created_at": "2026-05-29T16:05:04.847-07:00",
-      "updated_at": "2026-05-29T16:05:04.952-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/c285dx8jyk20",
-      "started_at": "2026-05-29T16:05:04.831-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "cfnv3jmhw8pf",
-          "status": "scheduled",
-          "body": "The Tele2 network in Russia is conducting a planned maintenance from 29 June 2026 at 13:00 PDT until 29 June 2026 at 17:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS to Tele2 Russia handsets.",
-          "incident_id": "fqmw9lvfbzgq",
-          "created_at": "2026-05-29T16:05:04.947-07:00",
-          "updated_at": "2026-05-29T16:05:04.947-07:00",
-          "display_at": "2026-05-29T16:05:04.947-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "llgdln3dcs6p",
-          "name": "SMS, Europe",
-          "status": "degraded_performance",
-          "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2026-06-29T03:38:32.989-07:00",
-          "position": 14,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-06-29T13:00:00.000-07:00",
-      "scheduled_until": "2026-06-29T17:00:00.000-07:00"
-    },
-    {
-      "id": "sx7hdgkgsth8",
-      "name": "United Kingdom Account Security Carrier Partner Maintenance - Vodafone",
-      "status": "scheduled",
-      "created_at": "2026-06-29T01:02:35.894-07:00",
-      "updated_at": "2026-06-29T01:02:36.017-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/sh13t11g45jf",
-      "started_at": "2026-06-29T01:02:35.859-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "g2xkg2dh772d",
-          "status": "scheduled",
-          "body": "Our carrier partner Vodafone United Kingdom is conducting a planned maintenance from 29 June 2026 at 13:15 PDT until 29 June 2026 at 20:20 PDT. During the maintenance window, there could be intermittent API request failures for Vodafone United Kingdom customers.<BR>\n<BR>\nImpacted Products: Lookup Identity Match, Lookup SIM Swap, Legacy Identity MatchAndAttributes<BR>\n<BR>\nWe are aware of the short notice and are working with our Carrier Partners to provide earlier notification where possible.",
-          "incident_id": "sx7hdgkgsth8",
-          "created_at": "2026-06-29T01:02:36.010-07:00",
-          "updated_at": "2026-06-29T01:02:36.010-07:00",
-          "display_at": "2026-06-29T01:02:36.010-07:00",
-          "affected_components": [
-            {
-              "code": "fsxs9n9yf4m7",
-              "name": "CARRIER NETWORK - Lookup Identity Match",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "q0hp6vfr4vvh",
-              "name": "CARRIER NETWORK - Lookup SIM Swap",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "qt4vzyg2g7b4",
-              "name": "CARRIER NETWORK - Legacy Identity MatchAndAttributes",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "fsxs9n9yf4m7",
-          "name": "Lookup Identity Match",
-          "status": "operational",
-          "created_at": "2022-12-06T16:21:46.337-08:00",
-          "updated_at": "2026-06-26T19:45:09.207-07:00",
-          "position": 18,
-          "description": null,
-          "showcase": false,
-          "start_date": "2022-12-06",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "q0hp6vfr4vvh",
-          "name": "Lookup SIM Swap",
-          "status": "operational",
-          "created_at": "2022-12-06T16:22:32.133-08:00",
-          "updated_at": "2026-06-24T20:30:07.364-07:00",
-          "position": 21,
-          "description": null,
-          "showcase": false,
-          "start_date": "2022-12-06",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "qt4vzyg2g7b4",
-          "name": "Legacy Identity MatchAndAttributes",
-          "status": "operational",
-          "created_at": "2022-12-06T16:22:47.060-08:00",
-          "updated_at": "2026-06-26T19:45:09.247-07:00",
-          "position": 22,
-          "description": null,
-          "showcase": false,
-          "start_date": "2022-12-06",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-06-29T13:15:00.000-07:00",
-      "scheduled_until": "2026-06-29T20:20:00.000-07:00"
-    },
-    {
       "id": "cpwq1c8lvqgb",
       "name": "United States SMS and MMS Carrier Maintenance - T-Mobile",
       "status": "scheduled",
@@ -3833,9 +3849,9 @@
         {
           "id": "fsxs9n9yf4m7",
           "name": "Lookup Identity Match",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2022-12-06T16:21:46.337-08:00",
-          "updated_at": "2026-06-26T19:45:09.207-07:00",
+          "updated_at": "2026-06-29T13:15:07.180-07:00",
           "position": 18,
           "description": null,
           "showcase": false,
@@ -3848,9 +3864,9 @@
         {
           "id": "q0hp6vfr4vvh",
           "name": "Lookup SIM Swap",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2022-12-06T16:22:32.133-08:00",
-          "updated_at": "2026-06-24T20:30:07.364-07:00",
+          "updated_at": "2026-06-29T13:15:07.212-07:00",
           "position": 21,
           "description": null,
           "showcase": false,
@@ -3863,9 +3879,9 @@
         {
           "id": "qt4vzyg2g7b4",
           "name": "Legacy Identity MatchAndAttributes",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2022-12-06T16:22:47.060-08:00",
-          "updated_at": "2026-06-26T19:45:09.247-07:00",
+          "updated_at": "2026-06-29T13:15:07.244-07:00",
           "position": 22,
           "description": null,
           "showcase": false,
@@ -3878,60 +3894,6 @@
       ],
       "scheduled_for": "2026-06-29T21:30:00.000-07:00",
       "scheduled_until": "2026-06-29T23:00:00.000-07:00"
-    },
-    {
-      "id": "k04sf0xvkwf0",
-      "name": "Russia SMS Carrier Maintenance - Beeline",
-      "status": "scheduled",
-      "created_at": "2026-06-25T21:35:10.243-07:00",
-      "updated_at": "2026-06-25T21:35:10.433-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/9rcbm1zgvdfp",
-      "started_at": "2026-06-25T21:35:10.218-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "wvwczhlf0nyv",
-          "status": "scheduled",
-          "body": "The Beeline network in Russia is conducting a planned maintenance from 30 June 2026 at 13:00 PDT until 30 June 2026 at 17:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS to Beeline Russia handsets.",
-          "incident_id": "k04sf0xvkwf0",
-          "created_at": "2026-06-25T21:35:10.425-07:00",
-          "updated_at": "2026-06-25T21:35:10.425-07:00",
-          "display_at": "2026-06-25T21:35:10.425-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "llgdln3dcs6p",
-          "name": "SMS, Europe",
-          "status": "degraded_performance",
-          "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2026-06-29T03:38:32.989-07:00",
-          "position": 14,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-06-30T13:00:00.000-07:00",
-      "scheduled_until": "2026-06-30T17:00:00.000-07:00"
     },
     {
       "id": "vbs5tx80zmp3",
@@ -3971,9 +3933,63 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "degraded_performance",
+          "status": "under_maintenance",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2026-06-29T03:38:32.989-07:00",
+          "updated_at": "2026-06-29T13:01:07.505-07:00",
+          "position": 14,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-06-30T13:00:00.000-07:00",
+      "scheduled_until": "2026-06-30T17:00:00.000-07:00"
+    },
+    {
+      "id": "k04sf0xvkwf0",
+      "name": "Russia SMS Carrier Maintenance - Beeline",
+      "status": "scheduled",
+      "created_at": "2026-06-25T21:35:10.243-07:00",
+      "updated_at": "2026-06-25T21:35:10.433-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/9rcbm1zgvdfp",
+      "started_at": "2026-06-25T21:35:10.218-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "wvwczhlf0nyv",
+          "status": "scheduled",
+          "body": "The Beeline network in Russia is conducting a planned maintenance from 30 June 2026 at 13:00 PDT until 30 June 2026 at 17:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS to Beeline Russia handsets.",
+          "incident_id": "k04sf0xvkwf0",
+          "created_at": "2026-06-25T21:35:10.425-07:00",
+          "updated_at": "2026-06-25T21:35:10.425-07:00",
+          "display_at": "2026-06-25T21:35:10.425-07:00",
+          "affected_components": [
+            {
+              "code": "llgdln3dcs6p",
+              "name": "CARRIER NETWORK - SMS, Europe",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "llgdln3dcs6p",
+          "name": "SMS, Europe",
+          "status": "under_maintenance",
+          "created_at": "2019-01-10T08:53:50.789-08:00",
+          "updated_at": "2026-06-29T13:01:07.505-07:00",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -4025,9 +4041,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "degraded_performance",
+          "status": "under_maintenance",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2026-06-29T03:38:32.989-07:00",
+          "updated_at": "2026-06-29T13:01:07.505-07:00",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -4079,9 +4095,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "degraded_performance",
+          "status": "under_maintenance",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2026-06-29T03:38:32.989-07:00",
+          "updated_at": "2026-06-29T13:01:07.505-07:00",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -4409,9 +4425,9 @@
         {
           "id": "fsxs9n9yf4m7",
           "name": "Lookup Identity Match",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2022-12-06T16:21:46.337-08:00",
-          "updated_at": "2026-06-26T19:45:09.207-07:00",
+          "updated_at": "2026-06-29T13:15:07.180-07:00",
           "position": 18,
           "description": null,
           "showcase": false,
@@ -4424,9 +4440,9 @@
         {
           "id": "q0hp6vfr4vvh",
           "name": "Lookup SIM Swap",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2022-12-06T16:22:32.133-08:00",
-          "updated_at": "2026-06-24T20:30:07.364-07:00",
+          "updated_at": "2026-06-29T13:15:07.212-07:00",
           "position": 21,
           "description": null,
           "showcase": false,
@@ -4439,9 +4455,9 @@
         {
           "id": "qt4vzyg2g7b4",
           "name": "Legacy Identity MatchAndAttributes",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2022-12-06T16:22:47.060-08:00",
-          "updated_at": "2026-06-26T19:45:09.247-07:00",
+          "updated_at": "2026-06-29T13:15:07.244-07:00",
           "position": 22,
           "description": null,
           "showcase": false,
@@ -4493,9 +4509,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "degraded_performance",
+          "status": "under_maintenance",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2026-06-29T03:38:32.989-07:00",
+          "updated_at": "2026-06-29T13:01:07.505-07:00",
           "position": 14,
           "description": null,
           "showcase": false,
@@ -4718,9 +4734,9 @@
         {
           "id": "fsxs9n9yf4m7",
           "name": "Lookup Identity Match",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2022-12-06T16:21:46.337-08:00",
-          "updated_at": "2026-06-26T19:45:09.207-07:00",
+          "updated_at": "2026-06-29T13:15:07.180-07:00",
           "position": 18,
           "description": null,
           "showcase": false,
@@ -4748,9 +4764,9 @@
         {
           "id": "q0hp6vfr4vvh",
           "name": "Lookup SIM Swap",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2022-12-06T16:22:32.133-08:00",
-          "updated_at": "2026-06-24T20:30:07.364-07:00",
+          "updated_at": "2026-06-29T13:15:07.212-07:00",
           "position": 21,
           "description": null,
           "showcase": false,
@@ -4802,9 +4818,9 @@
         {
           "id": "8qjql0kqnd33",
           "name": "SMS, APAC",
-          "status": "under_maintenance",
+          "status": "operational",
           "created_at": "2019-01-10T08:53:31.990-08:00",
-          "updated_at": "2026-06-29T10:00:08.154-07:00",
+          "updated_at": "2026-06-29T12:00:10.359-07:00",
           "position": 11,
           "description": null,
           "showcase": false,
@@ -5635,6 +5651,60 @@
       "scheduled_until": "2026-07-16T00:00:00.000-07:00"
     },
     {
+      "id": "ry9wvwdtn79g",
+      "name": "Twilio Messaging Maintenance",
+      "status": "scheduled",
+      "created_at": "2026-06-22T07:52:28.577-07:00",
+      "updated_at": "2026-06-22T07:52:28.659-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/s4d8klxtv75j",
+      "started_at": "2026-06-22T07:52:28.564-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "9wvgjr5c1qnz",
+          "status": "scheduled",
+          "body": "Twilio will conduct planned maintenance on the Ireland network from 21 Jul 2026 at 16:00 PDT until 21 Jul 2026 at 18:00 PDT. During this first window, no service impact is expected. As part of our preparation for a future hardware replacement, we will relocate the backup (BT) router to a new rack. During this specific transition, no service disruptions are expected. Although redundancy may be temporarily lost, the service itself will remain unaffected.",
+          "incident_id": "ry9wvwdtn79g",
+          "created_at": "2026-06-22T07:52:28.655-07:00",
+          "updated_at": "2026-06-22T07:52:28.655-07:00",
+          "display_at": "2026-06-22T07:52:28.655-07:00",
+          "affected_components": [
+            {
+              "code": "yvvy3vlp4djf",
+              "name": "PROGRAMMABLE MESSAGING - SMS",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "yvvy3vlp4djf",
+          "name": "SMS",
+          "status": "operational",
+          "created_at": "2016-04-07T15:15:38.816-07:00",
+          "updated_at": "2026-06-25T15:40:11.427-07:00",
+          "position": 12,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s2k3h0mkqnth",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-07-21T16:00:00.000-07:00",
+      "scheduled_until": "2026-07-21T18:00:00.000-07:00"
+    },
+    {
       "id": "1c6qcwp3zmv1",
       "name": "Twilio Voice Maintenance",
       "status": "scheduled",
@@ -5785,60 +5855,6 @@
           "showcase": false,
           "start_date": "2025-12-08",
           "group_id": "1rcr7zgktjnh",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-07-21T16:00:00.000-07:00",
-      "scheduled_until": "2026-07-21T18:00:00.000-07:00"
-    },
-    {
-      "id": "ry9wvwdtn79g",
-      "name": "Twilio Messaging Maintenance",
-      "status": "scheduled",
-      "created_at": "2026-06-22T07:52:28.577-07:00",
-      "updated_at": "2026-06-22T07:52:28.659-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/s4d8klxtv75j",
-      "started_at": "2026-06-22T07:52:28.564-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "9wvgjr5c1qnz",
-          "status": "scheduled",
-          "body": "Twilio will conduct planned maintenance on the Ireland network from 21 Jul 2026 at 16:00 PDT until 21 Jul 2026 at 18:00 PDT. During this first window, no service impact is expected. As part of our preparation for a future hardware replacement, we will relocate the backup (BT) router to a new rack. During this specific transition, no service disruptions are expected. Although redundancy may be temporarily lost, the service itself will remain unaffected.",
-          "incident_id": "ry9wvwdtn79g",
-          "created_at": "2026-06-22T07:52:28.655-07:00",
-          "updated_at": "2026-06-22T07:52:28.655-07:00",
-          "display_at": "2026-06-22T07:52:28.655-07:00",
-          "affected_components": [
-            {
-              "code": "yvvy3vlp4djf",
-              "name": "PROGRAMMABLE MESSAGING - SMS",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "yvvy3vlp4djf",
-          "name": "SMS",
-          "status": "operational",
-          "created_at": "2016-04-07T15:15:38.816-07:00",
-          "updated_at": "2026-06-25T15:40:11.427-07:00",
-          "position": 12,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "s2k3h0mkqnth",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
@@ -6091,6 +6107,60 @@
       "scheduled_until": "2026-07-23T00:00:00.000-07:00"
     },
     {
+      "id": "yygsv5089h1c",
+      "name": "Twilio Messaging Maintenance",
+      "status": "scheduled",
+      "created_at": "2026-06-22T08:03:30.249-07:00",
+      "updated_at": "2026-06-22T08:03:30.336-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/d8fd5zdwjztk",
+      "started_at": "2026-06-22T08:03:30.236-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "qfzn0w5vf527",
+          "status": "scheduled",
+          "body": "Twilio will conduct planned maintenance on the Ireland network from 23 Jul 2026 at 16:00 PDT until 23 Jul 2026 at 18:00 PDT. During this window, overall service impact is expected to be minimal. As part of our preparation for a future hardware replacement, we will relocate the backup (BT) router to a new rack and shift traffic to it. During this specific transition, there may be a brief traffic interruption of up to 90 seconds. Although redundancy will be temporarily reduced during the move, we are taking all necessary steps to minimize the impact window.",
+          "incident_id": "yygsv5089h1c",
+          "created_at": "2026-06-22T08:03:30.333-07:00",
+          "updated_at": "2026-06-22T08:03:30.333-07:00",
+          "display_at": "2026-06-22T08:03:30.333-07:00",
+          "affected_components": [
+            {
+              "code": "yvvy3vlp4djf",
+              "name": "PROGRAMMABLE MESSAGING - SMS",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "yvvy3vlp4djf",
+          "name": "SMS",
+          "status": "operational",
+          "created_at": "2016-04-07T15:15:38.816-07:00",
+          "updated_at": "2026-06-25T15:40:11.427-07:00",
+          "position": 12,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s2k3h0mkqnth",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-07-23T16:00:00.000-07:00",
+      "scheduled_until": "2026-07-23T18:00:00.000-07:00"
+    },
+    {
       "id": "s8d8dsvcp0y4",
       "name": "Twilio Voice Maintenance",
       "status": "scheduled",
@@ -6241,60 +6311,6 @@
           "showcase": false,
           "start_date": "2025-12-08",
           "group_id": "1rcr7zgktjnh",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-07-23T16:00:00.000-07:00",
-      "scheduled_until": "2026-07-23T18:00:00.000-07:00"
-    },
-    {
-      "id": "yygsv5089h1c",
-      "name": "Twilio Messaging Maintenance",
-      "status": "scheduled",
-      "created_at": "2026-06-22T08:03:30.249-07:00",
-      "updated_at": "2026-06-22T08:03:30.336-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/d8fd5zdwjztk",
-      "started_at": "2026-06-22T08:03:30.236-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "qfzn0w5vf527",
-          "status": "scheduled",
-          "body": "Twilio will conduct planned maintenance on the Ireland network from 23 Jul 2026 at 16:00 PDT until 23 Jul 2026 at 18:00 PDT. During this window, overall service impact is expected to be minimal. As part of our preparation for a future hardware replacement, we will relocate the backup (BT) router to a new rack and shift traffic to it. During this specific transition, there may be a brief traffic interruption of up to 90 seconds. Although redundancy will be temporarily reduced during the move, we are taking all necessary steps to minimize the impact window.",
-          "incident_id": "yygsv5089h1c",
-          "created_at": "2026-06-22T08:03:30.333-07:00",
-          "updated_at": "2026-06-22T08:03:30.333-07:00",
-          "display_at": "2026-06-22T08:03:30.333-07:00",
-          "affected_components": [
-            {
-              "code": "yvvy3vlp4djf",
-              "name": "PROGRAMMABLE MESSAGING - SMS",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "yvvy3vlp4djf",
-          "name": "SMS",
-          "status": "operational",
-          "created_at": "2016-04-07T15:15:38.816-07:00",
-          "updated_at": "2026-06-25T15:40:11.427-07:00",
-          "position": 12,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "s2k3h0mkqnth",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
@@ -6547,30 +6563,42 @@
       "scheduled_until": "2026-07-30T00:00:00.000-07:00"
     },
     {
-      "id": "02w6814sd9gr",
-      "name": "Indonesia SMS Carrier Maintenance - XL Axiata",
+      "id": "sx7hdgkgsth8",
+      "name": "United Kingdom Account Security Carrier Partner Maintenance - Vodafone",
       "status": "in_progress",
-      "created_at": "2026-06-29T02:29:07.832-07:00",
-      "updated_at": "2026-06-29T10:00:08.467-07:00",
+      "created_at": "2026-06-29T01:02:35.894-07:00",
+      "updated_at": "2026-06-29T13:15:07.320-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
-      "shortlink": "https://stspg.io/1yplvtbbb650",
-      "started_at": "2026-06-29T02:29:07.806-07:00",
+      "shortlink": "https://stspg.io/sh13t11g45jf",
+      "started_at": "2026-06-29T01:02:35.859-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
         {
-          "id": "m576jjz2mw15",
+          "id": "3fx40z2q4vxf",
           "status": "in_progress",
           "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
-          "incident_id": "02w6814sd9gr",
-          "created_at": "2026-06-29T10:00:08.450-07:00",
-          "updated_at": "2026-06-29T10:00:08.450-07:00",
-          "display_at": "2026-06-29T10:00:08.450-07:00",
+          "incident_id": "sx7hdgkgsth8",
+          "created_at": "2026-06-29T13:15:07.315-07:00",
+          "updated_at": "2026-06-29T13:15:07.315-07:00",
+          "display_at": "2026-06-29T13:15:07.315-07:00",
           "affected_components": [
             {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
+              "code": "fsxs9n9yf4m7",
+              "name": "CARRIER NETWORK - Lookup Identity Match",
+              "old_status": "operational",
+              "new_status": "under_maintenance"
+            },
+            {
+              "code": "q0hp6vfr4vvh",
+              "name": "CARRIER NETWORK - Lookup SIM Swap",
+              "old_status": "operational",
+              "new_status": "under_maintenance"
+            },
+            {
+              "code": "qt4vzyg2g7b4",
+              "name": "CARRIER NETWORK - Legacy Identity MatchAndAttributes",
               "old_status": "operational",
               "new_status": "under_maintenance"
             }
@@ -6580,30 +6608,42 @@
           "tweet_id": null
         },
         {
-          "id": "wyr7c9w88grj",
+          "id": "sk4bjvplb45f",
           "status": "scheduled",
           "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "02w6814sd9gr",
-          "created_at": "2026-06-29T09:00:07.811-07:00",
-          "updated_at": "2026-06-29T09:00:07.811-07:00",
-          "display_at": "2026-06-29T09:00:07.811-07:00",
+          "incident_id": "sx7hdgkgsth8",
+          "created_at": "2026-06-29T12:15:07.274-07:00",
+          "updated_at": "2026-06-29T12:15:07.274-07:00",
+          "display_at": "2026-06-29T12:15:07.274-07:00",
           "affected_components": null,
           "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": null
         },
         {
-          "id": "cg7fvjmfj374",
+          "id": "g2xkg2dh772d",
           "status": "scheduled",
-          "body": "The XL Axiata network in Indonesia is conducting a planned maintenance from 29 June 2026 at 10:00 PDT until 29 June 2026 at 12:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS to XL Axiata Indonesia handsets.<BR>\n<BR>\nWe are aware of the short notice and are working with our Carrier Partners to provide earlier notification where possible.",
-          "incident_id": "02w6814sd9gr",
-          "created_at": "2026-06-29T02:29:08.030-07:00",
-          "updated_at": "2026-06-29T02:29:08.030-07:00",
-          "display_at": "2026-06-29T02:29:08.030-07:00",
+          "body": "Our carrier partner Vodafone United Kingdom is conducting a planned maintenance from 29 June 2026 at 13:15 PDT until 29 June 2026 at 20:20 PDT. During the maintenance window, there could be intermittent API request failures for Vodafone United Kingdom customers.<BR>\n<BR>\nImpacted Products: Lookup Identity Match, Lookup SIM Swap, Legacy Identity MatchAndAttributes<BR>\n<BR>\nWe are aware of the short notice and are working with our Carrier Partners to provide earlier notification where possible.",
+          "incident_id": "sx7hdgkgsth8",
+          "created_at": "2026-06-29T01:02:36.010-07:00",
+          "updated_at": "2026-06-29T01:02:36.010-07:00",
+          "display_at": "2026-06-29T01:02:36.010-07:00",
           "affected_components": [
             {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
+              "code": "fsxs9n9yf4m7",
+              "name": "CARRIER NETWORK - Lookup Identity Match",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "q0hp6vfr4vvh",
+              "name": "CARRIER NETWORK - Lookup SIM Swap",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "qt4vzyg2g7b4",
+              "name": "CARRIER NETWORK - Legacy Identity MatchAndAttributes",
               "old_status": "operational",
               "new_status": "operational"
             }
@@ -6615,50 +6655,80 @@
       ],
       "components": [
         {
-          "id": "8qjql0kqnd33",
-          "name": "SMS, APAC",
+          "id": "fsxs9n9yf4m7",
+          "name": "Lookup Identity Match",
           "status": "under_maintenance",
-          "created_at": "2019-01-10T08:53:31.990-08:00",
-          "updated_at": "2026-06-29T10:00:08.154-07:00",
-          "position": 11,
+          "created_at": "2022-12-06T16:21:46.337-08:00",
+          "updated_at": "2026-06-29T13:15:07.180-07:00",
+          "position": 18,
           "description": null,
           "showcase": false,
-          "start_date": null,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "q0hp6vfr4vvh",
+          "name": "Lookup SIM Swap",
+          "status": "under_maintenance",
+          "created_at": "2022-12-06T16:22:32.133-08:00",
+          "updated_at": "2026-06-29T13:15:07.212-07:00",
+          "position": 21,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "qt4vzyg2g7b4",
+          "name": "Legacy Identity MatchAndAttributes",
+          "status": "under_maintenance",
+          "created_at": "2022-12-06T16:22:47.060-08:00",
+          "updated_at": "2026-06-29T13:15:07.244-07:00",
+          "position": 22,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-12-06",
           "group_id": "j8hlnyphbbs0",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
         }
       ],
-      "scheduled_for": "2026-06-29T10:00:00.000-07:00",
-      "scheduled_until": "2026-06-29T12:00:00.000-07:00"
+      "scheduled_for": "2026-06-29T13:15:00.000-07:00",
+      "scheduled_until": "2026-06-29T20:20:00.000-07:00"
     },
     {
-      "id": "z29ltq1m3fb9",
-      "name": "Australia Voice Carrier Partner Maintenance",
+      "id": "fqmw9lvfbzgq",
+      "name": "Russia SMS Carrier Maintenance - Tele2",
       "status": "in_progress",
-      "created_at": "2026-06-18T17:45:33.141-07:00",
-      "updated_at": "2026-06-29T05:00:10.952-07:00",
+      "created_at": "2026-05-29T16:05:04.847-07:00",
+      "updated_at": "2026-06-29T13:01:07.592-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
-      "shortlink": "https://stspg.io/d6c0j9x28dzj",
-      "started_at": "2026-06-18T17:45:33.122-07:00",
+      "shortlink": "https://stspg.io/c285dx8jyk20",
+      "started_at": "2026-05-29T16:05:04.831-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
         {
-          "id": "fs4z9j5g0627",
+          "id": "8t60jd8v91fv",
           "status": "in_progress",
           "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
-          "incident_id": "z29ltq1m3fb9",
-          "created_at": "2026-06-29T05:00:10.858-07:00",
-          "updated_at": "2026-06-29T05:00:10.858-07:00",
-          "display_at": "2026-06-29T05:00:10.858-07:00",
+          "incident_id": "fqmw9lvfbzgq",
+          "created_at": "2026-06-29T13:01:07.588-07:00",
+          "updated_at": "2026-06-29T13:01:07.588-07:00",
+          "display_at": "2026-06-29T13:01:07.588-07:00",
           "affected_components": [
             {
-              "code": "50pr269zqrwj",
-              "name": "CARRIER NETWORK - Voice, APAC",
-              "old_status": "operational",
+              "code": "llgdln3dcs6p",
+              "name": "CARRIER NETWORK - SMS, Europe",
+              "old_status": "degraded_performance",
               "new_status": "under_maintenance"
             }
           ],
@@ -6667,30 +6737,30 @@
           "tweet_id": null
         },
         {
-          "id": "9sh71vh3dnd9",
+          "id": "z8qhwthv7w9c",
           "status": "scheduled",
           "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "z29ltq1m3fb9",
-          "created_at": "2026-06-29T04:01:11.610-07:00",
-          "updated_at": "2026-06-29T04:01:11.610-07:00",
-          "display_at": "2026-06-29T04:01:11.610-07:00",
+          "incident_id": "fqmw9lvfbzgq",
+          "created_at": "2026-06-29T12:00:15.600-07:00",
+          "updated_at": "2026-06-29T12:00:15.600-07:00",
+          "display_at": "2026-06-29T12:00:15.600-07:00",
           "affected_components": null,
           "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": null
         },
         {
-          "id": "520bxcxqkm2r",
+          "id": "cfnv3jmhw8pf",
           "status": "scheduled",
-          "body": "Our Voice carrier partner in Australia is conducting a planned maintenance from 29 June 2026 at 05:00 PDT until 29 June 2026 at 13:00 PDT. During the maintenance window, there could be intermittent call disconnects or call failures from and to Twilio Australia phone numbers.",
-          "incident_id": "z29ltq1m3fb9",
-          "created_at": "2026-06-18T17:45:33.239-07:00",
-          "updated_at": "2026-06-18T17:45:33.239-07:00",
-          "display_at": "2026-06-18T17:45:33.239-07:00",
+          "body": "The Tele2 network in Russia is conducting a planned maintenance from 29 June 2026 at 13:00 PDT until 29 June 2026 at 17:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS to Tele2 Russia handsets.",
+          "incident_id": "fqmw9lvfbzgq",
+          "created_at": "2026-05-29T16:05:04.947-07:00",
+          "updated_at": "2026-05-29T16:05:04.947-07:00",
+          "display_at": "2026-05-29T16:05:04.947-07:00",
           "affected_components": [
             {
-              "code": "50pr269zqrwj",
-              "name": "CARRIER NETWORK - Voice, APAC",
+              "code": "llgdln3dcs6p",
+              "name": "CARRIER NETWORK - SMS, Europe",
               "old_status": "operational",
               "new_status": "operational"
             }
@@ -6702,12 +6772,12 @@
       ],
       "components": [
         {
-          "id": "50pr269zqrwj",
-          "name": "Voice, APAC",
-          "status": "operational",
-          "created_at": "2019-01-10T08:56:16.784-08:00",
-          "updated_at": "2026-06-29T09:00:07.815-07:00",
-          "position": 10,
+          "id": "llgdln3dcs6p",
+          "name": "SMS, Europe",
+          "status": "under_maintenance",
+          "created_at": "2019-01-10T08:53:50.789-08:00",
+          "updated_at": "2026-06-29T13:01:07.505-07:00",
+          "position": 14,
           "description": null,
           "showcase": false,
           "start_date": null,
@@ -6717,8 +6787,8 @@
           "only_show_if_degraded": false
         }
       ],
-      "scheduled_for": "2026-06-29T05:00:00.000-07:00",
-      "scheduled_until": "2026-06-29T13:00:00.000-07:00"
+      "scheduled_for": "2026-06-29T13:00:00.000-07:00",
+      "scheduled_until": "2026-06-29T17:00:00.000-07:00"
     },
     {
       "id": "6my48qlnwbj5",
@@ -6791,9 +6861,9 @@
         {
           "id": "llgdln3dcs6p",
           "name": "SMS, Europe",
-          "status": "degraded_performance",
+          "status": "under_maintenance",
           "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2026-06-29T03:38:32.989-07:00",
+          "updated_at": "2026-06-29T13:01:07.505-07:00",
           "position": 14,
           "description": null,
           "showcase": false,
