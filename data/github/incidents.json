@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-06-30T13:19:12.350Z"
+    "updated_at": "2026-06-30T15:49:18.424Z"
   },
   "incidents": [
+    {
+      "id": "mc4yx9f8x1hk",
+      "name": "Disruption with some GitHub services - Signup Flow",
+      "status": "resolved",
+      "created_at": "2026-06-30T15:38:48.952Z",
+      "updated_at": "2026-06-30T15:49:18.420Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-06-30T15:49:18.386Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/vbk1zdbpmv6m",
+      "started_at": "2026-06-30T15:38:48.938Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "t6wlmddj0mlp",
+          "status": "resolved",
+          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "incident_id": "mc4yx9f8x1hk",
+          "created_at": "2026-06-30T15:49:18.386Z",
+          "updated_at": "2026-06-30T15:49:18.386Z",
+          "display_at": "2026-06-30T15:49:18.386Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "pmf8lgl73jt9",
+          "status": "investigating",
+          "body": "We are investigating reports of impacted performance for some GitHub services.",
+          "incident_id": "mc4yx9f8x1hk",
+          "created_at": "2026-06-30T15:38:49.057Z",
+          "updated_at": "2026-06-30T15:38:49.057Z",
+          "display_at": "2026-06-30T15:38:49.057Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "0rkjjs2ssp7z",
       "name": "Disruption with some GitHub services",
@@ -7731,139 +7774,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "zsg1lk7w13cf",
-      "name": "Incident with Pull Requests",
-      "status": "resolved",
-      "created_at": "2026-04-23T19:50:51.291Z",
-      "updated_at": "2026-04-26T18:15:30.236Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-04-23T21:43:26.000Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/byp3p9jymrpl",
-      "started_at": "2026-04-23T21:43:26.000Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "2ncnkp2q0k1b",
-          "status": "resolved",
-          "body": "On April 23, 2026, between 16:05 UTC and 20:43 UTC, the Pull Requests service experienced a regression affecting merge queue operations. PRs merged via merge queue using the squash merge method produced incorrect merge commits when the merge group contained more than one PR. In affected cases, changes from previously merged PRs and prior commits were inadvertently reverted by subsequent merges.<br /><br />During the impact window 2,092 pull requests were affected. The issue did not affect pull requests merged outside of merge queue, nor merge queue groups using the merge or rebase methods.<br />It took approximately 3 hours and 33 minutes to identify the issue. The change completed deployment at approximately 16:05 UTC, and we became aware at 19:38 UTC following an increase in customer support inquiries. Because the issue affected merge commit correctness rather than availability, it was not detected by existing automated monitoring and was identified through customer reports.<br /><br />The regression was introduced by a new code path that adjusted merge base computation for merge queue ref updates. This code path was intended to be gated behind a feature flag for an unreleased feature, but the gating was incomplete.<br /><br />As a result, the new behavior was inadvertently applied to squash merge groups, producing an incorrect three-way merge. This caused subsequent squash merges to revert changes from earlier pull requests and, in some cases, changes between their starting points.<br /><br />We mitigated the incident by reverting the code change and force-deploying the fix across all environments. After resolution, we identified affected repositories and sent targeted remediation instructions to repository administrators with step-by-step recovery guidance.<br /><br />The regression was not identified during internal validation. Existing test coverage primarily exercised single-PR merge queue groups, which did not exhibit the faulty base-reference calculation. Because automated checks did not validate merge correctness for multi-PR squash groups, the defect surfaced only in production.<br /><br />To prevent recurrence, GitHub is expanding test coverage for merge correctness validation. We are broadening automated coverage for merge queue operations, including regression checks that validate resulting Git contents across supported configurations, so issues affecting merge correctness are caught before reaching production.<br /><br />We are committed to ensuring the correctness and reliability of merge queue operations. These actions will reduce the risk of similar regressions and improve confidence in future changes to the Pull Requests service.",
-          "incident_id": "zsg1lk7w13cf",
-          "created_at": "2026-04-23T21:43:26.267Z",
-          "updated_at": "2026-04-26T18:15:30.231Z",
-          "display_at": "2026-04-23T21:43:26.000Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0jst7wrjww50",
-          "status": "investigating",
-          "body": "We have resolved a regression present when using merge queue with either squash merges or rebases. If you use merge queue in this configuration, some pull requests may have been merged incorrectly between 2026-04-23 16:05-20:43 UTC. <br /><br />This behavior is still present in GitHub Enterprise Cloud with Data Residency, and we are rolling out the same fix.",
-          "incident_id": "zsg1lk7w13cf",
-          "created_at": "2026-04-23T21:18:15.963Z",
-          "updated_at": "2026-04-23T21:18:15.963Z",
-          "display_at": "2026-04-23T21:18:15.963Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "v2y8yr81mv57",
-          "status": "investigating",
-          "body": "Pull Requests is operating normally.",
-          "incident_id": "zsg1lk7w13cf",
-          "created_at": "2026-04-23T20:47:01.210Z",
-          "updated_at": "2026-04-23T20:47:01.210Z",
-          "display_at": "2026-04-23T20:47:01.210Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7wcc3wp5shr4",
-          "status": "investigating",
-          "body": "We have identified a regression in merge queue behavior present when squash merging or rebasing. We have identified the root-cause and are in the process of reverting the change.",
-          "incident_id": "zsg1lk7w13cf",
-          "created_at": "2026-04-23T19:58:14.939Z",
-          "updated_at": "2026-04-23T19:58:14.939Z",
-          "display_at": "2026-04-23T19:58:14.939Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3rcv77hss4sf",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Pull Requests",
-          "incident_id": "zsg1lk7w13cf",
-          "created_at": "2026-04-23T19:50:51.355Z",
-          "updated_at": "2026-04-23T19:50:51.355Z",
-          "display_at": "2026-04-23T19:50:51.355Z",
-          "affected_components": [
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "hhtssxt0f5v2",
-          "name": "Pull Requests",
-          "status": "operational",
-          "created_at": "2020-09-02T15:39:06.329Z",
-          "updated_at": "2026-06-25T18:07:44.519Z",
-          "position": 6,
-          "description": "Requests for Pull Requests on GitHub.com",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
