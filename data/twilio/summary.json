@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-06-30T16:07:49.004-07:00"
+    "updated_at": "2026-06-30T18:44:05.153-07:00"
   },
   "components": [
     {
@@ -25,7 +25,7 @@
     {
       "id": "s2k3h0mkqnth",
       "name": "PROGRAMMABLE MESSAGING",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2015-03-23T13:29:44.048-07:00",
       "updated_at": "2019-01-10T08:04:05.231-08:00",
       "position": 1,
@@ -360,9 +360,9 @@
     {
       "id": "whldrk77jnm4",
       "name": "Verify",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:39:55.505-08:00",
-      "updated_at": "2026-05-26T08:46:31.559-07:00",
+      "updated_at": "2026-06-30T18:02:31.131-07:00",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -510,9 +510,9 @@
     {
       "id": "xqxxnl8rsmlc",
       "name": "Conversation Intelligence",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2026-05-06T06:03:14.782-07:00",
-      "updated_at": "2026-06-30T14:57:59.022-07:00",
+      "updated_at": "2026-06-30T17:04:45.623-07:00",
       "position": 2,
       "description": null,
       "showcase": false,
@@ -1028,7 +1028,7 @@
     {
       "id": "vz5v126ykmgd",
       "name": "ACCOUNT SECURITY",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:20:52.106-08:00",
       "updated_at": "2026-05-06T06:04:43.084-07:00",
       "position": 5,
@@ -1496,9 +1496,9 @@
     {
       "id": "42zx9w2kmtvf",
       "name": "SMS, Latin America",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-01-10T08:53:08.618-08:00",
-      "updated_at": "2026-06-29T21:32:03.221-07:00",
+      "updated_at": "2026-06-30T18:21:05.650-07:00",
       "position": 9,
       "description": null,
       "showcase": false,
@@ -1803,9 +1803,9 @@
     {
       "id": "yvvy3vlp4djf",
       "name": "SMS",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2016-04-07T15:15:38.816-07:00",
-      "updated_at": "2026-06-25T15:40:11.427-07:00",
+      "updated_at": "2026-06-30T18:32:01.912-07:00",
       "position": 12,
       "description": null,
       "showcase": false,
@@ -2805,30 +2805,36 @@
   ],
   "incidents": [
     {
-      "id": "vd2mzbb5k4bm",
-      "name": "Conversation Intelligence Is Not Processing Conversations and Will Have Delays Running Operators",
-      "status": "investigating",
-      "created_at": "2026-06-30T14:57:58.984-07:00",
-      "updated_at": "2026-06-30T16:07:48.993-07:00",
+      "id": "xw085vvjp2qg",
+      "name": "Issue With Some Verified Senders Appearing as Unverified",
+      "status": "identified",
+      "created_at": "2026-06-30T18:02:31.091-07:00",
+      "updated_at": "2026-06-30T18:32:01.966-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
-      "shortlink": "https://stspg.io/wxftty12wpz7",
-      "started_at": "2026-06-30T14:57:58.974-07:00",
+      "shortlink": "https://stspg.io/45ljknphcc7s",
+      "started_at": "2026-06-30T18:02:31.079-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
         {
-          "id": "stgggn9z6m14",
-          "status": "investigating",
-          "body": "Our monitoring systems have detected a potential issue with Conversation Memory having delays generating summaries and observations on profiles. Our engineers have been alerted and are investigating. We will provide an update within 2 hours or as soon as we have more details.",
-          "incident_id": "vd2mzbb5k4bm",
-          "created_at": "2026-06-30T16:07:48.990-07:00",
-          "updated_at": "2026-06-30T16:07:48.990-07:00",
-          "display_at": "2026-06-30T16:07:48.990-07:00",
+          "id": "grmt8qjcggf1",
+          "status": "identified",
+          "body": "Twilio is aware that some Sender IDs used to send messages to Australia are being incorrectly overwritten as Unverified even though they are compliant with ACMA. Verify customers may see traffic incorrectly being sent using the TWVerify sender and a brandless template. We are working on identifying the impacted accounts and resolving the issue.",
+          "incident_id": "xw085vvjp2qg",
+          "created_at": "2026-06-30T18:32:01.962-07:00",
+          "updated_at": "2026-06-30T18:32:01.962-07:00",
+          "display_at": "2026-06-30T18:32:01.962-07:00",
           "affected_components": [
             {
-              "code": "xqxxnl8rsmlc",
-              "name": "CONVERSATIONS - Conversation Intelligence",
+              "code": "yvvy3vlp4djf",
+              "name": "PROGRAMMABLE MESSAGING - SMS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "whldrk77jnm4",
+              "name": "ACCOUNT SECURITY - Verify",
               "old_status": "degraded_performance",
               "new_status": "degraded_performance"
             }
@@ -2838,38 +2844,53 @@
           "tweet_id": null
         },
         {
-          "id": "8v6tv9yt8r8b",
+          "id": "dfh2sh4p8rdl",
           "status": "investigating",
-          "body": "Our monitoring systems have detected a potential issue with Conversation Memory having delays generating summaries and observations on profiles. Our engineers have been alerted and are investigating. We will provide an update within the next hour or as soon as we have more details.",
-          "incident_id": "vd2mzbb5k4bm",
-          "created_at": "2026-06-30T14:57:59.073-07:00",
-          "updated_at": "2026-06-30T14:57:59.073-07:00",
-          "display_at": "2026-06-30T14:57:59.073-07:00",
+          "body": "Twilio is aware that some sender ids used to send messages to Australia are being incorrectly overwritten as Unverified even though they are compliant with ACMA. We are working on identifying the impacted accounts and resolving the issue. We expect to provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "xw085vvjp2qg",
+          "created_at": "2026-06-30T18:02:31.186-07:00",
+          "updated_at": "2026-06-30T18:02:31.186-07:00",
+          "display_at": "2026-06-30T18:02:31.186-07:00",
           "affected_components": [
             {
-              "code": "xqxxnl8rsmlc",
-              "name": "CONVERSATIONS - Conversation Intelligence",
+              "code": "whldrk77jnm4",
+              "name": "ACCOUNT SECURITY - Verify",
               "old_status": "operational",
               "new_status": "degraded_performance"
             }
           ],
-          "deliver_notifications": false,
+          "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": null
         }
       ],
       "components": [
         {
-          "id": "xqxxnl8rsmlc",
-          "name": "Conversation Intelligence",
+          "id": "whldrk77jnm4",
+          "name": "Verify",
           "status": "degraded_performance",
-          "created_at": "2026-05-06T06:03:14.782-07:00",
-          "updated_at": "2026-06-30T14:57:59.022-07:00",
+          "created_at": "2019-01-10T08:39:55.505-08:00",
+          "updated_at": "2026-06-30T18:02:31.131-07:00",
           "position": 2,
           "description": null,
           "showcase": false,
-          "start_date": "2026-05-06",
-          "group_id": "2y4fzn228f04",
+          "start_date": null,
+          "group_id": "vz5v126ykmgd",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "yvvy3vlp4djf",
+          "name": "SMS",
+          "status": "degraded_performance",
+          "created_at": "2016-04-07T15:15:38.816-07:00",
+          "updated_at": "2026-06-30T18:32:01.912-07:00",
+          "position": 12,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s2k3h0mkqnth",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
@@ -2882,7 +2903,7 @@
       "name": "SMS Delivery Delays and Failures Between a Subset of Twilio Phone Numbers and Multiple Networks in Peru",
       "status": "identified",
       "created_at": "2026-06-25T16:28:12.451-07:00",
-      "updated_at": "2026-06-29T18:20:20.992-07:00",
+      "updated_at": "2026-06-30T18:21:05.801-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -2890,6 +2911,26 @@
       "started_at": "2026-06-25T16:28:12.423-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "c61t4ths7szq",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing SMS delivery delays and failures between a subset of Twilio Phone Numbers and network subscribers on multiple networks in Peru. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 24 hours or as soon as more information becomes available.",
+          "incident_id": "8ncfrdm0ljh4",
+          "created_at": "2026-06-30T18:21:05.797-07:00",
+          "updated_at": "2026-06-30T18:21:05.797-07:00",
+          "display_at": "2026-06-30T18:21:05.797-07:00",
+          "affected_components": [
+            {
+              "code": "42zx9w2kmtvf",
+              "name": "CARRIER NETWORK - SMS, Latin America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "yl58tmccsk99",
           "status": "identified",
@@ -3285,9 +3326,9 @@
         {
           "id": "42zx9w2kmtvf",
           "name": "SMS, Latin America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:53:08.618-08:00",
-          "updated_at": "2026-06-29T21:32:03.221-07:00",
+          "updated_at": "2026-06-30T18:21:05.650-07:00",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -5578,9 +5619,9 @@
         {
           "id": "yvvy3vlp4djf",
           "name": "SMS",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:15:38.816-07:00",
-          "updated_at": "2026-06-25T15:40:11.427-07:00",
+          "updated_at": "2026-06-30T18:32:01.912-07:00",
           "position": 12,
           "description": null,
           "showcase": false,
@@ -5929,9 +5970,9 @@
         {
           "id": "yvvy3vlp4djf",
           "name": "SMS",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2016-04-07T15:15:38.816-07:00",
-          "updated_at": "2026-06-25T15:40:11.427-07:00",
+          "updated_at": "2026-06-30T18:32:01.912-07:00",
           "position": 12,
           "description": null,
           "showcase": false,
@@ -6454,173 +6495,6 @@
       ],
       "scheduled_for": "2026-07-29T20:00:00.000-07:00",
       "scheduled_until": "2026-07-30T00:00:00.000-07:00"
-    },
-    {
-      "id": "k04sf0xvkwf0",
-      "name": "Russia SMS Carrier Maintenance - Beeline",
-      "status": "in_progress",
-      "created_at": "2026-06-25T21:35:10.243-07:00",
-      "updated_at": "2026-06-30T13:01:07.855-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/9rcbm1zgvdfp",
-      "started_at": "2026-06-25T21:35:10.218-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "31mfnvl5bqvz",
-          "status": "in_progress",
-          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
-          "incident_id": "k04sf0xvkwf0",
-          "created_at": "2026-06-30T13:01:07.851-07:00",
-          "updated_at": "2026-06-30T13:01:07.851-07:00",
-          "display_at": "2026-06-30T13:01:07.851-07:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "zs6z6cnlwdrb",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "k04sf0xvkwf0",
-          "created_at": "2026-06-30T12:00:13.785-07:00",
-          "updated_at": "2026-06-30T12:00:13.785-07:00",
-          "display_at": "2026-06-30T12:00:13.785-07:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wvwczhlf0nyv",
-          "status": "scheduled",
-          "body": "The Beeline network in Russia is conducting a planned maintenance from 30 June 2026 at 13:00 PDT until 30 June 2026 at 17:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS to Beeline Russia handsets.",
-          "incident_id": "k04sf0xvkwf0",
-          "created_at": "2026-06-25T21:35:10.425-07:00",
-          "updated_at": "2026-06-25T21:35:10.425-07:00",
-          "display_at": "2026-06-25T21:35:10.425-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "llgdln3dcs6p",
-          "name": "SMS, Europe",
-          "status": "operational",
-          "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2026-06-30T14:30:07.251-07:00",
-          "position": 14,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-06-30T13:00:00.000-07:00",
-      "scheduled_until": "2026-06-30T17:00:00.000-07:00"
-    },
-    {
-      "id": "vbs5tx80zmp3",
-      "name": "Russia SMS Carrier Maintenance - MegaFon",
-      "status": "in_progress",
-      "created_at": "2026-06-25T15:46:14.634-07:00",
-      "updated_at": "2026-06-30T13:00:08.372-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/cbqrzzhh3k08",
-      "started_at": "2026-06-25T15:46:14.619-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "1m0d4xd1pxsj",
-          "status": "in_progress",
-          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
-          "incident_id": "vbs5tx80zmp3",
-          "created_at": "2026-06-30T13:00:08.358-07:00",
-          "updated_at": "2026-06-30T13:00:08.358-07:00",
-          "display_at": "2026-06-30T13:00:08.358-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "operational",
-              "new_status": "under_maintenance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1mbgj025h0hb",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "vbs5tx80zmp3",
-          "created_at": "2026-06-30T12:00:07.461-07:00",
-          "updated_at": "2026-06-30T12:00:07.461-07:00",
-          "display_at": "2026-06-30T12:00:07.461-07:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5z80wy5hkq2j",
-          "status": "scheduled",
-          "body": "The MegaFon network in Russia is conducting a planned maintenance from 30 June 2026 at 13:00 PDT until 30 June 2026 at 17:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS to MegaFon Russia handsets.",
-          "incident_id": "vbs5tx80zmp3",
-          "created_at": "2026-06-25T15:46:14.763-07:00",
-          "updated_at": "2026-06-25T15:46:14.763-07:00",
-          "display_at": "2026-06-25T15:46:14.763-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "llgdln3dcs6p",
-          "name": "SMS, Europe",
-          "status": "operational",
-          "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2026-06-30T14:30:07.251-07:00",
-          "position": 14,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-06-30T13:00:00.000-07:00",
-      "scheduled_until": "2026-06-30T17:00:00.000-07:00"
     }
   ],
   "status": {
