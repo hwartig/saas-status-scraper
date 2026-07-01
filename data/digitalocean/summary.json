@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-01T08:39:50.491Z"
+    "updated_at": "2026-07-01T12:43:33.974Z"
   },
   "components": [
     {
@@ -1120,9 +1120,9 @@
     {
       "id": "566bp0vk7mwx",
       "name": "FRA1",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T17:31:21.365Z",
-      "updated_at": "2026-01-28T17:37:47.823Z",
+      "updated_at": "2026-07-01T11:35:28.974Z",
       "position": 5,
       "description": null,
       "showcase": false,
@@ -1210,9 +1210,9 @@
     {
       "id": "l8lxzfpgpc39",
       "name": "FRA1",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T19:27:03.547Z",
-      "updated_at": "2026-03-27T23:16:34.582Z",
+      "updated_at": "2026-07-01T11:35:28.997Z",
       "position": 5,
       "description": null,
       "showcase": false,
@@ -1705,9 +1705,9 @@
     {
       "id": "qdnryq0lymfk",
       "name": "DNS",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-03-06T18:42:44.851Z",
-      "updated_at": "2026-06-04T11:39:16.542Z",
+      "updated_at": "2026-07-01T12:15:49.768Z",
       "position": 7,
       "description": null,
       "showcase": false,
@@ -3351,7 +3351,7 @@
     {
       "id": "kl8qv98c9brp",
       "name": "Managed Databases",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T19:29:09.360Z",
       "updated_at": "2025-08-06T12:30:25.569Z",
       "position": 18,
@@ -3466,7 +3466,7 @@
     {
       "id": "gb3gs5vj7js2",
       "name": "Kubernetes",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T17:35:32.978Z",
       "updated_at": "2025-10-29T16:20:13.623Z",
       "position": 22,
@@ -3663,6 +3663,200 @@
     }
   ],
   "incidents": [
+    {
+      "id": "8mvnl6s4cmdt",
+      "name": "Droplet Resize",
+      "status": "monitoring",
+      "created_at": "2026-07-01T11:13:21.135Z",
+      "updated_at": "2026-07-01T12:43:33.972Z",
+      "monitoring_at": "2026-07-01T12:43:33.957Z",
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/m6y2gmlz3jrv",
+      "started_at": "2026-07-01T11:13:21.128Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "4ctk8lntp5yn",
+          "status": "monitoring",
+          "body": "Our Engineering team has identified the root cause of the issue affecting Droplet resizes using the \"Downscale Anytime\" option and has implemented a fix. Users should now be able to resize their Droplets using the \"Downscale Anytime\" option without experiencing any issues or errors.\n\nWe are actively monitoring the situation to ensure the fix remains effective and will provide another update once the issue has been fully resolved.",
+          "incident_id": "8mvnl6s4cmdt",
+          "created_at": "2026-07-01T12:43:33.957Z",
+          "updated_at": "2026-07-01T12:43:33.957Z",
+          "display_at": "2026-07-01T12:43:33.957Z",
+          "affected_components": [
+            {
+              "code": "czck17wcspr5",
+              "name": "Cloud Control Panel",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "s875bn15vsy3",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue affecting Droplet resizes using the \"Downscale Anytime\" option. At this time users may find this option unavailable or unresponsive in the Cloud Control Panel.\n\nAs a workaround, resizes can be performed via the API while we work to resolve this issue.\n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "8mvnl6s4cmdt",
+          "created_at": "2026-07-01T11:13:21.200Z",
+          "updated_at": "2026-07-01T11:13:21.200Z",
+          "display_at": "2026-07-01T11:13:21.200Z",
+          "affected_components": [
+            {
+              "code": "czck17wcspr5",
+              "name": "Cloud Control Panel",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "czck17wcspr5",
+          "name": "Cloud Control Panel",
+          "status": "operational",
+          "created_at": "2023-03-06T18:42:46.098Z",
+          "updated_at": "2026-05-09T13:51:39.521Z",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "phwpbgwcmkjn",
+      "name": "DNS Lookup Failures for Managed Database",
+      "status": "investigating",
+      "created_at": "2026-07-01T11:35:28.934Z",
+      "updated_at": "2026-07-01T12:15:49.821Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/r6yw4xc720r8",
+      "started_at": "2026-07-01T11:35:28.920Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "whvykmzhn38k",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue.",
+          "incident_id": "phwpbgwcmkjn",
+          "created_at": "2026-07-01T12:15:49.818Z",
+          "updated_at": "2026-07-01T12:15:49.818Z",
+          "display_at": "2026-07-01T12:15:49.818Z",
+          "affected_components": [
+            {
+              "code": "566bp0vk7mwx",
+              "name": "Kubernetes - FRA1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "l8lxzfpgpc39",
+              "name": "Managed Databases - FRA1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "qdnryq0lymfk",
+              "name": "DNS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "m8k5x3w5zqq1",
+          "status": "investigating",
+          "body": "As of 06:39 UTC, our Engineering team is investigating reports of intermittent DNS lookup failures for Managed Database hostnames from Managed Kubernetes, primarily affecting connections from Managed Kubernetes to Managed Database hostnames. \n\nAt this point, customers in the FRA1 region may experience intermittent connectivity issues. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "phwpbgwcmkjn",
+          "created_at": "2026-07-01T11:35:29.049Z",
+          "updated_at": "2026-07-01T11:35:29.049Z",
+          "display_at": "2026-07-01T11:35:29.049Z",
+          "affected_components": [
+            {
+              "code": "566bp0vk7mwx",
+              "name": "Kubernetes - FRA1",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "l8lxzfpgpc39",
+              "name": "Managed Databases - FRA1",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "566bp0vk7mwx",
+          "name": "FRA1",
+          "status": "degraded_performance",
+          "created_at": "2023-02-22T17:31:21.365Z",
+          "updated_at": "2026-07-01T11:35:28.974Z",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-22",
+          "group_id": "gb3gs5vj7js2",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "l8lxzfpgpc39",
+          "name": "FRA1",
+          "status": "degraded_performance",
+          "created_at": "2023-02-22T19:27:03.547Z",
+          "updated_at": "2026-07-01T11:35:28.997Z",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-22",
+          "group_id": "kl8qv98c9brp",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "qdnryq0lymfk",
+          "name": "DNS",
+          "status": "degraded_performance",
+          "created_at": "2023-03-06T18:42:44.851Z",
+          "updated_at": "2026-07-01T12:15:49.768Z",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "76l7xym7jd5m",
       "name": "Agent Timeouts While Retrieving Data from Knowledge Bases",

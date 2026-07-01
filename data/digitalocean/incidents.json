@@ -4,9 +4,203 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-01T08:39:50.491Z"
+    "updated_at": "2026-07-01T12:43:33.974Z"
   },
   "incidents": [
+    {
+      "id": "phwpbgwcmkjn",
+      "name": "DNS Lookup Failures for Managed Database",
+      "status": "investigating",
+      "created_at": "2026-07-01T11:35:28.934Z",
+      "updated_at": "2026-07-01T12:15:49.821Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/r6yw4xc720r8",
+      "started_at": "2026-07-01T11:35:28.920Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "whvykmzhn38k",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue.",
+          "incident_id": "phwpbgwcmkjn",
+          "created_at": "2026-07-01T12:15:49.818Z",
+          "updated_at": "2026-07-01T12:15:49.818Z",
+          "display_at": "2026-07-01T12:15:49.818Z",
+          "affected_components": [
+            {
+              "code": "566bp0vk7mwx",
+              "name": "Kubernetes - FRA1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "l8lxzfpgpc39",
+              "name": "Managed Databases - FRA1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "qdnryq0lymfk",
+              "name": "DNS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "m8k5x3w5zqq1",
+          "status": "investigating",
+          "body": "As of 06:39 UTC, our Engineering team is investigating reports of intermittent DNS lookup failures for Managed Database hostnames from Managed Kubernetes, primarily affecting connections from Managed Kubernetes to Managed Database hostnames. \n\nAt this point, customers in the FRA1 region may experience intermittent connectivity issues. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "phwpbgwcmkjn",
+          "created_at": "2026-07-01T11:35:29.049Z",
+          "updated_at": "2026-07-01T11:35:29.049Z",
+          "display_at": "2026-07-01T11:35:29.049Z",
+          "affected_components": [
+            {
+              "code": "566bp0vk7mwx",
+              "name": "Kubernetes - FRA1",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "l8lxzfpgpc39",
+              "name": "Managed Databases - FRA1",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "566bp0vk7mwx",
+          "name": "FRA1",
+          "status": "degraded_performance",
+          "created_at": "2023-02-22T17:31:21.365Z",
+          "updated_at": "2026-07-01T11:35:28.974Z",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-22",
+          "group_id": "gb3gs5vj7js2",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "l8lxzfpgpc39",
+          "name": "FRA1",
+          "status": "degraded_performance",
+          "created_at": "2023-02-22T19:27:03.547Z",
+          "updated_at": "2026-07-01T11:35:28.997Z",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-02-22",
+          "group_id": "kl8qv98c9brp",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "qdnryq0lymfk",
+          "name": "DNS",
+          "status": "degraded_performance",
+          "created_at": "2023-03-06T18:42:44.851Z",
+          "updated_at": "2026-07-01T12:15:49.768Z",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "8mvnl6s4cmdt",
+      "name": "Droplet Resize",
+      "status": "monitoring",
+      "created_at": "2026-07-01T11:13:21.135Z",
+      "updated_at": "2026-07-01T12:43:33.972Z",
+      "monitoring_at": "2026-07-01T12:43:33.957Z",
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/m6y2gmlz3jrv",
+      "started_at": "2026-07-01T11:13:21.128Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "4ctk8lntp5yn",
+          "status": "monitoring",
+          "body": "Our Engineering team has identified the root cause of the issue affecting Droplet resizes using the \"Downscale Anytime\" option and has implemented a fix. Users should now be able to resize their Droplets using the \"Downscale Anytime\" option without experiencing any issues or errors.\n\nWe are actively monitoring the situation to ensure the fix remains effective and will provide another update once the issue has been fully resolved.",
+          "incident_id": "8mvnl6s4cmdt",
+          "created_at": "2026-07-01T12:43:33.957Z",
+          "updated_at": "2026-07-01T12:43:33.957Z",
+          "display_at": "2026-07-01T12:43:33.957Z",
+          "affected_components": [
+            {
+              "code": "czck17wcspr5",
+              "name": "Cloud Control Panel",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "s875bn15vsy3",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating an issue affecting Droplet resizes using the \"Downscale Anytime\" option. At this time users may find this option unavailable or unresponsive in the Cloud Control Panel.\n\nAs a workaround, resizes can be performed via the API while we work to resolve this issue.\n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "8mvnl6s4cmdt",
+          "created_at": "2026-07-01T11:13:21.200Z",
+          "updated_at": "2026-07-01T11:13:21.200Z",
+          "display_at": "2026-07-01T11:13:21.200Z",
+          "affected_components": [
+            {
+              "code": "czck17wcspr5",
+              "name": "Cloud Control Panel",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "czck17wcspr5",
+          "name": "Cloud Control Panel",
+          "status": "operational",
+          "created_at": "2023-03-06T18:42:46.098Z",
+          "updated_at": "2026-05-09T13:51:39.521Z",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": "2023-03-06",
+          "group_id": null,
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "76l7xym7jd5m",
       "name": "Agent Timeouts While Retrieving Data from Knowledge Bases",
@@ -767,9 +961,9 @@
         {
           "id": "qdnryq0lymfk",
           "name": "DNS",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-03-06T18:42:44.851Z",
-          "updated_at": "2026-06-04T11:39:16.542Z",
+          "updated_at": "2026-07-01T12:15:49.768Z",
           "position": 7,
           "description": null,
           "showcase": false,
@@ -1378,9 +1572,9 @@
         {
           "id": "qdnryq0lymfk",
           "name": "DNS",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-03-06T18:42:44.851Z",
-          "updated_at": "2026-06-04T11:39:16.542Z",
+          "updated_at": "2026-07-01T12:15:49.768Z",
           "position": 7,
           "description": null,
           "showcase": false,
@@ -2817,9 +3011,9 @@
         {
           "id": "qdnryq0lymfk",
           "name": "DNS",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2023-03-06T18:42:44.851Z",
-          "updated_at": "2026-06-04T11:39:16.542Z",
+          "updated_at": "2026-07-01T12:15:49.768Z",
           "position": 7,
           "description": null,
           "showcase": false,
@@ -4948,232 +5142,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "wvx8hcnvynv0",
-      "name": "Delay in App Platform Deployments",
-      "status": "resolved",
-      "created_at": "2026-02-12T19:06:59.080Z",
-      "updated_at": "2026-02-12T19:34:48.555Z",
-      "monitoring_at": "2026-02-12T19:17:09.619Z",
-      "resolved_at": "2026-02-12T19:34:48.537Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/d3w34wqm0scp",
-      "started_at": "2026-02-12T19:06:59.072Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "7v7m8fvrb05b",
-          "status": "resolved",
-          "body": "As of 18:55 UTC, our Engineering team has confirmed that the issue causing delays in App Platform deployments has been fully resolved. The fix implemented earlier has been successful, and we are no longer seeing any delays or errors with deployments.\n\nUsers should now be able to deploy their apps successfully and without any issues. We apologize again for the inconvenience caused.\n\nHowever, if you continue to experience any issues, please don't hesitate to raise a support ticket for further investigation. We'll be happy to assist you.",
-          "incident_id": "wvx8hcnvynv0",
-          "created_at": "2026-02-12T19:34:48.537Z",
-          "updated_at": "2026-02-12T19:34:48.537Z",
-          "display_at": "2026-02-12T19:34:48.537Z",
-          "affected_components": [
-            {
-              "code": "txysr8r0gn1n",
-              "name": "App Platform - Global",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rswh87kng93g",
-          "status": "monitoring",
-          "body": "Our Engineering team has implemented a fix to address the issue causing delays in App Platform deployments. \n\nWe are actively monitoring the situation to ensure overall stability. Users may already notice improvements while deploying apps. \n\nWe appreciate your patience throughout the process and will provide a further update once the issue is fully confirmed to be resolved.",
-          "incident_id": "wvx8hcnvynv0",
-          "created_at": "2026-02-12T19:17:09.619Z",
-          "updated_at": "2026-02-12T19:17:09.619Z",
-          "display_at": "2026-02-12T19:17:09.619Z",
-          "affected_components": [
-            {
-              "code": "txysr8r0gn1n",
-              "name": "App Platform - Global",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "tm3rbtfv28jj",
-          "status": "investigating",
-          "body": "Our engineers are currently investigating an issue impacting new App Platform deployments. \n\nDuring this time, some users may experience delay when creating new App Platform apps. Existing apps are not affected and should continue to function normally. \n\nWe apologize for any inconvenience, and we'll share more information as it becomes available.",
-          "incident_id": "wvx8hcnvynv0",
-          "created_at": "2026-02-12T19:06:59.179Z",
-          "updated_at": "2026-02-12T19:06:59.179Z",
-          "display_at": "2026-02-12T19:06:59.179Z",
-          "affected_components": [
-            {
-              "code": "txysr8r0gn1n",
-              "name": "App Platform - Global",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "txysr8r0gn1n",
-          "name": "Global",
-          "status": "operational",
-          "created_at": "2023-03-28T21:01:12.838Z",
-          "updated_at": "2026-06-04T11:39:16.497Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-03-28",
-          "group_id": "jjs48vwjlqjr",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "ftlzzqf5vswr",
-      "name": "MongoDB Cluster Creation",
-      "status": "resolved",
-      "created_at": "2026-02-12T05:42:16.648Z",
-      "updated_at": "2026-02-12T12:06:41.800Z",
-      "monitoring_at": "2026-02-12T09:50:10.510Z",
-      "resolved_at": "2026-02-12T12:06:41.776Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/mghbxr8rn8yg",
-      "started_at": "2026-02-12T05:42:16.640Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "45kdgtzx35lr",
-          "status": "resolved",
-          "body": "Our Engineering team has confirmed the full resolution of the issue with MongoDB Clusters.\n\nThank you for your patience, and we apologize for any inconvenience. If you continue to experience any issues, please open a Support ticket right away.",
-          "incident_id": "ftlzzqf5vswr",
-          "created_at": "2026-02-12T12:06:41.776Z",
-          "updated_at": "2026-02-12T12:06:41.776Z",
-          "display_at": "2026-02-12T12:06:41.776Z",
-          "affected_components": [
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "hv5r3d861ng9",
-          "status": "monitoring",
-          "body": "Our Engineering team has implemented a fix to resolve the issue with MongoDB clusters and at this time, services should be functioning as expected. \n\nWe're monitoring the situation and will post a final update once we confirm this is fully resolved.",
-          "incident_id": "ftlzzqf5vswr",
-          "created_at": "2026-02-12T09:50:10.510Z",
-          "updated_at": "2026-02-12T09:50:10.510Z",
-          "display_at": "2026-02-12T09:50:10.510Z",
-          "affected_components": [
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "pr5fv31fnk61",
-          "status": "identified",
-          "body": "Our engineering team has identified the cause of the issue with create, fork and resize events failure for MongoDB clusters in all of our regions and is actively working on a fix. We will post an update as soon as additional information is available.",
-          "incident_id": "ftlzzqf5vswr",
-          "created_at": "2026-02-12T09:04:00.722Z",
-          "updated_at": "2026-02-12T09:04:00.722Z",
-          "display_at": "2026-02-12T09:04:00.722Z",
-          "affected_components": [
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "tzvzzdm4kbq3",
-          "status": "investigating",
-          "body": "Our engineering team continues to investigate the issue with create, fork and resize events failure for MongoDB clusters in all of our regions. \n\nWe appreciate your patience and will post an update as soon as additional information is available.",
-          "incident_id": "ftlzzqf5vswr",
-          "created_at": "2026-02-12T07:34:09.946Z",
-          "updated_at": "2026-02-12T07:34:09.946Z",
-          "display_at": "2026-02-12T07:34:09.946Z",
-          "affected_components": [
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0qh9wppm6059",
-          "status": "investigating",
-          "body": "Our Engineering team is investigating an issue with all events for MongoDB clusters in all of our regions.\n\nDuring this time, users may face issues with creation, fork and resize operations in the MongoDB clusters. \n\nWe apologize for the inconvenience and will share an update once we have more information.",
-          "incident_id": "ftlzzqf5vswr",
-          "created_at": "2026-02-12T05:42:16.739Z",
-          "updated_at": "2026-02-12T05:42:16.739Z",
-          "display_at": "2026-02-12T05:42:16.739Z",
-          "affected_components": [
-            {
-              "code": "mzkgffp35tq4",
-              "name": "Managed Databases - Global",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "mzkgffp35tq4",
-          "name": "Global",
-          "status": "operational",
-          "created_at": "2024-08-16T11:21:56.097Z",
-          "updated_at": "2026-06-17T18:00:08.242Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2024-08-16",
-          "group_id": "kl8qv98c9brp",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
