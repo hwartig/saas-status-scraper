@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-01T15:42:10.326Z"
+    "updated_at": "2026-07-01T16:53:53.878Z"
   },
   "incidents": [
     {
@@ -208,7 +208,7 @@
       "name": "Disruption with some GitHub services",
       "status": "resolved",
       "created_at": "2026-06-28T17:50:30.639Z",
-      "updated_at": "2026-06-28T20:55:58.964Z",
+      "updated_at": "2026-07-01T16:53:51.781Z",
       "monitoring_at": null,
       "resolved_at": "2026-06-28T20:55:58.925Z",
       "impact": "minor",
@@ -219,10 +219,10 @@
         {
           "id": "j78spxwdt89k",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "From June 26, 2026 at 23:40 UTC through June 28, 2026 at 20:55 UTC, Copilot Cloud Agent was degraded. The agent could fail when reporting progress, replying to pull request comments, or opening pull requests. For affected built-in tool calls, the average error rate was approximately 8%, with hourly error rates peaking around 26%.<br /><br />This was due to a regression introduced during a Copilot Cloud Agent runtime deployment that caused several built-in agent tools to become unavailable. In many cases, the affected tool calls failed silently so agent jobs appeared to succeed. This monitoring gap meant it took longer than expected to identify the failure. We mitigated the incident by reverting the runtime deployment to the previously stable version.<br /><br />We've added monitoring and alerting for this class of tool-availability error to reduce time-to-detection. We're also adding regression tests for these built-in agent tools, and improving the shipping safety for future runtime rollouts to avoid similar issues.",
           "incident_id": "0rkjjs2ssp7z",
           "created_at": "2026-06-28T20:55:58.925Z",
-          "updated_at": "2026-06-28T20:55:58.925Z",
+          "updated_at": "2026-07-01T16:53:51.775Z",
           "display_at": "2026-06-28T20:55:58.925Z",
           "affected_components": null,
           "deliver_notifications": true,
