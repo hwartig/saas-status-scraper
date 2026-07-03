@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-03T15:29:53.441Z"
+    "updated_at": "2026-07-03T17:49:38.099Z"
   },
   "components": [
     {
@@ -85,9 +85,9 @@
     {
       "id": "q5hm9x2qx9l9",
       "name": "Management Plane - ORD",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:28:07.965Z",
-      "updated_at": "2026-07-03T05:59:18.609Z",
+      "updated_at": "2026-07-03T17:49:38.022Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -205,7 +205,7 @@
     {
       "id": "mrcyzlkkw8z9",
       "name": "Regional Availability",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T19:19:04.424Z",
       "updated_at": "2024-07-24T19:09:19.587Z",
       "position": 4,
@@ -763,7 +763,7 @@
     {
       "id": "h2hndffd5ysc",
       "name": "Managed Postgres",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2025-03-24T09:28:07.922Z",
       "updated_at": "2025-03-24T09:28:07.922Z",
       "position": 19,
@@ -852,9 +852,9 @@
     {
       "id": "vfq82tp9wp5r",
       "name": "ORD - Chicago, Illinois (US)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T19:29:02.173Z",
-      "updated_at": "2026-07-03T05:59:18.626Z",
+      "updated_at": "2026-07-03T17:49:38.043Z",
       "position": 24,
       "description": null,
       "showcase": false,
@@ -925,10 +925,137 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "ccr4ky2rl62v",
+      "name": "Partial Outage in ORD",
+      "status": "monitoring",
+      "created_at": "2026-07-03T17:00:06.198Z",
+      "updated_at": "2026-07-03T17:49:38.096Z",
+      "monitoring_at": "2026-07-03T17:49:38.080Z",
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/jp8j4g2hxwrq",
+      "started_at": "2026-07-03T17:00:06.182Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "0q48p5xt9lz8",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "ccr4ky2rl62v",
+          "created_at": "2026-07-03T17:49:38.080Z",
+          "updated_at": "2026-07-03T17:49:38.080Z",
+          "display_at": "2026-07-03T17:49:38.080Z",
+          "affected_components": [
+            {
+              "code": "vfq82tp9wp5r",
+              "name": "Regional Availability - ORD - Chicago, Illinois (US)",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "q5hm9x2qx9l9",
+              "name": "Managed Postgres - Management Plane - ORD",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "gysj07ckspcv",
+          "status": "identified",
+          "body": "We've identified the issue as a networking hardware failure impacting a subset of hosts at one of our Upstream providers in ORD. We are working with our provider to restore connectivity.",
+          "incident_id": "ccr4ky2rl62v",
+          "created_at": "2026-07-03T17:02:53.220Z",
+          "updated_at": "2026-07-03T17:02:53.220Z",
+          "display_at": "2026-07-03T17:02:53.220Z",
+          "affected_components": [
+            {
+              "code": "vfq82tp9wp5r",
+              "name": "Regional Availability - ORD - Chicago, Illinois (US)",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "q5hm9x2qx9l9",
+              "name": "Managed Postgres - Management Plane - ORD",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "qy0t3fxzhbxt",
+          "status": "investigating",
+          "body": "We are investigating an issue with one of our upstream providers in ORD. Machines across a subset of hosts may be unreachable or not running correctly. Deploys with machines on these hosts may fail at this time.\n\nSome Managed Postgres clusters in ORD region may be unavailable or see connectivity issues at this time.",
+          "incident_id": "ccr4ky2rl62v",
+          "created_at": "2026-07-03T17:00:06.323Z",
+          "updated_at": "2026-07-03T17:00:06.323Z",
+          "display_at": "2026-07-03T17:00:06.323Z",
+          "affected_components": [
+            {
+              "code": "vfq82tp9wp5r",
+              "name": "Regional Availability - ORD - Chicago, Illinois (US)",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "q5hm9x2qx9l9",
+              "name": "Managed Postgres - Management Plane - ORD",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "q5hm9x2qx9l9",
+          "name": "Management Plane - ORD",
+          "status": "degraded_performance",
+          "created_at": "2025-03-24T09:28:07.965Z",
+          "updated_at": "2026-07-03T17:49:38.022Z",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-03-24",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "vfq82tp9wp5r",
+          "name": "ORD - Chicago, Illinois (US)",
+          "status": "degraded_performance",
+          "created_at": "2019-07-01T19:29:02.173Z",
+          "updated_at": "2026-07-03T17:49:38.043Z",
+          "position": 24,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
