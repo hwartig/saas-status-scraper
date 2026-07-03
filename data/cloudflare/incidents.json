@@ -4,189 +4,72 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-03T19:38:43.823Z"
+    "updated_at": "2026-07-03T20:43:10.533Z"
   },
   "incidents": [
     {
-      "id": "vbpg34cx846v",
-      "name": "Loadbalancing and Standalone Healthcheck Services for FedRAMP customers are degraded",
-      "status": "investigating",
-      "created_at": "2026-07-03T18:27:09.440Z",
-      "updated_at": "2026-07-03T18:41:45.672Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/vvfjhx32vxkj",
-      "started_at": "2026-07-03T18:27:09.427Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "hckkm1jw7cr0",
-          "status": "investigating",
-          "body": "FedRAMP customers may experience delays in receiving notification emails with health status updates for their origin servers.",
-          "incident_id": "vbpg34cx846v",
-          "created_at": "2026-07-03T18:27:09.568Z",
-          "updated_at": "2026-07-03T18:27:09.568Z",
-          "display_at": "2026-07-03T18:27:09.568Z",
-          "affected_components": [
-            {
-              "code": "vn1h2pfctsvn",
-              "name": "Cloudflare Sites and Services - Health Checks",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "8sn2w5kyxfnp",
-              "name": "Cloudflare Sites and Services - Load Balancing and Monitoring",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "vn1h2pfctsvn",
-          "name": "Health Checks",
-          "status": "degraded_performance",
-          "created_at": "2024-01-19T14:38:24.595Z",
-          "updated_at": "2026-07-03T18:27:09.484Z",
-          "position": 53,
-          "description": "A Health Check is a service that runs on Cloudflare’s edge network to monitor whether an origin server is online.",
-          "showcase": false,
-          "start_date": "2024-01-19",
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "8sn2w5kyxfnp",
-          "name": "Load Balancing and Monitoring",
-          "status": "degraded_performance",
-          "created_at": "2019-01-24T16:54:07.994Z",
-          "updated_at": "2026-07-03T18:27:09.507Z",
-          "position": 59,
-          "description": "Load balancing and failover service, including origin server monitoring",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "64d6d3l2h1lt",
-      "name": "Resolution Issues for .AL Domains",
-      "status": "monitoring",
-      "created_at": "2026-07-03T16:48:23.964Z",
-      "updated_at": "2026-07-03T17:25:45.865Z",
-      "monitoring_at": "2026-07-03T17:25:45.847Z",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/hwybmv5883ss",
-      "started_at": "2026-07-03T16:48:23.954Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "wtl2547gdhmy",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "64d6d3l2h1lt",
-          "created_at": "2026-07-03T17:25:45.847Z",
-          "updated_at": "2026-07-03T17:25:45.847Z",
-          "display_at": "2026-07-03T17:25:45.847Z",
-          "affected_components": [
-            {
-              "code": "8w536gxk7dvq",
-              "name": "Cloudflare Sites and Services - Recursive DNS",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "x34sjm0ltl2g",
-          "status": "identified",
-          "body": "Cloudflare is temporarily disabling DNSSEC validation for .AL domains on 1.1.1.1 resolver (as per RFC 7646) in order to allow .AL names to continue to resolve. DNSSEC validation will be re-enabled when the signing problems are known to have been resolved.\n\nSee RFC 7646 for more details:\nhttps://datatracker.ietf.org/doc/html/rfc7646",
-          "incident_id": "64d6d3l2h1lt",
-          "created_at": "2026-07-03T17:02:34.273Z",
-          "updated_at": "2026-07-03T17:02:34.273Z",
-          "display_at": "2026-07-03T17:02:34.273Z",
-          "affected_components": [
-            {
-              "code": "8w536gxk7dvq",
-              "name": "Cloudflare Sites and Services - Recursive DNS",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gtjh6zd07xmm",
-          "status": "identified",
-          "body": "We are observing issues with authoritative resolution for the .AL TLD because of DNSSEC issues at the TLD.",
-          "incident_id": "64d6d3l2h1lt",
-          "created_at": "2026-07-03T16:48:24.063Z",
-          "updated_at": "2026-07-03T17:02:46.801Z",
-          "display_at": "2026-07-03T16:48:24.000Z",
-          "affected_components": [
-            {
-              "code": "8w536gxk7dvq",
-              "name": "Cloudflare Sites and Services - Recursive DNS",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "8w536gxk7dvq",
-          "name": "Recursive DNS",
-          "status": "degraded_performance",
-          "created_at": "2019-01-24T16:51:39.639Z",
-          "updated_at": "2026-07-03T16:48:24.004Z",
-          "position": 83,
-          "description": "Free recursive DNS service at 1.1.1.1 and 1.0.0.1",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
       "id": "rnq609lkyl21",
       "name": "Durable Objects increased errors in ENAM",
-      "status": "identified",
+      "status": "resolved",
       "created_at": "2026-07-03T16:12:59.904Z",
-      "updated_at": "2026-07-03T17:15:30.756Z",
+      "updated_at": "2026-07-03T20:30:50.775Z",
       "monitoring_at": null,
-      "resolved_at": null,
+      "resolved_at": "2026-07-03T20:30:50.757Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/x22zj1kq2cz1",
       "started_at": "2026-07-03T16:12:59.893Z",
       "page_id": "yh6f0r4529hb",
       "incident_updates": [
+        {
+          "id": "b0c65xg8l5wn",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "rnq609lkyl21",
+          "created_at": "2026-07-03T20:30:50.757Z",
+          "updated_at": "2026-07-03T20:30:50.757Z",
+          "display_at": "2026-07-03T20:30:50.757Z",
+          "affected_components": [
+            {
+              "code": "nd77krz8224v",
+              "name": "Cloudflare Sites and Services - Containers",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "z0yd3sxqjqdm",
+              "name": "Cloudflare Sites and Services - D1",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "bty1yz6dhh0v",
+              "name": "Cloudflare Sites and Services - Durable Objects",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "z4wlt5jx9szq",
+              "name": "Cloudflare Sites and Services - Realtime SFU",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "yxhtws7ltl9t",
+              "name": "Cloudflare Sites and Services - RealtimeKit",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "5df6y9z3fsky",
+              "name": "Cloudflare Sites and Services - Workflows",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "wbbmxhhgjg3p",
           "status": "identified",
@@ -368,9 +251,9 @@
         {
           "id": "nd77krz8224v",
           "name": "Containers",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2025-07-23T11:03:53.266Z",
-          "updated_at": "2026-07-03T16:40:27.257Z",
+          "updated_at": "2026-07-03T20:30:50.576Z",
           "position": 32,
           "description": "Cloudflare Containers",
           "showcase": false,
@@ -383,9 +266,9 @@
         {
           "id": "z0yd3sxqjqdm",
           "name": "D1",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2024-02-09T08:57:38.825Z",
-          "updated_at": "2026-07-03T16:12:59.940Z",
+          "updated_at": "2026-07-03T20:30:50.602Z",
           "position": 34,
           "description": null,
           "showcase": false,
@@ -398,9 +281,9 @@
         {
           "id": "bty1yz6dhh0v",
           "name": "Durable Objects",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2023-06-12T14:55:22.631Z",
-          "updated_at": "2026-07-03T16:12:59.956Z",
+          "updated_at": "2026-07-03T20:30:50.635Z",
           "position": 44,
           "description": "Durable Objects provide low-latency coordination and consistent permanent storage for the Workers platform.",
           "showcase": false,
@@ -413,9 +296,9 @@
         {
           "id": "z4wlt5jx9szq",
           "name": "Realtime SFU",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2025-05-16T17:06:53.045Z",
-          "updated_at": "2026-07-03T16:18:23.479Z",
+          "updated_at": "2026-07-03T20:30:50.661Z",
           "position": 80,
           "description": "Cloudflare Realtime is infrastructure for real-time audio/video/data applications. It allows you to build real-time apps without worrying about scaling or regions. It can act as a selective forwarding unit (WebRTC SFU), as a fanout delivery system for broadcasting (WebRTC CDN) or anything in between.",
           "showcase": false,
@@ -428,9 +311,9 @@
         {
           "id": "yxhtws7ltl9t",
           "name": "RealtimeKit",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2025-05-16T17:08:23.427Z",
-          "updated_at": "2026-07-03T16:18:23.497Z",
+          "updated_at": "2026-07-03T20:30:50.685Z",
           "position": 82,
           "description": "Build real-time serverless video, audio and data applications.\r\n\r\nCloudflare Realtime is infrastructure for real-time audio/video/data applications. It allows you to build real-time apps without worrying about scaling or regions. It can act as a selective forwarding unit (WebRTC SFU), as a fanout delivery system for broadcasting (WebRTC CDN) or anything in between.",
           "showcase": false,
@@ -443,13 +326,206 @@
         {
           "id": "5df6y9z3fsky",
           "name": "Workflows",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2025-04-04T09:39:26.964Z",
-          "updated_at": "2026-07-03T16:12:59.971Z",
+          "updated_at": "2026-07-03T20:30:50.708Z",
           "position": 116,
           "description": "Workflows is Cloudflare Durable Execution engine, that give the ability to build and execute applications that are durable in the face of errors, network issues, upstream API outages, rate limits, and (most importantly) infrastructure failure.",
           "showcase": false,
           "start_date": "2025-04-04",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "vbpg34cx846v",
+      "name": "Loadbalancing and Standalone Healthcheck Services for FedRAMP customers are degraded",
+      "status": "identified",
+      "created_at": "2026-07-03T18:27:09.440Z",
+      "updated_at": "2026-07-03T20:43:10.524Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/vvfjhx32vxkj",
+      "started_at": "2026-07-03T18:27:09.427Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "49ytvpk8lcyx",
+          "status": "identified",
+          "body": "The issue has been identified and a fix is being implemented.",
+          "incident_id": "vbpg34cx846v",
+          "created_at": "2026-07-03T20:43:10.520Z",
+          "updated_at": "2026-07-03T20:43:10.520Z",
+          "display_at": "2026-07-03T20:43:10.520Z",
+          "affected_components": [
+            {
+              "code": "vn1h2pfctsvn",
+              "name": "Cloudflare Sites and Services - Health Checks",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "8sn2w5kyxfnp",
+              "name": "Cloudflare Sites and Services - Load Balancing and Monitoring",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "hckkm1jw7cr0",
+          "status": "investigating",
+          "body": "FedRAMP customers may experience delays in receiving notification emails with health status updates for their origin servers.",
+          "incident_id": "vbpg34cx846v",
+          "created_at": "2026-07-03T18:27:09.568Z",
+          "updated_at": "2026-07-03T18:27:09.568Z",
+          "display_at": "2026-07-03T18:27:09.568Z",
+          "affected_components": [
+            {
+              "code": "vn1h2pfctsvn",
+              "name": "Cloudflare Sites and Services - Health Checks",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "8sn2w5kyxfnp",
+              "name": "Cloudflare Sites and Services - Load Balancing and Monitoring",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "vn1h2pfctsvn",
+          "name": "Health Checks",
+          "status": "degraded_performance",
+          "created_at": "2024-01-19T14:38:24.595Z",
+          "updated_at": "2026-07-03T18:27:09.484Z",
+          "position": 53,
+          "description": "A Health Check is a service that runs on Cloudflare’s edge network to monitor whether an origin server is online.",
+          "showcase": false,
+          "start_date": "2024-01-19",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "8sn2w5kyxfnp",
+          "name": "Load Balancing and Monitoring",
+          "status": "degraded_performance",
+          "created_at": "2019-01-24T16:54:07.994Z",
+          "updated_at": "2026-07-03T18:27:09.507Z",
+          "position": 59,
+          "description": "Load balancing and failover service, including origin server monitoring",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "64d6d3l2h1lt",
+      "name": "Resolution Issues for .AL Domains",
+      "status": "monitoring",
+      "created_at": "2026-07-03T16:48:23.964Z",
+      "updated_at": "2026-07-03T17:25:45.865Z",
+      "monitoring_at": "2026-07-03T17:25:45.847Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/hwybmv5883ss",
+      "started_at": "2026-07-03T16:48:23.954Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "wtl2547gdhmy",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "64d6d3l2h1lt",
+          "created_at": "2026-07-03T17:25:45.847Z",
+          "updated_at": "2026-07-03T17:25:45.847Z",
+          "display_at": "2026-07-03T17:25:45.847Z",
+          "affected_components": [
+            {
+              "code": "8w536gxk7dvq",
+              "name": "Cloudflare Sites and Services - Recursive DNS",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "x34sjm0ltl2g",
+          "status": "identified",
+          "body": "Cloudflare is temporarily disabling DNSSEC validation for .AL domains on 1.1.1.1 resolver (as per RFC 7646) in order to allow .AL names to continue to resolve. DNSSEC validation will be re-enabled when the signing problems are known to have been resolved.\n\nSee RFC 7646 for more details:\nhttps://datatracker.ietf.org/doc/html/rfc7646",
+          "incident_id": "64d6d3l2h1lt",
+          "created_at": "2026-07-03T17:02:34.273Z",
+          "updated_at": "2026-07-03T17:02:34.273Z",
+          "display_at": "2026-07-03T17:02:34.273Z",
+          "affected_components": [
+            {
+              "code": "8w536gxk7dvq",
+              "name": "Cloudflare Sites and Services - Recursive DNS",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "gtjh6zd07xmm",
+          "status": "identified",
+          "body": "We are observing issues with authoritative resolution for the .AL TLD because of DNSSEC issues at the TLD.",
+          "incident_id": "64d6d3l2h1lt",
+          "created_at": "2026-07-03T16:48:24.063Z",
+          "updated_at": "2026-07-03T17:02:46.801Z",
+          "display_at": "2026-07-03T16:48:24.000Z",
+          "affected_components": [
+            {
+              "code": "8w536gxk7dvq",
+              "name": "Cloudflare Sites and Services - Recursive DNS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "8w536gxk7dvq",
+          "name": "Recursive DNS",
+          "status": "degraded_performance",
+          "created_at": "2019-01-24T16:51:39.639Z",
+          "updated_at": "2026-07-03T16:48:24.004Z",
+          "position": 83,
+          "description": "Free recursive DNS service at 1.1.1.1 and 1.0.0.1",
+          "showcase": false,
+          "start_date": null,
           "group_id": "1km35smx8p41",
           "page_id": "yh6f0r4529hb",
           "group": false,
@@ -886,9 +962,9 @@
         {
           "id": "yxhtws7ltl9t",
           "name": "RealtimeKit",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2025-05-16T17:08:23.427Z",
-          "updated_at": "2026-07-03T16:18:23.497Z",
+          "updated_at": "2026-07-03T20:30:50.685Z",
           "position": 82,
           "description": "Build real-time serverless video, audio and data applications.\r\n\r\nCloudflare Realtime is infrastructure for real-time audio/video/data applications. It allows you to build real-time apps without worrying about scaling or regions. It can act as a selective forwarding unit (WebRTC SFU), as a fanout delivery system for broadcasting (WebRTC CDN) or anything in between.",
           "showcase": false,
@@ -3322,9 +3398,9 @@
         {
           "id": "bty1yz6dhh0v",
           "name": "Durable Objects",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2023-06-12T14:55:22.631Z",
-          "updated_at": "2026-07-03T16:12:59.956Z",
+          "updated_at": "2026-07-03T20:30:50.635Z",
           "position": 44,
           "description": "Durable Objects provide low-latency coordination and consistent permanent storage for the Workers platform.",
           "showcase": false,
@@ -4405,9 +4481,9 @@
         {
           "id": "nd77krz8224v",
           "name": "Containers",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2025-07-23T11:03:53.266Z",
-          "updated_at": "2026-07-03T16:40:27.257Z",
+          "updated_at": "2026-07-03T20:30:50.576Z",
           "position": 32,
           "description": "Cloudflare Containers",
           "showcase": false,
@@ -4420,9 +4496,9 @@
         {
           "id": "bty1yz6dhh0v",
           "name": "Durable Objects",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2023-06-12T14:55:22.631Z",
-          "updated_at": "2026-07-03T16:12:59.956Z",
+          "updated_at": "2026-07-03T20:30:50.635Z",
           "position": 44,
           "description": "Durable Objects provide low-latency coordination and consistent permanent storage for the Workers platform.",
           "showcase": false,
@@ -4450,9 +4526,9 @@
         {
           "id": "z4wlt5jx9szq",
           "name": "Realtime SFU",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2025-05-16T17:06:53.045Z",
-          "updated_at": "2026-07-03T16:18:23.479Z",
+          "updated_at": "2026-07-03T20:30:50.661Z",
           "position": 80,
           "description": "Cloudflare Realtime is infrastructure for real-time audio/video/data applications. It allows you to build real-time apps without worrying about scaling or regions. It can act as a selective forwarding unit (WebRTC SFU), as a fanout delivery system for broadcasting (WebRTC CDN) or anything in between.",
           "showcase": false,
@@ -4480,9 +4556,9 @@
         {
           "id": "yxhtws7ltl9t",
           "name": "RealtimeKit",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2025-05-16T17:08:23.427Z",
-          "updated_at": "2026-07-03T16:18:23.497Z",
+          "updated_at": "2026-07-03T20:30:50.685Z",
           "position": 82,
           "description": "Build real-time serverless video, audio and data applications.\r\n\r\nCloudflare Realtime is infrastructure for real-time audio/video/data applications. It allows you to build real-time apps without worrying about scaling or regions. It can act as a selective forwarding unit (WebRTC SFU), as a fanout delivery system for broadcasting (WebRTC CDN) or anything in between.",
           "showcase": false,
