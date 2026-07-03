@@ -4,15 +4,15 @@
     "name": "Contentful",
     "url": "https://www.contentfulstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-03T07:34:49.884Z"
+    "updated_at": "2026-07-03T10:20:28.571Z"
   },
   "components": [
     {
       "id": "0fdg751p3dxn",
       "name": "Content Management API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2013-11-01T17:17:34.168Z",
-      "updated_at": "2026-07-02T12:21:13.321Z",
+      "updated_at": "2026-07-03T09:32:51.980Z",
       "position": 1,
       "description": "API used for content management by editors",
       "showcase": false,
@@ -25,9 +25,9 @@
     {
       "id": "ddtfqd77wxjy",
       "name": "Content Management API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-07-31T06:47:01.810Z",
-      "updated_at": "2026-07-02T12:21:13.357Z",
+      "updated_at": "2026-07-03T09:32:52.022Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -190,9 +190,9 @@
     {
       "id": "m9l315xy0kx3",
       "name": "Web App",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2013-11-01T17:27:36.310Z",
-      "updated_at": "2026-07-02T12:21:13.413Z",
+      "updated_at": "2026-07-03T09:32:52.053Z",
       "position": 5,
       "description": "The editing interface (app.contentful.com)",
       "showcase": false,
@@ -205,9 +205,9 @@
     {
       "id": "xxj1k3qxp81c",
       "name": "Web App",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-07-31T06:49:09.459Z",
-      "updated_at": "2026-07-02T12:21:13.443Z",
+      "updated_at": "2026-07-03T09:32:52.089Z",
       "position": 5,
       "description": null,
       "showcase": false,
@@ -511,7 +511,7 @@
     {
       "id": "cqxxjgz010f9",
       "name": "EU data residency",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-07-31T11:49:08.167Z",
       "updated_at": "2025-03-11T09:22:50.015Z",
       "position": 18,
@@ -553,10 +553,127 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "ftgt19x5nrlr",
+      "name": "Errors on requests to Contentful from Frankfurt (FRA) region",
+      "status": "identified",
+      "created_at": "2026-07-03T09:32:51.827Z",
+      "updated_at": "2026-07-03T09:32:52.153Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/5h4fwbhhcc7j",
+      "started_at": "2026-07-03T09:32:51.796Z",
+      "page_id": "4bv17htq00cz",
+      "incident_updates": [
+        {
+          "id": "fr9xr28v5c9c",
+          "status": "identified",
+          "body": "We are seeing elevated errors and latency for some customer requests which are routing through the Frankfurt (FRA) region for Content Management, Preview and the Contentful WebApp.  We are working with our upstream CDN provider to mitigate the issue.  Customers affected by this can temporarily workaround the issue by using a VPN when connecting to Contentful (which routes traffic to a different Point of Presence (POP) other than the affected FRA one).",
+          "incident_id": "ftgt19x5nrlr",
+          "created_at": "2026-07-03T09:32:52.149Z",
+          "updated_at": "2026-07-03T09:32:52.149Z",
+          "display_at": "2026-07-03T09:32:52.149Z",
+          "affected_components": [
+            {
+              "code": "0fdg751p3dxn",
+              "name": "Content Management API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "m9l315xy0kx3",
+              "name": "Web App",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "ddtfqd77wxjy",
+              "name": "EU data residency - Content Management API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "xxj1k3qxp81c",
+              "name": "EU data residency - Web App",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "0fdg751p3dxn",
+          "name": "Content Management API",
+          "status": "degraded_performance",
+          "created_at": "2013-11-01T17:17:34.168Z",
+          "updated_at": "2026-07-03T09:32:51.980Z",
+          "position": 1,
+          "description": "API used for content management by editors",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "4bv17htq00cz",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "ddtfqd77wxjy",
+          "name": "Content Management API",
+          "status": "degraded_performance",
+          "created_at": "2024-07-31T06:47:01.810Z",
+          "updated_at": "2026-07-03T09:32:52.022Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-07-31",
+          "group_id": "cqxxjgz010f9",
+          "page_id": "4bv17htq00cz",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "m9l315xy0kx3",
+          "name": "Web App",
+          "status": "degraded_performance",
+          "created_at": "2013-11-01T17:27:36.310Z",
+          "updated_at": "2026-07-03T09:32:52.053Z",
+          "position": 5,
+          "description": "The editing interface (app.contentful.com)",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "4bv17htq00cz",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "xxj1k3qxp81c",
+          "name": "Web App",
+          "status": "degraded_performance",
+          "created_at": "2024-07-31T06:49:09.459Z",
+          "updated_at": "2026-07-03T09:32:52.089Z",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-07-31",
+          "group_id": "cqxxjgz010f9",
+          "page_id": "4bv17htq00cz",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
