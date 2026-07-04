@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-04T15:55:21.771Z"
+    "updated_at": "2026-07-04T22:23:26.920Z"
   },
   "components": [
     {
@@ -520,9 +520,9 @@
     {
       "id": "2z9ldz1t4dgp",
       "name": "Inference",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2026-05-15T07:02:10.429Z",
-      "updated_at": "2026-06-17T00:29:42.239Z",
+      "updated_at": "2026-07-04T22:13:45.335Z",
       "position": 2,
       "description": "Serverless access to foundation models (e.g. Llama, Mistral, GPT) via OpenAI-compatible API.",
       "showcase": false,
@@ -1510,9 +1510,9 @@
     {
       "id": "pmy8cw253ck9",
       "name": "Model Services",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2026-05-15T07:05:28.982Z",
-      "updated_at": "2026-06-11T17:42:05.006Z",
+      "updated_at": "2026-07-04T22:13:45.356Z",
       "position": 6,
       "description": "Hosts and serves foundation and embedding models for serverless and dedicated inference workloads across the Gradient AI Platform.",
       "showcase": false,
@@ -2560,7 +2560,7 @@
     {
       "id": "gg1fsz7m9gvs",
       "name": "Agentic Inference Cloud",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2026-05-15T07:00:50.940Z",
       "updated_at": "2026-05-15T07:01:07.993Z",
       "position": 11,
@@ -3662,7 +3662,82 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "wvj4t3y98gs7",
+      "name": "Limited access to Deepseek V4 Pro model",
+      "status": "investigating",
+      "created_at": "2026-07-04T22:13:45.293Z",
+      "updated_at": "2026-07-04T22:13:45.412Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/wwsc9zft1lxd",
+      "started_at": "2026-07-04T22:13:45.282Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "729cjrpk0gsk",
+          "status": "investigating",
+          "body": "Our Engineering team is investigating reports of an incident affecting the Deepseek V4 Pro model in Serverless Inference and Agent Platform. Users may experience errors when attempting to use this model, specifically receiving error 429 messages. We apologize for the inconvenience and are working to resolve the issue as soon as possible. We will provide an update once we have more information.",
+          "incident_id": "wvj4t3y98gs7",
+          "created_at": "2026-07-04T22:13:45.409Z",
+          "updated_at": "2026-07-04T22:13:45.409Z",
+          "display_at": "2026-07-04T22:13:45.409Z",
+          "affected_components": [
+            {
+              "code": "2z9ldz1t4dgp",
+              "name": "Agentic Inference Cloud - Inference",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "pmy8cw253ck9",
+              "name": "Agentic Inference Cloud - Model Services",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "2z9ldz1t4dgp",
+          "name": "Inference",
+          "status": "partial_outage",
+          "created_at": "2026-05-15T07:02:10.429Z",
+          "updated_at": "2026-07-04T22:13:45.335Z",
+          "position": 2,
+          "description": "Serverless access to foundation models (e.g. Llama, Mistral, GPT) via OpenAI-compatible API.",
+          "showcase": false,
+          "start_date": "2026-05-15",
+          "group_id": "gg1fsz7m9gvs",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "pmy8cw253ck9",
+          "name": "Model Services",
+          "status": "partial_outage",
+          "created_at": "2026-05-15T07:05:28.982Z",
+          "updated_at": "2026-07-04T22:13:45.356Z",
+          "position": 6,
+          "description": "Hosts and serves foundation and embedding models for serverless and dedicated inference workloads across the Gradient AI Platform.",
+          "showcase": false,
+          "start_date": "2026-05-15",
+          "group_id": "gg1fsz7m9gvs",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "nckrrfnxf6pj",
@@ -3720,7 +3795,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Minor Service Outage"
   }
 }
