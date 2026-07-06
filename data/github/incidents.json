@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-06T16:50:18.322Z"
+    "updated_at": "2026-07-06T18:59:06.378Z"
   },
   "incidents": [
     {
@@ -125,7 +125,7 @@
       "name": "Delays in copilot budget limits resets for some users",
       "status": "resolved",
       "created_at": "2026-07-01T10:51:33.331Z",
-      "updated_at": "2026-07-01T13:26:06.762Z",
+      "updated_at": "2026-07-06T18:56:24.630Z",
       "monitoring_at": "2026-07-01T13:04:56.607Z",
       "resolved_at": "2026-07-01T13:26:06.678Z",
       "impact": "minor",
@@ -136,10 +136,10 @@
         {
           "id": "4qhxm1rtz317",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On July 1, 2026, between approximately 00:00 UTC and 13:04 UTC, some GitHub Copilot customers whose budget was exhausted before the monthly reset remained incorrectly blocked from paid Copilot usage after the new billing month began, even though their budgets had reset. Some budget changes also took longer than usual to apply. Only customers with an exhausted budget were affected, which limited the impact.<br /><br />This was caused by a caching issue at the monthly reset: for some users, a pre-reset \"budget exhausted\" status was re-saved and served even though their budget had reset, so they stayed blocked. We had built a safeguard ahead of the reset to prevent this, but it did not take effect because an internal configuration service did not load its settings correctly. We resolved the incident by deploying a change that discards the outdated status and recomputes access from current budget data independently of that configuration, and by working through the backlog of budget updates.<br /><br />To prevent recurrence, we are ensuring pre-reset status cannot survive the monthly budget reset, adding alerting for this failure mode, and increasing capacity to absorb the monthly surge of budget updates.",
           "incident_id": "rl7f90w0n0gq",
           "created_at": "2026-07-01T13:26:06.678Z",
-          "updated_at": "2026-07-01T13:26:06.678Z",
+          "updated_at": "2026-07-06T18:56:24.620Z",
           "display_at": "2026-07-01T13:26:06.678Z",
           "affected_components": [
             {
