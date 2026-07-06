@@ -4,7 +4,7 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-06T10:34:33.357Z"
+    "updated_at": "2026-07-06T11:32:36.674Z"
   },
   "components": [
     {
@@ -437,7 +437,7 @@
       "name": "Project status change failures in multiple regions",
       "status": "identified",
       "created_at": "2026-06-30T02:38:13.608Z",
-      "updated_at": "2026-07-04T22:40:14.604Z",
+      "updated_at": "2026-07-06T11:32:36.658Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -445,6 +445,116 @@
       "started_at": "2026-06-30T03:08:41.000Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "nzxzbjmb8415",
+          "status": "identified",
+          "body": "Capacity has continued to recover across all regions, and the large majority of restart, resize, and project-creation operations are now completing normally. We are continuing to monitor the system.\n\nThe remaining impact is limited to projects running a Postgres version older than 17.6.1.121. These older versions can only run on a narrower set of instance types, which are the ones still under capacity pressure, so a restart or resize may fail or need a retry. Projects on 17.6.1.121 or newer can run on a wider set of instance types and are much less likely to be affected.\n\nIf a restart or resize is failing, upgrading to Postgres 17.6.1.121 or newer resolves it in most cases. You can check your current version and start an upgrade from your project's infrastructure settings here: https://supabase.com/dashboard/project/_/settings/infrastructure\nIf you're still unable to resize or restart after upgrading, our support team can help.\n\nWe will update this page as the situation materially changes.",
+          "incident_id": "3tx3nnmbwyh9",
+          "created_at": "2026-07-06T11:32:36.654Z",
+          "updated_at": "2026-07-06T11:32:36.654Z",
+          "display_at": "2026-07-06T11:32:36.654Z",
+          "affected_components": [
+            {
+              "code": "xcf1ntwt3n1p",
+              "name": "Compute capacity - ap-northeast-1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "8wbvwkm1frpt",
+              "name": "Compute capacity - ap-northeast-2",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "prrc7382xy5j",
+              "name": "Compute capacity - ap-south-1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "nsjdj4pzb9nr",
+              "name": "Compute capacity - ap-southeast-1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "8lsy45ykh91b",
+              "name": "Compute capacity - ap-southeast-2",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "hf2cz18jnj92",
+              "name": "Compute capacity - ca-central-1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "hzvb6v63k20m",
+              "name": "Compute capacity - eu-central-1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "mzjn8lwgnb69",
+              "name": "Compute capacity - eu-central-2",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "xhpx25nnldh5",
+              "name": "Compute capacity - eu-north-1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "0qtzyc40p8q9",
+              "name": "Compute capacity - eu-west-1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "qpszx8dqhvwq",
+              "name": "Compute capacity - eu-west-2",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "mslb07nvjswt",
+              "name": "Compute capacity - eu-west-3",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "c1nccxytwfhx",
+              "name": "Compute capacity - sa-east-1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "gx5p5zhkgl8f",
+              "name": "Compute capacity - us-east-1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "1wd1zrc846g6",
+              "name": "Compute capacity - us-east-2",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "bcpt22h2w3pk",
+              "name": "Compute capacity - us-west-1",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "w7ffjrk3m910",
           "status": "identified",
