@@ -4,9 +4,62 @@
     "name": "Honeybadger.io",
     "url": "https://status.honeybadger.io",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-07-08T02:44:10.748-07:00"
+    "updated_at": "2026-07-08T06:08:49.870-07:00"
   },
   "incidents": [
+    {
+      "id": "j0d19vc2tmgv",
+      "name": "Elevated error rates on the US error reporting API",
+      "status": "resolved",
+      "created_at": "2026-07-08T04:48:54.274-07:00",
+      "updated_at": "2026-07-08T05:04:39.661-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2026-07-08T04:48:54.320-07:00",
+      "impact": "major",
+      "shortlink": "https://stspg.io/x9dwg24q8p5y",
+      "started_at": "2026-07-08T04:48:54.268-07:00",
+      "page_id": "4vffsqvxs4db",
+      "incident_updates": [
+        {
+          "id": "t87t1cz8sm6k",
+          "status": "resolved",
+          "body": "Between 06:22 and 08:23 UTC on July 8, requests to our US error reporting API (api.honeybadger.io) experienced a highly elevated failure rate. During this window, a majority of requests to submit errors, events, and check-ins received 5xx responses or timed out. Error reports sent by client libraries without retry logic during this period were not received and cannot be recovered. The Honeybadger web application, dashboards, uptime monitoring, and our EU region were not affected.\n\nWhat happened: Beginning at 06:18 UTC, we started receiving error reports at roughly triple our normal total API volume. The service tier that ingests this traffic was at its overnight capacity level and became saturated. Our autoscaling responded, but the metrics it relied on significantly under-measured the failed traffic, so capacity was added far too slowly — full recovery came at 08:23 UTC when scaling caught up and absorbed the load. Compounding the problem, PagerDuty alerts were not fired to wake up a human due to a misconfiguration.\n\nWhat we've done: We've fixed the underlying scaling weakness: API capacity now also scales directly on load-balancer error rates (previously we scaled only on request rates, and that scaling doesn't respond quickly enough), and we've doubled the maximum capacity of the ingestion tier. These changes are already deployed to both US and EU regions. We're also evaluating adding adaptive per-key rate limiting to the ingestion service.\n\nWe're sorry for the disruption, and for any gaps this caused in your error data during the window.",
+          "incident_id": "j0d19vc2tmgv",
+          "created_at": "2026-07-08T04:48:54.320-07:00",
+          "updated_at": "2026-07-08T04:48:54.320-07:00",
+          "display_at": "2026-07-08T04:48:54.320-07:00",
+          "affected_components": [
+            {
+              "code": "6gv6dgjclw2t",
+              "name": "API",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "6gv6dgjclw2t",
+          "name": "API",
+          "status": "operational",
+          "created_at": "2014-05-14T15:22:48.398-07:00",
+          "updated_at": "2026-01-14T12:48:08.870-08:00",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "4vffsqvxs4db",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "w7rl7tmfngbb",
       "name": "Delays with notifications",
@@ -3389,59 +3442,6 @@
           "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": 1018910616445075457
-        }
-      ],
-      "components": [
-        {
-          "id": "6gv6dgjclw2t",
-          "name": "API",
-          "status": "operational",
-          "created_at": "2014-05-14T15:22:48.398-07:00",
-          "updated_at": "2026-01-14T12:48:08.870-08:00",
-          "position": 2,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "4vffsqvxs4db",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "8kyswfsmgklm",
-      "name": "Intermittent sourcemap and deployment reporting problems",
-      "status": "resolved",
-      "created_at": "2018-07-02T05:41:59.630-07:00",
-      "updated_at": "2018-07-02T05:42:00.215-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2018-07-02T05:41:59.685-07:00",
-      "impact": "none",
-      "shortlink": "http://stspg.io/1ef0d1895",
-      "started_at": "2018-07-02T05:41:59.685-07:00",
-      "page_id": "4vffsqvxs4db",
-      "incident_updates": [
-        {
-          "id": "nztqrh40pbh7",
-          "status": "resolved",
-          "body": "This morning we had an issue with one of our web servers not being able to receive sourcemap uploads and deployment notifications, which resulted in intermittent failures from our API. This has been resolved.",
-          "incident_id": "8kyswfsmgklm",
-          "created_at": "2018-07-02T05:41:59.685-07:00",
-          "updated_at": "2018-07-02T05:42:00.212-07:00",
-          "display_at": "2018-07-02T05:41:59.685-07:00",
-          "affected_components": [
-            {
-              "code": "6gv6dgjclw2t",
-              "name": "API",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1013764725153280001
         }
       ],
       "components": [
