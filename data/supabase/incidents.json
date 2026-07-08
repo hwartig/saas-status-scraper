@@ -4,9 +4,62 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-08T15:04:07.363Z"
+    "updated_at": "2026-07-08T17:14:03.398Z"
   },
   "incidents": [
+    {
+      "id": "cy1dylnjwn0l",
+      "name": "Project creation delays in AP regions",
+      "status": "investigating",
+      "created_at": "2026-07-08T16:52:50.885Z",
+      "updated_at": "2026-07-08T17:03:18.464Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/b4c08gy6nmf5",
+      "started_at": "2026-07-08T16:52:50.868Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "ntcks324jgvp",
+          "status": "investigating",
+          "body": "We are aware of project creation taking longer than normal in AP regions. A retry should enable completion of creation for those impacted. NOTE: This incident is not related to the ongoing capacity issues incident we are monitoring.",
+          "incident_id": "cy1dylnjwn0l",
+          "created_at": "2026-07-08T16:52:51.008Z",
+          "updated_at": "2026-07-08T17:03:18.460Z",
+          "display_at": "2026-07-08T16:52:51.000Z",
+          "affected_components": [
+            {
+              "code": "8sjr72528tgt",
+              "name": "Management API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "8sjr72528tgt",
+          "name": "Management API",
+          "status": "degraded_performance",
+          "created_at": "2020-11-27T15:23:16.693Z",
+          "updated_at": "2026-07-08T16:52:50.945Z",
+          "position": 9,
+          "description": "Manage Supabase projects programmatically.",
+          "showcase": true,
+          "start_date": "2020-11-27",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "mkt5vw3qxh08",
       "name": "Endpoints in Americas regions returning 500 Internal server error",
@@ -138,9 +191,9 @@
         {
           "id": "8sjr72528tgt",
           "name": "Management API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-11-27T15:23:16.693Z",
-          "updated_at": "2026-07-06T15:49:03.501Z",
+          "updated_at": "2026-07-08T16:52:50.945Z",
           "position": 9,
           "description": "Manage Supabase projects programmatically.",
           "showcase": true,
@@ -795,7 +848,7 @@
       "name": "Project status change failures in multiple regions",
       "status": "monitoring",
       "created_at": "2026-06-30T02:38:13.608Z",
-      "updated_at": "2026-07-06T16:36:49.166Z",
+      "updated_at": "2026-07-08T16:41:39.158Z",
       "monitoring_at": "2026-07-06T16:36:49.148Z",
       "resolved_at": null,
       "impact": "major",
@@ -803,6 +856,116 @@
       "started_at": "2026-06-30T03:08:41.000Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "zwy7w9wmld5m",
+          "status": "monitoring",
+          "body": "We continue to monitor capacity recovery across all regions. Restart, resize, and project-creation operations are completing normally.\n\nWe have added additional mitigations and machine types available to all Postgres versions, and we are also seeing error rates for these users stabilize. While there is still ongoing work behind the scenes to continue to improve our resiliency, users should no longer be affected by capacity issues stemming from this incident. We are showing stable capacity across all regions on all machine sizes and types.\n\nWe will be monitoring this thru the rest of the week to ensure ongoing work is effective and we don't have any re-occurrence of these or similar issues before we resolve this entirely.",
+          "incident_id": "3tx3nnmbwyh9",
+          "created_at": "2026-07-08T16:41:39.147Z",
+          "updated_at": "2026-07-08T16:41:39.147Z",
+          "display_at": "2026-07-08T16:41:39.147Z",
+          "affected_components": [
+            {
+              "code": "xcf1ntwt3n1p",
+              "name": "Compute capacity - ap-northeast-1",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "8wbvwkm1frpt",
+              "name": "Compute capacity - ap-northeast-2",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "prrc7382xy5j",
+              "name": "Compute capacity - ap-south-1",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "nsjdj4pzb9nr",
+              "name": "Compute capacity - ap-southeast-1",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "8lsy45ykh91b",
+              "name": "Compute capacity - ap-southeast-2",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "hf2cz18jnj92",
+              "name": "Compute capacity - ca-central-1",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "hzvb6v63k20m",
+              "name": "Compute capacity - eu-central-1",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "mzjn8lwgnb69",
+              "name": "Compute capacity - eu-central-2",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "xhpx25nnldh5",
+              "name": "Compute capacity - eu-north-1",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "0qtzyc40p8q9",
+              "name": "Compute capacity - eu-west-1",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "qpszx8dqhvwq",
+              "name": "Compute capacity - eu-west-2",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "mslb07nvjswt",
+              "name": "Compute capacity - eu-west-3",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "c1nccxytwfhx",
+              "name": "Compute capacity - sa-east-1",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "gx5p5zhkgl8f",
+              "name": "Compute capacity - us-east-1",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "1wd1zrc846g6",
+              "name": "Compute capacity - us-east-2",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "bcpt22h2w3pk",
+              "name": "Compute capacity - us-west-1",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "cytk5tgnw2hq",
           "status": "monitoring",
@@ -3421,9 +3584,9 @@
         {
           "id": "8sjr72528tgt",
           "name": "Management API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-11-27T15:23:16.693Z",
-          "updated_at": "2026-07-06T15:49:03.501Z",
+          "updated_at": "2026-07-08T16:52:50.945Z",
           "position": 9,
           "description": "Manage Supabase projects programmatically.",
           "showcase": true,
@@ -3910,9 +4073,9 @@
         {
           "id": "8sjr72528tgt",
           "name": "Management API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-11-27T15:23:16.693Z",
-          "updated_at": "2026-07-06T15:49:03.501Z",
+          "updated_at": "2026-07-08T16:52:50.945Z",
           "position": 9,
           "description": "Manage Supabase projects programmatically.",
           "showcase": true,
@@ -4805,9 +4968,9 @@
         {
           "id": "8sjr72528tgt",
           "name": "Management API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2020-11-27T15:23:16.693Z",
-          "updated_at": "2026-07-06T15:49:03.501Z",
+          "updated_at": "2026-07-08T16:52:50.945Z",
           "position": 9,
           "description": "Manage Supabase projects programmatically.",
           "showcase": true,
@@ -8486,101 +8649,6 @@
           "created_at": "2026-03-27T17:58:13.321Z",
           "updated_at": "2026-03-27T17:58:13.321Z",
           "display_at": "2026-03-27T17:58:13.321Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "xg8gq2b45wk1",
-      "name": "Degraded Log Ingestion",
-      "status": "resolved",
-      "created_at": "2026-03-27T15:13:19.507Z",
-      "updated_at": "2026-03-27T17:03:28.357Z",
-      "monitoring_at": "2026-03-27T16:17:53.547Z",
-      "resolved_at": "2026-03-27T17:03:28.339Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/jpyktnc5s4rt",
-      "started_at": "2026-03-27T15:13:19.497Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "wsck26ghbpzy",
-          "status": "resolved",
-          "body": "Log ingestion has returned to normal",
-          "incident_id": "xg8gq2b45wk1",
-          "created_at": "2026-03-27T17:03:28.339Z",
-          "updated_at": "2026-03-27T17:03:28.339Z",
-          "display_at": "2026-03-27T17:03:28.339Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ftfgk2jndmkd",
-          "status": "monitoring",
-          "body": "Our capacity mitigations have taken effect and ingestion has returned to normal. Customers should see logs returning to normal.",
-          "incident_id": "xg8gq2b45wk1",
-          "created_at": "2026-03-27T16:17:53.547Z",
-          "updated_at": "2026-03-27T16:17:53.547Z",
-          "display_at": "2026-03-27T16:17:53.547Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "18k4h5sx91x0",
-          "status": "identified",
-          "body": "We continue to increase capacity in targeted areas to mitigate log ingestion degradation. It will take some time for the ingestion backlog to be eliminated.",
-          "incident_id": "xg8gq2b45wk1",
-          "created_at": "2026-03-27T16:12:53.266Z",
-          "updated_at": "2026-03-27T16:12:53.266Z",
-          "display_at": "2026-03-27T16:12:53.266Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0k20h0lc90b8",
-          "status": "identified",
-          "body": "We have implemented increase capacity and logs are returning to normal. It will take some time for the ingestion backlog to be eliminated. Some services, such as realtime, storage, and api-gateway, will have lost logs during the ingestion incident.",
-          "incident_id": "xg8gq2b45wk1",
-          "created_at": "2026-03-27T15:52:11.373Z",
-          "updated_at": "2026-03-27T15:52:11.373Z",
-          "display_at": "2026-03-27T15:52:11.373Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wksfq1ljy6l4",
-          "status": "identified",
-          "body": "We have identified the issue with log ingestion. We are testing mitigation options, including bringing up additional capacity. We will continue to update this page with our progress.",
-          "incident_id": "xg8gq2b45wk1",
-          "created_at": "2026-03-27T15:33:13.550Z",
-          "updated_at": "2026-03-27T15:33:13.550Z",
-          "display_at": "2026-03-27T15:33:13.550Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "mhmchr90bs7t",
-          "status": "investigating",
-          "body": "We are investigating a problem with log ingestion. Users may experience delay in current log data.",
-          "incident_id": "xg8gq2b45wk1",
-          "created_at": "2026-03-27T15:13:19.553Z",
-          "updated_at": "2026-03-27T15:13:19.553Z",
-          "display_at": "2026-03-27T15:13:19.553Z",
           "affected_components": null,
           "deliver_notifications": true,
           "custom_tweet": null,
