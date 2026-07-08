@@ -4,7 +4,7 @@
     "name": "EasyPost",
     "url": "https://www.easypoststatus.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-07-08T12:54:25.028-07:00"
+    "updated_at": "2026-07-08T14:20:23.322-07:00"
   },
   "components": [
     {
@@ -241,7 +241,7 @@
     {
       "id": "x3g03m4md1t8",
       "name": "Carriers",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-03-01T16:28:09.042-08:00",
       "updated_at": "2024-05-22T10:51:09.346-07:00",
       "position": 5,
@@ -415,9 +415,9 @@
     {
       "id": "gw4yxwx13mgy",
       "name": "UPS",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-03-02T12:22:49.183-08:00",
-      "updated_at": "2026-06-03T19:00:10.424-07:00",
+      "updated_at": "2026-07-08T13:38:47.679-07:00",
       "position": 11,
       "description": null,
       "showcase": true,
@@ -698,10 +698,84 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "ydhfqrrcfcgq",
+      "name": "UPS operations are degraded",
+      "status": "monitoring",
+      "created_at": "2026-07-08T13:38:47.639-07:00",
+      "updated_at": "2026-07-08T13:39:08.635-07:00",
+      "monitoring_at": "2026-07-08T13:39:08.616-07:00",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/71c9q3t4nnrd",
+      "started_at": "2026-07-08T13:38:47.628-07:00",
+      "page_id": "n1jtz5983249",
+      "incident_updates": [
+        {
+          "id": "vn36qdbmmzmt",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "ydhfqrrcfcgq",
+          "created_at": "2026-07-08T13:39:08.616-07:00",
+          "updated_at": "2026-07-08T13:39:08.616-07:00",
+          "display_at": "2026-07-08T13:39:08.616-07:00",
+          "affected_components": [
+            {
+              "code": "gw4yxwx13mgy",
+              "name": "Carriers - UPS",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "xnpvhvhdjbvs",
+          "status": "identified",
+          "body": "UPS operations are degraded due to rate limiting by UPS. We are aware and monitoring the status.",
+          "incident_id": "ydhfqrrcfcgq",
+          "created_at": "2026-07-08T13:38:47.727-07:00",
+          "updated_at": "2026-07-08T13:38:47.727-07:00",
+          "display_at": "2026-07-08T13:38:47.727-07:00",
+          "affected_components": [
+            {
+              "code": "gw4yxwx13mgy",
+              "name": "Carriers - UPS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "gw4yxwx13mgy",
+          "name": "UPS",
+          "status": "degraded_performance",
+          "created_at": "2022-03-02T12:22:49.183-08:00",
+          "updated_at": "2026-07-08T13:38:47.679-07:00",
+          "position": 11,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-03-01",
+          "group_id": "x3g03m4md1t8",
+          "page_id": "n1jtz5983249",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
