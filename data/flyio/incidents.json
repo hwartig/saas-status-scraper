@@ -4,9 +4,228 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-09T12:55:56.161Z"
+    "updated_at": "2026-07-09T16:18:03.539Z"
   },
   "incidents": [
+    {
+      "id": "brvcy4nkqk2b",
+      "name": "Delays starting Depot Builders in IAD",
+      "status": "resolved",
+      "created_at": "2026-07-09T15:21:15.249Z",
+      "updated_at": "2026-07-09T16:18:03.535Z",
+      "monitoring_at": "2026-07-09T15:43:20.287Z",
+      "resolved_at": "2026-07-09T16:18:03.517Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/dft8nxv50v6t",
+      "started_at": "2026-07-09T15:21:15.242Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "wxzpyhz2zyb5",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "brvcy4nkqk2b",
+          "created_at": "2026-07-09T16:18:03.517Z",
+          "updated_at": "2026-07-09T16:18:03.517Z",
+          "display_at": "2026-07-09T16:18:03.517Z",
+          "affected_components": [
+            {
+              "code": "ffsz24mbcxfz",
+              "name": "Remote Builds",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "jy97zxny54d8",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are seeing improvements in builder performance, latency, and error rates. We are continuing to monitor for a full recovery.\n\nCustomers still seeing issues can trigger a fly-hosted builder based deploy with `fly deploy --depot=false`.",
+          "incident_id": "brvcy4nkqk2b",
+          "created_at": "2026-07-09T15:43:20.287Z",
+          "updated_at": "2026-07-09T15:43:20.287Z",
+          "display_at": "2026-07-09T15:43:20.287Z",
+          "affected_components": [
+            {
+              "code": "ffsz24mbcxfz",
+              "name": "Remote Builds",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "5s769byn43bl",
+          "status": "identified",
+          "body": "We have identified an issue causing delays or failures when starting depoting builders located in the IAD region. Customers with builders in IAD may see delays or timeouts starting builds during `fly deploy`. We are working on a fix.\n\nIn the meantime customers can trigger a fly-hosted builder based deploy with `fly deploy --depot=false`. You can also change your builder region away from IAD via the `settings` tab of your Fly dashboard. We recommend DFW or ORD as  alternate builder regions at this time.\n\nPlease note, your builder region can differ from the region your machines are in.",
+          "incident_id": "brvcy4nkqk2b",
+          "created_at": "2026-07-09T15:21:15.331Z",
+          "updated_at": "2026-07-09T15:21:15.331Z",
+          "display_at": "2026-07-09T15:21:15.331Z",
+          "affected_components": [
+            {
+              "code": "ffsz24mbcxfz",
+              "name": "Remote Builds",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "49yq6v65b33l",
+          "name": "Deployments",
+          "status": "operational",
+          "created_at": "2020-04-01T21:53:18.234Z",
+          "updated_at": "2026-07-09T16:04:49.531Z",
+          "position": 6,
+          "description": "flyctl and GitHub Action app deployments",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "ffsz24mbcxfz",
+          "name": "Remote Builds",
+          "status": "operational",
+          "created_at": "2020-04-01T21:34:45.495Z",
+          "updated_at": "2026-07-09T16:18:03.478Z",
+          "position": 7,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "1l0cww5lp55p",
+      "name": "Registry performance issues",
+      "status": "resolved",
+      "created_at": "2026-07-09T15:33:31.365Z",
+      "updated_at": "2026-07-09T16:04:49.577Z",
+      "monitoring_at": "2026-07-09T15:55:26.035Z",
+      "resolved_at": "2026-07-09T16:04:49.561Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/mqktws74yd9q",
+      "started_at": "2026-07-09T15:33:31.358Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "rqq6r45ws6rs",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "1l0cww5lp55p",
+          "created_at": "2026-07-09T16:04:49.561Z",
+          "updated_at": "2026-07-09T16:04:49.561Z",
+          "display_at": "2026-07-09T16:04:49.561Z",
+          "affected_components": [
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "z4n44z221vcj",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "1l0cww5lp55p",
+          "created_at": "2026-07-09T15:55:26.035Z",
+          "updated_at": "2026-07-09T15:55:26.035Z",
+          "display_at": "2026-07-09T15:55:26.035Z",
+          "affected_components": [
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "rw8r2zsskt9v",
+          "status": "identified",
+          "body": "The fly.io registry is currently experiencing capacity constraints that reduced performance and may lead to temporary high latency or failed pushes. We are currently working to add capacity and restore service.",
+          "incident_id": "1l0cww5lp55p",
+          "created_at": "2026-07-09T15:33:31.409Z",
+          "updated_at": "2026-07-09T15:33:31.409Z",
+          "display_at": "2026-07-09T15:33:31.409Z",
+          "affected_components": [
+            {
+              "code": "49yq6v65b33l",
+              "name": "Deployments",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "49yq6v65b33l",
+          "name": "Deployments",
+          "status": "operational",
+          "created_at": "2020-04-01T21:53:18.234Z",
+          "updated_at": "2026-07-09T16:04:49.531Z",
+          "position": 6,
+          "description": "flyctl and GitHub Action app deployments",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "ccr4ky2rl62v",
       "name": "Partial Outage in ORD",
@@ -1373,7 +1592,7 @@
           "name": "Deployments",
           "status": "operational",
           "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-06-25T15:38:02.925Z",
+          "updated_at": "2026-07-09T16:04:49.531Z",
           "position": 6,
           "description": "flyctl and GitHub Action app deployments",
           "showcase": false,
@@ -3257,7 +3476,7 @@
           "name": "Deployments",
           "status": "operational",
           "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-06-25T15:38:02.925Z",
+          "updated_at": "2026-07-09T16:04:49.531Z",
           "position": 6,
           "description": "flyctl and GitHub Action app deployments",
           "showcase": false,
@@ -4662,7 +4881,7 @@
           "name": "Deployments",
           "status": "operational",
           "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-06-25T15:38:02.925Z",
+          "updated_at": "2026-07-09T16:04:49.531Z",
           "position": 6,
           "description": "flyctl and GitHub Action app deployments",
           "showcase": false,
@@ -6261,7 +6480,7 @@
           "name": "Deployments",
           "status": "operational",
           "created_at": "2020-04-01T21:53:18.234Z",
-          "updated_at": "2026-06-25T15:38:02.925Z",
+          "updated_at": "2026-07-09T16:04:49.531Z",
           "position": 6,
           "description": "flyctl and GitHub Action app deployments",
           "showcase": false,
@@ -6707,232 +6926,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "yj0qn3nfvg7b",
-      "name": "log search unavailable",
-      "status": "resolved",
-      "created_at": "2026-05-11T20:02:58.960Z",
-      "updated_at": "2026-05-11T20:48:12.035Z",
-      "monitoring_at": "2026-05-11T20:32:56.037Z",
-      "resolved_at": "2026-05-11T20:48:12.016Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/3rnzrzf4wzhz",
-      "started_at": "2026-05-11T20:02:58.952Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "0n5v1dryp7rv",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "yj0qn3nfvg7b",
-          "created_at": "2026-05-11T20:48:12.016Z",
-          "updated_at": "2026-05-11T20:48:12.016Z",
-          "display_at": "2026-05-11T20:48:12.016Z",
-          "affected_components": [
-            {
-              "code": "6sckg8qmrnzz",
-              "name": "Logs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9lp9j8bqkq76",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results. Logs should again be available through Log search in Grafana.",
-          "incident_id": "yj0qn3nfvg7b",
-          "created_at": "2026-05-11T20:32:56.037Z",
-          "updated_at": "2026-05-11T20:32:56.037Z",
-          "display_at": "2026-05-11T20:32:56.037Z",
-          "affected_components": [
-            {
-              "code": "6sckg8qmrnzz",
-              "name": "Logs",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1sngv9507gv6",
-          "status": "investigating",
-          "body": "Log search in Grafana is currently unavailable. You may see `failed to make http request: 503` errors when accessing logs from fly-metrics.net at this time. App logs are still available using the `fly logs` command and in the Fly.io dashboard.",
-          "incident_id": "yj0qn3nfvg7b",
-          "created_at": "2026-05-11T20:02:59.034Z",
-          "updated_at": "2026-05-11T20:02:59.034Z",
-          "display_at": "2026-05-11T20:02:59.034Z",
-          "affected_components": [
-            {
-              "code": "6sckg8qmrnzz",
-              "name": "Logs",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "6sckg8qmrnzz",
-          "name": "Logs",
-          "status": "operational",
-          "created_at": "2020-06-30T20:19:10.241Z",
-          "updated_at": "2026-06-19T21:53:31.412Z",
-          "position": 8,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "vzh5tq5ddb48",
-      "name": "Upstash Redis Outage",
-      "status": "resolved",
-      "created_at": "2026-05-11T14:36:57.369Z",
-      "updated_at": "2026-05-11T18:41:22.160Z",
-      "monitoring_at": "2026-05-11T18:26:09.962Z",
-      "resolved_at": "2026-05-11T18:41:22.147Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/ll3rynh5t8gr",
-      "started_at": "2026-05-11T14:36:57.358Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "hk9m31j9k54v",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "vzh5tq5ddb48",
-          "created_at": "2026-05-11T18:41:22.147Z",
-          "updated_at": "2026-05-11T18:41:22.147Z",
-          "display_at": "2026-05-11T18:41:22.147Z",
-          "affected_components": [
-            {
-              "code": "1d32j80lw7xs",
-              "name": "Extensions - Upstash for Redis",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xzkppjg3dhlq",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are seeing Upstash Redis  connectivity return to normal across all regions. We continuing to monitor to ensure stable recovery.",
-          "incident_id": "vzh5tq5ddb48",
-          "created_at": "2026-05-11T18:26:09.962Z",
-          "updated_at": "2026-05-11T18:26:09.962Z",
-          "display_at": "2026-05-11T18:26:09.962Z",
-          "affected_components": [
-            {
-              "code": "1d32j80lw7xs",
-              "name": "Extensions - Upstash for Redis",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "yyx2s0jh6rys",
-          "status": "investigating",
-          "body": "We are continuing to work with Upstash on this issue. We have received reports of partial recovery for some users, however we are still seeing higher levels of degraded or failing connections connecting to Upstash Redis databases at this time.",
-          "incident_id": "vzh5tq5ddb48",
-          "created_at": "2026-05-11T17:31:50.757Z",
-          "updated_at": "2026-05-11T17:31:50.757Z",
-          "display_at": "2026-05-11T17:31:50.757Z",
-          "affected_components": [
-            {
-              "code": "1d32j80lw7xs",
-              "name": "Extensions - Upstash for Redis",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qd003j1b38fg",
-          "status": "investigating",
-          "body": "We are continuing to work with Upstash on this issue.",
-          "incident_id": "vzh5tq5ddb48",
-          "created_at": "2026-05-11T15:04:39.521Z",
-          "updated_at": "2026-05-11T15:04:39.521Z",
-          "display_at": "2026-05-11T15:04:39.521Z",
-          "affected_components": [
-            {
-              "code": "1d32j80lw7xs",
-              "name": "Extensions - Upstash for Redis",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "p9smw86fkh7t",
-          "status": "investigating",
-          "body": "We are working with Upstash to investigate issues with their Fly hosted Redis service. Users may see degraded or failing connections connecting to their Upstash Redis databases at this time.",
-          "incident_id": "vzh5tq5ddb48",
-          "created_at": "2026-05-11T14:36:57.458Z",
-          "updated_at": "2026-05-11T14:36:57.458Z",
-          "display_at": "2026-05-11T14:36:57.458Z",
-          "affected_components": [
-            {
-              "code": "1d32j80lw7xs",
-              "name": "Extensions - Upstash for Redis",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "1d32j80lw7xs",
-          "name": "Upstash for Redis",
-          "status": "operational",
-          "created_at": "2024-07-03T15:56:01.224Z",
-          "updated_at": "2026-05-11T18:26:09.934Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2024-07-03",
-          "group_id": "576cln1p6y8c",
-          "page_id": "65rccr4mbblw",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
