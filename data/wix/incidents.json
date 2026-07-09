@@ -4,15 +4,15 @@
     "name": "Wix",
     "url": "https://status.wix.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-09T10:00:40.909Z"
+    "updated_at": "2026-07-09T13:12:01.878Z"
   },
   "incidents": [
     {
       "id": "6q8079b23v4y",
       "name": "RESOLVED: Issues Accessing Editor/Studio",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-07-07T14:25:18.573Z",
-      "updated_at": "2026-07-07T14:35:15.116Z",
+      "updated_at": "2026-07-09T13:12:01.874Z",
       "monitoring_at": "2026-07-07T14:29:44.720Z",
       "resolved_at": "2026-07-07T14:35:15.100Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2026-07-07T14:25:18.560Z",
       "page_id": "3x6vjqhj2cpt",
       "incident_updates": [
+        {
+          "id": "rbhvtht4c0y4",
+          "status": "postmortem",
+          "body": "On July 7th at 2:10 PM UTC, some users experienced issues loading the Wix Editors. The issue also affected saving and publishing for some users during this period. All functionality was fully restored within approximately 20 minutes.\n\nThe root cause was a deployment of a new version of one of our internal platform services that did not follow our standard gradual rollout process. Instead of being deployed incrementally across our infrastructure, as is our normal practice, the new version was released to all environments at once. This caused elevated latency in that service, which cascaded to the Editors.\n\nOur team identified the root cause quickly, rolled back the service to its previous stable version, and accelerated the recovery by restarting affected instances across our infrastructure. This fully resolved the issue.\n\nWix continuously deploys updates across our microservice platform, the vast majority seamlessly and without any user impact. The safeguard that is specifically designed to prevent this type of issue was not applied in this case.\n\nFollowing this incident, we have introduced automated guardrails on the affected service to prevent new versions from causing latency spikes that propagate to dependent services. We have also strengthened our platform-wide rollout policies to enforce gradual deployment practices and make it harder to bypass monitoring and staged rollout checks in the future.",
+          "incident_id": "6q8079b23v4y",
+          "created_at": "2026-07-09T13:07:43.204Z",
+          "updated_at": "2026-07-09T13:12:01.871Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "jzvkgkszqgbp",
           "status": "resolved",
@@ -162,9 +175,9 @@
     {
       "id": "dhvmq7snv51x",
       "name": "RESOLVED: Issue affecting multiple services",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-07-07T08:12:33.655Z",
-      "updated_at": "2026-07-07T08:28:31.017Z",
+      "updated_at": "2026-07-09T13:06:55.035Z",
       "monitoring_at": "2026-07-07T08:20:20.949Z",
       "resolved_at": "2026-07-07T08:28:31.002Z",
       "impact": "minor",
@@ -172,6 +185,19 @@
       "started_at": "2026-07-07T08:12:33.634Z",
       "page_id": "3x6vjqhj2cpt",
       "incident_updates": [
+        {
+          "id": "d1cflmc8gb7s",
+          "status": "postmortem",
+          "body": "On July 7th at 7:50 AM UTC, some users experienced issues loading the Wix Dashboard and Wix Editors. All functionality was fully restored within approximately 20 minutes.\n\nThe root cause was an interaction between two events: a new automated database infrastructure optimization feature introduced on July 5th, and a routine planned traffic shift between data center regions carried out on the morning of July 7th.\n\nThe new feature is designed to improve infrastructure efficiency by continuously monitoring database throughput usage and automatically adjusting capacity limits to reflect actual demand. On July 7th, before the day's planned traffic operations had taken place, the feature applied reduced capacity limits to several database clusters in one of our regions, based on the lower load observed earlier that morning. Shortly after, a routine planned traffic shift moved additional user traffic to that same region. The database clusters, now operating under reduced limits, received more load than those limits could accommodate, causing database response times to spike and errors to cascade across our dashboard and editors.\n\nOur team identified the root cause and resolved the incident by redirecting traffic to an unaffected region. We also provisioned new database nodes with higher capacity limits to restore full throughput in the impacted region.\n\nFollowing this incident, we have paused the automated optimization feature while we put additional safeguards in place. We have audited all database clusters where capacity adjustments were applied to confirm they are operating correctly. We are also implementing coordination checks to ensure that automated capacity adjustments and planned traffic operations are always validated against one another. We have additionally improved monitoring and alerting for automated infrastructure changes to enable faster detection and response if a similar situation were to arise in the future.",
+          "incident_id": "dhvmq7snv51x",
+          "created_at": "2026-07-09T12:09:16.007Z",
+          "updated_at": "2026-07-09T13:06:55.033Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "w27g3hcy989z",
           "status": "resolved",
