@@ -4,15 +4,15 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-10T17:38:42.595Z"
+    "updated_at": "2026-07-10T18:57:59.890Z"
   },
   "incidents": [
     {
       "id": "82j91239k876",
       "name": "Outage impacting web experience and pipelines starting",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-07-02T15:25:28.360Z",
-      "updated_at": "2026-07-02T16:44:04.693Z",
+      "updated_at": "2026-07-10T18:57:59.887Z",
       "monitoring_at": "2026-07-02T16:24:47.523Z",
       "resolved_at": "2026-07-02T16:44:04.676Z",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2026-07-02T15:25:28.350Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "5sv2603h6ccw",
+          "status": "postmortem",
+          "body": "## Summary\n\nOn July 2, 2026, from 15:12 UTC to 16:44 UTC, some CircleCI customers experienced failures starting pipelines and difficulty accessing the CircleCI UI, including an inability to log in. Customers triggering pipelines via the API may also have had pipelines fail to run.\n\nThe incident originated from a combination of internal maintenance and customer-initiated project deletions running concurrently, which caused elevated load on a data service. The connection layer between our API and that data service was not configured to time out slow responses under the elevated load conditions seen during this incident. This eventually exhausted available threads and prevented the request routing layer from handling any other requests, resulting in customer-facing errors.\n\nThe affected services were scaled up and the internal maintenance job was canceled to reduce pressure, allowing all affected functionality to return to normal. Customers whose jobs failed during this window may rerun affected jobs. A small number of customers may still see workflows that appear to be running; this is actively being corrected and does not impact billing.\n\nWe thank you for your patience while our team worked on implementing a fix.\n\n## What Happened\n\n\\(all times UTC\\)\n\nAt 13:30 on July 2, 2026, as part of normal platform maintenance, our engineering team began a data deletion job, divided into several hundred individual maintenance tasks. At 14:40, unrelated to our platform maintenance, a significant number of customer project deletion requests were received and began executing.\n\nAt 15:12, the combined load from the maintenance tasks and the customer-driven projection deletions caused an internal data service to slow down, and this began cascading into our API layer. Because connections between the API layer and the workflows data service were not configured to time out slow responses under elevated load conditions, the API-handling components became overwhelmed, went unresponsive, and began failing their health checks. This caused our request routing layer to lose available upstream requests, resulting in customers seeing errors when attempting to access the UI, to log in via GitHub or Bitbucket OAuth, or to start pipelines.\n\nAt 15:16, our monitoring systems alerted and engineers were paged. The team investigated and confirmed the source of the elevated load. At 15:30 Engineers began to scale up the affected services and cancelled a long-running maintenance task to drain the load. The team noted signs of that the system was recovering around 16:12 and adjusted the status to monitoring at 16:24.\n\nAt 16:44, the team confirmed that all customer-facing services had recovered to normal operating levels. Background load from the deletion job drained by approximately 17:00. Following the incident, we discovered a small number of workflows continued to inaccurately report that they were in a running state. This should be corrected within the next few days. In all cases, customers will only be billed for actual compute time used.\n\n## Future Prevention and Process Improvement\n\nOur team is implementing the following improvements as a result of this incident:\n\n* After the incident was resolved we added timeout protections on connections between our API layer and internal data services, so that slow responses from a downstream service cannot exhaust API worker capacity.\n* We are actively investigating ways to enforce resource limits on background data tasks to prevent them from impacting customer-facing services.\n* We are improving observability and alerting on the affected data service so that resource pressure is detected earlier, before it reaches a level that impacts customers.",
+          "incident_id": "82j91239k876",
+          "created_at": "2026-07-10T18:57:42.765Z",
+          "updated_at": "2026-07-10T18:57:59.884Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "1bnnrjct14q3",
           "status": "resolved",
