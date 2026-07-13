@@ -4,9 +4,62 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-13T14:53:13.104Z"
+    "updated_at": "2026-07-13T19:24:34.135Z"
   },
   "incidents": [
+    {
+      "id": "8sjb7kmqnvk9",
+      "name": "Serverless Inference - Gemma4 Latency Issues Causing Timeouts & Slow Responses",
+      "status": "identified",
+      "created_at": "2026-07-13T19:04:10.240Z",
+      "updated_at": "2026-07-13T19:04:10.332Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/rzs04wclgpfq",
+      "started_at": "2026-07-13T19:04:10.227Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "lm7m655m8ym1",
+          "status": "identified",
+          "body": "We are currently experiencing an issue where customers using the Gemma 4 model on our Serverless Inference and Dedicated Inference platforms may experience severe latency or request timeouts.\nOur engineering team has identified a backend configuration issue as the root cause, which is temporarily degrading performance. We are actively working on a fix to restore normal response times and will provide another update as soon as the mitigation is in place",
+          "incident_id": "8sjb7kmqnvk9",
+          "created_at": "2026-07-13T19:04:10.330Z",
+          "updated_at": "2026-07-13T19:04:10.330Z",
+          "display_at": "2026-07-13T19:04:10.330Z",
+          "affected_components": [
+            {
+              "code": "2z9ldz1t4dgp",
+              "name": "Agentic Inference Cloud - Inference",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "2z9ldz1t4dgp",
+          "name": "Inference",
+          "status": "degraded_performance",
+          "created_at": "2026-05-15T07:02:10.429Z",
+          "updated_at": "2026-07-13T19:04:10.281Z",
+          "position": 2,
+          "description": "Serverless access to foundation models (e.g. Llama, Mistral, GPT) via OpenAI-compatible API.",
+          "showcase": false,
+          "start_date": "2026-05-15",
+          "group_id": "gg1fsz7m9gvs",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "2kxtxyvzzzk0",
       "name": "Kubernetes Deployments in NYC1",
@@ -196,9 +249,9 @@
         {
           "id": "2z9ldz1t4dgp",
           "name": "Inference",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2026-05-15T07:02:10.429Z",
-          "updated_at": "2026-07-04T23:18:01.070Z",
+          "updated_at": "2026-07-13T19:04:10.281Z",
           "position": 2,
           "description": "Serverless access to foundation models (e.g. Llama, Mistral, GPT) via OpenAI-compatible API.",
           "showcase": false,
@@ -961,9 +1014,9 @@
         {
           "id": "2z9ldz1t4dgp",
           "name": "Inference",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2026-05-15T07:02:10.429Z",
-          "updated_at": "2026-07-04T23:18:01.070Z",
+          "updated_at": "2026-07-13T19:04:10.281Z",
           "position": 2,
           "description": "Serverless access to foundation models (e.g. Llama, Mistral, GPT) via OpenAI-compatible API.",
           "showcase": false,
@@ -1147,9 +1200,9 @@
         {
           "id": "2z9ldz1t4dgp",
           "name": "Inference",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2026-05-15T07:02:10.429Z",
-          "updated_at": "2026-07-04T23:18:01.070Z",
+          "updated_at": "2026-07-13T19:04:10.281Z",
           "position": 2,
           "description": "Serverless access to foundation models (e.g. Llama, Mistral, GPT) via OpenAI-compatible API.",
           "showcase": false,
@@ -5271,79 +5324,6 @@
           "showcase": false,
           "start_date": "2024-08-16",
           "group_id": "jg6pzd84p7bn",
-          "page_id": "w4cz49tckxhp",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "7pxx131dr1qt",
-      "name": "App Platform Deployments",
-      "status": "resolved",
-      "created_at": "2026-02-26T17:14:56.738Z",
-      "updated_at": "2026-02-27T04:55:52.142Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-02-27T04:55:52.123Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/jn5x021ltzds",
-      "started_at": "2026-02-26T17:14:56.725Z",
-      "page_id": "w4cz49tckxhp",
-      "incident_updates": [
-        {
-          "id": "skwzknpmsrbv",
-          "status": "resolved",
-          "body": "Our Engineering team has confirmed that the issue impacting build failures on App Platform has been resolved. Between approximately 14:30 UTC on the 26th and 00:01 UTC on the 27th, users may have experienced errors when attempting to build or deploy applications using older versions of the Node.js buildpack. A fix has been implemented, and build and deployment operations have been restored to normal.\n\nAll App Platform builds are now succeeding as expected. Customers who previously encountered build failures should now be able to deploy their applications without further issues.\n\nIf you continue to experience any problems, please open a ticket with our support team. Thank you for your patience, and we apologize for any inconvenience.",
-          "incident_id": "7pxx131dr1qt",
-          "created_at": "2026-02-27T04:55:52.123Z",
-          "updated_at": "2026-02-27T04:55:52.123Z",
-          "display_at": "2026-02-27T04:55:52.123Z",
-          "affected_components": [
-            {
-              "code": "txysr8r0gn1n",
-              "name": "App Platform - Global",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "56kklsjmvnvz",
-          "status": "investigating",
-          "body": "As of 14:30 UTC, our Engineering team is investigating reports of build failures on App Platform for customers using older version of the Node.js buildpack. Users may experience errors when attempting to build their applications, resulting in failed deployments.\n\nOur Engineering team is working to fix the issue and will share an update once we have more information. In the meantime, as a workaround, we recommend that customers upgrade to the latest version of Node.js build packs. This may help to resolve the build failures and allow for successful deployments. To upgrade, please follow the instructions outlined here:\n\nhttps://docs.digitalocean.com/products/app-platform/how-to/migrate-nodejs-buildpack/\n\nWe apologize for the inconvenience this issue may be causing and appreciate your patience as we work to resolve it.",
-          "incident_id": "7pxx131dr1qt",
-          "created_at": "2026-02-26T17:14:56.893Z",
-          "updated_at": "2026-02-26T17:14:56.893Z",
-          "display_at": "2026-02-26T17:14:56.893Z",
-          "affected_components": [
-            {
-              "code": "txysr8r0gn1n",
-              "name": "App Platform - Global",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "txysr8r0gn1n",
-          "name": "Global",
-          "status": "operational",
-          "created_at": "2023-03-28T21:01:12.838Z",
-          "updated_at": "2026-06-04T11:39:16.497Z",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-03-28",
-          "group_id": "jjs48vwjlqjr",
           "page_id": "w4cz49tckxhp",
           "group": false,
           "only_show_if_degraded": false
