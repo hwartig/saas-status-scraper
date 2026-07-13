@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-13T21:24:22.313Z"
+    "updated_at": "2026-07-13T22:36:58.303Z"
   },
   "components": [
     {
@@ -205,7 +205,7 @@
     {
       "id": "mrcyzlkkw8z9",
       "name": "Regional Availability",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T19:19:04.424Z",
       "updated_at": "2024-07-24T19:09:19.587Z",
       "position": 4,
@@ -405,9 +405,9 @@
     {
       "id": "3y5pzyxr1cbz",
       "name": "DFW - Dallas, Texas (US)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2019-07-01T19:29:42.128Z",
-      "updated_at": "2026-03-20T08:08:53.733Z",
+      "updated_at": "2026-07-13T22:25:41.701Z",
       "position": 8,
       "description": null,
       "showcase": false,
@@ -925,7 +925,81 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "mypsn6xy9ymv",
+      "name": "Some DFW hosts offline",
+      "status": "monitoring",
+      "created_at": "2026-07-13T22:25:41.661Z",
+      "updated_at": "2026-07-13T22:36:58.300Z",
+      "monitoring_at": "2026-07-13T22:36:58.283Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/rrpvr733m2ly",
+      "started_at": "2026-07-13T22:25:41.651Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "x2z98hfr8hb9",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "mypsn6xy9ymv",
+          "created_at": "2026-07-13T22:36:58.283Z",
+          "updated_at": "2026-07-13T22:36:58.283Z",
+          "display_at": "2026-07-13T22:36:58.283Z",
+          "affected_components": [
+            {
+              "code": "3y5pzyxr1cbz",
+              "name": "Regional Availability - DFW - Dallas, Texas (US)",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "4jp2p8bhxyxb",
+          "status": "investigating",
+          "body": "A subset of hosts in DFW are currently offline, and we're investigating the issue.",
+          "incident_id": "mypsn6xy9ymv",
+          "created_at": "2026-07-13T22:25:41.746Z",
+          "updated_at": "2026-07-13T22:25:41.746Z",
+          "display_at": "2026-07-13T22:25:41.746Z",
+          "affected_components": [
+            {
+              "code": "3y5pzyxr1cbz",
+              "name": "Regional Availability - DFW - Dallas, Texas (US)",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "3y5pzyxr1cbz",
+          "name": "DFW - Dallas, Texas (US)",
+          "status": "degraded_performance",
+          "created_at": "2019-07-01T19:29:42.128Z",
+          "updated_at": "2026-07-13T22:25:41.701Z",
+          "position": 8,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "mrcyzlkkw8z9",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "1lw2l6lls8zc",
@@ -983,7 +1057,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
