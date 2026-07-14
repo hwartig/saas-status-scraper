@@ -4,67 +4,34 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-14T22:31:39.556Z"
+    "updated_at": "2026-07-14T23:20:21.511Z"
   },
   "incidents": [
     {
-      "id": "gsyjwybg477g",
-      "name": "Login issues for some Bitbucket users",
-      "status": "postmortem",
-      "created_at": "2026-07-14T02:49:37.834Z",
-      "updated_at": "2026-07-14T22:31:39.552Z",
-      "monitoring_at": "2026-07-14T04:21:50.345Z",
-      "resolved_at": "2026-07-14T05:15:18.525Z",
+      "id": "7cnl777wp9qz",
+      "name": "Issues with network routing for Mac jobs",
+      "status": "resolved",
+      "created_at": "2026-07-13T21:52:02.888Z",
+      "updated_at": "2026-07-14T23:18:34.948Z",
+      "monitoring_at": "2026-07-13T23:35:24.593Z",
+      "resolved_at": "2026-07-14T23:18:34.925Z",
       "impact": "minor",
-      "shortlink": "https://stspg.io/lzl0fmm6xmts",
-      "started_at": "2026-07-14T02:49:37.826Z",
+      "shortlink": "https://stspg.io/vg35mbl8lxpg",
+      "started_at": "2026-07-13T21:52:02.877Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
         {
-          "id": "9s71wc2kbckp",
-          "status": "postmortem",
-          "body": "## Summary\n\nFrom 01:33 UTC to 05:18 UTC on July 14, 2026, customers with a Bitbucket-linked identity were unable to log in to CircleCI, and some customers experienced workflows that failed to start or update, due to a change in how Bitbucket's OAuth service reports account permissions. At 05:07 UTC, we deployed a fix that corrected how our systems read the updated permissions field. Some customers needed to log out and re-authenticate their Bitbucket integration after we deployed the fix. Our systems continued processing the backlog of affected jobs until 08:39 UTC.\n\nWe thank our customers for their patience as we resolved this incident. Please reach out to our support team with any questions or concerns.\n\nThe status page for this incident can be found [here](https://status.circleci.com/incidents/gsyjwybg477g).\n\n## Background\n\nCircleCI supports logging in with a GitHub account, a Bitbucket account, or an email and password. When a customer logs in with a Bitbucket-linked identity, or when CircleCI needs to refresh the customer's access on their behalf, we exchange an authorization token with Bitbucket's OAuth service. This exchange includes a list of the permissions, or \"scopes,\" the customer has granted us, which Bitbucket and CircleCI use to confirm what CircleCI is authorized to do on the customer’s behalf.\n\n## What Happened\n\n\\(All times UTC\\)\n\nOn April 8, 2026, [Bitbucket announced a change to its OAuth service](https://developer.atlassian.com/cloud/bitbucket/changelog/#CHANGE-3139): it would be renaming the field used to report a customer's granted permissions. Bitbucket ran a transition period during which both the old and new field names were available, then fully removed the old field name on May 4, 2026. Our systems had not been updated to recognize the new field name, so once Bitbucket fully phased out the old one, requests that depended on it began to fail.\n\nAt 01:33 on July 14, 2026, our systems began failing to process permissions information returned for Bitbucket-linked accounts, because our systems still expected the old permissions structure. This caused login attempts for all Bitbucket-linked accounts to fail, including for customers who log in with GitHub but have a Bitbucket identity linked to their account.\n\nAt 01:59, automated monitoring alerted our engineering team to a spike in errors on the affected systems. The team began investigating immediately, confirmed customer impact at 02:38, and alerted customers via our status page at 02:51. By 03:00, the team had isolated the failures to the renamed Bitbucket field.\n\nBeginning at 03:17, workflow status updates for Bitbucket pipelines belonging to customers with an expired access token began to be dropped. The Bitbucket permissions check is used broadly across our platform, and these permissions failures also affected some of our internal job-processing systems. This caused a subset of workflows to become stuck without a final status, and caused some pull requests to show missing or stuck status checks.\n\nAt 04:21, the team deployed an initial fix that resolved the underlying issue, restoring the login flow and returning our internal permissions system to normal operation. Some affected customers needed to log out and log back in to pick up the fix. By 05:07, the team deployed two additional fixes so our systems would begin accepting Bitbucket's new permissions field format going forward. We resolved the incident at 05:18.\n\nSome customers did need to log out and re-authenticate their Bitbucket integration before their account fully recovered. Our systems continued processing a backlog of affected jobs, returning to normal levels by approximately 08:39.\n\n## Future Prevention and Process Improvement\n\nWe are taking the following steps to prevent a recurrence and improve our response time:\n\n**We are hardening our authorization code against upstream API changes.** This incident happened because our system did not gracefully handle a renamed field in a response from a third-party identity provider. We will be immediately updating our authorization code so that unexpected or missing fields from GitHub, Bitbucket, and GitLab are handled safely.\n\n**We are improving how we track upstream provider changes.** We currently already monitor changelogs from our identity providers for exactly this kind of breaking change, but we didn't add this particular provider change to our monitoring in time to catch it before it shipped. We are auditing and expanding this monitoring so provider announcements reach our team before they affect customers.\n\n**We are improving how we classify and communicate incidents in their earliest minutes.** This incident's initial classification did not immediately reflect its customer-facing severity. We are refining our incident tooling and guidance to help engineers identify and communicate customer impact more quickly.\n\n**We are improving the resilience of our workflow-processing pipeline.** A downstream failure in this incident caused some workflow status updates to be dropped rather than retried or clearly surfaced. We are reviewing this system's retry and error-handling behavior so similar downstream failures are more visible and easier to recover from.\n\nCustomer experience is our top priority, and we commit to continually improving the reliability of our systems to match the trust that our customers place in us. Please reach out to our support team with any questions or concerns.",
-          "incident_id": "gsyjwybg477g",
-          "created_at": "2026-07-14T22:31:12.395Z",
-          "updated_at": "2026-07-14T22:31:39.550Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "s13yh49tx6z1",
+          "id": "k1jb2bmq3kfd",
           "status": "resolved",
-          "body": "The issue where customers logging in with a Bitbucket-linked identity experienced login errors, and some customers experienced workflows that failed to start or did not update, has been resolved. \n\nWhat you may still experience and need to do\n- If you use Bitbucket as your login method, please log out and reauthenticate the CircleCI Bitbucket integration on your account.\n- If any of your workflows are stuck or showing missing status checks, please rerun them to pick up the fix.\n- If you continue to experience issues after taking these steps, please reach out to CircleCI Support.\n\nWe thank you for your patience while our team worked on implementing a fix.",
-          "incident_id": "gsyjwybg477g",
-          "created_at": "2026-07-14T05:15:18.525Z",
-          "updated_at": "2026-07-14T05:15:18.525Z",
-          "display_at": "2026-07-14T05:15:18.525Z",
+          "body": "We continue to see significant VCS fetch time recovery over the last couple of hours. We're going to resolve this incident, and our engineering team will continue to monitor closely. We greatly appreciate your patience as we worked through this with our Mac infrastructure provider. Please reach out to our Support team if you have any issues.",
+          "incident_id": "7cnl777wp9qz",
+          "created_at": "2026-07-14T23:18:34.925Z",
+          "updated_at": "2026-07-14T23:18:34.925Z",
+          "display_at": "2026-07-14T23:18:34.925Z",
           "affected_components": [
             {
-              "code": "zxxnbynf4dkm",
-              "name": "Pipelines & Workflows",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rfnfhsdvdsxs",
-          "status": "monitoring",
-          "body": "What's impacted\nSome customers logging in with a Bitbucket-linked identity were affected. This may also have included customers logging in with GitHub who have a linked Bitbucket identity on their account. Some customers also experienced workflows that were not starting or updating.\n\nWhat can you expect\nA fix has been deployed. We are monitoring the situation to confirm full recovery.\n\nNext update\nWe will provide an update if anything changes",
-          "incident_id": "gsyjwybg477g",
-          "created_at": "2026-07-14T04:21:50.345Z",
-          "updated_at": "2026-07-14T04:21:50.345Z",
-          "display_at": "2026-07-14T04:21:50.345Z",
-          "affected_components": [
-            {
-              "code": "zxxnbynf4dkm",
-              "name": "Pipelines & Workflows",
+              "code": "bpfmy8wy8wq2",
+              "name": "macOS Jobs",
               "old_status": "degraded_performance",
               "new_status": "operational"
             }
@@ -73,85 +40,6 @@
           "custom_tweet": null,
           "tweet_id": null
         },
-        {
-          "id": "7snz6zq1v0kl",
-          "status": "investigating",
-          "body": "What's impacted\nSome customers logging in with a Bitbucket-linked identity are affected. This may also include customers logging in with GitHub but have a linked Bitbucket identity on their account. Additionally, some customers are experiencing workflows that are not starting or updating.\n\nWhat can you expect\nAffected customers may see login errors. Some customers may also notice workflows that fail to start or do not update as expected. Thank you for your patience while our engineers investigate.\n\nNext update\nWe will provide another update as soon as we have more information to share",
-          "incident_id": "gsyjwybg477g",
-          "created_at": "2026-07-14T03:51:53.730Z",
-          "updated_at": "2026-07-14T03:51:53.730Z",
-          "display_at": "2026-07-14T03:51:53.730Z",
-          "affected_components": [
-            {
-              "code": "zxxnbynf4dkm",
-              "name": "Pipelines & Workflows",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qt7jvgmknkn5",
-          "status": "investigating",
-          "body": "Our team continues to investigate login errors affecting some customers using Bitbucket as their identity provider.",
-          "incident_id": "gsyjwybg477g",
-          "created_at": "2026-07-14T03:29:00.527Z",
-          "updated_at": "2026-07-14T03:29:00.527Z",
-          "display_at": "2026-07-14T03:29:00.527Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "86bwth95zktk",
-          "status": "investigating",
-          "body": "We are currently investigating login errors affecting some customers using Bitbucket as their identity provider.",
-          "incident_id": "gsyjwybg477g",
-          "created_at": "2026-07-14T02:49:37.879Z",
-          "updated_at": "2026-07-14T02:49:37.879Z",
-          "display_at": "2026-07-14T02:49:37.879Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "zxxnbynf4dkm",
-          "name": "Pipelines & Workflows",
-          "status": "operational",
-          "created_at": "2017-07-10T21:13:25.145Z",
-          "updated_at": "2026-07-14T04:21:50.311Z",
-          "position": 5,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "7cnl777wp9qz",
-      "name": "Issues with network routing for Mac jobs",
-      "status": "monitoring",
-      "created_at": "2026-07-13T21:52:02.888Z",
-      "updated_at": "2026-07-14T22:15:51.910Z",
-      "monitoring_at": "2026-07-13T23:35:24.593Z",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/vg35mbl8lxpg",
-      "started_at": "2026-07-13T21:52:02.877Z",
-      "page_id": "6w4r0ttlx5ft",
-      "incident_updates": [
         {
           "id": "c1m5bspmmqc8",
           "status": "monitoring",
@@ -377,11 +265,196 @@
         {
           "id": "bpfmy8wy8wq2",
           "name": "macOS Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2026-07-13T21:52:02.940Z",
+          "updated_at": "2026-07-14T23:18:34.880Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "rfz5wdpg2nl0",
+      "name": "Delays starting jobs on Docker (Gen 2) resource classes",
+      "status": "identified",
+      "created_at": "2026-07-14T22:54:42.726Z",
+      "updated_at": "2026-07-14T22:54:42.802Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/0t40l14n15yl",
+      "started_at": "2026-07-14T22:54:42.719Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "1kjfdzl4dk8s",
+          "status": "identified",
+          "body": "On July 13 between 15:30 UTC and 22:40 UTC, we experienced delays starting jobs on Docker (Gen 2) resource classes due to capacity constraints from our cloud provider. Delays reached up to approximately 1 minute 48 seconds.\n\nWe are continuing to experience these delays again since approximately 15:45 UTC. So far, delays have reached up to approximately 1 minute 19 seconds. \n\nWe are working with our cloud provider to add capacity and will update this incident as the situation changes.",
+          "incident_id": "rfz5wdpg2nl0",
+          "created_at": "2026-07-14T22:54:42.800Z",
+          "updated_at": "2026-07-14T22:54:42.800Z",
+          "display_at": "2026-07-14T22:54:42.800Z",
+          "affected_components": [
+            {
+              "code": "x1v3t5qrnlhk",
+              "name": "Docker Jobs",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "x1v3t5qrnlhk",
+          "name": "Docker Jobs",
+          "status": "degraded_performance",
+          "created_at": "2017-03-17T19:43:18.878Z",
+          "updated_at": "2026-07-14T22:54:42.759Z",
+          "position": 1,
+          "description": "CircleCI jobs using the docker executor.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "gsyjwybg477g",
+      "name": "Login issues for some Bitbucket users",
+      "status": "postmortem",
+      "created_at": "2026-07-14T02:49:37.834Z",
+      "updated_at": "2026-07-14T22:31:39.552Z",
+      "monitoring_at": "2026-07-14T04:21:50.345Z",
+      "resolved_at": "2026-07-14T05:15:18.525Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/lzl0fmm6xmts",
+      "started_at": "2026-07-14T02:49:37.826Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "9s71wc2kbckp",
+          "status": "postmortem",
+          "body": "## Summary\n\nFrom 01:33 UTC to 05:18 UTC on July 14, 2026, customers with a Bitbucket-linked identity were unable to log in to CircleCI, and some customers experienced workflows that failed to start or update, due to a change in how Bitbucket's OAuth service reports account permissions. At 05:07 UTC, we deployed a fix that corrected how our systems read the updated permissions field. Some customers needed to log out and re-authenticate their Bitbucket integration after we deployed the fix. Our systems continued processing the backlog of affected jobs until 08:39 UTC.\n\nWe thank our customers for their patience as we resolved this incident. Please reach out to our support team with any questions or concerns.\n\nThe status page for this incident can be found [here](https://status.circleci.com/incidents/gsyjwybg477g).\n\n## Background\n\nCircleCI supports logging in with a GitHub account, a Bitbucket account, or an email and password. When a customer logs in with a Bitbucket-linked identity, or when CircleCI needs to refresh the customer's access on their behalf, we exchange an authorization token with Bitbucket's OAuth service. This exchange includes a list of the permissions, or \"scopes,\" the customer has granted us, which Bitbucket and CircleCI use to confirm what CircleCI is authorized to do on the customer’s behalf.\n\n## What Happened\n\n\\(All times UTC\\)\n\nOn April 8, 2026, [Bitbucket announced a change to its OAuth service](https://developer.atlassian.com/cloud/bitbucket/changelog/#CHANGE-3139): it would be renaming the field used to report a customer's granted permissions. Bitbucket ran a transition period during which both the old and new field names were available, then fully removed the old field name on May 4, 2026. Our systems had not been updated to recognize the new field name, so once Bitbucket fully phased out the old one, requests that depended on it began to fail.\n\nAt 01:33 on July 14, 2026, our systems began failing to process permissions information returned for Bitbucket-linked accounts, because our systems still expected the old permissions structure. This caused login attempts for all Bitbucket-linked accounts to fail, including for customers who log in with GitHub but have a Bitbucket identity linked to their account.\n\nAt 01:59, automated monitoring alerted our engineering team to a spike in errors on the affected systems. The team began investigating immediately, confirmed customer impact at 02:38, and alerted customers via our status page at 02:51. By 03:00, the team had isolated the failures to the renamed Bitbucket field.\n\nBeginning at 03:17, workflow status updates for Bitbucket pipelines belonging to customers with an expired access token began to be dropped. The Bitbucket permissions check is used broadly across our platform, and these permissions failures also affected some of our internal job-processing systems. This caused a subset of workflows to become stuck without a final status, and caused some pull requests to show missing or stuck status checks.\n\nAt 04:21, the team deployed an initial fix that resolved the underlying issue, restoring the login flow and returning our internal permissions system to normal operation. Some affected customers needed to log out and log back in to pick up the fix. By 05:07, the team deployed two additional fixes so our systems would begin accepting Bitbucket's new permissions field format going forward. We resolved the incident at 05:18.\n\nSome customers did need to log out and re-authenticate their Bitbucket integration before their account fully recovered. Our systems continued processing a backlog of affected jobs, returning to normal levels by approximately 08:39.\n\n## Future Prevention and Process Improvement\n\nWe are taking the following steps to prevent a recurrence and improve our response time:\n\n**We are hardening our authorization code against upstream API changes.** This incident happened because our system did not gracefully handle a renamed field in a response from a third-party identity provider. We will be immediately updating our authorization code so that unexpected or missing fields from GitHub, Bitbucket, and GitLab are handled safely.\n\n**We are improving how we track upstream provider changes.** We currently already monitor changelogs from our identity providers for exactly this kind of breaking change, but we didn't add this particular provider change to our monitoring in time to catch it before it shipped. We are auditing and expanding this monitoring so provider announcements reach our team before they affect customers.\n\n**We are improving how we classify and communicate incidents in their earliest minutes.** This incident's initial classification did not immediately reflect its customer-facing severity. We are refining our incident tooling and guidance to help engineers identify and communicate customer impact more quickly.\n\n**We are improving the resilience of our workflow-processing pipeline.** A downstream failure in this incident caused some workflow status updates to be dropped rather than retried or clearly surfaced. We are reviewing this system's retry and error-handling behavior so similar downstream failures are more visible and easier to recover from.\n\nCustomer experience is our top priority, and we commit to continually improving the reliability of our systems to match the trust that our customers place in us. Please reach out to our support team with any questions or concerns.",
+          "incident_id": "gsyjwybg477g",
+          "created_at": "2026-07-14T22:31:12.395Z",
+          "updated_at": "2026-07-14T22:31:39.550Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "s13yh49tx6z1",
+          "status": "resolved",
+          "body": "The issue where customers logging in with a Bitbucket-linked identity experienced login errors, and some customers experienced workflows that failed to start or did not update, has been resolved. \n\nWhat you may still experience and need to do\n- If you use Bitbucket as your login method, please log out and reauthenticate the CircleCI Bitbucket integration on your account.\n- If any of your workflows are stuck or showing missing status checks, please rerun them to pick up the fix.\n- If you continue to experience issues after taking these steps, please reach out to CircleCI Support.\n\nWe thank you for your patience while our team worked on implementing a fix.",
+          "incident_id": "gsyjwybg477g",
+          "created_at": "2026-07-14T05:15:18.525Z",
+          "updated_at": "2026-07-14T05:15:18.525Z",
+          "display_at": "2026-07-14T05:15:18.525Z",
+          "affected_components": [
+            {
+              "code": "zxxnbynf4dkm",
+              "name": "Pipelines & Workflows",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "rfnfhsdvdsxs",
+          "status": "monitoring",
+          "body": "What's impacted\nSome customers logging in with a Bitbucket-linked identity were affected. This may also have included customers logging in with GitHub who have a linked Bitbucket identity on their account. Some customers also experienced workflows that were not starting or updating.\n\nWhat can you expect\nA fix has been deployed. We are monitoring the situation to confirm full recovery.\n\nNext update\nWe will provide an update if anything changes",
+          "incident_id": "gsyjwybg477g",
+          "created_at": "2026-07-14T04:21:50.345Z",
+          "updated_at": "2026-07-14T04:21:50.345Z",
+          "display_at": "2026-07-14T04:21:50.345Z",
+          "affected_components": [
+            {
+              "code": "zxxnbynf4dkm",
+              "name": "Pipelines & Workflows",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "7snz6zq1v0kl",
+          "status": "investigating",
+          "body": "What's impacted\nSome customers logging in with a Bitbucket-linked identity are affected. This may also include customers logging in with GitHub but have a linked Bitbucket identity on their account. Additionally, some customers are experiencing workflows that are not starting or updating.\n\nWhat can you expect\nAffected customers may see login errors. Some customers may also notice workflows that fail to start or do not update as expected. Thank you for your patience while our engineers investigate.\n\nNext update\nWe will provide another update as soon as we have more information to share",
+          "incident_id": "gsyjwybg477g",
+          "created_at": "2026-07-14T03:51:53.730Z",
+          "updated_at": "2026-07-14T03:51:53.730Z",
+          "display_at": "2026-07-14T03:51:53.730Z",
+          "affected_components": [
+            {
+              "code": "zxxnbynf4dkm",
+              "name": "Pipelines & Workflows",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "qt7jvgmknkn5",
+          "status": "investigating",
+          "body": "Our team continues to investigate login errors affecting some customers using Bitbucket as their identity provider.",
+          "incident_id": "gsyjwybg477g",
+          "created_at": "2026-07-14T03:29:00.527Z",
+          "updated_at": "2026-07-14T03:29:00.527Z",
+          "display_at": "2026-07-14T03:29:00.527Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "86bwth95zktk",
+          "status": "investigating",
+          "body": "We are currently investigating login errors affecting some customers using Bitbucket as their identity provider.",
+          "incident_id": "gsyjwybg477g",
+          "created_at": "2026-07-14T02:49:37.879Z",
+          "updated_at": "2026-07-14T02:49:37.879Z",
+          "display_at": "2026-07-14T02:49:37.879Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "zxxnbynf4dkm",
+          "name": "Pipelines & Workflows",
+          "status": "operational",
+          "created_at": "2017-07-10T21:13:25.145Z",
+          "updated_at": "2026-07-14T04:21:50.311Z",
+          "position": 5,
+          "description": null,
           "showcase": true,
           "start_date": null,
           "group_id": null,
@@ -490,9 +563,9 @@
         {
           "id": "bpfmy8wy8wq2",
           "name": "macOS Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2026-07-13T21:52:02.940Z",
+          "updated_at": "2026-07-14T23:18:34.880Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
           "showcase": true,
@@ -1160,9 +1233,9 @@
         {
           "id": "bpfmy8wy8wq2",
           "name": "macOS Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2026-07-13T21:52:02.940Z",
+          "updated_at": "2026-07-14T23:18:34.880Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
           "showcase": true,
@@ -1306,9 +1379,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-07-10T05:03:48.095Z",
+          "updated_at": "2026-07-14T22:54:42.759Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -1890,9 +1963,9 @@
         {
           "id": "bpfmy8wy8wq2",
           "name": "macOS Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2026-07-13T21:52:02.940Z",
+          "updated_at": "2026-07-14T23:18:34.880Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
           "showcase": true,
@@ -1983,9 +2056,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-07-10T05:03:48.095Z",
+          "updated_at": "2026-07-14T22:54:42.759Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -2116,9 +2189,9 @@
         {
           "id": "bpfmy8wy8wq2",
           "name": "macOS Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2026-07-13T21:52:02.940Z",
+          "updated_at": "2026-07-14T23:18:34.880Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
           "showcase": true,
@@ -2309,9 +2382,9 @@
         {
           "id": "bpfmy8wy8wq2",
           "name": "macOS Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2026-07-13T21:52:02.940Z",
+          "updated_at": "2026-07-14T23:18:34.880Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
           "showcase": true,
@@ -2531,9 +2604,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-07-10T05:03:48.095Z",
+          "updated_at": "2026-07-14T22:54:42.759Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -2561,9 +2634,9 @@
         {
           "id": "bpfmy8wy8wq2",
           "name": "macOS Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2026-07-13T21:52:02.940Z",
+          "updated_at": "2026-07-14T23:18:34.880Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
           "showcase": true,
@@ -2953,9 +3026,9 @@
         {
           "id": "bpfmy8wy8wq2",
           "name": "macOS Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2026-07-13T21:52:02.940Z",
+          "updated_at": "2026-07-14T23:18:34.880Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
           "showcase": true,
@@ -3046,9 +3119,9 @@
         {
           "id": "bpfmy8wy8wq2",
           "name": "macOS Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2026-07-13T21:52:02.940Z",
+          "updated_at": "2026-07-14T23:18:34.880Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
           "showcase": true,
@@ -3859,9 +3932,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-07-10T05:03:48.095Z",
+          "updated_at": "2026-07-14T22:54:42.759Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -4383,9 +4456,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-07-10T05:03:48.095Z",
+          "updated_at": "2026-07-14T22:54:42.759Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -5360,9 +5433,9 @@
         {
           "id": "bpfmy8wy8wq2",
           "name": "macOS Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2026-07-13T21:52:02.940Z",
+          "updated_at": "2026-07-14T23:18:34.880Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
           "showcase": true,
@@ -5668,9 +5741,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-07-10T05:03:48.095Z",
+          "updated_at": "2026-07-14T22:54:42.759Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -5698,9 +5771,9 @@
         {
           "id": "bpfmy8wy8wq2",
           "name": "macOS Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2026-07-13T21:52:02.940Z",
+          "updated_at": "2026-07-14T23:18:34.880Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
           "showcase": true,
@@ -5846,137 +5919,11 @@
         {
           "id": "bpfmy8wy8wq2",
           "name": "macOS Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-11-09T08:22:00.885Z",
-          "updated_at": "2026-07-13T21:52:02.940Z",
+          "updated_at": "2026-07-14T23:18:34.880Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "jq4bgq2sjt1r",
-      "name": "Jobs not starting",
-      "status": "postmortem",
-      "created_at": "2025-12-03T21:28:46.514Z",
-      "updated_at": "2025-12-18T21:30:28.099Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-12-03T23:48:16.000Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/xd1wf6n7f2l4",
-      "started_at": "2025-12-03T21:28:46.509Z",
-      "page_id": "6w4r0ttlx5ft",
-      "incident_updates": [
-        {
-          "id": "dk8zlyy48ttg",
-          "status": "postmortem",
-          "body": "## Summary\n\n_All timestamps are in UTC_\n\nOn December 2, 2025, at 16:20, we deployed a code change to workflow status computation that introduced a race condition in how workflows are terminated. This caused the following impacts:\n\n**Duplicated auto-rerun workflows \\(Dec 2, 16:20 - Dec 3, 14:20\\):** Some customers using auto-rerun experienced duplicate workflows being created and duplicate email notifications.\n\n**API and UI degradation \\(Dec 3, 12:10 - 22:50\\):** Some customers experienced issues with the Workflows API and errors in the UI when trying to view pipelines.\n\n**Job execution delays \\(Dec 3, 16:20 - 16:32\\):** Several customers experienced delays in job execution, with some jobs failing to start or becoming stuck.\n\nThe incident was fully resolved on **December 3 at 22:50.**\n\nWe thank our customers for their patience and understanding as we worked to resolve this incident.\n\nThis incident tracked as multiple separate issues and status pages:\n\n* Pipelines page not loading \\([Link 1](https://status.circleci.com/incidents/21cysyp8d333), [Link 2](https://status.circleci.com/incidents/fjpg0vmh476k)\\)\n* Jobs stuck in running state \\([Link](https://status.circleci.com/incidents/kvzp8x242n34)\\)\n* Jobs not starting \\([Link](https://status.circleci.com/incidents/jq4bgq2sjt1r)\\)\n\n## What Happened\n\nOn December 2, 2025, at 16:20, we deployed a code change that introduced a race condition in how workflows are terminated. When workflows failed with concurrent jobs terminating, our system published duplicate workflow completion events. For some customers with auto-rerun enabled, these duplicate events triggered duplicate workflows to be created, causing cascading issues across our platform.\n\n_**Initial Detection and Response \\(Dec 2, 21:40 - Dec 3, 14:20\\)**_\n\nAt 21:40 on December 2nd, we received the first customer report of excessive workflow executions. Our notifications team was also alerted to a high number of notifications being sent. We initially thought it was an isolated issue related to customer automation, so we flagged the affected project at 21:46 and saw recovery on the notifications side.\n\nAt 21:51 we learned that a different customer reported duplicate workflow failure emails. We suspected it might be related to a recent feature rollout, but investigation did not identify a root cause. We initially thought the elevated rate of messages from the first customer somehow impacted other customers. By 22:19, no other customer had reported similar issues and metrics were back to normal, so we decided to continue the investigation the next day.\n\nAt 9:55 on December 3rd, we received alerts to elevated notifications and we resumed investigation. We escalated to a full incident at 13:44. We learned that the notifications issues seemed to be caused by auto-reruns, so we disabled auto-rerun system-wide at 13:56. We identified and rolled back the problematic code change at 14:15, then re-enabled auto-rerun at 14:20.\n\nThis resolved the primary issue of duplicate workflows and notifications being created.\n\n38 projects were impacted by the auto-rerun issue with a total of 33,135 duplicate workflows created. It also led to duplicate email notifications for 18 organizations.\n\nBecause the issue manifested across multiple domains \\(Orchestration, Notifications, API/UI, and Execution\\), we initially investigated these as separate incidents. It took time to correlate these incidents back to a single root cause. However, this fix did not immediately resolve all customer-facing issues due to downstream impacts.\n\n### **Downstream Impact**\n\nThe excessive workflows caused cascading issues across our platform:\n\n_**Notification Issues \\(Dec 2, 21:40 - Dec 3, 14:20\\)**_  \n18 organizations received duplicate email notifications for workflow failures.\n\n_**API and UI Issues \\(Dec 3, 12:10 - 22:50\\)**_  \nAt 11:54, our monitoring detected a service queue growing due to duplicate events. While investigating, we discovered the Pipelines page was struggling to load starting at 12:10. The issue was intermittent and was initially resolved at 15:11. However, at 15:30 API errors returned and we continued to investigate.\n\nAt 21:30 we identified that some pipelines had over 10,000 workflows, causing our APIs to slow down and fail. Affected customers experienced failed requests to the Workflows API and errors when trying to view pipelines. We deployed targeted fixes between 22:16 and 22:50 that filtered out problematic pipelines, restoring API performance.\n\n_**Job Execution Delays \\(Dec 3, 16:20 - 16:32\\)**_\n\nAt 16:18, our monitoring alerted us to issues with our job orchestration system. While investigating, we identified a drop in jobs being processed. At 16:20, our job execution infrastructure began experiencing memory pressure due to increased API traffic from the duplicate workflows. This memory pressure disrupted normal job processing and cancellation handling, and caused services to restart. Job processing recovered at 16:32. During this window, approximately 3,500 jobs were delayed, and 1,100 jobs \\(3% of tasks\\) failed to start. Additionally, 8,000 jobs became stuck in a canceling state. We then scaled our execution infrastructure to prevent further memory pressure.\n\nWe later identified that this execution impact was connected to the API issues described above, demonstrating the cascading nature of the incident across multiple systems.\n\n### **Resolution**\n\nAll systems fully recovered by 22:50 UTC on December 3rd. We have refunded credits consumed by duplicate workflows for all 38 impacted projects on December 5th.\n\n## Future Prevention and Process Improvement\n\nWe're taking several actions to prevent similar incidents and improve our detection and response:\n\n**Preventing Duplicate Workflows**\n\nWe're putting safeguards in place to prevent race conditions when workflows are terminated and we're also adding constraints to prevent duplicate auto-rerun workflows from being created in the first place.\n\n**Improved Monitoring and Alerting**\n\nWhile we have monitors in place, we didn't get paged for some of the issues, which delayed our incident response. As a result, we've updated existing monitoring alerts to page on-call engineers for execution infrastructure API errors and service restarts, and we're adding new alerts for UI-related issues.\n\n**Better System Resilience**\n\nWe will be updating the Pipelines page to handle large numbers of workflows more gracefully while also looking to understand and improve how our systems behave under pressure.\n\n**Incident Response**\n\nOne of the key challenges in this incident was the difficulty in correlating that these incidents all came from the same root cause. As a result we're taking the following actions:\n\n* Establishing better communication protocols to quickly correlate related incidents across teams\n* Improving coordination when mitigations in one system may impact downstream services",
-          "incident_id": "jq4bgq2sjt1r",
-          "created_at": "2025-12-18T21:30:25.560Z",
-          "updated_at": "2025-12-18T21:30:28.096Z",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "h075j1mvgsdk",
-          "status": "resolved",
-          "body": "We have resolved the issues affecting job triggering, workflow starts, and API queries. Our systems have been stabilized and are operating normally.\n\nWhat was impacted: Job triggering, workflow starts, API queries, and pipeline page loading experienced disruptions for some customers. This affected all resource classes and executors.\n\nResolution: We implemented mitigation measures to address high volume workflow queries impacting our internal systems and increased system capacity. All new jobs and workflows are now starting normally, pipeline pages are loading, and API queries are functioning as expected.\n\nWhat to expect: If you have jobs that became stuck during this incident, please rerun them. If you continue to experience issues after rerunning, please contact our support team. Some customers may still see jobs stuck in a cancelling state. Engineering is aware and addressing to mitigate risk. \n\nWe will continue monitoring our systems and conducting a thorough review to identify additional preventive measures.",
-          "incident_id": "jq4bgq2sjt1r",
-          "created_at": "2025-12-03T23:48:16.833Z",
-          "updated_at": "2025-12-04T00:29:38.884Z",
-          "display_at": "2025-12-03T23:48:16.000Z",
-          "affected_components": [
-            {
-              "code": "zxxnbynf4dkm",
-              "name": "Pipelines & Workflows",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1996365905039921269
-        },
-        {
-          "id": "vbsz06sxbxzb",
-          "status": "investigating",
-          "body": "We have deployed changes to mitigate the high volume of workflow queries impacting our systems. Pipeline pages that were previously failing to load are now loading successfully, and we are seeing significant reduction in API errors.\n\nWhat's impacted: Some customers continue to experience jobs stuck in a not-running state from earlier in the incident. New job triggering and workflow starts are now functioning normally.\n\nWhat's happening: We have implemented mitigation measures and increased system capacity. We are continuing to investigate the remaining stuck jobs for affected customers.\n\nWhat to expect: If you experienced issues loading pipeline pages or querying workflow data via the API, these should now be resolved. New jobs and workflows should trigger normally. If you have jobs that appeared stuck earlier, please try rerunning them while we continue to investigate the reports of jobs that do remain stuck for a small number of customers.  The data for those workflows should be available and queryable.\n\nNext update: We will provide an update within 30 minutes. Thank you for your patience while our engineers work through this incident.",
-          "incident_id": "jq4bgq2sjt1r",
-          "created_at": "2025-12-03T22:59:23.592Z",
-          "updated_at": "2025-12-03T22:59:23.871Z",
-          "display_at": "2025-12-03T22:59:23.592Z",
-          "affected_components": [
-            {
-              "code": "zxxnbynf4dkm",
-              "name": "Pipelines & Workflows",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1996353601611149674
-        },
-        {
-          "id": "ns9m1bhsl17b",
-          "status": "investigating",
-          "body": "We are currently experiencing issues affecting job triggering and workflow starts across all resource classes. Jobs may appear stuck in a not-running state, and some customers may encounter 500 errors when making API calls to check job or workflow status.\n\nWhat's impacted: Job triggering, workflow starts, and API queries for job and workflow status are experiencing disruptions. This affects all resource classes and executors. Some users may also experience issues loading the pipeline page.\n\nWhat to expect: We are actively working to stabilize our systems and restore normal operations. We will provide updates as we make progress toward resolution.\n\nWe thank you for your patience while we work through these issues - we will update with our progress within 30 minutes or earlier.",
-          "incident_id": "jq4bgq2sjt1r",
-          "created_at": "2025-12-03T21:58:24.207Z",
-          "updated_at": "2025-12-03T21:58:24.564Z",
-          "display_at": "2025-12-03T21:58:24.207Z",
-          "affected_components": [
-            {
-              "code": "zxxnbynf4dkm",
-              "name": "Pipelines & Workflows",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1996338253344256204
-        },
-        {
-          "id": "07clq9p01b5f",
-          "status": "investigating",
-          "body": "We are currently investigating reports of jobs not starting. We apologize for the inconvenience.",
-          "incident_id": "jq4bgq2sjt1r",
-          "created_at": "2025-12-03T21:28:46.597Z",
-          "updated_at": "2025-12-03T21:28:46.963Z",
-          "display_at": "2025-12-03T21:28:46.597Z",
-          "affected_components": [
-            {
-              "code": "zxxnbynf4dkm",
-              "name": "Pipelines & Workflows",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1996330797603987561
-        }
-      ],
-      "components": [
-        {
-          "id": "zxxnbynf4dkm",
-          "name": "Pipelines & Workflows",
-          "status": "operational",
-          "created_at": "2017-07-10T21:13:25.145Z",
-          "updated_at": "2026-07-14T04:21:50.311Z",
-          "position": 5,
-          "description": null,
           "showcase": true,
           "start_date": null,
           "group_id": null,
