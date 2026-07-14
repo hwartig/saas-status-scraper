@@ -4,15 +4,15 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-14T20:18:56.287Z"
+    "updated_at": "2026-07-14T22:31:39.556Z"
   },
   "incidents": [
     {
       "id": "gsyjwybg477g",
       "name": "Login issues for some Bitbucket users",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-07-14T02:49:37.834Z",
-      "updated_at": "2026-07-14T05:15:18.543Z",
+      "updated_at": "2026-07-14T22:31:39.552Z",
       "monitoring_at": "2026-07-14T04:21:50.345Z",
       "resolved_at": "2026-07-14T05:15:18.525Z",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2026-07-14T02:49:37.826Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "9s71wc2kbckp",
+          "status": "postmortem",
+          "body": "## Summary\n\nFrom 01:33 UTC to 05:18 UTC on July 14, 2026, customers with a Bitbucket-linked identity were unable to log in to CircleCI, and some customers experienced workflows that failed to start or update, due to a change in how Bitbucket's OAuth service reports account permissions. At 05:07 UTC, we deployed a fix that corrected how our systems read the updated permissions field. Some customers needed to log out and re-authenticate their Bitbucket integration after we deployed the fix. Our systems continued processing the backlog of affected jobs until 08:39 UTC.\n\nWe thank our customers for their patience as we resolved this incident. Please reach out to our support team with any questions or concerns.\n\nThe status page for this incident can be found [here](https://status.circleci.com/incidents/gsyjwybg477g).\n\n## Background\n\nCircleCI supports logging in with a GitHub account, a Bitbucket account, or an email and password. When a customer logs in with a Bitbucket-linked identity, or when CircleCI needs to refresh the customer's access on their behalf, we exchange an authorization token with Bitbucket's OAuth service. This exchange includes a list of the permissions, or \"scopes,\" the customer has granted us, which Bitbucket and CircleCI use to confirm what CircleCI is authorized to do on the customer’s behalf.\n\n## What Happened\n\n\\(All times UTC\\)\n\nOn April 8, 2026, [Bitbucket announced a change to its OAuth service](https://developer.atlassian.com/cloud/bitbucket/changelog/#CHANGE-3139): it would be renaming the field used to report a customer's granted permissions. Bitbucket ran a transition period during which both the old and new field names were available, then fully removed the old field name on May 4, 2026. Our systems had not been updated to recognize the new field name, so once Bitbucket fully phased out the old one, requests that depended on it began to fail.\n\nAt 01:33 on July 14, 2026, our systems began failing to process permissions information returned for Bitbucket-linked accounts, because our systems still expected the old permissions structure. This caused login attempts for all Bitbucket-linked accounts to fail, including for customers who log in with GitHub but have a Bitbucket identity linked to their account.\n\nAt 01:59, automated monitoring alerted our engineering team to a spike in errors on the affected systems. The team began investigating immediately, confirmed customer impact at 02:38, and alerted customers via our status page at 02:51. By 03:00, the team had isolated the failures to the renamed Bitbucket field.\n\nBeginning at 03:17, workflow status updates for Bitbucket pipelines belonging to customers with an expired access token began to be dropped. The Bitbucket permissions check is used broadly across our platform, and these permissions failures also affected some of our internal job-processing systems. This caused a subset of workflows to become stuck without a final status, and caused some pull requests to show missing or stuck status checks.\n\nAt 04:21, the team deployed an initial fix that resolved the underlying issue, restoring the login flow and returning our internal permissions system to normal operation. Some affected customers needed to log out and log back in to pick up the fix. By 05:07, the team deployed two additional fixes so our systems would begin accepting Bitbucket's new permissions field format going forward. We resolved the incident at 05:18.\n\nSome customers did need to log out and re-authenticate their Bitbucket integration before their account fully recovered. Our systems continued processing a backlog of affected jobs, returning to normal levels by approximately 08:39.\n\n## Future Prevention and Process Improvement\n\nWe are taking the following steps to prevent a recurrence and improve our response time:\n\n**We are hardening our authorization code against upstream API changes.** This incident happened because our system did not gracefully handle a renamed field in a response from a third-party identity provider. We will be immediately updating our authorization code so that unexpected or missing fields from GitHub, Bitbucket, and GitLab are handled safely.\n\n**We are improving how we track upstream provider changes.** We currently already monitor changelogs from our identity providers for exactly this kind of breaking change, but we didn't add this particular provider change to our monitoring in time to catch it before it shipped. We are auditing and expanding this monitoring so provider announcements reach our team before they affect customers.\n\n**We are improving how we classify and communicate incidents in their earliest minutes.** This incident's initial classification did not immediately reflect its customer-facing severity. We are refining our incident tooling and guidance to help engineers identify and communicate customer impact more quickly.\n\n**We are improving the resilience of our workflow-processing pipeline.** A downstream failure in this incident caused some workflow status updates to be dropped rather than retried or clearly surfaced. We are reviewing this system's retry and error-handling behavior so similar downstream failures are more visible and easier to recover from.\n\nCustomer experience is our top priority, and we commit to continually improving the reliability of our systems to match the trust that our customers place in us. Please reach out to our support team with any questions or concerns.",
+          "incident_id": "gsyjwybg477g",
+          "created_at": "2026-07-14T22:31:12.395Z",
+          "updated_at": "2026-07-14T22:31:39.550Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "s13yh49tx6z1",
           "status": "resolved",
@@ -129,9 +142,9 @@
     {
       "id": "7cnl777wp9qz",
       "name": "Issues with network routing for Mac jobs",
-      "status": "investigating",
+      "status": "monitoring",
       "created_at": "2026-07-13T21:52:02.888Z",
-      "updated_at": "2026-07-14T20:18:56.279Z",
+      "updated_at": "2026-07-14T22:15:51.910Z",
       "monitoring_at": "2026-07-13T23:35:24.593Z",
       "resolved_at": null,
       "impact": "minor",
@@ -139,6 +152,26 @@
       "started_at": "2026-07-13T21:52:02.877Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "c1m5bspmmqc8",
+          "status": "monitoring",
+          "body": "Our Mac infrastructure provider has shifted more traffic to working network providers and we're starting to see significant recovery again in VCS fetch times. As always, our engineering team will continue to monitor this closely and we'll provide another update soon.",
+          "incident_id": "7cnl777wp9qz",
+          "created_at": "2026-07-14T22:15:51.903Z",
+          "updated_at": "2026-07-14T22:15:51.903Z",
+          "display_at": "2026-07-14T22:15:51.903Z",
+          "affected_components": [
+            {
+              "code": "bpfmy8wy8wq2",
+              "name": "macOS Jobs",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "6xzp6y5jkxg3",
           "status": "investigating",
