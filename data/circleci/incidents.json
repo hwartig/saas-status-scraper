@@ -4,9 +4,82 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-14T23:20:21.511Z"
+    "updated_at": "2026-07-15T00:39:03.421Z"
   },
   "incidents": [
+    {
+      "id": "rfz5wdpg2nl0",
+      "name": "Delays starting jobs on Docker (Gen 2) resource classes",
+      "status": "resolved",
+      "created_at": "2026-07-14T22:54:42.726Z",
+      "updated_at": "2026-07-15T00:32:55.560Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-07-15T00:32:55.545Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/0t40l14n15yl",
+      "started_at": "2026-07-14T22:54:42.719Z",
+      "page_id": "6w4r0ttlx5ft",
+      "incident_updates": [
+        {
+          "id": "g29zfzgsy8v1",
+          "status": "resolved",
+          "body": "On July 13 between 15:30 UTC and 22:40 UTC, we experienced delays starting jobs on Docker (Gen 2) resource classes due to capacity constraints from our cloud provider. The same issue recurred on July 14 between 15:45 UTC and 22:50 UTC.\n\nDelays reached up to 25 minutes on July 13 and up to 24 minutes on July 14. The medium+ and 2 X-large+ resource classes saw the longest waits. Earlier updates in this incident reported figures based on average wait times, which didn't reflect the maximum impact some customers may have experienced.\n\nWait times have now returned to normal. We are continuing to work with our cloud provider to add capacity ahead of the next peak period. Thank you for your patience.",
+          "incident_id": "rfz5wdpg2nl0",
+          "created_at": "2026-07-15T00:32:55.545Z",
+          "updated_at": "2026-07-15T00:32:55.545Z",
+          "display_at": "2026-07-15T00:32:55.545Z",
+          "affected_components": [
+            {
+              "code": "x1v3t5qrnlhk",
+              "name": "Docker Jobs",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "1kjfdzl4dk8s",
+          "status": "identified",
+          "body": "On July 13 between 15:30 UTC and 22:40 UTC, we experienced delays starting jobs on Docker (Gen 2) resource classes due to capacity constraints from our cloud provider. Delays reached up to approximately 1 minute 48 seconds.\n\nWe are continuing to experience these delays again since approximately 15:45 UTC. So far, delays have reached up to approximately 1 minute 19 seconds. \n\nWe are working with our cloud provider to add capacity and will update this incident as the situation changes.",
+          "incident_id": "rfz5wdpg2nl0",
+          "created_at": "2026-07-14T22:54:42.800Z",
+          "updated_at": "2026-07-14T22:54:42.800Z",
+          "display_at": "2026-07-14T22:54:42.800Z",
+          "affected_components": [
+            {
+              "code": "x1v3t5qrnlhk",
+              "name": "Docker Jobs",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "x1v3t5qrnlhk",
+          "name": "Docker Jobs",
+          "status": "operational",
+          "created_at": "2017-03-17T19:43:18.878Z",
+          "updated_at": "2026-07-15T00:32:55.515Z",
+          "position": 1,
+          "description": "CircleCI jobs using the docker executor.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "6w4r0ttlx5ft",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "7cnl777wp9qz",
       "name": "Issues with network routing for Mac jobs",
@@ -270,59 +343,6 @@
           "updated_at": "2026-07-14T23:18:34.880Z",
           "position": 3,
           "description": "CircleCI jobs using the macos executor.",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "6w4r0ttlx5ft",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "rfz5wdpg2nl0",
-      "name": "Delays starting jobs on Docker (Gen 2) resource classes",
-      "status": "identified",
-      "created_at": "2026-07-14T22:54:42.726Z",
-      "updated_at": "2026-07-14T22:54:42.802Z",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/0t40l14n15yl",
-      "started_at": "2026-07-14T22:54:42.719Z",
-      "page_id": "6w4r0ttlx5ft",
-      "incident_updates": [
-        {
-          "id": "1kjfdzl4dk8s",
-          "status": "identified",
-          "body": "On July 13 between 15:30 UTC and 22:40 UTC, we experienced delays starting jobs on Docker (Gen 2) resource classes due to capacity constraints from our cloud provider. Delays reached up to approximately 1 minute 48 seconds.\n\nWe are continuing to experience these delays again since approximately 15:45 UTC. So far, delays have reached up to approximately 1 minute 19 seconds. \n\nWe are working with our cloud provider to add capacity and will update this incident as the situation changes.",
-          "incident_id": "rfz5wdpg2nl0",
-          "created_at": "2026-07-14T22:54:42.800Z",
-          "updated_at": "2026-07-14T22:54:42.800Z",
-          "display_at": "2026-07-14T22:54:42.800Z",
-          "affected_components": [
-            {
-              "code": "x1v3t5qrnlhk",
-              "name": "Docker Jobs",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "x1v3t5qrnlhk",
-          "name": "Docker Jobs",
-          "status": "degraded_performance",
-          "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-07-14T22:54:42.759Z",
-          "position": 1,
-          "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
           "start_date": null,
           "group_id": null,
@@ -1379,9 +1399,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-07-14T22:54:42.759Z",
+          "updated_at": "2026-07-15T00:32:55.515Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -2056,9 +2076,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-07-14T22:54:42.759Z",
+          "updated_at": "2026-07-15T00:32:55.515Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -2604,9 +2624,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-07-14T22:54:42.759Z",
+          "updated_at": "2026-07-15T00:32:55.515Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -3932,9 +3952,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-07-14T22:54:42.759Z",
+          "updated_at": "2026-07-15T00:32:55.515Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -4456,9 +4476,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-07-14T22:54:42.759Z",
+          "updated_at": "2026-07-15T00:32:55.515Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -5741,9 +5761,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-07-14T22:54:42.759Z",
+          "updated_at": "2026-07-15T00:32:55.515Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
