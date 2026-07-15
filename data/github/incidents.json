@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-15T13:58:58.100Z"
+    "updated_at": "2026-07-15T19:04:11.798Z"
   },
   "incidents": [
     {
@@ -231,7 +231,7 @@
       "name": "Actions runs are experiencing failures to start",
       "status": "resolved",
       "created_at": "2026-07-13T13:32:22.192Z",
-      "updated_at": "2026-07-13T13:53:57.071Z",
+      "updated_at": "2026-07-15T18:24:55.267Z",
       "monitoring_at": "2026-07-13T13:39:27.250Z",
       "resolved_at": "2026-07-13T13:53:57.036Z",
       "impact": "major",
@@ -242,10 +242,10 @@
         {
           "id": "r7tq6xmbtq3c",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On July 13, 2026, between 13:11 and 13:53 UTC, some customers experienced failures starting and running GitHub Actions workflows, which also affected Copilot cloud agent sessions and GitHub Pages builds since they depend on Actions. During the peak of the incident, 30% of Actions jobs failed to start and 2% were delayed more than 5 minutes. <br /><br />The incident was triggered by a configuration change in an internal autoscaling component that contained outdated capacity threshold values. This caused a critical Actions service to scale below its required baseline, reducing capacity for workflow processing. We identified the regression, rolled back the change, and restored service capacity. New workflow executions recovered by 13:39 UTC. Full recovery was reached by 13:53 UTC after the queued backlog was drained. <br /><br />To prevent recurrence, we have added deployment guardrails to validate that autoscaling inputs are current and to detect drift between planned and live scaling state before autoscaling changes are applied.",
           "incident_id": "q27ttsnp0x4g",
           "created_at": "2026-07-13T13:53:57.036Z",
-          "updated_at": "2026-07-13T13:53:57.036Z",
+          "updated_at": "2026-07-15T18:24:55.260Z",
           "display_at": "2026-07-13T13:53:57.036Z",
           "affected_components": [
             {
