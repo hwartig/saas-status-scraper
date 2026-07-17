@@ -4,22 +4,82 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-16T23:29:04.289Z"
+    "updated_at": "2026-07-17T01:14:00.315Z"
   },
   "incidents": [
     {
       "id": "gxycch3076xk",
       "name": "Degraded REST API Availability",
-      "status": "investigating",
+      "status": "resolved",
       "created_at": "2026-07-16T22:51:13.727Z",
-      "updated_at": "2026-07-16T23:29:04.279Z",
-      "monitoring_at": null,
-      "resolved_at": null,
+      "updated_at": "2026-07-17T00:57:46.197Z",
+      "monitoring_at": "2026-07-17T00:00:47.214Z",
+      "resolved_at": "2026-07-17T00:14:08.536Z",
       "impact": "major",
       "shortlink": "https://stspg.io/pzvjh0wyg401",
       "started_at": "2026-07-16T22:51:13.718Z",
       "page_id": "kctbh9vrtdwd",
       "incident_updates": [
+        {
+          "id": "9gvxp7k8lb24",
+          "status": "resolved",
+          "body": "From 22:21 UTC - 23:50 UTC on July 16, 2026, the REST API experienced significant degradation.  During this period, about 39% of REST API requests failed with HTTP 500 level responses, with the errors peaking at 44.3%. <br /><br />We identified the issue as an infrastructure change that wrongly marked the majority of API backends in a single region as unhealthy.  As a result, requests routed to those backends failed before reaching the application layer.  <br /><br />To prevent this from happening again, we're improving our systems to catch this kind of invalid configuration before it reaches production. We'll also audit the related systems to make them more resilient to future changes, and we're increasing our monitoring sensitivity so we're alerted to problems like this sooner.",
+          "incident_id": "gxycch3076xk",
+          "created_at": "2026-07-17T00:14:08.536Z",
+          "updated_at": "2026-07-17T00:57:46.193Z",
+          "display_at": "2026-07-17T00:14:08.536Z",
+          "affected_components": [
+            {
+              "code": "brv1bkgrwx7q",
+              "name": "API Requests",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "bfqcpqr3lj6k",
+          "status": "monitoring",
+          "body": "As of 23:46 UTC, the REST API service is reachable and responding to requests normally.",
+          "incident_id": "gxycch3076xk",
+          "created_at": "2026-07-17T00:14:04.442Z",
+          "updated_at": "2026-07-17T00:14:04.442Z",
+          "display_at": "2026-07-17T00:14:04.442Z",
+          "affected_components": [
+            {
+              "code": "brv1bkgrwx7q",
+              "name": "API Requests",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "yg9myzx1z7l4",
+          "status": "monitoring",
+          "body": "The degradation affecting API Requests has been mitigated. We are monitoring to ensure stability.",
+          "incident_id": "gxycch3076xk",
+          "created_at": "2026-07-17T00:00:47.214Z",
+          "updated_at": "2026-07-17T00:00:47.214Z",
+          "display_at": "2026-07-17T00:00:47.214Z",
+          "affected_components": [
+            {
+              "code": "brv1bkgrwx7q",
+              "name": "API Requests",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "cjl9jkhpl4z3",
           "status": "investigating",
@@ -91,9 +151,9 @@
         {
           "id": "brv1bkgrwx7q",
           "name": "API Requests",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-01-31T20:01:46.621Z",
-          "updated_at": "2026-07-16T22:58:23.286Z",
+          "updated_at": "2026-07-17T00:00:47.178Z",
           "position": 4,
           "description": "Requests for GitHub APIs",
           "showcase": true,
@@ -3092,9 +3152,9 @@
         {
           "id": "brv1bkgrwx7q",
           "name": "API Requests",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-01-31T20:01:46.621Z",
-          "updated_at": "2026-07-16T22:58:23.286Z",
+          "updated_at": "2026-07-17T00:00:47.178Z",
           "position": 4,
           "description": "Requests for GitHub APIs",
           "showcase": true,
@@ -4698,9 +4758,9 @@
         {
           "id": "brv1bkgrwx7q",
           "name": "API Requests",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-01-31T20:01:46.621Z",
-          "updated_at": "2026-07-16T22:58:23.286Z",
+          "updated_at": "2026-07-17T00:00:47.178Z",
           "position": 4,
           "description": "Requests for GitHub APIs",
           "showcase": true,
