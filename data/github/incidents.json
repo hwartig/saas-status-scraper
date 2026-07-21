@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-21T09:14:06.560Z"
+    "updated_at": "2026-07-21T11:20:39.305Z"
   },
   "incidents": [
+    {
+      "id": "g40zcbvchny4",
+      "name": "Some SSH connections using deploy keys are failing",
+      "status": "investigating",
+      "created_at": "2026-07-21T10:31:44.123Z",
+      "updated_at": "2026-07-21T11:04:43.645Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/jczxclgm9znm",
+      "started_at": "2026-07-21T10:31:44.118Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "5h5hz3q1xk3m",
+          "status": "investigating",
+          "body": "We are investigating reports of intermittent SSH authentication failures affecting connections that use deploy keys. Customers may experience failed SSH connections when interacting with repositories via deploy keys. Our engineering team is actively investigating the root cause and working toward resolution.",
+          "incident_id": "g40zcbvchny4",
+          "created_at": "2026-07-21T11:04:43.642Z",
+          "updated_at": "2026-07-21T11:04:43.642Z",
+          "display_at": "2026-07-21T11:04:43.642Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "qb0gklk516dl",
+          "status": "investigating",
+          "body": "We are investigating reports of impacted performance for some GitHub services.",
+          "incident_id": "g40zcbvchny4",
+          "created_at": "2026-07-21T10:31:44.156Z",
+          "updated_at": "2026-07-21T10:31:44.156Z",
+          "display_at": "2026-07-21T10:31:44.156Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "fd7j2mw8xw94",
       "name": "Disruption with GPT 5.3 Codex",
@@ -1178,7 +1221,7 @@
       "name": "Disruption with some GitHub services",
       "status": "resolved",
       "created_at": "2026-07-16T09:13:51.604Z",
-      "updated_at": "2026-07-16T12:20:56.453Z",
+      "updated_at": "2026-07-21T09:50:38.354Z",
       "monitoring_at": "2026-07-16T09:30:47.310Z",
       "resolved_at": "2026-07-16T12:20:56.418Z",
       "impact": "critical",
@@ -1189,10 +1232,10 @@
         {
           "id": "fmg02pz6lb8p",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On July 16, 2026, between 08:50 UTC and 09:50 UTC, the GitHub MCP Server’s web_search tool experienced elevated failures. The average error rate was 42% and peaked at 82% of requests to the tool. Other GitHub MCP Server tools were unaffected. This was caused by degradation at a downstream web search provider.<br /><br />The incident was mitigated when the downstream provider recovered, after which we confirmed that the tool’s success rate had returned to normal.<br /><br />We are improving the tool’s resilience and failure handling to reduce the customer impact and duration of similar incidents.",
           "incident_id": "d35pngcy6sb9",
           "created_at": "2026-07-16T12:20:56.418Z",
-          "updated_at": "2026-07-16T12:20:56.418Z",
+          "updated_at": "2026-07-21T09:50:38.348Z",
           "display_at": "2026-07-16T12:20:56.418Z",
           "affected_components": null,
           "deliver_notifications": true,
@@ -6760,296 +6803,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "z3jhyg3l0dvx",
-      "name": "Incident with CodeQL, Webhooks, Notifications, and Slack Integration",
-      "status": "resolved",
-      "created_at": "2026-05-12T14:38:14.000Z",
-      "updated_at": "2026-05-21T20:10:02.627Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-05-12T17:43:32.963Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/rpk8yxmh6tyd",
-      "started_at": "2026-05-12T14:38:14.000Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "9y6vgw3h21kk",
-          "status": "resolved",
-          "body": "On May 12, 2026, between 13:41 and 17:43 UTC, some services experienced delays in processing. For the Code Scanning service, 53% of check runs took over 15 minutes to complete. Additionally, notifications took an average of 22 minutes to be delivered and Slack integration webhooks took an average of 20 minutes to be delivered. The delays were caused by replication lag due to an internal database migration, resulting in insufficient worker capacity for our high rate of job enqueues. <br /><br />We mitigated the impact by scaling our processing workers to handle the increased load. All services returned to normal processing times after the mitigation was applied. <br /><br />We are working to create dedicated worker pools for some of our high usage shared queues to help prevent this in the future.",
-          "incident_id": "z3jhyg3l0dvx",
-          "created_at": "2026-05-12T17:43:32.963Z",
-          "updated_at": "2026-05-21T20:10:02.622Z",
-          "display_at": "2026-05-12T17:43:32.963Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l18kbr56j591",
-          "status": "investigating",
-          "body": "All services have fully recovered.",
-          "incident_id": "z3jhyg3l0dvx",
-          "created_at": "2026-05-12T17:43:26.736Z",
-          "updated_at": "2026-05-12T17:43:26.736Z",
-          "display_at": "2026-05-12T17:43:26.736Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "24rwcfdw0pz9",
-          "status": "investigating",
-          "body": "CodeQL has fully recovered. We're continuing to work on recovery for the remaining impacted services.",
-          "incident_id": "z3jhyg3l0dvx",
-          "created_at": "2026-05-12T16:59:58.033Z",
-          "updated_at": "2026-05-12T16:59:58.033Z",
-          "display_at": "2026-05-12T16:59:58.033Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9p19zt1hvvsr",
-          "status": "investigating",
-          "body": "Webhooks have fully recovered. Continuing to work on recovery for the other services.",
-          "incident_id": "z3jhyg3l0dvx",
-          "created_at": "2026-05-12T16:29:23.426Z",
-          "updated_at": "2026-05-12T16:29:23.426Z",
-          "display_at": "2026-05-12T16:29:23.426Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "w6lptztxg208",
-          "status": "investigating",
-          "body": "Webhooks is operating normally.",
-          "incident_id": "z3jhyg3l0dvx",
-          "created_at": "2026-05-12T16:28:53.724Z",
-          "updated_at": "2026-05-12T16:28:53.724Z",
-          "display_at": "2026-05-12T16:28:53.724Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "b03227nhjrpr",
-          "status": "investigating",
-          "body": "We've established that most delays are related to a queuing service and are working to scale out. Early signals from the scale-out are showing signs of recovery for some services. We'll provide an update when services are fully recovered.",
-          "incident_id": "z3jhyg3l0dvx",
-          "created_at": "2026-05-12T16:18:49.335Z",
-          "updated_at": "2026-05-12T16:18:49.335Z",
-          "display_at": "2026-05-12T16:18:49.335Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "db9dqhkcjgdb",
-          "status": "investigating",
-          "body": "Webhooks is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "z3jhyg3l0dvx",
-          "created_at": "2026-05-12T15:44:44.573Z",
-          "updated_at": "2026-05-12T15:44:44.573Z",
-          "display_at": "2026-05-12T15:44:44.573Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "jq5tvb33svg0",
-          "status": "investigating",
-          "body": "We're continuing to investigate issues with CodeQL actions workflows. We're additionally seeing delays for notifications, webhooks, and the Slack integration.",
-          "incident_id": "z3jhyg3l0dvx",
-          "created_at": "2026-05-12T15:42:52.456Z",
-          "updated_at": "2026-05-12T15:42:52.456Z",
-          "display_at": "2026-05-12T15:42:52.456Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "scz7hclhh6ds",
-          "status": "investigating",
-          "body": "CodeQL actions are currently experiencing delays, which may result in those actions being stuck in a pending state or having failed due to a timeout.",
-          "incident_id": "z3jhyg3l0dvx",
-          "created_at": "2026-05-12T15:13:26.045Z",
-          "updated_at": "2026-05-12T15:13:26.045Z",
-          "display_at": "2026-05-12T15:13:26.045Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fhjss05nwyl0",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for CodeQL",
-          "incident_id": "z3jhyg3l0dvx",
-          "created_at": "2026-05-12T14:38:14.686Z",
-          "updated_at": "2026-05-12T14:44:24.257Z",
-          "display_at": "2026-05-12T14:38:14.000Z",
-          "affected_components": [
-            {
-              "code": "br0l2tvcx85d",
-              "name": "Actions",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "4230lsnqdsld",
-          "name": "Webhooks",
-          "status": "operational",
-          "created_at": "2019-11-13T18:00:24.256Z",
-          "updated_at": "2026-07-14T17:55:50.549Z",
-          "position": 2,
-          "description": "Real time HTTP callbacks of user-generated and system events",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "br0l2tvcx85d",
-          "name": "Actions",
-          "status": "operational",
-          "created_at": "2019-11-13T18:02:19.432Z",
-          "updated_at": "2026-07-20T03:34:48.498Z",
-          "position": 7,
-          "description": "Workflows, Compute and Orchestration for GitHub Actions",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
