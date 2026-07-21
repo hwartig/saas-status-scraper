@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-21T19:44:44.219Z"
+    "updated_at": "2026-07-21T21:18:57.916Z"
   },
   "incidents": [
     {
@@ -1316,7 +1316,7 @@
       "name": "Incident with Webhooks",
       "status": "resolved",
       "created_at": "2026-07-14T17:38:28.550Z",
-      "updated_at": "2026-07-14T18:01:57.888Z",
+      "updated_at": "2026-07-21T21:00:26.599Z",
       "monitoring_at": "2026-07-14T17:55:50.642Z",
       "resolved_at": "2026-07-14T18:01:57.859Z",
       "impact": "minor",
@@ -1327,10 +1327,10 @@
         {
           "id": "t1sr8dlj6wh9",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On July 14, 2026, between 15:17 and 15:37 UTC, a rollout to GitHub's internal webhook delivery pipeline caused a subset of webhook delivery records to not be written to our webhook deliveries store after being processed and delivered successfully. Affected deliveries would be missing from the webhook delivery UI and API and won’t be available for redelivery. <br /><br />The root cause was an uncoordinated rollout: a change to how delivery records are handed off between pipeline components was deployed before the upstream components producing those records were updated to match. While the rollout was in progress, affected records were silently skipped rather than persisted, with no automatic retry. The impact ended as soon as the rollout was completed. <br /><br />About 2.4M delivery records were skipped (approximately 4% of the 20-minute impact window, 0.04% of a typical 24-hour period). Importantly, 95% of these deliveries reached customer endpoints successfully, only the record of the delivery is missing. Of the ~5% that failed to reach customer endpoints, only ~1.4% (5,463) map to webhooks that retried their deliveries in the past 28 days. <br /><br />To prevent recurrence, we are making delivery persistence safe-by-default, adding alert on drops in the persisted-delivery rate, and tightening rollout coordination for changes that span multiple components in the pipeline.",
           "incident_id": "ydpk76bj34z8",
           "created_at": "2026-07-14T18:01:57.859Z",
-          "updated_at": "2026-07-14T18:01:57.859Z",
+          "updated_at": "2026-07-21T21:00:26.594Z",
           "display_at": "2026-07-14T18:01:57.859Z",
           "affected_components": [
             {
