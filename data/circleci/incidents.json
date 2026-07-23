@@ -4,7 +4,7 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-23T19:59:18.553Z"
+    "updated_at": "2026-07-23T21:10:52.595Z"
   },
   "incidents": [
     {
@@ -216,9 +216,9 @@
     {
       "id": "9lvbbbs9l87b",
       "name": "Errors with GitHub APIs delaying workflows",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-07-20T00:35:59.020Z",
-      "updated_at": "2026-07-20T01:45:35.939Z",
+      "updated_at": "2026-07-23T21:10:52.591Z",
       "monitoring_at": "2026-07-20T01:36:34.590Z",
       "resolved_at": "2026-07-20T01:45:35.921Z",
       "impact": "minor",
@@ -226,6 +226,19 @@
       "started_at": "2026-07-20T00:35:59.007Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "918fpmwdrv2b",
+          "status": "postmortem",
+          "body": "## Summary\n\nOn July 20, 2026 from 00:22 to 01:45 UTC, CircleCI customers using our GitHub integrations experienced failures running pipelines and experienced workflows getting stuck. During this incident, some pipelines triggered by users using GitHub failed to start or ran as error pipelines. Customers whose pipelines failed or ran as error pipelines during this window should re-run them.\n\nThis was caused by an [upstream API degradation at GitHub](https://www.githubstatus.com/incidents/ph5nns5y4gxj), which impacted many GitHub APIs that CircleCI uses to trigger and run pipelines.\n\nBy 01:45 UTC, GitHub APIs recovered, and customer pipelines ran normally.\n\nThe original CircleCI status page can be found [here](https://status.circleci.com/incidents/9lvbbbs9l87b). \n\n## What Happened\n\n\\(all times UTC\\)\n\nBeginning 00:22 on July 20, 2026, GitHub began returning elevated errors for the following API requests:\n\n* `applications/*/token`\n* `repos/*/commits`\n* `repos/*/*/contents/*`\n* `repos/*/*/hooks`\n* `repos/*/*/hooks/*`\n* `repos/*/*/keys`\n* `repos/*/*/pulls`\n* `repos/*/*/statuses/*`\n\nCircleCI relies on these requests to correctly trigger and run pipelines.\n\nAt 00:22, our internal monitoring alerted us to the problem. Our team began investigating, and found that a small number of pipelines belonging to GitHub projects either failed to start or ran as error pipelines. This included scheduled pipelines and workflows. In addition, a small number of customer workflows experienced stuck jobs and required a re-run of the workflow to fix.\n\nAt 01:45, GitHub recovered and pipeline processing returned to normal operating levels. Only pipelines triggered during the incident window were affected, and customers should re-run those pipelines.\n\n## Future Prevention and Process Improvement\n\nWe are actively working to improve the resilience of pipeline processing during GitHub service disruptions to reduce the customer impact of similar incidents in the future. We are scoping features that will help customers recover with reduced manual steps after incidents resolve.\n\nCustomer experience is our top priority, and we commit to continually improving the reliability of our systems to match the trust that our customers place in us. Please reach out to our support team with any questions or concerns.",
+          "incident_id": "9lvbbbs9l87b",
+          "created_at": "2026-07-23T21:10:02.964Z",
+          "updated_at": "2026-07-23T21:10:52.588Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "qmtt4dyxvrth",
           "status": "resolved",
