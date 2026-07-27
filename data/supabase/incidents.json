@@ -4,22 +4,42 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-27T19:01:18.559Z"
+    "updated_at": "2026-07-27T20:47:01.368Z"
   },
   "incidents": [
     {
       "id": "79r5t79bj15y",
       "name": "Project Resize Problems in US-West-2",
-      "status": "monitoring",
+      "status": "resolved",
       "created_at": "2026-07-27T17:42:27.756Z",
-      "updated_at": "2026-07-27T19:01:18.557Z",
+      "updated_at": "2026-07-27T20:47:01.366Z",
       "monitoring_at": "2026-07-27T19:01:18.544Z",
-      "resolved_at": null,
+      "resolved_at": "2026-07-27T20:47:01.347Z",
       "impact": "major",
       "shortlink": "https://stspg.io/m4xm198ksyf6",
       "started_at": "2026-07-27T17:42:27.750Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "267jpjcpbhfq",
+          "status": "resolved",
+          "body": "Project resizing has maintained expected performance in us-west-2.",
+          "incident_id": "79r5t79bj15y",
+          "created_at": "2026-07-27T20:47:01.347Z",
+          "updated_at": "2026-07-27T20:47:01.347Z",
+          "display_at": "2026-07-27T20:47:01.347Z",
+          "affected_components": [
+            {
+              "code": "psf6vmblbsvf",
+              "name": "Compute capacity - us-west-2",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "wg1w2l0myc7x",
           "status": "monitoring",
@@ -106,6 +126,106 @@
           "showcase": true,
           "start_date": "2026-07-27",
           "group_id": "36n3k66s7n2v",
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "ms53dzxm1gtl",
+      "name": "Delays in creation of DNS records",
+      "status": "identified",
+      "created_at": "2026-07-27T20:34:54.405Z",
+      "updated_at": "2026-07-27T20:39:48.266Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/ppxcrhg4bdfv",
+      "started_at": "2026-07-27T20:34:54.395Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "lg7wt45m55bk",
+          "status": "identified",
+          "body": "We have identified the cause of delays in DNS records creation and are actively working on a fix. We will continue to provide updates as things progress.",
+          "incident_id": "ms53dzxm1gtl",
+          "created_at": "2026-07-27T20:39:48.263Z",
+          "updated_at": "2026-07-27T20:39:48.263Z",
+          "display_at": "2026-07-27T20:39:48.263Z",
+          "affected_components": [
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "43453sylqk7v",
+              "name": "API Gateway",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "03nxc8grd9zm",
+          "status": "investigating",
+          "body": "We are investigating failures in provisioning DNS records for projects, there may be delays in creation of DNS records for new or unpaused projects.",
+          "incident_id": "ms53dzxm1gtl",
+          "created_at": "2026-07-27T20:34:54.460Z",
+          "updated_at": "2026-07-27T20:34:54.460Z",
+          "display_at": "2026-07-27T20:34:54.460Z",
+          "affected_components": [
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "43453sylqk7v",
+              "name": "API Gateway",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "43453sylqk7v",
+          "name": "API Gateway",
+          "status": "operational",
+          "created_at": "2024-05-02T07:20:18.177Z",
+          "updated_at": "2026-06-17T17:07:57.242Z",
+          "position": 3,
+          "description": "API Gateway for all Supabase Products",
+          "showcase": true,
+          "start_date": "2024-05-02",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "yz6pcnlscwpb",
+          "name": "Database",
+          "status": "operational",
+          "created_at": "2024-05-02T07:14:49.000Z",
+          "updated_at": "2026-07-17T20:21:37.649Z",
+          "position": 7,
+          "description": "The Postgres database and the REST Data APIs powered by PostgREST",
+          "showcase": true,
+          "start_date": "2024-05-02",
+          "group_id": null,
           "page_id": "q7pxfmcf2sbx",
           "group": false,
           "only_show_if_degraded": false
@@ -8393,36 +8513,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "2t3nn82wxj97",
-      "name": "Inadvertently disabled pg_graphql for some projects",
-      "status": "resolved",
-      "created_at": "2026-04-26T17:52:09.000Z",
-      "updated_at": "2026-04-29T17:52:45.049Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-04-26T17:52:09.000Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/nvh7xrhybk66",
-      "started_at": "2026-04-26T17:52:09.000Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "2bbjtcfhv662",
-          "status": "resolved",
-          "body": "A modification to existing projects was deployed due to the recently communicated Data API and pg_graphql changes. https://github.com/orgs/supabase/discussions/45329\n\nThis modification was supposed to disable pg_graphql for projects that had not seen usage in the last 30 days. Due to a misconfiguration, this targeted more projects than intended.\n\nWe are deeply sorry for the inconvenience and have since addressed the issue.\n\nFor those using pg_graphql actively, you may have seen pg_graphql extension is not enabled in the logs for your project and you can safely re-enable this.\n\nIf you have been impacted, or you are unable to re-enable pg_graphql, please contact success@supabase.io",
-          "incident_id": "2t3nn82wxj97",
-          "created_at": "2026-04-29T17:52:09.422Z",
-          "updated_at": "2026-04-29T17:52:44.940Z",
-          "display_at": "2026-04-26T17:52:09.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
