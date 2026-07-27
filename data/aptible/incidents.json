@@ -4,9 +4,39 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2026-07-27T03:09:09.214-04:00"
+    "updated_at": "2026-07-27T06:31:04.516-04:00"
   },
   "incidents": [
+    {
+      "id": "kl1vsw52898g",
+      "name": "Operation failures due to AWS Outage",
+      "status": "investigating",
+      "created_at": "2026-07-27T06:31:04.452-04:00",
+      "updated_at": "2026-07-27T06:31:04.512-04:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/yhdbrjtcvdry",
+      "started_at": "2026-07-27T06:31:04.443-04:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "vz9824q7l0b2",
+          "status": "investigating",
+          "body": "AWS is experiencing an issue with their APIs in us-east-1, and many services are impacted at this time. This may lead to failed operations. \n\nTo avoid further issues, we have disabled operations in this region while we understand the full impact.",
+          "incident_id": "kl1vsw52898g",
+          "created_at": "2026-07-27T06:31:04.508-04:00",
+          "updated_at": "2026-07-27T06:31:04.508-04:00",
+          "display_at": "2026-07-27T06:31:04.508-04:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "kscdf70lp1q8",
       "name": "Delayed and Timed-out requests to the Aptible LLM Gateway",
@@ -3746,75 +3776,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "qlwm4yvssmgq",
-      "name": "Metric Drains Interrupted for Some Dedicated Stacks",
-      "status": "postmortem",
-      "created_at": "2023-06-21T11:28:11.622-04:00",
-      "updated_at": "2023-07-12T20:04:09.070-04:00",
-      "monitoring_at": "2023-06-21T11:57:19.543-04:00",
-      "resolved_at": "2023-06-21T15:34:27.614-04:00",
-      "impact": "none",
-      "shortlink": "https://stspg.io/xbg9syxmcycv",
-      "started_at": "2023-06-21T11:28:11.614-04:00",
-      "page_id": "fmwgqnbnbc4r",
-      "incident_updates": [
-        {
-          "id": "47bk7qp2b3hn",
-          "status": "postmortem",
-          "body": "# Incident Postmortem: Metric Drains Interrupted for Some Dedicated Stacks\n\n## Executive Summary\n\nOn June 20, 2023, our platform experienced a service degradation incident for Metric Drains while rolling out a new feature for Metric Drains. This was due to unexpected side effects of a new internal utility used to deploy the feature. Some of our customers experienced interruptions in their metric drains during this incident. All issues were subsequently addressed, and service has been fully restored.\n\n## Detailed Incident Description\n\nConfiguration Change Initiation: The rollout of the change relied on a two-step configuration process to update the software for the metric drain emitter and aggregator components within each dedicated stack. This process was initiated using a new utility that had been successfully deployed in the past but not at the scale required for this rollout.\n\nUtility Timeouts and Delays: During the rollout, the configuration utility started experiencing cascading timeouts as operations queued with increasing delays in executing the configuration changes. During this period of delay in having configuration uniformly updated for the rollout, this caused some customer stacks to be only partially configured for the updated metric drain software.\n\nCustomer Impact: A small number of customers who were deploying or scaling services during this period had their metric drains interrupted due to the aforementioned configuration issues.\n\nResolution: Our team immediately worked on fixing the configuration issues. By 16:24 EDT, we successfully restored the configuration state for the affected customers, and the service was resumed to its regular state.\n\nFollow-up Audit: On the following morning of June 21, a follow-up audit revealed that two additional customers still needed configuration updates for their metric drains. We immediately addressed these issues.\n\n## Root Cause Analysis\n\nThe root cause of this issue was a combination of the increased scale of the rollout and the relative novelty of the utility used for the configuration changes. Although this utility had performed successfully under previous workloads, it did not sufficiently scale to handle the increased demand of this particular rollout.\n\n## Lessons Learned and Preventative Measures\n\nTesting Deployment Tools at Scale: testing new deployment tools and utilities under maximum practical loads is crucial to ensure they can handle expected full-scope workloads without disruption.\n\nAudit Processes: Though our follow-up audit process effectively identified additional affected customers, we will make such audits more timely to catch any lingering issues sooner.\n\nWe sincerely apologize for any inconvenience caused to our customers during this incident. We take this issue seriously and are committed to ensuring that such incidents do not occur in the future.",
-          "incident_id": "qlwm4yvssmgq",
-          "created_at": "2023-07-11T12:08:20.519-04:00",
-          "updated_at": "2023-07-12T20:04:09.068-04:00",
-          "display_at": null,
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": "We published a postmortem on our June 21st incident: https://stspg.io/xbg9syxmcycv",
-          "tweet_id": null
-        },
-        {
-          "id": "19xdl7np1jd1",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "qlwm4yvssmgq",
-          "created_at": "2023-06-21T15:34:27.614-04:00",
-          "updated_at": "2023-06-21T15:34:28.483-04:00",
-          "display_at": "2023-06-21T15:34:27.614-04:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1671602502624755715
-        },
-        {
-          "id": "64j5hb72k7h1",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "qlwm4yvssmgq",
-          "created_at": "2023-06-21T11:57:19.543-04:00",
-          "updated_at": "2023-06-21T11:57:20.258-04:00",
-          "display_at": "2023-06-21T11:57:19.543-04:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1671547858984775681
-        },
-        {
-          "id": "lg2gyj9cjr2j",
-          "status": "identified",
-          "body": "Related to the 6/20 incident, some customers on Dedicated Stacks are seeing a continued disruption to their Metric Drains. We are implementing a fix for those customers/stacks and will follow up via support tickets to affected customers.",
-          "incident_id": "qlwm4yvssmgq",
-          "created_at": "2023-06-21T11:28:11.667-04:00",
-          "updated_at": "2023-06-21T11:28:12.541-04:00",
-          "display_at": "2023-06-21T11:28:11.667-04:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1671540528603860996
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
