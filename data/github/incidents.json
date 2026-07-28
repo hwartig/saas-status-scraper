@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-28T09:14:16.853Z"
+    "updated_at": "2026-07-28T12:57:04.769Z"
   },
   "incidents": [
     {
@@ -2832,7 +2832,7 @@
       "name": "Disruption with some GitHub services",
       "status": "resolved",
       "created_at": "2026-07-20T00:25:09.568Z",
-      "updated_at": "2026-07-20T01:46:02.476Z",
+      "updated_at": "2026-07-28T12:29:35.546Z",
       "monitoring_at": "2026-07-20T00:25:49.712Z",
       "resolved_at": "2026-07-20T01:46:02.453Z",
       "impact": "major",
@@ -2843,10 +2843,10 @@
         {
           "id": "rvwm44wflpgn",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between July 19, 2026, at 23:05 UTC and July 20, 2026, at 03:55 UTC, Actions self-hosted and larger runners were unable to connect to GitHub. During this period, Actions jobs were delayed or failed when trying to acquire a runner. Jobs using standard and Mac hosted runners were not affected. Reconnection traffic from affected runners also increased load on GitHub APIs, resulting in 3-4 seconds of additional average request latency and elevated 5xx error rates.<br /><br />The incident was caused by a certificate lifecycle management failure in a subset of internal services, resulting in an SSL certificate expiration that disrupted runner connectivity. We restored service by rotating the affected certificate. Recovery began at 02:45 UTC. By 03:55 UTC, queued workflow backlog had been processed and workflow delay rates returned to normal.<br /><br />To prevent recurrence, we are strengthening certificate renewal automation, adding fallback expiry monitoring and alerting, and improving circuit-breaker protections during runner API disruptions to reduce the risk of cascading impact to other APIs.",
           "incident_id": "ph5nns5y4gxj",
           "created_at": "2026-07-20T01:46:02.453Z",
-          "updated_at": "2026-07-20T01:46:02.453Z",
+          "updated_at": "2026-07-28T12:29:35.539Z",
           "display_at": "2026-07-20T01:46:02.453Z",
           "affected_components": null,
           "deliver_notifications": true,
