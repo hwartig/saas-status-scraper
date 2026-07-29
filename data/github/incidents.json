@@ -4,9 +4,102 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-29T17:54:13.255Z"
+    "updated_at": "2026-07-29T20:18:18.942Z"
   },
   "incidents": [
+    {
+      "id": "dsrfymph7my0",
+      "name": "Incident with Copilot AI Model Providers",
+      "status": "investigating",
+      "created_at": "2026-07-29T20:07:07.951Z",
+      "updated_at": "2026-07-29T20:18:18.932Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/tdw1hjz3lj91",
+      "started_at": "2026-07-29T20:07:07.943Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "bq6y57pgphv2",
+          "status": "investigating",
+          "body": "We are investigating increased error rates affecting GitHub Copilot requests to external AI model providers. Some users may experience failures or degraded performance when using Copilot features.",
+          "incident_id": "dsrfymph7my0",
+          "created_at": "2026-07-29T20:18:18.929Z",
+          "updated_at": "2026-07-29T20:18:18.929Z",
+          "display_at": "2026-07-29T20:18:18.929Z",
+          "affected_components": [
+            {
+              "code": "cnnb39dkkk82",
+              "name": "Copilot AI Model Providers",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "bkltx66r5kcb",
+          "status": "investigating",
+          "body": "We are seeing increased error rates with requests to specific model providers.",
+          "incident_id": "dsrfymph7my0",
+          "created_at": "2026-07-29T20:07:43.768Z",
+          "updated_at": "2026-07-29T20:07:43.768Z",
+          "display_at": "2026-07-29T20:07:43.768Z",
+          "affected_components": [
+            {
+              "code": "cnnb39dkkk82",
+              "name": "Copilot AI Model Providers",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "dmzmfzw096mt",
+          "status": "investigating",
+          "body": "We are investigating reports of degraded performance for Copilot AI Model Providers",
+          "incident_id": "dsrfymph7my0",
+          "created_at": "2026-07-29T20:07:08.018Z",
+          "updated_at": "2026-07-29T20:07:08.018Z",
+          "display_at": "2026-07-29T20:07:08.018Z",
+          "affected_components": [
+            {
+              "code": "cnnb39dkkk82",
+              "name": "Copilot AI Model Providers",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "cnnb39dkkk82",
+          "name": "Copilot AI Model Providers",
+          "status": "degraded_performance",
+          "created_at": "2026-04-17T12:33:08.827Z",
+          "updated_at": "2026-07-29T20:07:07.987Z",
+          "position": 12,
+          "description": null,
+          "showcase": true,
+          "start_date": "2026-04-17",
+          "group_id": null,
+          "page_id": "kctbh9vrtdwd",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "75g5xmzptjqb",
       "name": "Incident with Actions",
@@ -464,9 +557,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-07-25T10:04:39.566Z",
+          "updated_at": "2026-07-29T20:07:07.987Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -597,7 +690,7 @@
       "name": "Incident with Pull Requests",
       "status": "resolved",
       "created_at": "2026-07-24T19:37:28.079Z",
-      "updated_at": "2026-07-24T20:23:10.336Z",
+      "updated_at": "2026-07-29T19:49:41.102Z",
       "monitoring_at": "2026-07-24T20:02:39.236Z",
       "resolved_at": "2026-07-24T20:23:10.319Z",
       "impact": "critical",
@@ -608,10 +701,10 @@
         {
           "id": "h51gbgc5m5zz",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between July 24, 19:17 UTC and July 24, 20:02 UTC, users were unable to create pull requests due to a database schema change. In total, 113,930 pull request creation attempts were impacted across 50,904 users, with an average error rate of 1.75% and a maximum error rate of 2.25% for all requests to Pull Requests service. Existing pull requests and other GitHub functionality were not affected. The issue was resolved by reverting the change to the affected database, upon which pull request creation immediately resumed.<br /><br />The root cause was related to a backfill workflow into the Vitess keyspace hosting Pull Request data. The backfill Vitess command encountered errors and increased VReplication lag, and the workflow was canceled at 19:17 UTC. The cancellation executed a misunderstood Vitess codepath that dropped the backing table to the target keyspace, leaving a non-existent reference that resulted in errors creating Pull Requests. The mitigation was executing a command to drop the vschema reference to the dropped table, allowing Pull Request creation to resume.<br /><br />We are adding stronger pre-flight validation to our tooling to prevent similar issues and expanding lower-environment support to provide better test coverage end-to-end before promoting them to production. We're also fixing our backfill migration tooling to protect from this specific codepath.",
           "incident_id": "jxd617hfwfq8",
           "created_at": "2026-07-24T20:23:10.319Z",
-          "updated_at": "2026-07-24T20:23:10.319Z",
+          "updated_at": "2026-07-29T19:49:41.096Z",
           "display_at": "2026-07-24T20:23:10.319Z",
           "affected_components": [
             {
@@ -2070,7 +2163,7 @@
       "name": "Disruption with GPT 5.3 Codex",
       "status": "resolved",
       "created_at": "2026-07-20T16:03:51.187Z",
-      "updated_at": "2026-07-20T18:37:08.036Z",
+      "updated_at": "2026-07-29T20:18:05.126Z",
       "monitoring_at": null,
       "resolved_at": "2026-07-20T18:37:08.022Z",
       "impact": "minor",
@@ -2081,10 +2174,10 @@
         {
           "id": "gd7fy9kr96rr",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between 06:39 and 18:11 UTC on July 20, 2026, the Copilot service experienced a degradation of the GPT 5.3 model due to an issue with our upstream provider. The upstream model provider returned intermittent errors for GPT 5.3 Codex requests, which caused some responses to fail. Auto mode requests that had selected GPT 5.3 Codex were also impacted. On average about 2% of GPT 5.3 Codex requests failed during this window. Copilot automatically routed eligible traffic away from the impacted provider to reduce customer impact. No other models were impacted.<br /><br />We worked with the upstream provider throughout the incident and confirmed sustained recovery before resolving.",
           "incident_id": "fd7j2mw8xw94",
           "created_at": "2026-07-20T18:37:08.022Z",
-          "updated_at": "2026-07-20T18:37:08.022Z",
+          "updated_at": "2026-07-29T20:18:05.121Z",
           "display_at": "2026-07-20T18:37:08.022Z",
           "affected_components": [
             {
@@ -2203,9 +2296,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-07-25T10:04:39.566Z",
+          "updated_at": "2026-07-29T20:07:07.987Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -3216,9 +3309,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-07-25T10:04:39.566Z",
+          "updated_at": "2026-07-29T20:07:07.987Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -5535,9 +5628,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-07-25T10:04:39.566Z",
+          "updated_at": "2026-07-29T20:07:07.987Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -6282,9 +6375,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-07-25T10:04:39.566Z",
+          "updated_at": "2026-07-29T20:07:07.987Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -7488,99 +7581,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "f3kmjlk25vhd",
-      "name": "Webhook APIs and UI Degraded",
-      "status": "resolved",
-      "created_at": "2026-05-28T01:13:30.907Z",
-      "updated_at": "2026-06-04T15:58:07.348Z",
-      "monitoring_at": "2026-05-28T01:27:22.117Z",
-      "resolved_at": "2026-05-28T01:32:27.735Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/b3pmwnvwf3my",
-      "started_at": "2026-05-28T01:13:30.895Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "7jwkwfwwmzm7",
-          "status": "resolved",
-          "body": "On May 28, 2026, between 00:54 UTC and 01:19 UTC, some users experienced errors when interacting with the Webhooks API, including webhook delivery history and configuration endpoints. On average, the error rate was 0.28% and peaked at 0.45%. This was due to a bug that caused a single Kubernetes pod to enter a CrashLoopBackOff after receiving a 500 with an empty response body from Cosmos DB.<br /><br />We mitigated the incident by restarting the service. To prevent future incidents, we are pushing a change to handle this response scenario from Cosmos DB appropriately.",
-          "incident_id": "f3kmjlk25vhd",
-          "created_at": "2026-05-28T01:32:27.735Z",
-          "updated_at": "2026-06-04T15:58:07.336Z",
-          "display_at": "2026-05-28T01:32:27.735Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "33bs9pyxs67d",
-          "status": "monitoring",
-          "body": "The degradation affecting Webhooks has been mitigated. We are monitoring to ensure stability.",
-          "incident_id": "f3kmjlk25vhd",
-          "created_at": "2026-05-28T01:27:22.117Z",
-          "updated_at": "2026-05-28T01:27:22.117Z",
-          "display_at": "2026-05-28T01:27:22.117Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "y6srympfkjrs",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Webhooks",
-          "incident_id": "f3kmjlk25vhd",
-          "created_at": "2026-05-28T01:13:31.001Z",
-          "updated_at": "2026-05-28T01:13:31.001Z",
-          "display_at": "2026-05-28T01:13:31.001Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "4230lsnqdsld",
-          "name": "Webhooks",
-          "status": "operational",
-          "created_at": "2019-11-13T18:00:24.256Z",
-          "updated_at": "2026-07-23T09:35:17.925Z",
-          "position": 2,
-          "description": "Real time HTTP callbacks of user-generated and system events",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]

@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-07-29T10:54:01.140-07:00"
+    "updated_at": "2026-07-29T13:12:41.411-07:00"
   },
   "incidents": [
     {
@@ -497,7 +497,7 @@
       "name": "[Medium] Issues with Box Relay",
       "status": "postmortem",
       "created_at": "2026-07-14T21:14:09.557-07:00",
-      "updated_at": "2026-07-19T16:53:33.644-07:00",
+      "updated_at": "2026-07-29T12:49:45.348-07:00",
       "monitoring_at": "2026-07-14T23:32:22.202-07:00",
       "resolved_at": "2026-07-14T23:43:22.021-07:00",
       "impact": "major",
@@ -508,10 +508,10 @@
         {
           "id": "6cvbqd5s04yg",
           "status": "postmortem",
-          "body": "We recently addressed issues affecting Relay. We would like to take the opportunity to further explain these issues and the steps we have taken to address them.\n\nBetween July 14, 2026 at 2:21 AM PDT and July 14, 2026 at 11:55 PM PDT, some users may have experienced difficulties while working in Box. A recent code change in Relay introduced stricter error handling for collaboration failures, which caused the task outcome to not work in some cases. The issue was resolved by rolling back the Relay service to the previous version, after which point task outcome errors returned to baseline. \n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem. \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting Box Relay. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 1:10 AM and 11:33 PM PT on July 14, 2026, some users may have experienced difficulties while working in Box. During this time, some users may have experienced degradation of Box Relay workflows that include a task outcome. The issue occurred as a result of a recent code change intended to improve how task assignments are handled in workflows. We were able to resolve the issue by reverting that change and restoring the previous behavior. In addition, we are improving our automated testing, monitoring, and deployment safeguards to prevent similar issues from occurring in the future. \n\n‌\n\n**Analysis** \n\nA Box Relay workflow can include a task outcome, which assigns a task to one or more people. As part of that outcome, the workflow also attempts to give each assignee access to the relevant file. A recent change caused the entire task outcome to fail whenever that access-granting operation was rejected. Such a rejection is an expected condition in some configurations \\(_e.g._, when the person who owns the workflow does not have sufficient permission to share the file, or when sharing restrictions are in place\\) and it can occur even when the assignee already has access to the file. Previously these rejections were tolerated and the task was still created. After the change, they caused the task outcome to fail, so affected workflows stopped completing.\n\n‌\n\n**Corrective Actions**\n\nBox has initiated the following corrective actions:\n\n* Adding automated test coverage for this scenario to prevent similar regressions.\n* Adding monitoring and alerting for workflow-processing failures, so this class of issue is detected proactively rather than through customer reports.\n* Refining the task-assignment logic to avoid unnecessary access-granting operations when an assignee already has access to the file.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter. \n\nSincerely,  \nThe Box Team",
           "incident_id": "sqlxzk5v13d0",
           "created_at": "2026-07-19T16:53:17.915-07:00",
-          "updated_at": "2026-07-19T16:53:33.641-07:00",
+          "updated_at": "2026-07-29T12:49:45.345-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
@@ -1497,7 +1497,7 @@
       "name": "[Critical] Issues with Multiple Box Services",
       "status": "postmortem",
       "created_at": "2026-06-03T10:30:00.000-07:00",
-      "updated_at": "2026-06-09T19:55:00.698-07:00",
+      "updated_at": "2026-07-29T12:55:08.450-07:00",
       "monitoring_at": null,
       "resolved_at": "2026-06-03T10:53:00.000-07:00",
       "impact": "critical",
@@ -1508,10 +1508,10 @@
         {
           "id": "571p0p8t88sv",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\n‌\n\nOn June 3, 2026 between 10:53 PM and 10:58 PM PDT, some customers may have experienced issues when attempting to sign in to Box and when accessing files, notes, uploads, and our public API.\n\n‌\n\nThe issue was caused by a temporary fluctuation in a database shard due to elevated disk activity, which led to connection saturation and service errors for a subset of users. Service returned to normal by 10:58 PM PDT and monitoring remains in place to watch for recurrence. We are also reviewing our deployment and operational practices to reduce the risk of similar incidents in the future.\n\n‌\n\nWe are conducting a full engineering postmortem. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n‌\n\nWe are continuously working to improve Box, and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\n‌\n\nSincerely,  \nThe Box Team",
+          "body": "We recently addressed issues affecting Authentication, File Access, Notes, Uploads, and Public API. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nOn June 3, 2026 between 10:53 PM and 10:58 PM PDT, some customers may have experienced issues when attempting to sign in to Box and when accessing files, notes, uploads, and our public API. The issue was caused by a temporary fluctuation in a database shard due to elevated disk activity, which led to connection saturation and service errors for a subset of users. Service returned to normal by 10:58 PM PDT and monitoring remains in place to watch for recurrence. \n\n# Analysis\n\nAs part of our routine system maintenance, we deployed standard software updates to our infrastructure. Following these updates, a scheduled background system scan processed a larger-than-normal volume of files. This background activity led to temporary resource contention on the database tier, resulting in brief latency and connection saturation for a subset of users.\n\nWhile Box utilizes redundant database replicas to ensure high availability, our automated monitoring and failover systems did not immediately redirect traffic because the database remained partially responsive. \n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n* Implemented strict I/O resource limits on background maintenance processes to ensure they cannot impact active user traffic.\n* Upgraded our database monitoring and health checks to immediately detect and alert on localized resource contention, ensuring faster automated failover response.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,  \nThe Box Team",
           "incident_id": "hmldgmrlw7vw",
           "created_at": "2026-06-09T19:48:44.692-07:00",
-          "updated_at": "2026-06-09T19:55:00.696-07:00",
+          "updated_at": "2026-07-29T12:55:08.447-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
