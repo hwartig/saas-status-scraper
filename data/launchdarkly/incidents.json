@@ -4,9 +4,162 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-07-29T09:02:54.564-07:00"
+    "updated_at": "2026-07-29T11:15:39.657-07:00"
   },
   "incidents": [
+    {
+      "id": "44vx9yyr4vgw",
+      "name": "LaunchDarkly is operational but customer action may be required",
+      "status": "resolved",
+      "created_at": "2026-07-10T09:00:08.000-07:00",
+      "updated_at": "2026-07-29T11:15:39.654-07:00",
+      "monitoring_at": "2026-07-10T13:18:19.129-07:00",
+      "resolved_at": "2026-07-29T11:15:39.634-07:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/rgzx37hr3zl0",
+      "started_at": "2026-07-10T09:00:08.000-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "zjqtxf29yty3",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "44vx9yyr4vgw",
+          "created_at": "2026-07-29T11:15:39.634-07:00",
+          "updated_at": "2026-07-29T11:15:39.634-07:00",
+          "display_at": "2026-07-29T11:15:39.634-07:00",
+          "affected_components": [
+            {
+              "code": "nxbw9v3lmdtl",
+              "name": "SDKs",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "dwmbrsy34d2c",
+          "status": "monitoring",
+          "body": "All LaunchDarkly services are operational, though some customers need to take action to restore their connections to our Flag Delivery Network. Customers continue to successfully reestablish connections by completing the action guidance below and we continue to support customers working through the residual impact.\n\nSDKs and Relay Proxy instances which attempted to establish a connection to LaunchDarkly on July 10 between 09:11 and 11:42 AM PT were intermittently affected. This includes situations where the host application was restarted or redeployed during this time. SDKs and Relay Proxy instances which did not attempt to establish a connection during this time were unaffected.\n\nWe recommend reviewing your application logs for the incident window. Affected SDKs emit messages—varying by language—that contain any of the following: \"giving up permanently,\" \"Invalid SDK key,\" \"unauthorized,\" \"not authorized,\" or \"401.\" Any service that logged these messages may be unable to receive flag updates or send event data until it is restarted.\n\nHere are the recommended actions for each affected application:\n- If you use the Relay Proxy, please restart the Relay Proxy to re-establish connections. It should not be necessary to restart the applications behind it, but we recommend reviewing your application logs to confirm if restarting your applications is necessary.\n- If you use server-side SDKs without the Relay Proxy, please restart the application to re-establish its connection to LaunchDarkly.\n- Client-side and Mobile SDKs will reconnect automatically as their applications attempt to reconnect to LaunchDarkly under normal circumstances, for example when the application loads or the device regains network connectivity.\n- If this does not resolve the issue for an affected application (e.g. you still see the log messages from above), please log a support ticket and we will follow up with you directly to assist with remediation.",
+          "incident_id": "44vx9yyr4vgw",
+          "created_at": "2026-07-13T11:08:56.997-07:00",
+          "updated_at": "2026-07-13T11:08:56.997-07:00",
+          "display_at": "2026-07-13T11:08:56.997-07:00",
+          "affected_components": [
+            {
+              "code": "nxbw9v3lmdtl",
+              "name": "SDKs",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "qqfyd4y54z79",
+          "status": "monitoring",
+          "body": "We are continuing to monitor for any further issues, see our previous update for recovery steps.",
+          "incident_id": "44vx9yyr4vgw",
+          "created_at": "2026-07-10T19:00:32.646-07:00",
+          "updated_at": "2026-07-10T19:04:57.487-07:00",
+          "display_at": "2026-07-10T19:00:32.000-07:00",
+          "affected_components": [
+            {
+              "code": "nxbw9v3lmdtl",
+              "name": "SDKs",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "pdz0w0qr3xxl",
+          "status": "monitoring",
+          "body": "Customers continue to successfully reestablish connections to our streaming services. \n\nWe recommend reviewing your application logs for the incident window. Affected SDKs emit messages—varying by language—that contain any of the following: \"giving up permanently,\" \"Invalid SDK key,\" \"unauthorized,\" \"not authorized,\" or \"401.\" Any service that logged these messages may be unable to receive flag updates or send event data until it is restarted.\n\nHere are the recommended actions for each affected application:\n- If you use server-side SDKs, please restart the application to re-establish its connection to LaunchDarkly.\n- If re-establishing connection to the server-side SDK does not work, please create and use a second SDK key.\n- If you use the Relay Proxy, please restart the Relay Proxy to re-establish connections. It should not be necessary to restart the applications behind it.\n- Client-side SDKs will reconnect automatically as they restart.\n- If this does not resolve the issue for an affected application (e.g. you still see the log messages from above), please log a support ticket and we will follow up with you directly to assist with remediation.",
+          "incident_id": "44vx9yyr4vgw",
+          "created_at": "2026-07-10T16:32:50.092-07:00",
+          "updated_at": "2026-07-13T05:04:17.300-07:00",
+          "display_at": "2026-07-10T16:32:50.000-07:00",
+          "affected_components": [
+            {
+              "code": "nxbw9v3lmdtl",
+              "name": "SDKs",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "x3kn0njxpcbm",
+          "status": "monitoring",
+          "body": "Our Flag Delivery services have recovered and we're observing an increase in customer traffic successfully reestablish connections to our streaming services. Customers who continue to encounter 401 connection errors in their SDKs or Relay Proxy instances are advised to restart their applications and/or Relay Proxy instances.",
+          "incident_id": "44vx9yyr4vgw",
+          "created_at": "2026-07-10T13:18:19.129-07:00",
+          "updated_at": "2026-07-10T13:18:19.129-07:00",
+          "display_at": "2026-07-10T13:18:19.129-07:00",
+          "affected_components": [
+            {
+              "code": "nxbw9v3lmdtl",
+              "name": "SDKs",
+              "old_status": "major_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "vpw8sqxg7r72",
+          "status": "investigating",
+          "body": "We are investigating continued impact to customers' mobile and server SDK caused by the previous incident (https://status.launchdarkly.com/incidents/chywwz01ptb0). If customers are receiving SDK or Relay Proxy 401s please re-establish connections.",
+          "incident_id": "44vx9yyr4vgw",
+          "created_at": "2026-07-10T12:21:08.384-07:00",
+          "updated_at": "2026-07-10T12:45:43.955-07:00",
+          "display_at": "2026-07-10T09:00:08.000-07:00",
+          "affected_components": [
+            {
+              "code": "nxbw9v3lmdtl",
+              "name": "SDKs",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "nxbw9v3lmdtl",
+          "name": "SDKs",
+          "status": "operational",
+          "created_at": "2022-02-28T13:52:00.274-08:00",
+          "updated_at": "2026-07-10T13:18:19.091-07:00",
+          "position": 14,
+          "description": "Notices about LaunchDarkly SDKs for topics like critical security vulnerabilities and versions approaching their end of life",
+          "showcase": false,
+          "start_date": "2022-02-28",
+          "group_id": null,
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "fjfmh5445cb3",
       "name": "Delay in Session Replay and Error ingest",
@@ -2773,139 +2926,6 @@
           "showcase": true,
           "start_date": "2025-03-26",
           "group_id": "j28fw96kw68y",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "44vx9yyr4vgw",
-      "name": "LaunchDarkly is operational but customer action may be required",
-      "status": "monitoring",
-      "created_at": "2026-07-10T09:00:08.000-07:00",
-      "updated_at": "2026-07-13T11:08:57.001-07:00",
-      "monitoring_at": "2026-07-10T13:18:19.129-07:00",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/rgzx37hr3zl0",
-      "started_at": "2026-07-10T09:00:08.000-07:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "dwmbrsy34d2c",
-          "status": "monitoring",
-          "body": "All LaunchDarkly services are operational, though some customers need to take action to restore their connections to our Flag Delivery Network. Customers continue to successfully reestablish connections by completing the action guidance below and we continue to support customers working through the residual impact.\n\nSDKs and Relay Proxy instances which attempted to establish a connection to LaunchDarkly on July 10 between 09:11 and 11:42 AM PT were intermittently affected. This includes situations where the host application was restarted or redeployed during this time. SDKs and Relay Proxy instances which did not attempt to establish a connection during this time were unaffected.\n\nWe recommend reviewing your application logs for the incident window. Affected SDKs emit messages—varying by language—that contain any of the following: \"giving up permanently,\" \"Invalid SDK key,\" \"unauthorized,\" \"not authorized,\" or \"401.\" Any service that logged these messages may be unable to receive flag updates or send event data until it is restarted.\n\nHere are the recommended actions for each affected application:\n- If you use the Relay Proxy, please restart the Relay Proxy to re-establish connections. It should not be necessary to restart the applications behind it, but we recommend reviewing your application logs to confirm if restarting your applications is necessary.\n- If you use server-side SDKs without the Relay Proxy, please restart the application to re-establish its connection to LaunchDarkly.\n- Client-side and Mobile SDKs will reconnect automatically as their applications attempt to reconnect to LaunchDarkly under normal circumstances, for example when the application loads or the device regains network connectivity.\n- If this does not resolve the issue for an affected application (e.g. you still see the log messages from above), please log a support ticket and we will follow up with you directly to assist with remediation.",
-          "incident_id": "44vx9yyr4vgw",
-          "created_at": "2026-07-13T11:08:56.997-07:00",
-          "updated_at": "2026-07-13T11:08:56.997-07:00",
-          "display_at": "2026-07-13T11:08:56.997-07:00",
-          "affected_components": [
-            {
-              "code": "nxbw9v3lmdtl",
-              "name": "SDKs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qqfyd4y54z79",
-          "status": "monitoring",
-          "body": "We are continuing to monitor for any further issues, see our previous update for recovery steps.",
-          "incident_id": "44vx9yyr4vgw",
-          "created_at": "2026-07-10T19:00:32.646-07:00",
-          "updated_at": "2026-07-10T19:04:57.487-07:00",
-          "display_at": "2026-07-10T19:00:32.000-07:00",
-          "affected_components": [
-            {
-              "code": "nxbw9v3lmdtl",
-              "name": "SDKs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "pdz0w0qr3xxl",
-          "status": "monitoring",
-          "body": "Customers continue to successfully reestablish connections to our streaming services. \n\nWe recommend reviewing your application logs for the incident window. Affected SDKs emit messages—varying by language—that contain any of the following: \"giving up permanently,\" \"Invalid SDK key,\" \"unauthorized,\" \"not authorized,\" or \"401.\" Any service that logged these messages may be unable to receive flag updates or send event data until it is restarted.\n\nHere are the recommended actions for each affected application:\n- If you use server-side SDKs, please restart the application to re-establish its connection to LaunchDarkly.\n- If re-establishing connection to the server-side SDK does not work, please create and use a second SDK key.\n- If you use the Relay Proxy, please restart the Relay Proxy to re-establish connections. It should not be necessary to restart the applications behind it.\n- Client-side SDKs will reconnect automatically as they restart.\n- If this does not resolve the issue for an affected application (e.g. you still see the log messages from above), please log a support ticket and we will follow up with you directly to assist with remediation.",
-          "incident_id": "44vx9yyr4vgw",
-          "created_at": "2026-07-10T16:32:50.092-07:00",
-          "updated_at": "2026-07-13T05:04:17.300-07:00",
-          "display_at": "2026-07-10T16:32:50.000-07:00",
-          "affected_components": [
-            {
-              "code": "nxbw9v3lmdtl",
-              "name": "SDKs",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "x3kn0njxpcbm",
-          "status": "monitoring",
-          "body": "Our Flag Delivery services have recovered and we're observing an increase in customer traffic successfully reestablish connections to our streaming services. Customers who continue to encounter 401 connection errors in their SDKs or Relay Proxy instances are advised to restart their applications and/or Relay Proxy instances.",
-          "incident_id": "44vx9yyr4vgw",
-          "created_at": "2026-07-10T13:18:19.129-07:00",
-          "updated_at": "2026-07-10T13:18:19.129-07:00",
-          "display_at": "2026-07-10T13:18:19.129-07:00",
-          "affected_components": [
-            {
-              "code": "nxbw9v3lmdtl",
-              "name": "SDKs",
-              "old_status": "major_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vpw8sqxg7r72",
-          "status": "investigating",
-          "body": "We are investigating continued impact to customers' mobile and server SDK caused by the previous incident (https://status.launchdarkly.com/incidents/chywwz01ptb0). If customers are receiving SDK or Relay Proxy 401s please re-establish connections.",
-          "incident_id": "44vx9yyr4vgw",
-          "created_at": "2026-07-10T12:21:08.384-07:00",
-          "updated_at": "2026-07-10T12:45:43.955-07:00",
-          "display_at": "2026-07-10T09:00:08.000-07:00",
-          "affected_components": [
-            {
-              "code": "nxbw9v3lmdtl",
-              "name": "SDKs",
-              "old_status": "operational",
-              "new_status": "major_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "nxbw9v3lmdtl",
-          "name": "SDKs",
-          "status": "operational",
-          "created_at": "2022-02-28T13:52:00.274-08:00",
-          "updated_at": "2026-07-10T13:18:19.091-07:00",
-          "position": 14,
-          "description": "Notices about LaunchDarkly SDKs for topics like critical security vulnerabilities and versions approaching their end of life",
-          "showcase": false,
-          "start_date": "2022-02-28",
-          "group_id": null,
           "page_id": "9404kdk7lkn7",
           "group": false,
           "only_show_if_degraded": false
