@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-28T23:39:09.266Z"
+    "updated_at": "2026-07-29T03:01:50.682Z"
   },
   "incidents": [
     {
@@ -637,7 +637,7 @@
       "name": "Disruption with some GitHub services",
       "status": "resolved",
       "created_at": "2026-07-24T16:17:31.499Z",
-      "updated_at": "2026-07-24T17:36:51.011Z",
+      "updated_at": "2026-07-29T02:36:25.139Z",
       "monitoring_at": null,
       "resolved_at": "2026-07-24T17:36:50.993Z",
       "impact": "major",
@@ -648,10 +648,10 @@
         {
           "id": "1d87ylhsd6wd",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On July 24th at 16:04 UTC, a loss of connectivity occurred in network paths in one of our three physical data center availability zones (AZs). This resulted in packet loss due to the remaining active paths becoming saturated. Our data centers use a leaf-spine switch fabric in each compute cage, and an aggregation layer interconnecting the spines from each cage within each AZ. The loss of connectivity affected links between one cage’s spine switches and the aggregation layer within that specific AZ. <br /><br />Workloads depending on compute resources in this cage became degraded due to packet loss, and exhibited intermittent errors: <br /><br />- Actions saw 10% of jobs fail during the impact window, and 5% of jobs succeeded but with delayed starts. <br />- 27% of GitHub issues interactions saw slow requests or timeouts. <br />- 4% of GitHub Copilot requests experienced errors, though most automatically retry. <br />- 4% of git push operations saw impacts during the affected window. <br />- Authentication requests saw increased latency during the affected window, but error rates, while elevated, were < 1% in all cases.  <br /><br />We were able to mitigate the outage by re-routing affected connections to available fiber paths that were allocated for future capacity upgrades. Sufficient network capacity to eliminate packet loss was restored at 17:07, with most services showing full recovery by 17:16. All paths were restored and services healthy at 17:36. <br /><br />This incident affected 25% of available network interconnect capacity. Older cages utilize a 100Gbps network interface standard. To remove risk of reoccurrence, a planned upgrade to 400Gbps interfaces is being accelerated as much as possible, ensuring increased bandwidth available at all layers of the switch fabric for resiliency to path or device loss.",
           "incident_id": "yjysg0xrl67m",
           "created_at": "2026-07-24T17:36:50.993Z",
-          "updated_at": "2026-07-24T17:36:50.993Z",
+          "updated_at": "2026-07-29T02:36:25.135Z",
           "display_at": "2026-07-24T17:36:50.993Z",
           "affected_components": [
             {
