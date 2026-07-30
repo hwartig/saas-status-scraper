@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-30T17:54:20.760Z"
+    "updated_at": "2026-07-30T19:18:55.803Z"
   },
   "incidents": [
     {
@@ -504,7 +504,7 @@
       "name": "Actions run failures and delays",
       "status": "resolved",
       "created_at": "2026-07-25T12:31:50.959Z",
-      "updated_at": "2026-07-25T13:13:21.519Z",
+      "updated_at": "2026-07-30T18:41:47.898Z",
       "monitoring_at": "2026-07-25T12:59:58.367Z",
       "resolved_at": "2026-07-25T13:13:21.503Z",
       "impact": "critical",
@@ -515,10 +515,10 @@
         {
           "id": "40fbrl0y9zcy",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Please refer to the combined summary in this related incident: https://www.githubstatus.com/incidents/s65j9gslmfm8",
           "incident_id": "pz7g535gbs6p",
           "created_at": "2026-07-25T13:13:21.503Z",
-          "updated_at": "2026-07-25T13:13:21.503Z",
+          "updated_at": "2026-07-30T18:41:47.893Z",
           "display_at": "2026-07-25T13:13:21.503Z",
           "affected_components": [
             {
@@ -770,7 +770,7 @@
       "name": "Incident with Actions",
       "status": "resolved",
       "created_at": "2026-07-25T08:59:37.057Z",
-      "updated_at": "2026-07-25T09:25:30.621Z",
+      "updated_at": "2026-07-30T18:33:14.719Z",
       "monitoring_at": "2026-07-25T09:13:09.336Z",
       "resolved_at": "2026-07-25T09:25:30.607Z",
       "impact": "minor",
@@ -781,10 +781,10 @@
         {
           "id": "cyyg0bvntj9b",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On July 25, 2026, GitHub Actions experienced two related periods of degradation that caused some workflow runs to be delayed by more than 5 minutes or end with infrastructure failures. <br /><br />First period (08:45 – 09:13 UTC): During planned maintenance on a critical-path Redis cluster for Actions, one participating region was left in a degraded state. Separately, an independent capacity operation temporarily removed another region from the cluster and redirected its traffic to the degraded region. This created cross-region inconsistencies in job-assignment state, causing workflow runs to be delayed, exhaust retries, or fail outright. At peak, about 7% of runs were delayed by more than 5 minutes, and 25% of runs failed with an infrastructure error during the course of the incident. We mitigated the incident at 09:13 UTC by returning traffic to its normal distribution. <br /><br />Second period (12:08 – 12:48 UTC): As part of mitigating the first incident, traffic was returned to the regional instance that was still undergoing its capacity increase. Multiple Redis nodes in the scaling region experienced failures, increasing traffic to healthy nodes and causing connection limits to be reached on many nodes. At peak, 30% of runs were delayed by more than 5 minutes, and 60% of runs failed with an infrastructure error during the course of the incident. We mitigated the incident at 12:48 UTC by redirecting workflow traffic away from the scaling region. <br /><br />We are adding stronger regional health and capacity checks before maintenance and requiring a stable observation period before restoring traffic. We are also improving automated connection resiliency, and partnering with our platform dependency to automatically detect and remediate unhealthy cluster members and shard imbalance.  More generally, we already had work underway to improve the resiliency and scale of this piece of Actions infrastructure.",
           "incident_id": "s65j9gslmfm8",
           "created_at": "2026-07-25T09:25:30.607Z",
-          "updated_at": "2026-07-25T09:25:30.607Z",
+          "updated_at": "2026-07-30T18:33:14.712Z",
           "display_at": "2026-07-25T09:25:30.607Z",
           "affected_components": [
             {
