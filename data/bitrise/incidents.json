@@ -4,9 +4,62 @@
     "name": "Bitrise",
     "url": "https://status.bitrise.io",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-30T11:09:27.476Z"
+    "updated_at": "2026-07-30T15:40:42.222Z"
   },
   "incidents": [
+    {
+      "id": "t2hyy547jtkq",
+      "name": "Public VNC access is temporarily disabled on remote access builds and RDE sessions",
+      "status": "identified",
+      "created_at": "2026-07-30T15:40:35.521Z",
+      "updated_at": "2026-07-30T15:40:42.218Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/6jy54pqm8fn4",
+      "started_at": "2026-07-30T15:40:35.513Z",
+      "page_id": "1q8r4n02vb2k",
+      "incident_updates": [
+        {
+          "id": "mfrvz1cdyw60",
+          "status": "identified",
+          "body": "A macOS Screen Sharing (VNC) vulnerability, CVE-2026-43760, is currently being exploited. To protect your machines, we’ve disabled internet-facing access to VNC. SSH is unaffected and remains fully available.\n\nWe have no evidence that any customer machine was accessed as a result of this vulnerability. This is a proactive measure to reduce exposure.\n\nYou can connect to the VNC server by tunnelling it over SSH:\n\nssh -L 5900:localhost:5900 $SSH_ADDRESS\n\nThen connect to `localhost:5900` with a VNC client.",
+          "incident_id": "t2hyy547jtkq",
+          "created_at": "2026-07-30T15:40:35.576Z",
+          "updated_at": "2026-07-30T15:40:35.576Z",
+          "display_at": "2026-07-30T15:40:35.576Z",
+          "affected_components": [
+            {
+              "code": "jmwzblpshvb7",
+              "name": "⚙️ Builds (CI)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "jmwzblpshvb7",
+          "name": "⚙️ Builds (CI)",
+          "status": "operational",
+          "created_at": "2015-10-31T15:46:48.508Z",
+          "updated_at": "2026-07-15T18:10:43.874Z",
+          "position": 2,
+          "description": "Any outages related to running builds on Bitrise. Some examples: build queues, builds fail to start, issues with scheduled builds, Steps, the Workflow Editor, and failures on app.bitrise.io.",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "1q8r4n02vb2k",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "ghj6bsh60b1d",
       "name": "Elevated error rates on Bitrise Website",
@@ -4201,79 +4254,6 @@
           "showcase": true,
           "start_date": null,
           "group_id": null,
-          "page_id": "1q8r4n02vb2k",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "1gy3p44dnc0y",
-      "name": "Wrongly displaying No Cache Connection Detected for Bazel Builds",
-      "status": "resolved",
-      "created_at": "2025-07-10T15:28:36.000Z",
-      "updated_at": "2025-07-10T16:31:06.924Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-07-10T16:31:06.026Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/pzry0yx8j6sz",
-      "started_at": "2025-07-10T15:28:36.000Z",
-      "page_id": "1q8r4n02vb2k",
-      "incident_updates": [
-        {
-          "id": "hsvvg4l4n30c",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "1gy3p44dnc0y",
-          "created_at": "2025-07-10T16:31:06.026Z",
-          "updated_at": "2025-07-10T16:31:06.920Z",
-          "display_at": "2025-07-10T16:31:06.026Z",
-          "affected_components": [
-            {
-              "code": "jt615jj1l1m4",
-              "name": "Build Cache",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1943347258008965202
-        },
-        {
-          "id": "2pj0q1m9kvnc",
-          "status": "identified",
-          "body": "We're wrongly displaying \"No Cache Connection Detected\" for Bazel builds, even though the cache is still being used correctly and build performance are not affected. This started around 13:30 UTC",
-          "incident_id": "1gy3p44dnc0y",
-          "created_at": "2025-07-10T15:28:36.313Z",
-          "updated_at": "2025-07-10T15:30:18.723Z",
-          "display_at": "2025-07-10T15:28:36.000Z",
-          "affected_components": [
-            {
-              "code": "jt615jj1l1m4",
-              "name": "Build Cache",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1943331528861528572
-        }
-      ],
-      "components": [
-        {
-          "id": "jt615jj1l1m4",
-          "name": "Build Cache",
-          "status": "operational",
-          "created_at": "2023-12-04T20:57:43.291Z",
-          "updated_at": "2026-07-13T10:49:58.825Z",
-          "position": 2,
-          "description": null,
-          "showcase": true,
-          "start_date": "2023-12-04",
-          "group_id": "q16kd7qm7yk0",
           "page_id": "1q8r4n02vb2k",
           "group": false,
           "only_show_if_degraded": false
