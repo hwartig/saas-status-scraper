@@ -4,15 +4,15 @@
     "name": "Prisma Data Platform",
     "url": "https://www.prisma-status.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-31T09:28:49.065Z"
+    "updated_at": "2026-07-31T12:27:28.272Z"
   },
   "components": [
     {
       "id": "2954z91ljjsn",
       "name": "Prisma Accelerate",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-10-26T13:07:16.811Z",
-      "updated_at": "2026-07-17T16:16:19.751Z",
+      "updated_at": "2026-07-31T12:27:28.224Z",
       "position": 1,
       "description": null,
       "showcase": true,
@@ -113,10 +113,64 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "xmddtwdg1dxj",
+      "name": "Degraded service for Accelerate cold starts",
+      "status": "investigating",
+      "created_at": "2026-07-31T12:27:28.193Z",
+      "updated_at": "2026-07-31T12:27:28.269Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/knfl6t071gmp",
+      "started_at": "2026-07-31T12:27:28.186Z",
+      "page_id": "21tdsvytt5d6",
+      "incident_updates": [
+        {
+          "id": "48njjwyf9m63",
+          "status": "investigating",
+          "body": "We are investigating an upstream service provider incident impacting Accelerate cold starts in all regions.\n\nImpact: Allocations of new query engines may be delayed or fail.\n\nRoot cause: Accelerate is receiving degraded responses from Cloudflare's DNS API.\n\nWorkarounds: TCP connections for Prisma Postgres databases are unaffected.",
+          "incident_id": "xmddtwdg1dxj",
+          "created_at": "2026-07-31T12:27:28.266Z",
+          "updated_at": "2026-07-31T12:27:28.266Z",
+          "display_at": "2026-07-31T12:27:28.266Z",
+          "affected_components": [
+            {
+              "code": "2954z91ljjsn",
+              "name": "Prisma Accelerate",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "2954z91ljjsn",
+          "name": "Prisma Accelerate",
+          "status": "degraded_performance",
+          "created_at": "2023-10-26T13:07:16.811Z",
+          "updated_at": "2026-07-31T12:27:28.224Z",
+          "position": 1,
+          "description": null,
+          "showcase": true,
+          "start_date": "2023-09-12",
+          "group_id": null,
+          "page_id": "21tdsvytt5d6",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
