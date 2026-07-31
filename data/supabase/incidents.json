@@ -4,22 +4,100 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-07-31T12:27:54.080Z"
+    "updated_at": "2026-07-31T14:54:23.228Z"
   },
   "incidents": [
     {
       "id": "h69vvktls1pz",
-      "name": "DNS Resolution Delays",
-      "status": "investigating",
+      "name": "DNS creation delays",
+      "status": "resolved",
       "created_at": "2026-07-31T12:27:53.968Z",
-      "updated_at": "2026-07-31T12:27:54.077Z",
-      "monitoring_at": null,
-      "resolved_at": null,
+      "updated_at": "2026-07-31T13:26:16.614Z",
+      "monitoring_at": "2026-07-31T12:55:52.730Z",
+      "resolved_at": "2026-07-31T13:26:16.600Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/fpxbpxhb9s5x",
       "started_at": "2026-07-31T12:27:53.960Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "km97pkpvs6bp",
+          "status": "resolved",
+          "body": "The incident has been resolved.",
+          "incident_id": "h69vvktls1pz",
+          "created_at": "2026-07-31T13:26:16.600Z",
+          "updated_at": "2026-07-31T13:26:16.600Z",
+          "display_at": "2026-07-31T13:26:16.600Z",
+          "affected_components": [
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "43453sylqk7v",
+              "name": "API Gateway",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "gldvnf5k2r6z",
+          "status": "monitoring",
+          "body": "The upstream DNS provider has implemented a fix and is monitoring the results. We are seeing signs of recovery; we will continue to monitor the situation and will provide further updates as more information becomes available.",
+          "incident_id": "h69vvktls1pz",
+          "created_at": "2026-07-31T12:55:52.730Z",
+          "updated_at": "2026-07-31T12:55:52.730Z",
+          "display_at": "2026-07-31T12:55:52.730Z",
+          "affected_components": [
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "43453sylqk7v",
+              "name": "API Gateway",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "d98gn6c6d14z",
+          "status": "identified",
+          "body": "We have identified that the issue is with an upstream DNS provider, causing DNS creation delays for newly created, unpaused, or updated databases. Our team is actively monitoring the situation and will provide further updates as more information becomes available.",
+          "incident_id": "h69vvktls1pz",
+          "created_at": "2026-07-31T12:41:51.395Z",
+          "updated_at": "2026-07-31T12:41:51.395Z",
+          "display_at": "2026-07-31T12:41:51.395Z",
+          "affected_components": [
+            {
+              "code": "yz6pcnlscwpb",
+              "name": "Database",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "43453sylqk7v",
+              "name": "API Gateway",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "2l4z5m2kbzvk",
           "status": "investigating",
@@ -51,9 +129,9 @@
         {
           "id": "43453sylqk7v",
           "name": "API Gateway",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2024-05-02T07:20:18.177Z",
-          "updated_at": "2026-07-31T12:27:54.007Z",
+          "updated_at": "2026-07-31T13:26:16.564Z",
           "position": 3,
           "description": "API Gateway for all Supabase Products",
           "showcase": true,
@@ -66,13 +144,266 @@
         {
           "id": "yz6pcnlscwpb",
           "name": "Database",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2024-05-02T07:14:49.000Z",
-          "updated_at": "2026-07-31T12:27:54.023Z",
+          "updated_at": "2026-07-31T13:26:16.576Z",
           "position": 7,
           "description": "The Postgres database and the REST Data APIs powered by PostgREST",
           "showcase": true,
           "start_date": "2024-05-02",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "y0tjlh6hhxlv",
+      "name": "Issues with Edge Function Deployment",
+      "status": "resolved",
+      "created_at": "2026-07-30T17:37:44.996Z",
+      "updated_at": "2026-07-31T13:20:23.282Z",
+      "monitoring_at": "2026-07-31T03:13:26.577Z",
+      "resolved_at": "2026-07-31T13:20:23.261Z",
+      "impact": "major",
+      "shortlink": "https://stspg.io/fptknzxz37wz",
+      "started_at": "2026-07-30T17:37:44.988Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "66t1kbfnlp2t",
+          "status": "resolved",
+          "body": "A preventative fix (Supabase CLI v2.111.0 ) has been released to ensure that new Function deployments are not affected. \nAs the underlying issue has been addressed and new deployments should no longer be affected, we are resolving this incident.\nSupport will continue working directly with customers whose existing deployments require remediation.",
+          "incident_id": "y0tjlh6hhxlv",
+          "created_at": "2026-07-31T13:20:23.261Z",
+          "updated_at": "2026-07-31T13:20:23.261Z",
+          "display_at": "2026-07-31T13:20:23.261Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "k2fdlq1r9csx",
+          "status": "identified",
+          "body": "We are working on a permanent fix for issue affecting bulk Function deployments. \nIn parallel, we are manually assisting customers who have reported the issue through support tickets.",
+          "incident_id": "y0tjlh6hhxlv",
+          "created_at": "2026-07-31T09:36:27.646Z",
+          "updated_at": "2026-07-31T09:36:27.646Z",
+          "display_at": "2026-07-31T09:36:27.646Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "nsnyhjnwpx0j",
+          "status": "monitoring",
+          "body": "Our fix has completed rollout and we are monitoring for full resolution.",
+          "incident_id": "y0tjlh6hhxlv",
+          "created_at": "2026-07-31T03:13:26.577Z",
+          "updated_at": "2026-07-31T03:13:26.577Z",
+          "display_at": "2026-07-31T03:13:26.577Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "partial_outage",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "kqgh9z8fwywm",
+          "status": "identified",
+          "body": "The issue has been identified and a fix is being implemented.",
+          "incident_id": "y0tjlh6hhxlv",
+          "created_at": "2026-07-31T00:26:11.127Z",
+          "updated_at": "2026-07-31T00:26:11.127Z",
+          "display_at": "2026-07-31T00:26:11.127Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "7r0gv0d20lbm",
+          "status": "investigating",
+          "body": "We continue to investigate the root cause of this issue. Some deployment operations have recovered, but we are still investigating reports of failures affecting bulk deployments and updates to existing Edge Functions.",
+          "incident_id": "y0tjlh6hhxlv",
+          "created_at": "2026-07-30T23:40:32.567Z",
+          "updated_at": "2026-07-30T23:40:32.567Z",
+          "display_at": "2026-07-30T23:40:32.567Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "bzpy6nbrr7l0",
+          "status": "investigating",
+          "body": "We are still identifying the root cause of the issue; however, if you are experiencing issues with your Edge Functions, redeployment should resolve that issue. We apologize for any inconvenience.",
+          "incident_id": "y0tjlh6hhxlv",
+          "created_at": "2026-07-30T22:21:19.643Z",
+          "updated_at": "2026-07-30T22:21:19.643Z",
+          "display_at": "2026-07-30T22:21:19.643Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "hj944ndyd7sq",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue.",
+          "incident_id": "y0tjlh6hhxlv",
+          "created_at": "2026-07-30T21:02:49.616Z",
+          "updated_at": "2026-07-30T21:02:49.616Z",
+          "display_at": "2026-07-30T21:02:49.616Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "qy9k3n3gdh4c",
+          "status": "investigating",
+          "body": "Per-function deployment appears to be working successfully. However, bulk function deployments with the `supabase functions deploy` command appear to still be experiencing issues. Additionally, we are aware of reports of issues updating existing function deployments. We are continuing to investigate these issues.",
+          "incident_id": "y0tjlh6hhxlv",
+          "created_at": "2026-07-30T19:46:12.009Z",
+          "updated_at": "2026-07-30T19:46:12.009Z",
+          "display_at": "2026-07-30T19:46:12.009Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "kcqpxvrsrs25",
+          "status": "investigating",
+          "body": "We have determined and rolled back the change that led to this issue. Users who were experiencing issues with deployments should now be able to deploy successfully.",
+          "incident_id": "y0tjlh6hhxlv",
+          "created_at": "2026-07-30T18:28:01.669Z",
+          "updated_at": "2026-07-30T18:28:01.669Z",
+          "display_at": "2026-07-30T18:28:01.669Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "vlfp8l8wrb9g",
+          "status": "investigating",
+          "body": "Only a subset of users appear to be impacted by the issue with Edge Function deployments. We are investigating the root cause.",
+          "incident_id": "y0tjlh6hhxlv",
+          "created_at": "2026-07-30T18:16:21.998Z",
+          "updated_at": "2026-07-30T18:16:21.998Z",
+          "display_at": "2026-07-30T18:16:21.998Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "vd47yqb6qn8d",
+          "status": "investigating",
+          "body": "We are aware of some users experiencing issues with Edge Function deployments.",
+          "incident_id": "y0tjlh6hhxlv",
+          "created_at": "2026-07-30T17:37:45.078Z",
+          "updated_at": "2026-07-30T17:37:45.078Z",
+          "display_at": "2026-07-30T17:37:45.078Z",
+          "affected_components": [
+            {
+              "code": "mvs609wqrsf7",
+              "name": "Edge Functions",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "mvs609wqrsf7",
+          "name": "Edge Functions",
+          "status": "operational",
+          "created_at": "2022-08-10T18:16:24.352Z",
+          "updated_at": "2026-07-31T13:20:23.226Z",
+          "position": 8,
+          "description": "Globally deployed serverless functions",
+          "showcase": true,
+          "start_date": "2022-08-10",
           "group_id": null,
           "page_id": "q7pxfmcf2sbx",
           "group": false,
@@ -339,239 +670,6 @@
           "description": "The studio, docs and primary website at https://supabase.com",
           "showcase": true,
           "start_date": "2020-11-27",
-          "group_id": null,
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "y0tjlh6hhxlv",
-      "name": "Issues with Edge Function Deployment",
-      "status": "identified",
-      "created_at": "2026-07-30T17:37:44.996Z",
-      "updated_at": "2026-07-31T09:36:27.649Z",
-      "monitoring_at": "2026-07-31T03:13:26.577Z",
-      "resolved_at": null,
-      "impact": "major",
-      "shortlink": "https://stspg.io/fptknzxz37wz",
-      "started_at": "2026-07-30T17:37:44.988Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "k2fdlq1r9csx",
-          "status": "identified",
-          "body": "We are working on a permanent fix for issue affecting bulk Function deployments. \nIn parallel, we are manually assisting customers who have reported the issue through support tickets.",
-          "incident_id": "y0tjlh6hhxlv",
-          "created_at": "2026-07-31T09:36:27.646Z",
-          "updated_at": "2026-07-31T09:36:27.646Z",
-          "display_at": "2026-07-31T09:36:27.646Z",
-          "affected_components": [
-            {
-              "code": "mvs609wqrsf7",
-              "name": "Edge Functions",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nsnyhjnwpx0j",
-          "status": "monitoring",
-          "body": "Our fix has completed rollout and we are monitoring for full resolution.",
-          "incident_id": "y0tjlh6hhxlv",
-          "created_at": "2026-07-31T03:13:26.577Z",
-          "updated_at": "2026-07-31T03:13:26.577Z",
-          "display_at": "2026-07-31T03:13:26.577Z",
-          "affected_components": [
-            {
-              "code": "mvs609wqrsf7",
-              "name": "Edge Functions",
-              "old_status": "partial_outage",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "kqgh9z8fwywm",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "y0tjlh6hhxlv",
-          "created_at": "2026-07-31T00:26:11.127Z",
-          "updated_at": "2026-07-31T00:26:11.127Z",
-          "display_at": "2026-07-31T00:26:11.127Z",
-          "affected_components": [
-            {
-              "code": "mvs609wqrsf7",
-              "name": "Edge Functions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7r0gv0d20lbm",
-          "status": "investigating",
-          "body": "We continue to investigate the root cause of this issue. Some deployment operations have recovered, but we are still investigating reports of failures affecting bulk deployments and updates to existing Edge Functions.",
-          "incident_id": "y0tjlh6hhxlv",
-          "created_at": "2026-07-30T23:40:32.567Z",
-          "updated_at": "2026-07-30T23:40:32.567Z",
-          "display_at": "2026-07-30T23:40:32.567Z",
-          "affected_components": [
-            {
-              "code": "mvs609wqrsf7",
-              "name": "Edge Functions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bzpy6nbrr7l0",
-          "status": "investigating",
-          "body": "We are still identifying the root cause of the issue; however, if you are experiencing issues with your Edge Functions, redeployment should resolve that issue. We apologize for any inconvenience.",
-          "incident_id": "y0tjlh6hhxlv",
-          "created_at": "2026-07-30T22:21:19.643Z",
-          "updated_at": "2026-07-30T22:21:19.643Z",
-          "display_at": "2026-07-30T22:21:19.643Z",
-          "affected_components": [
-            {
-              "code": "mvs609wqrsf7",
-              "name": "Edge Functions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "hj944ndyd7sq",
-          "status": "investigating",
-          "body": "We are continuing to investigate this issue.",
-          "incident_id": "y0tjlh6hhxlv",
-          "created_at": "2026-07-30T21:02:49.616Z",
-          "updated_at": "2026-07-30T21:02:49.616Z",
-          "display_at": "2026-07-30T21:02:49.616Z",
-          "affected_components": [
-            {
-              "code": "mvs609wqrsf7",
-              "name": "Edge Functions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qy9k3n3gdh4c",
-          "status": "investigating",
-          "body": "Per-function deployment appears to be working successfully. However, bulk function deployments with the `supabase functions deploy` command appear to still be experiencing issues. Additionally, we are aware of reports of issues updating existing function deployments. We are continuing to investigate these issues.",
-          "incident_id": "y0tjlh6hhxlv",
-          "created_at": "2026-07-30T19:46:12.009Z",
-          "updated_at": "2026-07-30T19:46:12.009Z",
-          "display_at": "2026-07-30T19:46:12.009Z",
-          "affected_components": [
-            {
-              "code": "mvs609wqrsf7",
-              "name": "Edge Functions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "kcqpxvrsrs25",
-          "status": "investigating",
-          "body": "We have determined and rolled back the change that led to this issue. Users who were experiencing issues with deployments should now be able to deploy successfully.",
-          "incident_id": "y0tjlh6hhxlv",
-          "created_at": "2026-07-30T18:28:01.669Z",
-          "updated_at": "2026-07-30T18:28:01.669Z",
-          "display_at": "2026-07-30T18:28:01.669Z",
-          "affected_components": [
-            {
-              "code": "mvs609wqrsf7",
-              "name": "Edge Functions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vlfp8l8wrb9g",
-          "status": "investigating",
-          "body": "Only a subset of users appear to be impacted by the issue with Edge Function deployments. We are investigating the root cause.",
-          "incident_id": "y0tjlh6hhxlv",
-          "created_at": "2026-07-30T18:16:21.998Z",
-          "updated_at": "2026-07-30T18:16:21.998Z",
-          "display_at": "2026-07-30T18:16:21.998Z",
-          "affected_components": [
-            {
-              "code": "mvs609wqrsf7",
-              "name": "Edge Functions",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vd47yqb6qn8d",
-          "status": "investigating",
-          "body": "We are aware of some users experiencing issues with Edge Function deployments.",
-          "incident_id": "y0tjlh6hhxlv",
-          "created_at": "2026-07-30T17:37:45.078Z",
-          "updated_at": "2026-07-30T17:37:45.078Z",
-          "display_at": "2026-07-30T17:37:45.078Z",
-          "affected_components": [
-            {
-              "code": "mvs609wqrsf7",
-              "name": "Edge Functions",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "mvs609wqrsf7",
-          "name": "Edge Functions",
-          "status": "degraded_performance",
-          "created_at": "2022-08-10T18:16:24.352Z",
-          "updated_at": "2026-07-31T03:13:26.543Z",
-          "position": 8,
-          "description": "Globally deployed serverless functions",
-          "showcase": true,
-          "start_date": "2022-08-10",
           "group_id": null,
           "page_id": "q7pxfmcf2sbx",
           "group": false,
@@ -914,9 +1012,9 @@
         {
           "id": "43453sylqk7v",
           "name": "API Gateway",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2024-05-02T07:20:18.177Z",
-          "updated_at": "2026-07-31T12:27:54.007Z",
+          "updated_at": "2026-07-31T13:26:16.564Z",
           "position": 3,
           "description": "API Gateway for all Supabase Products",
           "showcase": true,
@@ -929,9 +1027,9 @@
         {
           "id": "yz6pcnlscwpb",
           "name": "Database",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2024-05-02T07:14:49.000Z",
-          "updated_at": "2026-07-31T12:27:54.023Z",
+          "updated_at": "2026-07-31T13:26:16.576Z",
           "position": 7,
           "description": "The Postgres database and the REST Data APIs powered by PostgREST",
           "showcase": true,
@@ -1533,9 +1631,9 @@
         {
           "id": "yz6pcnlscwpb",
           "name": "Database",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2024-05-02T07:14:49.000Z",
-          "updated_at": "2026-07-31T12:27:54.023Z",
+          "updated_at": "2026-07-31T13:26:16.576Z",
           "position": 7,
           "description": "The Postgres database and the REST Data APIs powered by PostgREST",
           "showcase": true,
@@ -4444,9 +4542,9 @@
         {
           "id": "mvs609wqrsf7",
           "name": "Edge Functions",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2022-08-10T18:16:24.352Z",
-          "updated_at": "2026-07-31T03:13:26.543Z",
+          "updated_at": "2026-07-31T13:20:23.226Z",
           "position": 8,
           "description": "Globally deployed serverless functions",
           "showcase": true,
@@ -5344,9 +5442,9 @@
         {
           "id": "mvs609wqrsf7",
           "name": "Edge Functions",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2022-08-10T18:16:24.352Z",
-          "updated_at": "2026-07-31T03:13:26.543Z",
+          "updated_at": "2026-07-31T13:20:23.226Z",
           "position": 8,
           "description": "Globally deployed serverless functions",
           "showcase": true,
@@ -5633,9 +5731,9 @@
         {
           "id": "yz6pcnlscwpb",
           "name": "Database",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2024-05-02T07:14:49.000Z",
-          "updated_at": "2026-07-31T12:27:54.023Z",
+          "updated_at": "2026-07-31T13:26:16.576Z",
           "position": 7,
           "description": "The Postgres database and the REST Data APIs powered by PostgREST",
           "showcase": true,
@@ -5946,9 +6044,9 @@
         {
           "id": "yz6pcnlscwpb",
           "name": "Database",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2024-05-02T07:14:49.000Z",
-          "updated_at": "2026-07-31T12:27:54.023Z",
+          "updated_at": "2026-07-31T13:26:16.576Z",
           "position": 7,
           "description": "The Postgres database and the REST Data APIs powered by PostgREST",
           "showcase": true,
@@ -7886,9 +7984,9 @@
         {
           "id": "yz6pcnlscwpb",
           "name": "Database",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2024-05-02T07:14:49.000Z",
-          "updated_at": "2026-07-31T12:27:54.023Z",
+          "updated_at": "2026-07-31T13:26:16.576Z",
           "position": 7,
           "description": "The Postgres database and the REST Data APIs powered by PostgREST",
           "showcase": true,
@@ -8338,9 +8436,9 @@
         {
           "id": "mvs609wqrsf7",
           "name": "Edge Functions",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2022-08-10T18:16:24.352Z",
-          "updated_at": "2026-07-31T03:13:26.543Z",
+          "updated_at": "2026-07-31T13:20:23.226Z",
           "position": 8,
           "description": "Globally deployed serverless functions",
           "showcase": true,
