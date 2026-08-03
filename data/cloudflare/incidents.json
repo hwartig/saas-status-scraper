@@ -4,9 +4,195 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-03T13:24:19.997Z"
+    "updated_at": "2026-08-03T16:02:45.231Z"
   },
   "incidents": [
+    {
+      "id": "238b69fw6l55",
+      "name": "Cloudflare Workers Runtime API issues",
+      "status": "identified",
+      "created_at": "2026-08-03T15:13:33.256Z",
+      "updated_at": "2026-08-03T15:21:54.178Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/m6sncw8b57f0",
+      "started_at": "2026-08-03T15:13:33.247Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "f1gqphz940b2",
+          "status": "identified",
+          "body": "Workers runtime: Temporal global exposed with an incorrect clock\n\nSince 2026-07-30, the Workers runtime has exposed a global Temporal object that was not intended to be available. Its clock is wrong: Temporal.Now reports 1970-01-01 rather than the current time. Date and Date.now() are unaffected and report the correct time.\n\nThis can affect Workers that install a Temporal polyfill only when no native Temporal is detected. On those Workers, the polyfill stopped being installed and time-dependent logic began computing against 1970 — for example, tokens minted with an issue time of 0 and an expiry in 1970, incorrect TTLs, or incorrect date arithmetic. No error is raised when this happens.",
+          "incident_id": "238b69fw6l55",
+          "created_at": "2026-08-03T15:21:54.175Z",
+          "updated_at": "2026-08-03T15:21:54.175Z",
+          "display_at": "2026-08-03T15:21:54.175Z",
+          "affected_components": [
+            {
+              "code": "57srcl8zcn7c",
+              "name": "Cloudflare Sites and Services - Workers",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "vqpn00kjklqy",
+          "status": "investigating",
+          "body": "Cloudflare is aware of an issue with the latest Workers Runtime API release that exposes native Temporal with clock stuck at epoch 0.  Updates to follow.",
+          "incident_id": "238b69fw6l55",
+          "created_at": "2026-08-03T15:13:33.343Z",
+          "updated_at": "2026-08-03T15:13:33.343Z",
+          "display_at": "2026-08-03T15:13:33.343Z",
+          "affected_components": [
+            {
+              "code": "57srcl8zcn7c",
+              "name": "Cloudflare Sites and Services - Workers",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "57srcl8zcn7c",
+          "name": "Workers",
+          "status": "degraded_performance",
+          "created_at": "2019-01-24T16:49:08.728Z",
+          "updated_at": "2026-08-03T15:13:33.290Z",
+          "position": 112,
+          "description": "Cloudflare Workers provides a serverless execution environment that allows you to create new applications or augment existing ones without configuring or maintaining infrastructure",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "x4lf6qsl3pb9",
+      "name": "Cloudflare Workers build failures",
+      "status": "monitoring",
+      "created_at": "2026-08-03T14:20:37.314Z",
+      "updated_at": "2026-08-03T16:02:45.228Z",
+      "monitoring_at": "2026-08-03T16:02:45.212Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/m2hf75899d0n",
+      "started_at": "2026-08-03T14:20:37.305Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "s1dl3dk9p8vr",
+          "status": "monitoring",
+          "body": "A fix has been implemented and we are monitoring the results.",
+          "incident_id": "x4lf6qsl3pb9",
+          "created_at": "2026-08-03T16:02:45.212Z",
+          "updated_at": "2026-08-03T16:02:45.212Z",
+          "display_at": "2026-08-03T16:02:45.212Z",
+          "affected_components": [
+            {
+              "code": "vcpsk0w6g86k",
+              "name": "Cloudflare Sites and Services - Workers Builds",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "yh9b8fvv15yz",
+          "status": "identified",
+          "body": "Wrokers builds are no longer failing, users may experience delays with builds.",
+          "incident_id": "x4lf6qsl3pb9",
+          "created_at": "2026-08-03T15:38:14.975Z",
+          "updated_at": "2026-08-03T15:38:14.975Z",
+          "display_at": "2026-08-03T15:38:14.975Z",
+          "affected_components": [
+            {
+              "code": "vcpsk0w6g86k",
+              "name": "Cloudflare Sites and Services - Workers Builds",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "y8r2nh86g6yy",
+          "status": "identified",
+          "body": "The issue has been identified and a fix is being implemented.",
+          "incident_id": "x4lf6qsl3pb9",
+          "created_at": "2026-08-03T15:22:13.658Z",
+          "updated_at": "2026-08-03T15:22:13.658Z",
+          "display_at": "2026-08-03T15:22:13.658Z",
+          "affected_components": [
+            {
+              "code": "vcpsk0w6g86k",
+              "name": "Cloudflare Sites and Services - Workers Builds",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "7ldg3v7l9pzw",
+          "status": "investigating",
+          "body": "Cloudflare is aware of and investigating an issue with Cloudflare Workers build failures which potentially impacts multiple customers. Further detail will be provided as more information becomes available.",
+          "incident_id": "x4lf6qsl3pb9",
+          "created_at": "2026-08-03T14:20:37.397Z",
+          "updated_at": "2026-08-03T14:20:37.397Z",
+          "display_at": "2026-08-03T14:20:37.397Z",
+          "affected_components": [
+            {
+              "code": "vcpsk0w6g86k",
+              "name": "Cloudflare Sites and Services - Workers Builds",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "vcpsk0w6g86k",
+          "name": "Workers Builds",
+          "status": "degraded_performance",
+          "created_at": "2025-05-27T17:04:31.385Z",
+          "updated_at": "2026-08-03T14:20:37.347Z",
+          "position": 115,
+          "description": "Workers Builds is Cloudflare's native CI/CD system that allows you to integrate with GitHub or GitLab to automatically deploy changes with each new push to a selected branch (e.g. main).",
+          "showcase": false,
+          "start_date": "2025-05-27",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "7dk3g4k188ky",
       "name": "Cloudflare Dedicated Egress in London",
@@ -761,9 +947,9 @@
         {
           "id": "57srcl8zcn7c",
           "name": "Workers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-24T16:49:08.728Z",
-          "updated_at": "2026-07-31T13:01:59.871Z",
+          "updated_at": "2026-08-03T15:13:33.290Z",
           "position": 112,
           "description": "Cloudflare Workers provides a serverless execution environment that allows you to create new applications or augment existing ones without configuring or maintaining infrastructure",
           "showcase": false,
@@ -1206,9 +1392,9 @@
         {
           "id": "57srcl8zcn7c",
           "name": "Workers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-24T16:49:08.728Z",
-          "updated_at": "2026-07-31T13:01:59.871Z",
+          "updated_at": "2026-08-03T15:13:33.290Z",
           "position": 112,
           "description": "Cloudflare Workers provides a serverless execution environment that allows you to create new applications or augment existing ones without configuring or maintaining infrastructure",
           "showcase": false,
@@ -3909,9 +4095,9 @@
         {
           "id": "vcpsk0w6g86k",
           "name": "Workers Builds",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2025-05-27T17:04:31.385Z",
-          "updated_at": "2026-07-18T17:54:57.765Z",
+          "updated_at": "2026-08-03T14:20:37.347Z",
           "position": 115,
           "description": "Workers Builds is Cloudflare's native CI/CD system that allows you to integrate with GitHub or GitLab to automatically deploy changes with each new push to a selected branch (e.g. main).",
           "showcase": false,
@@ -4462,239 +4648,13 @@
         {
           "id": "57srcl8zcn7c",
           "name": "Workers",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-24T16:49:08.728Z",
-          "updated_at": "2026-07-31T13:01:59.871Z",
+          "updated_at": "2026-08-03T15:13:33.290Z",
           "position": 112,
           "description": "Cloudflare Workers provides a serverless execution environment that allows you to create new applications or augment existing ones without configuring or maintaining infrastructure",
           "showcase": false,
           "start_date": null,
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "ph8jv6zz4gz2",
-      "name": "Email Delivery Delays",
-      "status": "resolved",
-      "created_at": "2026-07-17T10:10:57.651Z",
-      "updated_at": "2026-07-17T12:00:34.342Z",
-      "monitoring_at": "2026-07-17T11:46:09.233Z",
-      "resolved_at": "2026-07-17T12:00:34.324Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/yw2r2hj5qprj",
-      "started_at": "2026-07-17T10:10:57.640Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "52b93dv7zkdb",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "ph8jv6zz4gz2",
-          "created_at": "2026-07-17T12:00:34.324Z",
-          "updated_at": "2026-07-17T12:00:34.324Z",
-          "display_at": "2026-07-17T12:00:34.324Z",
-          "affected_components": [
-            {
-              "code": "3sq3s4d20ywk",
-              "name": "Cloudflare Sites and Services - Dashboard",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2sg7y61qj439",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "ph8jv6zz4gz2",
-          "created_at": "2026-07-17T11:46:09.233Z",
-          "updated_at": "2026-07-17T11:46:09.233Z",
-          "display_at": "2026-07-17T11:46:09.233Z",
-          "affected_components": [
-            {
-              "code": "3sq3s4d20ywk",
-              "name": "Cloudflare Sites and Services - Dashboard",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rhk31zq2xyxx",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "ph8jv6zz4gz2",
-          "created_at": "2026-07-17T10:38:23.102Z",
-          "updated_at": "2026-07-17T10:38:23.102Z",
-          "display_at": "2026-07-17T10:38:23.102Z",
-          "affected_components": [
-            {
-              "code": "3sq3s4d20ywk",
-              "name": "Cloudflare Sites and Services - Dashboard",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xyf68jg7rc4l",
-          "status": "investigating",
-          "body": "Cloudflare is investigating a delay in our ability to send emails. This includes password reset, mFA token emails. We are working to resolve the issue. More updates to follow shortly.",
-          "incident_id": "ph8jv6zz4gz2",
-          "created_at": "2026-07-17T10:10:57.763Z",
-          "updated_at": "2026-07-17T10:10:57.763Z",
-          "display_at": "2026-07-17T10:10:57.763Z",
-          "affected_components": [
-            {
-              "code": "3sq3s4d20ywk",
-              "name": "Cloudflare Sites and Services - Dashboard",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "3sq3s4d20ywk",
-          "name": "Dashboard",
-          "status": "operational",
-          "created_at": "2014-10-09T03:32:07.173Z",
-          "updated_at": "2026-07-31T13:01:59.822Z",
-          "position": 39,
-          "description": "Dashboard where customers can view and make changes to their configurations at https://dash.cloudflare.com",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "1km35smx8p41",
-          "page_id": "yh6f0r4529hb",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "sh22gggdcpjb",
-      "name": "Network Performance Issues for AWS ap-northeast-1 region",
-      "status": "resolved",
-      "created_at": "2026-07-17T07:31:00.251Z",
-      "updated_at": "2026-07-17T07:50:45.735Z",
-      "monitoring_at": "2026-07-17T07:44:12.812Z",
-      "resolved_at": "2026-07-17T07:50:45.720Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/4hh71mthcr1j",
-      "started_at": "2026-07-17T07:31:00.238Z",
-      "page_id": "yh6f0r4529hb",
-      "incident_updates": [
-        {
-          "id": "92hmbc59gxl7",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "sh22gggdcpjb",
-          "created_at": "2026-07-17T07:50:45.720Z",
-          "updated_at": "2026-07-17T07:50:45.720Z",
-          "display_at": "2026-07-17T07:50:45.720Z",
-          "affected_components": [
-            {
-              "code": "4n0gb0kh02gf",
-              "name": "Cloudflare Sites and Services - Network",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vv6s9z223swl",
-          "status": "monitoring",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "incident_id": "sh22gggdcpjb",
-          "created_at": "2026-07-17T07:44:12.812Z",
-          "updated_at": "2026-07-17T07:44:12.812Z",
-          "display_at": "2026-07-17T07:44:12.812Z",
-          "affected_components": [
-            {
-              "code": "4n0gb0kh02gf",
-              "name": "Cloudflare Sites and Services - Network",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "pn6g6twhtdtq",
-          "status": "identified",
-          "body": "The issue has been identified and a fix is being implemented.",
-          "incident_id": "sh22gggdcpjb",
-          "created_at": "2026-07-17T07:36:01.598Z",
-          "updated_at": "2026-07-17T07:36:01.598Z",
-          "display_at": "2026-07-17T07:36:01.598Z",
-          "affected_components": [
-            {
-              "code": "4n0gb0kh02gf",
-              "name": "Cloudflare Sites and Services - Network",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "mfnjfwk6xdr0",
-          "status": "investigating",
-          "body": "Cloudflare is investigating issues with Network Performance for customers using AWS ap-northeast-1 region. Customers may see increased latency and HTTP 5xx errors.\n\nWe are working to analyze and mitigate this problem. More updates to follow shortly.",
-          "incident_id": "sh22gggdcpjb",
-          "created_at": "2026-07-17T07:31:00.327Z",
-          "updated_at": "2026-07-17T07:31:00.327Z",
-          "display_at": "2026-07-17T07:31:00.327Z",
-          "affected_components": [
-            {
-              "code": "4n0gb0kh02gf",
-              "name": "Cloudflare Sites and Services - Network",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "4n0gb0kh02gf",
-          "name": "Network",
-          "status": "operational",
-          "created_at": "2023-01-13T13:39:19.804Z",
-          "updated_at": "2026-07-30T07:57:42.148Z",
-          "position": 73,
-          "description": null,
-          "showcase": false,
-          "start_date": "2023-01-13",
           "group_id": "1km35smx8p41",
           "page_id": "yh6f0r4529hb",
           "group": false,
