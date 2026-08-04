@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-08-04T14:20:30.415-07:00"
+    "updated_at": "2026-08-04T16:05:13.069-07:00"
   },
   "incidents": [
     {
@@ -233,9 +233,9 @@
     {
       "id": "5f0xf1cbcpvv",
       "name": "[Minor] Issues with Uploads",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-07-27T19:58:26.496-07:00",
-      "updated_at": "2026-08-03T21:09:56.666-07:00",
+      "updated_at": "2026-08-04T16:01:16.684-07:00",
       "monitoring_at": "2026-07-27T21:22:12.085-07:00",
       "resolved_at": "2026-07-27T21:57:55.766-07:00",
       "impact": "minor",
@@ -243,6 +243,19 @@
       "started_at": "2026-07-27T19:58:26.487-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "fvh21szvb8p2",
+          "status": "postmortem",
+          "body": "Between July 26, 2026 at 4:38 PM PDT and July 27, at 9:15 PM PDT, some users may have experienced intermittent errors and delays when uploading files in Box. The impact was limited to a subset of customers and upload paths.\n\nWe mitigated the issue with temporary traffic controls, and service levels returned to normal by 9:15 PM PDT on July 27.  Based on our investigation, the issue was related to database contention affecting upload processing. We subsequently deployed a fix addressing this contention at 2:11 PM PDT on July 28.\n\nWe are conducting a full engineering postmortem to confirm the root cause and identify additional measures to prevent recurrence. Our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
+          "incident_id": "5f0xf1cbcpvv",
+          "created_at": "2026-08-03T21:09:43.070-07:00",
+          "updated_at": "2026-08-04T16:01:16.681-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "x3qhf9xv1smy",
           "status": "resolved",
@@ -567,7 +580,7 @@
       "name": "[Medium] Issues with Box Edit and Microsoft Office Online",
       "status": "postmortem",
       "created_at": "2026-07-16T14:30:27.000-07:00",
-      "updated_at": "2026-08-03T06:58:42.291-07:00",
+      "updated_at": "2026-08-04T15:58:32.342-07:00",
       "monitoring_at": "2026-07-16T14:47:41.000-07:00",
       "resolved_at": "2026-07-16T14:48:30.000-07:00",
       "impact": "major",
@@ -578,10 +591,10 @@
         {
           "id": "6pcdr9m91sdz",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn July 16, 2026 between 1:00 PM and 2:40 PM PDT, some customers may have experienced errors when attempting to open or edit files through any Open With integration in the Box web application. Affected users reported failures opening files and permission-like errors for certain files.\n\nA recent API model release introduced a regression that prevented customers from opening or editing documents through any Open With integration in the Box web application. The issue was resolved by rolling back the release. We are reviewing our deployment practices to help prevent similar disruptions in the future.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting Open With integrations within Box. We would like to take this opportunity to further explain these issues and the steps we have taken to prevent them from reoccurring.\n\nBetween 1:00 PM PDT and 2:40 PM PDT on July 16, 2026, some customers may have been unable to open or edit files using any Open With integration in the Box web application. During this period, affected files may have appeared unavailable or grayed out, and users may have encountered permission-related errors when launching an integration. Microsoft Office workflows, including Office Online in the browser and desktop editing through Box Edit, were among those impacted.\n\nThe issue occurred after a recent service update unintentionally changed how integration workflows were handled, causing the product to return an empty set of available integration actions for affected files. We resolved the issue by reverting the service to the previously deployed version, after which service metrics and customer confirmations recovered. In addition, we are taking steps to reduce reoccurrence by improving testing, monitoring, and release practices for integration paths.\n\n# Analysis\n\nThis incident highlighted opportunities to improve end-to-end testing for integration workflows and our automated detection process.\n\nThe failure mode returned an empty action list rather than hard errors, which kept broad service-level signals near baseline and made the impact visible primarily through customer reports.\n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n* Expanded lower-environment end-to-end tests to validate Open With / Office Online behaviors after changes to integration-related code.\n* Added targeted monitoring and alerting for integration action and permission-check failures so regressions surface automatically.\n* Documented and formalized release and rollback runbooks for integration-related changes, including clear validation and rollback steps to reduce time-to-recovery.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
           "incident_id": "tq711b9h023x",
           "created_at": "2026-07-30T18:21:13.782-07:00",
-          "updated_at": "2026-07-30T18:24:44.381-07:00",
+          "updated_at": "2026-08-04T15:58:32.339-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
@@ -1152,9 +1165,9 @@
     {
       "id": "8wq1nq6mj333",
       "name": "[Medium] Issues with Zip Downloads",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-06-25T12:29:04.063-07:00",
-      "updated_at": "2026-06-25T14:47:38.184-07:00",
+      "updated_at": "2026-08-04T16:05:13.058-07:00",
       "monitoring_at": "2026-06-25T13:29:36.933-07:00",
       "resolved_at": "2026-06-25T14:47:38.161-07:00",
       "impact": "major",
@@ -1162,6 +1175,19 @@
       "started_at": "2026-06-25T12:29:04.048-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "b91ydxn0vl07",
+          "status": "postmortem",
+          "body": "Between 10:40 AM PDT and 12:33 PM PDT on June 25, 2026, some users may have experienced difficulties while working in Box. During this time, users routed through one particular US region may have seen failures or delays when attempting to download folders as ZIP files.\n\nThe issue occurred after a recent network component update impacted a backend service in that region. We restored the feature availability by reverting the change. In addition, we are updating configuration and monitoring practices for such changes to reduce the likelihood of recurrence.\n\n# Analysis\n\nAs part of our continuous and ongoing service improvement efforts, we recently rolled out a change to our internal compute platform. In one of our US regions, this change resulted in a resource problem within our service mesh layers. This incident highlighted opportunities to improve how platform updates and service configuration changes are propogated across Box compute regions.\n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n* Improved our multi-region roll out monitoring and alerting\n* Audited resource configurations for multi-region services\n* Improved ongoing monitoring and alerting of multi-region services\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
+          "incident_id": "8wq1nq6mj333",
+          "created_at": "2026-08-04T16:04:37.295-07:00",
+          "updated_at": "2026-08-04T16:05:13.055-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "9l3vpj5v9szn",
           "status": "resolved",
