@@ -4,7 +4,7 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-04T18:26:47.772Z"
+    "updated_at": "2026-08-04T19:30:08.703Z"
   },
   "components": [
     {
@@ -255,9 +255,9 @@
     {
       "id": "vnhk0y6jtn3q",
       "name": "Management Plane - GRU",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2025-03-24T09:32:12.829Z",
-      "updated_at": "2026-06-15T16:41:07.484Z",
+      "updated_at": "2026-08-04T19:03:41.834Z",
       "position": 4,
       "description": null,
       "showcase": true,
@@ -763,7 +763,7 @@
     {
       "id": "h2hndffd5ysc",
       "name": "Managed Postgres",
-      "status": "operational",
+      "status": "partial_outage",
       "created_at": "2025-03-24T09:28:07.922Z",
       "updated_at": "2025-03-24T09:28:07.922Z",
       "position": 19,
@@ -927,6 +927,59 @@
   ],
   "incidents": [
     {
+      "id": "n491h6hplflh",
+      "name": "MPG creation is failing in GRU due to lack of capacity",
+      "status": "identified",
+      "created_at": "2026-08-04T19:03:41.798Z",
+      "updated_at": "2026-08-04T19:03:41.875Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/y6fl3rfxypqb",
+      "started_at": "2026-08-04T19:03:41.788Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "s35sh0nrlnh9",
+          "status": "identified",
+          "body": "New MPG clusters may fail to create in GRU because we lack capacity.",
+          "incident_id": "n491h6hplflh",
+          "created_at": "2026-08-04T19:03:41.873Z",
+          "updated_at": "2026-08-04T19:03:41.873Z",
+          "display_at": "2026-08-04T19:03:41.873Z",
+          "affected_components": [
+            {
+              "code": "vnhk0y6jtn3q",
+              "name": "Managed Postgres - Management Plane - GRU",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "vnhk0y6jtn3q",
+          "name": "Management Plane - GRU",
+          "status": "partial_outage",
+          "created_at": "2025-03-24T09:32:12.829Z",
+          "updated_at": "2026-08-04T19:03:41.834Z",
+          "position": 4,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-03-24",
+          "group_id": "h2hndffd5ysc",
+          "page_id": "65rccr4mbblw",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "vvsn69zvhbps",
       "name": "Certificate issuance delays",
       "status": "identified",
@@ -1023,6 +1076,6 @@
   "scheduled_maintenances": [],
   "status": {
     "indicator": "minor",
-    "description": "Partially Degraded Service"
+    "description": "Minor Service Outage"
   }
 }
