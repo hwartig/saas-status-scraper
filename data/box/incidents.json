@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-08-09T16:08:51.273-07:00"
+    "updated_at": "2026-08-09T19:24:45.745-07:00"
   },
   "incidents": [
     {
@@ -860,7 +860,7 @@
       "name": "[Medium] Issues with File Requests",
       "status": "postmortem",
       "created_at": "2026-07-23T02:45:51.100-07:00",
-      "updated_at": "2026-08-04T19:04:27.211-07:00",
+      "updated_at": "2026-08-09T19:24:45.738-07:00",
       "monitoring_at": null,
       "resolved_at": "2026-07-23T04:42:10.645-07:00",
       "impact": "major",
@@ -871,10 +871,10 @@
         {
           "id": "mgbjlwpw2tv1",
           "status": "postmortem",
-          "body": "Between July 22, 2026 at 09:10 AM PDT and July 23, 2026 at 03:36 PM PDT, some customers may have experienced delays to metadata updates on files submitted via File Request.\n\nThe issue affected metadata being applied promptly after a File Request submission, causing visible latency for a subset of users.  This was caused by a surge of failed metadata processing events that created a processing backlog.  The team reduced the backlog and restored normal metadata update behavior, and by 03:36 PM PDT on July 23, the service was returning metadata updates without delay.\n\nWe are reviewing our event processing practices to help prevent similar incidents in the future.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed an issue affecting metadata updates using File Request in Box. We would like to take the opportunity to further explain the issue and the steps we have taken to keep similar issues from happening in the future.\n\nBetween 09:10 AM PDT on July 22, 2026 and 03:36 PM PDT on July 23, 2026, some users may have experienced delays in metadata updates while uploading files using File Request. The issue occurred when repeated attempts to process a subset of unsuccessful metadata events reduced available processing capacity and delayed other events. We restored the metadata functionality of File Requests by limiting unnecessary retries, reducing processing idle time, and improving the handling of failures that would not succeed when retried. In addition, we are improving retry behavior, monitoring, and response procedures for similar asynchronous processes.\n\n# Analysis\n\nAt the time of the issue, the system automatically retried failed file processing. During an extended period of failures, these retries consumed most of the system's capacity, causing files to pile up in a queue. As processing slowed, more files encountered issues that retries could not resolve, further increasing the delay.\n\nWe restored normal processing by temporarily reducing retry attempts, removing redundant retries, and allowing permanent failures to fail without being repeatedly processed. We continued monitoring the service before confirming that full functionality had been restored.\n\n# Corrective Actions\n\nThe following corrective actions have been completed or are planned:\n\n* Completed changes to limit retries and stop repeatedly processing failures that cannot be resolved through retries.\n* Applying the same, improved retry handling to other asynchronous processes, preventing similar occurrences from happening to other File Request features.\n* Improving alerting and response procedures for processing backlogs and retained unsuccessful events to ensure that temporary issues can later be retried safely.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
           "incident_id": "73k8gbsk6nf0",
           "created_at": "2026-08-04T19:03:42.833-07:00",
-          "updated_at": "2026-08-04T19:04:27.208-07:00",
+          "updated_at": "2026-08-09T19:24:45.736-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
