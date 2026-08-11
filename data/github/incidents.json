@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-11T00:03:53.815Z"
+    "updated_at": "2026-08-11T02:05:24.934Z"
   },
   "incidents": [
     {
@@ -189,7 +189,7 @@
       "name": "Incident with Actions",
       "status": "resolved",
       "created_at": "2026-08-06T15:22:49.029Z",
-      "updated_at": "2026-08-07T02:04:44.474Z",
+      "updated_at": "2026-08-11T02:05:24.924Z",
       "monitoring_at": "2026-08-07T00:06:24.906Z",
       "resolved_at": "2026-08-07T02:04:44.460Z",
       "impact": "critical",
@@ -200,10 +200,10 @@
         {
           "id": "x3dy6fnmf98h",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On August 6, 2026, between 15:05 UTC and 00:14 UTC on August 7, GitHub Actions experienced degraded availability. During the incident, workflow runs failed or remained queued for an extended period of time. Customers using both GitHub-hosted and self-hosted runners were affected. At peak, 71% of workflow runs experienced infrastructure failures and 75% of the remaining workflow runs were delayed by more than 5 minutes. <br /><br />The incident was triggered by a routine deployment to an internal Actions service responsible for processing events and generating Actions jobs. The deployment exposed an existing capacity and concurrency weakness. As pods were replaced during the deployment, remaining capacity became saturated, causing services to crash and triggering a cascading impact across multiple clusters and downstream services. <br /><br />These services recovered at 17:00 after expanding capacity, throttling incoming webhook-triggered work to allow the system to recover, and increasing processing capacity for the backlog of affected events. <br /><br />As the incident progressed, a backlog of work accumulated across the systems responsible for assigning jobs to runners. Due to a latent bug in one of the services responsible for job assignment, runners were getting assigned jobs that were no longer valid and then getting stuck retrying those jobs, preventing them from picking up valid work. <br /><br />This second stage of impact was mitigated by deploying changes to prevent runners from repeatedly attempting to acquire invalid jobs. These mitigations allowed the accumulated queues to drain and Actions to recover to normal operation. <br /><br />Some Actions Runner Controller (ARC) runners remained stuck after the incident. A mitigation deployed during the incident inadvertently affected these runners, causing some to remain offline until they were manually recovered. We subsequently rolled back the change and are adding automatic recovery in upcoming Runner and ARC releases. <br /><br />Some jobs created during the incident were also left stuck unable to be retried or canceled.  CLI and UI solutions for customers to address these were shared at https://github.com/orgs/community/discussions/204152#discussioncomment-17946043. <br /><br />To prevent recurrence, we are making improvements to deployment and capacity safeguards for the affected services, strengthening monitoring for the conditions that preceded the incident, improving the resiliency and recovery of queued work and runner assignment, and adding automatic recovery for self-hosted runners affected by similar failure conditions. We are also making additional improvements to reduce the risk of cascading failures and accelerate recovery during large-scale Actions disruptions.",
           "incident_id": "qcvjkzcs7j74",
           "created_at": "2026-08-07T02:04:44.460Z",
-          "updated_at": "2026-08-07T02:04:44.460Z",
+          "updated_at": "2026-08-11T02:05:24.918Z",
           "display_at": "2026-08-07T02:04:44.460Z",
           "affected_components": [
             {
