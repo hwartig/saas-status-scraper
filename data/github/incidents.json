@@ -4,22 +4,62 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-11T15:28:44.409Z"
+    "updated_at": "2026-08-11T16:49:34.130Z"
   },
   "incidents": [
     {
       "id": "vm1w8zq95wkt",
       "name": "Incident with GraphQL API Requests",
-      "status": "investigating",
+      "status": "monitoring",
       "created_at": "2026-08-11T14:50:40.228Z",
-      "updated_at": "2026-08-11T15:28:44.397Z",
-      "monitoring_at": null,
+      "updated_at": "2026-08-11T16:49:34.126Z",
+      "monitoring_at": "2026-08-11T16:49:34.107Z",
       "resolved_at": null,
       "impact": "minor",
       "shortlink": "https://stspg.io/3xn46bst0bjh",
       "started_at": "2026-08-11T14:50:40.219Z",
       "page_id": "kctbh9vrtdwd",
       "incident_updates": [
+        {
+          "id": "j6wkk9nn3gn9",
+          "status": "monitoring",
+          "body": "The degradation affecting API Requests has been mitigated. We are monitoring to ensure stability.",
+          "incident_id": "vm1w8zq95wkt",
+          "created_at": "2026-08-11T16:49:34.107Z",
+          "updated_at": "2026-08-11T16:49:34.107Z",
+          "display_at": "2026-08-11T16:49:34.107Z",
+          "affected_components": [
+            {
+              "code": "brv1bkgrwx7q",
+              "name": "API Requests",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "134v8n0xlvtj",
+          "status": "investigating",
+          "body": "We have returned to a healthy baseline on GraphQL API requests. We will continue to work on investigations into the errors seen during this incident.",
+          "incident_id": "vm1w8zq95wkt",
+          "created_at": "2026-08-11T16:49:24.503Z",
+          "updated_at": "2026-08-11T16:49:24.503Z",
+          "display_at": "2026-08-11T16:49:24.503Z",
+          "affected_components": [
+            {
+              "code": "brv1bkgrwx7q",
+              "name": "API Requests",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "1fp6txbb1vt8",
           "status": "investigating",
@@ -65,9 +105,9 @@
         {
           "id": "brv1bkgrwx7q",
           "name": "API Requests",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-01-31T20:01:46.621Z",
-          "updated_at": "2026-08-11T14:50:40.270Z",
+          "updated_at": "2026-08-11T16:49:34.068Z",
           "position": 4,
           "description": "Requests for GitHub APIs",
           "showcase": true,
@@ -1896,7 +1936,7 @@
       "name": "Incident with GraphQL API Requests",
       "status": "resolved",
       "created_at": "2026-07-27T03:53:19.034Z",
-      "updated_at": "2026-07-27T04:09:10.606Z",
+      "updated_at": "2026-08-11T16:17:32.866Z",
       "monitoring_at": "2026-07-27T04:09:01.497Z",
       "resolved_at": "2026-07-27T04:09:10.590Z",
       "impact": "minor",
@@ -1907,10 +1947,10 @@
         {
           "id": "drfw44m9fqq4",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On July 26, 2026 at 21:34 UTC we began seeing intermittent errors on the GitHub GraphQL API. A subset of GraphQL API requests returned HTTP 502 errors in short bursts. During the impact window an average of 0.09% of GraphQL API requests in the affected region failed, with a peak of 0.50% of requests failing during the worst two-minute period at 03:02 UTC on July 27. Requests that failed generally succeeded when retried, and no data was lost or altered. Other GitHub services were not affected.<br /><br />The errors were traced to a single group of servers handling a share of GraphQL API traffic. Application processes on that group intermittently closed connections before completing responses. Impact ended at 03:52 UTC on July 27 when those processes were replaced, and we resolved the incident at 04:09 UTC on July 27 after confirming error rates had returned to normal.<br /><br />We are still investigating why those processes closed connections, and that work is being carried out by the team that owns the underlying compute platform. In the meantime we are adding detection and automated mitigation for when a single group of servers behaves differently from its peers.",
           "incident_id": "fmmsrcg5x638",
           "created_at": "2026-07-27T04:09:10.590Z",
-          "updated_at": "2026-07-27T04:09:10.590Z",
+          "updated_at": "2026-08-11T16:17:32.862Z",
           "display_at": "2026-07-27T04:09:10.590Z",
           "affected_components": [
             {
@@ -1969,9 +2009,9 @@
         {
           "id": "brv1bkgrwx7q",
           "name": "API Requests",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-01-31T20:01:46.621Z",
-          "updated_at": "2026-08-11T14:50:40.270Z",
+          "updated_at": "2026-08-11T16:49:34.068Z",
           "position": 4,
           "description": "Requests for GitHub APIs",
           "showcase": true,
@@ -3062,9 +3102,9 @@
         {
           "id": "brv1bkgrwx7q",
           "name": "API Requests",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-01-31T20:01:46.621Z",
-          "updated_at": "2026-08-11T14:50:40.270Z",
+          "updated_at": "2026-08-11T16:49:34.068Z",
           "position": 4,
           "description": "Requests for GitHub APIs",
           "showcase": true,
@@ -4595,9 +4635,9 @@
         {
           "id": "brv1bkgrwx7q",
           "name": "API Requests",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-01-31T20:01:46.621Z",
-          "updated_at": "2026-08-11T14:50:40.270Z",
+          "updated_at": "2026-08-11T16:49:34.068Z",
           "position": 4,
           "description": "Requests for GitHub APIs",
           "showcase": true,
@@ -4894,9 +4934,9 @@
         {
           "id": "brv1bkgrwx7q",
           "name": "API Requests",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-01-31T20:01:46.621Z",
-          "updated_at": "2026-08-11T14:50:40.270Z",
+          "updated_at": "2026-08-11T16:49:34.068Z",
           "position": 4,
           "description": "Requests for GitHub APIs",
           "showcase": true,
@@ -7895,9 +7935,9 @@
         {
           "id": "brv1bkgrwx7q",
           "name": "API Requests",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-01-31T20:01:46.621Z",
-          "updated_at": "2026-08-11T14:50:40.270Z",
+          "updated_at": "2026-08-11T16:49:34.068Z",
           "position": 4,
           "description": "Requests for GitHub APIs",
           "showcase": true,
