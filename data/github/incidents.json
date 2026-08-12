@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-12T13:04:10.825Z"
+    "updated_at": "2026-08-12T15:00:05.167Z"
   },
   "incidents": [
     {
@@ -1158,7 +1158,7 @@
       "name": "Incident with Copilot",
       "status": "resolved",
       "created_at": "2026-08-03T09:53:27.172Z",
-      "updated_at": "2026-08-03T11:25:12.388Z",
+      "updated_at": "2026-08-12T15:00:05.157Z",
       "monitoring_at": "2026-08-03T11:19:04.001Z",
       "resolved_at": "2026-08-03T11:25:12.371Z",
       "impact": "minor",
@@ -1169,10 +1169,10 @@
         {
           "id": "mpkkftmykc6h",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On 2026-08-03, between 06:52 and 11:25 UTC, some GitHub Copilot users experienced errors when using chat and agent features. Requests to list the available models failed, and because every chat or agent interaction begins by retrieving the list of models, affected users saw their requests fail. On average about 3% of these model-listing requests failed during the incident (roughly 97% succeeded), but failures were significantly higher during peak-traffic periods, at times approaching 100% for the affected internal lookups. Approximately 4,066 users were affected in a single 60-minute window, concentrated among IDE-based clients. The underlying AI models themselves remained healthy throughout.<br /><br />The incident was caused by an increase in how often clients requested the model list, which pushed an internal user-authorization lookup past a rate limit; the rate-limited responses were surfaced to users as errors. We mitigated the impact by increasing how long Copilot caches that authorization lookup, which reduced load on the internal service, and we have additional capacity and rate-limit changes in progress. To prevent recurrence we are improving monitoring for this class of failure, adjusting cache and rate-limit settings, and coordinating with client teams on request patterns.",
           "incident_id": "7s119p1yxttr",
           "created_at": "2026-08-03T11:25:12.371Z",
-          "updated_at": "2026-08-03T11:25:12.371Z",
+          "updated_at": "2026-08-12T15:00:05.151Z",
           "display_at": "2026-08-03T11:25:12.371Z",
           "affected_components": [
             {
