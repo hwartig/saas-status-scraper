@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-08-12T14:58:51.554-07:00"
+    "updated_at": "2026-08-12T16:09:05.304-07:00"
   },
   "incidents": [
     {
@@ -634,7 +634,7 @@
       "name": "[Minor] Issues with Uploads",
       "status": "postmortem",
       "created_at": "2026-07-27T19:58:26.496-07:00",
-      "updated_at": "2026-08-04T16:01:16.684-07:00",
+      "updated_at": "2026-08-12T16:06:02.323-07:00",
       "monitoring_at": "2026-07-27T21:22:12.085-07:00",
       "resolved_at": "2026-07-27T21:57:55.766-07:00",
       "impact": "minor",
@@ -645,10 +645,10 @@
         {
           "id": "fvh21szvb8p2",
           "status": "postmortem",
-          "body": "Between July 26, 2026 at 4:38 PM PDT and July 27, at 9:15 PM PDT, some users may have experienced intermittent errors and delays when uploading files in Box. The impact was limited to a subset of customers and upload paths.\n\nWe mitigated the issue with temporary traffic controls, and service levels returned to normal by 9:15 PM PDT on July 27.  Based on our investigation, the issue was related to database contention affecting upload processing. We subsequently deployed a fix addressing this contention at 2:11 PM PDT on July 28.\n\nWe are conducting a full engineering postmortem to confirm the root cause and identify additional measures to prevent recurrence. Our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting file uploads and edits that create new file versions. We want to explain what happened and what we have done to prevent it from happening again. \n\nBetween Jul 26, 2026 4:38 PM PDT and Jul 28, 2026 10:34 AM PDT, some users may have experienced delays or failures when uploading files or saving edits that create new file versions. The impact was limited to cases with a high number of concurrent uploads or edits on the same file.\n\nDuring this period, concurrent upload and edit traffic contended on shared database locks while creating new file versions. Under load, an overly conservative insert locking strategy acquired locks, creating a bottleneck in the database. The contention was amplified by background processes that post-process the uploaded file and attach additional information to every new version, competing for the same locks.\n\n# Analysis\n\nThis incident highlighted several opportunities for improvement:\n\n* Lock-wait failures do not appear in our usual change-stream / mutation telemetry, which delayed our investigation. \n* Background processes can contend with upload and edit paths that create new versions. Our development environments did not fully test this particular interaction under load.\n\nRemediation combined an immediate reduction in non-essential background scan load with a code change that relaxed the overly conservative locking behavior, while preserving the intended isolation guarantees.\n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n* Deploy and validate the insert-behavior fix across all live clusters \\(completed and confirmed\\).\n* Improve observability for lock-wait and timeout-driven load so contention sources are visible.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
           "incident_id": "5f0xf1cbcpvv",
           "created_at": "2026-08-03T21:09:43.070-07:00",
-          "updated_at": "2026-08-04T16:01:16.681-07:00",
+          "updated_at": "2026-08-12T16:06:02.320-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
