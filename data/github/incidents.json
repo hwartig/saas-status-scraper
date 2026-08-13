@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-13T15:56:48.477Z"
+    "updated_at": "2026-08-13T16:44:17.721Z"
   },
   "incidents": [
+    {
+      "id": "pf25whpq58hh",
+      "name": "Disruption with GHEC Team Sync",
+      "status": "investigating",
+      "created_at": "2026-08-13T16:21:33.104Z",
+      "updated_at": "2026-08-13T16:21:51.863Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/l6tmhqw07cmj",
+      "started_at": "2026-08-13T16:21:33.096Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "n08n9543y09f",
+          "status": "investigating",
+          "body": "GHEC Team Sync is currently degraded for enterprises with personal accounts, causing delays when syncing teams to IdP groups. We have identified the cause of the delays and are working on a mitigation. We will provide an update on our progress at 20:00 UTC.",
+          "incident_id": "pf25whpq58hh",
+          "created_at": "2026-08-13T16:21:51.860Z",
+          "updated_at": "2026-08-13T16:21:51.860Z",
+          "display_at": "2026-08-13T16:21:51.860Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "gsnrtly5n4dy",
+          "status": "investigating",
+          "body": "We are investigating reports of impacted performance for some GitHub services.",
+          "incident_id": "pf25whpq58hh",
+          "created_at": "2026-08-13T16:21:33.148Z",
+          "updated_at": "2026-08-13T16:21:33.148Z",
+          "display_at": "2026-08-13T16:21:33.148Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "24t8gsgqx2qb",
       "name": "Errors with the Fable 5 Model in Copilot",
@@ -8277,119 +8320,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "67w72l5v25x3",
-      "name": "Increased latency with webhooks",
-      "status": "resolved",
-      "created_at": "2026-06-15T15:37:36.378Z",
-      "updated_at": "2026-06-25T18:28:46.284Z",
-      "monitoring_at": "2026-06-15T16:39:52.952Z",
-      "resolved_at": "2026-06-15T17:37:39.293Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/4py2y12w7qpl",
-      "started_at": "2026-06-15T15:37:36.361Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "ff08cpqr8djh",
-          "status": "resolved",
-          "body": "On June 15, 2026, between 15:27 UTC and 16:23 UTC, GitHub webhook deliveries were delayed. During this window, webhook events were delivered later than normal, with average end-to-end delivery latency peaking at approximately 8.8 minutes. No webhook deliveries were lost — delayed events were queued and delivered once processing recovered.<br /><br />This was caused by a temporary throughput constraint in an internal event-processing system that moves webhook events through GitHub's delivery pipeline. The rate at which events were processed for delivery dropped below the incoming volume, creating a backlog. We restarted the affected pipeline service, after which throughput recovered and the backlog fully drained by approximately 16:29 UTC. Webhook delivery latency returned to normal, the incident was mitigated at 16:39 UTC, and fully resolved at 17:37 UTC.<br /><br />To reduce the likelihood and impact of similar incidents, we are working on improving the accuracy of the utilization metrics used to scale our delivery worker pools, reviewing connection and capacity headroom in the delivery pipeline.",
-          "incident_id": "67w72l5v25x3",
-          "created_at": "2026-06-15T17:37:39.293Z",
-          "updated_at": "2026-06-25T18:28:46.275Z",
-          "display_at": "2026-06-15T17:37:39.293Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "v4tz95k2vfvk",
-          "status": "monitoring",
-          "body": "The degradation affecting Webhooks has been mitigated. We are monitoring to ensure stability.",
-          "incident_id": "67w72l5v25x3",
-          "created_at": "2026-06-15T16:39:52.952Z",
-          "updated_at": "2026-06-15T16:39:52.952Z",
-          "display_at": "2026-06-15T16:39:52.952Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "y8b0gjv58crc",
-          "status": "investigating",
-          "body": "Webhooks delivery latency has returned to normal levels. The backlog that built up during the incident has been cleared at approximately 4:29 UTC. We consider this incident resolved.",
-          "incident_id": "67w72l5v25x3",
-          "created_at": "2026-06-15T16:39:34.933Z",
-          "updated_at": "2026-06-15T16:39:34.933Z",
-          "display_at": "2026-06-15T16:39:34.933Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "d3sjqq2qnq4t",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Webhooks",
-          "incident_id": "67w72l5v25x3",
-          "created_at": "2026-06-15T15:37:36.656Z",
-          "updated_at": "2026-06-15T15:37:36.656Z",
-          "display_at": "2026-06-15T15:37:36.656Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "4230lsnqdsld",
-          "name": "Webhooks",
-          "status": "operational",
-          "created_at": "2019-11-13T18:00:24.256Z",
-          "updated_at": "2026-08-13T15:33:02.159Z",
-          "position": 2,
-          "description": "Real time HTTP callbacks of user-generated and system events",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
