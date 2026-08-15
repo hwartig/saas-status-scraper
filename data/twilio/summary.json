@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-08-15T07:05:18.119-07:00"
+    "updated_at": "2026-08-15T07:20:33.809-07:00"
   },
   "components": [
     {
@@ -3071,6 +3071,192 @@
   ],
   "incidents": [
     {
+      "id": "r2gvsly2y5ty",
+      "name": "Elevated Microsoft 365 IP Blocks Causing Delivery Failures for Multiple Users",
+      "status": "monitoring",
+      "created_at": "2026-08-15T07:16:43.841-07:00",
+      "updated_at": "2026-08-15T07:16:43.900-07:00",
+      "monitoring_at": "2026-08-15T07:16:43.891-07:00",
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/lvytfk0hlwth",
+      "started_at": "2026-08-15T07:16:43.831-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "7zkrdchx00mg",
+          "status": "monitoring",
+          "body": "Beginning Aug 14 2026, ~21:45 UTC, we have observed an increase of 10-15% in blocks from Microsoft 365 impacting all Twilio Sendgrid IPs. We have confirmed with other industry contacts that they are observing similar behavior. The blocks are being observed at many domains hosted by Microsoft 365 and are not confined to a specific subset of recipient domains.\n\nSome users continue to see elevated blocks at Microsoft 365 domains. Microsoft has still not disclosed any outage with the service. The blocks are variation of the following:\n\n550 5.7.511 Access denied, banned sender[x.x.x.x]. To request removal from this list please forward this message to delist@microsoft.com. For more information please go to  http://go.microsoft.com/fwlink/?LinkId=526653. AS(1410)\n\nUsers that are still experiencing these rejections should submit a delisting request per the instructions provided in the bounce message by sending an email with a copy of the error message, and the blocked IP address, to \"delist@microsoft.com\".\n\nDelisting requests can also be made via the Office 365 Anti-Spam IP Delist Portal at https://sender.office.com/\n\nAdditionally, we have observed an increase in blocks at Microsoft Outlook Consumer (\"OLC\") domains (e.g. 'hotmail.com', 'outlook.com'), which is a separate service from Microsoft 365, with syntax similar to the following:\n\n550 5.7.1 Unfortunately, messages from [x.x.x.x] weren't sent. Please contact your Internet service provider since part of their network is on our block list (S3140). You can also refer your provider to http://mail.live.com/mail/troubleshooting.aspx#errors.\n\nUsers experiencing these blocks should submit a delisting request to Microsoft here: https://olcsupport.office.com/\n\nWe have reached out to Microsoft to request an update on the status and we are still awaiting for a response. Until that time, we advise users to continue to escalate directly to Microsoft and request remediation.",
+          "incident_id": "r2gvsly2y5ty",
+          "created_at": "2026-08-15T07:16:43.891-07:00",
+          "updated_at": "2026-08-15T07:16:43.891-07:00",
+          "display_at": "2026-08-15T07:16:43.891-07:00",
+          "affected_components": [
+            {
+              "code": "4yft4fgnwyfh",
+              "name": "SendGrid Mail Sending - API v3",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "4yft4fgnwyfh",
+          "name": "API v3",
+          "status": "operational",
+          "created_at": "2026-07-02T08:49:06.673-07:00",
+          "updated_at": "2026-07-13T12:00:14.286-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2026-07-02",
+          "group_id": "87xnt5pfw06t",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "vfprmt1kwpz9",
+      "name": "SMS Delivery Delays from Twilio to KDDI Japan",
+      "status": "identified",
+      "created_at": "2026-08-14T23:58:01.780-07:00",
+      "updated_at": "2026-08-15T07:09:14.993-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/s1r3sz3b7vnx",
+      "started_at": "2026-08-14T23:58:01.770-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "2x6n89zlqpl6",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio to KDDI network subscribers in Japan. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 8 hours or as soon as more information becomes available.",
+          "incident_id": "vfprmt1kwpz9",
+          "created_at": "2026-08-15T07:09:14.990-07:00",
+          "updated_at": "2026-08-15T07:09:14.990-07:00",
+          "display_at": "2026-08-15T07:09:14.990-07:00",
+          "affected_components": [
+            {
+              "code": "8qjql0kqnd33",
+              "name": "CARRIER NETWORK - SMS, APAC",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "8lk0xnj20q8r",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio to KDDI Corporation network subscribers in Japan. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "vfprmt1kwpz9",
+          "created_at": "2026-08-15T03:00:40.629-07:00",
+          "updated_at": "2026-08-15T03:00:40.629-07:00",
+          "display_at": "2026-08-15T03:00:40.629-07:00",
+          "affected_components": [
+            {
+              "code": "8qjql0kqnd33",
+              "name": "CARRIER NETWORK - SMS, APAC",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "9w3mgzr78v0b",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio to KDDI network subscribers in Japan. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "vfprmt1kwpz9",
+          "created_at": "2026-08-15T00:59:19.388-07:00",
+          "updated_at": "2026-08-15T00:59:19.388-07:00",
+          "display_at": "2026-08-15T00:59:19.388-07:00",
+          "affected_components": [
+            {
+              "code": "8qjql0kqnd33",
+              "name": "CARRIER NETWORK - SMS, APAC",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2v8fg17p5jwg",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio to KDDI Corporation network subscribers in Japan. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "vfprmt1kwpz9",
+          "created_at": "2026-08-14T23:59:02.168-07:00",
+          "updated_at": "2026-08-14T23:59:02.168-07:00",
+          "display_at": "2026-08-14T23:59:02.168-07:00",
+          "affected_components": [
+            {
+              "code": "8qjql0kqnd33",
+              "name": "CARRIER NETWORK - SMS, APAC",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2wd99wpsfcvq",
+          "status": "investigating",
+          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio to KDDI Corporation network subscribers in Japan. Our team is actively investigating this issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "vfprmt1kwpz9",
+          "created_at": "2026-08-14T23:58:01.823-07:00",
+          "updated_at": "2026-08-14T23:58:01.823-07:00",
+          "display_at": "2026-08-14T23:58:01.823-07:00",
+          "affected_components": [
+            {
+              "code": "8qjql0kqnd33",
+              "name": "CARRIER NETWORK - SMS, APAC",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "8qjql0kqnd33",
+          "name": "SMS, APAC",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:53:31.990-08:00",
+          "updated_at": "2026-08-15T01:47:13.011-07:00",
+          "position": 11,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "9mmpcy59szj2",
       "name": "SMS Delivery Delays from Twilio to Telemat Cel Brazil",
       "status": "investigating",
@@ -3739,119 +3925,6 @@
           "description": null,
           "showcase": false,
           "start_date": "2023-03-23",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "vfprmt1kwpz9",
-      "name": "SMS Delivery Delays from Twilio to KDDI Corporation Japan",
-      "status": "identified",
-      "created_at": "2026-08-14T23:58:01.780-07:00",
-      "updated_at": "2026-08-15T03:00:40.632-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/s1r3sz3b7vnx",
-      "started_at": "2026-08-14T23:58:01.770-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "8lk0xnj20q8r",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio to KDDI Corporation network subscribers in Japan. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "vfprmt1kwpz9",
-          "created_at": "2026-08-15T03:00:40.629-07:00",
-          "updated_at": "2026-08-15T03:00:40.629-07:00",
-          "display_at": "2026-08-15T03:00:40.629-07:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "9w3mgzr78v0b",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio to KDDI network subscribers in Japan. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "vfprmt1kwpz9",
-          "created_at": "2026-08-15T00:59:19.388-07:00",
-          "updated_at": "2026-08-15T00:59:19.388-07:00",
-          "display_at": "2026-08-15T00:59:19.388-07:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2v8fg17p5jwg",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio to KDDI Corporation network subscribers in Japan. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "vfprmt1kwpz9",
-          "created_at": "2026-08-14T23:59:02.168-07:00",
-          "updated_at": "2026-08-14T23:59:02.168-07:00",
-          "display_at": "2026-08-14T23:59:02.168-07:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2wd99wpsfcvq",
-          "status": "investigating",
-          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio to KDDI Corporation network subscribers in Japan. Our team is actively investigating this issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "vfprmt1kwpz9",
-          "created_at": "2026-08-14T23:58:01.823-07:00",
-          "updated_at": "2026-08-14T23:58:01.823-07:00",
-          "display_at": "2026-08-14T23:58:01.823-07:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "8qjql0kqnd33",
-          "name": "SMS, APAC",
-          "status": "degraded_performance",
-          "created_at": "2019-01-10T08:53:31.990-08:00",
-          "updated_at": "2026-08-15T01:47:13.011-07:00",
-          "position": 11,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
           "group_id": "j8hlnyphbbs0",
           "page_id": "gpkpyklzq55q",
           "group": false,
