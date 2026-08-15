@@ -4,9 +4,62 @@
     "name": "Honeybadger.io",
     "url": "https://status.honeybadger.io",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-08-15T13:24:13.997-07:00"
+    "updated_at": "2026-08-15T14:04:46.364-07:00"
   },
   "incidents": [
+    {
+      "id": "b3r9l4gnj228",
+      "name": "Elevated failure rates on the US error reporting API",
+      "status": "resolved",
+      "created_at": "2026-08-15T13:48:15.873-07:00",
+      "updated_at": "2026-08-15T13:48:15.940-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2026-08-15T13:48:15.929-07:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/8xjldb6jx5wc",
+      "started_at": "2026-08-15T13:48:15.867-07:00",
+      "page_id": "4vffsqvxs4db",
+      "incident_updates": [
+        {
+          "id": "6xgb5jb00z0l",
+          "status": "resolved",
+          "body": "Between 19:54 and 20:07 UTC on August 15, requests to our US error reporting API (api.honeybadger.io) experienced an elevated failure rate. During this window, a majority of requests to submit errors and events timed out or received 5xx responses. Browser (JavaScript) error reporting, source map uploads, the Honeybadger web application, dashboards, uptime monitoring, and our EU region were not affected.\n\nWhat happened: Beginning at 19:54 UTC, a single source began submitting error reports at roughly 150 times its normal rate, with payloads several times larger than average. This more than doubled the total volume of data arriving at our ingestion tier, which saturated within a minute. Because the saturated service kept accepting connections rather than returning errors outright, our autoscaling and alerting — which watch for error responses — did not register the problem quickly, and capacity was added later than it should have been. Service recovered at 20:07 UTC once additional capacity came online.\n\nMost affected reports were retried successfully by our client libraries once the API recovered, so the large majority of data submitted during the window was ultimately received. Reports sent by libraries without retry logic were not received and cannot be recovered.\n\nWhat we've done: our ingestion tier now scales on response latency in addition to error rates, so this kind of saturation is detected within a minute or two rather than only once errors appear. We've also raised the tier's baseline capacity and widened our paging alerts to cover failures that don't surface as server errors. We're additionally adding limits on how much data a single source can submit.\n\nWe're sorry for the disruption, and for any gaps this caused in your error data during the window.",
+          "incident_id": "b3r9l4gnj228",
+          "created_at": "2026-08-15T13:48:15.929-07:00",
+          "updated_at": "2026-08-15T13:48:15.929-07:00",
+          "display_at": "2026-08-15T13:48:15.929-07:00",
+          "affected_components": [
+            {
+              "code": "6gv6dgjclw2t",
+              "name": "API",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "6gv6dgjclw2t",
+          "name": "API",
+          "status": "operational",
+          "created_at": "2014-05-14T15:22:48.398-07:00",
+          "updated_at": "2026-01-14T12:48:08.870-08:00",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "4vffsqvxs4db",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "j0d19vc2tmgv",
       "name": "Elevated error rates on the US error reporting API",
@@ -3399,59 +3452,6 @@
           "created_at": "2014-05-14T14:53:13.723-07:00",
           "updated_at": "2025-10-22T13:15:10.604-07:00",
           "position": 1,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "4vffsqvxs4db",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "z7nx9g80bl7n",
-      "name": "Intermittent sourcemap upload issue",
-      "status": "resolved",
-      "created_at": "2018-07-16T10:29:55.759-07:00",
-      "updated_at": "2018-07-16T10:29:56.289-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2018-07-16T10:29:55.799-07:00",
-      "impact": "none",
-      "shortlink": "http://stspg.io/b8399711f",
-      "started_at": "2018-07-16T10:29:55.799-07:00",
-      "page_id": "4vffsqvxs4db",
-      "incident_updates": [
-        {
-          "id": "7yc5rzy6p108",
-          "status": "resolved",
-          "body": "Our API was experiencing intermittent failures with sourcemap uploads from about 7:30 AM to 10:30 AM PDT.  This was caused by internal DNS resolution failures.\n\nThe problem has been resolved.",
-          "incident_id": "z7nx9g80bl7n",
-          "created_at": "2018-07-16T10:29:55.799-07:00",
-          "updated_at": "2018-07-16T10:29:56.286-07:00",
-          "display_at": "2018-07-16T10:29:55.799-07:00",
-          "affected_components": [
-            {
-              "code": "6gv6dgjclw2t",
-              "name": "API",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1018910616445075457
-        }
-      ],
-      "components": [
-        {
-          "id": "6gv6dgjclw2t",
-          "name": "API",
-          "status": "operational",
-          "created_at": "2014-05-14T15:22:48.398-07:00",
-          "updated_at": "2026-01-14T12:48:08.870-08:00",
-          "position": 2,
           "description": null,
           "showcase": true,
           "start_date": null,
