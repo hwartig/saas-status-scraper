@@ -4,15 +4,88 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-08-17T05:57:17.357-07:00"
+    "updated_at": "2026-08-17T06:30:56.543-07:00"
   },
   "incidents": [
     {
+      "id": "r2gvsly2y5ty",
+      "name": "Elevated Microsoft 365 IP Blocks Causing Delivery Failures for Multiple Users",
+      "status": "resolved",
+      "created_at": "2026-08-15T07:16:43.841-07:00",
+      "updated_at": "2026-08-17T06:30:56.541-07:00",
+      "monitoring_at": "2026-08-15T07:16:43.891-07:00",
+      "resolved_at": "2026-08-17T06:30:56.523-07:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/lvytfk0hlwth",
+      "started_at": "2026-08-15T07:16:43.831-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "gz62pvnpv9b6",
+          "status": "resolved",
+          "body": "The incident is resolved as block rates at Microsoft 365 have returned to normal levels.\n\nUsers that continue to see elevated blocks at Microsoft 365 can submit delisting requests to Microsoft by sending an email with a copy of the error message, and the blocked IP address, to \"delist@microsoft.com\".\n\nDelisting requests can also be made via the Office 365 Anti-Spam IP Delist Portal at https://sender.office.com/\n\nUsers that are experiencing blocks at Microsoft Outlook Consumer domains can open a remediation request at http://olcsupport.office.com/",
+          "incident_id": "r2gvsly2y5ty",
+          "created_at": "2026-08-17T06:30:56.523-07:00",
+          "updated_at": "2026-08-17T06:30:56.523-07:00",
+          "display_at": "2026-08-17T06:30:56.523-07:00",
+          "affected_components": [
+            {
+              "code": "4yft4fgnwyfh",
+              "name": "SendGrid Mail Sending - API v3",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "7zkrdchx00mg",
+          "status": "monitoring",
+          "body": "Beginning Aug 14 2026, ~21:45 UTC, we have observed an increase of 10-15% in blocks from Microsoft 365 impacting all Twilio Sendgrid IPs. We have confirmed with other industry contacts that they are observing similar behavior. The blocks are being observed at many domains hosted by Microsoft 365 and are not confined to a specific subset of recipient domains.\n\nSome users continue to see elevated blocks at Microsoft 365 domains. Microsoft has still not disclosed any outage with the service. The blocks are variation of the following:\n\n550 5.7.511 Access denied, banned sender[x.x.x.x]. To request removal from this list please forward this message to delist@microsoft.com. For more information please go to  http://go.microsoft.com/fwlink/?LinkId=526653. AS(1410)\n\nUsers that are still experiencing these rejections should submit a delisting request per the instructions provided in the bounce message by sending an email with a copy of the error message, and the blocked IP address, to \"delist@microsoft.com\".\n\nDelisting requests can also be made via the Office 365 Anti-Spam IP Delist Portal at https://sender.office.com/\n\nAdditionally, we have observed an increase in blocks at Microsoft Outlook Consumer (\"OLC\") domains (e.g. 'hotmail.com', 'outlook.com'), which is a separate service from Microsoft 365, with syntax similar to the following:\n\n550 5.7.1 Unfortunately, messages from [x.x.x.x] weren't sent. Please contact your Internet service provider since part of their network is on our block list (S3140). You can also refer your provider to http://mail.live.com/mail/troubleshooting.aspx#errors.\n\nUsers experiencing these blocks should submit a delisting request to Microsoft here: https://olcsupport.office.com/\n\nWe have reached out to Microsoft to request an update on the status and we are still awaiting for a response. Until that time, we advise users to continue to escalate directly to Microsoft and request remediation.",
+          "incident_id": "r2gvsly2y5ty",
+          "created_at": "2026-08-15T07:16:43.891-07:00",
+          "updated_at": "2026-08-15T07:16:43.891-07:00",
+          "display_at": "2026-08-15T07:16:43.891-07:00",
+          "affected_components": [
+            {
+              "code": "4yft4fgnwyfh",
+              "name": "SendGrid Mail Sending - API v3",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "4yft4fgnwyfh",
+          "name": "API v3",
+          "status": "operational",
+          "created_at": "2026-07-02T08:49:06.673-07:00",
+          "updated_at": "2026-07-13T12:00:14.286-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2026-07-02",
+          "group_id": "87xnt5pfw06t",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "xt68sd7mb8kw",
-      "name": "SMS Delivery Delays and Failures from Twilio to DiGi Malaysia",
+      "name": "SMS Delivery Delays and Failures from Twilio Phone Numbers to DiGi Malaysia",
       "status": "monitoring",
       "created_at": "2026-08-17T03:49:45.099-07:00",
-      "updated_at": "2026-08-17T04:19:55.749-07:00",
+      "updated_at": "2026-08-17T06:20:23.578-07:00",
       "monitoring_at": "2026-08-17T04:19:55.730-07:00",
       "resolved_at": null,
       "impact": "minor",
@@ -20,6 +93,26 @@
       "started_at": "2026-08-17T03:49:45.088-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "l80sdg62qdbp",
+          "status": "monitoring",
+          "body": "We have observed a recovery in SMS delivery from Twilio Phone Numbers to DiGi network subscribers in Malaysia and are monitoring service stability. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "xt68sd7mb8kw",
+          "created_at": "2026-08-17T06:20:23.575-07:00",
+          "updated_at": "2026-08-17T06:20:23.575-07:00",
+          "display_at": "2026-08-17T06:20:23.575-07:00",
+          "affected_components": [
+            {
+              "code": "8qjql0kqnd33",
+              "name": "CARRIER NETWORK - SMS, APAC",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "l8mflhw9xtwt",
           "status": "monitoring",
@@ -516,7 +609,7 @@
       "name": "Service Disruption: Inbound Voice Calls to France Numbers and Frankfurt Interconnect",
       "status": "monitoring",
       "created_at": "2026-08-16T13:28:51.316-07:00",
-      "updated_at": "2026-08-17T04:58:12.311-07:00",
+      "updated_at": "2026-08-17T05:58:03.933-07:00",
       "monitoring_at": "2026-08-16T14:20:31.000-07:00",
       "resolved_at": null,
       "impact": "minor",
@@ -524,6 +617,32 @@
       "started_at": "2026-08-16T14:20:31.000-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "5z2sq6hr07s9",
+          "status": "monitoring",
+          "body": "We continue to monitor the issue related to elevated errors impacting Interconnect in the Frankfurt Edge, as well as inbound voice calls to France numbers. Both services have been moved to active monitoring as we evaluate performance. We will provide an update as soon as more information becomes available.",
+          "incident_id": "clygbwj54wq0",
+          "created_at": "2026-08-17T05:58:03.931-07:00",
+          "updated_at": "2026-08-17T05:58:03.931-07:00",
+          "display_at": "2026-08-17T05:58:03.931-07:00",
+          "affected_components": [
+            {
+              "code": "hjfntfyhnn4l",
+              "name": "INTERCONNECT",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "bnzggd37p61w",
+              "name": "CARRIER NETWORK - Voice, Europe",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "ss4vk8s0l75d",
           "status": "monitoring",
@@ -1749,59 +1868,6 @@
           "showcase": false,
           "start_date": "2023-03-23",
           "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "r2gvsly2y5ty",
-      "name": "Elevated Microsoft 365 IP Blocks Causing Delivery Failures for Multiple Users",
-      "status": "monitoring",
-      "created_at": "2026-08-15T07:16:43.841-07:00",
-      "updated_at": "2026-08-15T07:16:43.900-07:00",
-      "monitoring_at": "2026-08-15T07:16:43.891-07:00",
-      "resolved_at": null,
-      "impact": "none",
-      "shortlink": "https://stspg.io/lvytfk0hlwth",
-      "started_at": "2026-08-15T07:16:43.831-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "7zkrdchx00mg",
-          "status": "monitoring",
-          "body": "Beginning Aug 14 2026, ~21:45 UTC, we have observed an increase of 10-15% in blocks from Microsoft 365 impacting all Twilio Sendgrid IPs. We have confirmed with other industry contacts that they are observing similar behavior. The blocks are being observed at many domains hosted by Microsoft 365 and are not confined to a specific subset of recipient domains.\n\nSome users continue to see elevated blocks at Microsoft 365 domains. Microsoft has still not disclosed any outage with the service. The blocks are variation of the following:\n\n550 5.7.511 Access denied, banned sender[x.x.x.x]. To request removal from this list please forward this message to delist@microsoft.com. For more information please go to  http://go.microsoft.com/fwlink/?LinkId=526653. AS(1410)\n\nUsers that are still experiencing these rejections should submit a delisting request per the instructions provided in the bounce message by sending an email with a copy of the error message, and the blocked IP address, to \"delist@microsoft.com\".\n\nDelisting requests can also be made via the Office 365 Anti-Spam IP Delist Portal at https://sender.office.com/\n\nAdditionally, we have observed an increase in blocks at Microsoft Outlook Consumer (\"OLC\") domains (e.g. 'hotmail.com', 'outlook.com'), which is a separate service from Microsoft 365, with syntax similar to the following:\n\n550 5.7.1 Unfortunately, messages from [x.x.x.x] weren't sent. Please contact your Internet service provider since part of their network is on our block list (S3140). You can also refer your provider to http://mail.live.com/mail/troubleshooting.aspx#errors.\n\nUsers experiencing these blocks should submit a delisting request to Microsoft here: https://olcsupport.office.com/\n\nWe have reached out to Microsoft to request an update on the status and we are still awaiting for a response. Until that time, we advise users to continue to escalate directly to Microsoft and request remediation.",
-          "incident_id": "r2gvsly2y5ty",
-          "created_at": "2026-08-15T07:16:43.891-07:00",
-          "updated_at": "2026-08-15T07:16:43.891-07:00",
-          "display_at": "2026-08-15T07:16:43.891-07:00",
-          "affected_components": [
-            {
-              "code": "4yft4fgnwyfh",
-              "name": "SendGrid Mail Sending - API v3",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "4yft4fgnwyfh",
-          "name": "API v3",
-          "status": "operational",
-          "created_at": "2026-07-02T08:49:06.673-07:00",
-          "updated_at": "2026-07-13T12:00:14.286-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": "2026-07-02",
-          "group_id": "87xnt5pfw06t",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
