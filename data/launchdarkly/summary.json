@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-08-17T02:59:06.790-07:00"
+    "updated_at": "2026-08-17T03:36:58.416-07:00"
   },
   "components": [
     {
@@ -40,7 +40,7 @@
     {
       "id": "vvb9wn53mspf",
       "name": "Flag Delivery Network (core functionality)",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-02-28T13:44:13.135-08:00",
       "updated_at": "2022-09-30T14:42:24.541-07:00",
       "position": 1,
@@ -338,9 +338,9 @@
     {
       "id": "w5565sdz2kfj",
       "name": "Polling API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2017-04-17T09:40:25.815-07:00",
-      "updated_at": "2026-07-13T12:17:03.360-07:00",
+      "updated_at": "2026-08-17T03:36:58.355-07:00",
       "position": 3,
       "description": "Flag updates for SDKs in polling mode",
       "showcase": true,
@@ -834,7 +834,61 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "1d2y0xf800md",
+      "name": "Flag Updates via Polling API delayed",
+      "status": "investigating",
+      "created_at": "2026-08-17T03:36:58.299-07:00",
+      "updated_at": "2026-08-17T03:36:58.414-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/h8byqm8qtb9p",
+      "started_at": "2026-08-17T03:36:58.289-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "5jlb8fhk0cvd",
+          "status": "investigating",
+          "body": "We're experiencing a service degradation which can result in Flag updates via the Polling API to be delayed.",
+          "incident_id": "1d2y0xf800md",
+          "created_at": "2026-08-17T03:36:58.412-07:00",
+          "updated_at": "2026-08-17T03:36:58.412-07:00",
+          "display_at": "2026-08-17T03:36:58.412-07:00",
+          "affected_components": [
+            {
+              "code": "w5565sdz2kfj",
+              "name": "Flag Delivery Network (core functionality) - Polling API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "w5565sdz2kfj",
+          "name": "Polling API",
+          "status": "degraded_performance",
+          "created_at": "2017-04-17T09:40:25.815-07:00",
+          "updated_at": "2026-08-17T03:36:58.355-07:00",
+          "position": 3,
+          "description": "Flag updates for SDKs in polling mode",
+          "showcase": true,
+          "start_date": null,
+          "group_id": "vvb9wn53mspf",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "9f1j7jp01j93",
@@ -922,9 +976,9 @@
         {
           "id": "w5565sdz2kfj",
           "name": "Polling API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-04-17T09:40:25.815-07:00",
-          "updated_at": "2026-07-13T12:17:03.360-07:00",
+          "updated_at": "2026-08-17T03:36:58.355-07:00",
           "position": 3,
           "description": "Flag updates for SDKs in polling mode",
           "showcase": true,
@@ -955,7 +1009,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
