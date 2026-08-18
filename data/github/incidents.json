@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-18T18:59:03.652Z"
+    "updated_at": "2026-08-18T19:21:36.561Z"
   },
   "incidents": [
     {
@@ -137,7 +137,7 @@
       "name": "Incident with GitHub.com",
       "status": "resolved",
       "created_at": "2026-08-17T13:40:03.629Z",
-      "updated_at": "2026-08-17T21:15:46.638Z",
+      "updated_at": "2026-08-18T19:21:36.550Z",
       "monitoring_at": null,
       "resolved_at": "2026-08-17T21:15:46.623Z",
       "impact": "critical",
@@ -148,10 +148,10 @@
         {
           "id": "h9l7z2sx48br",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On August 17, 2026, from 13:28–21:15 UTC (7h 47m), GitHub.com experienced elevated errors and latency across Issues, Pull Requests, APIs, Actions, and Copilot. At peak, web/API error rates were approximately 20%, while archive and raw-content downloads reached approximately 50%. SAML/OIDC authentication, SCIM, and Team Sync were also affected, as well as Actions workflows in GHEC with Data Residency that depend on public workflow step definitions hosted on GitHub.com. Most services recovered by 16:36 UTC as our Central US datacenter recovered; Actions was degraded until approximately 18:03 UTC; and Copilot Token Service fully recovered by 21:02. <br /><br />Some of the failing traffic was moved from Central US to Northern Virginia where it was served successfully until the network failure in Central US was debugged and resolved. Delayed replies to a single internal endpoint triggered a latent retry bug in VS Code that amplified traffic by approximately 10x and caused delayed recovery for the Copilot Token Service. <br /><br />The immediate cause of the failure was network saturation on load balancers in Central US due to a new peak in traffic. Originally this was caused by an Istio sidecar pod reaching its concurrency limits and failing to auto scale correctly because of a misconfigured policy that watched host service but not sidecar limits. One failure cascaded to more and eventually four HAProxy nodes exhausted their flow limits, degrading the gateway auth path and causing widespread authentication latency and failures. The problem was worsened by optimistic retry logic which overloaded internal load balancers. Pausing HAProxy on those nodes simultaneously produced immediate broad recovery. <br /><br />The retry storm in Northern VA was fixed by 1) temporarily reducing gateway retry logic with a PR and 2) blocking inbound Copilot Token Service token requests at the load balancers with a 403, and then gradually ramping back up traffic per-site to allow callers to succeed. <br /><br />Residual Copilot authentication failures continued because client retry behavior amplified load: a failed token operation could generate many extra requests and enter a retry loop. Copilot Token Service traffic increased from a normal 7–9K RPS to 70–100K RPS. Reducing gateway authentication retries and blocking retry-triggering responses stabilized Copilot Token Service and completed recovery. <br /><br />Complicating factors that impeded recovery included a number of scraping attacks on codeload endpoints. <br /><br />To prevent recurrence, our follow-up actions include: <br /><br />- Correcting autoscaling policies to account for service-mesh sidecar concurrency and capacity. <br /><br />- Auditing Istio request, concurrency, and scaling limits across affected services. <br /><br />- Reviewing retry limits and backoff behavior across gateways and clients. <br /><br />- Addressing the VS Code retry behavior that amplified Copilot token traffic. <br /><br />- Improving load-balancer capacity monitoring and regional failover safeguards.",
           "incident_id": "zkxwbgr0cnmx",
           "created_at": "2026-08-17T21:15:46.623Z",
-          "updated_at": "2026-08-17T21:15:46.623Z",
+          "updated_at": "2026-08-18T19:21:36.545Z",
           "display_at": "2026-08-17T21:15:46.623Z",
           "affected_components": [
             {
