@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-08-18T16:53:56.204-07:00"
+    "updated_at": "2026-08-18T17:48:56.255-07:00"
   },
   "incidents": [
     {
@@ -539,9 +539,9 @@
     {
       "id": "4swwrrjj1y7s",
       "name": "[Medium] Issues with Box Shuttle Standalone",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-07-31T04:09:34.000-07:00",
-      "updated_at": "2026-08-03T06:52:20.855-07:00",
+      "updated_at": "2026-08-18T17:20:08.934-07:00",
       "monitoring_at": "2026-07-31T04:16:32.448-07:00",
       "resolved_at": "2026-07-31T04:30:17.820-07:00",
       "impact": "major",
@@ -549,6 +549,19 @@
       "started_at": "2026-07-31T04:09:34.000-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "8pz0c1dvnm27",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Shuttle standalone jobs. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 3:41 AM and 3:57 AM PDT on July 31, 2026, some customers using Shuttle Standalone could sign in to their Shuttle Standalone accounts and view their dashboards, but could not view job details, change job settings, or create new standalone jobs. The Shuttle native experience was not affected. After we restored service, we confirmed that customers could access existing jobs and create new ones. \n\n# Analysis\n\nA misconfiguration in Shuttle resulted in depleted resources that accessed job history. This caused Shuttle pages that load job history to time out. We restored access by restarting the affected services at 3:57 AM PDT. Job management returned to normal, with no recurrence. This briefly blocked the standalone experience for affected customers, even though sign-in and the Shuttle native experience continued to work.\n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n* Updating the capacity allocation to avoid the recurrence of this issue\n* Adding monitoring to better preempt the issue from occurring \n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
+          "incident_id": "4swwrrjj1y7s",
+          "created_at": "2026-08-18T17:19:14.076-07:00",
+          "updated_at": "2026-08-18T17:20:08.932-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "j4n9l8525fcj",
           "status": "resolved",
