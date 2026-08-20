@@ -4,9 +4,39 @@
     "name": "Fly.io",
     "url": "https://status.flyio.net",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-20T18:14:08.089Z"
+    "updated_at": "2026-08-20T20:08:00.774Z"
   },
   "incidents": [
+    {
+      "id": "nvf5tfh8r5gy",
+      "name": "Temporary DNS resolution failure",
+      "status": "resolved",
+      "created_at": "2026-08-20T19:30:00.000Z",
+      "updated_at": "2026-08-20T20:08:00.772Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-08-20T19:30:00.000Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/tj62k6t6vy08",
+      "started_at": "2026-08-20T20:07:52.736Z",
+      "page_id": "65rccr4mbblw",
+      "incident_updates": [
+        {
+          "id": "fcfgh40bwylr",
+          "status": "resolved",
+          "body": "A BGP configuration error caused our Anycast DNS to route to some nodes without the proper DNS infrastructure. The issue was temporary and was resolved as soon as we removed that node from BGP.",
+          "incident_id": "nvf5tfh8r5gy",
+          "created_at": "2026-08-20T20:07:52.812Z",
+          "updated_at": "2026-08-20T20:07:52.812Z",
+          "display_at": "2026-08-20T19:30:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "1r8nvtnkhq8t",
       "name": "Oauth/Macaroon Errors from flyctl",
@@ -6554,62 +6584,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "zt7sk5qwr8r8",
-      "name": "Consul cluster degradation",
-      "status": "resolved",
-      "created_at": "2026-06-04T13:44:07.206Z",
-      "updated_at": "2026-06-04T17:03:41.169Z",
-      "monitoring_at": "2026-06-04T16:02:43.632Z",
-      "resolved_at": "2026-06-04T17:03:41.130Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/xnnxmjvsqhnd",
-      "started_at": "2026-06-04T13:44:07.174Z",
-      "page_id": "65rccr4mbblw",
-      "incident_updates": [
-        {
-          "id": "2vkd0fmp801g",
-          "status": "resolved",
-          "body": "We have restored the degraded Consul cluster. All affected functionality is now working correctly: Unmanaged Postgres and LiteFS with dynamic leases.",
-          "incident_id": "zt7sk5qwr8r8",
-          "created_at": "2026-06-04T17:03:41.130Z",
-          "updated_at": "2026-06-04T17:03:41.130Z",
-          "display_at": "2026-06-04T17:03:41.130Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ywxbnp3tlqvd",
-          "status": "monitoring",
-          "body": "We have restored the degraded Consul cluster and are monitoring for stability. All affected functionality should now be working correctly: Unmanaged Postgres and LiteFS with dynamic leases.",
-          "incident_id": "zt7sk5qwr8r8",
-          "created_at": "2026-06-04T16:02:43.632Z",
-          "updated_at": "2026-06-04T16:02:43.632Z",
-          "display_at": "2026-06-04T16:02:43.632Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nctzjswmdctp",
-          "status": "identified",
-          "body": "One of our Consul clusters is in degraded state due to a failed node. This can cause issues with LiteFS primary node selection, Unmanaged Postgres (14.x and older *only*), and creation of new Unmanaged Postgres clusters.\n\nImpact is limited to these legacy products and does not affect deployments, running Fly applications in general, or Managed Postgres clusters.",
-          "incident_id": "zt7sk5qwr8r8",
-          "created_at": "2026-06-04T13:44:07.310Z",
-          "updated_at": "2026-06-04T13:44:07.310Z",
-          "display_at": "2026-06-04T13:44:07.310Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
