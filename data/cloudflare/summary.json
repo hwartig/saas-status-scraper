@@ -4,7 +4,7 @@
     "name": "Cloudflare",
     "url": "https://www.cloudflarestatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-20T17:58:50.695Z"
+    "updated_at": "2026-08-20T18:59:09.114Z"
   },
   "components": [
     {
@@ -25,7 +25,7 @@
     {
       "id": "1km35smx8p41",
       "name": "Cloudflare Sites and Services",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2014-10-27T21:59:30.000Z",
       "updated_at": "2020-11-11T20:12:30.000Z",
       "position": 1,
@@ -4814,9 +4814,9 @@
     {
       "id": "bty1yz6dhh0v",
       "name": "Durable Objects",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-06-12T14:55:22.000Z",
-      "updated_at": "2026-08-20T17:48:08.000Z",
+      "updated_at": "2026-08-20T18:51:08.000Z",
       "position": 46,
       "description": "Durable Objects provide low-latency coordination and consistent permanent storage for the Workers platform.",
       "showcase": false,
@@ -6269,9 +6269,9 @@
     {
       "id": "hb7g5sq2zz0h",
       "name": "R2",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2022-07-05T10:55:24.000Z",
-      "updated_at": "2026-08-14T16:28:22.000Z",
+      "updated_at": "2026-08-20T18:51:08.000Z",
       "position": 81,
       "description": "High-performance storage for files and objects with zero egress charges",
       "showcase": false,
@@ -7632,48 +7632,40 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
-  "scheduled_maintenances": [
+  "incidents": [
     {
-      "id": "nd77rb8vr6lg",
-      "name": "SIN (Singapore) on 2026-08-20",
-      "status": "scheduled",
-      "created_at": "2026-08-19T20:31:06.000Z",
-      "updated_at": "2026-08-20T17:00:19.000Z",
+      "id": "rq2nwg85qqn4",
+      "name": "Elevated Errors R2 and Durable Objects",
+      "status": "identified",
+      "created_at": "2026-08-20T18:51:08.000Z",
+      "updated_at": "2026-08-20T18:51:08.000Z",
       "monitoring_at": null,
       "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://www.cloudflarestatus.com/incidents/nd77rb8vr6lg",
-      "started_at": "2026-08-19T20:31:06.000Z",
+      "impact": "minor",
+      "shortlink": "https://www.cloudflarestatus.com/incidents/rq2nwg85qqn4",
+      "started_at": "2026-08-20T18:51:08.000Z",
       "page_id": "yh6f0r4529hb",
       "incident_updates": [
         {
-          "id": "8qbnd7j3tz68",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "nd77rb8vr6lg",
-          "created_at": "2026-08-20T17:00:19.502Z",
-          "updated_at": "2026-08-20T17:00:19.502Z",
-          "display_at": "2026-08-20T17:00:19.502Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rc3nsmpvwqxf",
-          "status": "scheduled",
-          "body": "We will be performing scheduled maintenance in SIN (Singapore) datacenter on 2026-08-20 between 18:00 and 22:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
-          "incident_id": "nd77rb8vr6lg",
-          "created_at": "2026-08-19T20:31:06.568Z",
-          "updated_at": "2026-08-19T20:31:06.568Z",
-          "display_at": "2026-08-19T20:31:06.568Z",
+          "id": "s2h3xtws2tkd",
+          "status": "identified",
+          "body": "We have identified and issue that is causing elevated errors for R2 and Durable Objects.",
+          "incident_id": "rq2nwg85qqn4",
+          "created_at": "2026-08-20T18:51:08.566Z",
+          "updated_at": "2026-08-20T18:51:08.566Z",
+          "display_at": "2026-08-20T18:51:08.566Z",
           "affected_components": [
             {
-              "code": "18p6r93swmbl",
-              "name": "Asia - Singapore, Singapore - (SIN)",
+              "code": "bty1yz6dhh0v",
+              "name": "Cloudflare Sites and Services - Durable Objects",
               "old_status": "operational",
-              "new_status": "operational"
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "hb7g5sq2zz0h",
+              "name": "Cloudflare Sites and Services - R2",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
             }
           ],
           "deliver_notifications": true,
@@ -7683,30 +7675,46 @@
       ],
       "components": [
         {
-          "id": "18p6r93swmbl",
-          "name": "Singapore, Singapore - (SIN)",
-          "status": "operational",
-          "created_at": "2014-10-27T21:44:15.000Z",
-          "updated_at": "2026-08-20T05:58:05.000Z",
-          "position": 59,
-          "description": null,
+          "id": "bty1yz6dhh0v",
+          "name": "Durable Objects",
+          "status": "degraded_performance",
+          "created_at": "2023-06-12T14:55:22.000Z",
+          "updated_at": "2026-08-20T18:51:08.000Z",
+          "position": 46,
+          "description": "Durable Objects provide low-latency coordination and consistent permanent storage for the Workers platform.",
           "showcase": false,
-          "start_date": null,
-          "group_id": "77867vxkttgw",
+          "start_date": "2023-06-12",
+          "group_id": "1km35smx8p41",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "hb7g5sq2zz0h",
+          "name": "R2",
+          "status": "degraded_performance",
+          "created_at": "2022-07-05T10:55:24.000Z",
+          "updated_at": "2026-08-20T18:51:08.000Z",
+          "position": 81,
+          "description": "High-performance storage for files and objects with zero egress charges",
+          "showcase": false,
+          "start_date": "2022-07-05",
+          "group_id": "1km35smx8p41",
           "page_id": "yh6f0r4529hb",
           "group": false,
           "only_show_if_degraded": false
         }
       ],
-      "scheduled_for": "2026-08-20T18:00:00.000Z",
-      "scheduled_until": "2026-08-20T22:00:00.000Z"
-    },
+      "reminder_intervals": null
+    }
+  ],
+  "scheduled_maintenances": [
     {
       "id": "zs59h5bxt1mq",
       "name": "SJU (San Juan) on 2026-08-20",
       "status": "scheduled",
       "created_at": "2026-08-20T15:21:00.000Z",
-      "updated_at": "2026-08-20T15:21:00.000Z",
+      "updated_at": "2026-08-20T18:00:59.000Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
@@ -7714,6 +7722,19 @@
       "started_at": "2026-08-20T15:21:00.000Z",
       "page_id": "yh6f0r4529hb",
       "incident_updates": [
+        {
+          "id": "z8qrfkhkxbw7",
+          "status": "scheduled",
+          "body": "Maintenance will begin as scheduled in 60 minutes.",
+          "incident_id": "zs59h5bxt1mq",
+          "created_at": "2026-08-20T18:00:58.989Z",
+          "updated_at": "2026-08-20T18:00:58.989Z",
+          "display_at": "2026-08-20T18:00:58.989Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "4h9ttmdm391p",
           "status": "scheduled",
@@ -8636,6 +8657,86 @@
       ],
       "scheduled_for": "2026-09-02T05:00:00.000Z",
       "scheduled_until": "2026-09-02T09:00:00.000Z"
+    },
+    {
+      "id": "nd77rb8vr6lg",
+      "name": "SIN (Singapore) on 2026-08-20",
+      "status": "in_progress",
+      "created_at": "2026-08-19T20:31:06.000Z",
+      "updated_at": "2026-08-20T18:00:07.000Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://www.cloudflarestatus.com/incidents/nd77rb8vr6lg",
+      "started_at": "2026-08-19T20:31:06.000Z",
+      "page_id": "yh6f0r4529hb",
+      "incident_updates": [
+        {
+          "id": "mqlfdvn00m7t",
+          "status": "in_progress",
+          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
+          "incident_id": "nd77rb8vr6lg",
+          "created_at": "2026-08-20T18:00:07.738Z",
+          "updated_at": "2026-08-20T18:00:07.738Z",
+          "display_at": "2026-08-20T18:00:07.738Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "8qbnd7j3tz68",
+          "status": "scheduled",
+          "body": "Maintenance will begin as scheduled in 60 minutes.",
+          "incident_id": "nd77rb8vr6lg",
+          "created_at": "2026-08-20T17:00:19.502Z",
+          "updated_at": "2026-08-20T17:00:19.502Z",
+          "display_at": "2026-08-20T17:00:19.502Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "rc3nsmpvwqxf",
+          "status": "scheduled",
+          "body": "We will be performing scheduled maintenance in SIN (Singapore) datacenter on 2026-08-20 between 18:00 and 22:00 UTC.\n\nTraffic might be re-routed from this location, hence there is a possibility of a slight increase in latency during this maintenance window for end-users in the affected region. For PNI / CNI customers connecting with us in this location, please make sure you are expecting this traffic to fail over elsewhere during this maintenance window as network interfaces in this datacentre may become temporarily unavailable.\n\nYou can now subscribe to these notifications via Cloudflare dashboard and receive these updates directly via email, PagerDuty and webhooks (based on your plan): https://developers.cloudflare.com/notifications/notification-available/#cloudflare-status.",
+          "incident_id": "nd77rb8vr6lg",
+          "created_at": "2026-08-19T20:31:06.568Z",
+          "updated_at": "2026-08-19T20:31:06.568Z",
+          "display_at": "2026-08-19T20:31:06.568Z",
+          "affected_components": [
+            {
+              "code": "18p6r93swmbl",
+              "name": "Asia - Singapore, Singapore - (SIN)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "18p6r93swmbl",
+          "name": "Singapore, Singapore - (SIN)",
+          "status": "operational",
+          "created_at": "2014-10-27T21:44:15.000Z",
+          "updated_at": "2026-08-20T05:58:05.000Z",
+          "position": 59,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "77867vxkttgw",
+          "page_id": "yh6f0r4529hb",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-08-20T18:00:00.000Z",
+      "scheduled_until": "2026-08-20T22:00:00.000Z"
     },
     {
       "id": "0zw3tt43ggf5",
