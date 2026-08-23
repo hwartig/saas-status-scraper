@@ -4,7 +4,7 @@
     "name": "DigitalOcean",
     "url": "http://status.digitalocean.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-22T06:24:22.462Z"
+    "updated_at": "2026-08-23T05:22:49.558Z"
   },
   "components": [
     {
@@ -115,9 +115,9 @@
     {
       "id": "mzkgffp35tq4",
       "name": "Global",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2024-08-16T11:21:56.097Z",
-      "updated_at": "2026-08-09T00:31:29.186Z",
+      "updated_at": "2026-08-23T05:11:37.527Z",
       "position": 1,
       "description": null,
       "showcase": false,
@@ -3765,7 +3765,7 @@
     {
       "id": "kl8qv98c9brp",
       "name": "Managed Databases",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2023-02-22T19:29:09.360Z",
       "updated_at": "2025-08-06T12:30:25.569Z",
       "position": 18,
@@ -4110,7 +4110,61 @@
       "only_show_if_degraded": false
     }
   ],
-  "incidents": [],
+  "incidents": [
+    {
+      "id": "r96y45y5sx59",
+      "name": "Managed Databases Creation",
+      "status": "investigating",
+      "created_at": "2026-08-23T05:11:37.496Z",
+      "updated_at": "2026-08-23T05:11:37.579Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/8ld5fpw01tg4",
+      "started_at": "2026-08-23T05:11:37.487Z",
+      "page_id": "w4cz49tckxhp",
+      "incident_updates": [
+        {
+          "id": "v5f347dd5l77",
+          "status": "investigating",
+          "body": "Our Engineering team has identified an issue with our Managed Database product. At this time, users may experience errors while creating clusters, both via Cloud Control Panel and API requests.\n\nWe apologize for the inconvenience and will share an update once we have more information.",
+          "incident_id": "r96y45y5sx59",
+          "created_at": "2026-08-23T05:11:37.577Z",
+          "updated_at": "2026-08-23T05:11:37.577Z",
+          "display_at": "2026-08-23T05:11:37.577Z",
+          "affected_components": [
+            {
+              "code": "mzkgffp35tq4",
+              "name": "Managed Databases - Global",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "mzkgffp35tq4",
+          "name": "Global",
+          "status": "degraded_performance",
+          "created_at": "2024-08-16T11:21:56.097Z",
+          "updated_at": "2026-08-23T05:11:37.527Z",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2024-08-16",
+          "group_id": "kl8qv98c9brp",
+          "page_id": "w4cz49tckxhp",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    }
+  ],
   "scheduled_maintenances": [
     {
       "id": "5sfkml29hl2m",
@@ -4210,7 +4264,7 @@
     }
   ],
   "status": {
-    "indicator": "none",
-    "description": "All Systems Operational"
+    "indicator": "minor",
+    "description": "Partially Degraded Service"
   }
 }
