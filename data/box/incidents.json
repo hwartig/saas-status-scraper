@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-08-24T09:28:46.268-07:00"
+    "updated_at": "2026-08-24T10:02:23.884-07:00"
   },
   "incidents": [
     {
@@ -753,7 +753,7 @@
       "name": "[Medium] Issues with Uploads and Downloads",
       "status": "postmortem",
       "created_at": "2026-08-04T13:23:03.393-07:00",
-      "updated_at": "2026-08-10T19:54:32.616-07:00",
+      "updated_at": "2026-08-24T10:02:23.873-07:00",
       "monitoring_at": null,
       "resolved_at": "2026-08-04T13:44:52.273-07:00",
       "impact": "major",
@@ -764,10 +764,10 @@
         {
           "id": "gnd1bc1wdl5p",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn August 4, 2026 between 12:10 PM PDT and 1:20 PM PDT, some customers experienced failures and delays when uploading files to Box. The problem was caused by a routing issue on our frontend load balancers. We restored service by rerouting upload traffic and provisioning additional capacity.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
+          "body": "On August 4, 2026 between 12:10 PM PDT and 1:20 PM PDT, some customers experienced failures and delays when uploading files to Box. The problem was caused by a routing issue on our frontend load balancers. We restored service by rerouting upload traffic and provisioning additional capacity.\n\n# Analysis\n\nA temporary network connectivity disruption impacted a small part of our load balancing fleet, causing a spike of TCP retransmit errors. Our engineering team mitigated the impact by redirecting traffic away from the affected region, which restored normal upload operations and resolved the errors. This incident highlighted opportunities to improve observable signals and alerting for TCP retransmit errors.\n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n* Improve monitoring and alerting for the isolated TCP retransmit issues. \n* Review and update operational runbooks for isolating problematic instances and for capacity management to shorten time to mitigation.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,  \nThe Box Team",
           "incident_id": "lgpl7g7n0t84",
           "created_at": "2026-08-10T19:54:16.519-07:00",
-          "updated_at": "2026-08-10T19:54:32.613-07:00",
+          "updated_at": "2026-08-24T10:02:23.869-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
