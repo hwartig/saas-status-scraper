@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-25T00:09:10.152Z"
+    "updated_at": "2026-08-25T02:09:14.949Z"
   },
   "incidents": [
     {
@@ -12,7 +12,7 @@
       "name": "Actions delays in starting runs",
       "status": "resolved",
       "created_at": "2026-08-24T13:56:54.972Z",
-      "updated_at": "2026-08-24T14:34:42.464Z",
+      "updated_at": "2026-08-25T01:36:32.776Z",
       "monitoring_at": "2026-08-24T14:26:11.194Z",
       "resolved_at": "2026-08-24T14:34:42.451Z",
       "impact": "minor",
@@ -23,10 +23,10 @@
         {
           "id": "y31pmpmx3ky1",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On August 24, 2026, between 13:33 UTC and 14:04 UTC,  3.8% of Actions runs experienced start delays over 5 minutes with 1.25% of Actions runs failing outright. <br /> <br />The incident was caused by a disk failure on a node hosting one of many service instances responsible for processing runner assignment events. Typically, pods on unhealthy nodes are removed and replaced automatically without impact. In this case, although the node was severely degraded and unable to perform disk operations, it continued sending healthy signals, preventing the system from immediately moving its work elsewhere. During this period, events assigned to the affected component accumulated until an automatic rebalance redirected processing to healthy components at 13:54 UTC. The queue backlog was cleared at 14:00 UTC, and processing returned to normal by 14:04 UTC. <br /><br />To prevent a recurrence, we are improving detection and automated remediation for unhealthy nodes that aren’t fully offline. We are also strengthening application-level resiliency, so stalled consumers are automatically removed quickly and their work reassigned without waiting for the affected node to recover.",
           "incident_id": "lyppgxbq1nyk",
           "created_at": "2026-08-24T14:34:42.451Z",
-          "updated_at": "2026-08-24T14:34:42.451Z",
+          "updated_at": "2026-08-25T01:36:32.771Z",
           "display_at": "2026-08-24T14:34:42.451Z",
           "affected_components": [
             {
