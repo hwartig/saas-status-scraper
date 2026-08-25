@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-25T19:58:06.173Z"
+    "updated_at": "2026-08-25T21:02:21.598Z"
   },
   "incidents": [
     {
@@ -3580,7 +3580,7 @@
       "name": "Disruption with Copilot for access to some models",
       "status": "resolved",
       "created_at": "2026-08-10T20:27:19.712Z",
-      "updated_at": "2026-08-10T21:50:43.772Z",
+      "updated_at": "2026-08-25T21:02:21.586Z",
       "monitoring_at": "2026-08-10T20:39:11.678Z",
       "resolved_at": "2026-08-10T21:50:43.756Z",
       "impact": "minor",
@@ -3591,10 +3591,10 @@
         {
           "id": "yjlt32x9vywy",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On August 10, 2026, between 19:48 UTC and 20:49 UTC, GitHub Copilot users saw an incomplete list of available models. During this window, the service could return as few as one model instead of the full catalog. Requests that tried to use a model missing from that shortened list failed with a \"model not found\" error. Copilot requests that used an available model were not affected. This did not affect customers on data-residency (Proxima) environments.<br /><br />The issue was caused by a change to how model data was published, which our systems could not read back correctly and fell back to a limited default list.<br /><br />We mitigated the incident by 20:49 UTC and deployed a fix to prevent immediate recurrence by 21:50 UTC. We are adding validation and retry safeguards so that model data is verified before it is served.<br /><br />We apologize for the disruption.",
           "incident_id": "1t7x65n7kvt1",
           "created_at": "2026-08-10T21:50:43.756Z",
-          "updated_at": "2026-08-10T21:50:43.756Z",
+          "updated_at": "2026-08-25T21:02:21.578Z",
           "display_at": "2026-08-10T21:50:43.756Z",
           "affected_components": null,
           "deliver_notifications": true,
