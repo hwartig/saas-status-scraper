@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-25T18:55:26.829Z"
+    "updated_at": "2026-08-25T19:58:06.173Z"
   },
   "incidents": [
     {
@@ -3180,7 +3180,7 @@
       "name": "Disruption with Login and Release Asset downloads",
       "status": "resolved",
       "created_at": "2026-08-12T21:39:05.231Z",
-      "updated_at": "2026-08-12T22:56:39.040Z",
+      "updated_at": "2026-08-25T19:58:06.161Z",
       "monitoring_at": null,
       "resolved_at": "2026-08-12T22:56:39.025Z",
       "impact": "major",
@@ -3191,10 +3191,10 @@
         {
           "id": "6gg3pnjzw7kt",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On August 12 and 13, 2026, some anonymous (logged-out) requests to github.com experienced HTTP 5xx errors when loading pages like the sign-in page, and when downloading release assets, due to an unusual traffic pattern that repeatedly overloaded a part of our infrastructure that serves these types of requests. There were three windows of impact: (1) August 12 from 16:34 to 18:34 UTC, with an average error rate of 16.16% that peaked at 28.6%; (2) August 12 from 19:00 to 22:56 UTC, with an average error rate of 16.55% that peaked at 24.18%; and (3) August 13 from 06:19 to 08:05 UTC, with an average error rate of 2.01% that peaked at 7.49%.<br />Requests from signed-in users were unaffected.<br /><br />We mitigated the incidents by applying traffic controls at our network edge that limited any requests matching the pattern identified previously, thereby preventing overload on our systems.<br /><br />Since these incidents occurred, we have tightened our monitoring systems to alert server-side errors that affect logged-out traffic. We are also working to further strengthen our edge protections and reduce the time to detect and mitigate similar incidents.",
           "incident_id": "lsvy8xsf0gxv",
           "created_at": "2026-08-12T22:56:39.025Z",
-          "updated_at": "2026-08-12T22:56:39.025Z",
+          "updated_at": "2026-08-25T19:58:06.154Z",
           "display_at": "2026-08-12T22:56:39.025Z",
           "affected_components": null,
           "deliver_notifications": true,
