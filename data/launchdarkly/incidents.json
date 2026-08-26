@@ -4,9 +4,82 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-08-26T11:21:38.047-07:00"
+    "updated_at": "2026-08-26T13:54:19.673-07:00"
   },
   "incidents": [
+    {
+      "id": "b7bvzg7pp7dy",
+      "name": "Flag delivery errors in Streaming API",
+      "status": "resolved",
+      "created_at": "2026-08-26T12:45:21.432-07:00",
+      "updated_at": "2026-08-26T13:11:42.831-07:00",
+      "monitoring_at": "2026-08-26T12:45:21.480-07:00",
+      "resolved_at": "2026-08-26T13:00:10.000-07:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/n8kkgrxbjkdh",
+      "started_at": "2026-08-26T13:00:10.000-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "s07phl1h5c35",
+          "status": "resolved",
+          "body": "This incident has been resolved. Between 12:00 and 12:12 PM PDT on August 26, server-side SDKs establishing new streaming connections experienced elevated error rates. Existing streaming connections were not affected, and polling requests continued to be served with error rates below 1%. Some requests to the LaunchDarkly web application also experienced elevated errors between approximately 11:29 AM and 12:03 PM PDT. The issue was caused by an internal configuration change, which has been reverted. All systems have recovered and are operating normally. No customer data was lost or compromised.",
+          "incident_id": "b7bvzg7pp7dy",
+          "created_at": "2026-08-26T13:00:10.252-07:00",
+          "updated_at": "2026-08-26T13:11:42.734-07:00",
+          "display_at": "2026-08-26T13:00:10.000-07:00",
+          "affected_components": [
+            {
+              "code": "d78f8m7zkgqt",
+              "name": "Flag Delivery Network (core functionality) - Server-side streaming API",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "7tb92lqhqrfy",
+          "status": "monitoring",
+          "body": "Server-side streaming requests experienced elevated error rates between approximately 12:00 p.m. and 12:12 p.m. PDT, and some SDKs establishing new streaming connections may have been unable to connect. Polling request error rates remained below 1% throughout the incident.\n\nNo customer data was lost or compromised. We apologize for the disruption.",
+          "incident_id": "b7bvzg7pp7dy",
+          "created_at": "2026-08-26T12:45:21.480-07:00",
+          "updated_at": "2026-08-26T12:45:21.480-07:00",
+          "display_at": "2026-08-26T12:45:21.480-07:00",
+          "affected_components": [
+            {
+              "code": "d78f8m7zkgqt",
+              "name": "Flag Delivery Network (core functionality) - Server-side streaming API",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "d78f8m7zkgqt",
+          "name": "Server-side streaming API",
+          "status": "operational",
+          "created_at": "2016-02-23T13:25:44.226-08:00",
+          "updated_at": "2026-07-13T15:42:33.385-07:00",
+          "position": 1,
+          "description": "Real-time flag updates for server-side SDKs",
+          "showcase": true,
+          "start_date": null,
+          "group_id": "vvb9wn53mspf",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "csyq34v7ryx9",
       "name": "Email delivery failure affecting sign-up verification and notification emails",
@@ -8640,236 +8713,6 @@
           "showcase": true,
           "start_date": "2023-07-07",
           "group_id": "17840mm6444k",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "qty231hgv0d2",
-      "name": "Data ingestion delays",
-      "status": "resolved",
-      "created_at": "2026-01-31T02:02:30.966-08:00",
-      "updated_at": "2026-01-31T04:20:54.117-08:00",
-      "monitoring_at": "2026-01-31T03:35:13.386-08:00",
-      "resolved_at": "2026-01-31T04:20:53.581-08:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/flmkc7n5c9tc",
-      "started_at": "2026-01-31T02:02:30.954-08:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "qhb0b3y92qpf",
-          "status": "resolved",
-          "body": "This incident has been resolved and all data processing pipelines are fully caught up.  No data was lost.",
-          "incident_id": "qty231hgv0d2",
-          "created_at": "2026-01-31T04:20:53.581-08:00",
-          "updated_at": "2026-01-31T04:20:54.113-08:00",
-          "display_at": "2026-01-31T04:20:53.581-08:00",
-          "affected_components": [
-            {
-              "code": "7h4z5dpj09mx",
-              "name": "Feature management (non-core functionality) - Context processing",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "g5bksjhndxmj",
-              "name": "Feature management (non-core functionality) - Flag usage metrics",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "2ndk16wxw8jt",
-              "name": "Observability (core functionality) - Observability Data Ingest (Sessions, Errors)",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "12y9mq78j7hh",
-              "name": "Observability (core functionality) - OpenTelemetry (Logs, Traces, Metrics)",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2017573802822275161
-        },
-        {
-          "id": "y3gpn1ymjwt6",
-          "status": "monitoring",
-          "body": "A fix has been implemented and our event processing pipeline for Observability and Opentelemetry are fully caught up.  We're continuing to monitor as our event processing pipeline catches up for Flag Status, Evaluations, and Contexts.",
-          "incident_id": "qty231hgv0d2",
-          "created_at": "2026-01-31T03:35:13.386-08:00",
-          "updated_at": "2026-01-31T03:35:13.895-08:00",
-          "display_at": "2026-01-31T03:35:13.386-08:00",
-          "affected_components": [
-            {
-              "code": "7h4z5dpj09mx",
-              "name": "Feature management (non-core functionality) - Context processing",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "g5bksjhndxmj",
-              "name": "Feature management (non-core functionality) - Flag usage metrics",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "2ndk16wxw8jt",
-              "name": "Observability (core functionality) - Observability Data Ingest (Sessions, Errors)",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "12y9mq78j7hh",
-              "name": "Observability (core functionality) - OpenTelemetry (Logs, Traces, Metrics)",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2017562309586268556
-        },
-        {
-          "id": "z0p0glwpv20y",
-          "status": "identified",
-          "body": "We have identified the issue and are continuing our work to resolve it.",
-          "incident_id": "qty231hgv0d2",
-          "created_at": "2026-01-31T02:23:23.081-08:00",
-          "updated_at": "2026-01-31T02:23:23.366-08:00",
-          "display_at": "2026-01-31T02:23:23.081-08:00",
-          "affected_components": [
-            {
-              "code": "7h4z5dpj09mx",
-              "name": "Feature management (non-core functionality) - Context processing",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "g5bksjhndxmj",
-              "name": "Feature management (non-core functionality) - Flag usage metrics",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "2ndk16wxw8jt",
-              "name": "Observability (core functionality) - Observability Data Ingest (Sessions, Errors)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "12y9mq78j7hh",
-              "name": "Observability (core functionality) - OpenTelemetry (Logs, Traces, Metrics)",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2017544229980148076
-        },
-        {
-          "id": "s2p1f00qc4wr",
-          "status": "investigating",
-          "body": "All customers are experiencing data ingestion delays with the following:\n- Observability sessions and errors\n- Opentelemetry logs, traces, and metrics\n- Flag status\n- Evaluations\n- Contexts\nWe are investigating and will provide updates as they become available.  No data loss is expected.",
-          "incident_id": "qty231hgv0d2",
-          "created_at": "2026-01-31T02:02:31.112-08:00",
-          "updated_at": "2026-01-31T02:02:33.137-08:00",
-          "display_at": "2026-01-31T02:02:31.112-08:00",
-          "affected_components": [
-            {
-              "code": "7h4z5dpj09mx",
-              "name": "Feature management (non-core functionality) - Context processing",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "g5bksjhndxmj",
-              "name": "Feature management (non-core functionality) - Flag usage metrics",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "2ndk16wxw8jt",
-              "name": "Observability (core functionality) - Observability Data Ingest (Sessions, Errors)",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "12y9mq78j7hh",
-              "name": "Observability (core functionality) - OpenTelemetry (Logs, Traces, Metrics)",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2017538985338540240
-        }
-      ],
-      "components": [
-        {
-          "id": "7h4z5dpj09mx",
-          "name": "Context processing",
-          "status": "operational",
-          "created_at": "2023-09-18T15:14:51.435-07:00",
-          "updated_at": "2026-07-10T10:54:56.934-07:00",
-          "position": 1,
-          "description": "Ingestion and recording of contexts",
-          "showcase": false,
-          "start_date": "2023-09-18",
-          "group_id": "2868qx437p9m",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "g5bksjhndxmj",
-          "name": "Flag usage metrics",
-          "status": "operational",
-          "created_at": "2018-08-30T10:10:07.695-07:00",
-          "updated_at": "2026-07-10T10:54:57.114-07:00",
-          "position": 3,
-          "description": "Recording and displaying of data pertaining to your flag usage",
-          "showcase": false,
-          "start_date": null,
-          "group_id": "2868qx437p9m",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "2ndk16wxw8jt",
-          "name": "Observability Data Ingest (Sessions, Errors)",
-          "status": "operational",
-          "created_at": "2025-11-18T12:44:13.771-08:00",
-          "updated_at": "2026-07-28T13:04:52.032-07:00",
-          "position": 3,
-          "description": null,
-          "showcase": true,
-          "start_date": "2025-11-18",
-          "group_id": "qwwp500n0czc",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "12y9mq78j7hh",
-          "name": "OpenTelemetry (Logs, Traces, Metrics)",
-          "status": "operational",
-          "created_at": "2025-11-18T12:44:28.358-08:00",
-          "updated_at": "2026-07-31T15:54:36.413-07:00",
-          "position": 4,
-          "description": null,
-          "showcase": true,
-          "start_date": "2025-11-18",
-          "group_id": "qwwp500n0czc",
           "page_id": "9404kdk7lkn7",
           "group": false,
           "only_show_if_degraded": false

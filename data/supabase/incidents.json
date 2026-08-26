@@ -4,9 +4,83 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-26T16:49:52.023Z"
+    "updated_at": "2026-08-26T20:54:45.031Z"
   },
   "incidents": [
+    {
+      "id": "6ky4qpn3srzg",
+      "name": "pgBouncer issues on some older projects",
+      "status": "investigating",
+      "created_at": "2026-08-26T19:49:36.428Z",
+      "updated_at": "2026-08-26T19:49:36.530Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/19qmmrvn7hj1",
+      "started_at": "2026-08-26T19:49:36.418Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "lshpcc47sbc1",
+          "status": "investigating",
+          "body": "Some users on older Projects are experiencing a pgBouncer configuration issue causing connection issues for the Dedicated Pooler and Storage services. This issue should only affect users with Project versions 15.1 and older. We have determined the cause of this issue and we are rolling out a fix.",
+          "incident_id": "6ky4qpn3srzg",
+          "created_at": "2026-08-26T19:49:36.526Z",
+          "updated_at": "2026-08-26T19:49:36.526Z",
+          "display_at": "2026-08-26T19:49:36.526Z",
+          "affected_components": [
+            {
+              "code": "f867wqkvs7ct",
+              "name": "Storage",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "022jctfqtj3y",
+              "name": "Connection Pooler",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "022jctfqtj3y",
+          "name": "Connection Pooler",
+          "status": "operational",
+          "created_at": "2024-05-02T07:16:06.672Z",
+          "updated_at": "2026-08-24T16:38:59.172Z",
+          "position": 5,
+          "description": "Supavisor is a cloud-native, multi-tenant Postgres connection pooler.",
+          "showcase": true,
+          "start_date": "2024-05-02",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "f867wqkvs7ct",
+          "name": "Storage",
+          "status": "partial_outage",
+          "created_at": "2023-02-13T10:46:23.745Z",
+          "updated_at": "2026-08-26T19:49:36.478Z",
+          "position": 11,
+          "description": "Store and serve any type of digital content",
+          "showcase": true,
+          "start_date": "2023-02-13",
+          "group_id": null,
+          "page_id": "q7pxfmcf2sbx",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "yx5g3m1wb58q",
       "name": "Increased rates of Pooler connection timeouts in us-east-1",
@@ -3562,9 +3636,9 @@
         {
           "id": "f867wqkvs7ct",
           "name": "Storage",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2023-02-13T10:46:23.745Z",
-          "updated_at": "2026-07-16T18:49:00.398Z",
+          "updated_at": "2026-08-26T19:49:36.478Z",
           "position": 11,
           "description": "Store and serve any type of digital content",
           "showcase": true,
@@ -7132,9 +7206,9 @@
         {
           "id": "f867wqkvs7ct",
           "name": "Storage",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2023-02-13T10:46:23.745Z",
-          "updated_at": "2026-07-16T18:49:00.398Z",
+          "updated_at": "2026-08-26T19:49:36.478Z",
           "position": 11,
           "description": "Store and serve any type of digital content",
           "showcase": true,
@@ -8644,119 +8718,6 @@
               "name": "Analytics",
               "old_status": "operational",
               "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "108mxl185pmb",
-          "name": "Analytics",
-          "status": "operational",
-          "created_at": "2023-10-27T05:10:21.998Z",
-          "updated_at": "2026-07-10T03:03:08.313Z",
-          "position": 2,
-          "description": "Supabase Analytics powers logs, metrics and reports for all users.",
-          "showcase": true,
-          "start_date": "2023-10-27",
-          "group_id": null,
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "h509nsxf0h1k",
-      "name": "Degraded Log Explorer in the dashboard",
-      "status": "resolved",
-      "created_at": "2026-06-16T11:26:15.060Z",
-      "updated_at": "2026-06-16T15:08:43.022Z",
-      "monitoring_at": "2026-06-16T11:26:15.211Z",
-      "resolved_at": "2026-06-16T15:08:42.979Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/0t4xlgtyjp76",
-      "started_at": "2026-06-16T11:26:15.045Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "n264g23rbkwm",
-          "status": "resolved",
-          "body": "We have rolled out additional performance improvements to reporting API endpoints.",
-          "incident_id": "h509nsxf0h1k",
-          "created_at": "2026-06-16T15:08:42.979Z",
-          "updated_at": "2026-06-16T15:08:42.979Z",
-          "display_at": "2026-06-16T15:08:42.979Z",
-          "affected_components": [
-            {
-              "code": "108mxl185pmb",
-              "name": "Analytics",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "c6z0zrrqn9w9",
-          "status": "monitoring",
-          "body": "We are seeing things have stabilized across the fleet after further optimization work, and we are monitoring to ensure no further issues arise.",
-          "incident_id": "h509nsxf0h1k",
-          "created_at": "2026-06-16T13:30:30.184Z",
-          "updated_at": "2026-06-16T13:30:30.184Z",
-          "display_at": "2026-06-16T13:30:30.184Z",
-          "affected_components": [
-            {
-              "code": "108mxl185pmb",
-              "name": "Analytics",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xwlgvj8nypcc",
-          "status": "identified",
-          "body": "The mitigations rolled out have resulted in a great reduction in errors and most users should now see fully-functional logging and usage charts; however, some users may still see erroneously empty usage charts on the project home page. The team is continuing to work on this issue.",
-          "incident_id": "h509nsxf0h1k",
-          "created_at": "2026-06-16T13:01:15.334Z",
-          "updated_at": "2026-06-16T13:01:15.334Z",
-          "display_at": "2026-06-16T13:01:15.334Z",
-          "affected_components": [
-            {
-              "code": "108mxl185pmb",
-              "name": "Analytics",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "3mzf3qyrq6j7",
-          "status": "monitoring",
-          "body": "Some users are seeing errors or degraded performance on usage reportss and logs in the Supabase dashboard. The team has already rolled out mitigations and are seeing improvements. We are continuing to monitor the results.",
-          "incident_id": "h509nsxf0h1k",
-          "created_at": "2026-06-16T11:26:15.211Z",
-          "updated_at": "2026-06-16T11:26:15.211Z",
-          "display_at": "2026-06-16T11:26:15.211Z",
-          "affected_components": [
-            {
-              "code": "108mxl185pmb",
-              "name": "Analytics",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
             }
           ],
           "deliver_notifications": true,
