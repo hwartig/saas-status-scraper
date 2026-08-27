@@ -4,9 +4,109 @@
     "name": "Contentful",
     "url": "https://www.contentfulstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-27T10:38:52.904Z"
+    "updated_at": "2026-08-27T20:23:54.062Z"
   },
   "incidents": [
+    {
+      "id": "6ghp1lqnw27t",
+      "name": "Daily audit logs outage",
+      "status": "identified",
+      "created_at": "2026-08-27T16:26:08.695Z",
+      "updated_at": "2026-08-27T16:28:51.353Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/rk1thr8j1fbq",
+      "started_at": "2026-08-27T16:26:08.686Z",
+      "page_id": "4bv17htq00cz",
+      "incident_updates": [
+        {
+          "id": "ctjhd30x9msh",
+          "status": "identified",
+          "body": "We've identified the issue and are working to resolve the daily audit logs for today, we've also confirmed that EU is unaffected.",
+          "incident_id": "6ghp1lqnw27t",
+          "created_at": "2026-08-27T16:28:51.351Z",
+          "updated_at": "2026-08-27T16:28:51.351Z",
+          "display_at": "2026-08-27T16:28:51.351Z",
+          "affected_components": [
+            {
+              "code": "kn7f6wsvfqkv",
+              "name": "EU data residency - Enterprise Observability",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "8ts56nym12fv",
+              "name": "Enterprise Observability",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "r5hcnnk014bg",
+          "status": "investigating",
+          "body": "Our monitoring systems have detected an outage of daily audit logs we're investigating the nature and the cause of the outage and we'll update this incident as we have more details. There is minor side effects on real time audit logs in terms of actor details (email, username) missing but the log's themselves are intact, including userId and they remain operational.",
+          "incident_id": "6ghp1lqnw27t",
+          "created_at": "2026-08-27T16:26:08.773Z",
+          "updated_at": "2026-08-27T16:26:08.773Z",
+          "display_at": "2026-08-27T16:26:08.773Z",
+          "affected_components": [
+            {
+              "code": "kn7f6wsvfqkv",
+              "name": "EU data residency - Enterprise Observability",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "8ts56nym12fv",
+              "name": "Enterprise Observability",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "kn7f6wsvfqkv",
+          "name": "Enterprise Observability",
+          "status": "operational",
+          "created_at": "2026-08-26T09:33:54.543Z",
+          "updated_at": "2026-08-27T16:28:51.325Z",
+          "position": 13,
+          "description": "Enterprise Observability log delivery, including near-real-time and daily audit logs.",
+          "showcase": false,
+          "start_date": "2026-08-26",
+          "group_id": "cqxxjgz010f9",
+          "page_id": "4bv17htq00cz",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "8ts56nym12fv",
+          "name": "Enterprise Observability",
+          "status": "partial_outage",
+          "created_at": "2026-08-26T09:33:09.581Z",
+          "updated_at": "2026-08-27T16:26:08.741Z",
+          "position": 20,
+          "description": "Enterprise Observability log delivery, including near-real-time and daily audit logs.",
+          "showcase": false,
+          "start_date": "2026-08-26",
+          "group_id": null,
+          "page_id": "4bv17htq00cz",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "gm6828sqlxz6",
       "name": "Issues with Space Add-ons",
@@ -6507,36 +6607,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "31hjhms6zyjj",
-      "name": "Spike in errors on Contentful Management and Contentful Delivery APIs",
-      "status": "resolved",
-      "created_at": "2025-11-14T16:00:00.000Z",
-      "updated_at": "2025-11-14T16:11:51.028Z",
-      "monitoring_at": null,
-      "resolved_at": "2025-11-14T16:00:00.000Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/md2k3m5b8fl2",
-      "started_at": "2025-11-14T16:11:50.968Z",
-      "page_id": "4bv17htq00cz",
-      "incident_updates": [
-        {
-          "id": "chcsw1j40mp3",
-          "status": "resolved",
-          "body": "Between 15:52 and 15:56 UTC on 14 November, customers experienced a spike in errors on our Content Management and Content Delivery APIs. This also may have affected login and interactions on the Contentful WebApp.",
-          "incident_id": "31hjhms6zyjj",
-          "created_at": "2025-11-14T16:11:51.018Z",
-          "updated_at": "2025-11-14T16:11:51.018Z",
-          "display_at": "2025-11-14T16:00:00.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
