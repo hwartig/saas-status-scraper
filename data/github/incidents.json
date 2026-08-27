@@ -4,9 +4,82 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-27T00:31:22.347Z"
+    "updated_at": "2026-08-27T10:43:00.960Z"
   },
   "incidents": [
+    {
+      "id": "tx9qn4khd664",
+      "name": "Incident with Copilot AI Model Providers",
+      "status": "investigating",
+      "created_at": "2026-08-27T10:04:52.529Z",
+      "updated_at": "2026-08-27T10:43:00.949Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "critical",
+      "shortlink": "https://stspg.io/573gc8p4328b",
+      "started_at": "2026-08-27T10:04:52.519Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "pps94dyf7p9y",
+          "status": "investigating",
+          "body": "We are experiencing degraded availability for the Kimi K3 model in Copilot products and IDE surfaces. This is due to an issue with an upstream model provider. While we work with them to resolve the issue, we recommend choosing another model or selecting 'Auto' to continue using Copilot.",
+          "incident_id": "tx9qn4khd664",
+          "created_at": "2026-08-27T10:43:00.946Z",
+          "updated_at": "2026-08-27T10:43:00.946Z",
+          "display_at": "2026-08-27T10:43:00.946Z",
+          "affected_components": [
+            {
+              "code": "cnnb39dkkk82",
+              "name": "Copilot AI Model Providers",
+              "old_status": "major_outage",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2fm99f66414t",
+          "status": "investigating",
+          "body": "We are investigating reports of degraded availability for Copilot AI Model Providers",
+          "incident_id": "tx9qn4khd664",
+          "created_at": "2026-08-27T10:04:52.621Z",
+          "updated_at": "2026-08-27T10:04:52.621Z",
+          "display_at": "2026-08-27T10:04:52.621Z",
+          "affected_components": [
+            {
+              "code": "cnnb39dkkk82",
+              "name": "Copilot AI Model Providers",
+              "old_status": "operational",
+              "new_status": "major_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "cnnb39dkkk82",
+          "name": "Copilot AI Model Providers",
+          "status": "major_outage",
+          "created_at": "2026-04-17T12:33:08.827Z",
+          "updated_at": "2026-08-27T10:04:52.576Z",
+          "position": 12,
+          "description": null,
+          "showcase": true,
+          "start_date": "2026-04-17",
+          "group_id": null,
+          "page_id": "kctbh9vrtdwd",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "kfspvrz14xr0",
       "name": "Incident with Actions and Pull Requests",
@@ -216,7 +289,7 @@
       "name": "Disruption with GitHub Billing",
       "status": "investigating",
       "created_at": "2026-08-26T23:37:20.579Z",
-      "updated_at": "2026-08-27T00:31:22.338Z",
+      "updated_at": "2026-08-27T01:37:58.099Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -224,6 +297,19 @@
       "started_at": "2026-08-26T23:37:20.570Z",
       "page_id": "kctbh9vrtdwd",
       "incident_updates": [
+        {
+          "id": "csl572t1jr99",
+          "status": "investigating",
+          "body": "We are continuing to monitor the mitigation that we have applied for the billing page disruption.",
+          "incident_id": "5bn0vk444m1w",
+          "created_at": "2026-08-27T01:35:35.233Z",
+          "updated_at": "2026-08-27T01:37:58.095Z",
+          "display_at": "2026-08-27T01:35:35.233Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "qlzv4w3fqqpw",
           "status": "investigating",
@@ -272,7 +358,7 @@
       "name": "Incident with Actions",
       "status": "resolved",
       "created_at": "2026-08-26T15:11:58.254Z",
-      "updated_at": "2026-08-26T18:01:30.683Z",
+      "updated_at": "2026-08-27T02:24:56.454Z",
       "monitoring_at": "2026-08-26T17:54:33.454Z",
       "resolved_at": "2026-08-26T18:01:30.665Z",
       "impact": "critical",
@@ -283,10 +369,10 @@
         {
           "id": "8vbzryxg9736",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On August 26, 2026 from 15:02 to 15:45 UTC, Actions jobs failed to start. The following 2 hours until 17:40 UTC, Actions runs were delayed starting by more than 5 minutes as the system caught up with delayed load. This impact was triggered by saturation of writes to the database primary used by the service processing triggers for Actions workflows. The primary was failed over, but the system did not fully recover. The saturation was caused by growing daily peak load combined with an upstream issue in GitHub’s event processing infrastructure, https://www.githubstatus.com/incidents/hcbtzksccj2f, which caused burst amplification of already-high load. Downstream throttles that were later used to recover were set ~10% too high to protect the system.  <br /><br />At 15:45 UTC, throttling combined with service restarts recovered the service’s core health. Those throttles were gradually raised between 15:54 and 17:22 to restore full webhook processing for Actions runs. This ramp was deliberately slow to ensure we did not re-overwhelm the system given our original throttling was now known to be incorrectly set. The queue of webhook events was fully burned down at 17:40 UTC. <br /><br />3.7% of larger-runner jobs, along with some scale-set self-hosted jobs, remained stuck in queued or “waiting for runner” state. We deployed a change to force-revoke jobs in this state, and they transitioned to failed at 18:40 UTC, about 50 minutes after incident mitigation. Releasing these jobs also freed hosted concurrency for larger-runner jobs. <br /><br />Customers using concurrency groups saw longer impact due to a separate issue where runners assigned to a subset of jobs disconnected before the force-revoke mitigation was deployed, which prevented runner acquisition from progressing and left jobs in a waiting-for-runner state. This was resolved at 01:00 UTC on August 27. <br /><br />Some runs triggered during the 15:02-15:45 UTC incident window encountered a bug that left them showing as queued even after service recovery. In the backend, these runs had already failed and will automatically move to canceled state 24 hours after creation. As follow-up, we are fixing the root cause of this queued state and improving our ability to bulk-cancel affected runs. <br /><br />Several changes to improve the general scalability of this part of Actions were already complete and deploying to production. Rollout of those changes will be complete within the next 24 hours. Further work to improve scale, resiliency, and more graceful degradation of Actions workflows are in flight. We are also taking a repair item to accelerate clearing of stuck queued or waiting jobs in similar future cases.",
           "incident_id": "y1t7p9fzrlj2",
           "created_at": "2026-08-26T18:01:30.665Z",
-          "updated_at": "2026-08-26T18:01:30.665Z",
+          "updated_at": "2026-08-27T02:24:56.450Z",
           "display_at": "2026-08-26T18:01:30.665Z",
           "affected_components": [
             {
@@ -829,9 +915,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-08-24T07:58:41.598Z",
+          "updated_at": "2026-08-27T10:04:52.576Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -3362,9 +3448,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-08-24T07:58:41.598Z",
+          "updated_at": "2026-08-27T10:04:52.576Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -5470,9 +5556,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-08-24T07:58:41.598Z",
+          "updated_at": "2026-08-27T10:04:52.576Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -5603,9 +5689,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-08-24T07:58:41.598Z",
+          "updated_at": "2026-08-27T10:04:52.576Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -5716,9 +5802,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-08-24T07:58:41.598Z",
+          "updated_at": "2026-08-27T10:04:52.576Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -5889,9 +5975,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-08-24T07:58:41.598Z",
+          "updated_at": "2026-08-27T10:04:52.576Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -6361,9 +6447,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-08-24T07:58:41.598Z",
+          "updated_at": "2026-08-27T10:04:52.576Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -8100,9 +8186,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-08-24T07:58:41.598Z",
+          "updated_at": "2026-08-27T10:04:52.576Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -9113,9 +9199,9 @@
         {
           "id": "cnnb39dkkk82",
           "name": "Copilot AI Model Providers",
-          "status": "operational",
+          "status": "major_outage",
           "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-08-24T07:58:41.598Z",
+          "updated_at": "2026-08-27T10:04:52.576Z",
           "position": 12,
           "description": null,
           "showcase": true,
@@ -10212,119 +10298,6 @@
           "description": "Orchestration and Compute for GitHub Codespaces",
           "showcase": true,
           "start_date": "2021-08-11",
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "5bnwwg9tzd4q",
-      "name": "Incident with Pages",
-      "status": "resolved",
-      "created_at": "2026-07-02T16:54:10.130Z",
-      "updated_at": "2026-07-07T22:06:42.429Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-07-02T18:25:24.658Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/wgv67m39tbml",
-      "started_at": "2026-07-02T16:54:10.115Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "pv62xk0yvpmx",
-          "status": "resolved",
-          "body": "On July 2nd, 2026, between approximately 15:00 and 18:30 UTC, the GitHub Pages service experienced degraded deployment performance due to a surge in demand that exceeded available processing capacity. During this period, users publishing to GitHub Pages may have seen their deployments queued or taking substantially longer than usual to go live. No other GitHub services were impacted.<br /><br />We mitigated the incident by scaling up Pages deployment workers and provisioning additional storage capacity to clear the backlog.<br /><br />GitHub is reviewing capacity planning and autoscaling measures to reduce the likelihood of similar delays in the future.",
-          "incident_id": "5bnwwg9tzd4q",
-          "created_at": "2026-07-02T18:25:24.658Z",
-          "updated_at": "2026-07-07T22:06:42.419Z",
-          "display_at": "2026-07-02T18:25:24.658Z",
-          "affected_components": [
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "540qjqp3t350",
-          "status": "investigating",
-          "body": "Pages deployment latency is recovering. The team continues working toward full mitigation and a return to nominal state.",
-          "incident_id": "5bnwwg9tzd4q",
-          "created_at": "2026-07-02T17:57:15.004Z",
-          "updated_at": "2026-07-02T17:57:15.004Z",
-          "display_at": "2026-07-02T17:57:15.004Z",
-          "affected_components": [
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "tbl0skq7gp2f",
-          "status": "investigating",
-          "body": "We are investigating reports of slow and failing Pages deployments. Access to Pages is unaffected.",
-          "incident_id": "5bnwwg9tzd4q",
-          "created_at": "2026-07-02T16:56:46.958Z",
-          "updated_at": "2026-07-02T16:56:46.958Z",
-          "display_at": "2026-07-02T16:56:46.958Z",
-          "affected_components": [
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wcspw4qmn9yd",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Pages",
-          "incident_id": "5bnwwg9tzd4q",
-          "created_at": "2026-07-02T16:54:10.255Z",
-          "updated_at": "2026-07-02T16:54:10.255Z",
-          "display_at": "2026-07-02T16:54:10.255Z",
-          "affected_components": [
-            {
-              "code": "vg70hn9s2tyj",
-              "name": "Pages",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "vg70hn9s2tyj",
-          "name": "Pages",
-          "status": "operational",
-          "created_at": "2017-01-31T20:04:33.923Z",
-          "updated_at": "2026-08-26T16:49:07.311Z",
-          "position": 9,
-          "description": "Frontend application and API servers for Pages builds",
-          "showcase": true,
-          "start_date": null,
           "group_id": null,
           "page_id": "kctbh9vrtdwd",
           "group": false,
