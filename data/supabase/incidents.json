@@ -4,9 +4,39 @@
     "name": "Supabase",
     "url": "https://status.supabase.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-28T04:58:05.233Z"
+    "updated_at": "2026-08-28T17:21:25.724Z"
   },
   "incidents": [
+    {
+      "id": "m3rr3q187n3b",
+      "name": "Projects failing to load Supautils in multiple regions",
+      "status": "resolved",
+      "created_at": "2026-08-28T16:18:05.067Z",
+      "updated_at": "2026-08-28T16:18:11.791Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-08-28T16:18:05.118Z",
+      "impact": "major",
+      "shortlink": "https://stspg.io/96r5hdw8zttb",
+      "started_at": "2026-08-28T16:18:05.061Z",
+      "page_id": "q7pxfmcf2sbx",
+      "incident_updates": [
+        {
+          "id": "yvxz7q10tr2h",
+          "status": "resolved",
+          "body": "PostgreSQL 15 projects were failing to load /usr/lib/postgresql/15/lib/supautils.so because GLIBC_2.33 is unavailable on affected hosts.\nThis disrupted database access in multiple regions. \nRollback is now complete and we are seeing access restored to projects in the affected regions.",
+          "incident_id": "m3rr3q187n3b",
+          "created_at": "2026-08-28T16:18:05.118Z",
+          "updated_at": "2026-08-28T16:18:05.118Z",
+          "display_at": "2026-08-28T16:18:05.118Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "6ky4qpn3srzg",
       "name": "pgBouncer issues on some older projects",
@@ -242,7 +272,7 @@
       "name": "Increased response times for requests",
       "status": "identified",
       "created_at": "2026-08-27T17:20:43.863Z",
-      "updated_at": "2026-08-28T01:38:06.281Z",
+      "updated_at": "2026-08-28T17:21:25.711Z",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "major",
@@ -250,6 +280,32 @@
       "started_at": "2026-08-27T17:20:43.856Z",
       "page_id": "q7pxfmcf2sbx",
       "incident_updates": [
+        {
+          "id": "3lypq57z8thq",
+          "status": "identified",
+          "body": "PostgREST 14.5 has been deployed since 12:00pm UTC to all AP regions: ap-east-1, ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, and ap-southeast-2\nas well as sa-east-1 and ca-central-1, eu-central-1, eu-central-2, eu-north-1, eu-west-2, and eu-west-3, us-west-1\nWe'll continue to provide updates as we roll out the change for the remaining impacted regions.",
+          "incident_id": "bv4ntm4x0btf",
+          "created_at": "2026-08-28T17:21:25.707Z",
+          "updated_at": "2026-08-28T17:21:25.707Z",
+          "display_at": "2026-08-28T17:21:25.707Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "7rrf8w9f6nwg",
+          "status": "identified",
+          "body": "We are continuing to work through the remediation plan for the latency issues.\nWe will provide a further update as soon as more information is available.",
+          "incident_id": "bv4ntm4x0btf",
+          "created_at": "2026-08-28T13:10:07.552Z",
+          "updated_at": "2026-08-28T13:10:07.552Z",
+          "display_at": "2026-08-28T13:10:07.552Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "4lw23dzb1h0z",
           "status": "identified",
@@ -324,8 +380,8 @@
       "name": "Increased rates of Pooler connection timeouts in us-east-1",
       "status": "resolved",
       "created_at": "2026-08-24T15:26:51.026Z",
-      "updated_at": "2026-08-24T16:38:59.215Z",
-      "monitoring_at": "2026-08-24T15:38:00.566Z",
+      "updated_at": "2026-08-28T07:27:14.949Z",
+      "monitoring_at": "2026-08-24T15:38:00.000Z",
       "resolved_at": "2026-08-24T16:38:59.201Z",
       "impact": "none",
       "shortlink": "https://stspg.io/jxdy7363pv65",
@@ -355,11 +411,11 @@
         {
           "id": "1vgjnrg252gz",
           "status": "monitoring",
-          "body": "We have identified a degraded Supavisor node and we have rolled out a fix. We are monitoring to ensure continued stability.",
+          "body": "We have identified a degraded Supavisor node and we have rolled out a fix. We are monitoring to ensure continued stability. Confirmed Impact: On Aug 24, 2026 between 14:30 and 15:20 UTC we observed increased rates of connection timeouts connecting to Supavisor in us-east-1 due to a degraded node.",
           "incident_id": "yx5g3m1wb58q",
           "created_at": "2026-08-24T15:38:00.566Z",
-          "updated_at": "2026-08-24T15:38:00.566Z",
-          "display_at": "2026-08-24T15:38:00.566Z",
+          "updated_at": "2026-08-28T07:27:14.923Z",
+          "display_at": "2026-08-24T15:38:00.000Z",
           "affected_components": [
             {
               "code": "022jctfqtj3y",
@@ -8594,263 +8650,6 @@
         }
       ],
       "components": [
-        {
-          "id": "1wd1zrc846g6",
-          "name": "us-east-2",
-          "status": "operational",
-          "created_at": "2025-01-10T16:58:15.807Z",
-          "updated_at": "2026-08-24T14:47:53.754Z",
-          "position": 16,
-          "description": null,
-          "showcase": false,
-          "start_date": "2025-01-10",
-          "group_id": "36n3k66s7n2v",
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "qyc28n17gsmr",
-      "name": "Degraded Management API performance affecting payments and Supabase Studio",
-      "status": "resolved",
-      "created_at": "2026-06-17T12:31:07.390Z",
-      "updated_at": "2026-06-17T14:10:07.297Z",
-      "monitoring_at": "2026-06-17T13:15:23.169Z",
-      "resolved_at": "2026-06-17T14:10:07.283Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/kzw8px80chx1",
-      "started_at": "2026-06-17T12:31:07.382Z",
-      "page_id": "q7pxfmcf2sbx",
-      "incident_updates": [
-        {
-          "id": "l4nq3syygfw8",
-          "status": "resolved",
-          "body": "All regions continue to report healthy Management API performance and platform stability.",
-          "incident_id": "qyc28n17gsmr",
-          "created_at": "2026-06-17T14:10:07.283Z",
-          "updated_at": "2026-06-17T14:10:07.283Z",
-          "display_at": "2026-06-17T14:10:07.283Z",
-          "affected_components": [
-            {
-              "code": "8sjr72528tgt",
-              "name": "Management API",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "hf2cz18jnj92",
-              "name": "Compute capacity - ca-central-1",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "c1nccxytwfhx",
-              "name": "Compute capacity - sa-east-1",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "gx5p5zhkgl8f",
-              "name": "Compute capacity - us-east-1",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "1wd1zrc846g6",
-              "name": "Compute capacity - us-east-2",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "j65bwt9g3jw0",
-          "status": "monitoring",
-          "body": "We have resolved the degraded performance affecting our Management API in the impacted regions. All systems are now fully operational. \n\nAll payment features have been re-enabled. Customers should no longer experience failed payments or failed project creations.\n\nWe are continuing to monitor the system closely and will provide a final update once we have confirmed full stability.",
-          "incident_id": "qyc28n17gsmr",
-          "created_at": "2026-06-17T13:15:23.169Z",
-          "updated_at": "2026-06-17T13:15:23.169Z",
-          "display_at": "2026-06-17T13:15:23.169Z",
-          "affected_components": [
-            {
-              "code": "8sjr72528tgt",
-              "name": "Management API",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "hf2cz18jnj92",
-              "name": "Compute capacity - ca-central-1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "c1nccxytwfhx",
-              "name": "Compute capacity - sa-east-1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "gx5p5zhkgl8f",
-              "name": "Compute capacity - us-east-1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "1wd1zrc846g6",
-              "name": "Compute capacity - us-east-2",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "8cnl78y9q912",
-          "status": "investigating",
-          "body": "We are currently experiencing degraded performance with our Management API in the following regions: ca-central-1, sa-east-1, us-east-1, and us-east-2.\n\nCustomers may experience failed payments, failed project creations, and degraded performance in Supabase Studio.\n\nAs a precautionary measure, we have temporarily disabled the following features while we investigate: \n- Top up Credits\n- Update Billing Information\n- Redeem Credits\n\nTo reduce impact, we have redirected traffic to healthy regions. Our team continues to actively investigate and work toward a full resolution.",
-          "incident_id": "qyc28n17gsmr",
-          "created_at": "2026-06-17T12:51:44.766Z",
-          "updated_at": "2026-06-17T12:51:44.766Z",
-          "display_at": "2026-06-17T12:51:44.766Z",
-          "affected_components": [
-            {
-              "code": "8sjr72528tgt",
-              "name": "Management API",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "hf2cz18jnj92",
-              "name": "Compute capacity - ca-central-1",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "c1nccxytwfhx",
-              "name": "Compute capacity - sa-east-1",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "gx5p5zhkgl8f",
-              "name": "Compute capacity - us-east-1",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "1wd1zrc846g6",
-              "name": "Compute capacity - us-east-2",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5cts8mmt29cp",
-          "status": "investigating",
-          "body": "We are currently investigating the issue",
-          "incident_id": "qyc28n17gsmr",
-          "created_at": "2026-06-17T12:31:07.500Z",
-          "updated_at": "2026-06-17T12:31:07.500Z",
-          "display_at": "2026-06-17T12:31:07.500Z",
-          "affected_components": [
-            {
-              "code": "45jcpkfhw6hd",
-              "name": "Dashboard",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "8sjr72528tgt",
-              "name": "Management API",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "43453sylqk7v",
-              "name": "API Gateway",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "hf2cz18jnj92",
-          "name": "ca-central-1",
-          "status": "operational",
-          "created_at": "2025-01-10T16:57:16.979Z",
-          "updated_at": "2026-08-24T14:47:53.652Z",
-          "position": 7,
-          "description": null,
-          "showcase": false,
-          "start_date": "2025-01-10",
-          "group_id": "36n3k66s7n2v",
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "8sjr72528tgt",
-          "name": "Management API",
-          "status": "operational",
-          "created_at": "2020-11-27T15:23:16.693Z",
-          "updated_at": "2026-08-01T01:19:27.648Z",
-          "position": 9,
-          "description": "Manage Supabase projects programmatically.",
-          "showcase": true,
-          "start_date": "2020-11-27",
-          "group_id": null,
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "c1nccxytwfhx",
-          "name": "sa-east-1",
-          "status": "operational",
-          "created_at": "2025-01-10T16:57:51.563Z",
-          "updated_at": "2026-08-24T14:47:53.729Z",
-          "position": 14,
-          "description": null,
-          "showcase": false,
-          "start_date": "2025-01-10",
-          "group_id": "36n3k66s7n2v",
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "gx5p5zhkgl8f",
-          "name": "us-east-1",
-          "status": "operational",
-          "created_at": "2025-01-10T16:57:59.073Z",
-          "updated_at": "2026-08-24T14:47:53.740Z",
-          "position": 15,
-          "description": null,
-          "showcase": false,
-          "start_date": "2025-01-10",
-          "group_id": "36n3k66s7n2v",
-          "page_id": "q7pxfmcf2sbx",
-          "group": false,
-          "only_show_if_degraded": false
-        },
         {
           "id": "1wd1zrc846g6",
           "name": "us-east-2",
