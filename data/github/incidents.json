@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-28T15:59:07.097Z"
+    "updated_at": "2026-08-28T22:28:58.889Z"
   },
   "incidents": [
     {
@@ -266,7 +266,7 @@
       "name": "Incident with Actions and Pull Requests",
       "status": "resolved",
       "created_at": "2026-08-26T22:56:31.800Z",
-      "updated_at": "2026-08-27T00:26:44.792Z",
+      "updated_at": "2026-08-28T22:10:28.404Z",
       "monitoring_at": "2026-08-27T00:26:05.990Z",
       "resolved_at": "2026-08-27T00:26:44.772Z",
       "impact": "minor",
@@ -277,10 +277,10 @@
         {
           "id": "zc9xw0lnnrm1",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On August 26, 2026, from 21:55 UTC to 23:58 UTC, 2.6% of workflow runs triggered by pull request events were delayed, with the impact rising as high as 25% at its peak. Some users also experienced delays in pull request merge-commit generation, mergeability information, and merge-button availability. Actions and Pull Requests fully recovered by 23:58 UTC; the incident was resolved at 00:26 UTC after normal operation was confirmed. <br /><br />Background jobs that process pull request updates and generate merge commits were impacted by timeouts reaching a single partition of git data. This resulted in a backlog in pull request merge-commit processing, delaying pull request-triggered GitHub Actions workflows and some mergeability information. <br /><br />We reduced workload, shifted traffic away from affected infrastructure, and restored the affected service component to a healthy state. Together, these actions helped drain the backlog and restore normal operations. <br /><br />We are working to improve resource saturation detection and to eliminate customer impact in this scenario by isolating impact, placing better bounds on retries, and strengthening backpressure to make our systems more resilient under load.",
           "incident_id": "kfspvrz14xr0",
           "created_at": "2026-08-27T00:26:44.772Z",
-          "updated_at": "2026-08-27T00:26:44.772Z",
+          "updated_at": "2026-08-28T22:10:28.401Z",
           "display_at": "2026-08-27T00:26:44.772Z",
           "affected_components": [
             {
