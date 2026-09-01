@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-08-31T20:06:19.348Z"
+    "updated_at": "2026-08-31T22:46:13.749Z"
   },
   "incidents": [
     {
@@ -165,7 +165,7 @@
       "name": "Disruption with GitHub Billing",
       "status": "resolved",
       "created_at": "2026-08-26T23:37:20.579Z",
-      "updated_at": "2026-08-27T19:44:08.813Z",
+      "updated_at": "2026-08-31T22:46:13.740Z",
       "monitoring_at": null,
       "resolved_at": "2026-08-27T19:44:08.799Z",
       "impact": "minor",
@@ -176,10 +176,10 @@
         {
           "id": "j71pnfjbbk0k",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On August 26, 2026, between 20:40 UTC and 00:51 UTC on August 27, GitHub Billing experienced degraded performance affecting billing budget pages and GitHub Copilot CLI sessions. Affected customers encountered failed budget page loads or failures when starting or continuing CLI sessions. We confirmed this impact for a small number of customers (<1%). <br /><br />This was caused by a concentrated workload that created processing delays in our data storage layer. Automated retries increased the load and prolonged the degradation. We mitigated the incident by rebalancing traffic within our infrastructure. <br /><br />We are improving workload isolation, retry behavior, and detection of concentrated load to reduce the likelihood of recurrence and shorten our time to detect and mitigate similar incidents.",
           "incident_id": "5bn0vk444m1w",
           "created_at": "2026-08-27T19:44:08.799Z",
-          "updated_at": "2026-08-27T19:44:08.799Z",
+          "updated_at": "2026-08-31T22:46:13.736Z",
           "display_at": "2026-08-27T19:44:08.799Z",
           "affected_components": null,
           "deliver_notifications": true,
@@ -951,7 +951,7 @@
       "name": "Disruption with some GitHub services",
       "status": "resolved",
       "created_at": "2026-08-26T15:09:03.575Z",
-      "updated_at": "2026-08-26T16:07:52.529Z",
+      "updated_at": "2026-08-31T20:41:06.290Z",
       "monitoring_at": null,
       "resolved_at": "2026-08-26T16:07:52.512Z",
       "impact": "minor",
@@ -962,10 +962,10 @@
         {
           "id": "xb038sjmzgbp",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Please refer to the combined summary in this related incident:  https://www.githubstatus.com/incidents/y1t7p9fzrlj2",
           "incident_id": "hcbtzksccj2f",
           "created_at": "2026-08-26T16:07:52.512Z",
-          "updated_at": "2026-08-26T16:07:52.512Z",
+          "updated_at": "2026-08-31T20:41:06.286Z",
           "display_at": "2026-08-26T16:07:52.512Z",
           "affected_components": null,
           "deliver_notifications": true,
@@ -3733,7 +3733,7 @@
       "name": "Incident with Webhooks",
       "status": "resolved",
       "created_at": "2026-08-13T14:45:40.430Z",
-      "updated_at": "2026-08-13T15:36:34.648Z",
+      "updated_at": "2026-08-31T20:37:37.194Z",
       "monitoring_at": "2026-08-13T15:33:02.241Z",
       "resolved_at": "2026-08-13T15:36:34.631Z",
       "impact": "minor",
@@ -3744,10 +3744,10 @@
         {
           "id": "7rfzp8yd8y1p",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between 14:24 and 14:53 UTC on 13 August 2026, a routine background job to delete an organization overwhelmed a key shared database, causing multiple GitHub services to briefly return elevated errors and slower responses. Most affected was the webhook management API, with smaller impact to Git operations, pull requests, issues, packages, sign-in, and Copilot. Impact cleared on its own at about 14:53 UTC once the job finished; we resolved the incident at 15:36 UTC. <br /><br />Affected users may have experienced a brief increase in errors and slower responses, primarily when creating, listing, or updating webhooks, with smaller impacts to pull requests, issues, packages, and Git operations. Failures peaked at about 1% for several minutes around 14:37 UTC. <br /><br />To prevent future incidents, we've already shipped an update that turns on the safer deletion path for organizations, along with caps on deletion holds on databases. Building on these changes, we're auditing all bulk deletion and cleanup jobs that write to shared databases to prevent similar issues in future.",
           "incident_id": "k8vbzwqjkxzn",
           "created_at": "2026-08-13T15:36:34.631Z",
-          "updated_at": "2026-08-13T15:36:34.631Z",
+          "updated_at": "2026-08-31T20:37:37.188Z",
           "display_at": "2026-08-13T15:36:34.631Z",
           "affected_components": [
             {
