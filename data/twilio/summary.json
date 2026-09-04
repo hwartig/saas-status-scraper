@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-09-04T04:40:07.394-07:00"
+    "updated_at": "2026-09-04T08:10:18.905-07:00"
   },
   "components": [
     {
@@ -602,7 +602,7 @@
       "name": "SMS Short Code, North America",
       "status": "operational",
       "created_at": "2016-04-07T15:07:25.830-07:00",
-      "updated_at": "2026-09-04T00:00:07.780-07:00",
+      "updated_at": "2026-09-04T08:10:18.843-07:00",
       "position": 3,
       "description": null,
       "showcase": false,
@@ -1601,9 +1601,9 @@
     {
       "id": "42zx9w2kmtvf",
       "name": "SMS, Latin America",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2019-01-10T08:53:08.618-08:00",
-      "updated_at": "2026-09-04T02:23:19.098-07:00",
+      "updated_at": "2026-09-04T07:01:47.577-07:00",
       "position": 9,
       "description": null,
       "showcase": false,
@@ -2034,9 +2034,9 @@
     {
       "id": "hjfntfyhnn4l",
       "name": "INTERCONNECT",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2017-03-28T14:28:05.669-07:00",
-      "updated_at": "2026-09-03T09:00:11.966-07:00",
+      "updated_at": "2026-09-04T08:00:10.009-07:00",
       "position": 13,
       "description": null,
       "showcase": false,
@@ -3071,32 +3071,72 @@
   ],
   "incidents": [
     {
-      "id": "v0xwp70fbfrf",
-      "name": "Multiple delivery failures to Microsoft",
-      "status": "investigating",
-      "created_at": "2026-09-04T04:40:07.319-07:00",
-      "updated_at": "2026-09-04T04:40:07.392-07:00",
-      "monitoring_at": null,
+      "id": "0rp55rxt5l1r",
+      "name": "SMS Delivery Receipt Delays From a Subset of Twilio Short Codes to T-Mobile United States",
+      "status": "monitoring",
+      "created_at": "2026-09-04T06:27:19.978-07:00",
+      "updated_at": "2026-09-04T08:10:18.901-07:00",
+      "monitoring_at": "2026-09-04T08:10:18.883-07:00",
       "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/rwbjsyvfgn05",
-      "started_at": "2026-09-04T04:40:07.306-07:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/3h104vn9x26y",
+      "started_at": "2026-09-04T06:27:19.968-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
         {
-          "id": "656lx463czwk",
-          "status": "investigating",
-          "body": "Starting around 3:30 PST on September the 4th, our engineers began investigating an issue with all emails being delivered to Microsoft. Users may experience different 5XX errors such as:\n\nEmail was deferred due to the following reason(s): [IPs were throttled by recipient server:\n\nMail send is affected only when sending to Microsoft supported services We will provide another update in an hour or as soon as more information becomes available.",
-          "incident_id": "v0xwp70fbfrf",
-          "created_at": "2026-09-04T04:40:07.389-07:00",
-          "updated_at": "2026-09-04T04:40:07.389-07:00",
-          "display_at": "2026-09-04T04:40:07.389-07:00",
+          "id": "csv8hf3834wb",
+          "status": "monitoring",
+          "body": "We have observed a recovery in SMS delivery receipts from a subset of Twilio Short Codes to T-Mobile network subscribers in the United States and are monitoring service stability. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "0rp55rxt5l1r",
+          "created_at": "2026-09-04T08:10:18.883-07:00",
+          "updated_at": "2026-09-04T08:10:18.883-07:00",
+          "display_at": "2026-09-04T08:10:18.883-07:00",
           "affected_components": [
             {
-              "code": "4yft4fgnwyfh",
-              "name": "SendGrid Mail Sending - API v3",
-              "old_status": "under_maintenance",
+              "code": "39mb8cmw8y2v",
+              "name": "CARRIER NETWORK - SMS Short Code, North America",
+              "old_status": "degraded_performance",
               "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "3zp760150kgb",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Short Codes to T-Mobile network subscribers in the United States. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "0rp55rxt5l1r",
+          "created_at": "2026-09-04T07:28:56.045-07:00",
+          "updated_at": "2026-09-04T07:28:56.045-07:00",
+          "display_at": "2026-09-04T07:28:56.045-07:00",
+          "affected_components": [
+            {
+              "code": "39mb8cmw8y2v",
+              "name": "CARRIER NETWORK - SMS Short Code, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "59tm5gsfx1hk",
+          "status": "investigating",
+          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Short Codes to T-Mobile network subscribers in the United States. Our team is actively investigating this issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "0rp55rxt5l1r",
+          "created_at": "2026-09-04T06:27:20.078-07:00",
+          "updated_at": "2026-09-04T06:27:20.078-07:00",
+          "display_at": "2026-09-04T06:27:20.078-07:00",
+          "affected_components": [
+            {
+              "code": "39mb8cmw8y2v",
+              "name": "CARRIER NETWORK - SMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
             }
           ],
           "deliver_notifications": true,
@@ -3106,16 +3146,405 @@
       ],
       "components": [
         {
-          "id": "4yft4fgnwyfh",
-          "name": "API v3",
+          "id": "39mb8cmw8y2v",
+          "name": "SMS Short Code, North America",
           "status": "operational",
-          "created_at": "2026-07-02T08:49:06.673-07:00",
-          "updated_at": "2026-09-04T04:40:07.356-07:00",
-          "position": 1,
+          "created_at": "2016-04-07T15:07:25.830-07:00",
+          "updated_at": "2026-09-04T08:10:18.843-07:00",
+          "position": 3,
           "description": null,
           "showcase": false,
-          "start_date": "2026-07-02",
-          "group_id": "87xnt5pfw06t",
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "5x10w2kkgqyg",
+      "name": "MMS Delivery Receipt Delays from a Subset of Twilio Long Codes to GCI United States",
+      "status": "monitoring",
+      "created_at": "2026-09-02T17:54:56.504-07:00",
+      "updated_at": "2026-09-04T07:33:39.941-07:00",
+      "monitoring_at": "2026-09-03T07:16:58.144-07:00",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/h9dxg79d435f",
+      "started_at": "2026-09-02T17:54:56.487-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "jv3mpsf2whtc",
+          "status": "monitoring",
+          "body": "We have observed a recovery in MMS delivery receipts from a subset of Twilio Long Codes to GCI network subscribers in the United States and are monitoring service stability. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "5x10w2kkgqyg",
+          "created_at": "2026-09-04T07:33:39.938-07:00",
+          "updated_at": "2026-09-04T07:33:39.938-07:00",
+          "display_at": "2026-09-04T07:33:39.938-07:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "hn1z99gszv81",
+          "status": "monitoring",
+          "body": "We have observed a recovery in MMS delivery receipts from a subset of Twilio Long Codes to GCI network subscribers in the United States and are monitoring service stability. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "5x10w2kkgqyg",
+          "created_at": "2026-09-04T05:30:26.471-07:00",
+          "updated_at": "2026-09-04T05:30:26.471-07:00",
+          "display_at": "2026-09-04T05:30:26.471-07:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "3rsnb3k3wwrg",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing MMS delivery receipt delays from a subset of Twilio Long Codes to GCI network subscribers in the United States. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 8 hours or as soon as more information becomes available.",
+          "incident_id": "5x10w2kkgqyg",
+          "created_at": "2026-09-03T21:28:02.399-07:00",
+          "updated_at": "2026-09-03T21:28:02.399-07:00",
+          "display_at": "2026-09-03T21:28:02.399-07:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "under_maintenance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "gw7qzqh08v14",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing MMS delivery receipt delays from a subset of Twilio Long Codes to GCI network subscribers in the United States. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "5x10w2kkgqyg",
+          "created_at": "2026-09-03T17:21:38.057-07:00",
+          "updated_at": "2026-09-03T17:21:38.057-07:00",
+          "display_at": "2026-09-03T17:21:38.057-07:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "7vr420sh0957",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing MMS delivery receipt delays from a subset of Twilio Long Codes to GCI network subscribers in the United States. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "5x10w2kkgqyg",
+          "created_at": "2026-09-03T15:17:22.173-07:00",
+          "updated_at": "2026-09-03T15:17:22.173-07:00",
+          "display_at": "2026-09-03T15:17:22.173-07:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2mvbr5n358jp",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing MMS delivery receipt delays from a subset of Twilio Long Codes to GCI network subscribers in the United States. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "5x10w2kkgqyg",
+          "created_at": "2026-09-03T14:17:05.037-07:00",
+          "updated_at": "2026-09-03T14:17:05.037-07:00",
+          "display_at": "2026-09-03T14:17:05.037-07:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "vgkzt8vdbfxq",
+          "status": "monitoring",
+          "body": "We have observed a recovery in MMS delivery from Twilio to network subscribers on multiple networks in the United States and are monitoring service stability. We will provide another update in 8 hours or as soon as more information becomes available.",
+          "incident_id": "5x10w2kkgqyg",
+          "created_at": "2026-09-03T13:23:00.110-07:00",
+          "updated_at": "2026-09-03T13:23:00.110-07:00",
+          "display_at": "2026-09-03T13:23:00.110-07:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "tvjwfvczkf46",
+              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "xhfgbbqdn81s",
+          "status": "monitoring",
+          "body": "We have observed a recovery in MMS delivery from Twilio to network subscribers on multiple networks in the United States and are monitoring service stability. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "5x10w2kkgqyg",
+          "created_at": "2026-09-03T09:22:37.314-07:00",
+          "updated_at": "2026-09-03T09:22:37.314-07:00",
+          "display_at": "2026-09-03T09:22:37.314-07:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "tvjwfvczkf46",
+              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "5cv0b6y86d2f",
+              "name": "ZIPWHIP MESSAGING - MMS Toll-Free, North America",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "hb2n36fvkf05",
+          "status": "monitoring",
+          "body": "We have observed a recovery in MMS delivery from Twilio to network subscribers on multiple networks in the United States and are monitoring service stability. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "5x10w2kkgqyg",
+          "created_at": "2026-09-03T07:16:58.144-07:00",
+          "updated_at": "2026-09-03T07:16:58.144-07:00",
+          "display_at": "2026-09-03T07:16:58.144-07:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "tvjwfvczkf46",
+              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "8j8vm1pl9j47",
+          "status": "investigating",
+          "body": "Twilio customers may be experiencing MMS delivery delays from Twilio to network subscribers on multiple networks in the United States. Our team is actively investigating this issue. We will provide another update in 8 hours or as soon as more information becomes available.",
+          "incident_id": "5x10w2kkgqyg",
+          "created_at": "2026-09-03T00:58:58.887-07:00",
+          "updated_at": "2026-09-03T00:58:58.887-07:00",
+          "display_at": "2026-09-03T00:58:58.887-07:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "tvjwfvczkf46",
+              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "5cv0b6y86d2f",
+              "name": "ZIPWHIP MESSAGING - MMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "920y5t8r3lr7",
+          "status": "investigating",
+          "body": "Twilio customers may be experiencing MMS delivery delays from Twilio to network subscribers on multiple networks in the United States. Our team is actively investigating this issue. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "5x10w2kkgqyg",
+          "created_at": "2026-09-02T20:55:43.234-07:00",
+          "updated_at": "2026-09-02T20:55:43.234-07:00",
+          "display_at": "2026-09-02T20:55:43.234-07:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "under_maintenance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "under_maintenance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "tvjwfvczkf46",
+              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
+              "old_status": "under_maintenance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "6q1g65kv67vh",
+          "status": "investigating",
+          "body": "Twilio customers may be experiencing MMS delivery delays from Twilio to network subscribers on multiple networks in the United States. Our team is actively investigating this issue. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "5x10w2kkgqyg",
+          "created_at": "2026-09-02T18:55:13.472-07:00",
+          "updated_at": "2026-09-02T18:55:13.472-07:00",
+          "display_at": "2026-09-02T18:55:13.472-07:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "tvjwfvczkf46",
+              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "52l10z7hkzyk",
+          "status": "investigating",
+          "body": "Twilio customers may be experiencing MMS delivery delays from Twilio to network subscribers on multiple networks in the United States. Our team is actively investigating this issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "5x10w2kkgqyg",
+          "created_at": "2026-09-02T17:54:56.635-07:00",
+          "updated_at": "2026-09-02T17:54:56.635-07:00",
+          "display_at": "2026-09-02T17:54:56.635-07:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "tvjwfvczkf46",
+              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "8vdlvw3dsq8h",
+          "name": "MMS Long Code, North America",
+          "status": "operational",
+          "created_at": "2019-01-10T08:51:50.330-08:00",
+          "updated_at": "2026-09-04T04:00:07.934-07:00",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
@@ -3125,17 +3554,57 @@
     },
     {
       "id": "kpgkz0t9tnqn",
-      "name": "SMS Delivery Delays and Failures from a Subset of Twilio Long Codes to Vivo and Claro Brazil",
-      "status": "identified",
+      "name": "SMS Delivery Delays and Failures From a Subset of Twilio Long Codes to Vivo and Claro Brazil",
+      "status": "monitoring",
       "created_at": "2026-09-03T23:40:40.752-07:00",
-      "updated_at": "2026-09-04T04:28:52.439-07:00",
-      "monitoring_at": null,
+      "updated_at": "2026-09-04T07:01:47.628-07:00",
+      "monitoring_at": "2026-09-04T07:01:47.613-07:00",
       "resolved_at": null,
       "impact": "minor",
       "shortlink": "https://stspg.io/2g6ndxvhpf2b",
       "started_at": "2026-09-03T23:40:40.743-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "3hkxl7ch884j",
+          "status": "monitoring",
+          "body": "We have observed a recovery in SMS delivery from a subset of Twilio Long Codes to Vivo and Claro network subscribers in Brazil and are monitoring service stability. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "kpgkz0t9tnqn",
+          "created_at": "2026-09-04T07:01:47.613-07:00",
+          "updated_at": "2026-09-04T07:01:47.613-07:00",
+          "display_at": "2026-09-04T07:01:47.613-07:00",
+          "affected_components": [
+            {
+              "code": "42zx9w2kmtvf",
+              "name": "CARRIER NETWORK - SMS, Latin America",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "nmdw5qwrndyf",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing SMS delivery delays and failures from a subset of Twilio Long Codes to Vivo and Claro network subscribers in Brazil. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "kpgkz0t9tnqn",
+          "created_at": "2026-09-04T05:29:38.057-07:00",
+          "updated_at": "2026-09-04T05:29:38.057-07:00",
+          "display_at": "2026-09-04T05:29:38.057-07:00",
+          "affected_components": [
+            {
+              "code": "42zx9w2kmtvf",
+              "name": "CARRIER NETWORK - SMS, Latin America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "vd22v2r55fmz",
           "status": "identified",
@@ -3201,9 +3670,9 @@
         {
           "id": "42zx9w2kmtvf",
           "name": "SMS, Latin America",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2019-01-10T08:53:08.618-08:00",
-          "updated_at": "2026-09-04T02:23:19.098-07:00",
+          "updated_at": "2026-09-04T07:01:47.577-07:00",
           "position": 9,
           "description": null,
           "showcase": false,
@@ -3217,11 +3686,104 @@
       "reminder_intervals": null
     },
     {
+      "id": "v0xwp70fbfrf",
+      "name": "Multiple delivery failures when sending emails to Microsoft or MS based recipients",
+      "status": "monitoring",
+      "created_at": "2026-09-04T04:40:07.319-07:00",
+      "updated_at": "2026-09-04T06:53:57.332-07:00",
+      "monitoring_at": "2026-09-04T06:21:35.000-07:00",
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/rwbjsyvfgn05",
+      "started_at": "2026-09-04T05:59:09.000-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "3ng9115gnw8n",
+          "status": "monitoring",
+          "body": "We are seeing a recovery in our services for customer sending to Microsoft and MS 365 supported recipients, and we'll continue to monitor. Microsoft has acknowledged this issue here: https://x.com/MSFT365Status and we kindly ask our customers to reach out to them for more updates\n\nWe'll provide more updates in 2 hours or as soon as they become available",
+          "incident_id": "v0xwp70fbfrf",
+          "created_at": "2026-09-04T06:21:35.807-07:00",
+          "updated_at": "2026-09-04T06:24:15.941-07:00",
+          "display_at": "2026-09-04T06:21:35.000-07:00",
+          "affected_components": [
+            {
+              "code": "4yft4fgnwyfh",
+              "name": "SendGrid Mail Sending - API v3",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "4j5vn8wlhgts",
+          "status": "identified",
+          "body": "Our engineers have identified the cause of the incident to be a change in the delivery policies with Microsoft as it has been acknowledged on their status post here: https://x.com/MSFT365Status. \n\nWe encourage the customers to reach out to them directly for more information and updates including the affected IP and the exact message received.\n\nErrors such as \"IPs throttled by recipient server\" is a preemptive deferral in response to the \"Server too busy\" error, so we suggest that all errors should be read as literal and reach out Microsoft if you need more details on this: https://olcsupport.office.com/, and for Office 365 Anti-Spam IP delisting portal here: https://sender.office.com/ and their address for delisting is delist@microsoft.com.\n\nWe will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "v0xwp70fbfrf",
+          "created_at": "2026-09-04T05:59:09.155-07:00",
+          "updated_at": "2026-09-04T06:53:57.327-07:00",
+          "display_at": "2026-09-04T05:59:09.000-07:00",
+          "affected_components": [
+            {
+              "code": "4yft4fgnwyfh",
+              "name": "SendGrid Mail Sending - API v3",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "656lx463czwk",
+          "status": "investigating",
+          "body": "Starting around 3:30 PST on September the 4th, our engineers began investigating an issue with all emails being delivered to Microsoft. Users may experience different 5XX errors such as:\n\nEmail was deferred due to the following reason(s): [IPs were throttled by recipient server:\n\nMail send is affected only when sending to Microsoft supported services We will provide another update in an hour or as soon as more information becomes available.",
+          "incident_id": "v0xwp70fbfrf",
+          "created_at": "2026-09-04T04:40:07.389-07:00",
+          "updated_at": "2026-09-04T04:40:07.389-07:00",
+          "display_at": "2026-09-04T04:40:07.389-07:00",
+          "affected_components": [
+            {
+              "code": "4yft4fgnwyfh",
+              "name": "SendGrid Mail Sending - API v3",
+              "old_status": "under_maintenance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "4yft4fgnwyfh",
+          "name": "API v3",
+          "status": "operational",
+          "created_at": "2026-07-02T08:49:06.673-07:00",
+          "updated_at": "2026-09-04T04:40:07.356-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": "2026-07-02",
+          "group_id": "87xnt5pfw06t",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
       "id": "s8jpzd7tz8zq",
       "name": "MMS Delivery Delays from a Subset of Australia Subscribers to Twilio Australia Phone Numbers",
-      "status": "identified",
+      "status": "investigating",
       "created_at": "2026-09-04T02:43:59.602-07:00",
-      "updated_at": "2026-09-04T04:02:17.707-07:00",
+      "updated_at": "2026-09-04T06:19:07.660-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -3229,6 +3791,26 @@
       "started_at": "2026-09-04T02:43:59.592-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "bdc8ctb4q30g",
+          "status": "investigating",
+          "body": "Twilio customers may be experiencing MMS delivery delays from a Subset of network subscribers in Australia to Twilio Australia Phone Numbers. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 8 hours or as soon as more information becomes available.",
+          "incident_id": "s8jpzd7tz8zq",
+          "created_at": "2026-09-04T06:19:07.658-07:00",
+          "updated_at": "2026-09-04T06:19:07.658-07:00",
+          "display_at": "2026-09-04T06:19:07.658-07:00",
+          "affected_components": [
+            {
+              "code": "2nd0jdj36wpq",
+              "name": "CARRIER NETWORK - MMS, APAC",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "mcw86lkp809w",
           "status": "identified",
@@ -3281,79 +3863,6 @@
           "description": null,
           "showcase": false,
           "start_date": "2023-01-01",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "vwckyprf2nj0",
-      "name": "SMS Delivery Delays from Twilio to MobiFone Vietnam",
-      "status": "monitoring",
-      "created_at": "2026-09-04T02:57:15.578-07:00",
-      "updated_at": "2026-09-04T04:01:31.155-07:00",
-      "monitoring_at": "2026-09-04T04:01:31.135-07:00",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/cgl73d7bx2h9",
-      "started_at": "2026-09-04T02:57:15.567-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "mzyyqqyhwc5h",
-          "status": "monitoring",
-          "body": "We have observed a recovery in SMS delivery from Twilio to MobiFone network subscribers in Vietnam and are monitoring service stability. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "vwckyprf2nj0",
-          "created_at": "2026-09-04T04:01:31.135-07:00",
-          "updated_at": "2026-09-04T04:01:31.135-07:00",
-          "display_at": "2026-09-04T04:01:31.135-07:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "t038cf4wbk15",
-          "status": "investigating",
-          "body": "Twilio customers may be experiencing SMS delivery delays from Twilio to MobiFone network subscribers in Viet Nam. Our team is actively investigating this issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "vwckyprf2nj0",
-          "created_at": "2026-09-04T02:57:15.694-07:00",
-          "updated_at": "2026-09-04T02:57:15.694-07:00",
-          "display_at": "2026-09-04T02:57:15.694-07:00",
-          "affected_components": [
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "8qjql0kqnd33",
-          "name": "SMS, APAC",
-          "status": "operational",
-          "created_at": "2019-01-10T08:53:31.990-08:00",
-          "updated_at": "2026-09-04T04:01:31.084-07:00",
-          "position": 11,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
           "group_id": "j8hlnyphbbs0",
           "page_id": "gpkpyklzq55q",
           "group": false,
@@ -3507,737 +4016,6 @@
           "description": null,
           "showcase": false,
           "start_date": "2023-03-23",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "16s1650c3kxf",
-      "name": "SMS Delivery Receipt Delays from a Subset of Twilio Phone Numbers to Telefonica El Salvador",
-      "status": "monitoring",
-      "created_at": "2026-08-21T14:20:12.716-07:00",
-      "updated_at": "2026-09-04T01:03:53.285-07:00",
-      "monitoring_at": "2026-09-03T22:59:14.868-07:00",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/n6p28xgp24v9",
-      "started_at": "2026-08-21T14:20:12.706-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "4q7b5m5g1ptx",
-          "status": "monitoring",
-          "body": "We have observed a recovery in SMS delivery receipts from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador and are monitoring service stability. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-09-04T01:03:53.281-07:00",
-          "updated_at": "2026-09-04T01:03:53.281-07:00",
-          "display_at": "2026-09-04T01:03:53.281-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "l53qv4lv1pr6",
-          "status": "monitoring",
-          "body": "We have observed a recovery in SMS delivery receipts from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador and are monitoring service stability. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-09-03T22:59:14.868-07:00",
-          "updated_at": "2026-09-03T22:59:14.868-07:00",
-          "display_at": "2026-09-03T22:59:14.868-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "946635qs964z",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 24 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-09-03T14:36:38.844-07:00",
-          "updated_at": "2026-09-03T14:36:38.844-07:00",
-          "display_at": "2026-09-03T14:36:38.844-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "under_maintenance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fk8dgryptcr7",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 24 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-09-02T14:36:15.928-07:00",
-          "updated_at": "2026-09-02T14:36:15.928-07:00",
-          "display_at": "2026-09-02T14:36:15.928-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0g3gw9z16djf",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 24 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-09-01T14:35:46.318-07:00",
-          "updated_at": "2026-09-01T14:35:46.318-07:00",
-          "display_at": "2026-09-01T14:35:46.318-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "8pjhp49yltnr",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 16 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-31T22:35:26.382-07:00",
-          "updated_at": "2026-08-31T22:35:26.382-07:00",
-          "display_at": "2026-08-31T22:35:26.382-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4m18vtkfh31z",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 8 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-31T14:35:02.616-07:00",
-          "updated_at": "2026-08-31T14:35:02.616-07:00",
-          "display_at": "2026-08-31T14:35:02.616-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gcq96flbgp29",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-31T10:32:50.231-07:00",
-          "updated_at": "2026-08-31T10:32:50.231-07:00",
-          "display_at": "2026-08-31T10:32:50.231-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "41d6grrw51mt",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-31T08:25:45.521-07:00",
-          "updated_at": "2026-08-31T08:25:45.521-07:00",
-          "display_at": "2026-08-31T08:25:45.521-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wvtcygh4dvy1",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-31T07:25:11.643-07:00",
-          "updated_at": "2026-08-31T07:25:11.643-07:00",
-          "display_at": "2026-08-31T07:25:11.643-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "ph2dxlz5zrhx",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 24 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-30T23:31:17.515-07:00",
-          "updated_at": "2026-08-30T23:31:17.515-07:00",
-          "display_at": "2026-08-30T23:31:17.515-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "8css1l934mv7",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 24 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-29T23:30:45.499-07:00",
-          "updated_at": "2026-08-29T23:30:45.499-07:00",
-          "display_at": "2026-08-29T23:30:45.499-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "h713yklq907c",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 24 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-28T23:28:31.409-07:00",
-          "updated_at": "2026-08-28T23:28:31.409-07:00",
-          "display_at": "2026-08-28T23:28:31.409-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "g3xf329pj5b0",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 24 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-27T23:28:14.425-07:00",
-          "updated_at": "2026-08-27T23:28:14.425-07:00",
-          "display_at": "2026-08-27T23:28:14.425-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4nf1mc15053f",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 24 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-26T23:27:58.445-07:00",
-          "updated_at": "2026-08-26T23:27:58.445-07:00",
-          "display_at": "2026-08-26T23:27:58.445-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nvmj8g4vp0g1",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 24 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-25T23:21:56.627-07:00",
-          "updated_at": "2026-08-25T23:21:56.627-07:00",
-          "display_at": "2026-08-25T23:21:56.627-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dsf21rbf8ps0",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 16 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-25T07:20:57.414-07:00",
-          "updated_at": "2026-08-25T07:20:57.414-07:00",
-          "display_at": "2026-08-25T07:20:57.414-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2jfcw018pycd",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 8 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-24T23:19:18.159-07:00",
-          "updated_at": "2026-08-24T23:19:18.159-07:00",
-          "display_at": "2026-08-24T23:19:18.159-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "lp1scrl3qq01",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-24T19:18:57.459-07:00",
-          "updated_at": "2026-08-24T19:18:57.459-07:00",
-          "display_at": "2026-08-24T19:18:57.459-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "khpkc5rsbtqp",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-24T17:18:41.016-07:00",
-          "updated_at": "2026-08-24T17:18:41.016-07:00",
-          "display_at": "2026-08-24T17:18:41.016-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "4xdw0xvydjcq",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery receipt delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-24T16:18:23.815-07:00",
-          "updated_at": "2026-08-24T16:18:23.815-07:00",
-          "display_at": "2026-08-24T16:18:23.815-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "m8q1j4kc0j82",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 24 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-24T07:11:52.560-07:00",
-          "updated_at": "2026-08-24T07:11:52.560-07:00",
-          "display_at": "2026-08-24T07:11:52.560-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "r1l6p9qz3df7",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 24 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-23T07:10:45.972-07:00",
-          "updated_at": "2026-08-23T07:10:45.972-07:00",
-          "display_at": "2026-08-23T07:10:45.972-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "y55tz3dp0nhq",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 16 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-22T15:02:42.434-07:00",
-          "updated_at": "2026-08-22T15:02:42.434-07:00",
-          "display_at": "2026-08-22T15:02:42.434-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gx3rglr1tg1r",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 8 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-22T07:02:24.531-07:00",
-          "updated_at": "2026-08-22T07:02:24.531-07:00",
-          "display_at": "2026-08-22T07:02:24.531-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gvxkvgzmvkdb",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-22T03:00:11.802-07:00",
-          "updated_at": "2026-08-22T03:00:11.802-07:00",
-          "display_at": "2026-08-22T03:00:11.802-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "94y14twjnqlg",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-22T00:59:50.396-07:00",
-          "updated_at": "2026-08-22T00:59:50.396-07:00",
-          "display_at": "2026-08-22T00:59:50.396-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vn5pcbt9vx2v",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-21T23:58:30.259-07:00",
-          "updated_at": "2026-08-21T23:58:30.259-07:00",
-          "display_at": "2026-08-21T23:58:30.259-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fpk55z4n6qmc",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing MMS delivery delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 8 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-21T21:46:43.099-07:00",
-          "updated_at": "2026-08-21T21:46:43.099-07:00",
-          "display_at": "2026-08-21T21:46:43.099-07:00",
-          "affected_components": [
-            {
-              "code": "2nd0jdj36wpq",
-              "name": "CARRIER NETWORK - MMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vb1dbqm01frc",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing MMS delivery delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-21T17:46:17.791-07:00",
-          "updated_at": "2026-08-21T17:46:17.791-07:00",
-          "display_at": "2026-08-21T17:46:17.791-07:00",
-          "affected_components": [
-            {
-              "code": "2nd0jdj36wpq",
-              "name": "CARRIER NETWORK - MMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "yy7xxtrkv2mn",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-21T15:45:57.977-07:00",
-          "updated_at": "2026-08-21T15:45:57.977-07:00",
-          "display_at": "2026-08-21T15:45:57.977-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "276h1z0gg7xd",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-21T14:44:11.024-07:00",
-          "updated_at": "2026-08-21T14:44:11.024-07:00",
-          "display_at": "2026-08-21T14:44:11.024-07:00",
-          "affected_components": [
-            {
-              "code": "42zx9w2kmtvf",
-              "name": "CARRIER NETWORK - SMS, Latin America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "8qjql0kqnd33",
-              "name": "CARRIER NETWORK - SMS, APAC",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "under_maintenance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "9z5gsqyjs4rl",
-              "name": "CARRIER NETWORK - SMS, Middle East & Africa",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0hnt73nvz52c",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing MMS delivery delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-21T14:20:41.906-07:00",
-          "updated_at": "2026-08-21T14:20:41.906-07:00",
-          "display_at": "2026-08-21T14:20:41.906-07:00",
-          "affected_components": [
-            {
-              "code": "2nd0jdj36wpq",
-              "name": "CARRIER NETWORK - MMS, APAC",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "00gr5pfzb4rd",
-          "status": "investigating",
-          "body": "Twilio customers may be experiencing MMS delivery delays from a subset of Twilio Phone Numbers to Telefonica network subscribers in El Salvador. Our team is actively investigating this issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "16s1650c3kxf",
-          "created_at": "2026-08-21T14:20:12.806-07:00",
-          "updated_at": "2026-08-21T14:20:12.806-07:00",
-          "display_at": "2026-08-21T14:20:12.806-07:00",
-          "affected_components": [
-            {
-              "code": "2nd0jdj36wpq",
-              "name": "CARRIER NETWORK - MMS, APAC",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "42zx9w2kmtvf",
-          "name": "SMS, Latin America",
-          "status": "degraded_performance",
-          "created_at": "2019-01-10T08:53:08.618-08:00",
-          "updated_at": "2026-09-04T02:23:19.098-07:00",
-          "position": 9,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
           "group_id": "j8hlnyphbbs0",
           "page_id": "gpkpyklzq55q",
           "group": false,
@@ -4588,355 +4366,6 @@
           "created_at": "2019-01-10T08:53:50.789-08:00",
           "updated_at": "2026-09-03T17:00:08.932-07:00",
           "position": 14,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "5x10w2kkgqyg",
-      "name": "MMS Delivery Receipt Delays From a Subset of Twilio Long Codes to GCI United States",
-      "status": "identified",
-      "created_at": "2026-09-02T17:54:56.504-07:00",
-      "updated_at": "2026-09-03T21:28:02.402-07:00",
-      "monitoring_at": "2026-09-03T07:16:58.144-07:00",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/h9dxg79d435f",
-      "started_at": "2026-09-02T17:54:56.487-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "3rsnb3k3wwrg",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing MMS delivery receipt delays from a subset of Twilio Long Codes to GCI network subscribers in the United States. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 8 hours or as soon as more information becomes available.",
-          "incident_id": "5x10w2kkgqyg",
-          "created_at": "2026-09-03T21:28:02.399-07:00",
-          "updated_at": "2026-09-03T21:28:02.399-07:00",
-          "display_at": "2026-09-03T21:28:02.399-07:00",
-          "affected_components": [
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "under_maintenance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "gw7qzqh08v14",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing MMS delivery receipt delays from a subset of Twilio Long Codes to GCI network subscribers in the United States. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "5x10w2kkgqyg",
-          "created_at": "2026-09-03T17:21:38.057-07:00",
-          "updated_at": "2026-09-03T17:21:38.057-07:00",
-          "display_at": "2026-09-03T17:21:38.057-07:00",
-          "affected_components": [
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "7vr420sh0957",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing MMS delivery receipt delays from a subset of Twilio Long Codes to GCI network subscribers in the United States. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "5x10w2kkgqyg",
-          "created_at": "2026-09-03T15:17:22.173-07:00",
-          "updated_at": "2026-09-03T15:17:22.173-07:00",
-          "display_at": "2026-09-03T15:17:22.173-07:00",
-          "affected_components": [
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2mvbr5n358jp",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing MMS delivery receipt delays from a subset of Twilio Long Codes to GCI network subscribers in the United States. Our team has identified the cause, and is working to resolve the issue. Message delivery may succeed, but delivery receipts may be delayed. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "5x10w2kkgqyg",
-          "created_at": "2026-09-03T14:17:05.037-07:00",
-          "updated_at": "2026-09-03T14:17:05.037-07:00",
-          "display_at": "2026-09-03T14:17:05.037-07:00",
-          "affected_components": [
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vgkzt8vdbfxq",
-          "status": "monitoring",
-          "body": "We have observed a recovery in MMS delivery from Twilio to network subscribers on multiple networks in the United States and are monitoring service stability. We will provide another update in 8 hours or as soon as more information becomes available.",
-          "incident_id": "5x10w2kkgqyg",
-          "created_at": "2026-09-03T13:23:00.110-07:00",
-          "updated_at": "2026-09-03T13:23:00.110-07:00",
-          "display_at": "2026-09-03T13:23:00.110-07:00",
-          "affected_components": [
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "h0fl7prwfhvm",
-              "name": "CARRIER NETWORK - MMS Short Code, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "tvjwfvczkf46",
-              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xhfgbbqdn81s",
-          "status": "monitoring",
-          "body": "We have observed a recovery in MMS delivery from Twilio to network subscribers on multiple networks in the United States and are monitoring service stability. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "5x10w2kkgqyg",
-          "created_at": "2026-09-03T09:22:37.314-07:00",
-          "updated_at": "2026-09-03T09:22:37.314-07:00",
-          "display_at": "2026-09-03T09:22:37.314-07:00",
-          "affected_components": [
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "h0fl7prwfhvm",
-              "name": "CARRIER NETWORK - MMS Short Code, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "tvjwfvczkf46",
-              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "5cv0b6y86d2f",
-              "name": "ZIPWHIP MESSAGING - MMS Toll-Free, North America",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "hb2n36fvkf05",
-          "status": "monitoring",
-          "body": "We have observed a recovery in MMS delivery from Twilio to network subscribers on multiple networks in the United States and are monitoring service stability. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "5x10w2kkgqyg",
-          "created_at": "2026-09-03T07:16:58.144-07:00",
-          "updated_at": "2026-09-03T07:16:58.144-07:00",
-          "display_at": "2026-09-03T07:16:58.144-07:00",
-          "affected_components": [
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "h0fl7prwfhvm",
-              "name": "CARRIER NETWORK - MMS Short Code, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "tvjwfvczkf46",
-              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "8j8vm1pl9j47",
-          "status": "investigating",
-          "body": "Twilio customers may be experiencing MMS delivery delays from Twilio to network subscribers on multiple networks in the United States. Our team is actively investigating this issue. We will provide another update in 8 hours or as soon as more information becomes available.",
-          "incident_id": "5x10w2kkgqyg",
-          "created_at": "2026-09-03T00:58:58.887-07:00",
-          "updated_at": "2026-09-03T00:58:58.887-07:00",
-          "display_at": "2026-09-03T00:58:58.887-07:00",
-          "affected_components": [
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "h0fl7prwfhvm",
-              "name": "CARRIER NETWORK - MMS Short Code, North America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "tvjwfvczkf46",
-              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "5cv0b6y86d2f",
-              "name": "ZIPWHIP MESSAGING - MMS Toll-Free, North America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "920y5t8r3lr7",
-          "status": "investigating",
-          "body": "Twilio customers may be experiencing MMS delivery delays from Twilio to network subscribers on multiple networks in the United States. Our team is actively investigating this issue. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "5x10w2kkgqyg",
-          "created_at": "2026-09-02T20:55:43.234-07:00",
-          "updated_at": "2026-09-02T20:55:43.234-07:00",
-          "display_at": "2026-09-02T20:55:43.234-07:00",
-          "affected_components": [
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "under_maintenance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "h0fl7prwfhvm",
-              "name": "CARRIER NETWORK - MMS Short Code, North America",
-              "old_status": "under_maintenance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "tvjwfvczkf46",
-              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
-              "old_status": "under_maintenance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "6q1g65kv67vh",
-          "status": "investigating",
-          "body": "Twilio customers may be experiencing MMS delivery delays from Twilio to network subscribers on multiple networks in the United States. Our team is actively investigating this issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "5x10w2kkgqyg",
-          "created_at": "2026-09-02T18:55:13.472-07:00",
-          "updated_at": "2026-09-02T18:55:13.472-07:00",
-          "display_at": "2026-09-02T18:55:13.472-07:00",
-          "affected_components": [
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "h0fl7prwfhvm",
-              "name": "CARRIER NETWORK - MMS Short Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "tvjwfvczkf46",
-              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "52l10z7hkzyk",
-          "status": "investigating",
-          "body": "Twilio customers may be experiencing MMS delivery delays from Twilio to network subscribers on multiple networks in the United States. Our team is actively investigating this issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "5x10w2kkgqyg",
-          "created_at": "2026-09-02T17:54:56.635-07:00",
-          "updated_at": "2026-09-02T17:54:56.635-07:00",
-          "display_at": "2026-09-02T17:54:56.635-07:00",
-          "affected_components": [
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "h0fl7prwfhvm",
-              "name": "CARRIER NETWORK - MMS Short Code, North America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "tvjwfvczkf46",
-              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "8vdlvw3dsq8h",
-          "name": "MMS Long Code, North America",
-          "status": "operational",
-          "created_at": "2019-01-10T08:51:50.330-08:00",
-          "updated_at": "2026-09-04T04:00:07.934-07:00",
-          "position": 2,
           "description": null,
           "showcase": false,
           "start_date": null,
@@ -5324,32 +4753,44 @@
   ],
   "scheduled_maintenances": [
     {
-      "id": "qkdg1hxn93ym",
-      "name": "Interconnection Infrastructure Upgrade (SG1 – Edge2 Switch)",
+      "id": "t3t3mpsd84p4",
+      "name": "United Kingdom Account Security Carrier Partner Maintenance - Vodafone",
       "status": "scheduled",
-      "created_at": "2026-08-06T05:04:23.494-07:00",
-      "updated_at": "2026-08-06T05:04:23.583-07:00",
+      "created_at": "2026-09-04T05:07:59.843-07:00",
+      "updated_at": "2026-09-04T05:07:59.895-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
-      "shortlink": "https://stspg.io/yvltfkxpx0p6",
-      "started_at": "2026-08-06T05:04:23.486-07:00",
+      "shortlink": "https://stspg.io/g9gf1fwps65p",
+      "started_at": "2026-09-04T05:07:59.834-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
         {
-          "id": "dgtwygggfszn",
+          "id": "gsxb81c9d850",
           "status": "scheduled",
-          "body": "Twilio will perform a scheduled maintenance in our SG1 region during a 3-hour window on 4 September 2026 from 08:00 PDT to 11:00 PDT.\n\nDuring this maintenance, we will perform a Junos OS software upgrade of the SG1 QFX10K Edge2 Switch in the TNX Production SG1 environment.\n\nDuring this time, Voice, Interconnect, and Flex customers with SG1 interconnections may experience a brief interconnection service interruption of up to 90 seconds. If possible, customers are advised to redirect traffic away from the TNX SG1 interconnection during the maintenance window to minimize any potential impact. Services are expected to recover automatically once the maintenance activity is complete.",
-          "incident_id": "qkdg1hxn93ym",
-          "created_at": "2026-08-06T05:04:23.579-07:00",
-          "updated_at": "2026-08-06T05:04:23.579-07:00",
-          "display_at": "2026-08-06T05:04:23.579-07:00",
+          "body": "<p>Our carrier partner Vodafone United Kingdom is conducting a planned maintenance from 05 September 2026 at 15:35 PDT until 05 September 2026 at 19:00 PDT. During the maintenance window, there could be intermittent API request failures for Vodafone United Kingdom customers.</p>\n\n<p>Impacted Products: Lookup Identity Match, Lookup SIM Swap, Legacy Identity MatchAndAttributes</p>",
+          "incident_id": "t3t3mpsd84p4",
+          "created_at": "2026-09-04T05:07:59.893-07:00",
+          "updated_at": "2026-09-04T05:07:59.893-07:00",
+          "display_at": "2026-09-04T05:07:59.893-07:00",
           "affected_components": [
             {
-              "code": "hjfntfyhnn4l",
-              "name": "INTERCONNECT",
-              "old_status": "under_maintenance",
-              "new_status": "under_maintenance"
+              "code": "fsxs9n9yf4m7",
+              "name": "CARRIER NETWORK - Lookup Identity Match",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "q0hp6vfr4vvh",
+              "name": "CARRIER NETWORK - Lookup SIM Swap",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "qt4vzyg2g7b4",
+              "name": "CARRIER NETWORK - Legacy Identity MatchAndAttributes",
+              "old_status": "operational",
+              "new_status": "operational"
             }
           ],
           "deliver_notifications": true,
@@ -5359,23 +4800,53 @@
       ],
       "components": [
         {
-          "id": "hjfntfyhnn4l",
-          "name": "INTERCONNECT",
+          "id": "fsxs9n9yf4m7",
+          "name": "Lookup Identity Match",
           "status": "operational",
-          "created_at": "2017-03-28T14:28:05.669-07:00",
-          "updated_at": "2026-09-03T09:00:11.966-07:00",
-          "position": 13,
+          "created_at": "2022-12-06T16:21:46.337-08:00",
+          "updated_at": "2026-09-04T01:00:07.364-07:00",
+          "position": 18,
           "description": null,
           "showcase": false,
-          "start_date": null,
-          "group_id": null,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "q0hp6vfr4vvh",
+          "name": "Lookup SIM Swap",
+          "status": "operational",
+          "created_at": "2022-12-06T16:22:32.133-08:00",
+          "updated_at": "2026-09-04T01:00:07.577-07:00",
+          "position": 21,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "qt4vzyg2g7b4",
+          "name": "Legacy Identity MatchAndAttributes",
+          "status": "operational",
+          "created_at": "2022-12-06T16:22:47.060-08:00",
+          "updated_at": "2026-09-02T15:00:11.693-07:00",
+          "position": 22,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
         }
       ],
-      "scheduled_for": "2026-09-04T08:00:00.000-07:00",
-      "scheduled_until": "2026-09-04T11:00:00.000-07:00"
+      "scheduled_for": "2026-09-05T15:35:00.000-07:00",
+      "scheduled_until": "2026-09-05T19:00:00.000-07:00"
     },
     {
       "id": "53dc37232n9q",
@@ -5540,60 +5011,6 @@
       "scheduled_until": "2026-09-07T05:00:00.000-07:00"
     },
     {
-      "id": "ykk2wncbrjft",
-      "name": "Russia SMS Carrier Maintenance - MegaFon",
-      "status": "scheduled",
-      "created_at": "2026-09-04T01:43:16.617-07:00",
-      "updated_at": "2026-09-04T01:43:16.662-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/3tvjrrq9f5kx",
-      "started_at": "2026-09-04T01:43:16.610-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "t4490z7jtj66",
-          "status": "scheduled",
-          "body": "<p>The MegaFon network in Russia is conducting a planned maintenance from 07 September 2026 at 10:00 PDT until 07 September 2026 at 16:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS to MegaFon Russia handsets.</p>",
-          "incident_id": "ykk2wncbrjft",
-          "created_at": "2026-09-04T01:43:16.660-07:00",
-          "updated_at": "2026-09-04T01:43:16.660-07:00",
-          "display_at": "2026-09-04T01:43:16.660-07:00",
-          "affected_components": [
-            {
-              "code": "llgdln3dcs6p",
-              "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "llgdln3dcs6p",
-          "name": "SMS, Europe",
-          "status": "operational",
-          "created_at": "2019-01-10T08:53:50.789-08:00",
-          "updated_at": "2026-09-03T17:00:08.932-07:00",
-          "position": 14,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-09-07T10:00:00.000-07:00",
-      "scheduled_until": "2026-09-07T16:00:00.000-07:00"
-    },
-    {
       "id": "bc00tl0mftsj",
       "name": "Malaysia SMS Carrier Maintenance - Celcom",
       "status": "scheduled",
@@ -5648,32 +5065,32 @@
       "scheduled_until": "2026-09-07T14:00:00.000-07:00"
     },
     {
-      "id": "4p48nchjzd0s",
-      "name": "Russia SMS Carrier Maintenance - Tele2",
+      "id": "ykk2wncbrjft",
+      "name": "Russia SMS Carrier Maintenance - MegaFon",
       "status": "scheduled",
-      "created_at": "2026-09-01T07:29:48.010-07:00",
-      "updated_at": "2026-09-01T07:29:48.052-07:00",
+      "created_at": "2026-09-04T01:43:16.617-07:00",
+      "updated_at": "2026-09-04T01:43:16.662-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "maintenance",
-      "shortlink": "https://stspg.io/jmt89n5cz501",
-      "started_at": "2026-09-01T07:29:48.003-07:00",
+      "shortlink": "https://stspg.io/3tvjrrq9f5kx",
+      "started_at": "2026-09-04T01:43:16.610-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
         {
-          "id": "06nx1j7m6lrt",
+          "id": "t4490z7jtj66",
           "status": "scheduled",
-          "body": "<p>The Tele2 network in Russia is conducting a planned maintenance from 07 September 2026 at 13:00 PDT until 07 September 2026 at 17:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS to Tele2 Russia handsets.</p>",
-          "incident_id": "4p48nchjzd0s",
-          "created_at": "2026-09-01T07:29:48.050-07:00",
-          "updated_at": "2026-09-01T07:29:48.050-07:00",
-          "display_at": "2026-09-01T07:29:48.050-07:00",
+          "body": "<p>The MegaFon network in Russia is conducting a planned maintenance from 07 September 2026 at 10:00 PDT until 07 September 2026 at 16:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS to MegaFon Russia handsets.</p>",
+          "incident_id": "ykk2wncbrjft",
+          "created_at": "2026-09-04T01:43:16.660-07:00",
+          "updated_at": "2026-09-04T01:43:16.660-07:00",
+          "display_at": "2026-09-04T01:43:16.660-07:00",
           "affected_components": [
             {
               "code": "llgdln3dcs6p",
               "name": "CARRIER NETWORK - SMS, Europe",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
+              "old_status": "operational",
+              "new_status": "operational"
             }
           ],
           "deliver_notifications": true,
@@ -5698,8 +5115,8 @@
           "only_show_if_degraded": false
         }
       ],
-      "scheduled_for": "2026-09-07T13:00:00.000-07:00",
-      "scheduled_until": "2026-09-07T17:00:00.000-07:00"
+      "scheduled_for": "2026-09-07T10:00:00.000-07:00",
+      "scheduled_until": "2026-09-07T16:00:00.000-07:00"
     },
     {
       "id": "gyt5ttzs2szg",
@@ -5754,6 +5171,60 @@
       ],
       "scheduled_for": "2026-09-07T13:00:00.000-07:00",
       "scheduled_until": "2026-09-07T15:00:00.000-07:00"
+    },
+    {
+      "id": "4p48nchjzd0s",
+      "name": "Russia SMS Carrier Maintenance - Tele2",
+      "status": "scheduled",
+      "created_at": "2026-09-01T07:29:48.010-07:00",
+      "updated_at": "2026-09-01T07:29:48.052-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/jmt89n5cz501",
+      "started_at": "2026-09-01T07:29:48.003-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "06nx1j7m6lrt",
+          "status": "scheduled",
+          "body": "<p>The Tele2 network in Russia is conducting a planned maintenance from 07 September 2026 at 13:00 PDT until 07 September 2026 at 17:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS to Tele2 Russia handsets.</p>",
+          "incident_id": "4p48nchjzd0s",
+          "created_at": "2026-09-01T07:29:48.050-07:00",
+          "updated_at": "2026-09-01T07:29:48.050-07:00",
+          "display_at": "2026-09-01T07:29:48.050-07:00",
+          "affected_components": [
+            {
+              "code": "llgdln3dcs6p",
+              "name": "CARRIER NETWORK - SMS, Europe",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "llgdln3dcs6p",
+          "name": "SMS, Europe",
+          "status": "operational",
+          "created_at": "2019-01-10T08:53:50.789-08:00",
+          "updated_at": "2026-09-03T17:00:08.932-07:00",
+          "position": 14,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-09-07T13:00:00.000-07:00",
+      "scheduled_until": "2026-09-07T17:00:00.000-07:00"
     },
     {
       "id": "2kmh23pvt9jg",
@@ -6491,7 +5962,7 @@
           "name": "SMS Short Code, North America",
           "status": "operational",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2026-09-04T00:00:07.780-07:00",
+          "updated_at": "2026-09-04T08:10:18.843-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -6579,6 +6050,123 @@
       ],
       "scheduled_for": "2026-09-09T20:00:00.000-07:00",
       "scheduled_until": "2026-09-10T00:00:00.000-07:00"
+    },
+    {
+      "id": "9ndhftf6p1c6",
+      "name": "United Kingdom Account Security Carrier Partner Maintenance - Three",
+      "status": "scheduled",
+      "created_at": "2026-09-04T05:06:33.557-07:00",
+      "updated_at": "2026-09-04T05:06:33.617-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/bnr33tydhrhc",
+      "started_at": "2026-09-04T05:06:33.547-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "kky2bgzvvy71",
+          "status": "scheduled",
+          "body": "<p>Our carrier partner Three United Kingdom is conducting a planned maintenance from 09 September 2026 at 21:30 PDT until 09 September 2026 at 23:00 PDT. During the maintenance window, there could be intermittent API request failures for Three United Kingdom customers.</p>\n\n<p>Impacted Products: Verify Silent Network Auth, Lookup SIM Swap, Lookup Identity Match, Legacy Identity MatchAndAttributes</p>",
+          "incident_id": "9ndhftf6p1c6",
+          "created_at": "2026-09-04T05:06:33.614-07:00",
+          "updated_at": "2026-09-04T05:06:33.614-07:00",
+          "display_at": "2026-09-04T05:06:33.614-07:00",
+          "affected_components": [
+            {
+              "code": "trrz5ztt7pl8",
+              "name": "CARRIER NETWORK - Verify Silent Network Auth",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "fsxs9n9yf4m7",
+              "name": "CARRIER NETWORK - Lookup Identity Match",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "q0hp6vfr4vvh",
+              "name": "CARRIER NETWORK - Lookup SIM Swap",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "qt4vzyg2g7b4",
+              "name": "CARRIER NETWORK - Legacy Identity MatchAndAttributes",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "trrz5ztt7pl8",
+          "name": "Verify Silent Network Auth",
+          "status": "operational",
+          "created_at": "2022-12-06T16:20:09.238-08:00",
+          "updated_at": "2026-09-04T01:00:07.278-07:00",
+          "position": 17,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "fsxs9n9yf4m7",
+          "name": "Lookup Identity Match",
+          "status": "operational",
+          "created_at": "2022-12-06T16:21:46.337-08:00",
+          "updated_at": "2026-09-04T01:00:07.364-07:00",
+          "position": 18,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "q0hp6vfr4vvh",
+          "name": "Lookup SIM Swap",
+          "status": "operational",
+          "created_at": "2022-12-06T16:22:32.133-08:00",
+          "updated_at": "2026-09-04T01:00:07.577-07:00",
+          "position": 21,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "qt4vzyg2g7b4",
+          "name": "Legacy Identity MatchAndAttributes",
+          "status": "operational",
+          "created_at": "2022-12-06T16:22:47.060-08:00",
+          "updated_at": "2026-09-02T15:00:11.693-07:00",
+          "position": 22,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-09-09T21:30:00.000-07:00",
+      "scheduled_until": "2026-09-09T23:00:00.000-07:00"
     },
     {
       "id": "8wkwpwzcv5ns",
@@ -6674,7 +6262,7 @@
           "name": "SMS Short Code, North America",
           "status": "operational",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2026-09-04T00:00:07.780-07:00",
+          "updated_at": "2026-09-04T08:10:18.843-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -7043,7 +6631,7 @@
           "name": "SMS Short Code, North America",
           "status": "operational",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2026-09-04T00:00:07.780-07:00",
+          "updated_at": "2026-09-04T08:10:18.843-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -7308,9 +6896,9 @@
         {
           "id": "hjfntfyhnn4l",
           "name": "INTERCONNECT",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2017-03-28T14:28:05.669-07:00",
-          "updated_at": "2026-09-03T09:00:11.966-07:00",
+          "updated_at": "2026-09-04T08:00:10.009-07:00",
           "position": 13,
           "description": null,
           "showcase": false,
@@ -7640,7 +7228,7 @@
           "name": "SMS Short Code, North America",
           "status": "operational",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2026-09-04T00:00:07.780-07:00",
+          "updated_at": "2026-09-04T08:10:18.843-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -7991,7 +7579,7 @@
           "name": "SMS Short Code, North America",
           "status": "operational",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2026-09-04T00:00:07.780-07:00",
+          "updated_at": "2026-09-04T08:10:18.843-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -8234,7 +7822,7 @@
           "name": "SMS Short Code, North America",
           "status": "operational",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2026-09-04T00:00:07.780-07:00",
+          "updated_at": "2026-09-04T08:10:18.843-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -8477,7 +8065,7 @@
           "name": "SMS Short Code, North America",
           "status": "operational",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2026-09-04T00:00:07.780-07:00",
+          "updated_at": "2026-09-04T08:10:18.843-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -8604,9 +8192,9 @@
         {
           "id": "hjfntfyhnn4l",
           "name": "INTERCONNECT",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2017-03-28T14:28:05.669-07:00",
-          "updated_at": "2026-09-03T09:00:11.966-07:00",
+          "updated_at": "2026-09-04T08:00:10.009-07:00",
           "position": 13,
           "description": null,
           "showcase": false,
@@ -8774,7 +8362,7 @@
           "name": "SMS Short Code, North America",
           "status": "operational",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2026-09-04T00:00:07.780-07:00",
+          "updated_at": "2026-09-04T08:10:18.843-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -9017,7 +8605,7 @@
           "name": "SMS Short Code, North America",
           "status": "operational",
           "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2026-09-04T00:00:07.780-07:00",
+          "updated_at": "2026-09-04T08:10:18.843-07:00",
           "position": 3,
           "description": null,
           "showcase": false,
@@ -9105,6 +8693,93 @@
       ],
       "scheduled_for": "2026-10-28T20:00:00.000-07:00",
       "scheduled_until": "2026-10-29T00:00:00.000-07:00"
+    },
+    {
+      "id": "qkdg1hxn93ym",
+      "name": "Interconnection Infrastructure Upgrade (SG1 – Edge2 Switch)",
+      "status": "in_progress",
+      "created_at": "2026-08-06T05:04:23.494-07:00",
+      "updated_at": "2026-09-04T08:00:12.026-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/yvltfkxpx0p6",
+      "started_at": "2026-08-06T05:04:23.486-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "zcxfqssnf75j",
+          "status": "in_progress",
+          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
+          "incident_id": "qkdg1hxn93ym",
+          "created_at": "2026-09-04T08:00:11.821-07:00",
+          "updated_at": "2026-09-04T08:00:11.821-07:00",
+          "display_at": "2026-09-04T08:00:11.821-07:00",
+          "affected_components": [
+            {
+              "code": "hjfntfyhnn4l",
+              "name": "INTERCONNECT",
+              "old_status": "operational",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "l4p97yyym8qv",
+          "status": "scheduled",
+          "body": "Maintenance will begin as scheduled in 60 minutes.",
+          "incident_id": "qkdg1hxn93ym",
+          "created_at": "2026-09-04T07:00:09.015-07:00",
+          "updated_at": "2026-09-04T07:00:09.015-07:00",
+          "display_at": "2026-09-04T07:00:09.015-07:00",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "dgtwygggfszn",
+          "status": "scheduled",
+          "body": "Twilio will perform a scheduled maintenance in our SG1 region during a 3-hour window on 4 September 2026 from 08:00 PDT to 11:00 PDT.\n\nDuring this maintenance, we will perform a Junos OS software upgrade of the SG1 QFX10K Edge2 Switch in the TNX Production SG1 environment.\n\nDuring this time, Voice, Interconnect, and Flex customers with SG1 interconnections may experience a brief interconnection service interruption of up to 90 seconds. If possible, customers are advised to redirect traffic away from the TNX SG1 interconnection during the maintenance window to minimize any potential impact. Services are expected to recover automatically once the maintenance activity is complete.",
+          "incident_id": "qkdg1hxn93ym",
+          "created_at": "2026-08-06T05:04:23.579-07:00",
+          "updated_at": "2026-08-06T05:04:23.579-07:00",
+          "display_at": "2026-08-06T05:04:23.579-07:00",
+          "affected_components": [
+            {
+              "code": "hjfntfyhnn4l",
+              "name": "INTERCONNECT",
+              "old_status": "under_maintenance",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "hjfntfyhnn4l",
+          "name": "INTERCONNECT",
+          "status": "under_maintenance",
+          "created_at": "2017-03-28T14:28:05.669-07:00",
+          "updated_at": "2026-09-04T08:00:10.009-07:00",
+          "position": 13,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-09-04T08:00:00.000-07:00",
+      "scheduled_until": "2026-09-04T11:00:00.000-07:00"
     },
     {
       "id": "qjkcs8n8t56g",
