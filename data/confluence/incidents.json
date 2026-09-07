@@ -4,15 +4,15 @@
     "name": "Confluence",
     "url": "https://confluence.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-09-06T23:33:44.863Z"
+    "updated_at": "2026-09-07T04:18:48.702Z"
   },
   "incidents": [
     {
       "id": "qq07180qzmpp",
       "name": "Issues accessing multiple Atlassian products in some regions",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-08-27T04:22:09.127Z",
-      "updated_at": "2026-08-27T05:16:07.490Z",
+      "updated_at": "2026-09-07T02:53:20.231Z",
       "monitoring_at": "2026-08-27T04:51:26.551Z",
       "resolved_at": "2026-08-27T05:16:07.474Z",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2026-08-27T04:22:09.109Z",
       "page_id": "4g2my7tbhjsq",
       "incident_updates": [
+        {
+          "id": "qxw86pvf4l3d",
+          "status": "postmortem",
+          "body": "**SUMMARY**\n\n  \n\nOn August 27, 2026, between 03:51 and 04:35 UTC, Atlassian customers in the Western Europe and Southeast APAC regions were unable to reach Atlassian Cloud products, including Atlassian Analytics, Compass, Confluence, Focus, Guard, Jira, JPD, JSM, Opsgenie, Rovo Search, and Talent. The event was triggered by a defective code change to the routing layer of one of our proxy fleets. This led to HTTP 404 errors being served to all customer traffic through these proxy fleets in Western Europe and Southeast APAC regions. The incident was detected within 1 minute by our automated monitoring systems, and mitigated by rolling back to the previous configuration release, which put the proxy fleet into a known good state.\n\nAfter the proxy fleet recovered, some Jira and Confluence customers (regardless of location) received HTTP 503 errors between 04:33 and 04:53 UTC as server fleets adjusted to the influx of traffic.\n\n  \n\n**IMPACT**\n\n  \n\nThe overall impact was split into two discrete periods:\n\n  \n\n-   First, on 27 August 2026, between 03:51 and 04:35 UTC on Atlassian Analytics, Compass, Confluence, Focus, Guard, Jira, JPD, JSM, Opsgenie, Rovo Search, and Talent. The incident caused service disruption to customer traffic originating from Western Europe and Southeast APAC regions, with HTTP 404 errors returned. There was no impact to customer API traffic, regardless of origin location.\n-   Second, on 27 August 2026, between 04:33 and 04:53 UTC, some Jira and Confluence customers regardless of location received HTTP 503 errors after the HTTP 404 errors were solved: ~32% of requests in ap-southeast-2, ~4% of requests in eu-west-1, ~2.5% of requests in us-west-2 and ap-southeast-1, and <1% of requests in all remaining global regions.\n\n  \n\n**ROOT CAUSE**\n\n  \n\nThe event was triggered by a code change to one of our proxy fleets. However, there was a defect in the code deployed which was not detected by manual and automated testing. This led to a misconfiguration of a tenant lookup functionality in the proxy tier, which led to traffic not having a valid network path, resulting in HTTP 404 errors being served to all customer traffic through these proxy fleets in Western Europe and Southeast APAC regions.\n\nAfter the proxy tier impact recovered, a second period of impact was caused to some Jira and Confluence customers. Due to the reduction of traffic served to Jira and Confluence by the proxy fleet, the Jira and Confluence service tiers had automatically scaled in the number of servers serving customer traffic. Once the proxy fleet functionality was restored, the surge of traffic overwhelmed the Jira service tier, which returned an elevated rate of HTTP 503s until it automatically scaled out again.\n\n  \n\n**REMEDIAL ACTIONS PLAN & NEXT STEPS**\n\n  \n\nWe know that outages impact your productivity. While we have a number of testing and preventative processes in place, this specific issue wasn’t identified because the change was related to a very specific kind of edge case that was not picked up by our automated continuous deployment suites and manual test scripts.\n\nWe are prioritizing the following improvement actions to help avoid repeating this type of incident:\n\n  \n\n-   **Adding further deployment safeguards:** The deployment pipeline for the configuration of the impacted proxy tier was using a legacy system and did not have the appropriate slow regional rollout features configured correctly. We have already added the correct safeguards, and we are moving this to our company standard deployment pipeline that includes all of our safety controls enabled by default. We are also auditing all networking services to validate that they are all on the new standard pipeline deployment service.\n-   **Enhancing service fleet scaling policies:** The auto scaling configuration for our Jira and Confluence service fleets was configured to scale in too aggressively. We are thoroughly reviewing and updating all of the complex Jira and Confluence auto scaling policies to ensure that this doesn’t occur again.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\n  \n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "qq07180qzmpp",
+          "created_at": "2026-09-07T02:53:18.559Z",
+          "updated_at": "2026-09-07T02:53:20.223Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "nz2kp7rpr4hv",
           "status": "resolved",
