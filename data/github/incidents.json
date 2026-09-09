@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-09-09T17:44:11.433Z"
+    "updated_at": "2026-09-09T20:52:49.938Z"
   },
   "incidents": [
     {
@@ -270,7 +270,7 @@
       "name": "Delays in commit processing",
       "status": "resolved",
       "created_at": "2026-09-01T15:00:22.104Z",
-      "updated_at": "2026-09-01T16:01:21.386Z",
+      "updated_at": "2026-09-09T19:29:52.981Z",
       "monitoring_at": null,
       "resolved_at": "2026-09-01T16:01:21.369Z",
       "impact": "minor",
@@ -281,10 +281,10 @@
         {
           "id": "4dzt373dsdlp",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On September 1, 2026, between approximately 14:01 and 16:01 UTC, updates in response to pushes were delayed, temporarily showing stale diffs. The median time to refresh a diff after a push rose from the normal level of about 3 seconds to over 2 minutes at the peak, and more than 140,000 customer accounts had at least one delayed refresh during the most affected 75 minutes. Pushing commits and opening pull requests continued to work normally. The incident was caused by a sharp, concentrated surge in push volume that saturated worker pools and job queueing infrastructure. Autoscaling did not increase capacity as intended, so the backlog did not clear on its own. <br /><br />The incident was mitigated by manually scaling the affected worker pools and increasing push-processing capacity. This allowed the system to process the backlog, after which refresh times returned to normal. To reduce the likelihood and impact of similar incidents, we are adding quotas and throttling earlier in the push path so a single concentrated source of load cannot saturate shared capacity, improving worker-pool autoscaling so capacity is added automatically, and improving monitors for background job processing so on-call is paged before customers experience delayed pull request updates.",
           "incident_id": "jk2dy5h9yp3m",
           "created_at": "2026-09-01T16:01:21.369Z",
-          "updated_at": "2026-09-01T16:01:21.369Z",
+          "updated_at": "2026-09-09T19:29:52.977Z",
           "display_at": "2026-09-01T16:01:21.369Z",
           "affected_components": [
             {
