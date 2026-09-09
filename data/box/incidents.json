@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-09-09T13:58:54.062-07:00"
+    "updated_at": "2026-09-09T16:23:42.223-07:00"
   },
   "incidents": [
     {
@@ -740,7 +740,7 @@
       "name": "[Medium] Issue with Microsoft Office Integration and Box Edit",
       "status": "postmortem",
       "created_at": "2026-08-19T17:31:23.000-07:00",
-      "updated_at": "2026-08-23T17:53:57.588-07:00",
+      "updated_at": "2026-09-09T15:43:55.797-07:00",
       "monitoring_at": "2026-08-19T18:30:02.900-07:00",
       "resolved_at": "2026-08-19T18:44:28.049-07:00",
       "impact": "major",
@@ -751,10 +751,10 @@
         {
           "id": "d8d4n03ljncn",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn August 19, 2026 between 4:17 PM and 6:19 PM PT, some customers experienced errors or delays when opening files using Microsoft Office Online and when using related integrations such as Open With, Box Edit, and iWork. A limited subset of folder views in All Files that rely on those integrations may also have been affected.\n\nThe issue occurred because of a recent release that led to elevated errors and latency for some users. When we reverted the change, service metrics returned to normal.  Customer testing showed restoration by 6:19 PM PT.\n\nWe are reviewing our deployment and release processes to help prevent recurrence.\n\nAdditionally, we are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting Box Edit, Microsoft Office Online, iWork, and other integrations in Box. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\n‌\n\nBetween 04:17 PM PDT and 6:30 PM PDT on August 19, 2026 some users may have experienced difficulties while working in Box. During this time, impacted users were unable to open files in Box Edit, Microsoft Office Online, iWork, and other integrations. Additionally, some users saw errors, timeouts, or slow responses while working in other areas of Box.\n\n‌\n\nThe issue occurred after a deployment of a backend service that provides integration and platform functionality. The deployment introduced a regression that caused the service’s performance to degrade under peak load, which led to client timeouts and errors. We restored functionality by reverting the deployment to a previous version. We are taking steps to reduce recurrence by improving our pre-release validation and deployment safeguards, including validating the performance of the service under load, improving observability, and making defensive changes to the affected service.\n\n‌\n\n# Analysis\n\n‌\n\nThis incident highlighted opportunities for improving our pre-release validation to test how a change behaves under peak traffic. In this situation, a change in a backend service which handles integration and platform functionality modified its scalability characteristics under load. The service operated normally during non-peak traffic but was not able to keep up with peak traffic demand. Under peak load, the service’s thread pool became saturated, causing requests to queue while waiting for an available worker and increasing latency.\n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n* Strengthening pre-release validation to include tests that better simulate peak traffic and scaling behavior for the affected service.\n* Improving observability so that scaling issues are more readily detected.\n* Implementing defensive changes in the affected service to reduce impact if a similar performance degradation were to occur.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\n‌\n\nSincerely,\n\n‌\n\nThe Box Team",
           "incident_id": "nnsrr0wr5qpv",
           "created_at": "2026-08-23T17:53:26.433-07:00",
-          "updated_at": "2026-08-23T17:53:57.586-07:00",
+          "updated_at": "2026-09-09T15:43:55.794-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
