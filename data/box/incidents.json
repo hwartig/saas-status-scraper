@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-09-10T14:59:02.025-07:00"
+    "updated_at": "2026-09-10T17:54:01.677-07:00"
   },
   "incidents": [
     {
@@ -480,7 +480,7 @@
       "name": "[Medium] Issue with Uploads",
       "status": "postmortem",
       "created_at": "2026-08-24T14:21:52.400-07:00",
-      "updated_at": "2026-08-30T15:37:41.819-07:00",
+      "updated_at": "2026-09-10T17:13:37.300-07:00",
       "monitoring_at": "2026-08-24T14:29:17.936-07:00",
       "resolved_at": "2026-08-24T15:03:07.119-07:00",
       "impact": "major",
@@ -491,10 +491,10 @@
         {
           "id": "v7nv1whjz9vb",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn August 24, 2026 between 2:03 PM PDT and 2:24 PM PDT, some customers experienced degraded upload performance, elevated errors, and reduced availability for certain user operations.\n\nThe issue was caused by an internal background clean-up process that generated an unexpectedly high volume of requests and overloaded part of our back-end system. We applied an immediate mitigation to stop the offending traffic, and service levels returned to normal within minutes. We are reviewing the recent changes and retry behavior that contributed to this event and are working to prevent recurrence.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
+          "body": "We recently addressed issues affecting file uploads and other write operations within Box. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 02:03 PM and 02:24 PM PDT on August 24, 2026, some users may have experienced difficulties while working in Box. During this time, users saw elevated error rates and reduced availability for uploads and other write-oriented actions.\n\nThe issue occurred when a background user-cleanup process generated a sudden surge of database update activity that was amplified by an unbounded retry loop, which overloaded a database shard and exhausted connection capacity. We restored normal service by applying a rate limit to the cleanup traffic and stopping the offending cleanup workload. After traffic subsided, we removed the temporary limits once systems were stable. In addition, we are making changes to limit background cleanup traffic and improve retry behavior to reduce the chance of recurrence.\n\n# Analysis\n\nFollowing this incident, we are now improving how similar types of background jobs are managed and retried, and making adjustments to better prioritize customer-facing operations over these tasks. Specifically, during this issue, rapid retry cycles amplified service friction, highlighting areas where additional safeguards can further protect against similar issues occurring again in the future. We are also reviewing rollout and feature-flag practices to avoid accidental large-scale job generation.\n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n* Implementing bounded exponential-backoff retries for background cleanup jobs.\n* Enforcing throttling and monitoring on background cleanup traffic so it cannot overwhelm write-path resources.\n* Introducing priority-aware protections so low-priority background work is shed before it affects customer-facing operations.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
           "incident_id": "sd640nc9mkr1",
           "created_at": "2026-08-30T15:37:13.670-07:00",
-          "updated_at": "2026-08-30T15:37:41.817-07:00",
+          "updated_at": "2026-09-10T17:13:37.297-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
@@ -697,7 +697,7 @@
       "name": "[Minor] Issue with Logins & Files Page",
       "status": "postmortem",
       "created_at": "2026-08-24T08:30:00.000-07:00",
-      "updated_at": "2026-08-30T15:39:35.392-07:00",
+      "updated_at": "2026-09-10T17:15:35.353-07:00",
       "monitoring_at": null,
       "resolved_at": "2026-08-24T10:30:00.000-07:00",
       "impact": "minor",
@@ -708,10 +708,10 @@
         {
           "id": "rfl1c00ff2s3",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn August 24, 2026 between 10:28 AM PDT and 10:35 AM PDT, some customers may have experienced failures signing in and intermittent inability to access files and other core Box features.\n\nThe disruption was caused by a traffic increase at our edge load-balancers that delayed requests to back-end services. Error rates returned to normal after the traffic spike subsided and services recovered. We are reviewing our load-balancing and client-connection practices and working with our cloud provider to reduce the likelihood of recurrence.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
+          "body": "Between 3:44 PM and 4:27 PM PDT on August 19, 2026 and 10:28 AM and 11:21 AM PDT on August 24, 2026, some users may have experienced intermittent errors with some Box features, including Logins, Uploads, Downloads, and Box Sign.\n\nThe issues occurred after a rapid surge of external Box client connections overwhelmed front-end capacity in the affected region, which caused an increase in server-side error rates and prevented some requests from reaching our back-end services. We restored service by working with our cloud provider and applying operational mitigations until front-end error rates returned to normal and user requests succeeded again.\n\n# Analysis\n\nThis incident highlighted opportunities to improve our detection and correlation of frontend/load balancer health signals with our application telemetry and to strengthen joint monitoring and mitigation processes with our cloud provider during large-scale client connection events. It also underscored the importance of clearer detection thresholds and runbook steps for frontend degradations, so we can escalate and remediate faster without over or under communicating impact to customers.\n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n* Improving monitoring and observability for large-scale client connection events and working with our cloud provider on coordinated mitigation strategies.\n* Coordinating with our cloud provider to ensure connection rates are within expected thresholds.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
           "incident_id": "xm3xmcl0c5hf",
           "created_at": "2026-08-30T15:39:16.918-07:00",
-          "updated_at": "2026-08-30T15:39:35.390-07:00",
+          "updated_at": "2026-09-10T17:15:35.350-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
