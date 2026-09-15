@@ -4,9 +4,65 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-09-15T16:09:21.317Z"
+    "updated_at": "2026-09-15T21:47:16.753Z"
   },
   "incidents": [
+    {
+      "id": "bk7zgdcq7s9t",
+      "name": "Disruption with some GitHub services",
+      "status": "resolved",
+      "created_at": "2026-09-15T19:11:31.344Z",
+      "updated_at": "2026-09-15T20:00:50.530Z",
+      "monitoring_at": "2026-09-15T19:48:02.813Z",
+      "resolved_at": "2026-09-15T20:00:50.512Z",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/tbh60vgxfxj6",
+      "started_at": "2026-09-15T19:11:31.334Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "hf9yb7lhfh88",
+          "status": "resolved",
+          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "incident_id": "bk7zgdcq7s9t",
+          "created_at": "2026-09-15T20:00:50.512Z",
+          "updated_at": "2026-09-15T20:00:50.512Z",
+          "display_at": "2026-09-15T20:00:50.512Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "y03f7t24mwq4",
+          "status": "monitoring",
+          "body": "The degradation has been mitigated. We are monitoring to ensure stability.",
+          "incident_id": "bk7zgdcq7s9t",
+          "created_at": "2026-09-15T19:48:02.813Z",
+          "updated_at": "2026-09-15T19:48:02.813Z",
+          "display_at": "2026-09-15T19:48:02.813Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "dqhh3qb5jv9p",
+          "status": "investigating",
+          "body": "We are investigating reports of impacted performance for some GitHub services.",
+          "incident_id": "bk7zgdcq7s9t",
+          "created_at": "2026-09-15T19:11:31.396Z",
+          "updated_at": "2026-09-15T19:11:31.396Z",
+          "display_at": "2026-09-15T19:11:31.396Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "qwdwmtqghpk5",
       "name": "Disruption with some GitHub services",
@@ -227,7 +283,7 @@
       "name": "Incident with several GitHub Services",
       "status": "resolved",
       "created_at": "2026-09-13T09:16:11.480Z",
-      "updated_at": "2026-09-13T10:44:55.032Z",
+      "updated_at": "2026-09-15T21:47:16.743Z",
       "monitoring_at": null,
       "resolved_at": "2026-09-13T10:44:55.016Z",
       "impact": "critical",
@@ -238,10 +294,10 @@
         {
           "id": "7tbp3bzd25t7",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On September 13, 2026, between 08:43 and 10:44 UTC, GitHub experienced degraded availability across approximately 28 services, including Issues, Pull Requests, Actions, Codespaces, Pages, Notifications, Code Scanning, Git LFS, and new account signup.  At peak, 8.8% of requests to create GitHub App installation access tokens failed. Token issuance for Actions workflows was also affected, impacting approximately 4% of workflows during the incident time frame. Creating issues through the web interface failed for about 96% of attempts, and signup failures were above 90%.  <br /> <br />The cause was an internal data-cleanup job that began writing to a shared database cluster at 07:33 UTC. That cluster stores permission data read on nearly every authenticated request. The safeguard that was pacing the background job watched only one health signal — how far the database replicas were lagging — and that signal stayed low the whole time. It did not account for the load building on the primary itself, so the job kept writing while the primary quietly ran toward its limit. <br /><br />When the primary ran out of available connections, requests that needed it could not complete. First, there was no quick timeout on these database calls, so request handlers waited on the stalled database instead of failing fast, and the shared request-handling capacity degraded into site-wide errors. Second, a retry loop around token creation kept re-sending the writes that were already failing, which held the database saturated rather than letting it recover. <br /><br />Monitoring declared the incident at 08:50 UTC, but due to the broad impact and amplification from token creation, it took time to identify the source of the load. First responders mitigated by shedding internal load and pausing the job, and all services recovered by 10:44 UTC. <br /><br />To prevent recurrence, we are rate-limiting background jobs against shared, customer-serving databases by default, and adding automatic pausing and paging on primary-server load rather than replication lag alone. We are also surfacing running background work directly alongside database health signals so responders can see and pause it without leaving those dashboards, bounding retries in the token-issuing path, and adding request-level timeouts so one unhealthy database cannot consume shared web server capacity. In addition, we are breaking apart this database cluster to remove the single point of failure. We will be moving various service-specific data, including the authorization data, out of this shared cluster in the next two weeks.",
           "incident_id": "0rn90wk115q9",
           "created_at": "2026-09-13T10:44:55.016Z",
-          "updated_at": "2026-09-13T10:44:55.016Z",
+          "updated_at": "2026-09-15T21:47:16.737Z",
           "display_at": "2026-09-13T10:44:55.016Z",
           "affected_components": [
             {
@@ -10067,101 +10123,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "ph5nns5y4gxj",
-      "name": "Disruption with some GitHub services",
-      "status": "resolved",
-      "created_at": "2026-07-20T00:25:09.568Z",
-      "updated_at": "2026-07-28T12:29:35.546Z",
-      "monitoring_at": "2026-07-20T00:25:49.712Z",
-      "resolved_at": "2026-07-20T01:46:02.453Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/2n2g6kzg67mh",
-      "started_at": "2026-07-20T00:25:09.563Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "rvwm44wflpgn",
-          "status": "resolved",
-          "body": "Between July 19, 2026, at 23:05 UTC and July 20, 2026, at 03:55 UTC, Actions self-hosted and larger runners were unable to connect to GitHub. During this period, Actions jobs were delayed or failed when trying to acquire a runner. Jobs using standard and Mac hosted runners were not affected. Reconnection traffic from affected runners also increased load on GitHub APIs, resulting in 3-4 seconds of additional average request latency and elevated 5xx error rates.<br /><br />The incident was caused by a certificate lifecycle management failure in a subset of internal services, resulting in an SSL certificate expiration that disrupted runner connectivity. We restored service by rotating the affected certificate. Recovery began at 02:45 UTC. By 03:55 UTC, queued workflow backlog had been processed and workflow delay rates returned to normal.<br /><br />To prevent recurrence, we are strengthening certificate renewal automation, adding fallback expiry monitoring and alerting, and improving circuit-breaker protections during runner API disruptions to reduce the risk of cascading impact to other APIs.",
-          "incident_id": "ph5nns5y4gxj",
-          "created_at": "2026-07-20T01:46:02.453Z",
-          "updated_at": "2026-07-28T12:29:35.539Z",
-          "display_at": "2026-07-20T01:46:02.453Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vfj75jqpbngm",
-          "status": "investigating",
-          "body": "Git LFS API success rates have returned to normal. We will continue to monitor the service closely.",
-          "incident_id": "ph5nns5y4gxj",
-          "created_at": "2026-07-20T01:45:49.212Z",
-          "updated_at": "2026-07-20T01:45:49.212Z",
-          "display_at": "2026-07-20T01:45:49.212Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "n8t3pcn65rsn",
-          "status": "investigating",
-          "body": "The Git LFS API issues have been identified as being related to a separate incident where Actions is experiencing degraded availability. We’re consolidating our investigation efforts under that incident.",
-          "incident_id": "ph5nns5y4gxj",
-          "created_at": "2026-07-20T01:15:30.992Z",
-          "updated_at": "2026-07-20T01:15:30.992Z",
-          "display_at": "2026-07-20T01:15:30.992Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "bdcds652mdqj",
-          "status": "monitoring",
-          "body": "Some Git LFS operations, and loading files through the API  are failing. We are investigating.",
-          "incident_id": "ph5nns5y4gxj",
-          "created_at": "2026-07-20T00:26:10.695Z",
-          "updated_at": "2026-07-20T00:26:10.695Z",
-          "display_at": "2026-07-20T00:26:10.695Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "mv2fnsgwxcm6",
-          "status": "monitoring",
-          "body": "Some Git LFS operations, and loading files through the API are failing. We are investigating.",
-          "incident_id": "ph5nns5y4gxj",
-          "created_at": "2026-07-20T00:25:49.712Z",
-          "updated_at": "2026-07-20T00:25:49.712Z",
-          "display_at": "2026-07-20T00:25:49.712Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "922zvb5nk8j2",
-          "status": "investigating",
-          "body": "We are investigating reports of impacted performance for some GitHub services.",
-          "incident_id": "ph5nns5y4gxj",
-          "created_at": "2026-07-20T00:25:09.597Z",
-          "updated_at": "2026-07-20T00:25:09.597Z",
-          "display_at": "2026-07-20T00:25:09.597Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
