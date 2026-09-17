@@ -4,15 +4,15 @@
     "name": "Wix",
     "url": "https://status.wix.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-09-17T13:39:31.796Z"
+    "updated_at": "2026-09-17T17:59:16.396Z"
   },
   "incidents": [
     {
       "id": "mc6rh3y039g9",
       "name": "RESOLVED: Multiple Issues with Wix Services in European Region",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-09-15T08:35:46.168Z",
-      "updated_at": "2026-09-15T09:17:31.949Z",
+      "updated_at": "2026-09-17T15:58:36.349Z",
       "monitoring_at": "2026-09-15T08:56:47.206Z",
       "resolved_at": "2026-09-15T09:17:23.028Z",
       "impact": "critical",
@@ -20,6 +20,19 @@
       "started_at": "2026-09-15T08:35:46.148Z",
       "page_id": "3x6vjqhj2cpt",
       "incident_updates": [
+        {
+          "id": "3p20lbbpp6z2",
+          "status": "postmortem",
+          "body": "On September 15th at 8:27 AM UTC, some users in Europe experienced errors when accessing [Wix.com](http://Wix.com), logging in, and viewing live sites, as well as issues using site features such as Bookings, Stores and Payments. All functionality was fully restored within approximately 30 minutes.\n\nThe root cause was an infrastructure change intended to remove unused resources in one of our European data center regions. Those resources were still serving live traffic.\n\nWe regularly decommission and clean up infrastructure that is no longer needed. In this case, the change was made in a region that had already been largely retired, and the resources targeted for removal were believed to be unused. That assumption was not fully verified before the change was applied, and configuration that was still routing European traffic was removed. Requests arriving in that region could not reach the services behind them, which led to errors across a number of Wix products.\n\nOur monitoring detected the errors within minutes, our on-call team was engaged immediately, but, because the change had been made in a region that was being retired, it was not an obvious candidate for causing live traffic impact, and identifying it as the cause took longer than it should have. Once identified, we mitigated by shifting European traffic away from the affected region and serving it from other active regions, and restored the removed configuration in parallel. Once service was fully restored, traffic was returned to the affected region without further disruption.\n\nFollowing this incident, we are introducing automated validation that verifies whether a network resource is still in use before it can be removed, blocking the change from being merged if it is. We are also strengthening review requirements for infrastructure changes, and improving high availability and automatic failover between regions, including a faster way to move traffic out of a region when needed, so that similar issues can be contained before it affects users.",
+          "incident_id": "mc6rh3y039g9",
+          "created_at": "2026-09-17T15:57:20.214Z",
+          "updated_at": "2026-09-17T15:58:36.348Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "fbry33q61gxp",
           "status": "resolved",
