@@ -4,9 +4,62 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-09-17T17:59:00.782Z"
+    "updated_at": "2026-09-17T21:21:19.498Z"
   },
   "incidents": [
+    {
+      "id": "nvy2q96mcmyg",
+      "name": "Elevated rate of errors for OpenAI models provided by Copilot",
+      "status": "investigating",
+      "created_at": "2026-09-17T20:59:02.074Z",
+      "updated_at": "2026-09-17T20:59:02.131Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/t938cy7649sn",
+      "started_at": "2026-09-17T20:59:02.067Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "2v42scphlz53",
+          "status": "investigating",
+          "body": "We are investigating reports of degraded performance for Copilot AI Model Providers",
+          "incident_id": "nvy2q96mcmyg",
+          "created_at": "2026-09-17T20:59:02.127Z",
+          "updated_at": "2026-09-17T20:59:02.127Z",
+          "display_at": "2026-09-17T20:59:02.127Z",
+          "affected_components": [
+            {
+              "code": "cnnb39dkkk82",
+              "name": "Copilot AI Model Providers",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "cnnb39dkkk82",
+          "name": "Copilot AI Model Providers",
+          "status": "operational",
+          "created_at": "2026-04-17T12:33:08.827Z",
+          "updated_at": "2026-09-16T11:45:34.336Z",
+          "position": 12,
+          "description": null,
+          "showcase": true,
+          "start_date": "2026-04-17",
+          "group_id": null,
+          "page_id": "kctbh9vrtdwd",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "nlxnbqnkdzdl",
       "name": "Degradation with Gemini 3.8 Flash",
@@ -9437,159 +9490,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "fd7j2mw8xw94",
-      "name": "Disruption with GPT 5.3 Codex",
-      "status": "resolved",
-      "created_at": "2026-07-20T16:03:51.187Z",
-      "updated_at": "2026-07-29T20:18:05.126Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-07-20T18:37:08.022Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/7ls47qxt8lpq",
-      "started_at": "2026-07-20T16:03:51.177Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "gd7fy9kr96rr",
-          "status": "resolved",
-          "body": "Between 06:39 and 18:11 UTC on July 20, 2026, the Copilot service experienced a degradation of the GPT 5.3 model due to an issue with our upstream provider. The upstream model provider returned intermittent errors for GPT 5.3 Codex requests, which caused some responses to fail. Auto mode requests that had selected GPT 5.3 Codex were also impacted. On average about 2% of GPT 5.3 Codex requests failed during this window. Copilot automatically routed eligible traffic away from the impacted provider to reduce customer impact. No other models were impacted.<br /><br />We worked with the upstream provider throughout the incident and confirmed sustained recovery before resolving.",
-          "incident_id": "fd7j2mw8xw94",
-          "created_at": "2026-07-20T18:37:08.022Z",
-          "updated_at": "2026-07-29T20:18:05.121Z",
-          "display_at": "2026-07-20T18:37:08.022Z",
-          "affected_components": [
-            {
-              "code": "cnnb39dkkk82",
-              "name": "Copilot AI Model Providers",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "byh7r7nq0t7p",
-          "status": "investigating",
-          "body": "We are seeing signs of sustained recovery from the upstream provider for GPT 5.3 Codex requests. Requests  are succeeding as expected. We are awaiting confirmation from the provider that the issue is fully mitigated before resolving this incident.",
-          "incident_id": "fd7j2mw8xw94",
-          "created_at": "2026-07-20T18:25:51.982Z",
-          "updated_at": "2026-07-20T18:25:51.982Z",
-          "display_at": "2026-07-20T18:25:51.982Z",
-          "affected_components": [
-            {
-              "code": "cnnb39dkkk82",
-              "name": "Copilot AI Model Providers",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "lnp080gypymx",
-          "status": "investigating",
-          "body": "The upstream provider continues to return intermittent errors for GPT 5.3 Codex requests. Some users may experience failed or interrupted responses when using this model. Traffic continues to be automatically rerouted to reduce impact, and we are actively working with the upstream provider on a resolution. In the meantime, selecting an alternative model will avoid disruption.",
-          "incident_id": "fd7j2mw8xw94",
-          "created_at": "2026-07-20T17:21:18.855Z",
-          "updated_at": "2026-07-20T17:21:18.855Z",
-          "display_at": "2026-07-20T17:21:18.855Z",
-          "affected_components": [
-            {
-              "code": "cnnb39dkkk82",
-              "name": "Copilot AI Model Providers",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "yc012530pl6v",
-          "status": "investigating",
-          "body": "We identified that an upstream provider is returning errors for GPT 5.3 Codex requests, causing some users to experience failed or interrupted responses. Traffic is being automatically rerouted to mitigate impact. We are working with the upstream provider to resolve the underlying issue. We recommend using a different model at this time while we resolve the problem.",
-          "incident_id": "fd7j2mw8xw94",
-          "created_at": "2026-07-20T16:39:46.794Z",
-          "updated_at": "2026-07-20T16:39:46.794Z",
-          "display_at": "2026-07-20T16:39:46.794Z",
-          "affected_components": [
-            {
-              "code": "cnnb39dkkk82",
-              "name": "Copilot AI Model Providers",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "0c63ygxm7kkx",
-          "status": "investigating",
-          "body": "We are investigating GPT Codex 5.3 performance.",
-          "incident_id": "fd7j2mw8xw94",
-          "created_at": "2026-07-20T16:04:26.517Z",
-          "updated_at": "2026-07-20T16:04:26.517Z",
-          "display_at": "2026-07-20T16:04:26.517Z",
-          "affected_components": [
-            {
-              "code": "cnnb39dkkk82",
-              "name": "Copilot AI Model Providers",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "y9r7c45nqpgz",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Copilot AI Model Providers",
-          "incident_id": "fd7j2mw8xw94",
-          "created_at": "2026-07-20T16:03:51.272Z",
-          "updated_at": "2026-07-20T16:03:51.272Z",
-          "display_at": "2026-07-20T16:03:51.272Z",
-          "affected_components": [
-            {
-              "code": "cnnb39dkkk82",
-              "name": "Copilot AI Model Providers",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "cnnb39dkkk82",
-          "name": "Copilot AI Model Providers",
-          "status": "operational",
-          "created_at": "2026-04-17T12:33:08.827Z",
-          "updated_at": "2026-09-16T11:45:34.336Z",
-          "position": 12,
-          "description": null,
-          "showcase": true,
-          "start_date": "2026-04-17",
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
