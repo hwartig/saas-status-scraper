@@ -4,9 +4,122 @@
     "name": "EasyPost",
     "url": "https://www.easypoststatus.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-09-20T07:34:10.377-07:00"
+    "updated_at": "2026-09-20T11:58:53.128-07:00"
   },
   "incidents": [
+    {
+      "id": "rhgq75pfv3l8",
+      "name": "Elevated errors with USPS Services",
+      "status": "identified",
+      "created_at": "2026-09-20T09:55:53.029-07:00",
+      "updated_at": "2026-09-20T11:41:26.912-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "major",
+      "shortlink": "https://stspg.io/c8kz5520d6p3",
+      "started_at": "2026-09-20T09:55:53.017-07:00",
+      "page_id": "n1jtz5983249",
+      "incident_updates": [
+        {
+          "id": "fgr48t2ps8s2",
+          "status": "identified",
+          "body": "We've deployed and verified a fix on our side that reduce the blast radius of this issue. Shipment and rate requests that include USPS Ship along side other carriers are now succeeding normally.\n\nUSPS Ship service remain affected. USPS Ship is still returning invalid rate data, so requests that require USPS Ship may continue to fail until USPS Ship resolves the issue on their side. We remain in active contact with USPS Ship on the underlying problem.\n\nWhat you may experience: Non-USPS requests should be working normally. Requests that depend on USPS Ship may still fail. A specific restoration time from USPS Ship is not yet available.\n\nWe'll provide our next update within 30 minutes, or sooner as the situation changes.",
+          "incident_id": "rhgq75pfv3l8",
+          "created_at": "2026-09-20T11:41:26.909-07:00",
+          "updated_at": "2026-09-20T11:41:26.909-07:00",
+          "display_at": "2026-09-20T11:41:26.909-07:00",
+          "affected_components": [
+            {
+              "code": "rsl29clsp4h6",
+              "name": "Carriers - USPS",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "ktq55hndp7vj",
+          "status": "identified",
+          "body": "The errors affecting USPS services are caused by an issue on USPS's side, which USPS is actively working to resolve. We are in active contact with them as they work to  restore normal service.\n\nWhat you may experience: Requests to USPS services may fail or return errors until USPS resolves the issue. Other carriers and services are unaffected.\n\nA specific restoration time is not yet available from USPS. We will update as soon as we have one, and no later than our next scheduled update in 30 minutes.",
+          "incident_id": "rhgq75pfv3l8",
+          "created_at": "2026-09-20T10:44:38.445-07:00",
+          "updated_at": "2026-09-20T10:44:38.445-07:00",
+          "display_at": "2026-09-20T10:44:38.445-07:00",
+          "affected_components": [
+            {
+              "code": "rsl29clsp4h6",
+              "name": "Carriers - USPS",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "vqq87fhkbj3r",
+          "status": "identified",
+          "body": "We have identified the cause of the elevated errors affecting USPS services. The issue is related to an ongoing USPS maintenance rollout, and we've communicated to them that we are seeing elevated errors.  They are investigating to determine if they should rollback or extend the window.",
+          "incident_id": "rhgq75pfv3l8",
+          "created_at": "2026-09-20T10:12:49.572-07:00",
+          "updated_at": "2026-09-20T10:12:49.572-07:00",
+          "display_at": "2026-09-20T10:12:49.572-07:00",
+          "affected_components": [
+            {
+              "code": "rsl29clsp4h6",
+              "name": "Carriers - USPS",
+              "old_status": "operational",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "fpf5d2w5zvl9",
+          "status": "investigating",
+          "body": "We are aware of an issue affecting USPS services, where some requests may be returning errors. We have confirmed the problem and our team is actively investigating.",
+          "incident_id": "rhgq75pfv3l8",
+          "created_at": "2026-09-20T09:55:53.085-07:00",
+          "updated_at": "2026-09-20T09:55:53.085-07:00",
+          "display_at": "2026-09-20T09:55:53.085-07:00",
+          "affected_components": [
+            {
+              "code": "rsl29clsp4h6",
+              "name": "Carriers - USPS",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "rsl29clsp4h6",
+          "name": "USPS",
+          "status": "partial_outage",
+          "created_at": "2022-03-02T12:23:00.637-08:00",
+          "updated_at": "2026-09-20T10:12:49.535-07:00",
+          "position": 15,
+          "description": null,
+          "showcase": true,
+          "start_date": "2022-03-01",
+          "group_id": "x3g03m4md1t8",
+          "page_id": "n1jtz5983249",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": "[]"
+    },
     {
       "id": "3b8rd77w0gxg",
       "name": "Degraded API",
@@ -3355,9 +3468,9 @@
         {
           "id": "rsl29clsp4h6",
           "name": "USPS",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2022-03-02T12:23:00.637-08:00",
-          "updated_at": "2026-07-23T11:54:25.147-07:00",
+          "updated_at": "2026-09-20T10:12:49.535-07:00",
           "position": 15,
           "description": null,
           "showcase": true,
@@ -4604,9 +4717,9 @@
         {
           "id": "rsl29clsp4h6",
           "name": "USPS",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2022-03-02T12:23:00.637-08:00",
-          "updated_at": "2026-07-23T11:54:25.147-07:00",
+          "updated_at": "2026-09-20T10:12:49.535-07:00",
           "position": 15,
           "description": null,
           "showcase": true,
@@ -5118,9 +5231,9 @@
         {
           "id": "rsl29clsp4h6",
           "name": "USPS",
-          "status": "operational",
+          "status": "partial_outage",
           "created_at": "2022-03-02T12:23:00.637-08:00",
-          "updated_at": "2026-07-23T11:54:25.147-07:00",
+          "updated_at": "2026-09-20T10:12:49.535-07:00",
           "position": 15,
           "description": null,
           "showcase": true,
@@ -9354,119 +9467,6 @@
         }
       ],
       "reminder_intervals": null
-    },
-    {
-      "id": "nl1yfbfbk9qz",
-      "name": "Elevated 500 errors",
-      "status": "resolved",
-      "created_at": "2025-03-03T04:37:26.499-08:00",
-      "updated_at": "2025-03-03T07:54:17.104-08:00",
-      "monitoring_at": "2025-03-03T04:53:19.928-08:00",
-      "resolved_at": "2025-03-03T07:54:16.712-08:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/vlyxyp5z1bmd",
-      "started_at": "2025-03-03T04:37:26.492-08:00",
-      "page_id": "n1jtz5983249",
-      "incident_updates": [
-        {
-          "id": "9rfdq3dxsv7x",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "nl1yfbfbk9qz",
-          "created_at": "2025-03-03T07:54:16.712-08:00",
-          "updated_at": "2025-03-03T07:54:17.099-08:00",
-          "display_at": "2025-03-03T07:54:16.712-08:00",
-          "affected_components": [
-            {
-              "code": "hj673gyk4bdv",
-              "name": "EasyPost Backend - API",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1896589955037856141
-        },
-        {
-          "id": "trg33sghwbpx",
-          "status": "monitoring",
-          "body": "Issue has been identified and resolved.  API error rate has recovered to normal levels. Will continue to monitor.",
-          "incident_id": "nl1yfbfbk9qz",
-          "created_at": "2025-03-03T04:53:19.928-08:00",
-          "updated_at": "2025-03-03T04:53:20.346-08:00",
-          "display_at": "2025-03-03T04:53:19.928-08:00",
-          "affected_components": [
-            {
-              "code": "hj673gyk4bdv",
-              "name": "EasyPost Backend - API",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1896544418867658753
-        },
-        {
-          "id": "c3rq2bc2wqc9",
-          "status": "identified",
-          "body": "Underlying cause has been identified and a fix is being implemented.",
-          "incident_id": "nl1yfbfbk9qz",
-          "created_at": "2025-03-03T04:50:18.915-08:00",
-          "updated_at": "2025-03-03T04:50:19.201-08:00",
-          "display_at": "2025-03-03T04:50:18.915-08:00",
-          "affected_components": [
-            {
-              "code": "hj673gyk4bdv",
-              "name": "EasyPost Backend - API",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1896543659186942103
-        },
-        {
-          "id": "y877vfgt1mdv",
-          "status": "investigating",
-          "body": "We are experiencing elevated 500 errors on the EasyPost API. We are currently investigating.",
-          "incident_id": "nl1yfbfbk9qz",
-          "created_at": "2025-03-03T04:37:26.575-08:00",
-          "updated_at": "2025-03-03T04:37:26.937-08:00",
-          "display_at": "2025-03-03T04:37:26.575-08:00",
-          "affected_components": [
-            {
-              "code": "hj673gyk4bdv",
-              "name": "EasyPost Backend - API",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1896540420106252595
-        }
-      ],
-      "components": [
-        {
-          "id": "hj673gyk4bdv",
-          "name": "API",
-          "status": "operational",
-          "created_at": "2013-06-23T15:41:46.599-07:00",
-          "updated_at": "2026-08-28T21:00:07.330-07:00",
-          "position": 2,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": "ysyh73ptcymy",
-          "page_id": "n1jtz5983249",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": "1"
     }
   ]
 }
