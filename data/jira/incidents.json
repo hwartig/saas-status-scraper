@@ -4,15 +4,15 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-09-21T19:19:00.385Z"
+    "updated_at": "2026-09-21T22:36:31.411Z"
   },
   "incidents": [
     {
       "id": "kvpmkndcdfyk",
       "name": "Degraded performance affecting Jira Software and Jira Service Management",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-09-11T07:46:31.085Z",
-      "updated_at": "2026-09-11T08:37:46.792Z",
+      "updated_at": "2026-09-21T22:36:31.407Z",
       "monitoring_at": "2026-09-11T08:06:04.344Z",
       "resolved_at": "2026-09-11T08:37:46.776Z",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2026-09-11T07:46:31.074Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "znvrg4rr66c5",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn September 11, 2026, between 07:02 and 07:56 UTC, Atlassian customers primarily from the EU region and some from APAC region using Jira and Jira Service Management products were unable to view work items or access boards consistently. The event was triggered by a backward-incompatible internal configuration rollout in the underlying graph data platform.\n\n  \n\nThe incident was detected within 3 minutes by our automated monitoring system and mitigated by rolling forward the stable deployment to all regions. The total time to resolution was about 54 minutes.\n\n  \n\n### IMPACT\n\nThe overall impact occurred between September 11, 2026, 07:02 UTC and September 11, 2026, 07:56 UTC on two products. During this period, some customers in the EU region using Jira and Jira Service Management experienced intermittent failures or degraded performance. We noted that a configuration failure prevented critical dependency services from scaling, which resulted in an outage for affected users. Jira and Jira Service Management users experienced timeout errors and failed or delayed page loads when attempting to access the work item view, issue navigator, and board view.\n\n  \n\n### ROOT CAUSE\n\nThe incident was caused by the deployment of a change to the graph store service, which serves links to third-party entities such as pull requests. The change caused startup checks to fail, preventing new nodes from joining the cluster. During peak traffic, the service could not scale sufficiently, causing requests from Jira and Jira Service Management to the graph store service to fail.\n\n  \n\n### REMEDIAL ACTIONS PLAN & NEXT STEPS\n\nWe know that outages impact your productivity. We are prioritizing the following improvement actions to avoid repeating this type of incident:\n\n-   Implement Code-Based Configuration: We are moving configuration definition files to be part of the core codebase to ensure they are versioned and deployed synchronously with the application logic.\n-   Graceful Degradation in Jira: We are implementing changes to the affected Jira views to segregate core queries from noncritical dependency queries, allowing the page to remain functional even if a downstream service fails.\n-   Optimize Deployment Pipeline: Deployment pipelines are being optimized to enable accelerated, parallel updates during operational response scenarios.\n\nWe apologize to customers whose services were impacted during this incident; we are taking immediate steps to improve the platform’s performance and availability.\n\n  \n\nThanks,\n\nAtlassian Customer Support",
+          "incident_id": "kvpmkndcdfyk",
+          "created_at": "2026-09-21T22:36:29.696Z",
+          "updated_at": "2026-09-21T22:36:31.400Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "wnp0x7yfzv5t",
           "status": "resolved",
