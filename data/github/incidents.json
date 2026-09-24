@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-09-24T20:41:12.536Z"
+    "updated_at": "2026-09-24T21:29:12.107Z"
   },
   "incidents": [
     {
@@ -473,7 +473,7 @@
       "name": "Incident with Pull Requests",
       "status": "resolved",
       "created_at": "2026-09-20T22:13:37.889Z",
-      "updated_at": "2026-09-20T23:22:16.725Z",
+      "updated_at": "2026-09-24T21:29:12.096Z",
       "monitoring_at": "2026-09-20T22:27:28.769Z",
       "resolved_at": "2026-09-20T23:22:16.710Z",
       "impact": "minor",
@@ -484,10 +484,10 @@
         {
           "id": "lwhskmh38bsz",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On September 20, 2026, between 21:46 and 22:24 UTC the Pull Requests service was degraded and pull request merge and test-merge commits were created late, with delays reaching approximately four minutes at peak. Merge commits were delayed rather than lost. Because some Actions workflow runs start only after a pull request's merge commit is created, a subset of workflow runs for pull request events were also delayed. <br /><br />This was due to a routine repository maintenance job for an unusually large repository consuming nearly all of the memory on a single Git storage server, which left that server unable to serve the Git operations used to create merge commits. <br /><br />We mitigated the incident by removing the affected server from service at 22:18 UTC, after which the queued merge commits were created within six minutes. <br /><br />We have capped the memory a single repository maintenance job may consume so that one repository cannot exhaust a server, and we have improved monitoring and alerting on storage server health to reduce our time to detection and mitigation of issues like this one in the future.",
           "incident_id": "f6yrxnz5f7bs",
           "created_at": "2026-09-20T23:22:16.710Z",
-          "updated_at": "2026-09-20T23:22:16.710Z",
+          "updated_at": "2026-09-24T21:29:12.090Z",
           "display_at": "2026-09-20T23:22:16.710Z",
           "affected_components": [
             {
