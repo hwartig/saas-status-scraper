@@ -4,22 +4,42 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-10-07T19:52:41.185Z"
+    "updated_at": "2026-10-07T22:17:33.234Z"
   },
   "incidents": [
     {
       "id": "39rfrjmk5pvd",
       "name": "Increased task wait times for Docker Gen2",
-      "status": "monitoring",
+      "status": "resolved",
       "created_at": "2026-10-07T18:54:58.635Z",
-      "updated_at": "2026-10-07T19:52:41.182Z",
+      "updated_at": "2026-10-07T20:05:32.037Z",
       "monitoring_at": "2026-10-07T19:52:41.159Z",
-      "resolved_at": null,
+      "resolved_at": "2026-10-07T20:05:32.007Z",
       "impact": "minor",
       "shortlink": "https://stspg.io/fpv4m66zyd77",
       "started_at": "2026-10-07T18:54:58.628Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "ptv6dtzzcvfm",
+          "status": "resolved",
+          "body": "This incident has been resolved.",
+          "incident_id": "39rfrjmk5pvd",
+          "created_at": "2026-10-07T20:05:32.007Z",
+          "updated_at": "2026-10-07T20:05:32.007Z",
+          "display_at": "2026-10-07T20:05:32.007Z",
+          "affected_components": [
+            {
+              "code": "x1v3t5qrnlhk",
+              "name": "Docker Jobs",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "59ktttj99rng",
           "status": "monitoring",
@@ -85,9 +105,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-10-07T18:54:58.685Z",
+          "updated_at": "2026-10-07T20:05:31.957Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -289,9 +309,9 @@
     {
       "id": "z4hbq8h49j8c",
       "name": "Delays in pipelines, workflows, UI data, and notifications",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-10-06T16:00:24.868Z",
-      "updated_at": "2026-10-06T21:18:47.381Z",
+      "updated_at": "2026-10-07T22:17:33.231Z",
       "monitoring_at": "2026-10-06T20:31:55.281Z",
       "resolved_at": "2026-10-06T21:18:47.358Z",
       "impact": "major",
@@ -299,6 +319,19 @@
       "started_at": "2026-10-06T16:00:24.856Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "23rv3zpsl5ld",
+          "status": "postmortem",
+          "body": "## Summary\n\nOn October 6, 2026, from 15:30 to 20:30 UTC, CircleCI customers experienced delays creating pipelines and starting workflows and jobs. From 15:48 to 16:38 UTC, no workflows or jobs started, and pipelines triggered from 16:02 UTC failed. Shorter, intermittent delays began earlier, at 13:30 UTC. Data in the CircleCI UI, notifications, and commit status updates to version control providers were also delayed.\n\nThe incident started in the database behind our workflow orchestration service, which coordinates every pipeline, workflow and job on CircleCI. Routine maintenance on the database's largest tables wrote transaction logs faster than the database could archive them, and the logs filled the storage volume set aside for them. To keep the database from becoming read-only, our engineers moved the logs to the database's main storage volume. That move took the database offline for 50 minutes. When the database came back, it processed work at about half its normal rate until our engineers changed a database setting at 18:19 UTC. We then worked through the backlog, and job start times returned to normal by 20:30 UTC.\n\nCustomers whose jobs failed during this window may rerun them.\n\nThe original status page can be found [here](https://status.circleci.com/incidents/z4hbq8h49j8c).\n\n## Background\n\nWhen you trigger a pipeline, CircleCI hands it to a workflow orchestration service. That service tracks the state of every workflow and job, decides when each job is ready to run, and passes ready jobs to our execution fleet. It also drives the job data you see in the UI and the notifications and commit statuses we send when work finishes.\n\nThe orchestration service stores its state in a database. The database writes every change to a transaction log before applying it, and it keeps those logs on a dedicated storage volume. It archives the logs continuously so it can reuse that space. If archiving falls behind and the volume fills, the database stops accepting writes, and no new work can move forward.\n\nThe database also runs a periodic maintenance process \\(autovacuums\\) on each table to keep its internal records valid over time. On a very large table, this process reads every page of the table and writes a large volume of transaction logs.\n\n## What Happened\n\n_\\(All times UTC\\)_\n\nFrom 10:02 on October 6, our monitoring raised short-lived alerts about errors in the orchestration service. Each alert cleared on its own within about 15 minutes. Our engineers had seen similar brief alerts before, and the system showed no other signs of stress, so they followed the runbook each time, and each alert cleared on its own partway through and also started work to make the alerts less sensitive.\n\nAround 12:40, along with the regular workload which generates its own transaction logs, the maintenance process on several of the database's largest tables began writing additional transaction logs faster than the database could archive them, and the log volume started to fill.\n\nAt 13:30, the orchestration service began to slow down. Through 15:30, some pipelines and jobs took longer to start, in short bursts. At 13:35, our monitoring alerted again, this time alongside related alerts from several other services.  Infrastructure Engineers followed the alert runbooks, clearing up some of the alerts.  The alerts returned again at around 14:30 and after investigating further, we declared an incident at 14:54. We should have recognized the combination of alerts sooner, and we have covered how we are fixing that below.\n\nAfter declaring the incident, our engineers traced the slowdown to the maintenance process \\(anti-wraparound autovacuum\\). The database restarts this process automatically if it is cancelled, so our engineers changed its settings to help it finish faster. By 15:30, the delays were continuous, and some jobs began to fail.\n\nAt 15:43, the transaction log volume was close to full. If it filled, the database would stop accepting writes and no work could run. Our engineers decided to move the transaction logs onto the database's main storage volume, which had plenty of free space. The move required the database to go offline, and we could not predict in advance how long that would take.\n\nThe move started at 15:47. From 15:48 to 16:38, the orchestration service could not process any work. Customers could still trigger pipelines, but no workflows or jobs started, and from 16:02 newly triggered pipelines failed. We posted to our status page at 15:58 and raised it to a major outage at 16:20. While the database was offline, our engineers prepared a replacement database as a fallback. The original database came back first, so we kept it in service.\n\nAt 16:38, the database came back online and work started flowing again. With transaction logs and regular data now sharing the same storage, the database ran more slowly than before. From 16:38 to 18:19, the orchestration service processed work at about half its normal rate, and jobs waited tens of minutes to start, up to about 50 minutes at the longest. During that time, the database had to finish archiving its backlog of transaction logs before we could move them back to a dedicated volume.  We also investigated and implemented several  database parameter changes to stop further maintenance runs from starting and prepared ways to reduce the work reaching the service.  Along with the replacement database, we also prepared a complete stack of the service during that time so that we could move to it at the risk of data loss and opted against that move. \n\nAt 18:19, our engineers changed a database setting to cut the time each write spent waiting on storage.  Processing speed recovered, and the backlog began to clear. To clear it faster, we added database and server capacity to the systems that hand jobs to our execution fleet. By about 19:55, new jobs were again starting on time.\n\nThe backlog then reached our execution fleet. From 19:49 to 20:30, some Docker jobs on larger resource classes waited up to about 10 minutes to start while capacity scaled up. By 20:30, job start times were back to normal. We moved the status page to monitoring at 20:32 and resolved the incident at 21:19.\n\nAbout 3,500 jobs failed to start during the incident. Customers may rerun these jobs. We found no evidence that CircleCI ran any job more than once. Customers who reran a workflow while the original run was still delayed may have seen both runs complete. Annual plan customers can work with their account team to review usage. \n\n## Future Prevention and Process Improvement\n\nWe are taking the following steps to prevent a recurrence and improve our response time:\n\n**We are adding alerts on the conditions that caused this incident.** Our monitoring caught the slowdown, but we had no alert on how full the transaction log volume was or on how far archiving had fallen behind. We are adding alerts on both, along with alerts on the database maintenance that drives them, so we can act earlier. We are also revisiting all our alerts to ensure noisy or sensitive alerts don’t hide real issues. \n\n**We are tuning how maintenance process \\(autovacuum\\) runs on our database.** We are looking at the frequency and the aggressiveness with which the autovacuums run on our database. We are also tracking the size of these tables over time so they stay within safe limits. \n\n**We are removing the single transaction log bottleneck.** All of the orchestration service's writes currently go through one database and one transaction log, so when that log fell behind, every pipeline, workflow and job slowed down with it. We are evaluating two approaches: splitting the service across multiple database instances, each with its own transaction log, and moving it to a distributed database built to spread writes across many nodes. Either approach would limit the effect of a backlog to part of the workload.\n\n**We are making our systems wait for the orchestration service to recover.** During the incident, some jobs failed because our systems gave up after retrying. We are working on changing that behavior.\n\n**We are improving our status page updates during long incidents.** Customers told us our early updates did not give enough detail. We are updating our guidance so updates include specific impact and timing sooner.\n\n‌\n\nCustomer experience is our top priority, and we commit to continually improving the reliability of our systems to match the trust that our customers place in us. We thank our customers for their patience while our team worked to resolve this incident. Please reach out to our support team with any questions or concerns.",
+          "incident_id": "z4hbq8h49j8c",
+          "created_at": "2026-10-07T22:08:13.884Z",
+          "updated_at": "2026-10-07T22:17:33.229Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "6rj212rkhy2h",
           "status": "resolved",
@@ -764,9 +797,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-10-07T18:54:58.685Z",
+          "updated_at": "2026-10-07T20:05:31.957Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -3135,9 +3168,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-10-07T18:54:58.685Z",
+          "updated_at": "2026-10-07T20:05:31.957Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -4482,9 +4515,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-10-07T18:54:58.685Z",
+          "updated_at": "2026-10-07T20:05:31.957Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -5159,9 +5192,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-10-07T18:54:58.685Z",
+          "updated_at": "2026-10-07T20:05:31.957Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
@@ -5707,9 +5740,9 @@
         {
           "id": "x1v3t5qrnlhk",
           "name": "Docker Jobs",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2017-03-17T19:43:18.878Z",
-          "updated_at": "2026-10-07T18:54:58.685Z",
+          "updated_at": "2026-10-07T20:05:31.957Z",
           "position": 1,
           "description": "CircleCI jobs using the docker executor.",
           "showcase": true,
