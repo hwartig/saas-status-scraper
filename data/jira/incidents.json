@@ -4,15 +4,15 @@
     "name": "Jira",
     "url": "https://jira-software.status.atlassian.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-10-09T17:14:45.899Z"
+    "updated_at": "2026-10-09T21:10:05.654Z"
   },
   "incidents": [
     {
       "id": "vwrp378v0zmk",
       "name": "Job processing and scheduling is degraded affecting multiple Atlassian products",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-10-01T02:55:55.505Z",
-      "updated_at": "2026-10-01T07:51:30.400Z",
+      "updated_at": "2026-10-09T18:24:34.317Z",
       "monitoring_at": null,
       "resolved_at": "2026-10-01T07:51:30.377Z",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2026-10-01T02:55:55.497Z",
       "page_id": "7yh3h3y0c0x1",
       "incident_updates": [
+        {
+          "id": "7x8qr50nzqrf",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn October 1, 2026, between 01:00 and 07:25 UTC, degraded job processing and scheduling impacted Atlassian products including Bitbucket Cloud, Confluence, Forge apps, Jira, and Jira Service Management in all commercial cloud regions. This caused delayed or missed background tasks, such as email-to-ticket processing and scheduled pipelines; interactive product use was not affected. The event was triggered when an unexpected volume of scheduled tasks became due simultaneously, overwhelming our shared job scheduling platform. Automated monitoring detected the incident within three minutes. Recovery began around 03:45 UTC as engineering scaled capacity and the platform worked through the backlog, with full resolution reached in 6 hours and 25 minutes.\n\n  \n\n### IMPACT\n\nMost scheduled tasks stopped running at 01:00 UTC and resumed from about 03:45 UTC. Most delayed work had caught up by about 06:00 UTC, and the remaining delays had cleared by 07:25 UTC. Across affected products:\n\n-   Recurring scheduled tasks skipped or delayed runs due during the incident; skipped runs were not automatically re-run, and tasks resumed at their next scheduled time.\n-   Most one-time scheduled tasks ran late; a small number may not have run.\n-   Automation rules, including scheduled rules, ran normally, except as noted below.\n\nBitbucket Cloud\n\nScheduled pipelines due between 01:00 and about 03:50 UTC did not run. If a scheduled pipeline did not run during the incident, you can wait for the next scheduled execution or trigger it manually. Other pipeline runs were not affected.\n\n  \n\nConfluence\n\nSome calendar event reminders due between 01:00 and about 03:45 UTC were not sent.\n\n  \n\nForge apps\n\nScheduled triggers stopped at 01:00 UTC and resumed from about 04:00 UTC; missed invocations were not replayed.\n\n  \n\nGoals\n\nStart of the month email reminders to update goals could be delayed.\n\n  \n\nJira and Jira Service Management\n\nIncoming emails stayed in their mailboxes and were processed automatically after recovery. Scheduled notifications, such as filter subscriptions, were delayed. In some service projects, automation rules and notifications triggered by SLAs or time in status ran late. SLA timer data remained intact.\n\n  \n\nAtlassian Support\n\nUntil 07:25 UTC, issues with our support tools may have slowed some of our responses.\n\nBased on our investigation to date, we have not identified any loss of work items, pages, repositories, or incoming emails.\n\n  \n\n### ROOT CAUSE\n\nOur shared job scheduling platform operates at high scale under normal conditions. One of the platform consumers scheduled an abnormally high volume of tasks to be executed at the same time on October 1st at 01:00 UTC. This order-of-magnitude surge exceeded our architectural and scaling limits, creating a processing backlog across dependent services. Engineering manually increased capacity to handle the abnormal load, enabling the service to process the backlog and return to normal operations.\n\n  \n\n### REMEDIAL ACTIONS PLAN & NEXT STEPS\n\nWe know that delayed and missed work affects your productivity. We are prioritizing these actions to help reduce the likelihood and impact of similar incidents:\n\n-   **Enhance workload isolation:** Implement fair scheduling guardrails so volume surges from a single source do not starve or delay tasks across other products.\n-   **Strengthen surge controls:** Add operational capabilities to quickly throttle or pause scheduled workloads from specific sources during unexpected traffic spikes.\n-   **Improve system scaling and recovery:** Enhance platform capacity and optimize scaling processes to handle extreme demand spikes and recover more rapidly.\n\nWe apologize to customers whose services were impacted during this incident.\n\n  \n\nThanks,\n\nAtlassian",
+          "incident_id": "vwrp378v0zmk",
+          "created_at": "2026-10-09T18:24:30.790Z",
+          "updated_at": "2026-10-09T18:24:34.311Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "lwb6ytszk2r4",
           "status": "resolved",
