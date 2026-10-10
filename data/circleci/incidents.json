@@ -4,22 +4,74 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-10-10T00:45:09.444Z"
+    "updated_at": "2026-10-10T05:20:04.196Z"
   },
   "incidents": [
     {
       "id": "6cfhhlr4rmm0",
       "name": "Delay in data appearing in UI and API",
-      "status": "identified",
+      "status": "resolved",
       "created_at": "2026-10-09T11:33:00.290Z",
-      "updated_at": "2026-10-10T00:45:09.428Z",
+      "updated_at": "2026-10-10T02:08:45.079Z",
       "monitoring_at": "2026-10-09T14:54:02.940Z",
-      "resolved_at": null,
+      "resolved_at": "2026-10-10T02:08:45.055Z",
       "impact": "major",
       "shortlink": "https://stspg.io/hkfkwz292bz8",
       "started_at": "2026-10-09T11:33:00.284Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "tc0kt3x23wgk",
+          "status": "resolved",
+          "body": "Between 11:15 UTC and 23:47 UTC on October 9, customers experienced delays and failures across pipelines, workflows and jobs, along with delays in the CircleCI UI, API and notifications.\n\nFrom 11:15 to about 13:00 UTC, pipelines were created but not processed, and outbound webhooks and Slack and email notifications were not sent. From about 13:00 to 14:40 UTC, workflows and jobs started with delays while we worked through the backlog.\n\nFrom about 15:15 to 20:48 UTC, workflows and jobs started with increasing delays, of up to about an hour, and the CircleCI UI and API fell behind by up to about 2 hours. During this time, some jobs failed to start and some in-progress workflows failed.\n\nFrom 20:48 to about 22:10 UTC, we temporarily paused starting new workflows and jobs so our systems could recover. New pipelines were accepted and queued during this time. From about 22:10 to 23:47 UTC, queued workflows and jobs resumed and were processed. Some of them had waited up to about 2 hours.\n\nThe issue has been resolved and all affected functionality has returned to normal. Usage charge data on the Project Usage page is not yet up to date and will be updated once our data backfills complete. Customers whose jobs failed during this window may rerun affected jobs. We thank you for your patience while our engineers worked on implementing a fix.",
+          "incident_id": "6cfhhlr4rmm0",
+          "created_at": "2026-10-10T02:08:45.055Z",
+          "updated_at": "2026-10-10T02:08:45.055Z",
+          "display_at": "2026-10-10T02:08:45.055Z",
+          "affected_components": [
+            {
+              "code": "sw1j7xsbdlk4",
+              "name": "CircleCI UI",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "t489m38xq83m",
+              "name": "CircleCI API",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "kx623r35xmcs",
+          "status": "monitoring",
+          "body": "Workflows and jobs are starting and running normally, and the CircleCI UI and API are up to date. We are continuing to monitor our systems closely to make sure they remain stable. \n\nWe will provide another update by 02:00 UTC.",
+          "incident_id": "6cfhhlr4rmm0",
+          "created_at": "2026-10-10T01:23:13.373Z",
+          "updated_at": "2026-10-10T01:23:13.373Z",
+          "display_at": "2026-10-10T01:23:13.373Z",
+          "affected_components": [
+            {
+              "code": "sw1j7xsbdlk4",
+              "name": "CircleCI UI",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            },
+            {
+              "code": "t489m38xq83m",
+              "name": "CircleCI API",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "1x9pgyt80fkg",
           "status": "identified",
@@ -649,9 +701,9 @@
         {
           "id": "t489m38xq83m",
           "name": "CircleCI API",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2025-05-02T13:47:11.283Z",
-          "updated_at": "2026-10-09T11:33:00.328Z",
+          "updated_at": "2026-10-10T02:08:44.983Z",
           "position": 6,
           "description": "Public facing APIs",
           "showcase": true,
@@ -664,9 +716,9 @@
         {
           "id": "sw1j7xsbdlk4",
           "name": "CircleCI UI",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2017-08-11T03:29:32.538Z",
-          "updated_at": "2026-10-09T11:33:00.495Z",
+          "updated_at": "2026-10-10T02:08:45.012Z",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -2076,9 +2128,9 @@
         {
           "id": "t489m38xq83m",
           "name": "CircleCI API",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2025-05-02T13:47:11.283Z",
-          "updated_at": "2026-10-09T11:33:00.328Z",
+          "updated_at": "2026-10-10T02:08:44.983Z",
           "position": 6,
           "description": "Public facing APIs",
           "showcase": true,
@@ -2091,9 +2143,9 @@
         {
           "id": "sw1j7xsbdlk4",
           "name": "CircleCI UI",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2017-08-11T03:29:32.538Z",
-          "updated_at": "2026-10-09T11:33:00.495Z",
+          "updated_at": "2026-10-10T02:08:45.012Z",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -2184,9 +2236,9 @@
         {
           "id": "sw1j7xsbdlk4",
           "name": "CircleCI UI",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2017-08-11T03:29:32.538Z",
-          "updated_at": "2026-10-09T11:33:00.495Z",
+          "updated_at": "2026-10-10T02:08:45.012Z",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -2390,9 +2442,9 @@
         {
           "id": "sw1j7xsbdlk4",
           "name": "CircleCI UI",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2017-08-11T03:29:32.538Z",
-          "updated_at": "2026-10-09T11:33:00.495Z",
+          "updated_at": "2026-10-10T02:08:45.012Z",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -2614,9 +2666,9 @@
         {
           "id": "t489m38xq83m",
           "name": "CircleCI API",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2025-05-02T13:47:11.283Z",
-          "updated_at": "2026-10-09T11:33:00.328Z",
+          "updated_at": "2026-10-10T02:08:44.983Z",
           "position": 6,
           "description": "Public facing APIs",
           "showcase": true,
@@ -2629,9 +2681,9 @@
         {
           "id": "sw1j7xsbdlk4",
           "name": "CircleCI UI",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2017-08-11T03:29:32.538Z",
-          "updated_at": "2026-10-09T11:33:00.495Z",
+          "updated_at": "2026-10-10T02:08:45.012Z",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -3106,9 +3158,9 @@
         {
           "id": "t489m38xq83m",
           "name": "CircleCI API",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2025-05-02T13:47:11.283Z",
-          "updated_at": "2026-10-09T11:33:00.328Z",
+          "updated_at": "2026-10-10T02:08:44.983Z",
           "position": 6,
           "description": "Public facing APIs",
           "showcase": true,
@@ -3728,9 +3780,9 @@
         {
           "id": "sw1j7xsbdlk4",
           "name": "CircleCI UI",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2017-08-11T03:29:32.538Z",
-          "updated_at": "2026-10-09T11:33:00.495Z",
+          "updated_at": "2026-10-10T02:08:45.012Z",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -4840,9 +4892,9 @@
         {
           "id": "sw1j7xsbdlk4",
           "name": "CircleCI UI",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2017-08-11T03:29:32.538Z",
-          "updated_at": "2026-10-09T11:33:00.495Z",
+          "updated_at": "2026-10-10T02:08:45.012Z",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -5013,9 +5065,9 @@
         {
           "id": "sw1j7xsbdlk4",
           "name": "CircleCI UI",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2017-08-11T03:29:32.538Z",
-          "updated_at": "2026-10-09T11:33:00.495Z",
+          "updated_at": "2026-10-10T02:08:45.012Z",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -5711,9 +5763,9 @@
         {
           "id": "t489m38xq83m",
           "name": "CircleCI API",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2025-05-02T13:47:11.283Z",
-          "updated_at": "2026-10-09T11:33:00.328Z",
+          "updated_at": "2026-10-10T02:08:44.983Z",
           "position": 6,
           "description": "Public facing APIs",
           "showcase": true,
@@ -5961,9 +6013,9 @@
         {
           "id": "t489m38xq83m",
           "name": "CircleCI API",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2025-05-02T13:47:11.283Z",
-          "updated_at": "2026-10-09T11:33:00.328Z",
+          "updated_at": "2026-10-10T02:08:44.983Z",
           "position": 6,
           "description": "Public facing APIs",
           "showcase": true,
@@ -5976,9 +6028,9 @@
         {
           "id": "sw1j7xsbdlk4",
           "name": "CircleCI UI",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2017-08-11T03:29:32.538Z",
-          "updated_at": "2026-10-09T11:33:00.495Z",
+          "updated_at": "2026-10-10T02:08:45.012Z",
           "position": 7,
           "description": null,
           "showcase": true,
@@ -6561,9 +6613,9 @@
         {
           "id": "t489m38xq83m",
           "name": "CircleCI API",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2025-05-02T13:47:11.283Z",
-          "updated_at": "2026-10-09T11:33:00.328Z",
+          "updated_at": "2026-10-10T02:08:44.983Z",
           "position": 6,
           "description": "Public facing APIs",
           "showcase": true,
