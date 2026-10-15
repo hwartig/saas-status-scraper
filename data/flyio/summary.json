@@ -3,17 +3,17 @@
     "id": "01KZSP42XPW71QZVJ4J2E597HE",
     "name": "Fly.io",
     "url": "https://status.flyio.net/",
-    "updated_at": "2026-09-30T14:33:36Z"
+    "updated_at": "2026-10-15T09:57:19Z"
   },
   "status": {
-    "description": "All Systems Operational",
-    "indicator": "none"
+    "description": "Partial System Degradation",
+    "indicator": "minor"
   },
   "components": [
     {
       "id": "01KZSP42XPZ10ERVAF4MWDQ0ND",
       "name": "Customer Applications",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2026-08-12T00:31:56Z",
       "updated_at": "2026-08-12T00:31:57Z",
       "position": 0,
@@ -31,7 +31,7 @@
     {
       "id": "01KZSP42XP9DZV774214RFFTQP",
       "name": "Machines API",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2026-08-12T00:31:56Z",
       "updated_at": "2026-08-12T00:31:56Z",
       "position": 2,
@@ -212,7 +212,7 @@
     {
       "id": "01KZSP42XPT3WRCJ0S5DJS3V93",
       "name": "Deployments",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2026-08-12T00:31:57Z",
       "updated_at": "2026-08-12T00:31:57Z",
       "position": 22,
@@ -236,6 +236,38 @@
       "updated_at": "2026-08-12T00:31:57Z",
       "position": 24,
       "page_id": "01KZSP42XPW71QZVJ4J2E597HE"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "01M4ZEBB8WHB9A0PMEG93GPFQZ",
+      "name": "Elevated errors creating apps and managing secrets",
+      "status": "monitoring",
+      "created_at": "2026-10-15T09:30:01Z",
+      "updated_at": "2026-10-15T09:57:19Z",
+      "monitoring_at": "2026-10-15T09:57:19Z",
+      "impact": "minor",
+      "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
+      "incident_updates": [
+        {
+          "id": "01M4ZFXA86B9YVPRN7VHMAYV0R",
+          "body": "We’ve applied a fix for the elevated errors affecting app creation and secrets management. Error rates and response times have returned to normal. We’re continuing to monitor to confirm the issue is fully resolved.",
+          "created_at": "2026-10-15T09:57:19Z",
+          "display_at": "2026-10-15T09:57:19Z",
+          "incident_id": "01M4ZEBB8WHB9A0PMEG93GPFQZ",
+          "status": "monitoring",
+          "updated_at": "2026-10-15T09:57:19Z"
+        },
+        {
+          "id": "01M4ZEBB8WHMVNET9NCG1GK9TR",
+          "body": "We’re seeing elevated error rates and slow responses for some operations that create or change data. Creating new apps, setting or removing secrets, and some app deletions are affected. You may see 500 or 503 errors from `flyctl`, the Machines API, or the dashboard.\n\nApps and Machines that are already running are not affected. Starting, stopping and reading existing Machines are working normally. We’re investigating and will post another update within 30 minutes.",
+          "created_at": "2026-10-15T09:30:01Z",
+          "display_at": "2026-10-15T09:30:01Z",
+          "incident_id": "01M4ZEBB8WHB9A0PMEG93GPFQZ",
+          "status": "investigating",
+          "updated_at": "2026-10-15T09:30:01Z"
+        }
+      ]
     }
   ]
 }
