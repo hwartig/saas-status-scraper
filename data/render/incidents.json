@@ -4,9 +4,217 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-10-15T19:04:34.091Z"
+    "updated_at": "2026-10-15T21:53:10.097Z"
   },
   "incidents": [
+    {
+      "id": "fb4qk5lzk1tt",
+      "name": "Dashboard not updating in real time; Some Workflows SDK requests timing out",
+      "status": "monitoring",
+      "created_at": "2026-10-15T20:58:53.080Z",
+      "updated_at": "2026-10-15T21:53:10.086Z",
+      "monitoring_at": "2026-10-15T21:53:09.191Z",
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/dz826rv93v57",
+      "started_at": "2026-10-15T20:58:53.056Z",
+      "page_id": "tyfhm2rrt1tl",
+      "incident_updates": [
+        {
+          "id": "xqrrqhkck95l",
+          "status": "monitoring",
+          "body": "Our upstream provider has resolved the issue, and affected Render services have recovered. We’re continuing to monitor.",
+          "incident_id": "fb4qk5lzk1tt",
+          "created_at": "2026-10-15T21:53:09.191Z",
+          "updated_at": "2026-10-15T21:53:10.076Z",
+          "display_at": "2026-10-15T21:53:09.191Z",
+          "affected_components": [
+            {
+              "code": "j45c7rjc3n51",
+              "name": "Render Dashboard",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "dyc6kvtf8jtz",
+              "name": "Oregon - Workflows",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "9l8tl07kxnt4",
+              "name": "Frankfurt - Workflows",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "6njp28ss6b1s",
+              "name": "Ohio - Workflows",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "j60gftn60xl0",
+              "name": "Singapore - Workflows",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "kmshk2qj63sj",
+              "name": "Virginia - Workflows",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2110851499727491451
+        },
+        {
+          "id": "67ymv298l8d0",
+          "status": "identified",
+          "body": "We've identified an issue with an upstream cloud provider that is affecting real-time updates on Render. Since approximately 19:10 UTC:\n\n- Dashboard: Deploy status, service events, and service and task run statuses may not update automatically. Refresh the page to see the current state.\n- SDK calls that wait for a task run to finish may fail with a 500 error after about 60 seconds. The task runs themselves keep running and complete normally. To check a task run's status, use GET /v1/task-runs/{taskRunId}.\n\nDeploys, running services, databases, and logs are not affected.",
+          "incident_id": "fb4qk5lzk1tt",
+          "created_at": "2026-10-15T20:58:53.307Z",
+          "updated_at": "2026-10-15T20:58:54.600Z",
+          "display_at": "2026-10-15T20:58:53.307Z",
+          "affected_components": [
+            {
+              "code": "j45c7rjc3n51",
+              "name": "Render Dashboard",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "dyc6kvtf8jtz",
+              "name": "Oregon - Workflows",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "9l8tl07kxnt4",
+              "name": "Frankfurt - Workflows",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "6njp28ss6b1s",
+              "name": "Ohio - Workflows",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "j60gftn60xl0",
+              "name": "Singapore - Workflows",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "kmshk2qj63sj",
+              "name": "Virginia - Workflows",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2110837845292433805
+        }
+      ],
+      "components": [
+        {
+          "id": "j45c7rjc3n51",
+          "name": "Render Dashboard",
+          "status": "operational",
+          "created_at": "2019-02-08T22:32:29.843Z",
+          "updated_at": "2026-10-15T21:53:09.052Z",
+          "position": 1,
+          "description": "dashboard.render.com",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "9l8tl07kxnt4",
+          "name": "Workflows",
+          "status": "operational",
+          "created_at": "2026-03-25T14:43:45.195Z",
+          "updated_at": "2026-10-15T21:53:09.076Z",
+          "position": 10,
+          "description": null,
+          "showcase": true,
+          "start_date": "2026-03-25",
+          "group_id": "wtb4wdj1f07v",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "dyc6kvtf8jtz",
+          "name": "Workflows",
+          "status": "operational",
+          "created_at": "2026-03-25T16:35:28.670Z",
+          "updated_at": "2026-10-15T21:53:09.096Z",
+          "position": 10,
+          "description": null,
+          "showcase": true,
+          "start_date": "2026-03-25",
+          "group_id": "4r7rv784cclm",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "6njp28ss6b1s",
+          "name": "Workflows",
+          "status": "operational",
+          "created_at": "2026-03-25T16:35:54.965Z",
+          "updated_at": "2026-10-15T21:53:09.114Z",
+          "position": 10,
+          "description": null,
+          "showcase": true,
+          "start_date": "2026-03-25",
+          "group_id": "kvx5yy599tcf",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "j60gftn60xl0",
+          "name": "Workflows",
+          "status": "operational",
+          "created_at": "2026-03-25T16:36:09.771Z",
+          "updated_at": "2026-10-15T21:53:09.136Z",
+          "position": 10,
+          "description": null,
+          "showcase": true,
+          "start_date": "2026-03-25",
+          "group_id": "p33qq70rxmjr",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "kmshk2qj63sj",
+          "name": "Workflows",
+          "status": "operational",
+          "created_at": "2026-03-25T16:36:21.402Z",
+          "updated_at": "2026-10-15T21:53:09.158Z",
+          "position": 10,
+          "description": null,
+          "showcase": true,
+          "start_date": "2026-03-25",
+          "group_id": "zzg2x8rs797p",
+          "page_id": "tyfhm2rrt1tl",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "8tsd93r1wbmz",
       "name": "Builds, deploys, and queued deploys are not starting in all regions",
@@ -614,7 +822,7 @@
           "name": "Render Dashboard",
           "status": "operational",
           "created_at": "2019-02-08T22:32:29.843Z",
-          "updated_at": "2026-10-14T01:14:22.525Z",
+          "updated_at": "2026-10-15T21:53:09.052Z",
           "position": 1,
           "description": "dashboard.render.com",
           "showcase": true,
@@ -1054,7 +1262,7 @@
           "name": "Workflows",
           "status": "operational",
           "created_at": "2026-03-25T16:35:28.670Z",
-          "updated_at": "2026-09-27T02:17:05.178Z",
+          "updated_at": "2026-10-15T21:53:09.096Z",
           "position": 10,
           "description": null,
           "showcase": true,
@@ -2227,7 +2435,7 @@
           "name": "Render Dashboard",
           "status": "operational",
           "created_at": "2019-02-08T22:32:29.843Z",
-          "updated_at": "2026-10-14T01:14:22.525Z",
+          "updated_at": "2026-10-15T21:53:09.052Z",
           "position": 1,
           "description": "dashboard.render.com",
           "showcase": true,
@@ -3196,7 +3404,7 @@
           "name": "Render Dashboard",
           "status": "operational",
           "created_at": "2019-02-08T22:32:29.843Z",
-          "updated_at": "2026-10-14T01:14:22.525Z",
+          "updated_at": "2026-10-15T21:53:09.052Z",
           "position": 1,
           "description": "dashboard.render.com",
           "showcase": true,
@@ -3289,7 +3497,7 @@
           "name": "Render Dashboard",
           "status": "operational",
           "created_at": "2019-02-08T22:32:29.843Z",
-          "updated_at": "2026-10-14T01:14:22.525Z",
+          "updated_at": "2026-10-15T21:53:09.052Z",
           "position": 1,
           "description": "dashboard.render.com",
           "showcase": true,
@@ -5226,7 +5434,7 @@
           "name": "Render Dashboard",
           "status": "operational",
           "created_at": "2019-02-08T22:32:29.843Z",
-          "updated_at": "2026-10-14T01:14:22.525Z",
+          "updated_at": "2026-10-15T21:53:09.052Z",
           "position": 1,
           "description": "dashboard.render.com",
           "showcase": true,
@@ -6481,7 +6689,7 @@
           "name": "Workflows",
           "status": "operational",
           "created_at": "2026-03-25T14:43:45.195Z",
-          "updated_at": "2026-05-07T02:38:26.658Z",
+          "updated_at": "2026-10-15T21:53:09.076Z",
           "position": 10,
           "description": null,
           "showcase": true,
@@ -6496,7 +6704,7 @@
           "name": "Workflows",
           "status": "operational",
           "created_at": "2026-03-25T16:35:28.670Z",
-          "updated_at": "2026-09-27T02:17:05.178Z",
+          "updated_at": "2026-10-15T21:53:09.096Z",
           "position": 10,
           "description": null,
           "showcase": true,
@@ -6511,7 +6719,7 @@
           "name": "Workflows",
           "status": "operational",
           "created_at": "2026-03-25T16:35:54.965Z",
-          "updated_at": "2026-05-07T02:38:26.694Z",
+          "updated_at": "2026-10-15T21:53:09.114Z",
           "position": 10,
           "description": null,
           "showcase": true,
@@ -6526,7 +6734,7 @@
           "name": "Workflows",
           "status": "operational",
           "created_at": "2026-03-25T16:36:09.771Z",
-          "updated_at": "2026-05-07T02:38:26.711Z",
+          "updated_at": "2026-10-15T21:53:09.136Z",
           "position": 10,
           "description": null,
           "showcase": true,
@@ -6541,7 +6749,7 @@
           "name": "Workflows",
           "status": "operational",
           "created_at": "2026-03-25T16:36:21.402Z",
-          "updated_at": "2026-05-07T02:38:26.728Z",
+          "updated_at": "2026-10-15T21:53:09.158Z",
           "position": 10,
           "description": null,
           "showcase": true,
@@ -6847,7 +7055,7 @@
           "name": "Render Dashboard",
           "status": "operational",
           "created_at": "2019-02-08T22:32:29.843Z",
-          "updated_at": "2026-10-14T01:14:22.525Z",
+          "updated_at": "2026-10-15T21:53:09.052Z",
           "position": 1,
           "description": "dashboard.render.com",
           "showcase": true,
@@ -8125,7 +8333,7 @@
           "name": "Workflows",
           "status": "operational",
           "created_at": "2026-03-25T14:43:45.195Z",
-          "updated_at": "2026-05-07T02:38:26.658Z",
+          "updated_at": "2026-10-15T21:53:09.076Z",
           "position": 10,
           "description": null,
           "showcase": true,
@@ -8728,319 +8936,6 @@
           "showcase": true,
           "start_date": "2022-01-01",
           "group_id": "kvx5yy599tcf",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "0x6pgbj95j3b",
-      "name": "Some deploys may be slow or hanging",
-      "status": "resolved",
-      "created_at": "2026-02-11T16:16:56.919Z",
-      "updated_at": "2026-02-11T19:25:23.754Z",
-      "monitoring_at": "2026-02-11T16:39:41.323Z",
-      "resolved_at": "2026-02-11T19:25:23.382Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/c102250yyl8p",
-      "started_at": "2026-02-11T16:16:56.896Z",
-      "page_id": "tyfhm2rrt1tl",
-      "incident_updates": [
-        {
-          "id": "mdllwplczv04",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "0x6pgbj95j3b",
-          "created_at": "2026-02-11T19:25:23.382Z",
-          "updated_at": "2026-02-11T19:25:23.750Z",
-          "display_at": "2026-02-11T19:25:23.382Z",
-          "affected_components": [
-            {
-              "code": "1wqcyxr2qylf",
-              "name": "Oregon - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "kdtx600d1lcv",
-              "name": "Frankfurt - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "yxcmmkkpvyd6",
-              "name": "Ohio - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "c91ssk9q1w5h",
-              "name": "Singapore - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            },
-            {
-              "code": "2yc2bkklfyb9",
-              "name": "Virginia - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2021666896899432776
-        },
-        {
-          "id": "twb09s3l609p",
-          "status": "monitoring",
-          "body": "Deploy times have decreased and failures have dropped to baseline levels. We are monitoring for other impacts or other issues.",
-          "incident_id": "0x6pgbj95j3b",
-          "created_at": "2026-02-11T19:15:34.521Z",
-          "updated_at": "2026-02-11T19:15:34.907Z",
-          "display_at": "2026-02-11T19:15:34.521Z",
-          "affected_components": [
-            {
-              "code": "1wqcyxr2qylf",
-              "name": "Oregon - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "kdtx600d1lcv",
-              "name": "Frankfurt - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "yxcmmkkpvyd6",
-              "name": "Ohio - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "c91ssk9q1w5h",
-              "name": "Singapore - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "2yc2bkklfyb9",
-              "name": "Virginia - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2021664426961813813
-        },
-        {
-          "id": "nc9zf740l8lx",
-          "status": "identified",
-          "body": "Deploy delays and failures continue to remain elevated. We are continuing to work on this issue.",
-          "incident_id": "0x6pgbj95j3b",
-          "created_at": "2026-02-11T18:24:38.459Z",
-          "updated_at": "2026-02-11T18:24:40.258Z",
-          "display_at": "2026-02-11T18:24:38.459Z",
-          "affected_components": [
-            {
-              "code": "1wqcyxr2qylf",
-              "name": "Oregon - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "kdtx600d1lcv",
-              "name": "Frankfurt - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "yxcmmkkpvyd6",
-              "name": "Ohio - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "c91ssk9q1w5h",
-              "name": "Singapore - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "2yc2bkklfyb9",
-              "name": "Virginia - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2021651614373949476
-        },
-        {
-          "id": "q8vyqysrk8m5",
-          "status": "monitoring",
-          "body": "We have implemented a mitigation and are currently observing positive results. We are continuing to monitor deploy health across the platform.",
-          "incident_id": "0x6pgbj95j3b",
-          "created_at": "2026-02-11T16:39:41.323Z",
-          "updated_at": "2026-02-11T16:39:41.641Z",
-          "display_at": "2026-02-11T16:39:41.323Z",
-          "affected_components": [
-            {
-              "code": "1wqcyxr2qylf",
-              "name": "Oregon - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "kdtx600d1lcv",
-              "name": "Frankfurt - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "yxcmmkkpvyd6",
-              "name": "Ohio - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "c91ssk9q1w5h",
-              "name": "Singapore - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "2yc2bkklfyb9",
-              "name": "Virginia - Builds and Deploys",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2021625196579590281
-        },
-        {
-          "id": "jgwwdxc10fw1",
-          "status": "investigating",
-          "body": "We are currently investigating this issue.",
-          "incident_id": "0x6pgbj95j3b",
-          "created_at": "2026-02-11T16:16:57.093Z",
-          "updated_at": "2026-02-11T16:16:57.481Z",
-          "display_at": "2026-02-11T16:16:57.093Z",
-          "affected_components": [
-            {
-              "code": "1wqcyxr2qylf",
-              "name": "Oregon - Builds and Deploys",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "kdtx600d1lcv",
-              "name": "Frankfurt - Builds and Deploys",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "yxcmmkkpvyd6",
-              "name": "Ohio - Builds and Deploys",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "c91ssk9q1w5h",
-              "name": "Singapore - Builds and Deploys",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            },
-            {
-              "code": "2yc2bkklfyb9",
-              "name": "Virginia - Builds and Deploys",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2021619474970099773
-        }
-      ],
-      "components": [
-        {
-          "id": "1wqcyxr2qylf",
-          "name": "Builds and Deploys",
-          "status": "operational",
-          "created_at": "2022-05-06T00:17:13.811Z",
-          "updated_at": "2026-10-14T22:18:11.858Z",
-          "position": 4,
-          "description": "New builds and deploys for hosted services.",
-          "showcase": true,
-          "start_date": "2022-01-01",
-          "group_id": "4r7rv784cclm",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "kdtx600d1lcv",
-          "name": "Builds and Deploys",
-          "status": "operational",
-          "created_at": "2022-05-06T00:17:50.301Z",
-          "updated_at": "2026-10-14T22:18:11.885Z",
-          "position": 4,
-          "description": "New builds and deploys for hosted services.",
-          "showcase": true,
-          "start_date": "2022-01-01",
-          "group_id": "wtb4wdj1f07v",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "c91ssk9q1w5h",
-          "name": "Builds and Deploys",
-          "status": "operational",
-          "created_at": "2022-05-06T00:18:23.505Z",
-          "updated_at": "2026-10-14T22:18:11.910Z",
-          "position": 4,
-          "description": "New builds and deploys for hosted services.",
-          "showcase": true,
-          "start_date": "2022-01-01",
-          "group_id": "p33qq70rxmjr",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "yxcmmkkpvyd6",
-          "name": "Builds and Deploys",
-          "status": "operational",
-          "created_at": "2022-05-06T00:18:52.303Z",
-          "updated_at": "2026-10-14T22:18:11.934Z",
-          "position": 4,
-          "description": "New builds and deploys for hosted services.",
-          "showcase": true,
-          "start_date": "2022-01-01",
-          "group_id": "kvx5yy599tcf",
-          "page_id": "tyfhm2rrt1tl",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "2yc2bkklfyb9",
-          "name": "Builds and Deploys",
-          "status": "operational",
-          "created_at": "2024-05-08T17:07:41.232Z",
-          "updated_at": "2026-10-14T22:18:11.959Z",
-          "position": 4,
-          "description": "New builds and deploys for hosted services.",
-          "showcase": true,
-          "start_date": "2024-04-19",
-          "group_id": "zzg2x8rs797p",
           "page_id": "tyfhm2rrt1tl",
           "group": false,
           "only_show_if_degraded": false
