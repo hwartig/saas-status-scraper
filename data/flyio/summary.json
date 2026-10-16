@@ -3,7 +3,7 @@
     "id": "01KZSP42XPW71QZVJ4J2E597HE",
     "name": "Fly.io",
     "url": "https://status.flyio.net/",
-    "updated_at": "2026-10-16T18:08:39Z"
+    "updated_at": "2026-10-16T21:11:02Z"
   },
   "status": {
     "description": "Partial System Outage",
@@ -231,7 +231,7 @@
     {
       "id": "01KZSP42XPYHJCSKKS67D4T1NG",
       "name": "Logs",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2026-08-12T00:31:57Z",
       "updated_at": "2026-08-12T00:31:57Z",
       "position": 24,
@@ -240,34 +240,59 @@
   ],
   "incidents": [
     {
-      "id": "01M52YDPQA7DB00ZB4KVCWXWF8",
-      "name": "Fly-metrics.net Grafana Dashboard Outage",
-      "status": "identified",
-      "created_at": "2026-10-16T18:08:39Z",
-      "updated_at": "2026-10-16T18:08:39Z",
-      "impact": "major",
-      "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
-      "incident_updates": [
-        {
-          "id": "01M52YDPQAHG8X9BJJW18SQTV3",
-          "body": "The fly-metrics.net hosted grafana and log search instance is currently unreachable as a result of <https://status.flyio.net/incidents/01M52RAWMVC0NKEBRDKC3VXT3K>. It will return once the host it is on is out of maintenance, approximately 20 minutes.\n\nLogs and Metrics shipped to other sources using things like Fly Telemetry or the Fly Log shipper continue to be available, only the hosted Grafana viewer is unavailable at this time. ",
-          "created_at": "2026-10-16T18:08:39Z",
-          "display_at": "2026-10-16T18:08:39Z",
-          "incident_id": "01M52YDPQA7DB00ZB4KVCWXWF8",
-          "status": "identified",
-          "updated_at": "2026-10-16T18:08:39Z"
-        }
-      ]
-    },
-    {
       "id": "01M52RAWMVC0NKEBRDKC3VXT3K",
       "name": "Platform Wide Rolling Host Reboots",
       "status": "identified",
       "created_at": "2026-10-16T16:22:15Z",
-      "updated_at": "2026-10-16T18:01:30Z",
+      "updated_at": "2026-10-16T21:11:02Z",
       "impact": "major",
       "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
       "incident_updates": [
+        {
+          "id": "01M538VN2VDP2P6C4SPJ3GWGTX",
+          "body": "Host restarts are continuing in phases across all regions - at this point, roughly 65% of all hosts across the fleet have been restarted.\n\nOnly a subset of hosts in each region will be down at each time. We expect this process to take multiple hours to complete in full, with larger regions taking the longest to complete. In general, Fly Machines should return to whatever state they were in prior to the host reboot, unless the Machine's restart policy says otherwise.\n\nRollout phases were scheduled to minimize impact to Managed Postgres Clusters within those regions; however, MPG users will likely see elevated primary <> standby switchovers during this period. \n\nWe will continue to provide updates on progress as the rollout continues.",
+          "created_at": "2026-10-16T21:11:02Z",
+          "display_at": "2026-10-16T21:11:02Z",
+          "incident_id": "01M52RAWMVC0NKEBRDKC3VXT3K",
+          "status": "identified",
+          "updated_at": "2026-10-16T21:11:02Z"
+        },
+        {
+          "id": "01M5374RH7PEASME919X9XCXCW",
+          "body": "Host restarts are continuing in phases across all regions - at this point, roughly 50% of all hosts across the fleet have been restarted.\n\nOnly a subset of hosts in each region will be down at each time. We expect this process to take multiple hours to complete in full, with larger regions taking the longest to complete. In general, Fly Machines should return to whatever state they were in prior to the host reboot, unless the Machine's restart policy says otherwise.\n\nRollout phases were scheduled to minimize impact to Managed Postgres Clusters within those regions; however, MPG users will likely see elevated primary <> standby switchovers during this period. \n\nWe will continue to provide updates on progress as the rollout continues.",
+          "created_at": "2026-10-16T20:41:03Z",
+          "display_at": "2026-10-16T20:41:03Z",
+          "incident_id": "01M52RAWMVC0NKEBRDKC3VXT3K",
+          "status": "identified",
+          "updated_at": "2026-10-16T20:41:03Z"
+        },
+        {
+          "id": "01M534SXNDZZ88D4FJAF2T8VZX",
+          "body": "Host restarts are continuing in phases across all regions - at this point, roughly 40% of all hosts across the fleet have been restarted.\n\nOnly a subset of hosts in each region will be down at each time. We expect this process to take multiple hours to complete in full, with larger regions taking the longest to complete. In general, Fly Machines should return to whatever state they were in prior to the host reboot, unless the Machine's restart policy says otherwise.\n\nRollout phases were scheduled to minimize impact to Managed Postgres Clusters within those regions; however, MPG users will likely see elevated primary <> standby switchovers during this period. \n\nWe will continue to provide updates on progress as the rollout continues.",
+          "created_at": "2026-10-16T20:00:11Z",
+          "display_at": "2026-10-16T20:00:11Z",
+          "incident_id": "01M52RAWMVC0NKEBRDKC3VXT3K",
+          "status": "identified",
+          "updated_at": "2026-10-16T20:00:11Z"
+        },
+        {
+          "id": "01M531ZNS8YMEX8D93C32HYJG1",
+          "body": "Host restarts are continuing in phases across all regions, with the second phase nearly complete - at this point, roughly 25% of all hosts across the fleet have been restarted.\n\nOnly a subset of hosts in each region will be down at each time. We expect this process to take multiple hours to complete in full, with larger regions taking the longest to complete. \n\nRollout phases were scheduled to minimize impact to Managed Postgres Clusters within those regions; however, MPG users will likely see elevated primary <> standby switchovers during this period. \n\nWe will continue to provide updates on progress as the rollout continues.",
+          "created_at": "2026-10-16T19:10:54Z",
+          "display_at": "2026-10-16T19:10:54Z",
+          "incident_id": "01M52RAWMVC0NKEBRDKC3VXT3K",
+          "status": "identified",
+          "updated_at": "2026-10-16T19:10:54Z"
+        },
+        {
+          "id": "01M52ZZCF7R0C5MW6W7VBP89S2",
+          "body": "Host restarts are continuing in phases across all regions, with the first phase nearly complete. Only a subset of hosts in each region will be down at each time. We expect this process to take multiple hours to complete in full, with larger regions taking the longest to complete. \n\nRollout phases were scheduled to minimize impact to Managed Postgres Clusters within those regions; however, MPG users will likely see elevated primary <> standby switchovers during this period. \n\nWe will continue to provide updates on progress as the rollout continues.",
+          "created_at": "2026-10-16T18:35:47Z",
+          "display_at": "2026-10-16T18:35:47Z",
+          "incident_id": "01M52RAWMVC0NKEBRDKC3VXT3K",
+          "status": "identified",
+          "updated_at": "2026-10-16T18:35:47Z"
+        },
         {
           "id": "01M52Y0KNRV366TYQ7M60SJPQC",
           "body": "Host restarts are continuing in phases across all regions. Only a subset of hosts in each region will be down at each time. We expect this process to take multiple hours to complete in full, with larger regions taking the longest to complete. \n\nRollout phases were scheduled to minimize impact to Managed Postgres Clusters within those regions, however MPG users will likely see elevated primary <> standby switchovers during this period. \n\nWe will provide further updates on progress as the rollout continues.",
