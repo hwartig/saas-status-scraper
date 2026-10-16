@@ -3,9 +3,76 @@
     "id": "01KZSP42XPW71QZVJ4J2E597HE",
     "name": "Fly.io",
     "url": "https://status.flyio.net/",
-    "updated_at": "2026-10-15T11:33:46Z"
+    "updated_at": "2026-10-16T18:08:39Z"
   },
   "incidents": [
+    {
+      "id": "01M52YDPQA7DB00ZB4KVCWXWF8",
+      "name": "Fly-metrics.net Grafana Dashboard Outage",
+      "status": "identified",
+      "created_at": "2026-10-16T18:08:39Z",
+      "updated_at": "2026-10-16T18:08:39Z",
+      "impact": "major",
+      "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
+      "incident_updates": [
+        {
+          "id": "01M52YDPQAHG8X9BJJW18SQTV3",
+          "body": "The fly-metrics.net hosted grafana and log search instance is currently unreachable as a result of <https://status.flyio.net/incidents/01M52RAWMVC0NKEBRDKC3VXT3K>. It will return once the host it is on is out of maintenance, approximately 20 minutes.\n\nLogs and Metrics shipped to other sources using things like Fly Telemetry or the Fly Log shipper continue to be available, only the hosted Grafana viewer is unavailable at this time. ",
+          "created_at": "2026-10-16T18:08:39Z",
+          "display_at": "2026-10-16T18:08:39Z",
+          "incident_id": "01M52YDPQA7DB00ZB4KVCWXWF8",
+          "status": "identified",
+          "updated_at": "2026-10-16T18:08:39Z"
+        }
+      ]
+    },
+    {
+      "id": "01M52RAWMVC0NKEBRDKC3VXT3K",
+      "name": "Platform Wide Rolling Host Reboots",
+      "status": "identified",
+      "created_at": "2026-10-16T16:22:15Z",
+      "updated_at": "2026-10-16T18:01:30Z",
+      "impact": "major",
+      "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
+      "incident_updates": [
+        {
+          "id": "01M52Y0KNRV366TYQ7M60SJPQC",
+          "body": "Host restarts are continuing in phases across all regions. Only a subset of hosts in each region will be down at each time. We expect this process to take multiple hours to complete in full, with larger regions taking the longest to complete. \n\nRollout phases were scheduled to minimize impact to Managed Postgres Clusters within those regions, however MPG users will likely see elevated primary <> standby switchovers during this period. \n\nWe will provide further updates on progress as the rollout continues.",
+          "created_at": "2026-10-16T18:01:30Z",
+          "display_at": "2026-10-16T18:01:30Z",
+          "incident_id": "01M52RAWMVC0NKEBRDKC3VXT3K",
+          "status": "identified",
+          "updated_at": "2026-10-16T18:01:30Z"
+        },
+        {
+          "id": "01M52TFGHB8V8M8FAGDGJKXSBY",
+          "body": "Rolling host restarts are beginning in all regions. \n\nMachines, volumes, and MPG instances will be unavailable for approximately 15-20 minutes when their hosts are restarted during this process.\n\nUsers should expect a period of disruption or downtime for their apps during this, especially if they are running on a single machine.\n\nWe will provide further updates as the rollout progresses. ",
+          "created_at": "2026-10-16T16:59:44Z",
+          "display_at": "2026-10-16T16:59:44Z",
+          "incident_id": "01M52RAWMVC0NKEBRDKC3VXT3K",
+          "status": "identified",
+          "updated_at": "2026-10-16T16:59:44Z"
+        },
+        {
+          "id": "01M52SY0FKPTAHCCM6WW3Z6DDB",
+          "body": "We are beginning the rolling restart process of all hosts, beginning with the YYZ region. Machines, volumes, and MPG instances on hosts being rebooted will be unavailable for approximately 15-20 minutes during the restart.\n\nWe will provide further updates as the rollout progresses.",
+          "created_at": "2026-10-16T16:50:11Z",
+          "display_at": "2026-10-16T16:50:11Z",
+          "incident_id": "01M52RAWMVC0NKEBRDKC3VXT3K",
+          "status": "identified",
+          "updated_at": "2026-10-16T16:50:11Z"
+        },
+        {
+          "id": "01M52RAWMVT5XTH244AG8NSYB8",
+          "body": "We will be imminently applying rolling restarts across all hosts in our fleet for a critical maintenance. Customer Machines, volumes, and MPG cluster instances on each host will be unavailable while their host reboots.\n\nEach host will be unavailable for 15 - 20 minutes during the restart, and multiple hosts in a region may be down at once. Users should expect a period of downtime or disruption for their apps, especially if they are running on a single machine.\n\nWe are aiming for the highest possible uptime during the rollout, while ensuring this is completed quickly.\n\nWe will provide a further update once we begin the restart process.",
+          "created_at": "2026-10-16T16:22:16Z",
+          "display_at": "2026-10-16T16:22:15Z",
+          "incident_id": "01M52RAWMVC0NKEBRDKC3VXT3K",
+          "status": "identified",
+          "updated_at": "2026-10-16T16:22:16Z"
+        }
+      ]
+    },
     {
       "id": "01M4ZEBB8WHB9A0PMEG93GPFQZ",
       "name": "Elevated errors creating apps and managing secrets",
@@ -943,66 +1010,6 @@
           "created_at": "2026-08-31T16:11:41Z",
           "display_at": "2026-08-31T15:30:00Z",
           "incident_id": "01M1C9EEQ9TG2S8R1961G7Y482",
-          "status": "resolved",
-          "updated_at": "2026-09-30T14:16:33Z"
-        }
-      ]
-    },
-    {
-      "id": "01M1BAG4A5G90CGJC8WMGC8VW9",
-      "name": "Packet loss in ORD",
-      "status": "resolved",
-      "created_at": "2026-08-31T07:10:50Z",
-      "updated_at": "2026-09-30T14:16:33Z",
-      "resolved_at": "2026-08-31T08:10:37Z",
-      "impact": "minor",
-      "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
-      "incident_updates": [
-        {
-          "id": "01M1BHAD24RPWCSZP67NBJD2N9",
-          "body": "This incident has been resolved.",
-          "created_at": "2026-08-31T09:10:02Z",
-          "display_at": "2026-08-31T08:10:37Z",
-          "incident_id": "01M1BAG4A5G90CGJC8WMGC8VW9",
-          "status": "resolved",
-          "updated_at": "2026-09-30T14:16:33Z"
-        },
-        {
-          "id": "01M1BDW5HKZTBVVDC4D5VWH1XB",
-          "body": "Packet loss in ORD is improving and impacted services are recovering; we’re continuing to monitor for intermittent issues",
-          "created_at": "2026-08-31T08:09:50Z",
-          "display_at": "2026-08-31T07:39:43Z",
-          "incident_id": "01M1BAG4A5G90CGJC8WMGC8VW9",
-          "status": "monitoring",
-          "updated_at": "2026-09-30T14:16:33Z"
-        },
-        {
-          "id": "01M1BAG4A5JESSJDJEVKXBWCFP",
-          "body": "Due to an upstream provider, we are seeing ~50% packet loss on a subset of hosts in ORD. Some MPG clusters in ORD are slow to replicate as a result.",
-          "created_at": "2026-08-31T07:10:50Z",
-          "display_at": "2026-08-31T06:26:25Z",
-          "incident_id": "01M1BAG4A5G90CGJC8WMGC8VW9",
-          "status": "investigating",
-          "updated_at": "2026-09-30T14:16:33Z"
-        }
-      ]
-    },
-    {
-      "id": "01M1AEVPBJ66ACN7Y4NJM8JE2Y",
-      "name": "Sprite deletion jobs failing",
-      "status": "resolved",
-      "created_at": "2026-08-30T23:07:48Z",
-      "updated_at": "2026-09-30T14:16:33Z",
-      "resolved_at": "2026-08-30T22:45:04Z",
-      "impact": "none",
-      "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
-      "incident_updates": [
-        {
-          "id": "01M1AEVPBJVG7M58E1DP5QY6G9",
-          "body": "We saw Sprite deletion jobs failing between 21:18 and 22:05 UTC. This issue has been resolved.",
-          "created_at": "2026-08-30T23:07:49Z",
-          "display_at": "2026-08-30T22:45:04Z",
-          "incident_id": "01M1AEVPBJ66ACN7Y4NJM8JE2Y",
           "status": "resolved",
           "updated_at": "2026-09-30T14:16:33Z"
         }
