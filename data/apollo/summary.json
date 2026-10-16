@@ -3,7 +3,7 @@
     "id": "01JP7XTY7X5FN8960B9XM5EXHT",
     "name": "Apollo Graph",
     "url": "https://status.apollographql.com/",
-    "updated_at": "2026-09-04T12:11:11Z"
+    "updated_at": "2026-10-16T05:44:18Z"
   },
   "status": {
     "description": "All Systems Operational",
@@ -15,9 +15,19 @@
       "name": "Uplink",
       "status": "operational",
       "created_at": "2025-03-13T14:16:51Z",
-      "updated_at": "2026-09-04T12:11:11Z",
+      "updated_at": "2026-10-16T05:44:18Z",
       "position": 0,
-      "description": "GraphOS Managed Supergraph Delivery. Apollo Router and Apollo Gateway use Uplink to fetch supergraphs from the Apollo registry.",
+      "description": "GraphOS Managed Delivery for Supergraphs and Persisted Query manifests. Uplink is no longer default for Apollo Router 3.x (replaced by Graph Artifacts), but remains the default for Router 1.x, Router 2.x and all versions of Gateway.",
+      "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
+    },
+    {
+      "id": "01M51KTR6V6V6TQ83ZDR41B0G7",
+      "name": "Graph Artifacts",
+      "status": "operational",
+      "created_at": "2026-10-16T05:44:18Z",
+      "updated_at": "2026-10-16T05:44:18Z",
+      "position": 1,
+      "description": "The Apollo OCI-compliant artifact registry hosting artifacts downloaded by Apollo Router instances configured to use it rather than Uplink (default in Router 3.x, opt-in in Router 2.x)",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
     },
     {
@@ -25,9 +35,9 @@
       "name": "Metrics Ingestion",
       "status": "operational",
       "created_at": "2025-03-13T14:16:51Z",
-      "updated_at": "2026-09-04T12:11:11Z",
-      "position": 1,
-      "description": "The metrics ingestion pipeline that deployed Apollo Router and Apollo Server instances transmit to.  These enable support of Studio analytics and other features.",
+      "updated_at": "2026-10-16T05:44:18Z",
+      "position": 2,
+      "description": "The metrics ingestion pipeline that deployed Apollo Router and Apollo Server instances transmit to.  These metrics power Insights.  Downstream of Insights, these are used for Schema Checks.",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
     },
     {
@@ -35,9 +45,9 @@
       "name": "Schema Publishing",
       "status": "operational",
       "created_at": "2025-03-13T14:16:51Z",
-      "updated_at": "2026-09-04T12:11:11Z",
-      "position": 2,
-      "description": "The Schema Publishing feature which is leveraged by tools like Server auto-reporting, `rover graph publish`, and `rover subgraph publish`.",
+      "updated_at": "2026-10-16T05:44:18Z",
+      "position": 3,
+      "description": "Schema Publishing workflows are on the receiving end of `rover graph publish`, and `rover subgraph publish` actions, in addition to Apollo Server schema auto-reporting.",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
     },
     {
@@ -45,8 +55,8 @@
       "name": "Schema Checks",
       "status": "operational",
       "created_at": "2025-03-13T14:16:51Z",
-      "updated_at": "2026-09-04T12:11:11Z",
-      "position": 3,
+      "updated_at": "2026-10-16T05:44:18Z",
+      "position": 4,
       "description": "The Schema Checks feature enabling user workflows for commands like `rover graph check`, and `rover subgraph check`.",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
     },
@@ -55,8 +65,8 @@
       "name": "Schema Proposals",
       "status": "operational",
       "created_at": "2026-07-09T14:29:15Z",
-      "updated_at": "2026-09-04T12:11:11Z",
-      "position": 4,
+      "updated_at": "2026-10-16T05:44:18Z",
+      "position": 5,
       "description": "Workflows and services which directly impact the Schema Proposals experience.",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
     },
@@ -65,18 +75,18 @@
       "name": "Notifications",
       "status": "operational",
       "created_at": "2025-03-13T14:16:51Z",
-      "updated_at": "2026-09-04T12:11:11Z",
-      "position": 5,
+      "updated_at": "2026-10-16T05:44:18Z",
+      "position": 6,
       "description": "This includes features like Slack, Webhooks, and Emails.",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
     },
     {
       "id": "01JP7XTY7XRNSG0V7YPFMCVJXM",
-      "name": "Insights Dashboard",
+      "name": "Insights",
       "status": "operational",
       "created_at": "2025-03-13T14:16:51Z",
-      "updated_at": "2026-09-04T12:11:11Z",
-      "position": 6,
+      "updated_at": "2026-10-16T05:44:18Z",
+      "position": 7,
       "description": "The features of Apollo Studio that power viewing usage of your graph. This includes the fields page, clients page, operations page, and certain screens within other main tabs of the Studio application.",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
     },
@@ -85,9 +95,9 @@
       "name": "GraphQL API",
       "status": "operational",
       "created_at": "2025-03-13T14:16:51Z",
-      "updated_at": "2026-09-04T12:11:11Z",
-      "position": 7,
-      "description": "The API that supports reading metrics, schemas, client metadata, publishing and validating schemas.",
+      "updated_at": "2026-10-16T05:44:18Z",
+      "position": 8,
+      "description": "The API that supports reading metrics, schemas, client metadata, publishing and validating schemas.  Impact to these APIs can also affect Studio and Rover as consumers of the API.",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
     },
     {
@@ -95,19 +105,9 @@
       "name": "Installer CDN",
       "status": "operational",
       "created_at": "2025-03-13T14:16:51Z",
-      "updated_at": "2026-09-04T12:11:11Z",
-      "position": 8,
-      "description": "CDN which serves Rover CLI and Router runtime binaries",
-      "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
-    },
-    {
-      "id": "01JP7XTY7X76RRWHW5J5CF4K5E",
-      "name": "Homepage, Documentation and Blogs",
-      "status": "operational",
-      "created_at": "2025-03-13T14:16:51Z",
-      "updated_at": "2026-09-04T12:11:11Z",
+      "updated_at": "2026-10-16T05:44:18Z",
       "position": 9,
-      "description": "This includes the homepage (www.apollographql.com), docs content, and blog content.",
+      "description": "CDN which serves Rover CLI and Router runtime binaries",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
     },
     {
@@ -115,7 +115,7 @@
       "name": "Odyssey",
       "status": "operational",
       "created_at": "2025-03-13T14:16:51Z",
-      "updated_at": "2026-09-04T12:11:11Z",
+      "updated_at": "2026-10-16T05:44:18Z",
       "position": 10,
       "description": "Apollo's Learning Platform",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
@@ -125,7 +125,7 @@
       "name": "Studio UI",
       "status": "operational",
       "created_at": "2025-03-13T14:16:51Z",
-      "updated_at": "2026-09-04T12:11:11Z",
+      "updated_at": "2026-10-16T05:44:18Z",
       "position": 11,
       "description": "General availability of the GraphOS Studio user interface unrelated to specific sub-sections",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
@@ -135,9 +135,19 @@
       "name": "Datadog Forwarding",
       "status": "operational",
       "created_at": "2025-03-13T14:16:51Z",
-      "updated_at": "2026-09-04T12:11:11Z",
+      "updated_at": "2026-10-16T05:44:18Z",
       "position": 12,
       "description": "A feature of Apollo Studio that allows users to forward metrics observed via Apollo's telemetry pipeline to their Datadog instance(s).",
+      "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
+    },
+    {
+      "id": "01JP7XTY7X76RRWHW5J5CF4K5E",
+      "name": "Homepage, Documentation and Blogs",
+      "status": "operational",
+      "created_at": "2025-03-13T14:16:51Z",
+      "updated_at": "2026-10-16T05:44:18Z",
+      "position": 13,
+      "description": "This includes the homepage (www.apollographql.com), docs content, and blog content.",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
     },
     {
@@ -145,8 +155,8 @@
       "name": "Transactional Emails",
       "status": "operational",
       "created_at": "2026-07-09T14:29:16Z",
-      "updated_at": "2026-09-04T12:11:11Z",
-      "position": 13,
+      "updated_at": "2026-10-16T05:44:18Z",
+      "position": 14,
       "description": "Emails sent as part of GraphOS operations (proposals, password resets, etc.)",
       "page_id": "01JP7XTY7X5FN8960B9XM5EXHT"
     }
