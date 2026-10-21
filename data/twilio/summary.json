@@ -4,7 +4,7 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-10-20T14:34:05.778-07:00"
+    "updated_at": "2026-10-20T16:30:07.886-07:00"
   },
   "components": [
     {
@@ -2405,9 +2405,9 @@
     {
       "id": "9z5gsqyjs4rl",
       "name": "SMS, Middle East & Africa",
-      "status": "degraded_performance",
+      "status": "operational",
       "created_at": "2023-03-23T22:59:03.032-07:00",
-      "updated_at": "2026-10-20T13:45:24.945-07:00",
+      "updated_at": "2026-10-20T15:32:13.311-07:00",
       "position": 16,
       "description": null,
       "showcase": false,
@@ -2577,9 +2577,9 @@
     {
       "id": "fsxs9n9yf4m7",
       "name": "Lookup Identity Match",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2022-12-06T16:21:46.337-08:00",
-      "updated_at": "2026-10-19T21:15:07.312-07:00",
+      "updated_at": "2026-10-20T15:20:07.521-07:00",
       "position": 18,
       "description": null,
       "showcase": false,
@@ -2782,9 +2782,9 @@
     {
       "id": "q0hp6vfr4vvh",
       "name": "Lookup SIM Swap",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2022-12-06T16:22:32.133-08:00",
-      "updated_at": "2026-10-18T19:30:07.383-07:00",
+      "updated_at": "2026-10-20T15:20:07.609-07:00",
       "position": 21,
       "description": null,
       "showcase": false,
@@ -2827,9 +2827,9 @@
     {
       "id": "qt4vzyg2g7b4",
       "name": "Legacy Identity MatchAndAttributes",
-      "status": "operational",
+      "status": "under_maintenance",
       "created_at": "2022-12-06T16:22:47.060-08:00",
-      "updated_at": "2026-10-19T21:15:07.384-07:00",
+      "updated_at": "2026-10-20T15:20:07.686-07:00",
       "position": 22,
       "description": null,
       "showcase": false,
@@ -2844,7 +2844,7 @@
       "name": "Programmable Messaging API",
       "status": "operational",
       "created_at": "2025-11-12T13:33:38.379-08:00",
-      "updated_at": "2026-10-05T04:04:09.321-07:00",
+      "updated_at": "2026-10-20T16:30:07.413-07:00",
       "position": 22,
       "description": null,
       "showcase": true,
@@ -3089,9 +3089,9 @@
     {
       "id": "jxwpmxklv6b7",
       "name": "WhatsApp Embedded Signup Configuration Failures",
-      "status": "investigating",
+      "status": "identified",
       "created_at": "2026-10-20T08:43:48.661-07:00",
-      "updated_at": "2026-10-20T14:32:38.136-07:00",
+      "updated_at": "2026-10-20T15:50:54.218-07:00",
       "monitoring_at": null,
       "resolved_at": null,
       "impact": "minor",
@@ -3099,6 +3099,66 @@
       "started_at": "2026-10-20T08:43:48.650-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "4t5hlzrtnq4c",
+          "status": "identified",
+          "body": "We have identified the issue of users being unable to select an existing WhatsApp Business Account during WhatsApp Embedded Signup when configuring WhatsApp senders. Customers can still create a new WhatsApp Business Account, and as a workaround, customers may search by the WhatsApp Business Account name or a connected phone number instead of the account ID. We are updating customer guidance to reflect this experience. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "jxwpmxklv6b7",
+          "created_at": "2026-10-20T15:50:54.214-07:00",
+          "updated_at": "2026-10-20T15:50:54.214-07:00",
+          "display_at": "2026-10-20T15:50:54.214-07:00",
+          "affected_components": [
+            {
+              "code": "1gkv0mxhzsjv",
+              "name": "PROGRAMMABLE MESSAGING - WhatsApp Messaging",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "4q5zlbz9rgmn",
+          "status": "identified",
+          "body": "We have identified the issue of customers being unable to select an existing WhatsApp Business Account during WhatsApp Embedded Signup when configuring WhatsApp senders. Customers can still create a new WhatsApp Business Account, but adding senders to an existing account may continue to be affected. As a workaround, customers may search by their WhatsApp Business Account name or a phone number associated with the account. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "jxwpmxklv6b7",
+          "created_at": "2026-10-20T14:50:23.687-07:00",
+          "updated_at": "2026-10-20T14:50:23.687-07:00",
+          "display_at": "2026-10-20T14:50:23.687-07:00",
+          "affected_components": [
+            {
+              "code": "1gkv0mxhzsjv",
+              "name": "PROGRAMMABLE MESSAGING - WhatsApp Messaging",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "80qy0lbq30cy",
+          "status": "investigating",
+          "body": "We are investigating an issue with WhatsApp Embedded Signup. Users may be unable to select an existing WhatsApp Business Account during embedded signup when configuring WhatsApp senders. Customers can still create a new WhatsApp Business Account, but adding senders to an existing account may be affected. As a workaround, customers may search using the WhatsApp Business Account name or a connected phone number instead of the account ID. We will provide another update in 15 minutes or as soon as more information becomes available.",
+          "incident_id": "jxwpmxklv6b7",
+          "created_at": "2026-10-20T14:48:20.899-07:00",
+          "updated_at": "2026-10-20T14:48:20.899-07:00",
+          "display_at": "2026-10-20T14:48:20.899-07:00",
+          "affected_components": [
+            {
+              "code": "1gkv0mxhzsjv",
+              "name": "PROGRAMMABLE MESSAGING - WhatsApp Messaging",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "512jytmf4y56",
           "status": "investigating",
@@ -3461,17 +3521,57 @@
     },
     {
       "id": "pwfkkq1r3jgd",
-      "name": "SMS Delivery Failures from a Subset of Twilio Alphanumeric Sender Type to Etisalat United Arab Emirates",
-      "status": "identified",
+      "name": "SMS Delivery Failures from a Subset of Twilio Alphanumeric Sender IDs to United Arab Emirates",
+      "status": "monitoring",
       "created_at": "2026-10-20T13:45:24.899-07:00",
-      "updated_at": "2026-10-20T14:04:55.435-07:00",
-      "monitoring_at": null,
+      "updated_at": "2026-10-20T15:32:13.394-07:00",
+      "monitoring_at": "2026-10-20T15:32:13.366-07:00",
       "resolved_at": null,
       "impact": "minor",
       "shortlink": "https://stspg.io/z5lcq64gvftr",
       "started_at": "2026-10-20T13:45:24.891-07:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "lf799gdvx9zq",
+          "status": "monitoring",
+          "body": "We have observed a recovery in SMS delivery from a subset of Twilio Alphanumeric Sender IDs to the United Arab Emirates and are monitoring service stability. We will provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "pwfkkq1r3jgd",
+          "created_at": "2026-10-20T15:32:13.366-07:00",
+          "updated_at": "2026-10-20T15:32:13.366-07:00",
+          "display_at": "2026-10-20T15:32:13.366-07:00",
+          "affected_components": [
+            {
+              "code": "9z5gsqyjs4rl",
+              "name": "CARRIER NETWORK - SMS, Middle East & Africa",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "k8qtym1mttyp",
+          "status": "identified",
+          "body": "Twilio customers may be experiencing SMS delivery failures from a subset of Twilio Alphanumeric Sender Type to the United Arab Emirates. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
+          "incident_id": "pwfkkq1r3jgd",
+          "created_at": "2026-10-20T15:08:34.660-07:00",
+          "updated_at": "2026-10-20T15:08:34.660-07:00",
+          "display_at": "2026-10-20T15:08:34.660-07:00",
+          "affected_components": [
+            {
+              "code": "9z5gsqyjs4rl",
+              "name": "CARRIER NETWORK - SMS, Middle East & Africa",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "zcx9tx1q3jc3",
           "status": "identified",
@@ -3517,9 +3617,9 @@
         {
           "id": "9z5gsqyjs4rl",
           "name": "SMS, Middle East & Africa",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2023-03-23T22:59:03.032-07:00",
-          "updated_at": "2026-10-20T13:45:24.945-07:00",
+          "updated_at": "2026-10-20T15:32:13.311-07:00",
           "position": 16,
           "description": null,
           "showcase": false,
@@ -6573,182 +6673,6 @@
   ],
   "scheduled_maintenances": [
     {
-      "id": "mhqvjmpkv37z",
-      "name": "United Kingdom Account Security Carrier Partner Maintenance - Vodafone",
-      "status": "scheduled",
-      "created_at": "2026-10-20T05:08:07.678-07:00",
-      "updated_at": "2026-10-20T14:20:08.963-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/5wht3vhwv2gv",
-      "started_at": "2026-10-20T05:08:07.669-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "rz09mz3cjhd4",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "mhqvjmpkv37z",
-          "created_at": "2026-10-20T14:20:08.730-07:00",
-          "updated_at": "2026-10-20T14:20:08.730-07:00",
-          "display_at": "2026-10-20T14:20:08.730-07:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "d9pht38s1qsg",
-          "status": "scheduled",
-          "body": "<p>Our carrier partner Vodafone United Kingdom is conducting a planned maintenance from 20 October 2026 at 15:20 PDT until 20 October 2026 at 18:45 PDT. During the maintenance window, there could be intermittent API request failures for Vodafone United Kingdom customers.</p>\n\n<p>Impacted Products: Legacy Identity MatchAndAttributes, Lookup Identity Match, Lookup SIM Swap</p>\n\n<p>We are aware of the short notice and are working with our Carrier Partners to provide earlier notification where possible.</p>",
-          "incident_id": "mhqvjmpkv37z",
-          "created_at": "2026-10-20T05:08:07.743-07:00",
-          "updated_at": "2026-10-20T05:08:07.743-07:00",
-          "display_at": "2026-10-20T05:08:07.743-07:00",
-          "affected_components": [
-            {
-              "code": "fsxs9n9yf4m7",
-              "name": "CARRIER NETWORK - Lookup Identity Match",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "q0hp6vfr4vvh",
-              "name": "CARRIER NETWORK - Lookup SIM Swap",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "qt4vzyg2g7b4",
-              "name": "CARRIER NETWORK - Legacy Identity MatchAndAttributes",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "fsxs9n9yf4m7",
-          "name": "Lookup Identity Match",
-          "status": "operational",
-          "created_at": "2022-12-06T16:21:46.337-08:00",
-          "updated_at": "2026-10-19T21:15:07.312-07:00",
-          "position": 18,
-          "description": null,
-          "showcase": false,
-          "start_date": "2022-12-06",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "q0hp6vfr4vvh",
-          "name": "Lookup SIM Swap",
-          "status": "operational",
-          "created_at": "2022-12-06T16:22:32.133-08:00",
-          "updated_at": "2026-10-18T19:30:07.383-07:00",
-          "position": 21,
-          "description": null,
-          "showcase": false,
-          "start_date": "2022-12-06",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "qt4vzyg2g7b4",
-          "name": "Legacy Identity MatchAndAttributes",
-          "status": "operational",
-          "created_at": "2022-12-06T16:22:47.060-08:00",
-          "updated_at": "2026-10-19T21:15:07.384-07:00",
-          "position": 22,
-          "description": null,
-          "showcase": false,
-          "start_date": "2022-12-06",
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-10-20T15:20:00.000-07:00",
-      "scheduled_until": "2026-10-20T18:45:00.000-07:00"
-    },
-    {
-      "id": "hhczgl7xnfxv",
-      "name": "Twilio Infrastructure Maintenance on the London (IE1) PoP",
-      "status": "scheduled",
-      "created_at": "2026-10-11T15:28:14.556-07:00",
-      "updated_at": "2026-10-20T14:30:07.899-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/t39bd8q2mw5z",
-      "started_at": "2026-10-11T15:28:14.546-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "1rhcrkrq7p86",
-          "status": "scheduled",
-          "body": "Maintenance will begin as scheduled in 60 minutes.",
-          "incident_id": "hhczgl7xnfxv",
-          "created_at": "2026-10-20T14:30:07.477-07:00",
-          "updated_at": "2026-10-20T14:30:07.477-07:00",
-          "display_at": "2026-10-20T14:30:07.477-07:00",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "xmc295ddxvmf",
-          "status": "scheduled",
-          "body": "Twilio will conduct infrastructure maintenance on the London (IE1) PoP on October 20, 2026, from 3:30pm PDT until 4:30pm PDT. Overall service impact is expected to be minimal. However, there could be intermittent message delivery failures and delivery delays during traffic reconvergence for traffic routing to and from Twilio’s IE1/London edge location.",
-          "incident_id": "hhczgl7xnfxv",
-          "created_at": "2026-10-11T15:28:14.816-07:00",
-          "updated_at": "2026-10-11T15:28:14.816-07:00",
-          "display_at": "2026-10-11T15:28:14.816-07:00",
-          "affected_components": [
-            {
-              "code": "x3z86l06nvl7",
-              "name": "PROGRAMMABLE MESSAGING - Programmable Messaging API",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "x3z86l06nvl7",
-          "name": "Programmable Messaging API",
-          "status": "operational",
-          "created_at": "2025-11-12T13:33:38.379-08:00",
-          "updated_at": "2026-10-05T04:04:09.321-07:00",
-          "position": 22,
-          "description": null,
-          "showcase": true,
-          "start_date": "2025-11-12",
-          "group_id": "s2k3h0mkqnth",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-10-20T15:30:00.000-07:00",
-      "scheduled_until": "2026-10-20T16:30:00.000-07:00"
-    },
-    {
       "id": "0dm1nlny4w0t",
       "name": "United States SMS and MMS Carrier Maintenance - T-Mobile",
       "status": "scheduled",
@@ -6936,9 +6860,9 @@
         {
           "id": "fsxs9n9yf4m7",
           "name": "Lookup Identity Match",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2022-12-06T16:21:46.337-08:00",
-          "updated_at": "2026-10-19T21:15:07.312-07:00",
+          "updated_at": "2026-10-20T15:20:07.521-07:00",
           "position": 18,
           "description": null,
           "showcase": false,
@@ -6951,9 +6875,9 @@
         {
           "id": "q0hp6vfr4vvh",
           "name": "Lookup SIM Swap",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2022-12-06T16:22:32.133-08:00",
-          "updated_at": "2026-10-18T19:30:07.383-07:00",
+          "updated_at": "2026-10-20T15:20:07.609-07:00",
           "position": 21,
           "description": null,
           "showcase": false,
@@ -6966,9 +6890,9 @@
         {
           "id": "qt4vzyg2g7b4",
           "name": "Legacy Identity MatchAndAttributes",
-          "status": "operational",
+          "status": "under_maintenance",
           "created_at": "2022-12-06T16:22:47.060-08:00",
-          "updated_at": "2026-10-19T21:15:07.384-07:00",
+          "updated_at": "2026-10-20T15:20:07.686-07:00",
           "position": 22,
           "description": null,
           "showcase": false,
@@ -6981,6 +6905,60 @@
       ],
       "scheduled_for": "2026-10-20T21:30:00.000-07:00",
       "scheduled_until": "2026-10-20T23:00:00.000-07:00"
+    },
+    {
+      "id": "kjdmqn82k288",
+      "name": "United States MMS Carrier Partner Maintenance",
+      "status": "scheduled",
+      "created_at": "2026-10-20T15:49:17.147-07:00",
+      "updated_at": "2026-10-20T15:49:17.209-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/pktt6q31fq8v",
+      "started_at": "2026-10-20T15:49:17.140-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "pnrpc5mh5vf4",
+          "status": "scheduled",
+          "body": "<p>Our MMS carrier partner in the United States is conducting a planned maintenance from 20 October 2026 at 23:00 PDT until 21 October 2026 at 03:00 PDT. During the maintenance window, there could be intermittent delays delivering MMS to and from United States handsets via subset of United States short codes.</p>\n\n<p>We are aware of the short notice and are working with our Carrier Partners to provide earlier notification where possible.</p>",
+          "incident_id": "kjdmqn82k288",
+          "created_at": "2026-10-20T15:49:17.206-07:00",
+          "updated_at": "2026-10-20T15:49:17.206-07:00",
+          "display_at": "2026-10-20T15:49:17.206-07:00",
+          "affected_components": [
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "under_maintenance",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "h0fl7prwfhvm",
+          "name": "MMS Short Code, North America",
+          "status": "under_maintenance",
+          "created_at": "2019-01-10T08:52:12.896-08:00",
+          "updated_at": "2026-10-20T14:00:10.885-07:00",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-10-20T23:00:00.000-07:00",
+      "scheduled_until": "2026-10-21T03:00:00.000-07:00"
     },
     {
       "id": "1679p8838x92",
@@ -7361,6 +7339,81 @@
       "scheduled_until": "2026-10-21T17:00:00.000-07:00"
     },
     {
+      "id": "yxqbff2qtw2j",
+      "name": "United States SMS and MMS Carrier Partner Maintenance",
+      "status": "scheduled",
+      "created_at": "2026-09-28T11:56:25.656-07:00",
+      "updated_at": "2026-09-28T11:56:25.735-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/k3xqyr26l2t9",
+      "started_at": "2026-09-28T11:56:25.648-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "0ys49qpzl8y2",
+          "status": "scheduled",
+          "body": "<p>Our SMS and MMS carrier partner in the United States is conducting a planned maintenance from 21 October 2026 at 20:00 PDT until 22 October 2026 at 00:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS and MMS to and from United States handsets via United States long codes.</p>",
+          "incident_id": "yxqbff2qtw2j",
+          "created_at": "2026-09-28T11:56:25.732-07:00",
+          "updated_at": "2026-09-28T11:56:25.732-07:00",
+          "display_at": "2026-09-28T11:56:25.732-07:00",
+          "affected_components": [
+            {
+              "code": "7d8w22hqrh6s",
+              "name": "CARRIER NETWORK - SMS Long Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "7d8w22hqrh6s",
+          "name": "SMS Long Code, North America",
+          "status": "operational",
+          "created_at": "2019-01-10T08:24:19.107-08:00",
+          "updated_at": "2026-10-20T04:00:07.356-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "8vdlvw3dsq8h",
+          "name": "MMS Long Code, North America",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:51:50.330-08:00",
+          "updated_at": "2026-10-20T04:53:16.402-07:00",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-10-21T20:00:00.000-07:00",
+      "scheduled_until": "2026-10-22T00:00:00.000-07:00"
+    },
+    {
       "id": "8hlz8c0px5mn",
       "name": "United States and Canada Twilio SMS and MMS Maintenance",
       "status": "scheduled",
@@ -7604,81 +7657,6 @@
       "scheduled_until": "2026-10-22T00:00:00.000-07:00"
     },
     {
-      "id": "yxqbff2qtw2j",
-      "name": "United States SMS and MMS Carrier Partner Maintenance",
-      "status": "scheduled",
-      "created_at": "2026-09-28T11:56:25.656-07:00",
-      "updated_at": "2026-09-28T11:56:25.735-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/k3xqyr26l2t9",
-      "started_at": "2026-09-28T11:56:25.648-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "0ys49qpzl8y2",
-          "status": "scheduled",
-          "body": "<p>Our SMS and MMS carrier partner in the United States is conducting a planned maintenance from 21 October 2026 at 20:00 PDT until 22 October 2026 at 00:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS and MMS to and from United States handsets via United States long codes.</p>",
-          "incident_id": "yxqbff2qtw2j",
-          "created_at": "2026-09-28T11:56:25.732-07:00",
-          "updated_at": "2026-09-28T11:56:25.732-07:00",
-          "display_at": "2026-09-28T11:56:25.732-07:00",
-          "affected_components": [
-            {
-              "code": "7d8w22hqrh6s",
-              "name": "CARRIER NETWORK - SMS Long Code, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "7d8w22hqrh6s",
-          "name": "SMS Long Code, North America",
-          "status": "operational",
-          "created_at": "2019-01-10T08:24:19.107-08:00",
-          "updated_at": "2026-10-20T04:00:07.356-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "8vdlvw3dsq8h",
-          "name": "MMS Long Code, North America",
-          "status": "degraded_performance",
-          "created_at": "2019-01-10T08:51:50.330-08:00",
-          "updated_at": "2026-10-20T04:53:16.402-07:00",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-10-21T20:00:00.000-07:00",
-      "scheduled_until": "2026-10-22T00:00:00.000-07:00"
-    },
-    {
       "id": "jqlp1l8dk2jg",
       "name": "Infrastructure Maintenance on the San Jose (US2) PoP",
       "status": "scheduled",
@@ -7718,7 +7696,7 @@
           "name": "Programmable Messaging API",
           "status": "operational",
           "created_at": "2025-11-12T13:33:38.379-08:00",
-          "updated_at": "2026-10-05T04:04:09.321-07:00",
+          "updated_at": "2026-10-20T16:30:07.413-07:00",
           "position": 22,
           "description": null,
           "showcase": true,
@@ -7731,6 +7709,60 @@
       ],
       "scheduled_for": "2026-10-21T22:00:00.000-07:00",
       "scheduled_until": "2026-10-21T23:30:00.000-07:00"
+    },
+    {
+      "id": "z7zzdn0925q4",
+      "name": "United States MMS Carrier Partner Maintenance",
+      "status": "scheduled",
+      "created_at": "2026-10-20T16:03:36.884-07:00",
+      "updated_at": "2026-10-20T16:03:36.951-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/tlv2fndbn0tt",
+      "started_at": "2026-10-20T16:03:36.877-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "qky34m6bg8h6",
+          "status": "scheduled",
+          "body": "<p>Our MMS carrier partner in the United States is conducting a planned maintenance from 21 October 2026 at 23:00 PDT until 22 October 2026 at 03:00 PDT. During the maintenance window, there could be intermittent delays delivering MMS to and from United States handsets via subset of United States short codes.</p>",
+          "incident_id": "z7zzdn0925q4",
+          "created_at": "2026-10-20T16:03:36.949-07:00",
+          "updated_at": "2026-10-20T16:03:36.949-07:00",
+          "display_at": "2026-10-20T16:03:36.949-07:00",
+          "affected_components": [
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "under_maintenance",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "h0fl7prwfhvm",
+          "name": "MMS Short Code, North America",
+          "status": "under_maintenance",
+          "created_at": "2019-01-10T08:52:12.896-08:00",
+          "updated_at": "2026-10-20T14:00:10.885-07:00",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-10-21T23:00:00.000-07:00",
+      "scheduled_until": "2026-10-22T03:00:00.000-07:00"
     },
     {
       "id": "xrn7w0syxmql",
@@ -7845,9 +7877,9 @@
         {
           "id": "9z5gsqyjs4rl",
           "name": "SMS, Middle East & Africa",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2023-03-23T22:59:03.032-07:00",
-          "updated_at": "2026-10-20T13:45:24.945-07:00",
+          "updated_at": "2026-10-20T15:32:13.311-07:00",
           "position": 16,
           "description": null,
           "showcase": false,
@@ -8227,6 +8259,81 @@
       "scheduled_until": "2026-10-26T17:00:00.000-07:00"
     },
     {
+      "id": "k78j2p2r64l4",
+      "name": "United States Account Security Service Partner Maintenance",
+      "status": "scheduled",
+      "created_at": "2026-10-20T16:04:21.352-07:00",
+      "updated_at": "2026-10-20T16:04:21.558-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/020bth135ft6",
+      "started_at": "2026-10-20T16:04:21.335-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "k8vdnjtwb9jb",
+          "status": "scheduled",
+          "body": "<p>Our service partner is conducting a planned maintenance from 26 October 2026 at 19:00 PDT until 27 October 2026 at 04:00 PDT. During the maintenance window, there could be intermittent API request failures for the following carriers and country: AT&T Mobility United States, Sprint United States, T-Mobile United States, Verizon Wireless United States.</p>\n\n<p>Impacted Products: Lookup Identity Match, Legacy Identity MatchAndAttributes</p>",
+          "incident_id": "k78j2p2r64l4",
+          "created_at": "2026-10-20T16:04:21.556-07:00",
+          "updated_at": "2026-10-20T16:04:21.556-07:00",
+          "display_at": "2026-10-20T16:04:21.556-07:00",
+          "affected_components": [
+            {
+              "code": "fsxs9n9yf4m7",
+              "name": "CARRIER NETWORK - Lookup Identity Match",
+              "old_status": "under_maintenance",
+              "new_status": "under_maintenance"
+            },
+            {
+              "code": "qt4vzyg2g7b4",
+              "name": "CARRIER NETWORK - Legacy Identity MatchAndAttributes",
+              "old_status": "under_maintenance",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "fsxs9n9yf4m7",
+          "name": "Lookup Identity Match",
+          "status": "under_maintenance",
+          "created_at": "2022-12-06T16:21:46.337-08:00",
+          "updated_at": "2026-10-20T15:20:07.521-07:00",
+          "position": 18,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "qt4vzyg2g7b4",
+          "name": "Legacy Identity MatchAndAttributes",
+          "status": "under_maintenance",
+          "created_at": "2022-12-06T16:22:47.060-08:00",
+          "updated_at": "2026-10-20T15:20:07.686-07:00",
+          "position": 22,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-10-26T19:00:00.000-07:00",
+      "scheduled_until": "2026-10-27T04:00:00.000-07:00"
+    },
+    {
       "id": "v5d88xkw5k3z",
       "name": "United States SMS Carrier Maintenance - Verizon",
       "status": "scheduled",
@@ -8417,81 +8524,6 @@
       ],
       "scheduled_for": "2026-10-28T13:00:00.000-07:00",
       "scheduled_until": "2026-10-28T17:00:00.000-07:00"
-    },
-    {
-      "id": "fwnks2t3zw8n",
-      "name": "United States SMS and MMS Carrier Partner Maintenance",
-      "status": "scheduled",
-      "created_at": "2026-09-29T08:15:29.435-07:00",
-      "updated_at": "2026-09-29T08:15:29.650-07:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "maintenance",
-      "shortlink": "https://stspg.io/zmh1rq6gdrvl",
-      "started_at": "2026-09-29T08:15:29.428-07:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "s6jll31xn8hc",
-          "status": "scheduled",
-          "body": "<p>Our SMS and MMS carrier partner in the United States is conducting a planned maintenance from 28 October 2026 at 20:00 PDT until 29 October 2026 at 00:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS and MMS to United States handsets via subset of United States long codes.</p>",
-          "incident_id": "fwnks2t3zw8n",
-          "created_at": "2026-09-29T08:15:29.648-07:00",
-          "updated_at": "2026-09-29T08:15:29.648-07:00",
-          "display_at": "2026-09-29T08:15:29.648-07:00",
-          "affected_components": [
-            {
-              "code": "7d8w22hqrh6s",
-              "name": "CARRIER NETWORK - SMS Long Code, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "7d8w22hqrh6s",
-          "name": "SMS Long Code, North America",
-          "status": "operational",
-          "created_at": "2019-01-10T08:24:19.107-08:00",
-          "updated_at": "2026-10-20T04:00:07.356-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "8vdlvw3dsq8h",
-          "name": "MMS Long Code, North America",
-          "status": "degraded_performance",
-          "created_at": "2019-01-10T08:51:50.330-08:00",
-          "updated_at": "2026-10-20T04:53:16.402-07:00",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "scheduled_for": "2026-10-28T20:00:00.000-07:00",
-      "scheduled_until": "2026-10-29T00:00:00.000-07:00"
     },
     {
       "id": "jnqzc45k8szf",
@@ -8737,6 +8769,81 @@
       "scheduled_until": "2026-10-29T00:00:00.000-07:00"
     },
     {
+      "id": "fwnks2t3zw8n",
+      "name": "United States SMS and MMS Carrier Partner Maintenance",
+      "status": "scheduled",
+      "created_at": "2026-09-29T08:15:29.435-07:00",
+      "updated_at": "2026-09-29T08:15:29.650-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/zmh1rq6gdrvl",
+      "started_at": "2026-09-29T08:15:29.428-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "s6jll31xn8hc",
+          "status": "scheduled",
+          "body": "<p>Our SMS and MMS carrier partner in the United States is conducting a planned maintenance from 28 October 2026 at 20:00 PDT until 29 October 2026 at 00:00 PDT. During the maintenance window, there could be intermittent delays delivering SMS and MMS to United States handsets via subset of United States long codes.</p>",
+          "incident_id": "fwnks2t3zw8n",
+          "created_at": "2026-09-29T08:15:29.648-07:00",
+          "updated_at": "2026-09-29T08:15:29.648-07:00",
+          "display_at": "2026-09-29T08:15:29.648-07:00",
+          "affected_components": [
+            {
+              "code": "7d8w22hqrh6s",
+              "name": "CARRIER NETWORK - SMS Long Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "7d8w22hqrh6s",
+          "name": "SMS Long Code, North America",
+          "status": "operational",
+          "created_at": "2019-01-10T08:24:19.107-08:00",
+          "updated_at": "2026-10-20T04:00:07.356-07:00",
+          "position": 1,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "8vdlvw3dsq8h",
+          "name": "MMS Long Code, North America",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:51:50.330-08:00",
+          "updated_at": "2026-10-20T04:53:16.402-07:00",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-10-28T20:00:00.000-07:00",
+      "scheduled_until": "2026-10-29T00:00:00.000-07:00"
+    },
+    {
       "id": "7x3tg1n02phk",
       "name": "United States SMS Carrier Maintenance - Verizon",
       "status": "scheduled",
@@ -8966,9 +9073,9 @@
         {
           "id": "9z5gsqyjs4rl",
           "name": "SMS, Middle East & Africa",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2023-03-23T22:59:03.032-07:00",
-          "updated_at": "2026-10-20T13:45:24.945-07:00",
+          "updated_at": "2026-10-20T15:32:13.311-07:00",
           "position": 16,
           "description": null,
           "showcase": false,
@@ -9089,6 +9196,147 @@
       ],
       "scheduled_for": "2026-11-18T21:00:00.000-08:00",
       "scheduled_until": "2026-11-19T03:00:00.000-08:00"
+    },
+    {
+      "id": "mhqvjmpkv37z",
+      "name": "United Kingdom Account Security Carrier Partner Maintenance - Vodafone",
+      "status": "in_progress",
+      "created_at": "2026-10-20T05:08:07.678-07:00",
+      "updated_at": "2026-10-20T15:20:07.808-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/5wht3vhwv2gv",
+      "started_at": "2026-10-20T05:08:07.669-07:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "f5pk128k787w",
+          "status": "in_progress",
+          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
+          "incident_id": "mhqvjmpkv37z",
+          "created_at": "2026-10-20T15:20:07.804-07:00",
+          "updated_at": "2026-10-20T15:20:07.804-07:00",
+          "display_at": "2026-10-20T15:20:07.804-07:00",
+          "affected_components": [
+            {
+              "code": "fsxs9n9yf4m7",
+              "name": "CARRIER NETWORK - Lookup Identity Match",
+              "old_status": "operational",
+              "new_status": "under_maintenance"
+            },
+            {
+              "code": "q0hp6vfr4vvh",
+              "name": "CARRIER NETWORK - Lookup SIM Swap",
+              "old_status": "operational",
+              "new_status": "under_maintenance"
+            },
+            {
+              "code": "qt4vzyg2g7b4",
+              "name": "CARRIER NETWORK - Legacy Identity MatchAndAttributes",
+              "old_status": "operational",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "rz09mz3cjhd4",
+          "status": "scheduled",
+          "body": "Maintenance will begin as scheduled in 60 minutes.",
+          "incident_id": "mhqvjmpkv37z",
+          "created_at": "2026-10-20T14:20:08.730-07:00",
+          "updated_at": "2026-10-20T14:20:08.730-07:00",
+          "display_at": "2026-10-20T14:20:08.730-07:00",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "d9pht38s1qsg",
+          "status": "scheduled",
+          "body": "<p>Our carrier partner Vodafone United Kingdom is conducting a planned maintenance from 20 October 2026 at 15:20 PDT until 20 October 2026 at 18:45 PDT. During the maintenance window, there could be intermittent API request failures for Vodafone United Kingdom customers.</p>\n\n<p>Impacted Products: Legacy Identity MatchAndAttributes, Lookup Identity Match, Lookup SIM Swap</p>\n\n<p>We are aware of the short notice and are working with our Carrier Partners to provide earlier notification where possible.</p>",
+          "incident_id": "mhqvjmpkv37z",
+          "created_at": "2026-10-20T05:08:07.743-07:00",
+          "updated_at": "2026-10-20T05:08:07.743-07:00",
+          "display_at": "2026-10-20T05:08:07.743-07:00",
+          "affected_components": [
+            {
+              "code": "fsxs9n9yf4m7",
+              "name": "CARRIER NETWORK - Lookup Identity Match",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "q0hp6vfr4vvh",
+              "name": "CARRIER NETWORK - Lookup SIM Swap",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "qt4vzyg2g7b4",
+              "name": "CARRIER NETWORK - Legacy Identity MatchAndAttributes",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "fsxs9n9yf4m7",
+          "name": "Lookup Identity Match",
+          "status": "under_maintenance",
+          "created_at": "2022-12-06T16:21:46.337-08:00",
+          "updated_at": "2026-10-20T15:20:07.521-07:00",
+          "position": 18,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "q0hp6vfr4vvh",
+          "name": "Lookup SIM Swap",
+          "status": "under_maintenance",
+          "created_at": "2022-12-06T16:22:32.133-08:00",
+          "updated_at": "2026-10-20T15:20:07.609-07:00",
+          "position": 21,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "qt4vzyg2g7b4",
+          "name": "Legacy Identity MatchAndAttributes",
+          "status": "under_maintenance",
+          "created_at": "2022-12-06T16:22:47.060-08:00",
+          "updated_at": "2026-10-20T15:20:07.686-07:00",
+          "position": 22,
+          "description": null,
+          "showcase": false,
+          "start_date": "2022-12-06",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-10-20T15:20:00.000-07:00",
+      "scheduled_until": "2026-10-20T18:45:00.000-07:00"
     },
     {
       "id": "r3qt6mns0qmm",
