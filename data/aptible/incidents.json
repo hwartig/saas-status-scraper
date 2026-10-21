@@ -4,9 +4,62 @@
     "name": "Aptible",
     "url": "https://status.aptible.com",
     "time_zone": "America/New_York",
-    "updated_at": "2026-10-21T05:29:12.487-04:00"
+    "updated_at": "2026-10-21T10:24:52.133-04:00"
   },
   "incidents": [
+    {
+      "id": "kj6v558f61bh",
+      "name": "Critical PHP vulnerabilities - customer action may be required",
+      "status": "monitoring",
+      "created_at": "2026-10-21T09:04:11.905-04:00",
+      "updated_at": "2026-10-21T09:04:11.974-04:00",
+      "monitoring_at": "2026-10-21T09:04:11.963-04:00",
+      "resolved_at": null,
+      "impact": "none",
+      "shortlink": "https://stspg.io/jgyxqk34bst0",
+      "started_at": "2026-10-21T09:04:11.897-04:00",
+      "page_id": "fmwgqnbnbc4r",
+      "incident_updates": [
+        {
+          "id": "7bgj76fgfpn1",
+          "status": "monitoring",
+          "body": "Aptible is aware of the vulnerabilities CVE-2026-109618 and CVE-2026-109619 affecting PHP applications that can allow for remote code execution under certain conditions.\n\n*Aptible Platform Impact*\n\nAptible has reviewed all infrastructure components that we manage and has confirmed that all are unaffected by this vulnerability.\n\n*Customer Application Impact:*\n\nAny customer using PHP in their applications is highly encouraged to take action and patch their applications as soon as possible. If you are unable to patch in a timely manner, consider taking your application offline in the interim. Note for the safety of the Aptible platform, we may disable endpoints for applications that show evidence of being exploited by RCE.\n\nAptible provides the platform your application runs on. The PHP runtime version your app uses is controlled by your app's configuration. We cannot patch this for you automatically. Update your PHP version and redeploy as soon as the fixed release is available for your branch.\n\nIf you need help with these upgrades, reach out to Aptible support.\n\n*Additional Resources:*\n\n- Official PHP advisory: https://www.php.net/index.php#2026-10-20-1\n- Proof of concept exploit: https://jackalsyn.com/posts/php-up-2026.html\n- CVE-2026-109618, CVE-2026-109619\n\nWe will update this notice as the situation develops.",
+          "incident_id": "kj6v558f61bh",
+          "created_at": "2026-10-21T09:04:11.963-04:00",
+          "updated_at": "2026-10-21T09:04:11.963-04:00",
+          "display_at": "2026-10-21T09:04:11.963-04:00",
+          "affected_components": [
+            {
+              "code": "3f2df1dmxn4b",
+              "name": "Aptible Deploy",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "3f2df1dmxn4b",
+          "name": "Aptible Deploy",
+          "status": "operational",
+          "created_at": "2017-07-25T12:40:40.556-04:00",
+          "updated_at": "2026-10-21T00:09:10.781-04:00",
+          "position": 7,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "fmwgqnbnbc4r",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "90pdck4nj1sx",
       "name": "Aptible SSH sessions on Shared Stacks are temporarily disabled",
@@ -3782,49 +3835,6 @@
           "created_at": "2023-09-28T19:31:15.148-04:00",
           "updated_at": "2023-09-28T19:31:15.148-04:00",
           "display_at": "2023-09-28T19:31:15.148-04:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "dcp7cvsp0f06",
-      "name": "EC2 Host Failure - us-east-1",
-      "status": "resolved",
-      "created_at": "2023-07-29T11:02:48.879-04:00",
-      "updated_at": "2023-07-29T11:14:52.167-04:00",
-      "monitoring_at": null,
-      "resolved_at": "2023-07-29T11:14:52.153-04:00",
-      "impact": "none",
-      "shortlink": "https://stspg.io/dwtnfrvc6g77",
-      "started_at": "2023-07-29T11:02:48.872-04:00",
-      "page_id": "fmwgqnbnbc4r",
-      "incident_updates": [
-        {
-          "id": "khm5krsyrhvn",
-          "status": "resolved",
-          "body": "This incident has been resolved.",
-          "incident_id": "dcp7cvsp0f06",
-          "created_at": "2023-07-29T11:14:52.153-04:00",
-          "updated_at": "2023-07-29T11:14:52.153-04:00",
-          "display_at": "2023-07-29T11:14:52.153-04:00",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "s2q1glt611h2",
-          "status": "investigating",
-          "body": "We are investigating several EC2 dedicated host failures affecting some customers with apps and databases in us-east-1, related to an AWS incident. Affected apps are currently being restarted on healthy instances (apps scaled to 2 or more are automatically distributed across availability zones and will automatically failover).",
-          "incident_id": "dcp7cvsp0f06",
-          "created_at": "2023-07-29T11:02:48.914-04:00",
-          "updated_at": "2023-07-29T11:02:48.914-04:00",
-          "display_at": "2023-07-29T11:02:48.914-04:00",
           "affected_components": null,
           "deliver_notifications": false,
           "custom_tweet": null,
