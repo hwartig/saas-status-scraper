@@ -4,7 +4,7 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-10-21T07:24:45.146-07:00"
+    "updated_at": "2026-10-21T11:40:08.618-07:00"
   },
   "components": [
     {
@@ -952,6 +952,73 @@
       ],
       "scheduled_for": "2026-12-31T01:00:00.000-08:00",
       "scheduled_until": "2026-12-31T09:00:00.000-08:00"
+    },
+    {
+      "id": "rlltvz6r85ht",
+      "name": "Action Recommended: Update SDKs and Relay Proxy for eMudhra CA Issue",
+      "status": "in_progress",
+      "created_at": "2026-10-21T11:34:11.869-07:00",
+      "updated_at": "2026-10-21T11:40:07.957-07:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/4mlm16cv0315",
+      "started_at": "2026-10-21T11:34:11.863-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "k3m7rbcgtt8t",
+          "status": "in_progress",
+          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
+          "incident_id": "rlltvz6r85ht",
+          "created_at": "2026-10-21T11:40:07.925-07:00",
+          "updated_at": "2026-10-21T11:40:07.925-07:00",
+          "display_at": "2026-10-21T11:40:07.925-07:00",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "y0tw65jf0nv1",
+          "status": "scheduled",
+          "body": "We currently have no indication that LaunchDarkly-hosted services or customer data are impacted by the publicly-disclosed compromised intermediate CA certificates from eMudhra (https://emudhra.we-have-a-problem.com/). This guidance applies to all LaunchDarkly instances: Commercial, EU, and Federal.\n\nLaunchDarkly has already taken precautionary steps to secure our platform and has released updated versions of the Relay Proxy and SDKs used by our customers. We continue to monitor the situation and patch all non-critical services.\n\nWe highly recommend that customers immediately take the following steps to secure the network connection between their systems and LaunchDarkly:\n- Update LaunchDarkly SDKs and Relay Proxy listed below to the latest version provided\n- Ensure your application hosts disallow the compromised CAs\n- Follow publicly-documented remediation steps for your application infrastructure to disallow compromised CAs: https://emudhra.we-have-a-problem.com/\n\nLaunchDarkly SDKs\nOnly the following LaunchDarkly SDKs are affected by this issue and require an update to the versions listed.\n- Server-side SDK for Python (9.18.3): https://github.com/launchdarkly/python-server-sdk/releases/tag/9.18.3\n- Server-Side SDK for Erlang/Elixir (3.12.1): https://github.com/launchdarkly/erlang-server-sdk/releases/tag/v3.12.1\n- OpenFeature provider for the Server-Side SDK for Python (0.8.3): https://github.com/launchdarkly/openfeature-python-server/releases/tag/0.8.3\n- SDK OTEL integration for the Python server side SDK (1.3.0): https://github.com/launchdarkly/python-server-sdk-otel/releases/tag/1.3.0\n- Observability and Session Replay SDK for Python (1.3.4): https://github.com/launchdarkly/observability-sdk/releases/tag/launchdarkly-observability-python-1.3.4\n\nLaunchDarkly Relay Proxy\n- Relay Proxy (8.23.2): https://github.com/launchdarkly/ld-relay/releases/tag/v8.23.2\n- Relay Proxy Helm Chart (3.11.3): https://github.com/launchdarkly/ld-relay-helm/releases/tag/3.11.3\n\nWe will provide further updates as the situation develops.",
+          "incident_id": "rlltvz6r85ht",
+          "created_at": "2026-10-21T11:34:11.971-07:00",
+          "updated_at": "2026-10-21T11:34:11.971-07:00",
+          "display_at": "2026-10-21T11:34:11.971-07:00",
+          "affected_components": [
+            {
+              "code": "nxbw9v3lmdtl",
+              "name": "SDKs",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "nxbw9v3lmdtl",
+          "name": "SDKs",
+          "status": "operational",
+          "created_at": "2022-02-28T13:52:00.274-08:00",
+          "updated_at": "2026-08-07T13:15:52.774-07:00",
+          "position": 14,
+          "description": "Notices about LaunchDarkly SDKs for topics like critical security vulnerabilities and versions approaching their end of life",
+          "showcase": false,
+          "start_date": "2022-02-28",
+          "group_id": null,
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2026-10-21T11:40:00.000-07:00",
+      "scheduled_until": "2026-11-02T19:40:00.000-08:00"
     }
   ],
   "status": {

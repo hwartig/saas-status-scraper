@@ -3,9 +3,48 @@
     "id": "01KJZVWMNKKQM1MY9H5QWY34VG",
     "name": "Supabase",
     "url": "https://status.supabase.com/",
-    "updated_at": "2026-10-21T05:39:55Z"
+    "updated_at": "2026-10-21T16:51:51Z"
   },
   "incidents": [
+    {
+      "id": "01M5FHP5PVQBY4NVTBBH9XG0CH",
+      "name": "Project lifecycle operations such as project creation, pausing, and restoration, in all regions",
+      "status": "resolved",
+      "created_at": "2026-10-21T15:36:13Z",
+      "updated_at": "2026-10-21T16:51:51Z",
+      "resolved_at": "2026-10-21T16:51:51Z",
+      "impact": "major",
+      "page_id": "01KJZVWMNKKQM1MY9H5QWY34VG",
+      "incident_updates": [
+        {
+          "id": "01M5FP0NJA6SMHV6DXWQ8VMPKK",
+          "body": "The issue affecting project lifecycle operations, including project creation, pausing, and restoration, has been resolved. We have observed a reduction in project lifecycle job failures following the fix and confirmed that operations have returned to normal.",
+          "created_at": "2026-10-21T16:51:51Z",
+          "display_at": "2026-10-21T16:51:51Z",
+          "incident_id": "01M5FHP5PVQBY4NVTBBH9XG0CH",
+          "status": "resolved",
+          "updated_at": "2026-10-21T16:51:51Z"
+        },
+        {
+          "id": "01M5FKR0A07MRN3XEYD2PP5R11",
+          "body": "A fix has been applied, and we have observed a reduction in project lifecycle job failures. \n\nWe are continuing to monitor the recovery to ensure normal operations remain stable.",
+          "created_at": "2026-10-21T16:12:10Z",
+          "display_at": "2026-10-21T16:12:10Z",
+          "incident_id": "01M5FHP5PVQBY4NVTBBH9XG0CH",
+          "status": "monitoring",
+          "updated_at": "2026-10-21T16:12:10Z"
+        },
+        {
+          "id": "01M5FHP5PVAEXVMD4C83Y70T1G",
+          "body": "We are investigating an issue affecting project lifecycle operations such as project creation, pausing, and restoration, in all regions. We’ll provide further updates as more information becomes available.",
+          "created_at": "2026-10-21T15:36:13Z",
+          "display_at": "2026-10-21T15:36:13Z",
+          "incident_id": "01M5FHP5PVQBY4NVTBBH9XG0CH",
+          "status": "investigating",
+          "updated_at": "2026-10-21T15:36:13Z"
+        }
+      ]
+    },
     {
       "id": "01M5DN6V02FJHZTE9390XJM9YY",
       "name": "Projects stuck in restarting state",
@@ -390,6 +429,27 @@
           "incident_id": "01M4RT1HA64EWGKK2NJJ00Z7M5",
           "status": "investigating",
           "updated_at": "2026-10-12T19:39:42Z"
+        }
+      ]
+    },
+    {
+      "id": "01M5FMMYVR79JACNFDTVJK7C1K",
+      "name": "Intermittent connection errors via the connection pooler in us-east-1",
+      "status": "resolved",
+      "created_at": "2026-10-21T16:27:59Z",
+      "updated_at": "2026-10-21T16:27:59Z",
+      "resolved_at": "2026-10-10T02:10:00Z",
+      "impact": "none",
+      "page_id": "01KJZVWMNKKQM1MY9H5QWY34VG",
+      "incident_updates": [
+        {
+          "id": "01M5FMMYVR0V3BARS4EPG3TKK8",
+          "body": "Between 22:10 and 22:51 UTC on October 9, 2026, about 1% of new database connections made through the Shared Pooler (Supavisor) in us-east-1 failed with \"Failed to connect to database\" timeout errors. The cause of the failures was an incident at our cloud provider which affected network traffic between availability zones. Supabase Project databases were not affected, and connections that had already been open prior to the incident remained open. The issue was resolved at 22:51 UTC. Clients that retried on connection errors would have reconnected successfully.\n",
+          "created_at": "2026-10-21T16:27:59Z",
+          "display_at": "2026-10-10T02:10:00Z",
+          "incident_id": "01M5FMMYVR79JACNFDTVJK7C1K",
+          "status": "resolved",
+          "updated_at": "2026-10-21T16:29:41Z"
         }
       ]
     },
@@ -1269,120 +1329,6 @@
           "incident_id": "01M2GHNY8317J7BTYHSVQ6205Y",
           "status": "resolved",
           "updated_at": "2026-10-07T15:12:22Z"
-        }
-      ]
-    },
-    {
-      "id": "01M22PS407P3YFG1E08Y82A790",
-      "name": "Brief connection disruptions in us-east-1 (N. Virginia)",
-      "status": "resolved",
-      "created_at": "2026-09-09T09:07:59Z",
-      "updated_at": "2026-10-07T15:12:22Z",
-      "resolved_at": "2026-09-09T08:47:38Z",
-      "impact": "none",
-      "page_id": "01KJZVWMNKKQM1MY9H5QWY34VG",
-      "incident_updates": [
-        {
-          "id": "01M22PS4072CCB3K0K93B4REFR",
-          "body": "Between 05:50–06:05 UTC some customer using Supavisor in us-east-1 may have experienced brief dropped connections or connection disruptions. This issue was caused by an unexpected restart of Supavisor instances in the affected cluster. We apologize for any disruption caused.",
-          "created_at": "2026-09-09T09:07:59Z",
-          "display_at": "2026-09-09T08:47:38Z",
-          "incident_id": "01M22PS407P3YFG1E08Y82A790",
-          "status": "resolved",
-          "updated_at": "2026-10-07T15:12:23Z"
-        }
-      ]
-    },
-    {
-      "id": "01M1MZAXBGVWH29NQ09N1HM3XP",
-      "name": "Project Lifecycle Actions Showing increased error rates across all regions",
-      "status": "resolved",
-      "created_at": "2026-09-04T01:08:09Z",
-      "updated_at": "2026-10-07T15:12:23Z",
-      "resolved_at": "2026-09-04T08:18:40Z",
-      "impact": "critical",
-      "page_id": "01KJZVWMNKKQM1MY9H5QWY34VG",
-      "incident_updates": [
-        {
-          "id": "01M1NQZ7DTNXK34PN2S5S4P3P8",
-          "body": "Lifecycle operations have been re-enabled for 100% of users and error rates have returned to normal.",
-          "created_at": "2026-09-04T08:18:40Z",
-          "display_at": "2026-09-04T08:18:40Z",
-          "incident_id": "01M1MZAXBGVWH29NQ09N1HM3XP",
-          "status": "resolved",
-          "updated_at": "2026-10-07T15:12:23Z"
-        },
-        {
-          "id": "01M1NCYCKPR518AR9DET7C3CE4",
-          "body": "Lifecycle operations have been re-enabled for 100% of users and error rates have returned to normal.\n\nWe are going to monitor to ensure that things stay stable. The team is working through any remaining projects which did not automatically resolve.\n\nSome users may also notice that backups will happen a bit later than usual, but these jobs are running and completing normally.",
-          "created_at": "2026-09-04T05:05:58Z",
-          "display_at": "2026-09-04T04:28:19Z",
-          "incident_id": "01M1MZAXBGVWH29NQ09N1HM3XP",
-          "status": "monitoring",
-          "updated_at": "2026-10-07T15:12:23Z"
-        },
-        {
-          "id": "01M1N9NTC6YV5BYFYHAE3TVM5M",
-          "body": "We've increased project lifecycle operations to 50% of users and things are holding steady. We're continuing to ramp this up until operations are restored for all users.\n\nThis is impacting all project-related lifecycle operations: Creates, Configuration changes, Restarts, Compute size Updates, etc.\n\nRunning projects remain running, and the data APIs and direct postgres client connections are NOT affected.",
-          "created_at": "2026-09-04T04:08:52Z",
-          "display_at": "2026-09-04T03:41:38Z",
-          "incident_id": "01M1MZAXBGVWH29NQ09N1HM3XP",
-          "status": "identified",
-          "updated_at": "2026-10-07T15:12:23Z"
-        },
-        {
-          "id": "01M1N627VXE2MTGXKEP8CSH0J3",
-          "body": "Error rates have returned to normal, and the backlogs are draining well. We are beginning to slowly re-enable lifecycle operations for users.\n\nWe will be monitoring impact, and we hope to have this re-enabled everywhere soon. We will leave this in this state until lifecycle operations have been completely restored.\n\nRunning projects remain running, and the data APIs and direct postgres client connections are NOT affected.",
-          "created_at": "2026-09-04T03:05:45Z",
-          "display_at": "2026-09-04T03:01:39Z",
-          "incident_id": "01M1MZAXBGVWH29NQ09N1HM3XP",
-          "status": "identified",
-          "updated_at": "2026-10-07T15:12:23Z"
-        },
-        {
-          "id": "01M1N2X5HD5AGTE01KZRP6EJ1B",
-          "body": "We are seeing incremental improvements internally. There is a large backlog of actions that we are working through, but things are progressing. Once we make it through most of the backlog, we will re-enable lifecycle actions.\n\nThis is impacting all project-related lifecycle operations: Creates, Configuration changes, Restarts, Compute size Updates, etc.\n\nRunning projects remain running, and the data APIs and direct postgres client connections are NOT affected.",
-          "created_at": "2026-09-04T02:10:33Z",
-          "display_at": "2026-09-04T02:02:23Z",
-          "incident_id": "01M1MZAXBGVWH29NQ09N1HM3XP",
-          "status": "identified",
-          "updated_at": "2026-10-07T15:12:23Z"
-        },
-        {
-          "id": "01M1N2X5HDJQRS7D1MMP1VNVN4",
-          "body": "The team is continuing to work on restoring project lifecycle operations. Out of caution, we have disabled lifecycle operations.\n\nThis is impacting all project-related lifecycle operations: Creates, Configuration changes, Restarts, Compute size Updates, etc.\n\nRunning projects remain running, and the data APIs and direct postgres client connections are NOT affected.\n\nWe will provide additional updates as we have more information.",
-          "created_at": "2026-09-04T02:10:33Z",
-          "display_at": "2026-09-04T01:37:15Z",
-          "incident_id": "01M1MZAXBGVWH29NQ09N1HM3XP",
-          "status": "identified",
-          "updated_at": "2026-10-07T15:12:23Z"
-        },
-        {
-          "id": "01M1MZAXBGQ853V8P6DJKE2XE4",
-          "body": "The team has applied a fix, but error rates remain high. We are continuing to work and will take other necessary steps to resolve this as soon as possible.\n\nRunning projects remain running, and the data APIs and direct postgres client connections are NOT affected.\n\nOut of an abundance of caution, we would suggest against taking any of these actions until this incident is resolved: Creates, Configuration changes, Restarts, or Compute size changes. We will provide additional updates as we have more information.",
-          "created_at": "2026-09-04T01:08:09Z",
-          "display_at": "2026-09-04T00:58:04Z",
-          "incident_id": "01M1MZAXBGVWH29NQ09N1HM3XP",
-          "status": "identified",
-          "updated_at": "2026-10-07T15:12:23Z"
-        },
-        {
-          "id": "01M1MZAXBGQ3D8WQ4Z04Z7QBTK",
-          "body": "We have identified the source of the errors with project lifecycle actions, and the team is currently working to resolve it.\n\nThis is impacting all project-related lifecycle operations: Creates, Configuration changes, Restarts, Compute size Updates, etc.\n\nRunning projects remain running, and the data APIs and direct postgres client connections are NOT affected.\n\nOut of an abundance of caution, we would suggest against taking any of these actions until this incident is resolved. We will provide additional updates as we have more information.",
-          "created_at": "2026-09-04T01:08:09Z",
-          "display_at": "2026-09-04T00:30:51Z",
-          "incident_id": "01M1MZAXBGVWH29NQ09N1HM3XP",
-          "status": "identified",
-          "updated_at": "2026-10-07T15:12:23Z"
-        },
-        {
-          "id": "01M1MZAXBG54F0YNH88DEFQ4S3",
-          "body": "We are seeing increased error rates in actions across all project lifecycle actions - Creations, Deletions, Restores, Configuration and Compute size upgrades. We are currently looking into the cause.\n\nOut of an abundance of caution, we would suggest against taking any of these actions until this incident is resolved. We will provide additional updates as we have more information",
-          "created_at": "2026-09-04T01:08:09Z",
-          "display_at": "2026-09-04T00:15:47Z",
-          "incident_id": "01M1MZAXBGVWH29NQ09N1HM3XP",
-          "status": "investigating",
-          "updated_at": "2026-10-07T15:12:23Z"
         }
       ]
     }
