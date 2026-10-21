@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-10-21T11:59:55.984-07:00"
+    "updated_at": "2026-10-21T14:54:34.889-07:00"
   },
   "incidents": [
     {
@@ -1637,9 +1637,9 @@
     {
       "id": "9zt2kt0r08xy",
       "name": "[Medium] Issue with File Requests",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-10-01T03:00:00.000-07:00",
-      "updated_at": "2026-10-01T20:47:50.227-07:00",
+      "updated_at": "2026-10-21T12:01:33.336-07:00",
       "monitoring_at": null,
       "resolved_at": "2026-10-01T03:00:00.000-07:00",
       "impact": "major",
@@ -1647,6 +1647,19 @@
       "started_at": "2026-10-01T20:43:52.497-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "h5ppff2f7ym3",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting File Requests in Box. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nOn October 1, 2026 between 2:50 AM and 3:30 AM PT, some customers may have experienced File Requests upload pages rendering as garbled text and unavailable File Request links, preventing users from accessing File Requests upload pages and File Request links. Service was restored at 3:30 AM PT.\n\n# Analysis\n\nThe issue was caused by a change to how File Requests upload pages are packaged for production, which made them incompatible with the service that delivers them. As a result, the pages displayed as garbled text. Rolling back to the previous release restored the pages, and we have since configured our deployments to keep using the compatible format.\n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n* Correcting the deployment configuration for File Requests upload pages so they are always packaged in a format the delivering service can read.\n* Adding a mandatory pre-release check that automatically stops a rollout if File Requests and Forms pages fail validation in production.\n* Strengthening monitoring of File Requests upload pages so rendering issues are detected and addressed before customers are affected.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,  \nThe Box Team",
+          "incident_id": "9zt2kt0r08xy",
+          "created_at": "2026-10-21T12:01:14.075-07:00",
+          "updated_at": "2026-10-21T12:01:33.333-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "8ly1pv2b82fy",
           "status": "resolved",
@@ -1697,9 +1710,9 @@
     {
       "id": "qvw8ppb72m38",
       "name": "[Medium] Issues with Box Notes",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-09-28T03:04:05.668-07:00",
-      "updated_at": "2026-09-28T03:31:51.222-07:00",
+      "updated_at": "2026-10-21T12:03:00.032-07:00",
       "monitoring_at": null,
       "resolved_at": "2026-09-28T03:31:51.198-07:00",
       "impact": "major",
@@ -1707,6 +1720,19 @@
       "started_at": "2026-09-28T03:04:05.656-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "t0nh287n7zft",
+          "status": "postmortem",
+          "body": "We recently addressed issues affecting Box Notes in Box. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nOn September 28, 2026, beginning at 2:35 AM PDT, during a routine maintenance operation, some Box Notes users who had the app open in a background browser tab may have seen a brief \"Reconnecting\" message and a short delay when they returned to the tab. No data was lost, users who were actively editing were not prevented from working, and we received no widespread customer reports. \n\nThe cause was a recent change to how Box Notes reconnects background tabs. We have since fixed the reconnection behavior and verified the fix.\n\n# Analysis\n\nThe cause was a recent change to how Box Notes reconnects browser tabs that are open in the background. After an infrastructure switch during a release, those tabs did not reconnect on their own and instead reconnected when customers returned to them. The release and infrastructure switch completed successfully, and background tabs reconnected gradually as customers came back to them. Normal connection levels returned by 3:33 AM PDT.\n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n* Fixing the reconnection behavior for background tabs so they reconnect automatically after an infrastructure switch, and verifying the fix with a controlled switch.\n* Adding an automated test that reproduces this scenario, to catch any regression before release in the future.\n* Scheduling a further review of reconnection logic with the team, paired with metrics analysis.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,  \nThe Box Team",
+          "incident_id": "qvw8ppb72m38",
+          "created_at": "2026-10-21T12:02:44.798-07:00",
+          "updated_at": "2026-10-21T12:03:00.030-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "vz0pbkcwp7y0",
           "status": "resolved",
