@@ -4,7 +4,7 @@
     "name": "Render",
     "url": "https://status.render.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-10-22T08:05:49.597Z"
+    "updated_at": "2026-10-22T19:14:41.919Z"
   },
   "incidents": [
     {
@@ -363,9 +363,9 @@
     {
       "id": "8tsd93r1wbmz",
       "name": "Builds, deploys, and queued deploys are not starting in all regions",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-10-14T19:32:45.496Z",
-      "updated_at": "2026-10-14T22:18:12.818Z",
+      "updated_at": "2026-10-22T18:20:35.826Z",
       "monitoring_at": "2026-10-14T19:45:54.364Z",
       "resolved_at": "2026-10-14T22:18:11.999Z",
       "impact": "major",
@@ -373,6 +373,19 @@
       "started_at": "2026-10-14T19:32:45.472Z",
       "page_id": "tyfhm2rrt1tl",
       "incident_updates": [
+        {
+          "id": "r3zsdd4bgjqp",
+          "status": "postmortem",
+          "body": "### Summary\n\nOn October 14, 2026, between 12:12 and 15:08 PDT \\(19:12 - 22:08 UTC\\), builds and deploys across all regions failed to start, stalled, or were significantly delayed during two periods of impact totaling about 2 hours and 20 minutes. The cause was a database schema migration run as part of a planned version upgrade of our internal job scheduler that coordinates builds, deploys, and other critical platform operations. The migration led to high load and a longer-than-expected recovery time of this system’s database.\n\nWe will change how we perform upgrades and modifications of this system in a highly available fashion in the future so that a similar change cannot cause an outage again.\n\n### Impact\n\nThere were two periods of impact. During this time, live user services were not affected, but builds and deploys across all regions failed to start, failed to finish, or were significantly delayed.\n\n**Period 1: 12:12 - 12:40 PDT \\(19:12 - 19:40 UTC\\), about 28 minutes**\n\n* New builds and deploys did not start. Deploys in progress stalled.\n* Some requests to create a deploy through the Dashboard, API, and CLI returned errors \\(HTTP 500\\).\n\n**Partial recovery: 12:40 - 13:18 PDT \\(19:40 - 20:18 UTC\\)**\n\n* Builds and deploys ran, but deploys took about 20 seconds to start instead of a few hundred milliseconds.\n\n**Period 2: 13:18 - 15:08 PDT \\(20:18 - 22:08 UTC\\), about 1 hour 50 minutes**\n\n* Builds and deploys were delayed, stalled in progress \\(including in pre-deploy\\), or failed. From 13:51 PDT, almost no new builds were able to start.\n* Some queued deploys did not start after recovery, and cancelling them through the API had no effect. Users needed to retry these deploys.\n\n### Root Cause\n\nRender uses an internal job scheduler system to coordinate builds, deploys, and other critical platform operations. We were rolling out improvements to how it distributes work, and began a planned version upgrade of this system in production after a successful practice run in a test environment.\n\nThe upgrade included a database schema migration that locked a large table and drove database CPU utilization to 100%. This database stores both the system’s core job state and secondary data used for search and reporting. The system could not read or write job state reliably, so builds and deploys stopped or slowed.\n\nEngineers were alerted to the issue quickly and reverted the upgrade. However, three factors extended the impact:\n\n* A pre-upgrade step to create a database clone for rollback could not be completed due to an error from the underlying cloud provider, so a fast rollback was not available.\n* The migration continued to run on the database after the client performing the upgrade was stopped and the upgrade reverted. It was found and terminated at 13:49 PDT, about 1.5 hours after it started.\n* An attempt to add capacity to the database failed due to an error from the underlying cloud provider.\n\n### Timeline\n\nAll times are PDT on 2026-10-14 \\(UTC-7\\).\n\n* **12:13** - The upgrade is started, including the database schema migration. Database load rises and builds and deploys stop starting.\n* **12:24** - Impact to builds and deploys identified. Incident escalated.\n* **12:33** - Status page incident opened.\n* **12:34** - Engineers revert the upgrade and stop the client performing the schema migration.\n* **12:37** - Job scheduler system recovers. Builds and deploys resume, with slower deploy start times. End of Period 1.\n* **13:17** - Engineers restart one unhealthy instance of the system to rebalance load. Database connections and errors increase across the system. Start of Period 2.\n* **13:37** - Free-tier deploys paused to reduce load.\n* **13:49** - Engineers find the schema migration still running on the database and terminate it.\n* **14:16** - Database restarted. An attempt to add database capacity fails because of an error from the underlying cloud provider.\n* **14:27** - Remaining components of the system restarted.\n* **14:30** - Builds and deploys start to recover, with slower than usual build and deploy times as the backlog is processed.\n* **15:08** - Deploy start times return to normal and database load returns to pre-incident levels. End of Period 2.\n* **15:11** - Free-tier deploys and spin-ups gradually re-enabled.\n* **15:18** - Incident resolved.\n\n### Mitigations\n\n**Completed during the incident**\n\n* Reverted the job scheduler component upgrade and configuration change \\(12:34 PDT\\).\n* Paused free-tier deploys and spin-ups to reduce load, then re-enabled them gradually after recovery.\n* Terminated the schema migration that was still running on the database \\(13:49 PDT\\).\n* Restarted the database and the job scheduler system to restore normal operation.\n* Paused the upgrade in production until the upgrade process is changed.\n\n**Ongoing \\(started during the incident\\)**\n\n* This database is being upgraded to support cross-zone High Availability.\n\n**Planned**\n\n* Implement a new upgrade and deployment practice for this component: we will implement blue-green deploys to avoid upgrading this system under load in the future.\n* Adjust the underlying storage mechanisms for the job scheduler to be better suited to this workload type, after we have implemented blue-green deploys.",
+          "incident_id": "8tsd93r1wbmz",
+          "created_at": "2026-10-22T17:58:35.653Z",
+          "updated_at": "2026-10-22T18:20:35.784Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": "We published a postmortem on our October 14th incident: https://stspg.io/qb9l5v44x73f",
+          "tweet_id": null
+        },
         {
           "id": "7ccj2mw6fv90",
           "status": "resolved",
