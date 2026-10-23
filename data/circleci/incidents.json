@@ -4,15 +4,15 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-10-22T22:24:22.004Z"
+    "updated_at": "2026-10-22T23:31:44.611Z"
   },
   "incidents": [
     {
       "id": "5jb50gh55gtj",
       "name": "Increased Docker gen2 wait times",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-10-21T19:31:05.335Z",
-      "updated_at": "2026-10-21T20:54:46.696Z",
+      "updated_at": "2026-10-22T23:31:44.608Z",
       "monitoring_at": "2026-10-21T20:40:44.495Z",
       "resolved_at": "2026-10-21T20:54:46.671Z",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2026-10-21T19:31:05.329Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "q7z18x4p2p7c",
+          "status": "postmortem",
+          "body": "## Summary\n\nFrom 15:44 to 20:55 UTC on October 21, customers running Gen 2 Docker jobs saw increased wait times for their jobs to start. Delays were longest on the 2xlarge resource class, where jobs waited up to 20 minutes. The incident was caused by limited availability of the cloud instances we had configured to meet demand, particularly for 2xlarge jobs.\n\nIn response, our engineering team configured additional instance types, configured additional Gen 2 Docker clusters. By 20:55 UTC, wait times had returned to normal and the incident was resolved.\n\nAfter the incident was resolved, we expanded our Gen 2 Docker fleet into additional cloud regions, and we continue actively standing up additional cloud regions to prevent similar incidents in the future.\n\nThe original status page can be found here: [October 21 - Increased Docker gen2 wait times](https://status.circleci.com/incidents/5jb50gh55gtj).\n\n## Background\n\nWhen CircleCI executes a Docker job, we schedule it on one of several clusters of cloud instances, and each instance is capable of executing multiple isolated jobs. Scheduling a job on a cloud instance is a classic [“bin packing problem”](https://en.wikipedia.org/wiki/Bin_packing_problem): finding available capacity that fits the requested resource class’ CPU, memory, and storage. Larger resource classes like 2xlarge are harder to fit than smaller ones, which pack together more tightly.\n\nWe provision cloud instances using a ranked list of instance types. If the cloud provider cannot supply our first choice, we fall back to the next type on the list. We further maintain a minimum fleet size: a minimum number of instances stay running, so that we do not give up capacity when demand is low. Above that minimum fleet size, we add instances as demand rises.\n\nWhen there is insufficient capacity to execute a workload, we queue that work until capacity becomes available.\n\n## What Happened\n\n_\\(All times UTC\\)_\n\nStarting at 15:44 on October 21, demand for the Gen 2 2xlarge resource class rose sharply, and we did not provision additional capacity quickly enough to keep up. Our engineering team began investigating. By 19:25, wait times for the Gen 2 2xlarge resource class had reached 20 minutes, and wait times for other resource classes had increased as well.\n\nBy 19:56, our engineering team had configured additional instance types to the Gen 2 fleet in order to get more capacity online, and by 19:59, we were provisioning those instance types. At 20:11, we added several additional Gen 2 clusters, and increased the minimum fleet size on those clusters.\n\nBy 20:35, the number of queued jobs returned to normal levels, and by 20:41, 95% of 2xlarge jobs were starting within 4 seconds. We resolved the incident at 20:55.\n\nAfter resolving this incident, we added additional cloud regions for Docker jobs to make more capacity available.\n\n## Future Prevention and Process Improvement\n\nWe have already taken the following steps to improve job start times, including sourcing capacity from more places, reserving more capacity for large resource classes, and implementing more rapid provisioning.\n\n**We have added additional regions for Docker jobs.** We recently added additional cloud regions for Machine jobs, and we have now done the same for Docker jobs.\n\n**We will actively continue adding additional cloud regions for both Docker and Machine jobs**.\n\n**We have added additional Gen 2 clusters**. We configured several additional Gen 2 clusters to schedule jobs more quickly, and to make more total capacity available.\n\n**We have expanded the set of cloud instance types we use and have raised our minimum fleet size.** We have configured additional instance types. We have also increased the minimum fleet size for Gen 2 to meet current baseline demand.\n\n**We have modified our job scheduler to prioritize scheduling of larger resource classes.** We have changed how we schedule jobs to balance wait times more fairly across resource classes, and to bin-pack jobs more efficiently onto available instances.\n\n## Conclusion\n\nCustomer experience is our top priority, and we commit to continually improving the reliability of our systems to match the trust that our customers place in us. We thank our customers for their patience while our team worked to resolve this incident.\n\nPlease reach out to our support team with any questions or concerns.",
+          "incident_id": "5jb50gh55gtj",
+          "created_at": "2026-10-22T23:29:38.894Z",
+          "updated_at": "2026-10-22T23:31:44.606Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "syj6pmr2751w",
           "status": "resolved",
