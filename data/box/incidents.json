@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-10-22T16:04:41.928-07:00"
+    "updated_at": "2026-10-22T22:29:10.904-07:00"
   },
   "incidents": [
     {
@@ -1798,7 +1798,7 @@
       "name": "[Minor] Issue with Admin Reporting",
       "status": "postmortem",
       "created_at": "2026-09-03T19:10:06.402-07:00",
-      "updated_at": "2026-09-15T14:27:10.672-07:00",
+      "updated_at": "2026-10-22T21:45:46.590-07:00",
       "monitoring_at": null,
       "resolved_at": "2026-09-03T20:03:26.934-07:00",
       "impact": "minor",
@@ -1809,10 +1809,10 @@
         {
           "id": "8b0b6r61c53v",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn September 3, 2026 between 3:30 PM PDT and 7:12 PM PDT, some customers may have experienced missing, delayed, or inaccurate results within admin reporting features, including AI usage reports, in Box. Reports may have shown empty fields or data that did not reflect recent activity.\n\nThe issue was caused by an outage in a third‑party data service that interrupted our data ingestion pipelines. Service availability was restored after the provider mitigated the problem.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,  \nThe Box Team",
+          "body": "We recently addressed issues affecting Admin Reports on AI usage reporting. We would like to take the opportunity to further explain these issues and the steps we have taken to keep them from happening in the future.\n\nBetween 3:30 PM PDT and 7:59 PM PDT on September 3, 2026, ~~—~~ some users may have experienced difficulties while working in Box. During this time, AI Unit usage reports may have shown missing, empty, or otherwise incomplete AI-usage data and related insights.\n\nThe issue occurred because a third‑party data ingestion service experienced elevated error rates that interrupted ingestion into our reporting pipeline. We were able to resolve the issue after the provider deployed a mitigation, and our teams re-ran previously failing ingestion jobs and rebuilt reporting tables to backfill missing data, restoring report availability. In addition, we will pursue follow-up with the provider and take steps to reduce the likelihood of recurrence.\n\n# Analysis\n\nUpon learning of the incident, coordination with our third‑party provider was required to restore capacity.\n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n* Obtaining the provider's formal root‑cause analysis.\n* Enhancing re-try mechanisms to recover from failures. \n* Enhancing alerting mechanisms for failed ingestion jobs error rates and observable signs of data‑quality degradation.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,\n\nThe Box Team",
           "incident_id": "sy0782slzd2t",
           "created_at": "2026-09-15T14:26:53.540-07:00",
-          "updated_at": "2026-09-15T14:27:10.669-07:00",
+          "updated_at": "2026-10-22T21:45:46.584-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
