@@ -3,9 +3,48 @@
     "id": "01KZSP42XPW71QZVJ4J2E597HE",
     "name": "Fly.io",
     "url": "https://status.flyio.net/",
-    "updated_at": "2026-10-22T18:00:00Z"
+    "updated_at": "2026-10-25T11:02:54Z"
   },
   "incidents": [
+    {
+      "id": "01M5SAP8HT3RBQFFS80KGXR6HB",
+      "name": "MPGv2 IAD control plane is read-only",
+      "status": "resolved",
+      "created_at": "2026-10-25T10:46:20Z",
+      "updated_at": "2026-10-25T11:02:54Z",
+      "resolved_at": "2026-10-25T11:02:54Z",
+      "impact": "minor",
+      "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
+      "incident_updates": [
+        {
+          "id": "01M5SBMKNMVF5ENJYJTFY0VAE0",
+          "body": "Control plane operations in IAD, including resizing and changing plans, are working normally again.",
+          "created_at": "2026-10-25T11:02:54Z",
+          "display_at": "2026-10-25T11:02:54Z",
+          "incident_id": "01M5SAP8HT3RBQFFS80KGXR6HB",
+          "status": "resolved",
+          "updated_at": "2026-10-25T11:02:54Z"
+        },
+        {
+          "id": "01M5SBD9G72V8G8HME660Y66AS",
+          "body": "MPG control plane in IAD is accepting writes again. We are monitoring for additional impact.",
+          "created_at": "2026-10-25T10:58:55Z",
+          "display_at": "2026-10-25T10:58:55Z",
+          "incident_id": "01M5SAP8HT3RBQFFS80KGXR6HB",
+          "status": "monitoring",
+          "updated_at": "2026-10-25T10:58:55Z"
+        },
+        {
+          "id": "01M5SAP8HTZZ8TR6ES5EMAMPT8",
+          "body": "Control plane operations such as resizing or changing plans will fail. MPG cluster availability isn't affected.",
+          "created_at": "2026-10-25T10:46:20Z",
+          "display_at": "2026-10-25T10:46:20Z",
+          "incident_id": "01M5SAP8HT3RBQFFS80KGXR6HB",
+          "status": "investigating",
+          "updated_at": "2026-10-25T10:46:20Z"
+        }
+      ]
+    },
     {
       "id": "01M5JH96T5TT7JV7HB702MKK0Z",
       "name": "Degraded Edge Performance",
@@ -1109,63 +1148,6 @@
           "display_at": "2026-09-02T23:03:57Z",
           "incident_id": "01M1J5TSVGA1QX4GJGW9QA85J7",
           "status": "investigating",
-          "updated_at": "2026-09-30T14:16:33Z"
-        }
-      ]
-    },
-    {
-      "id": "01M1HAXKJ5FHMWHCWS6GPMNRYW",
-      "name": "Upstream network issues",
-      "status": "resolved",
-      "created_at": "2026-09-02T15:13:38Z",
-      "updated_at": "2026-09-30T14:16:33Z",
-      "resolved_at": "2026-09-02T15:57:45Z",
-      "impact": "minor",
-      "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
-      "incident_updates": [
-        {
-          "id": "01M1HE78D7SWT313B3NJFZF86F",
-          "body": "This incident has been resolved.",
-          "created_at": "2026-09-02T16:11:20Z",
-          "display_at": "2026-09-02T15:57:45Z",
-          "incident_id": "01M1HAXKJ5FHMWHCWS6GPMNRYW",
-          "status": "resolved",
-          "updated_at": "2026-09-30T14:16:33Z"
-        },
-        {
-          "id": "01M1HE78D7QE7QDZNA71VYBP1E",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "created_at": "2026-09-02T16:11:20Z",
-          "display_at": "2026-09-02T15:33:02Z",
-          "incident_id": "01M1HAXKJ5FHMWHCWS6GPMNRYW",
-          "status": "monitoring",
-          "updated_at": "2026-09-30T14:16:33Z"
-        },
-        {
-          "id": "01M1HAXKJ5EKRNNXS62ZWYTH0Y",
-          "body": "We're updating the affected region list to also include SJC since this seems to be a wider upstream issue in US West Coast.",
-          "created_at": "2026-09-02T15:13:38Z",
-          "display_at": "2026-09-02T14:56:43Z",
-          "incident_id": "01M1HAXKJ5FHMWHCWS6GPMNRYW",
-          "status": "identified",
-          "updated_at": "2026-09-30T14:16:33Z"
-        },
-        {
-          "id": "01M1HAXKJ50X8GRKEZGCBW8BJS",
-          "body": "We have put in some temporary mitigations along with our providers. However since the root cause of this issue lies within a bigger upstream transit provider, you may continue to see some elevated latency and connection issues in/around affected regions. We're still working closely with them to resolve the root cause.",
-          "created_at": "2026-09-02T15:13:38Z",
-          "display_at": "2026-09-02T14:48:48Z",
-          "incident_id": "01M1HAXKJ5FHMWHCWS6GPMNRYW",
-          "status": "identified",
-          "updated_at": "2026-09-30T14:16:33Z"
-        },
-        {
-          "id": "01M1HAXKJ5NY6EQ4VYSVWTENEZ",
-          "body": "We have observed an upstream network issue in LAX. Connections to some destinations may see elevated latency and packet loss. We're working with our upstream to resolve this issue.",
-          "created_at": "2026-09-02T15:13:38Z",
-          "display_at": "2026-09-02T14:18:44Z",
-          "incident_id": "01M1HAXKJ5FHMWHCWS6GPMNRYW",
-          "status": "identified",
           "updated_at": "2026-09-30T14:16:33Z"
         }
       ]
