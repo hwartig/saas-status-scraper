@@ -4,9 +4,146 @@
     "name": "LaunchDarkly",
     "url": "https://status.launchdarkly.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-10-26T10:18:59.124-07:00"
+    "updated_at": "2026-10-26T14:20:24.142-07:00"
   },
   "incidents": [
+    {
+      "id": "y205vrvrdsqp",
+      "name": "delayed event processing",
+      "status": "resolved",
+      "created_at": "2026-10-26T13:52:16.916-07:00",
+      "updated_at": "2026-10-26T13:52:23.752-07:00",
+      "monitoring_at": null,
+      "resolved_at": "2026-10-26T13:52:17.092-07:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/m76k7mrwbhh9",
+      "started_at": "2026-10-26T13:52:16.895-07:00",
+      "page_id": "9404kdk7lkn7",
+      "incident_updates": [
+        {
+          "id": "y2ccw5nz2rhy",
+          "status": "resolved",
+          "body": "A scaling inflection point in our realtime event warehouse led to a delay for some event ingestion. The engineering team has remediated the problem and all events should be caught up.\n\nSome customers may have seen delays in experiments and in guarded release processing.\n\nThis is now resolved and the team will carefully monitor.",
+          "incident_id": "y205vrvrdsqp",
+          "created_at": "2026-10-26T13:52:17.092-07:00",
+          "updated_at": "2026-10-26T13:52:17.676-07:00",
+          "display_at": "2026-10-26T13:52:17.092-07:00",
+          "affected_components": [
+            {
+              "code": "g5bksjhndxmj",
+              "name": "Feature management (non-core functionality) - Flag usage metrics",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "hf1r5xs02ll2",
+              "name": "Experimentation (core functionality) - Experiment results processing",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "1skhs8zvnlm6",
+              "name": "Global (core functionality) - Metrics",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "cz3hzygdr4w2",
+              "name": "Guarded Rollouts (core functionality) - Rollout results processing",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "12y9mq78j7hh",
+              "name": "Observability (core functionality) - OpenTelemetry (Logs, Traces, Metrics)",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": 2114822446968930348
+        }
+      ],
+      "components": [
+        {
+          "id": "1skhs8zvnlm6",
+          "name": "Metrics",
+          "status": "operational",
+          "created_at": "2022-09-16T15:25:16.137-07:00",
+          "updated_at": "2026-07-13T12:11:10.231-07:00",
+          "position": 2,
+          "description": "Creating and editing metrics",
+          "showcase": true,
+          "start_date": "2022-09-16",
+          "group_id": "17840mm6444k",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "cz3hzygdr4w2",
+          "name": "Rollout results processing",
+          "status": "operational",
+          "created_at": "2025-03-26T10:11:49.980-07:00",
+          "updated_at": "2026-07-13T12:10:15.316-07:00",
+          "position": 2,
+          "description": "Aggregate and process data from feature rollouts for analysis",
+          "showcase": true,
+          "start_date": "2025-03-26",
+          "group_id": "d3hpvmdzv2tk",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "g5bksjhndxmj",
+          "name": "Flag usage metrics",
+          "status": "operational",
+          "created_at": "2018-08-30T10:10:07.695-07:00",
+          "updated_at": "2026-07-10T10:54:57.114-07:00",
+          "position": 3,
+          "description": "Recording and displaying of data pertaining to your flag usage",
+          "showcase": false,
+          "start_date": null,
+          "group_id": "2868qx437p9m",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "hf1r5xs02ll2",
+          "name": "Experiment results processing",
+          "status": "operational",
+          "created_at": "2022-09-16T15:33:34.500-07:00",
+          "updated_at": "2026-07-13T12:08:50.343-07:00",
+          "position": 3,
+          "description": "Ingestion and recording of experiment results",
+          "showcase": true,
+          "start_date": "2022-09-16",
+          "group_id": "j28fw96kw68y",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "12y9mq78j7hh",
+          "name": "OpenTelemetry (Logs, Traces, Metrics)",
+          "status": "operational",
+          "created_at": "2025-11-18T12:44:28.358-08:00",
+          "updated_at": "2026-07-31T15:54:36.413-07:00",
+          "position": 4,
+          "description": null,
+          "showcase": true,
+          "start_date": "2025-11-18",
+          "group_id": "qwwp500n0czc",
+          "page_id": "9404kdk7lkn7",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "260bjcxkfxhz",
       "name": "Elevated 5xx Errors (15:11–15:32 UTC)",
@@ -8763,119 +8900,6 @@
           "showcase": true,
           "start_date": "2025-11-18",
           "group_id": "qwwp500n0czc",
-          "page_id": "9404kdk7lkn7",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "hfbvlcjhn2cr",
-      "name": "Data attribution issues with Experimentation",
-      "status": "resolved",
-      "created_at": "2026-02-12T16:30:54.000-08:00",
-      "updated_at": "2026-02-12T19:39:47.097-08:00",
-      "monitoring_at": null,
-      "resolved_at": "2026-02-12T19:39:46.690-08:00",
-      "impact": "major",
-      "shortlink": "https://stspg.io/rn2jwjqqvff4",
-      "started_at": "2026-02-12T15:30:54.000-08:00",
-      "page_id": "9404kdk7lkn7",
-      "incident_updates": [
-        {
-          "id": "55pln6cz44gh",
-          "status": "resolved",
-          "body": "We have fixed the data attribution issues where running experiment iterations were receiving incorrectly attributed data. This incident is now resolved and results for active experiments are now accurate.",
-          "incident_id": "hfbvlcjhn2cr",
-          "created_at": "2026-02-12T19:39:46.690-08:00",
-          "updated_at": "2026-02-12T19:39:47.091-08:00",
-          "display_at": "2026-02-12T19:39:46.690-08:00",
-          "affected_components": [
-            {
-              "code": "2f264mc5ls7f",
-              "name": "Experimentation (core functionality) - Experiment results analysis",
-              "old_status": "partial_outage",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2022153701746782318
-        },
-        {
-          "id": "cckt4xjqtfqb",
-          "status": "identified",
-          "body": "We have fixed the data attribution issues where certain experiment iterations are receiving incorrectly attributed data for any new experiments that are created. \nWe are fixing the data attribution error for active experiments.",
-          "incident_id": "hfbvlcjhn2cr",
-          "created_at": "2026-02-12T18:38:38.778-08:00",
-          "updated_at": "2026-02-12T18:38:39.096-08:00",
-          "display_at": "2026-02-12T18:38:38.778-08:00",
-          "affected_components": [
-            {
-              "code": "2f264mc5ls7f",
-              "name": "Experimentation (core functionality) - Experiment results analysis",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2022138316972552211
-        },
-        {
-          "id": "nzwbm3tlykmm",
-          "status": "identified",
-          "body": "The team has identified the root cause and is working on a fix.",
-          "incident_id": "hfbvlcjhn2cr",
-          "created_at": "2026-02-12T17:32:43.103-08:00",
-          "updated_at": "2026-02-12T17:32:43.397-08:00",
-          "display_at": "2026-02-12T17:32:43.103-08:00",
-          "affected_components": [
-            {
-              "code": "2f264mc5ls7f",
-              "name": "Experimentation (core functionality) - Experiment results analysis",
-              "old_status": "partial_outage",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2022121725685796936
-        },
-        {
-          "id": "hlv4plnwnp00",
-          "status": "investigating",
-          "body": "We are investigating an issue where certain experiment iterations are receiving incorrectly attributed data.",
-          "incident_id": "hfbvlcjhn2cr",
-          "created_at": "2026-02-12T17:31:54.823-08:00",
-          "updated_at": "2026-02-12T17:37:23.390-08:00",
-          "display_at": "2026-02-12T16:30:54.000-08:00",
-          "affected_components": [
-            {
-              "code": "2f264mc5ls7f",
-              "name": "Experimentation (core functionality) - Experiment results analysis",
-              "old_status": "operational",
-              "new_status": "partial_outage"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 2022121523751047354
-        }
-      ],
-      "components": [
-        {
-          "id": "2f264mc5ls7f",
-          "name": "Experiment results analysis",
-          "status": "operational",
-          "created_at": "2022-09-16T15:25:58.310-07:00",
-          "updated_at": "2026-07-13T12:08:38.773-07:00",
-          "position": 4,
-          "description": "Display of experiment results",
-          "showcase": true,
-          "start_date": "2022-09-16",
-          "group_id": "j28fw96kw68y",
           "page_id": "9404kdk7lkn7",
           "group": false,
           "only_show_if_degraded": false

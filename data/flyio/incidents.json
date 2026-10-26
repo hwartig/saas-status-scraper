@@ -3,18 +3,46 @@
     "id": "01KZSP42XPW71QZVJ4J2E597HE",
     "name": "Fly.io",
     "url": "https://status.flyio.net/",
-    "updated_at": "2026-10-26T16:26:19Z"
+    "updated_at": "2026-10-26T20:40:13Z"
   },
   "incidents": [
     {
       "id": "01M5WA55T284S335ZTE9MN8MWZ",
       "name": "Degraded networking to AWS IPs",
-      "status": "identified",
+      "status": "resolved",
       "created_at": "2026-10-26T14:34:43Z",
-      "updated_at": "2026-10-26T16:26:19Z",
+      "updated_at": "2026-10-26T20:40:13Z",
+      "resolved_at": "2026-10-26T20:40:13Z",
       "impact": "none",
       "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
       "incident_updates": [
+        {
+          "id": "01M5WZ2DHY8XBMJTG7DM2N54KD",
+          "body": "This incident has been resolved, connectivity from AWS to all of our hosts is back to normal.",
+          "created_at": "2026-10-26T20:40:13Z",
+          "display_at": "2026-10-26T20:40:13Z",
+          "incident_id": "01M5WA55T284S335ZTE9MN8MWZ",
+          "status": "resolved",
+          "updated_at": "2026-10-26T20:40:13Z"
+        },
+        {
+          "id": "01M5WTPK15XSC7Y35BMX9NDRXD",
+          "body": "Connectivity from AWS to Fly.io on impacted hosts is continuing to recover. Approximately 80% of the hosts that were seeing connectivity issues are fully recovered at this time. ",
+          "created_at": "2026-10-26T19:23:51Z",
+          "display_at": "2026-10-26T19:23:51Z",
+          "incident_id": "01M5WA55T284S335ZTE9MN8MWZ",
+          "status": "identified",
+          "updated_at": "2026-10-26T19:23:51Z"
+        },
+        {
+          "id": "01M5WPC3XN6G16SPVSE7V97HKN",
+          "body": "AWS has implemented changes to unblock connections from their network from reaching our machines. We are seeing connectivity starting to resume on a host-by-host basis as these changes take effect.",
+          "created_at": "2026-10-26T18:08:14Z",
+          "display_at": "2026-10-26T18:08:14Z",
+          "incident_id": "01M5WA55T284S335ZTE9MN8MWZ",
+          "status": "identified",
+          "updated_at": "2026-10-26T18:08:14Z"
+        },
         {
           "id": "01M5WGHG8NBAD3AFVE9TWX6C1C",
           "body": "We are continuing to work with our upstream networking partners and AWS on remediation. Impacted customers are recommended to allocate app-scoped static egress IPs using **fly ips allocate-egress.** \n\nCustomers seeing issues are encouraged to also contact AWS support or their AWS hosted vendors support with details of the connection errors and their fly machine IPs.",
