@@ -3,9 +3,56 @@
     "id": "01KZSP42XPW71QZVJ4J2E597HE",
     "name": "Fly.io",
     "url": "https://status.flyio.net/",
-    "updated_at": "2026-10-26T04:24:05Z"
+    "updated_at": "2026-10-26T16:26:19Z"
   },
   "incidents": [
+    {
+      "id": "01M5WA55T284S335ZTE9MN8MWZ",
+      "name": "Degraded networking to AWS IPs",
+      "status": "identified",
+      "created_at": "2026-10-26T14:34:43Z",
+      "updated_at": "2026-10-26T16:26:19Z",
+      "impact": "none",
+      "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
+      "incident_updates": [
+        {
+          "id": "01M5WGHG8NBAD3AFVE9TWX6C1C",
+          "body": "We are continuing to work with our upstream networking partners and AWS on remediation. Impacted customers are recommended to allocate app-scoped static egress IPs using **fly ips allocate-egress.** \n\nCustomers seeing issues are encouraged to also contact AWS support or their AWS hosted vendors support with details of the connection errors and their fly machine IPs.",
+          "created_at": "2026-10-26T16:26:19Z",
+          "display_at": "2026-10-26T16:26:19Z",
+          "incident_id": "01M5WA55T284S335ZTE9MN8MWZ",
+          "status": "identified",
+          "updated_at": "2026-10-26T16:26:19Z"
+        },
+        {
+          "id": "01M5WCFT515JERAXPWF26K8WBR",
+          "body": "We are continuing to see connectivity issues from AWS IPs to a subset of our hosts. From our investigation these connections appear to be being blocked from the AWS side. We are continuing to work with our upstream networking partners and AWS on remediation.\n\nIn the meantime impacted customers are recommended to allocate app-scoped static egress IPs using **fly ips allocate-egress.** ",
+          "created_at": "2026-10-26T15:15:29Z",
+          "display_at": "2026-10-26T15:15:29Z",
+          "incident_id": "01M5WA55T284S335ZTE9MN8MWZ",
+          "status": "identified",
+          "updated_at": "2026-10-26T15:15:29Z"
+        },
+        {
+          "id": "01M5WB8V8MN66D8AC17SV1GKK4",
+          "body": "Our initial investigations indicate connection errors are occuring the return path from AWS IPs. We are escalating the issue with AWS and continuing to investigate. \n\nCustomers seeing issues are encouraged to also contact AWS support or their AWS hosted vendors support with details of the connection errors and their fly machine IPs.",
+          "created_at": "2026-10-26T14:54:12Z",
+          "display_at": "2026-10-26T14:54:12Z",
+          "incident_id": "01M5WA55T284S335ZTE9MN8MWZ",
+          "status": "investigating",
+          "updated_at": "2026-10-26T14:54:12Z"
+        },
+        {
+          "id": "01M5WA55T2WP9XY5PK25J8WEV9",
+          "body": "We are investigating reports of elevated networking issues between our network and AWS IPs. We are working to determine the source of the issue.\n\n ",
+          "created_at": "2026-10-26T14:34:43Z",
+          "display_at": "2026-10-26T14:34:43Z",
+          "incident_id": "01M5WA55T284S335ZTE9MN8MWZ",
+          "status": "investigating",
+          "updated_at": "2026-10-26T14:34:43Z"
+        }
+      ]
+    },
     {
       "id": "01M5TYEDQ2VH9N1NEE404G1HH8",
       "name": "Packet loss in IAD",
@@ -1099,45 +1146,6 @@
           "created_at": "2026-09-15T05:07:33Z",
           "display_at": "2026-09-15T04:08:58Z",
           "incident_id": "01M2HQD5T4RGS5CW6GTE1R802B",
-          "status": "investigating",
-          "updated_at": "2026-09-30T14:16:33Z"
-        }
-      ]
-    },
-    {
-      "id": "01M2BTHP1PJT7MRRME84DSPF8G",
-      "name": "Network issues in US West Coast",
-      "status": "resolved",
-      "created_at": "2026-09-12T22:07:00Z",
-      "updated_at": "2026-09-30T14:16:33Z",
-      "resolved_at": "2026-09-12T22:12:29Z",
-      "impact": "minor",
-      "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
-      "incident_updates": [
-        {
-          "id": "01M2BY4Y4DEYKW4GXE2P4ZVMW5",
-          "body": "This incident has been resolved.",
-          "created_at": "2026-09-12T23:09:56Z",
-          "display_at": "2026-09-12T22:12:29Z",
-          "incident_id": "01M2BTHP1PJT7MRRME84DSPF8G",
-          "status": "resolved",
-          "updated_at": "2026-09-30T14:16:33Z"
-        },
-        {
-          "id": "01M2BTHP1PDSQ6R8XBRRZBG044",
-          "body": "Private networking between Fly Machines is resolved, and most outbound connections are healthy. We're continuing to monitor the network, and some issues will still be expected from clients physically located in US West until upstream transit issues are resolved.",
-          "created_at": "2026-09-12T22:07:00Z",
-          "display_at": "2026-09-12T21:57:05Z",
-          "incident_id": "01M2BTHP1PJT7MRRME84DSPF8G",
-          "status": "monitoring",
-          "updated_at": "2026-09-30T14:16:33Z"
-        },
-        {
-          "id": "01M2BTHP1P6Q8RHMSSJA1N7YR6",
-          "body": "We are investigating upstream network issues from US West Coast (SJC, LAX). Apps hosted in US West regions may experience higher latency or packet loss, and requests from clients physically located in US West may experience higher latency.",
-          "created_at": "2026-09-12T22:07:00Z",
-          "display_at": "2026-09-12T21:22:52Z",
-          "incident_id": "01M2BTHP1PJT7MRRME84DSPF8G",
           "status": "investigating",
           "updated_at": "2026-09-30T14:16:33Z"
         }

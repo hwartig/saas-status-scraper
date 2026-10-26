@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-10-26T10:54:14.026Z"
+    "updated_at": "2026-10-26T17:19:02.419Z"
   },
   "incidents": [
     {
@@ -125,7 +125,7 @@
       "name": "Disruption with Dependabot Alerts",
       "status": "resolved",
       "created_at": "2026-10-23T14:58:48.748Z",
-      "updated_at": "2026-10-23T18:51:24.517Z",
+      "updated_at": "2026-10-26T16:37:48.605Z",
       "monitoring_at": "2026-10-23T18:36:15.053Z",
       "resolved_at": "2026-10-23T18:51:24.490Z",
       "impact": "minor",
@@ -136,10 +136,10 @@
         {
           "id": "7cb4dv68nylk",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "We identified that an advisory-publication driven fan-out was overwhelming Dependabot alert processing on repositories by saturating the queue with its own events, delaying processing of events related to repository pushes.<br /><br />We have now isolated this fan-out and applied a throttle so it runs at a fixed rate and cannot delay other events. This remediation has successfully prevented a new fan-out process impacting users.",
           "incident_id": "71y513kjvbzh",
           "created_at": "2026-10-23T18:51:24.490Z",
-          "updated_at": "2026-10-23T18:51:24.490Z",
+          "updated_at": "2026-10-26T16:37:48.598Z",
           "display_at": "2026-10-23T18:51:24.490Z",
           "affected_components": null,
           "deliver_notifications": true,
