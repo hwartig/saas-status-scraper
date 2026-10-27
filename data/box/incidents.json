@@ -4,15 +4,15 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-10-27T10:19:12.776-07:00"
+    "updated_at": "2026-10-27T15:04:06.844-07:00"
   },
   "incidents": [
     {
       "id": "8mlj3j9t0xx9",
       "name": "[Medium] Issue with multiple Box Services",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-10-19T19:19:09.772-07:00",
-      "updated_at": "2026-10-19T20:47:59.105-07:00",
+      "updated_at": "2026-10-27T14:29:08.317-07:00",
       "monitoring_at": null,
       "resolved_at": "2026-10-19T20:47:59.083-07:00",
       "impact": "major",
@@ -20,6 +20,19 @@
       "started_at": "2026-10-19T19:19:09.759-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "ztfqxmhq1kvf",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nOn October 19, 2026 between 6:44 PM and 8:32 PM PDT, some customers may have experienced degradation when interacting with our Public API, Downloads, and Box Sign.\n\nThe impact was caused by a focused traffic spike that resulted in increased latencies when accessing some data assets. We mitigated the impact by enabling additional targeted caching to relieve the stress on our datastores. Performance of our services returned to normal levels by 8:32 PM PDT.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nSincerely,  \nThe Box Team",
+          "incident_id": "8mlj3j9t0xx9",
+          "created_at": "2026-10-27T14:28:59.275-07:00",
+          "updated_at": "2026-10-27T14:29:08.314-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "pgq1lvts4lzh",
           "status": "resolved",
@@ -1693,9 +1706,9 @@
     {
       "id": "nymp07yk68rh",
       "name": "[Critical] Issues with All Files Page, Box Notes, API calls, logins and downloads",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-09-29T07:15:57.029-07:00",
-      "updated_at": "2026-10-01T04:11:33.858-07:00",
+      "updated_at": "2026-10-27T14:25:40.113-07:00",
       "monitoring_at": null,
       "resolved_at": "2026-09-29T08:30:00.000-07:00",
       "impact": "critical",
@@ -1703,6 +1716,19 @@
       "started_at": "2026-09-29T07:15:57.021-07:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "y7s7dkw8838z",
+          "status": "postmortem",
+          "body": "We recently addressed an issue that briefly affected the All Files page, Box Notes, API traffic, logins, and downloads in Box. We would like to take the opportunity to further explain this issue and the steps we have taken to keep it from happening in the future.\n\nOn Tuesday, September 29, 2026 between approximately 6:39 AM PDT and 6:44 AM PDT, some customers may have experienced errors when using Box. The issue occurred when several database instances simultaneously became unavailable due to a disruption in our cloud-managed infrastructure. Our internal systems detected the unhealthy instances and automatically rerouted traffic to a healthy copy, which fully restored service availability.\n\n# Analysis\n\nOur database service is generally deployed evenly across multiple availability zones in order to reduce coupling to a single failure domain within our cloud infrastructure. However, VM scheduling within a given availability zone is managed by the compute service itself. In this instance, several VMs within a single availability zone were attached to a shared network device prior to the incident. When that device experienced a brief interruption, multiple database instances simultaneously became unavailable.\n\nOur systems retain warmed copies of the database instances to take over in the event of a hardware failure, and continuously monitor the health of the service. Within minutes of the impact start, this system correctly detected the issue and successfully remediated the problem by redirecting traffic from the unhealthy instance to a healthy copy. At this point, customers using Box saw errors subside and service return to normal.\n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n* Analyzing and optimizing the response time for our health checking services to more quickly remediate similar issues.\n* Ensuring that our health checking services are resilient to potentially larger, concurrent failures across our database fleet.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\nSincerely,  \nThe Box Team",
+          "incident_id": "nymp07yk68rh",
+          "created_at": "2026-10-27T14:25:22.713-07:00",
+          "updated_at": "2026-10-27T14:25:40.110-07:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "blft1f60s53k",
           "status": "resolved",

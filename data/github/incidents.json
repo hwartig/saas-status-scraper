@@ -4,9 +4,39 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-10-27T17:19:26.389Z"
+    "updated_at": "2026-10-27T22:04:20.531Z"
   },
   "incidents": [
+    {
+      "id": "dnslv7xdl4fj",
+      "name": "Elevated 404s for GitHub App s2s tokens in git/API",
+      "status": "resolved",
+      "created_at": "2026-10-27T08:00:00.000Z",
+      "updated_at": "2026-10-27T20:21:53.884Z",
+      "monitoring_at": null,
+      "resolved_at": "2026-10-27T08:00:00.000Z",
+      "impact": "none",
+      "shortlink": "https://stspg.io/4z5lmy7gqjk1",
+      "started_at": "2026-10-27T20:21:53.803Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "vkjjy8pm6d6t",
+          "status": "resolved",
+          "body": "Between 0655 and 0801 UTC on 10/27, customers experienced increased failure rates for API and git requests authenticated with server-to-server tokens for GitHub Apps (excluding Actions tokens). During this window, authenticated git operations mistakenly returned 404 for 1.24% (2.6x) of requests on average and 2.49% (5.3x) at peak.\n\nThese failures were caused by a scheduled maintenance event where GitHub migrated 7 tables between two MySQL clusters in our IAD and Azure Central US datacenters. One of the affected tables stores installation records for GitHub App server-to-server tokens (excluding Actions). We've successfully completed several of these migrations in recent months without notable customer impact. However, in this case, the migration coincided with a scheduled cleanup job on the installation records table, which deleted approximately 59 million records from 0444-0617 UTC. As a result, the gh-ost tooling used in the migration experienced inter-cluster replication delays (up to 1 hour at peak).\n\nAt 0655 UTC, we begin transitioning reads of the target tables to the new MySQL cluster, with 100% of reads cutover at 0721 UTC. Customer impact began, but was not detected, throughout the read cutover and persisted until completion of the write cutover at 0801 UTC. We are updating our processes and automation to prevent a repeat of this incident, including disabling overlapping cleanup jobs prior to these migrations and blocking the cutover of reads when replication delays are high.",
+          "incident_id": "dnslv7xdl4fj",
+          "created_at": "2026-10-27T20:21:53.872Z",
+          "updated_at": "2026-10-27T20:21:53.872Z",
+          "display_at": "2026-10-27T08:00:00.000Z",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "f1vvv30224wd",
       "name": "Incident with Actions, Issues, API Requests and Pull Requests",
@@ -11217,75 +11247,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "lsvy8xsf0gxv",
-      "name": "Disruption with Login and Release Asset downloads",
-      "status": "resolved",
-      "created_at": "2026-08-12T21:39:05.231Z",
-      "updated_at": "2026-08-25T19:58:06.161Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-08-12T22:56:39.025Z",
-      "impact": "major",
-      "shortlink": "https://stspg.io/xp36nwz4rrh1",
-      "started_at": "2026-08-12T21:39:05.221Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "6gg3pnjzw7kt",
-          "status": "resolved",
-          "body": "On August 12 and 13, 2026, some anonymous (logged-out) requests to github.com experienced HTTP 5xx errors when loading pages like the sign-in page, and when downloading release assets, due to an unusual traffic pattern that repeatedly overloaded a part of our infrastructure that serves these types of requests. There were three windows of impact: (1) August 12 from 16:34 to 18:34 UTC, with an average error rate of 16.16% that peaked at 28.6%; (2) August 12 from 19:00 to 22:56 UTC, with an average error rate of 16.55% that peaked at 24.18%; and (3) August 13 from 06:19 to 08:05 UTC, with an average error rate of 2.01% that peaked at 7.49%.<br />Requests from signed-in users were unaffected.<br /><br />We mitigated the incidents by applying traffic controls at our network edge that limited any requests matching the pattern identified previously, thereby preventing overload on our systems.<br /><br />Since these incidents occurred, we have tightened our monitoring systems to alert server-side errors that affect logged-out traffic. We are also working to further strengthen our edge protections and reduce the time to detect and mitigate similar incidents.",
-          "incident_id": "lsvy8xsf0gxv",
-          "created_at": "2026-08-12T22:56:39.025Z",
-          "updated_at": "2026-08-25T19:58:06.154Z",
-          "display_at": "2026-08-12T22:56:39.025Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "shcljc37cjb4",
-          "status": "investigating",
-          "body": "We have identified the root cause and are working on mitigation. Errors on the login page and downloading release assets have decreased, but we are not fully mitigated. We will continue to provide updates.",
-          "incident_id": "lsvy8xsf0gxv",
-          "created_at": "2026-08-12T22:22:11.444Z",
-          "updated_at": "2026-08-12T22:22:11.444Z",
-          "display_at": "2026-08-12T22:22:11.444Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "mshsyxg66hb9",
-          "status": "investigating",
-          "body": "We are investigating issues with Login and when downloading Release Assets. We will continue to keep users updated on progress towards mitigation.",
-          "incident_id": "lsvy8xsf0gxv",
-          "created_at": "2026-08-12T21:43:25.632Z",
-          "updated_at": "2026-08-12T21:43:25.632Z",
-          "display_at": "2026-08-12T21:43:25.632Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "h1rhpx3rnp9q",
-          "status": "investigating",
-          "body": "We are investigating reports of impacted performance for some GitHub services.",
-          "incident_id": "lsvy8xsf0gxv",
-          "created_at": "2026-08-12T21:39:05.267Z",
-          "updated_at": "2026-08-12T21:39:05.267Z",
-          "display_at": "2026-08-12T21:39:05.267Z",
-          "affected_components": null,
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
