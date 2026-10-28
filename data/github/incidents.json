@@ -4,9 +4,52 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-10-28T07:15:55.466Z"
+    "updated_at": "2026-10-28T14:21:25.377Z"
   },
   "incidents": [
+    {
+      "id": "l7ycmglmykgg",
+      "name": "Disruption with some Copilot services",
+      "status": "investigating",
+      "created_at": "2026-10-28T14:12:53.821Z",
+      "updated_at": "2026-10-28T14:15:46.578Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/bwcyq078jzms",
+      "started_at": "2026-10-28T14:12:53.814Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "lwxljgnlw669",
+          "status": "investigating",
+          "body": "We are experiencing issues with upstream model providers resulting in a degraded experience across Copilot services. The team is actively investigating the issue.",
+          "incident_id": "l7ycmglmykgg",
+          "created_at": "2026-10-28T14:15:46.574Z",
+          "updated_at": "2026-10-28T14:15:46.574Z",
+          "display_at": "2026-10-28T14:15:46.574Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "0y1yf8q6pr8k",
+          "status": "investigating",
+          "body": "We are investigating reports of impacted performance for some GitHub services.",
+          "incident_id": "l7ycmglmykgg",
+          "created_at": "2026-10-28T14:12:53.892Z",
+          "updated_at": "2026-10-28T14:12:53.892Z",
+          "display_at": "2026-10-28T14:12:53.892Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "dnslv7xdl4fj",
       "name": "Elevated 404s for GitHub App s2s tokens in git/API",
@@ -10812,435 +10855,6 @@
           "description": null,
           "showcase": true,
           "start_date": "2026-04-17",
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "k8vbzwqjkxzn",
-      "name": "Incident with Webhooks",
-      "status": "resolved",
-      "created_at": "2026-08-13T14:45:40.430Z",
-      "updated_at": "2026-08-31T20:37:37.194Z",
-      "monitoring_at": "2026-08-13T15:33:02.241Z",
-      "resolved_at": "2026-08-13T15:36:34.631Z",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/f0cgtdc0kqxg",
-      "started_at": "2026-08-13T14:45:40.422Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "7rfzp8yd8y1p",
-          "status": "resolved",
-          "body": "Between 14:24 and 14:53 UTC on 13 August 2026, a routine background job to delete an organization overwhelmed a key shared database, causing multiple GitHub services to briefly return elevated errors and slower responses. Most affected was the webhook management API, with smaller impact to Git operations, pull requests, issues, packages, sign-in, and Copilot. Impact cleared on its own at about 14:53 UTC once the job finished; we resolved the incident at 15:36 UTC. <br /><br />Affected users may have experienced a brief increase in errors and slower responses, primarily when creating, listing, or updating webhooks, with smaller impacts to pull requests, issues, packages, and Git operations. Failures peaked at about 1% for several minutes around 14:37 UTC. <br /><br />To prevent future incidents, we've already shipped an update that turns on the safer deletion path for organizations, along with caps on deletion holds on databases. Building on these changes, we're auditing all bulk deletion and cleanup jobs that write to shared databases to prevent similar issues in future.",
-          "incident_id": "k8vbzwqjkxzn",
-          "created_at": "2026-08-13T15:36:34.631Z",
-          "updated_at": "2026-08-31T20:37:37.188Z",
-          "display_at": "2026-08-13T15:36:34.631Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "st3j38cctv9l",
-              "name": "Packages",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "93p7n43df8pp",
-          "status": "monitoring",
-          "body": "We have temporarily disabled a background job which caused the impact. At this time the impact is fully mitigated.",
-          "incident_id": "k8vbzwqjkxzn",
-          "created_at": "2026-08-13T15:33:54.578Z",
-          "updated_at": "2026-08-13T15:33:54.578Z",
-          "display_at": "2026-08-13T15:33:54.578Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "st3j38cctv9l",
-              "name": "Packages",
-              "old_status": "operational",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "dmhjp5d48szh",
-          "status": "monitoring",
-          "body": "The degradation affecting Git Operations, Issues, Packages, Pull Requests and Webhooks has been mitigated. We are monitoring to ensure stability.",
-          "incident_id": "k8vbzwqjkxzn",
-          "created_at": "2026-08-13T15:33:02.241Z",
-          "updated_at": "2026-08-13T15:33:02.241Z",
-          "display_at": "2026-08-13T15:33:02.241Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "st3j38cctv9l",
-              "name": "Packages",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "5bmsj83w9b1y",
-          "status": "investigating",
-          "body": "We are currently investigating a brief degradation of service for Git operations (specifically pushes), issues, pull requests, package registry, and webhooks between 14:32 and 14:46 UTC. We have identified the source of the degradation and are investigating mitigation strategies to prevent recurrence.",
-          "incident_id": "k8vbzwqjkxzn",
-          "created_at": "2026-08-13T14:58:49.294Z",
-          "updated_at": "2026-08-13T14:58:49.294Z",
-          "display_at": "2026-08-13T14:58:49.294Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "st3j38cctv9l",
-              "name": "Packages",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "hc0z0h948vw4",
-          "status": "investigating",
-          "body": "Packages is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "k8vbzwqjkxzn",
-          "created_at": "2026-08-13T14:56:45.535Z",
-          "updated_at": "2026-08-13T14:56:45.535Z",
-          "display_at": "2026-08-13T14:56:45.535Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "st3j38cctv9l",
-              "name": "Packages",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "nzwzlfw5dj76",
-          "status": "investigating",
-          "body": "Git Operations is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "k8vbzwqjkxzn",
-          "created_at": "2026-08-13T14:46:52.592Z",
-          "updated_at": "2026-08-13T14:46:52.592Z",
-          "display_at": "2026-08-13T14:46:52.592Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "8l4ygp009s5s",
-              "name": "Git Operations",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "75xrbz1k3h55",
-          "status": "investigating",
-          "body": "Issues is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "k8vbzwqjkxzn",
-          "created_at": "2026-08-13T14:46:23.248Z",
-          "updated_at": "2026-08-13T14:46:23.248Z",
-          "display_at": "2026-08-13T14:46:23.248Z",
-          "affected_components": [
-            {
-              "code": "kr09ddfgbfsf",
-              "name": "Issues",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "sx75v78by5f3",
-          "status": "investigating",
-          "body": "Pull Requests is experiencing degraded performance. We are continuing to investigate.",
-          "incident_id": "k8vbzwqjkxzn",
-          "created_at": "2026-08-13T14:46:11.195Z",
-          "updated_at": "2026-08-13T14:46:11.195Z",
-          "display_at": "2026-08-13T14:46:11.195Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "hhtssxt0f5v2",
-              "name": "Pull Requests",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "f561mxvcy4y8",
-          "status": "investigating",
-          "body": "We are investigating reports of degraded performance for Webhooks",
-          "incident_id": "k8vbzwqjkxzn",
-          "created_at": "2026-08-13T14:45:40.503Z",
-          "updated_at": "2026-08-13T14:45:40.503Z",
-          "display_at": "2026-08-13T14:45:40.503Z",
-          "affected_components": [
-            {
-              "code": "4230lsnqdsld",
-              "name": "Webhooks",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "8l4ygp009s5s",
-          "name": "Git Operations",
-          "status": "operational",
-          "created_at": "2017-01-31T20:05:05.370Z",
-          "updated_at": "2026-10-07T15:49:53.270Z",
-          "position": 1,
-          "description": "Performance of git clones, pulls, pushes, and associated operations",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "4230lsnqdsld",
-          "name": "Webhooks",
-          "status": "operational",
-          "created_at": "2019-11-13T18:00:24.256Z",
-          "updated_at": "2026-10-21T16:57:41.975Z",
-          "position": 2,
-          "description": "Real time HTTP callbacks of user-generated and system events",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "kr09ddfgbfsf",
-          "name": "Issues",
-          "status": "operational",
-          "created_at": "2017-01-31T20:01:46.638Z",
-          "updated_at": "2026-10-22T17:41:38.560Z",
-          "position": 5,
-          "description": "Requests for Issues on GitHub.com",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "hhtssxt0f5v2",
-          "name": "Pull Requests",
-          "status": "operational",
-          "created_at": "2020-09-02T15:39:06.329Z",
-          "updated_at": "2026-10-22T17:41:38.589Z",
-          "position": 6,
-          "description": "Requests for Pull Requests on GitHub.com",
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "kctbh9vrtdwd",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "st3j38cctv9l",
-          "name": "Packages",
-          "status": "operational",
-          "created_at": "2019-11-13T18:02:40.064Z",
-          "updated_at": "2026-10-22T17:41:38.649Z",
-          "position": 8,
-          "description": "API requests and webhook delivery for GitHub Packages",
-          "showcase": true,
-          "start_date": null,
           "group_id": null,
           "page_id": "kctbh9vrtdwd",
           "group": false,
