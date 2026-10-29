@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-10-28T19:40:09.178-07:00"
+    "updated_at": "2026-10-29T02:11:46.508-07:00"
   },
   "incidents": [
     {
@@ -249,7 +249,7 @@
       "name": "[Major] Issue with Box Drive",
       "status": "postmortem",
       "created_at": "2026-10-15T01:30:38.665-07:00",
-      "updated_at": "2026-10-26T12:24:03.239-07:00",
+      "updated_at": "2026-10-28T22:58:48.716-07:00",
       "monitoring_at": "2026-10-15T05:13:58.229-07:00",
       "resolved_at": "2026-10-15T05:41:41.096-07:00",
       "impact": "major",
@@ -260,10 +260,10 @@
         {
           "id": "w9b6tplc41fl",
           "status": "postmortem",
-          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\n‌\n\nBetween October 14, 2026 at 3:00 PM PDT and October 15, 2026 at 5:10 PM PDT, some customers may have experienced delays in receiving User Events while using Box Drive. \n\n‌\n\nThe issue occurred due to a workload increase impacting some backend services. We were able to resolve the issue by rate limiting the internal workload. In addition, we are looking at ways to detect and respond to workload changes more quickly, and ways to further isolate workloads on shared infrastructure in order to prevent similar issues from occurring in the future. \n\n‌\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\n‌\n\nSincerely,\n\n‌\n\nThe Box Team",
+          "body": "We recently addressed issues affecting Events and Box Drive. We would like to take the opportunity to further explain these issues and the steps we have taken to prevent recurrence.\n\n‌\n\nBetween October 14, 2026 at 3:00 PM PDT and October 15, 2026 at 5:10 AM PDT, some customers may have experienced delayed Events delivery and Box Drive synchronization. \n\n‌\n\n# Analysis\n\nThe incident was caused by an unexpected workload surge. We remediated the issue by deploying a targeted filter for the workload and adding capacity. During the mitigation, some Events and Drive synchronizations may have been delayed.\n\n‌\n\n# Corrective Actions\n\nBox has initiated the following corrective actions:\n\n‌\n\n* Adding monitoring and improved workload filtering tools to respond to future incidents quicker.\n* Exploring ways to automatically handle unexpected workload changes across our event processing systems.\n\n‌\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\n‌\n\nSincerely,  \nThe Box Team",
           "incident_id": "j6l1h67d01hc",
           "created_at": "2026-10-26T12:23:48.231-07:00",
-          "updated_at": "2026-10-26T12:24:03.235-07:00",
+          "updated_at": "2026-10-28T22:58:48.713-07:00",
           "display_at": null,
           "affected_components": null,
           "deliver_notifications": true,
