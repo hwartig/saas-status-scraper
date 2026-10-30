@@ -3,9 +3,30 @@
     "id": "01KZSP42XPW71QZVJ4J2E597HE",
     "name": "Fly.io",
     "url": "https://status.flyio.net/",
-    "updated_at": "2026-10-29T21:28:38Z"
+    "updated_at": "2026-10-29T22:00:00Z"
   },
   "incidents": [
+    {
+      "id": "01M64XV4CTJ3KV50HNWFC76W8Y",
+      "name": "Elevated Depot Failures",
+      "status": "resolved",
+      "created_at": "2026-10-29T22:52:41Z",
+      "updated_at": "2026-10-29T22:52:41Z",
+      "resolved_at": "2026-10-29T22:00:00Z",
+      "impact": "none",
+      "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
+      "incident_updates": [
+        {
+          "id": "01M64XV4CTCTA6MNTFVZ5K7DV7",
+          "body": "Between 22:00 and 22:30 UTC, we saw elevated errors provisioning Depot hosted Builders due to [an upstream incident impacting Depot's control plane](https://status.depot.dev/incidents/01M64NVFDKM930PX39YM4275DN). During this time customers may have seen deploys fail with an `internal error` message. \n\nDepot resolved the incident and deploys using Depot hosted builders are working as normal again.",
+          "created_at": "2026-10-29T22:52:41Z",
+          "display_at": "2026-10-29T22:00:00Z",
+          "incident_id": "01M64XV4CTJ3KV50HNWFC76W8Y",
+          "status": "resolved",
+          "updated_at": "2026-10-29T22:52:41Z"
+        }
+      ]
+    },
     {
       "id": "01M64P8G5NJDZNFVK2CRF2YPQS",
       "name": "Elevated issues with the Machines API",
@@ -1003,54 +1024,6 @@
           "created_at": "2026-09-24T15:11:11Z",
           "display_at": "2026-09-24T14:51:49Z",
           "incident_id": "01M39ZGY3WV7FN583TQJH0TZ2G",
-          "status": "investigating",
-          "updated_at": "2026-09-30T14:16:32Z"
-        }
-      ]
-    },
-    {
-      "id": "01M376272WGYT2F3BJ9ZK1WDYB",
-      "name": "Upstash unavailability in FRA region",
-      "status": "resolved",
-      "created_at": "2026-09-23T13:07:45Z",
-      "updated_at": "2026-09-30T14:16:32Z",
-      "resolved_at": "2026-09-23T14:03:56Z",
-      "impact": "major",
-      "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
-      "incident_updates": [
-        {
-          "id": "01M397JM30S442NFTP90HG9EXZ",
-          "body": "**Impact**\n\nFrom about 12:00 to 13:05 UTC, some clients got connection timeouts to their Redis databases. Affected were databases hosted in fra or gig, and clients whose connections were routed through fra or gig, even if their database is hosted in another region.\n\n**What happened**\n\nDuring a planned rolling upgrade, replicas in fra and gig did not finish draining and were left out of service. They were returned to Fly routing before they were ready to accept connections. Connections routed to them then timed out.\n\n**What we're changing**\n\n• We will be adding tooling to return a replica to service safely after maintenance.\n\n• We will be adding safety checks to our upgrade process.\n\n• We will make the upgrade procedure more resilient to errors like this one.",
-          "created_at": "2026-09-24T08:12:40Z",
-          "display_at": "2026-09-24T07:22:00Z",
-          "incident_id": "01M376272WGYT2F3BJ9ZK1WDYB",
-          "status": "resolved",
-          "updated_at": "2026-09-30T14:16:32Z"
-        },
-        {
-          "id": "01M379TRF5KGVHHKDMRJKXFKSZ",
-          "body": "This incident has been resolved.",
-          "created_at": "2026-09-23T14:13:35Z",
-          "display_at": "2026-09-23T14:03:56Z",
-          "incident_id": "01M376272WGYT2F3BJ9ZK1WDYB",
-          "status": "resolved",
-          "updated_at": "2026-09-30T14:16:32Z"
-        },
-        {
-          "id": "01M379TRF5VWZ7RSTHF3YTATE2",
-          "body": "A fix has been implemented and we are monitoring the results.",
-          "created_at": "2026-09-23T14:13:35Z",
-          "display_at": "2026-09-23T13:08:18Z",
-          "incident_id": "01M376272WGYT2F3BJ9ZK1WDYB",
-          "status": "monitoring",
-          "updated_at": "2026-09-30T14:16:32Z"
-        },
-        {
-          "id": "01M376272WP0JHR8EYVNXNG6C4",
-          "body": "We are investigating an issue affecting Upstash services in the fra region. Customers may experience connection failures or service unavailability. We are working with Upstash to identify the cause and restore service. We’ll provide an update as soon as we have more information.",
-          "created_at": "2026-09-23T13:07:45Z",
-          "display_at": "2026-09-23T12:42:21Z",
-          "incident_id": "01M376272WGYT2F3BJ9ZK1WDYB",
           "status": "investigating",
           "updated_at": "2026-09-30T14:16:32Z"
         }
