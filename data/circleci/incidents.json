@@ -4,15 +4,15 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-10-30T23:09:33.345Z"
+    "updated_at": "2026-10-31T00:58:59.047Z"
   },
   "incidents": [
     {
       "id": "8q9j33r2rssy",
       "name": "Delays for gen2 dedicated IP range jobs",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-10-28T18:15:52.753Z",
-      "updated_at": "2026-10-28T19:19:03.334Z",
+      "updated_at": "2026-10-31T00:22:05.790Z",
       "monitoring_at": "2026-10-28T19:06:41.630Z",
       "resolved_at": "2026-10-28T19:19:03.311Z",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2026-10-28T18:15:52.747Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "9gyx10z8wfqk",
+          "status": "postmortem",
+          "body": "## **Summary**\n\nFrom 14:20 to 19:08 UTC on October 28, customers running Gen 2 Docker jobs using IP Ranges saw increased wait times for their jobs to start. From 14:20 until 17:02, the delays were intermittent, and from 17:02 to 18:50, the delays were continuous. No other job types were affected.\n\nThe incident was caused by limited availability of the cloud instances we had configured for the IP Ranges cluster. In response, our engineering team added additional fallback instance types to the IP Ranges cluster and transferred capacity from one of our other Gen 2 clusters to the IP Ranges cluster. By 18:50, wait times had improved, and by 19:08 they had fully recovered.\n\nAfter we resolved the incident, we increased the number of baseline cloud instances we maintain for IP Ranges jobs. We have also configured an IP Ranges cluster in an additional cloud region.\n\nThe original status page can be found here: [Delays for gen2 dedicated IP range jobs](https://status.circleci.com/incidents/8q9j33r2rssy).\n\n## **Background**\n\nIP Ranges is a CircleCI feature that runs jobs from a published static list of IP addresses, so customers can configure their firewalls to allow those addresses. Gen 2 Docker jobs using IP Ranges need to run on their own dedicated cluster of cloud instances, separate from our other Gen 2 Docker jobs. Customers rely on the published IP address list, so we give 30 days’ notice before adding new IP addresses. Because of that notice period, we cannot move IP Ranges jobs to a new cloud region on short notice.\n\nWhen CircleCI runs a Docker job, we schedule it on one of several clusters of cloud instances, and each instance can run multiple isolated jobs. We provision cloud instances using a ranked list of instance types. If the cloud provider cannot supply our first choice, we fall back to the next type on the list. Each request tries our preferred types first, so when several of them are unavailable, each request takes longer and the cluster grows more slowly.\n\nWe also maintain a minimum fleet size: a minimum number of instances that stay running, so that capacity is ready before demand arrives. Above that minimum, we add instances as demand rises. When there is insufficient capacity to run a job, the job waits in a queue until capacity becomes available.\n\n## **What Happened**\n\n_\\(All times UTC\\)_\n\nStarting at 14:20 on October 28, Gen 2 Docker jobs using IP Ranges saw intermittent delays because the instance types we had configured for the IP Ranges cluster were not available in the quantities we needed. Wait times rose to 5 minutes and then returned to normal several times until 17:02. From 17:02, the delays were continuous.\n\nOur wait time alerts did not specifically isolate IP Ranges jobs, so these delays did not immediately alert our engineering team. At 17:22, our engineering team began investigating and confirmed that the IP Ranges cluster could not provision sufficient instances. An unrelated incident at our observability provider from 16:10 to 18:39 also slowed our investigation by affecting dashboards and metric queries.\n\nFollowing the [October 21 incident](https://discuss.circleci.com/t/post-incident-report-oct-21-2026-increased-wait-times-for-gen-2-docker-jobs/54940), we added fallback instance types and additional cloud regions for our main Gen 2 clusters, but the IP Ranges cluster had not yet received those changes. Our engineering team had scheduled work for October 30 to configure the IP Ranges cluster with additional fallback instance types, but that work had not begun at the time of this incident.\n\nBecause of the 30-day notice, we could not immediately move IP Ranges jobs to another region, so our engineering team reallocated capacity from other CircleCI clusters in the same region. By 18:50, the IP Ranges cluster had provisioned sufficient instances, and wait times began returning to normal. Delays of 1-2 minutes continued until 19:08. We resolved the incident at 19:19.\n\n## **Future Prevention and Process Improvement**\n\n**We raised the minimum fleet size for the IP Ranges cluster.** We now keep more cloud instances running for IP Ranges jobs during weekday peak hours. This means capacity is in place before demand arrives, and we do not depend on the cloud provider supplying instances during an increase in demand.\n\n**We have added an additional region for IP Ranges jobs.** We have set up dedicated IP Ranges clusters for Gen 1 and Gen 2 in a second cloud region, so they will be able to run jobs as soon as the 30 day notice period ends. During that notice period, the higher minimum fleet size and the expanded list of fallback instance types protect IP Ranges jobs in our current region.\n\n**We are expanding our alerting.** We are adding more targeted wait time alerts specifically for IP Ranges jobs, so our team can respond immediately to delays.\n\n## **Conclusion**\n\nCustomer experience is our top priority, and we commit to continually improving the reliability of our systems to match the trust that our customers place in us. We thank our customers for their patience while our team worked to resolve this incident.\n\nPlease reach out to our support team with any questions or concerns.",
+          "incident_id": "8q9j33r2rssy",
+          "created_at": "2026-10-31T00:22:00.366Z",
+          "updated_at": "2026-10-31T00:22:05.788Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "g6zyncfbvp1g",
           "status": "resolved",
