@@ -4,9 +4,102 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-11-03T17:04:28.199Z"
+    "updated_at": "2026-11-03T22:05:09.353Z"
   },
   "incidents": [
+    {
+      "id": "13b6lyl8d7bz",
+      "name": "Incident with Git Operations",
+      "status": "investigating",
+      "created_at": "2026-11-03T20:57:14.438Z",
+      "updated_at": "2026-11-03T22:05:09.331Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/n478rfsspcmr",
+      "started_at": "2026-11-03T20:57:14.432Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "fzp3pfxz72wf",
+          "status": "investigating",
+          "body": "Our mitigation is rolled out and customers should start seeing improvements to Git Operations. We will continue to provide updates on mitigation status.",
+          "incident_id": "13b6lyl8d7bz",
+          "created_at": "2026-11-03T22:05:09.327Z",
+          "updated_at": "2026-11-03T22:05:09.327Z",
+          "display_at": "2026-11-03T22:05:09.327Z",
+          "affected_components": [
+            {
+              "code": "8l4ygp009s5s",
+              "name": "Git Operations",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "22yzm05jlq6f",
+          "status": "investigating",
+          "body": "We have identified the issue impacting Git Operations and are beginning to roll out a mitigation. We will follow up with another update when we begin to see recovery.",
+          "incident_id": "13b6lyl8d7bz",
+          "created_at": "2026-11-03T21:37:34.716Z",
+          "updated_at": "2026-11-03T21:37:34.716Z",
+          "display_at": "2026-11-03T21:37:34.716Z",
+          "affected_components": [
+            {
+              "code": "8l4ygp009s5s",
+              "name": "Git Operations",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "78m66jkzc76m",
+          "status": "investigating",
+          "body": "We are investigating reports of degraded performance for Git Operations",
+          "incident_id": "13b6lyl8d7bz",
+          "created_at": "2026-11-03T20:57:14.523Z",
+          "updated_at": "2026-11-03T20:57:14.523Z",
+          "display_at": "2026-11-03T20:57:14.523Z",
+          "affected_components": [
+            {
+              "code": "8l4ygp009s5s",
+              "name": "Git Operations",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "8l4ygp009s5s",
+          "name": "Git Operations",
+          "status": "degraded_performance",
+          "created_at": "2017-01-31T20:05:05.370Z",
+          "updated_at": "2026-11-03T20:57:14.482Z",
+          "position": 1,
+          "description": "Performance of git clones, pulls, pushes, and associated operations",
+          "showcase": true,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "kctbh9vrtdwd",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "rxlj89wpk7px",
       "name": "Incident with API, Git, and Copilot requests",
@@ -497,7 +590,7 @@
       "name": "Incident with Actions, Pages, and Webhooks",
       "status": "resolved",
       "created_at": "2026-10-30T17:50:54.677Z",
-      "updated_at": "2026-10-30T19:23:40.203Z",
+      "updated_at": "2026-11-03T17:39:38.143Z",
       "monitoring_at": "2026-10-30T18:32:39.824Z",
       "resolved_at": "2026-10-30T19:23:40.177Z",
       "impact": "major",
@@ -508,10 +601,10 @@
         {
           "id": "pcz4pwz6xt9n",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On October 30, 2026, from 17:50 to 18:32 UTC, Actions, Pages, and Webhooks experienced degraded performance. Actions workflow processing, Pages deployments, and webhook deliveries were delayed, and code search and live updates returned errors. Some Actions queues took additional time to drain after mitigation, and the incident was resolved at 19:23 UTC. <br /><br />The impact was triggered by maintenance on a cloud network gateway connecting an Actions service in the GitHub data center to Redis clusters in the Central US Azure region. The service's Redis client retried aggressively and redialed those connections. That produced a connection storm that saturated the gateway, with about 90% of connection attempts failing. Other services sharing the same network path were degraded as well. <br /><br />We mitigated the incident by removing the affected resources from rotation, which ended the connection storm and allowed the gateway to recover. We have already reduced the number of connection retries in the impacted service and are further improving retry behavior with jittered backoff, shorter connect timeouts, and retry budgets. We are also working with our infrastructure team to make GitHub more resilient to gateway maintenance.",
           "incident_id": "pwxsjgnvrk6b",
           "created_at": "2026-10-30T19:23:40.177Z",
-          "updated_at": "2026-10-30T19:23:40.177Z",
+          "updated_at": "2026-11-03T17:39:38.137Z",
           "display_at": "2026-10-30T19:23:40.177Z",
           "affected_components": [
             {
@@ -4439,9 +4532,9 @@
         {
           "id": "8l4ygp009s5s",
           "name": "Git Operations",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-01-31T20:05:05.370Z",
-          "updated_at": "2026-10-07T15:49:53.270Z",
+          "updated_at": "2026-11-03T20:57:14.482Z",
           "position": 1,
           "description": "Performance of git clones, pulls, pushes, and associated operations",
           "showcase": true,
@@ -5379,9 +5472,9 @@
         {
           "id": "8l4ygp009s5s",
           "name": "Git Operations",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2017-01-31T20:05:05.370Z",
-          "updated_at": "2026-10-07T15:49:53.270Z",
+          "updated_at": "2026-11-03T20:57:14.482Z",
           "position": 1,
           "description": "Performance of git clones, pulls, pushes, and associated operations",
           "showcase": true,
@@ -9496,36 +9589,6 @@
           "only_show_if_degraded": false
         }
       ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "wms44hv62t3p",
-      "name": "Degraded Git Operations over SSH",
-      "status": "resolved",
-      "created_at": "2026-08-21T14:00:00.000Z",
-      "updated_at": "2026-08-24T07:19:23.053Z",
-      "monitoring_at": null,
-      "resolved_at": "2026-08-21T14:00:00.000Z",
-      "impact": "none",
-      "shortlink": "https://stspg.io/9nls6g9ln8p4",
-      "started_at": "2026-08-24T07:19:22.991Z",
-      "page_id": "kctbh9vrtdwd",
-      "incident_updates": [
-        {
-          "id": "jhq44wgl2nff",
-          "status": "resolved",
-          "body": "On August 21, 2026, between 14:00 and 14:07 UTC, dotcom Git operations over SSH were degraded. Successful Git operations over SSH fell by more than 95% for during the peak impact window, making clone, fetch, or push over SSH effectively unavailable to most users for approximately four minutes. Git operations over HTTPS were not affected.  \n\nThe incident was caused by a software defect in our load-balancing infrastructure that was triggered by a configuration change. The defect only occurred when connections passed through multiple layers of load balancers running the new configuration, which meant it was not detected during canary testing. \n\nWe mitigated the incident by rolling back the configuration change.  \n\nWe are adding regression coverage for multi-layer load-balancer configurations and improving monitoring and alerting for Git operations over SSH to reduce our time to detection and mitigation of similar issues in the future.",
-          "incident_id": "wms44hv62t3p",
-          "created_at": "2026-08-24T07:19:23.042Z",
-          "updated_at": "2026-08-24T07:19:23.042Z",
-          "display_at": "2026-08-21T14:00:00.000Z",
-          "affected_components": null,
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [],
       "reminder_intervals": null
     }
   ]
