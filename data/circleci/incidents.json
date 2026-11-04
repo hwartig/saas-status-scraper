@@ -4,15 +4,15 @@
     "name": "CircleCI",
     "url": "https://status.circleci.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-11-04T16:45:57.778Z"
+    "updated_at": "2026-11-04T22:29:12.775Z"
   },
   "incidents": [
     {
       "id": "qqh50c0z6mn3",
       "name": "Increased wait time for Machine and Remote Docker jobs",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-11-03T14:14:39.000Z",
-      "updated_at": "2026-11-03T15:08:13.558Z",
+      "updated_at": "2026-11-04T22:14:36.224Z",
       "monitoring_at": "2026-11-03T14:45:31.270Z",
       "resolved_at": "2026-11-03T15:08:13.535Z",
       "impact": "minor",
@@ -20,6 +20,19 @@
       "started_at": "2026-11-03T14:14:39.000Z",
       "page_id": "6w4r0ttlx5ft",
       "incident_updates": [
+        {
+          "id": "mbk5cnnmy00s",
+          "status": "postmortem",
+          "body": "## Summary\n\nFrom 13:55 to 15:07 UTC on November 3, customers running Linux machine jobs and Remote Docker saw increased wait times for their jobs to start, and the delays were longest from 14:16 to 14:41. Some Docker jobs also saw increased wait times.\n\nThe incident was caused by our usage reaching the vCPU limit on our cloud provider account in our main cloud region. Machine and Docker jobs share this limit, and the additional Docker capacity we have run since the [October 21 incident](https://discuss.circleci.com/t/post-incident-report-oct-21-2026-increased-wait-times-for-gen-2-docker-jobs/54940) brought our usage to the limit as demand increased. Machine jobs did not move to our backup regions because our system did not treat reaching this limit the same way as a shortage of cloud instances.\n\nIn response, our engineering team reconfigured machine jobs to balance across all of our regions instead of relying on backup regions, and reduced Docker capacity to make room under the limit. By 14:46, wait times had improved, and by 15:07, machine wait times had fully recovered.\n\nAfter we resolved the incident, our cloud provider doubled the vCPU limit in our main region. We have also restored the Docker capacity we reduced during the incident.\n\nThe original status page can be found here: [Increased wait time for Machine and Remote Docker jobs](https://status.circleci.com/incidents/qqh50c0z6mn3).\n\n## Background\n\nMachine jobs need a dedicated virtual machine, so when CircleCI runs a machine job, we create a fresh virtual machine for that job and delete it when the job ends. Remote Docker runs on these same virtual machines. Docker jobs run on shared cloud instances, and each instance can run multiple isolated jobs.\n\nOur cloud provider sets a vCPU limit for each region, which caps the total computing capacity our account can run there. Machine and Docker jobs run in the same account, so they count against the same vCPU limit. When our usage reaches that limit, the cloud provider rejects requests for new cloud instances until existing ones shut down.\n\nMachine jobs normally run in our main region, with other cloud regions available as backups. If the cloud provider cannot supply the instance types we need in our main region, our system sends new work to a backup region.\n\nFollowing the October 21 incident, we increased the minimum fleet size for our Docker clusters during weekday peak hours, so that capacity is in place before demand arrives. That capacity counts against the same vCPU limit as machine jobs.\n\n## What Happened\n\n_\\(All times UTC\\)_\n\nStarting at 13:55 on November 3, Linux machine jobs saw increased wait times because our usage in our main region had reached our vCPU limit, and our cloud provider was rejecting requests for new virtual machines. We had not noticed that our alert for this limit was no longer receiving data, so it did not warn us as our usage approached the limit.\n\nAt 13:55, our engineering team was alerted to errors launching new virtual machines and began investigating. By 14:06, 40% of Linux machine jobs waited more than 3 minutes to start. By 14:08, we had confirmed the cause and requested a higher limit from our cloud provider.\n\nOur backup regions had capacity available under their own limits, but machine jobs did not move there because our system did not treat reaching our vCPU limit the same way as a shortage of cloud instances. From 14:16 to 14:41, most Linux machine jobs waited 5-9 minutes to start, and some waited more than 20 minutes.\n\nAt 14:34, our engineering team reconfigured machine jobs to balance new work across all of our regions, rather than only using backup regions when our main region runs short. The change took effect at 14:40, and at the same time we reduced the minimum fleet size for our Docker clusters to make room under the limit.\n\nBy 14:46, wait times had improved, and nearly all Linux machine jobs started within 3 minutes. Delays of 1-3 minutes for some jobs continued until 15:07. We resolved the incident at 15:08.\n\nDocker jobs also saw increased wait times during the incident. Up to 7% of Docker jobs waited longer than usual to start, and that share rose to 19% between 14:39 and 14:43. Docker wait times returned to normal by 15:13.\n\n## Future Prevention and Process Improvement\n\n**We raised our vCPU limit.** Our cloud provider doubled the vCPU limit in our main region, and we have requested the same increase in our other US regions. We have also requested higher limits for related storage and networking resources. Capacity we reserve in advance counts against the limit whether or not jobs are using it, so we are moving some of our reserved capacity out of our main region.\n\n**We are changing how machine jobs handle the vCPU limit.** We are updating our system to treat reaching a vCPU limit the same way as a shortage of cloud instances, so new work will move to a backup region.\n\n**We are separating machine and Docker capacity.** We are moving machine jobs into their own cloud provider account, so Docker capacity will no longer use up the vCPU limit that machine jobs depend on.\n\n**We are fixing our alerts for cloud provider limits.** We are restoring the data our vCPU limit alert depends on and adding alerts for our other limits, so our engineering team will be warned before usage reaches them. If any of these alerts stops receiving data, our engineering team will be alerted, so a gap like this one does not go unnoticed again.\n\n## Conclusion\n\nCustomer experience is our top priority, and we commit to continually improving the reliability of our systems to match the trust that our customers place in us. We thank our customers for their patience while our team worked to resolve this incident.\n\nPlease reach out to our support team with any questions or concerns.",
+          "incident_id": "qqh50c0z6mn3",
+          "created_at": "2026-11-04T22:14:26.073Z",
+          "updated_at": "2026-11-04T22:14:36.222Z",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "9vbl33p2jhtn",
           "status": "resolved",
