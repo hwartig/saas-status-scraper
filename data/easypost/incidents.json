@@ -4,9 +4,135 @@
     "name": "EasyPost",
     "url": "https://www.easypoststatus.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-11-04T01:20:52.154-08:00"
+    "updated_at": "2026-11-04T09:35:56.591-08:00"
   },
   "incidents": [
+    {
+      "id": "s28gz34ds3gb",
+      "name": "Delays accessing postage labels and account data",
+      "status": "resolved",
+      "created_at": "2026-11-04T08:47:12.634-08:00",
+      "updated_at": "2026-11-04T09:35:56.587-08:00",
+      "monitoring_at": null,
+      "resolved_at": "2026-11-04T09:35:56.559-08:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/yhn4rbwl3hz9",
+      "started_at": "2026-11-04T08:47:12.622-08:00",
+      "page_id": "n1jtz5983249",
+      "incident_updates": [
+        {
+          "id": "qqll5fms4shh",
+          "status": "resolved",
+          "body": "The issue has been resolved, and access to newly created postage labels and other account data has returned to normal.\nWe apologize for the inconvenience and thank you for your patience while our engineers worked to resolve the issue.",
+          "incident_id": "s28gz34ds3gb",
+          "created_at": "2026-11-04T09:35:56.559-08:00",
+          "updated_at": "2026-11-04T09:35:56.559-08:00",
+          "display_at": "2026-11-04T09:35:56.559-08:00",
+          "affected_components": [
+            {
+              "code": "hj673gyk4bdv",
+              "name": "EasyPost Backend - API",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "qcmdxmx4djy7",
+              "name": "Label Purchases - USPS Postage Purchases",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "1990kyk5fd91",
+          "status": "identified",
+          "body": "The root cause has been identified, and our engineers are continuing to work on a resolution. Some users may still experience delays accessing newly created postage labels and other account data.\n\nWe expect the issue to be resolved shortly and will provide another update as soon as it is resolved. We apologize for the continued inconvenience.",
+          "incident_id": "s28gz34ds3gb",
+          "created_at": "2026-11-04T09:21:10.133-08:00",
+          "updated_at": "2026-11-04T09:21:10.133-08:00",
+          "display_at": "2026-11-04T09:21:10.133-08:00",
+          "affected_components": [
+            {
+              "code": "hj673gyk4bdv",
+              "name": "EasyPost Backend - API",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "qcmdxmx4djy7",
+              "name": "Label Purchases - USPS Postage Purchases",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "0w3d3w0jps7q",
+          "status": "identified",
+          "body": "Starting at 7:20 AM PST today (November 4), some users are seeing delays when accessing newly created postage labels and other account data. The cause is a delay in database replication, which can cause access to recently created labels and data to take longer than usual to be accessible via the API.\n\nWe've identified the root cause and our engineers are working on a fix. We'll post another update within 30 minutes, or sooner if anything changes. We apologize for the inconvenience.",
+          "incident_id": "s28gz34ds3gb",
+          "created_at": "2026-11-04T08:47:12.771-08:00",
+          "updated_at": "2026-11-04T08:47:12.771-08:00",
+          "display_at": "2026-11-04T08:47:12.771-08:00",
+          "affected_components": [
+            {
+              "code": "hj673gyk4bdv",
+              "name": "EasyPost Backend - API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            },
+            {
+              "code": "qcmdxmx4djy7",
+              "name": "Label Purchases - USPS Postage Purchases",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "qcmdxmx4djy7",
+          "name": "USPS Postage Purchases",
+          "status": "operational",
+          "created_at": "2023-10-02T12:12:35.995-07:00",
+          "updated_at": "2026-11-04T09:35:56.491-08:00",
+          "position": 1,
+          "description": "Generation and purchase of USPS parcel labels.",
+          "showcase": false,
+          "start_date": "2023-10-02",
+          "group_id": "4pcqf2b1x2ql",
+          "page_id": "n1jtz5983249",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "hj673gyk4bdv",
+          "name": "API",
+          "status": "operational",
+          "created_at": "2013-06-23T15:41:46.599-07:00",
+          "updated_at": "2026-11-04T09:35:56.521-08:00",
+          "position": 2,
+          "description": null,
+          "showcase": true,
+          "start_date": null,
+          "group_id": "ysyh73ptcymy",
+          "page_id": "n1jtz5983249",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "c9hhd3r8q5nt",
       "name": "Degraded multi-carrier performance (UPS, others)",
@@ -573,7 +699,7 @@
           "name": "API",
           "status": "operational",
           "created_at": "2013-06-23T15:41:46.599-07:00",
-          "updated_at": "2026-08-28T21:00:07.330-07:00",
+          "updated_at": "2026-11-04T09:35:56.521-08:00",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -3557,7 +3683,7 @@
           "name": "USPS Postage Purchases",
           "status": "operational",
           "created_at": "2023-10-02T12:12:35.995-07:00",
-          "updated_at": "2026-11-03T22:00:09.359-08:00",
+          "updated_at": "2026-11-04T09:35:56.491-08:00",
           "position": 1,
           "description": "Generation and purchase of USPS parcel labels.",
           "showcase": false,
@@ -3572,7 +3698,7 @@
           "name": "API",
           "status": "operational",
           "created_at": "2013-06-23T15:41:46.599-07:00",
-          "updated_at": "2026-08-28T21:00:07.330-07:00",
+          "updated_at": "2026-11-04T09:35:56.521-08:00",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -4718,7 +4844,7 @@
           "name": "API",
           "status": "operational",
           "created_at": "2013-06-23T15:41:46.599-07:00",
-          "updated_at": "2026-08-28T21:00:07.330-07:00",
+          "updated_at": "2026-11-04T09:35:56.521-08:00",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -4993,7 +5119,7 @@
           "name": "API",
           "status": "operational",
           "created_at": "2013-06-23T15:41:46.599-07:00",
-          "updated_at": "2026-08-28T21:00:07.330-07:00",
+          "updated_at": "2026-11-04T09:35:56.521-08:00",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -5198,7 +5324,7 @@
           "name": "API",
           "status": "operational",
           "created_at": "2013-06-23T15:41:46.599-07:00",
-          "updated_at": "2026-08-28T21:00:07.330-07:00",
+          "updated_at": "2026-11-04T09:35:56.521-08:00",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -5668,7 +5794,7 @@
           "name": "API",
           "status": "operational",
           "created_at": "2013-06-23T15:41:46.599-07:00",
-          "updated_at": "2026-08-28T21:00:07.330-07:00",
+          "updated_at": "2026-11-04T09:35:56.521-08:00",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -6080,7 +6206,7 @@
           "name": "API",
           "status": "operational",
           "created_at": "2013-06-23T15:41:46.599-07:00",
-          "updated_at": "2026-08-28T21:00:07.330-07:00",
+          "updated_at": "2026-11-04T09:35:56.521-08:00",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -6246,7 +6372,7 @@
           "name": "API",
           "status": "operational",
           "created_at": "2013-06-23T15:41:46.599-07:00",
-          "updated_at": "2026-08-28T21:00:07.330-07:00",
+          "updated_at": "2026-11-04T09:35:56.521-08:00",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -6375,7 +6501,7 @@
           "name": "API",
           "status": "operational",
           "created_at": "2013-06-23T15:41:46.599-07:00",
-          "updated_at": "2026-08-28T21:00:07.330-07:00",
+          "updated_at": "2026-11-04T09:35:56.521-08:00",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -7462,7 +7588,7 @@
           "name": "API",
           "status": "operational",
           "created_at": "2013-06-23T15:41:46.599-07:00",
-          "updated_at": "2026-08-28T21:00:07.330-07:00",
+          "updated_at": "2026-11-04T09:35:56.521-08:00",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -8039,7 +8165,7 @@
           "name": "API",
           "status": "operational",
           "created_at": "2013-06-23T15:41:46.599-07:00",
-          "updated_at": "2026-08-28T21:00:07.330-07:00",
+          "updated_at": "2026-11-04T09:35:56.521-08:00",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -8658,7 +8784,7 @@
           "name": "API",
           "status": "operational",
           "created_at": "2013-06-23T15:41:46.599-07:00",
-          "updated_at": "2026-08-28T21:00:07.330-07:00",
+          "updated_at": "2026-11-04T09:35:56.521-08:00",
           "position": 2,
           "description": null,
           "showcase": true,
@@ -9010,7 +9136,7 @@
           "name": "USPS Postage Purchases",
           "status": "operational",
           "created_at": "2023-10-02T12:12:35.995-07:00",
-          "updated_at": "2026-11-03T22:00:09.359-08:00",
+          "updated_at": "2026-11-04T09:35:56.491-08:00",
           "position": 1,
           "description": "Generation and purchase of USPS parcel labels.",
           "showcase": false,
@@ -9392,106 +9518,6 @@
           "deliver_notifications": true,
           "custom_tweet": null,
           "tweet_id": 1930951278118785057
-        }
-      ],
-      "components": [
-        {
-          "id": "gw4yxwx13mgy",
-          "name": "UPS",
-          "status": "operational",
-          "created_at": "2022-03-02T12:22:49.183-08:00",
-          "updated_at": "2026-10-08T09:58:13.726-07:00",
-          "position": 11,
-          "description": null,
-          "showcase": true,
-          "start_date": "2022-03-01",
-          "group_id": "x3g03m4md1t8",
-          "page_id": "n1jtz5983249",
-          "group": false,
-          "only_show_if_degraded": false
-        },
-        {
-          "id": "f6l0qk8vgxn2",
-          "name": "UPSDAP",
-          "status": "operational",
-          "created_at": "2022-03-02T12:42:19.573-08:00",
-          "updated_at": "2026-10-08T09:58:13.751-07:00",
-          "position": 12,
-          "description": null,
-          "showcase": true,
-          "start_date": "2022-03-02",
-          "group_id": "x3g03m4md1t8",
-          "page_id": "n1jtz5983249",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "0skjgvrg39xd",
-      "name": "UPS performance issues",
-      "status": "resolved",
-      "created_at": "2025-06-05T11:37:03.430-07:00",
-      "updated_at": "2025-06-05T12:01:46.020-07:00",
-      "monitoring_at": null,
-      "resolved_at": "2025-06-05T12:01:45.524-07:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/8vsw5kgdl3yz",
-      "started_at": "2025-06-05T11:37:03.421-07:00",
-      "page_id": "n1jtz5983249",
-      "incident_updates": [
-        {
-          "id": "44l50fv0hm2z",
-          "status": "resolved",
-          "body": "UPS performance has returned to normal.",
-          "incident_id": "0skjgvrg39xd",
-          "created_at": "2025-06-05T12:01:45.524-07:00",
-          "updated_at": "2025-06-05T12:01:46.014-07:00",
-          "display_at": "2025-06-05T12:01:45.524-07:00",
-          "affected_components": [
-            {
-              "code": "gw4yxwx13mgy",
-              "name": "Carriers - UPS",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            },
-            {
-              "code": "f6l0qk8vgxn2",
-              "name": "Carriers - UPSDAP",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1930701596197073397
-        },
-        {
-          "id": "wqnwqs0gg2s3",
-          "status": "investigating",
-          "body": "EasyPost is seeing issues with the UPS. We are investigating and communicating with UPS and will provide updates. We apologize for the inconvenience.",
-          "incident_id": "0skjgvrg39xd",
-          "created_at": "2025-06-05T11:37:03.533-07:00",
-          "updated_at": "2025-06-05T11:37:03.961-07:00",
-          "display_at": "2025-06-05T11:37:03.533-07:00",
-          "affected_components": [
-            {
-              "code": "gw4yxwx13mgy",
-              "name": "Carriers - UPS",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            },
-            {
-              "code": "f6l0qk8vgxn2",
-              "name": "Carriers - UPSDAP",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": false,
-          "custom_tweet": null,
-          "tweet_id": 1930695379974345153
         }
       ],
       "components": [
