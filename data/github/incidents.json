@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-11-06T18:53:55.935Z"
+    "updated_at": "2026-11-06T23:40:09.452Z"
   },
   "incidents": [
     {
@@ -1471,7 +1471,7 @@
       "name": "Incident with Git Operations",
       "status": "resolved",
       "created_at": "2026-11-03T20:57:14.438Z",
-      "updated_at": "2026-11-03T22:41:03.326Z",
+      "updated_at": "2026-11-06T23:36:05.165Z",
       "monitoring_at": "2026-11-03T22:37:36.779Z",
       "resolved_at": "2026-11-03T22:41:03.289Z",
       "impact": "minor",
@@ -1482,10 +1482,10 @@
         {
           "id": "jv6k7mkxxgp9",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On November 3, 2026, between 15:00 UTC and 22:37 UTC, Git operations over HTTPS on GitHub.com were degraded. Clones, fetches, and pushes over HTTPS were slow, and some failed. For about half of Git HTTPS traffic, median response time rose from under 100 milliseconds to as high as 5 seconds. On average, the error rate was 0.65% and peaked at 1.29% of requests to the service. Git operations over SSH were not affected. <br /><br />This was due to a buildup of excess connections on the hosts that serve Git HTTPS traffic, which saturated their network capacity and caused slow and failed responses for all clients served by those hosts. <br /><br />We mitigated the incident by blocking a client traffic pattern at our load balancers and reloading them, which released the excess connections. The block also prevented some users of one third-party integration from performing Git operations over HTTPS until we removed it on November 4 at 13:26 UTC. <br /><br />We are working to alert on sustained Git HTTPS latency sooner and make load balancer mitigations take effect on existing connections immediately.",
           "incident_id": "13b6lyl8d7bz",
           "created_at": "2026-11-03T22:41:03.289Z",
-          "updated_at": "2026-11-03T22:41:03.289Z",
+          "updated_at": "2026-11-06T23:36:05.159Z",
           "display_at": "2026-11-03T22:41:03.289Z",
           "affected_components": [
             {
