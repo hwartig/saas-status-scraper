@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-11-06T23:40:09.452Z"
+    "updated_at": "2026-11-07T04:29:17.751Z"
   },
   "incidents": [
     {
@@ -465,7 +465,7 @@
       "name": "Incident with Actions",
       "status": "resolved",
       "created_at": "2026-11-04T17:40:33.675Z",
-      "updated_at": "2026-11-04T18:16:08.388Z",
+      "updated_at": "2026-11-07T01:10:18.506Z",
       "monitoring_at": "2026-11-04T18:07:51.114Z",
       "resolved_at": "2026-11-04T18:16:08.361Z",
       "impact": "major",
@@ -476,10 +476,10 @@
         {
           "id": "qlllwdjlwh6k",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Please refer to the combined summary in this related incident: https://www.githubstatus.com/incidents/xr3myzj7ms51",
           "incident_id": "h02n9572mx9y",
           "created_at": "2026-11-04T18:16:08.361Z",
-          "updated_at": "2026-11-04T18:16:08.361Z",
+          "updated_at": "2026-11-07T01:10:18.501Z",
           "display_at": "2026-11-04T18:16:08.361Z",
           "affected_components": [
             {
@@ -578,7 +578,7 @@
       "name": "Incident with Actions and Pages",
       "status": "resolved",
       "created_at": "2026-11-04T16:05:31.580Z",
-      "updated_at": "2026-11-04T17:01:11.531Z",
+      "updated_at": "2026-11-07T01:04:38.647Z",
       "monitoring_at": "2026-11-04T16:48:03.140Z",
       "resolved_at": "2026-11-04T17:01:11.503Z",
       "impact": "major",
@@ -589,10 +589,10 @@
         {
           "id": "j64vdjdybzc9",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On November 4, 2026, between 15:49 UTC and 16:48 UTC, and again between 17:20 UTC and 17:55 UTC, GitHub Actions, Pages, Webhooks, Code Scanning, and Copilot coding agent experienced delays. During this time, Actions workflow runs and job status updates were delayed by up to 25 minutes. Pages deployments dropped to about 4% of normal volume, webhook deliveries dropped to about 58% of normal volume, and Code Scanning analyses and Copilot coding agent sessions were delayed. Delayed events were processed after mitigation. <br /><br />This incident was caused by a configuration change to an internal event-routing service that unexpectedly paused delivery of several event streams. The change depended on feature flags that were not set up as intended, which the service did not handle gracefully. We mitigated the first period by rolling back the configuration change at 16:14 UTC. The code change itself was not reverted by the rollback, so a subsequent deployment reintroduced it. We mitigated the second period at 17:40 UTC by rolling back again, then processed queued events and cleared backlogs. <br /><br />We are taking several steps to prevent a repeat. The routing service will keep its existing behavior when a feature toggle is missing, so a misconfigured flag can no longer pause delivery. We are adding a pre-deploy check that each routing flag exists and is registered under the correct owning service, and we are making flag ownership less error-prone to set. We are also improving alerting so we detect paused event delivery sooner.",
           "incident_id": "xr3myzj7ms51",
           "created_at": "2026-11-04T17:01:11.503Z",
-          "updated_at": "2026-11-04T17:01:11.503Z",
+          "updated_at": "2026-11-07T01:04:38.642Z",
           "display_at": "2026-11-04T17:01:11.503Z",
           "affected_components": [
             {
