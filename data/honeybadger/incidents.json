@@ -4,9 +4,39 @@
     "name": "Honeybadger.io",
     "url": "https://status.honeybadger.io",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-11-07T02:19:08.349-08:00"
+    "updated_at": "2026-11-07T09:14:24.568-08:00"
   },
   "incidents": [
+    {
+      "id": "nj6c446b7qlx",
+      "name": "Delayed error processing and missed alerts (US region)",
+      "status": "resolved",
+      "created_at": "2026-11-07T06:01:26.178-08:00",
+      "updated_at": "2026-11-07T06:01:26.360-08:00",
+      "monitoring_at": null,
+      "resolved_at": "2026-11-07T06:01:26.348-08:00",
+      "impact": "none",
+      "shortlink": "https://stspg.io/kpyt08ykqwqp",
+      "started_at": "2026-11-07T06:01:26.170-08:00",
+      "page_id": "4vffsqvxs4db",
+      "incident_updates": [
+        {
+          "id": "gzjlwsgg1t2s",
+          "status": "resolved",
+          "body": "Between 13:38 and 13:45 UTC on November 7, during planned maintenance on one of our Redis servers, part of our error-processing pipeline failed after the server switched to its upgraded node. Processing of incoming errors in the US region was delayed by up to about six minutes. No error data was lost: every error report we received was stored.\n\nFor roughly 1,900 error reports received between 13:38 and 13:41 UTC, some follow-up steps did not run. As a result, you may not have received an alert for a new error first seen in that window, and a resolved error that recurred in that window may not have been automatically reopened. Some of these occurrences may also appear more than once in search results and occurrence counts.\nThe issue has been resolved and processing has been normal since 13:45 UTC. We are working on fixing the alerts and duplicate occurrences that were affected, and we have identified the code change that will prevent this from happening during future maintenance.",
+          "incident_id": "nj6c446b7qlx",
+          "created_at": "2026-11-07T06:01:26.348-08:00",
+          "updated_at": "2026-11-07T06:01:26.348-08:00",
+          "display_at": "2026-11-07T06:01:26.348-08:00",
+          "affected_components": null,
+          "deliver_notifications": false,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [],
+      "reminder_intervals": null
+    },
     {
       "id": "b3r9l4gnj228",
       "name": "Elevated failure rates on the US error reporting API",
@@ -3408,59 +3438,6 @@
         }
       ],
       "components": [],
-      "reminder_intervals": null
-    },
-    {
-      "id": "r6sw59v79jwn",
-      "name": "Intermittent problem displaying errors in web app",
-      "status": "resolved",
-      "created_at": "2019-01-30T15:40:16.498-08:00",
-      "updated_at": "2019-01-30T15:40:17.239-08:00",
-      "monitoring_at": null,
-      "resolved_at": "2019-01-30T15:40:16.553-08:00",
-      "impact": "none",
-      "shortlink": "http://stspg.io/c53eca6df",
-      "started_at": "2019-01-30T15:40:16.553-08:00",
-      "page_id": "4vffsqvxs4db",
-      "incident_updates": [
-        {
-          "id": "w2flyqb2fqb0",
-          "status": "resolved",
-          "body": "We just identified and resolved an issue where displaying some errors in the web UI was failing due to a problem with a 3rd party service. No other systems were impacted.",
-          "incident_id": "r6sw59v79jwn",
-          "created_at": "2019-01-30T15:40:16.553-08:00",
-          "updated_at": "2019-01-30T15:40:17.235-08:00",
-          "display_at": "2019-01-30T15:40:16.553-08:00",
-          "affected_components": [
-            {
-              "code": "8gz01qz54flb",
-              "name": "Web Application",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": 1090756615584641024
-        }
-      ],
-      "components": [
-        {
-          "id": "8gz01qz54flb",
-          "name": "Web Application",
-          "status": "operational",
-          "created_at": "2014-05-14T14:53:13.723-07:00",
-          "updated_at": "2025-10-22T13:15:10.604-07:00",
-          "position": 1,
-          "description": null,
-          "showcase": true,
-          "start_date": null,
-          "group_id": null,
-          "page_id": "4vffsqvxs4db",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
       "reminder_intervals": null
     }
   ]
