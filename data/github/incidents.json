@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-11-13T02:29:12.726Z"
+    "updated_at": "2026-11-13T07:09:26.798Z"
   },
   "incidents": [
     {
@@ -1269,7 +1269,7 @@
       "name": "Incident with Actions and Checks API",
       "status": "resolved",
       "created_at": "2026-11-09T18:12:37.242Z",
-      "updated_at": "2026-11-09T18:59:32.604Z",
+      "updated_at": "2026-11-13T04:16:38.803Z",
       "monitoring_at": "2026-11-09T18:43:24.557Z",
       "resolved_at": "2026-11-09T18:59:32.565Z",
       "impact": "critical",
@@ -1280,10 +1280,10 @@
         {
           "id": "4vp3xlxspqrd",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On November 9, 2026, between 18:07 and 18:59 UTC, GitHub Actions experienced degraded performance. During this time, some customers saw workflow runs fail to start, update or report status correctly. An average of 28% of workflow runs were affected, peaking at 65% during the worst period of the incident. Once Actions services recovered, some jobs were left in a state that limited available concurrency until the runs were released. <br /><br />The incident occurred during a planned migration of a core Actions database from GitHub’s datacenter to a new cloud region. After the migration completed, we shifted Actions service traffic to the new region. The volume of requests exceeded the capacity and rate limits configured there, so a portion of requests were rejected and workflow updates failed. Dependent services, including Webhooks, Pages and Copilot code review, saw secondary impact. <br /><br />We mitigated impact by shifting some of the traffic back to the original region, allowing service traffic to remain within the configured limits. We then increased capacity and rate limits in the new region before gradually shifting traffic back. While this was a one-time migration event for this cluster that is now complete, we are improving how we validate capacity and limits before shifting traffic during remaining migrations, including shifting traffic in smaller steps. To address the stuck runs left after the incident, we are improving our ability to detect and mitigate these runs for future cases as well as readying an API to enable customers to address this themselves.",
           "incident_id": "tp8cghg7tlc4",
           "created_at": "2026-11-09T18:59:32.565Z",
-          "updated_at": "2026-11-09T18:59:32.565Z",
+          "updated_at": "2026-11-13T04:16:38.800Z",
           "display_at": "2026-11-09T18:59:32.565Z",
           "affected_components": [
             {
@@ -2422,7 +2422,7 @@
       "name": "Incident with Actions",
       "status": "resolved",
       "created_at": "2026-11-05T16:50:11.086Z",
-      "updated_at": "2026-11-05T17:42:35.455Z",
+      "updated_at": "2026-11-13T04:23:59.352Z",
       "monitoring_at": "2026-11-05T17:04:46.807Z",
       "resolved_at": "2026-11-05T17:42:35.425Z",
       "impact": "minor",
@@ -2433,10 +2433,10 @@
         {
           "id": "wnj9mmx9ls2w",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between 16:39 and 16:57 UTC on November 5, 2026, some customers experienced failures starting workflow runs in GitHub Actions and Checks, and some in-progress runs failed. At peak, about 3% of workflow runs failed to queue, and roughly 0.21% of in-progress runs failed.<br /><br />The cause was resource exhaustion in a database service that stores Actions Checks data. Bursts of highly concurrent, large read requests put the service under memory pressure, which caused it to stall and reject requests.<br /><br />We mitigated the incident by failing over the affected database host. To prevent a recurrence, we have increased memory capacity across the affected database fleet. We will also be limiting concurrency of large queries to prevent heavy read traffic from causing a broad failure of critical workflows.",
           "incident_id": "t89g2q1800fr",
           "created_at": "2026-11-05T17:42:35.425Z",
-          "updated_at": "2026-11-05T17:42:35.425Z",
+          "updated_at": "2026-11-13T04:23:59.348Z",
           "display_at": "2026-11-05T17:42:35.425Z",
           "affected_components": [
             {
