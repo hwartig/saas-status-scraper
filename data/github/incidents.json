@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-11-16T16:28:44.264Z"
+    "updated_at": "2026-11-17T00:28:36.912Z"
   },
   "incidents": [
     {
@@ -783,7 +783,7 @@
       "name": "Incident with Webhooks API",
       "status": "resolved",
       "created_at": "2026-11-12T18:43:13.817Z",
-      "updated_at": "2026-11-12T19:33:54.277Z",
+      "updated_at": "2026-11-16T18:29:55.024Z",
       "monitoring_at": "2026-11-12T19:20:14.173Z",
       "resolved_at": "2026-11-12T19:33:54.248Z",
       "impact": "minor",
@@ -794,10 +794,10 @@
         {
           "id": "343ntf2067mp",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On November 12, 2026, between 17:59 UTC and 19:05 UTC, the GitHub Webhooks API experienced elevated latency and timeouts. During this time, about 1.23% of Webhooks API requests were slower than normal or timed out, peaking at about 3.63% of requests for a short period. 0.14% of webhook API requests failed during the incident. Webhook deliveries were unaffected. We traced the slow responses to elevated latency in an upstream database service that the Webhooks API depends on. Latency returned to normal at 19:05 UTC, and we continued to monitor until we resolved the incident at 19:33 UTC. We are working with our database provider to understand the cause and are improving our playbooks to detect degradations more quickly.",
           "incident_id": "gl7yhd7jx00v",
           "created_at": "2026-11-12T19:33:54.248Z",
-          "updated_at": "2026-11-12T19:33:54.248Z",
+          "updated_at": "2026-11-16T18:29:55.017Z",
           "display_at": "2026-11-12T19:33:54.248Z",
           "affected_components": [
             {
@@ -2573,7 +2573,7 @@
       "name": "Increase in timeouts for some unauthenticated users",
       "status": "resolved",
       "created_at": "2026-11-08T10:36:05.481Z",
-      "updated_at": "2026-11-08T12:32:35.646Z",
+      "updated_at": "2026-11-16T18:29:59.276Z",
       "monitoring_at": "2026-11-08T12:29:30.591Z",
       "resolved_at": "2026-11-08T12:32:35.611Z",
       "impact": "minor",
@@ -2584,10 +2584,10 @@
         {
           "id": "c95sykj24m9k",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On November 8, 2026, between 08:43 and 12:29 UTC, unauthenticated requests to github.com and the GitHub REST API experienced elevated error rates. During this period, 11.3% of unauthenticated requests and 46.1% of release asset download requests failed. Authenticated requests were largely unaffected.<br /><br />Initial errors occurred in a backend service handling unauthenticated web traffic. A subsequent traffic spike caused high CPU utilization on servers in our caching layer. Some servers remained unhealthy after the spike ended, prolonging the disruption. We restored service by restarting caching software and rebooting affected servers.<br /><br />We are improving monitoring to detect these failures sooner, investigating why affected servers did not recover automatically, and reviewing caching behavior to better protect backend services during failures.",
           "incident_id": "pyynvrm1vskw",
           "created_at": "2026-11-08T12:32:35.611Z",
-          "updated_at": "2026-11-08T12:32:35.611Z",
+          "updated_at": "2026-11-16T18:29:59.270Z",
           "display_at": "2026-11-08T12:32:35.611Z",
           "affected_components": [
             {
@@ -3637,7 +3637,7 @@
       "name": "Incident with Pull Requests, Git Operations and Issues",
       "status": "resolved",
       "created_at": "2026-11-04T09:49:55.685Z",
-      "updated_at": "2026-11-13T16:48:58.278Z",
+      "updated_at": "2026-11-16T21:54:50.376Z",
       "monitoring_at": "2026-11-04T11:43:52.025Z",
       "resolved_at": "2026-11-04T11:50:06.424Z",
       "impact": "major",
@@ -3648,10 +3648,10 @@
         {
           "id": "m0pmt9998b8h",
           "status": "resolved",
-          "body": "On November 4, 2026, beginning at approximately 09:35 UTC, customers experienced intermittent errors and delays across several GitHub services, including Pull Requests, Issues, APIs, Git operations, and Actions.<br />The disruption was caused by a shared database reaching capacity. We restored service by switching to another database host. Recovery began around 11:24 UTC, and the remaining Actions impact was mitigated by 11:43 UTC. The incident was resolved at 11:50 UTC.<br />We have since made changes to reduce database load, increased capacity, and added monitoring to help identify similar problems earlier. We are also improving our recovery procedures.",
+          "body": "n November 4, 2026, between 09:35 UTC and 11:43 UTC, customers experienced intermittent errors and timeouts across GitHub.com, primarily on actions that write data. At peak, about 20% of pull request write operations (such as merging, commenting, and reviewing) failed, along with about 10% of issue creates and edits and 10–15% of project item edits. Git pushes over SSH, REST and GraphQL API requests, code scanning uploads, releases, and package operations were also affected, and about 1% of Actions runs were delayed by more than five minutes or failed to start. Overall, nearly 4% of all requests to GitHub.com failed at the worst point. Reads were largely unaffected, and retrying a failed action a short time later usually succeeded.<br /><br />The incident was triggered by a burst of concurrent updates to the same database record, which tied up all available connections to one of our primary databases. Although that contention cleared, the backlog of waiting requests kept our database connection layer overloaded, and it did not recover on its own. We mitigated the incident by failing over to a new primary database host. Most services recovered by 11:31 UTC, and Actions recovered by 11:43 UTC.<br /><br />Since the incident, we have disabled the code path that triggered the contention, increased the processing capacity of our database connection layer by 50%, and added alerting to detect this type of overload earlier. We are also improving our procedures so we can fail over sooner in similar situations.",
           "incident_id": "smtdswd1h2w4",
           "created_at": "2026-11-04T11:50:06.424Z",
-          "updated_at": "2026-11-13T16:48:58.273Z",
+          "updated_at": "2026-11-16T21:54:50.372Z",
           "display_at": "2026-11-04T11:50:06.424Z",
           "affected_components": [
             {
@@ -4344,7 +4344,7 @@
       "name": "Incident with API, Git, and Copilot requests",
       "status": "resolved",
       "created_at": "2026-11-03T13:25:19.620Z",
-      "updated_at": "2026-11-03T13:56:18.764Z",
+      "updated_at": "2026-11-16T22:10:00.278Z",
       "monitoring_at": "2026-11-03T13:51:46.217Z",
       "resolved_at": "2026-11-03T13:56:18.729Z",
       "impact": "minor",
@@ -4355,10 +4355,10 @@
         {
           "id": "1zmpx8lhv62z",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On November 3, 2026, between 12:34 and 13:51 UTC, some users experienced authentication failures and errors with the REST and GraphQL APIs, pull requests, Issues, and GitHub Copilot. On average, the error rate was 0.46% and peaked at 0.98% of API requests. Copilot API errors averaged 2.0% and peaked at 3.1%.<br /><br />This was caused by a bug in our process for replacing control-plane servers in one of our compute clusters. When a replacement server did not receive a timely response from the existing cluster, it incorrectly created a separate cluster. This stopped traffic from reaching much of the cluster's capacity and overloaded the authentication servers that were still handling requests.<br /><br />We mitigated the incident by removing the incorrectly configured server.<br />We are also fixing the replacement logic and adding safeguards to prevent servers in this state from serving traffic.",
           "incident_id": "rxlj89wpk7px",
           "created_at": "2026-11-03T13:56:18.729Z",
-          "updated_at": "2026-11-03T13:56:18.729Z",
+          "updated_at": "2026-11-16T22:10:00.271Z",
           "display_at": "2026-11-03T13:56:18.729Z",
           "affected_components": [
             {
@@ -5585,7 +5585,7 @@
       "name": "Incident with Actions, Issues, API Requests and Pull Requests",
       "status": "resolved",
       "created_at": "2026-10-26T18:48:26.235Z",
-      "updated_at": "2026-10-26T18:57:22.985Z",
+      "updated_at": "2026-11-16T23:15:16.320Z",
       "monitoring_at": "2026-10-26T18:50:58.284Z",
       "resolved_at": "2026-10-26T18:57:22.958Z",
       "impact": "minor",
@@ -5596,10 +5596,10 @@
         {
           "id": "xylw81jsv04f",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On October 26, 2026, between 17:52 and 18:49 UTC, some customers experienced slower response times across the Checks API, Issues, Pull Requests, GraphQL, Notifications, and related services. Impact was limited to requests served from one of our datacenter sites. Some GraphQL requests failed, and some notifications were delayed. Among GraphQL requests served from the affected site, the average error rate was 5.68%, with a peak five-minute error rate of 14.32%. <br /><br />Unusually large requests for contribution history overwhelmed part of our database infrastructure, causing a backlog. Requests continued reaching the slow component rather than being redirected to healthy systems. Restarting the component restored its performance. The incident was marked mitigated at 18:46 UTC and resolved at 18:57 UTC. <br /><br />We are adding limits to these requests, improving alerts to detect overload sooner, and strengthening automatic redirection to healthy systems.",
           "incident_id": "f1vvv30224wd",
           "created_at": "2026-10-26T18:57:22.958Z",
-          "updated_at": "2026-10-26T18:57:22.958Z",
+          "updated_at": "2026-11-16T23:15:16.314Z",
           "display_at": "2026-10-26T18:57:22.958Z",
           "affected_components": [
             {
@@ -7198,7 +7198,7 @@
       "name": "Delays for Pull Requests and Webhook deliveries",
       "status": "resolved",
       "created_at": "2026-10-21T14:52:49.979Z",
-      "updated_at": "2026-10-21T19:22:52.663Z",
+      "updated_at": "2026-11-16T18:41:45.056Z",
       "monitoring_at": null,
       "resolved_at": "2026-10-21T19:22:52.633Z",
       "impact": "critical",
@@ -7209,10 +7209,10 @@
         {
           "id": "7gbpcnhmw25l",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On October 21, 2026, between 13:22 UTC and 19:22 UTC, several GitHub services were delayed due to degradation of our internal event streaming platform. <br /><br />Pull request updates, push webhooks, and push-triggered Actions workflows were delayed by up to 33 minutes until 15:36 UTC. Actions status updates were delayed by up to 33 minutes until 16:16 UTC, holding up some merges and deployments that wait on checks. Webhook deliveries and live updates were delayed by up to 25 minutes until 16:52 UTC. Audit log events were delayed by up to two hours. <br /><br />This was due to servers in the platform running out of memory caused by client reconnections without sufficient retry backoff. We mitigated the incident by moving the busiest workloads to less-loaded servers and adding capacity. <br /><br />We have since added reconnection backoff and added server capacity. We are building a solution for auto-rebalancing connections across servers, and splitting the platform into smaller, isolated clusters to reduce blast radius and time to mitigation of issues like this one in the future.",
           "incident_id": "nms1dpzmh9d9",
           "created_at": "2026-10-21T19:22:52.633Z",
-          "updated_at": "2026-10-21T19:22:52.633Z",
+          "updated_at": "2026-11-16T18:41:45.052Z",
           "display_at": "2026-10-21T19:22:52.633Z",
           "affected_components": [
             {

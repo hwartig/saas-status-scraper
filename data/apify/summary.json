@@ -4,7 +4,7 @@
     "name": "Apify",
     "url": "https://status.apify.com",
     "time_zone": "Europe/Prague",
-    "updated_at": "2026-11-16T14:04:14.000+01:00"
+    "updated_at": "2026-11-17T01:14:17.424+01:00"
   },
   "components": [
     {
@@ -130,9 +130,9 @@
     {
       "id": "ghq5ghrcl6jf",
       "name": "API (api.apify.com)",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2016-11-15T11:44:46.574+01:00",
-      "updated_at": "2026-11-11T20:46:21.401+01:00",
+      "updated_at": "2026-11-16T18:54:13.325+01:00",
       "position": 3,
       "description": "Back-end services running at https://api.apify.com",
       "showcase": true,
@@ -205,9 +205,9 @@
     {
       "id": "z2cl20hmyryr",
       "name": "Actors",
-      "status": "partial_outage",
+      "status": "operational",
       "created_at": "2018-07-12T08:48:36.759+02:00",
-      "updated_at": "2026-11-11T20:46:21.522+01:00",
+      "updated_at": "2026-11-16T18:54:13.356+01:00",
       "position": 4,
       "description": "Actors are serverless cloud programs running on Apify that can perform arbitrary computing jobs, such as send an email or crawl a website with millions of pages.",
       "showcase": true,
@@ -470,16 +470,48 @@
     {
       "id": "sxd1dj5j6749",
       "name": "Security incident",
-      "status": "investigating",
-      "created_at": "2026-11-11T20:46:21.342+01:00",
-      "updated_at": "2026-11-13T17:36:06.115+01:00",
-      "monitoring_at": null,
+      "status": "monitoring",
+      "created_at": "2026-11-11T20:46:21.000+01:00",
+      "updated_at": "2026-11-16T18:54:13.459+01:00",
+      "monitoring_at": "2026-11-16T18:54:13.402+01:00",
       "resolved_at": null,
       "impact": "minor",
       "shortlink": "https://stspg.io/7sp049kjvxqb",
       "started_at": "2026-11-11T20:46:21.000+01:00",
       "page_id": "j23nkrf8p8p8",
       "incident_updates": [
+        {
+          "id": "4plsdlz87tjk",
+          "status": "monitoring",
+          "body": "We have identified the most likely root cause of this incident, closed the vulnerability that we believe enabled the initial access, and hardened each stage of the attack path between November 11 and 13. We will share the details in the post-mortem. Our investigation and response are ongoing. We continue to communicate with affected users individually.\n\nWe continue to closely monitor the Apify platform and its components and, based on our investigation to date, we have found no evidence of any additional unauthorized access to systems or data.\n\nWhat we have done since the last update\n- Extended one-way hashing and encryption to more types of data.\n- Further restricted highly privileged access.\n- Continued targeted hardening based on an additional security review of our stack.\n- Completed additional rotations of internal secrets and service credentials.\n\nWhat changed for you\n- API tokens are now shown only once, when you create them. Store new tokens securely. If you lose one, create a new one and delete the lost one.\n\nNext steps\n- We will publish our next update and a preliminary incident report by November 20.\n- If you have questions, contact Support or if you received an email from us, you can also reply to it.",
+          "incident_id": "sxd1dj5j6749",
+          "created_at": "2026-11-16T18:54:13.402+01:00",
+          "updated_at": "2026-11-16T18:54:13.402+01:00",
+          "display_at": "2026-11-16T18:54:13.402+01:00",
+          "affected_components": [
+            {
+              "code": "ghq5ghrcl6jf",
+              "name": "API (api.apify.com)",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "z2cl20hmyryr",
+              "name": "Actors",
+              "old_status": "partial_outage",
+              "new_status": "operational"
+            },
+            {
+              "code": "2kgfs40864lt",
+              "name": "General",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "68t4stvrhq24",
           "status": "investigating",
@@ -613,9 +645,9 @@
         {
           "id": "ghq5ghrcl6jf",
           "name": "API (api.apify.com)",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2016-11-15T11:44:46.574+01:00",
-          "updated_at": "2026-11-11T20:46:21.401+01:00",
+          "updated_at": "2026-11-16T18:54:13.325+01:00",
           "position": 3,
           "description": "Back-end services running at https://api.apify.com",
           "showcase": true,
@@ -628,9 +660,9 @@
         {
           "id": "z2cl20hmyryr",
           "name": "Actors",
-          "status": "partial_outage",
+          "status": "operational",
           "created_at": "2018-07-12T08:48:36.759+02:00",
-          "updated_at": "2026-11-11T20:46:21.522+01:00",
+          "updated_at": "2026-11-16T18:54:13.356+01:00",
           "position": 4,
           "description": "Actors are serverless cloud programs running on Apify that can perform arbitrary computing jobs, such as send an email or crawl a website with millions of pages.",
           "showcase": true,
@@ -661,7 +693,7 @@
   ],
   "scheduled_maintenances": [],
   "status": {
-    "indicator": "minor",
-    "description": "Minor Service Outage"
+    "indicator": "none",
+    "description": "All Systems Operational"
   }
 }
