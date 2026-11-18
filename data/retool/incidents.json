@@ -4,7 +4,7 @@
     "name": "Retool",
     "url": "https://status.retool.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-11-18T00:03:39.573Z"
+    "updated_at": "2026-11-18T06:30:32.343Z"
   },
   "incidents": [
     {
@@ -66,16 +66,56 @@
     {
       "id": "hxws9g2jc5tq",
       "name": "Retool Database unavailable for some Retool Cloud organizations",
-      "status": "identified",
+      "status": "monitoring",
       "created_at": "2026-11-14T00:50:26.895Z",
-      "updated_at": "2026-11-14T00:50:57.703Z",
-      "monitoring_at": null,
+      "updated_at": "2026-11-18T02:19:23.833Z",
+      "monitoring_at": "2026-11-18T02:18:39.000Z",
       "resolved_at": null,
       "impact": "minor",
       "shortlink": "https://stspg.io/qmz0bfgw4djy",
-      "started_at": "2026-11-14T00:50:26.886Z",
+      "started_at": "2026-11-14T00:50:27.000Z",
       "page_id": "0qnsgqt7vsht",
       "incident_updates": [
+        {
+          "id": "k8tk32j4zr3v",
+          "status": "monitoring",
+          "body": "The majority of affected databases have been successfully migrated and relevant organizations have had their access restored. App and workflow queries should now execute as expected. External connections via raw connection string will need to be updated.",
+          "incident_id": "hxws9g2jc5tq",
+          "created_at": "2026-11-18T02:18:39.299Z",
+          "updated_at": "2026-11-18T02:19:23.830Z",
+          "display_at": "2026-11-18T02:18:39.000Z",
+          "affected_components": [
+            {
+              "code": "ffny7n3skfwp",
+              "name": "RetoolDB",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "n1sngm12z38g",
+          "status": "identified",
+          "body": "We are currently planning a data migration that will restore access to all affected databases. Some have already been migrated. Until that process finishes, apps and workflows in affected organizations that query Retool Database will continue to return errors.",
+          "incident_id": "hxws9g2jc5tq",
+          "created_at": "2026-11-18T00:06:25.421Z",
+          "updated_at": "2026-11-18T00:06:25.421Z",
+          "display_at": "2026-11-18T00:06:25.421Z",
+          "affected_components": [
+            {
+              "code": "ffny7n3skfwp",
+              "name": "RetoolDB",
+              "old_status": "partial_outage",
+              "new_status": "partial_outage"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "3dwz2ypqlxyb",
           "status": "identified",
