@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-11-20T08:54:12.836Z"
+    "updated_at": "2026-11-20T18:14:41.581Z"
   },
   "incidents": [
     {
@@ -12,7 +12,7 @@
       "name": "Disruption with some GitHub services",
       "status": "resolved",
       "created_at": "2026-11-19T17:06:26.807Z",
-      "updated_at": "2026-11-19T18:17:42.609Z",
+      "updated_at": "2026-11-20T17:58:43.994Z",
       "monitoring_at": "2026-11-19T17:43:44.739Z",
       "resolved_at": "2026-11-19T18:17:42.581Z",
       "impact": "minor",
@@ -23,10 +23,10 @@
         {
           "id": "swkh8t6d4ztv",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "Between November 5, 2026, at 18:02 UTC and November 19, 2026, at 18:05 UTC, GitHub users experienced unexpected expiration of their web browser sessions despite continued activity, requiring them to login. An authentication change introduced an issue that caused web requests to bypass the session activity updates and cookie renewal that normally extend session lifetime. Affected sessions consequently expired when they reached their initial expiration time.<br /><br />We mitigated the incident by deploying a fix to ensure that continued web activity renews session expiration and browser cookies.<br /><br />We are adding monitoring to detect unexpected drops in session renewal activity, helping us catch similar issues sooner and reduce their impact on users.",
           "incident_id": "m310qbkfm3ww",
           "created_at": "2026-11-19T18:17:42.581Z",
-          "updated_at": "2026-11-19T18:17:42.581Z",
+          "updated_at": "2026-11-20T17:58:43.991Z",
           "display_at": "2026-11-19T18:17:42.581Z",
           "affected_components": null,
           "deliver_notifications": true,
@@ -1251,7 +1251,7 @@
       "name": "Impact across multiple GitHub products including Actions, Pages, and Copilot products.",
       "status": "resolved",
       "created_at": "2026-11-11T20:48:12.265Z",
-      "updated_at": "2026-11-11T21:21:39.499Z",
+      "updated_at": "2026-11-20T18:14:41.562Z",
       "monitoring_at": "2026-11-11T21:07:24.649Z",
       "resolved_at": "2026-11-11T21:21:39.473Z",
       "impact": "critical",
@@ -1262,10 +1262,10 @@
         {
           "id": "m9q28dm1dj31",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On November 11, 2026, from 20:05 to 21:02 UTC, customers experienced delayed or failed Actions workflow starts, webhook errors and delivery delays, slower GitHub Apps API requests, and reduced availability of Copilot features, including Code Review. GitHub Pages builds were also delayed.<br /><br />Nearly all GitHub Actions runs triggered between 20:18 and 20:55 UTC were delayed or failed, leaving approximately 3.4 million partially created runs that are being canceled. No GitHub Pages deployments completed during the incident. In the Central US data residency stamp, between 20:06 and 20:50 UTC, about 63% of webhook API requests failed and 27% of deliveries were not recorded; those deliveries reached their destinations but remain unavailable to view or redeliver. Between approximately 20:20 and 21:00 UTC, Copilot code review on github.com completed 87% fewer reviews than normal and some other Copilot features were also unavailable.<br /><br />The disruption was caused by an Azure Cosmos DB regional outage affecting database accounts used by these services. Per Cosmos’s RCA, a configuration change to the Central US gateways exposed a latent race condition under a specific high-load traffic pattern, causing gateway crashes and health-probe failures. Cosmos mitigated by rolling back the change. Service health recovered around 21:02 UTC, and the queued Actions backlog finished processing by 21:21 UTC.<br /><br />Our follow-up work focuses on validating regional database failover across affected services and developing tested recovery procedures. We are also improving recovery tools to quickly clear stuck Actions checks and runs after incidents so they do not remain uncancelable or block pull request merges.",
           "incident_id": "dvy0t3mvh1lg",
           "created_at": "2026-11-11T21:21:39.473Z",
-          "updated_at": "2026-11-11T21:21:39.473Z",
+          "updated_at": "2026-11-20T18:14:41.556Z",
           "display_at": "2026-11-11T21:21:39.473Z",
           "affected_components": [
             {
