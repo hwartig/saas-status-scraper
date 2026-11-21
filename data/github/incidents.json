@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-11-20T18:14:41.581Z"
+    "updated_at": "2026-11-20T23:41:45.770Z"
   },
   "incidents": [
     {
@@ -347,7 +347,7 @@
       "name": "Incident with Pull Requests",
       "status": "resolved",
       "created_at": "2026-11-16T11:59:40.900Z",
-      "updated_at": "2026-11-16T16:26:26.809Z",
+      "updated_at": "2026-11-20T18:50:41.400Z",
       "monitoring_at": "2026-11-16T16:07:32.376Z",
       "resolved_at": "2026-11-16T16:26:26.775Z",
       "impact": "minor",
@@ -358,10 +358,10 @@
         {
           "id": "c4z3tyvgvlwh",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On November 16, 2026, between 09:30 and 15:55 UTC, some pull request merges on GitHub timed out. On average, 2.9% of merge attempts timed out, with a peak of 7.1% at 15:17 UTC. Some GitHub Actions workflow runs triggered by pull requests were also delayed. Git operations such as push and fetch stayed available, with higher latency. This was a repeat of a shorter event on November 13, between 13:15 and 17:50 UTC, when 1.7% of merges timed out.<br /><br />Both events had the same cause: some of the storage servers that hold Git repository data reached their disk read bandwidth limits. A merge must be written to every copy of a repository, so one overloaded server slowed merges for every repository it hosts. Read load on these servers had been growing as part of a planned move of repositories to new infrastructure. A disk configuration setting on those servers also made them read far more data than necessary, which cut their usable bandwidth roughly in half. We mitigated the incident by correcting that setting and moving some load away from the busiest servers.<br /><br />The corrected setting is now applied permanently across our storage fleet. We are adding storage capacity in the affected region and alerting on per-server disk bandwidth so we catch saturation before it affects customers. Sustained merge timeouts will now page our on-call engineers directly. We are also adding capacity checks before moving repositories or traffic onto new infrastructure.",
           "incident_id": "2zfqmghmg3s3",
           "created_at": "2026-11-16T16:26:26.775Z",
-          "updated_at": "2026-11-16T16:26:26.775Z",
+          "updated_at": "2026-11-20T18:50:41.395Z",
           "display_at": "2026-11-16T16:26:26.775Z",
           "affected_components": [
             {
