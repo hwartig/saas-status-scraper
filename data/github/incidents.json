@@ -4,7 +4,7 @@
     "name": "GitHub",
     "url": "https://www.githubstatus.com",
     "time_zone": "Etc/UTC",
-    "updated_at": "2026-11-23T10:14:27.477Z"
+    "updated_at": "2026-11-23T21:45:51.508Z"
   },
   "incidents": [
     {
@@ -194,7 +194,7 @@
       "name": "Degraded Availability for MAI Code 2 Flash in Copilot",
       "status": "resolved",
       "created_at": "2026-11-18T09:00:12.808Z",
-      "updated_at": "2026-11-18T09:34:15.907Z",
+      "updated_at": "2026-11-23T17:00:25.976Z",
       "monitoring_at": "2026-11-18T09:13:22.408Z",
       "resolved_at": "2026-11-18T09:34:15.883Z",
       "impact": "minor",
@@ -205,10 +205,10 @@
         {
           "id": "d1wr8yczmxsn",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On November 18, 2026, between 08:29 and 08:56 UTC, GitHub Copilot experienced degradation affecting the MAI Code 2 Flash model, causing elevated error rates for users. No other models were impacted, and users could continue using Copilot by selecting another model or Copilot Fusion.<br /><br />The degradation was caused by an infrastructure issue following a configuration change made while addressing an issue with an upstream model provider. We mitigated the incident by rebalancing load within our infrastructure, and service was restored by 08:56 UTC. GitHub is working to further improve the resiliency of the service to prevent similar incidents in the future.",
           "incident_id": "891rm8181xdf",
           "created_at": "2026-11-18T09:34:15.883Z",
-          "updated_at": "2026-11-18T09:34:15.883Z",
+          "updated_at": "2026-11-23T17:00:25.964Z",
           "display_at": "2026-11-18T09:34:15.883Z",
           "affected_components": [
             {
@@ -804,7 +804,7 @@
       "name": "Incident with Pull Requests",
       "status": "resolved",
       "created_at": "2026-11-13T15:47:12.290Z",
-      "updated_at": "2026-11-13T18:29:31.655Z",
+      "updated_at": "2026-11-23T21:45:51.484Z",
       "monitoring_at": "2026-11-13T17:28:01.438Z",
       "resolved_at": "2026-11-13T18:29:31.624Z",
       "impact": "major",
@@ -815,10 +815,10 @@
         {
           "id": "6pxhgntrk3y5",
           "status": "resolved",
-          "body": "This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.",
+          "body": "On November 16, 2026, between 09:30 and 15:55 UTC, some pull request merges on GitHub timed out. On average, 2.9% of merge attempts timed out, with a peak of 7.1% at 15:17 UTC. Some GitHub Actions workflow runs triggered by pull requests were also delayed. Git operations such as push and fetch stayed available, with higher latency. This was a repeat of a shorter event on November 13, between 13:15 and 17:50 UTC, when 1.7% of merges timed out.<br /><br />Both events had the same cause: some of the storage servers that hold Git repository data reached their disk read bandwidth limits. A merge must be written to every copy of a repository, so one overloaded server slowed merges for every repository it hosts. Read load on these servers had been growing as part of a planned move of repositories to new infrastructure. A disk configuration setting on those servers also made them read far more data than necessary, which cut their usable bandwidth roughly in half. We mitigated the incident by correcting that setting and moving some load away from the busiest servers.<br /><br />The corrected setting is now applied permanently across our storage fleet. We are adding storage capacity in the affected region and alerting on per-server disk bandwidth so we catch saturation before it affects customers. Sustained merge timeouts will now page our on-call engineers directly. We are also adding capacity checks before moving repositories or traffic onto new infrastructure.",
           "incident_id": "1xzmt89vv61l",
           "created_at": "2026-11-13T18:29:31.624Z",
-          "updated_at": "2026-11-13T18:29:31.624Z",
+          "updated_at": "2026-11-23T21:45:51.479Z",
           "display_at": "2026-11-13T18:29:31.624Z",
           "affected_components": [
             {

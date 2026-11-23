@@ -4,7 +4,7 @@
     "name": "Box",
     "url": "https://status.box.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-11-23T02:14:16.740-08:00"
+    "updated_at": "2026-11-23T13:32:59.567-08:00"
   },
   "incidents": [
     {
@@ -162,9 +162,9 @@
     {
       "id": "zwwv3pxkq66v",
       "name": "[Minor] Issue with Box AI",
-      "status": "resolved",
+      "status": "postmortem",
       "created_at": "2026-11-03T21:48:44.386-08:00",
-      "updated_at": "2026-11-04T01:07:25.006-08:00",
+      "updated_at": "2026-11-23T05:43:17.443-08:00",
       "monitoring_at": null,
       "resolved_at": "2026-11-04T01:07:24.985-08:00",
       "impact": "minor",
@@ -172,6 +172,19 @@
       "started_at": "2026-11-03T21:48:44.376-08:00",
       "page_id": "208q92hckwws",
       "incident_updates": [
+        {
+          "id": "k30k2j9hcx3q",
+          "status": "postmortem",
+          "body": "_Notice and disclaimer: Box is providing this preliminary information subject to further review and analysis. To the best of our knowledge, this is the current state and we may update as more information is confirmed._\n\nBetween November 3, 2026 at 7:40 PM PT and November 4 at 12:30 AM PT, some users may have experienced delays or no responses when using Box AI, with streaming answers remaining on a loading indicator until a page refresh. This affected Box AI user availability for some customers and manifested as elevated latency and delayed answer delivery.\n\n# Analysis\n\nThe incident was triggered by a recent client version upgrade that caused an unexpected surge in long-lived connections and amplified retries, which overwhelmed a capacity-limited service. We reverted the client change and disabled the retries, and by November 4 at 12:30 AM PT Box AI user availability had recovered.\n\n# Corrective Actions\n\nWe are reviewing our deployment and connection-handling practices to help prevent similar incidents in the future.\n\nWe are conducting a full engineering postmortem and our overview is subject to change with further analysis and findings. In the event our continuing investigation yields further substantive findings, we may publish additional analysis after the conclusion of the full engineering postmortem.\n\nWe are continuously working to improve Box and want to make sure we are delivering the best product and user experience we can. We hope we have provided some clarity here and we would be happy to answer any questions you may still have regarding this matter.\n\n‌\n\nSincerely,\n\nThe Box Team",
+          "incident_id": "zwwv3pxkq66v",
+          "created_at": "2026-11-23T05:41:09.716-08:00",
+          "updated_at": "2026-11-23T05:43:17.440-08:00",
+          "display_at": null,
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "xljjrv5mx6fc",
           "status": "resolved",
