@@ -3,11 +3,11 @@
     "id": "01KZSP42XPW71QZVJ4J2E597HE",
     "name": "Fly.io",
     "url": "https://status.flyio.net/",
-    "updated_at": "2026-11-12T23:33:48Z"
+    "updated_at": "2026-11-26T11:27:12Z"
   },
   "status": {
-    "description": "All Systems Operational",
-    "indicator": "none"
+    "description": "Partial System Degradation",
+    "indicator": "minor"
   },
   "components": [
     {
@@ -231,11 +231,61 @@
     {
       "id": "01KZSP42XPYHJCSKKS67D4T1NG",
       "name": "Logs",
-      "status": "operational",
+      "status": "degraded_performance",
       "created_at": "2026-08-12T00:31:57Z",
       "updated_at": "2026-08-12T00:31:57Z",
       "position": 24,
       "page_id": "01KZSP42XPW71QZVJ4J2E597HE"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "01M8BM59WGKDPVDYYJYSZQH6R8",
+      "name": "Timeouts querying app logs",
+      "status": "monitoring",
+      "created_at": "2026-11-26T09:49:33Z",
+      "updated_at": "2026-11-26T11:27:12Z",
+      "monitoring_at": "2026-11-26T11:27:12Z",
+      "impact": "minor",
+      "page_id": "01KZSP42XPW71QZVJ4J2E597HE",
+      "incident_updates": [
+        {
+          "id": "01M8BSR2XCQYEX80FTGKDE20RC",
+          "body": "We have implemented fixes to address delays and errors when querying application logs and are monitoring their effectiveness.",
+          "created_at": "2026-11-26T11:27:12Z",
+          "display_at": "2026-11-26T11:27:12Z",
+          "incident_id": "01M8BM59WGKDPVDYYJYSZQH6R8",
+          "status": "monitoring",
+          "updated_at": "2026-11-26T11:27:12Z"
+        },
+        {
+          "id": "01M8BQDWZ5Y27VD4BRQ4V2T5ZG",
+          "body": "We’ve deployed a mitigation. The maximum log query time window is temporarily limited to 3 days.",
+          "created_at": "2026-11-26T10:46:41Z",
+          "display_at": "2026-11-26T10:46:41Z",
+          "incident_id": "01M8BM59WGKDPVDYYJYSZQH6R8",
+          "status": "identified",
+          "updated_at": "2026-11-26T10:46:41Z"
+        },
+        {
+          "id": "01M8BNXM69GT090J3MZD3K7ZBW",
+          "body": "We’re continuing to investigate intermittent delays and errors when retrieving application logs. Some requests through `flyctl logs`,  the [Fly.io](http://Fly.io) Logs API and Grafana may take longer than usual or return an error.",
+          "created_at": "2026-11-26T10:20:19Z",
+          "display_at": "2026-11-26T10:20:19Z",
+          "incident_id": "01M8BM59WGKDPVDYYJYSZQH6R8",
+          "status": "investigating",
+          "updated_at": "2026-11-26T10:20:19Z"
+        },
+        {
+          "id": "01M8BM59WGXZ3655D3ARJ9ZCVS",
+          "body": "We’re investigating timeouts running app log search queries",
+          "created_at": "2026-11-26T09:49:34Z",
+          "display_at": "2026-11-26T09:49:33Z",
+          "incident_id": "01M8BM59WGKDPVDYYJYSZQH6R8",
+          "status": "investigating",
+          "updated_at": "2026-11-26T09:49:34Z"
+        }
+      ]
     }
   ]
 }
