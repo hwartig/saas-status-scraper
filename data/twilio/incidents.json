@@ -4,9 +4,734 @@
     "name": "Twilio",
     "url": "https://status.twilio.com",
     "time_zone": "America/Los_Angeles",
-    "updated_at": "2026-11-27T14:15:58.718-08:00"
+    "updated_at": "2026-11-27T20:21:46.470-08:00"
   },
   "incidents": [
+    {
+      "id": "lj4tfg6b7lrx",
+      "name": "Email Delivery Delays to Apple Private Relay Addresses",
+      "status": "identified",
+      "created_at": "2026-11-27T20:11:29.257-08:00",
+      "updated_at": "2026-11-27T20:11:29.369-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/t6wqb6v4410n",
+      "started_at": "2026-11-27T20:11:29.250-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "13x870wtlss2",
+          "status": "identified",
+          "body": "We have identified an issue with Email due to a third-party provider. Users may experience delays in message delivery to Apple Private Relay addresses. Messages will continue to be retried for up to 72 hours.",
+          "incident_id": "lj4tfg6b7lrx",
+          "created_at": "2026-11-27T20:11:29.366-08:00",
+          "updated_at": "2026-11-27T20:11:29.366-08:00",
+          "display_at": "2026-11-27T20:11:29.366-08:00",
+          "affected_components": [
+            {
+              "code": "sqwjyy7x2sc6",
+              "name": "SendGrid API",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "sqwjyy7x2sc6",
+          "name": "SendGrid API",
+          "status": "degraded_performance",
+          "created_at": "2026-07-02T08:55:06.870-07:00",
+          "updated_at": "2026-11-27T20:11:29.306-08:00",
+          "position": 29,
+          "description": null,
+          "showcase": false,
+          "start_date": "2026-07-02",
+          "group_id": null,
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "gz4f90dym5mg",
+      "name": "SMS Delivery Status From Twilio Toll-Free to US/CA Carriers",
+      "status": "investigating",
+      "created_at": "2026-11-27T19:53:11.897-08:00",
+      "updated_at": "2026-11-27T20:20:48.137-08:00",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "https://stspg.io/lpls35w8mbw6",
+      "started_at": "2026-11-27T19:53:11.886-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "x24ynmv37hh7",
+          "status": "investigating",
+          "body": "Message - We are experiencing delays in Twilio Toll Free to CA. Our engineers are working with our carrier partner to resolve the issue. We expect to provide another update in 2 hours or as soon as more information becomes available.",
+          "incident_id": "gz4f90dym5mg",
+          "created_at": "2026-11-27T20:20:48.135-08:00",
+          "updated_at": "2026-11-27T20:20:48.135-08:00",
+          "display_at": "2026-11-27T20:20:48.135-08:00",
+          "affected_components": [
+            {
+              "code": "yvvy3vlp4djf",
+              "name": "PROGRAMMABLE MESSAGING - SMS",
+              "old_status": "operational",
+              "new_status": "operational"
+            },
+            {
+              "code": "32f2bm54nkvv",
+              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "byg5mf9cyypt",
+          "status": "investigating",
+          "body": "We are continuing to investigate this issue.",
+          "incident_id": "gz4f90dym5mg",
+          "created_at": "2026-11-27T20:19:41.014-08:00",
+          "updated_at": "2026-11-27T20:19:41.014-08:00",
+          "display_at": "2026-11-27T20:19:41.014-08:00",
+          "affected_components": [
+            {
+              "code": "yvvy3vlp4djf",
+              "name": "PROGRAMMABLE MESSAGING - SMS",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            },
+            {
+              "code": "32f2bm54nkvv",
+              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "s7wnddqxflt1",
+          "status": "investigating",
+          "body": "Due to sustained high traffic on the US/CA carrier networks, we are currently experiencing SMS delivery issues from Twilio Toll-Free.  Messages are queued due to capacity shortage, and customers may see delays when sending to certain US carriers.\n\nPlease find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\nT-Mobile (status -  Operational)\nVerizon (status -  Operational)\n\nCanada :\nBell (status - delivery delayed)\nRogers (status -  Operational)\nTelus (status -  Operational)\nFreedom (status -  Operational)\nVideotron (status -  Operational)\nCogeco (status -  Operational)\n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "gz4f90dym5mg",
+          "created_at": "2026-11-27T19:53:12.050-08:00",
+          "updated_at": "2026-11-27T19:53:12.050-08:00",
+          "display_at": "2026-11-27T19:53:12.050-08:00",
+          "affected_components": [
+            {
+              "code": "yvvy3vlp4djf",
+              "name": "PROGRAMMABLE MESSAGING - SMS",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "32f2bm54nkvv",
+          "name": "SMS Toll-Free, North America",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:52:48.226-08:00",
+          "updated_at": "2026-11-27T20:19:40.916-08:00",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        },
+        {
+          "id": "yvvy3vlp4djf",
+          "name": "SMS",
+          "status": "operational",
+          "created_at": "2016-04-07T15:15:38.816-07:00",
+          "updated_at": "2026-11-27T20:19:40.950-08:00",
+          "position": 12,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "s2k3h0mkqnth",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "hh13jhqgnmzh",
+      "name": "MMS Delivery Status From Twilio Long Code to US/CA Carriers",
+      "status": "resolved",
+      "created_at": "2026-11-27T13:11:02.783-08:00",
+      "updated_at": "2026-11-27T18:07:16.692-08:00",
+      "monitoring_at": "2026-11-27T15:10:25.782-08:00",
+      "resolved_at": "2026-11-27T18:07:16.665-08:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/z6kc8xc5l037",
+      "started_at": "2026-11-27T13:11:02.770-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "v4ptw05zt9q6",
+          "status": "resolved",
+          "body": "We are no longer experiencing MMS delivery issues from Twilio Long Code to US/CA Carriers. This incident has been resolved.",
+          "incident_id": "hh13jhqgnmzh",
+          "created_at": "2026-11-27T18:07:16.665-08:00",
+          "updated_at": "2026-11-27T18:07:16.665-08:00",
+          "display_at": "2026-11-27T18:07:16.665-08:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "4gbyswsr30rx",
+          "status": "monitoring",
+          "body": "Our monitoring shows overall improvement in carrier-side traffic congestion, and we are observing instant MMS delivery from Twilio Long-Code to US/CA Carriers at this time. We will continue monitoring the overall carrier networks to ensure a full recovery. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "hh13jhqgnmzh",
+          "created_at": "2026-11-27T15:10:25.782-08:00",
+          "updated_at": "2026-11-27T15:10:25.782-08:00",
+          "display_at": "2026-11-27T15:10:25.782-08:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "l1tbtpkm6yyp",
+          "status": "investigating",
+          "body": "Due to sustained high traffic on the US carrier networks, we are currently experiencing MMS delivery issues from Twilio Long Code to to US/CA Carriers.  Messages are queued due to capacity shortage, and customers may see delays when sending to certain US/CA carriers.  \n\nPlease find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\n\n\nCanada:\n\nRogers (status - DLR Delays)\n       \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "hh13jhqgnmzh",
+          "created_at": "2026-11-27T13:11:02.916-08:00",
+          "updated_at": "2026-11-27T13:11:02.916-08:00",
+          "display_at": "2026-11-27T13:11:02.916-08:00",
+          "affected_components": [
+            {
+              "code": "8vdlvw3dsq8h",
+              "name": "CARRIER NETWORK - MMS Long Code, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "8vdlvw3dsq8h",
+          "name": "MMS Long Code, North America",
+          "status": "operational",
+          "created_at": "2019-01-10T08:51:50.330-08:00",
+          "updated_at": "2026-11-27T15:10:25.734-08:00",
+          "position": 2,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "540h10h47l48",
+      "name": "SMS Delivery Status From Twilio Toll-Free to US/CA Carriers",
+      "status": "resolved",
+      "created_at": "2026-11-27T09:07:46.858-08:00",
+      "updated_at": "2026-11-27T17:50:17.576-08:00",
+      "monitoring_at": "2026-11-27T13:49:15.615-08:00",
+      "resolved_at": "2026-11-27T17:50:17.547-08:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/gyrgw2z3kzpz",
+      "started_at": "2026-11-27T09:40:40.000-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "v1pyt1n5xp42",
+          "status": "resolved",
+          "body": "We are no longer experiencing delivery report delays from Twilio Toll-Free to US/CA Carriers. This incident has been resolved.",
+          "incident_id": "540h10h47l48",
+          "created_at": "2026-11-27T17:50:17.547-08:00",
+          "updated_at": "2026-11-27T17:50:17.547-08:00",
+          "display_at": "2026-11-27T17:50:17.547-08:00",
+          "affected_components": [
+            {
+              "code": "32f2bm54nkvv",
+              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "rv5gfqlvhkxz",
+          "status": "monitoring",
+          "body": "Our monitoring shows overall improvement in carrier-side traffic congestion, and we are observing instant SMS delivery from Twilio Toll-Free to US/CA Carriers at this time. We will continue monitoring the overall carrier networks to ensure a full recovery. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "540h10h47l48",
+          "created_at": "2026-11-27T13:49:15.615-08:00",
+          "updated_at": "2026-11-27T13:49:15.615-08:00",
+          "display_at": "2026-11-27T13:49:15.615-08:00",
+          "affected_components": [
+            {
+              "code": "32f2bm54nkvv",
+              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "g1v1jmx65sw9",
+          "status": "investigating",
+          "body": "Please find the current SMS delivery status from Twilio Toll-Free for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\nT-Mobile (status - Operational)\nVerizon (status -  Delays)\nAppalachian (status - Delays)\n\nCanada:\n\nVideotron in Canada  - (status - Monitoring)\nCogeco - (status - Monitoring)\n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "540h10h47l48",
+          "created_at": "2026-11-27T12:34:05.321-08:00",
+          "updated_at": "2026-11-27T12:34:05.321-08:00",
+          "display_at": "2026-11-27T12:34:05.321-08:00",
+          "affected_components": [
+            {
+              "code": "32f2bm54nkvv",
+              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "m59g6g1d931t",
+          "status": "investigating",
+          "body": "Please find the current SMS delivery status from Twilio Toll-Free for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\nT-Mobile (status - Operational)\nVerizon (status -  Delays)\nAppalachian (status - Delays)\n\nCanada:\n\nVideotron in Canada  - (status - DLR Delays)\nCogeco - (status - DLR Delays)\n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "540h10h47l48",
+          "created_at": "2026-11-27T11:58:59.555-08:00",
+          "updated_at": "2026-11-27T12:06:18.077-08:00",
+          "display_at": "2026-11-27T11:56:59.000-08:00",
+          "affected_components": [
+            {
+              "code": "32f2bm54nkvv",
+              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "m1mlzn7nc6br",
+          "status": "investigating",
+          "body": "Please find the current SMS delivery status from Twilio Toll-Free for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)\nAppalachian (status - Delays)\n\nCanada:\n\nVideotron in Canada  - (status - DLR Delays)\nCogeco - (status - DLR Delays)",
+          "incident_id": "540h10h47l48",
+          "created_at": "2026-11-27T09:56:29.185-08:00",
+          "updated_at": "2026-11-27T10:00:04.972-08:00",
+          "display_at": "2026-11-27T09:56:29.000-08:00",
+          "affected_components": [
+            {
+              "code": "32f2bm54nkvv",
+              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "trv4nhd22zzn",
+          "status": "investigating",
+          "body": "Please find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\nT-Mobile (status - Operational)\nVerizon (status -  Delays)\nAppalachian (status - Delays)\n\nCanada:\n\nVideotron in Canada  (status - DLR Delays)\n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "540h10h47l48",
+          "created_at": "2026-11-27T09:40:40.977-08:00",
+          "updated_at": "2026-11-27T10:00:28.443-08:00",
+          "display_at": "2026-11-27T09:40:40.000-08:00",
+          "affected_components": [
+            {
+              "code": "32f2bm54nkvv",
+              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "rttwzwvx17vb",
+          "status": "investigating",
+          "body": "Please find the current SMS delivery status from Twilio Toll-Free for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)\nAppalachian (status - Delays)\n\nCanada:\n\nVideotron in Canada  (status - DLR Delays)\n\nWe will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "540h10h47l48",
+          "created_at": "2026-11-27T09:22:40.751-08:00",
+          "updated_at": "2026-11-27T09:22:40.751-08:00",
+          "display_at": "2026-11-27T09:22:40.751-08:00",
+          "affected_components": [
+            {
+              "code": "32f2bm54nkvv",
+              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "vyw87gph48lv",
+          "status": "investigating",
+          "body": "Due to sustained high traffic on the US carrier networks, we are currently experiencing SMS delivery issues from Twilio Toll-Free.  Messages are queued due to capacity shortage, and customers may see delays when sending to certain US carriers.  \n\nPlease find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)\nAppalachian (status - Delays)\n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "540h10h47l48",
+          "created_at": "2026-11-27T09:07:46.957-08:00",
+          "updated_at": "2026-11-27T09:07:46.957-08:00",
+          "display_at": "2026-11-27T09:07:46.957-08:00",
+          "affected_components": [
+            {
+              "code": "32f2bm54nkvv",
+              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "32f2bm54nkvv",
+          "name": "SMS Toll-Free, North America",
+          "status": "degraded_performance",
+          "created_at": "2019-01-10T08:52:48.226-08:00",
+          "updated_at": "2026-11-27T20:19:40.916-08:00",
+          "position": 5,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "22slxfqncqr7",
+      "name": "MMS Delivery Status From Twilio Short-Code to US/CA Carriers",
+      "status": "resolved",
+      "created_at": "2026-11-27T08:57:50.744-08:00",
+      "updated_at": "2026-11-27T17:39:50.615-08:00",
+      "monitoring_at": "2026-11-27T13:44:09.603-08:00",
+      "resolved_at": "2026-11-27T17:39:50.592-08:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/4ytn0nz8xcgp",
+      "started_at": "2026-11-27T08:57:50.733-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "mvmc291tf00g",
+          "status": "resolved",
+          "body": "We are no longer experiencing MMS delivery issues from Twilio Short-Codes. This incident has been resolved.",
+          "incident_id": "22slxfqncqr7",
+          "created_at": "2026-11-27T17:39:50.592-08:00",
+          "updated_at": "2026-11-27T17:39:50.592-08:00",
+          "display_at": "2026-11-27T17:39:50.592-08:00",
+          "affected_components": [
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "8h057gtsql72",
+          "status": "monitoring",
+          "body": "Our monitoring shows overall improvement in carrier-side traffic congestion, and we are observing instant MMS delivery from Twilio Short-Code to US/CA Carriers at this time. We will continue monitoring the overall carrier networks to ensure a full recovery. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "22slxfqncqr7",
+          "created_at": "2026-11-27T13:44:09.603-08:00",
+          "updated_at": "2026-11-27T13:44:09.603-08:00",
+          "display_at": "2026-11-27T13:44:09.603-08:00",
+          "affected_components": [
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "d7j59wmcjb0w",
+          "status": "investigating",
+          "body": "Please find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Monitoring)\nT-Mobile (status - Operational)\nVerizon (status -  DLR Delays)            \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "22slxfqncqr7",
+          "created_at": "2026-11-27T12:37:02.673-08:00",
+          "updated_at": "2026-11-27T12:37:12.004-08:00",
+          "display_at": "2026-11-27T12:36:02.000-08:00",
+          "affected_components": [
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "wsjmdldwtp8g",
+          "status": "investigating",
+          "body": "Please find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Delays)\nT-Mobile (status - Operational)\nVerizon (status -  DLR Delays)            \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "22slxfqncqr7",
+          "created_at": "2026-11-27T10:58:03.534-08:00",
+          "updated_at": "2026-11-27T10:58:03.534-08:00",
+          "display_at": "2026-11-27T10:58:03.534-08:00",
+          "affected_components": [
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2m2sy0zb191c",
+          "status": "investigating",
+          "body": "Due to sustained high traffic on the US carrier networks, we are currently experiencing MMS delivery issues from Twilio Short-Codes.  Messages are queued due to capacity shortage, and customers may see delays when sending to certain US carriers.  \n\nPlease find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Delays)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)            \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "22slxfqncqr7",
+          "created_at": "2026-11-27T08:57:50.868-08:00",
+          "updated_at": "2026-11-27T08:57:50.868-08:00",
+          "display_at": "2026-11-27T08:57:50.868-08:00",
+          "affected_components": [
+            {
+              "code": "h0fl7prwfhvm",
+              "name": "CARRIER NETWORK - MMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "h0fl7prwfhvm",
+          "name": "MMS Short Code, North America",
+          "status": "operational",
+          "created_at": "2019-01-10T08:52:12.896-08:00",
+          "updated_at": "2026-11-27T13:44:09.550-08:00",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "start_date": null,
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
+    {
+      "id": "93c38rcb25dz",
+      "name": "MMS Delivery Status From Twilio Toll-Free to US/CA Carriers",
+      "status": "resolved",
+      "created_at": "2026-11-27T08:53:22.483-08:00",
+      "updated_at": "2026-11-27T16:46:29.491-08:00",
+      "monitoring_at": "2026-11-27T12:45:08.065-08:00",
+      "resolved_at": "2026-11-27T16:45:10.000-08:00",
+      "impact": "minor",
+      "shortlink": "https://stspg.io/jbf2vqmwn628",
+      "started_at": "2026-11-27T08:53:22.467-08:00",
+      "page_id": "gpkpyklzq55q",
+      "incident_updates": [
+        {
+          "id": "z4fj4mqc5pym",
+          "status": "resolved",
+          "body": "We are no longer experiencing MMS delivery issues from Twilio Toll-Free to US/CA Carriers at this time. This incident has been resolved.",
+          "incident_id": "93c38rcb25dz",
+          "created_at": "2026-11-27T16:46:10.964-08:00",
+          "updated_at": "2026-11-27T16:46:29.466-08:00",
+          "display_at": "2026-11-27T16:45:10.000-08:00",
+          "affected_components": [
+            {
+              "code": "tvjwfvczkf46",
+              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "t02yltqqhsw2",
+          "status": "monitoring",
+          "body": "Our monitoring shows overall improvement in carrier-side traffic congestion, and we are observing instant MMS delivery from Twilio Toll-Free to US/CA Carriers at this time. We will continue monitoring the overall carrier networks to ensure a full recovery. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "93c38rcb25dz",
+          "created_at": "2026-11-27T12:45:08.065-08:00",
+          "updated_at": "2026-11-27T12:45:08.065-08:00",
+          "display_at": "2026-11-27T12:45:08.065-08:00",
+          "affected_components": [
+            {
+              "code": "tvjwfvczkf46",
+              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "m9kjxt2bbhct",
+          "status": "investigating",
+          "body": "Please find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Monitoring)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)            \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "93c38rcb25dz",
+          "created_at": "2026-11-27T12:40:03.385-08:00",
+          "updated_at": "2026-11-27T12:40:03.385-08:00",
+          "display_at": "2026-11-27T12:40:03.385-08:00",
+          "affected_components": [
+            {
+              "code": "tvjwfvczkf46",
+              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
+              "old_status": "degraded_performance",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "1jp8zv5fb8pf",
+          "status": "investigating",
+          "body": "Please find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Delays)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)            \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "93c38rcb25dz",
+          "created_at": "2026-11-27T10:54:00.871-08:00",
+          "updated_at": "2026-11-27T10:54:00.871-08:00",
+          "display_at": "2026-11-27T10:54:00.871-08:00",
+          "affected_components": [
+            {
+              "code": "tvjwfvczkf46",
+              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
+              "old_status": "degraded_performance",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "tggcdb5npdrr",
+          "status": "investigating",
+          "body": "Due to sustained high traffic on the US carrier networks, we are currently experiencing MMS delivery issues from Twilio Toll-Free numbers. Messages are queued due to capacity shortage, and customers may see delays when sending to certain US carriers.  \n\nPlease find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Delays)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)            \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
+          "incident_id": "93c38rcb25dz",
+          "created_at": "2026-11-27T08:53:22.639-08:00",
+          "updated_at": "2026-11-27T08:53:22.639-08:00",
+          "display_at": "2026-11-27T08:53:22.639-08:00",
+          "affected_components": [
+            {
+              "code": "tvjwfvczkf46",
+              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
+              "old_status": "operational",
+              "new_status": "degraded_performance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "tvjwfvczkf46",
+          "name": "MMS Toll-Free, North America",
+          "status": "operational",
+          "created_at": "2021-03-05T12:17:17.067-08:00",
+          "updated_at": "2026-11-27T12:40:03.329-08:00",
+          "position": 6,
+          "description": null,
+          "showcase": false,
+          "start_date": "2021-03-05",
+          "group_id": "j8hlnyphbbs0",
+          "page_id": "gpkpyklzq55q",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "reminder_intervals": null
+    },
     {
       "id": "17kswrnt7km6",
       "name": "Issue Affecting Bulk Messaging and Twilio Email",
@@ -126,59 +851,6 @@
           "showcase": false,
           "start_date": "2026-05-06",
           "group_id": "q3ghybgcfggv",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "hh13jhqgnmzh",
-      "name": "MMS Delivery Status From Twilio Long Code to US/CA Carriers",
-      "status": "investigating",
-      "created_at": "2026-11-27T13:11:02.783-08:00",
-      "updated_at": "2026-11-27T13:11:02.919-08:00",
-      "monitoring_at": null,
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/z6kc8xc5l037",
-      "started_at": "2026-11-27T13:11:02.770-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "l1tbtpkm6yyp",
-          "status": "investigating",
-          "body": "Due to sustained high traffic on the US carrier networks, we are currently experiencing MMS delivery issues from Twilio Long Code to to US/CA Carriers.  Messages are queued due to capacity shortage, and customers may see delays when sending to certain US/CA carriers.  \n\nPlease find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\n\n\nCanada:\n\nRogers (status - DLR Delays)\n       \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
-          "incident_id": "hh13jhqgnmzh",
-          "created_at": "2026-11-27T13:11:02.916-08:00",
-          "updated_at": "2026-11-27T13:11:02.916-08:00",
-          "display_at": "2026-11-27T13:11:02.916-08:00",
-          "affected_components": [
-            {
-              "code": "8vdlvw3dsq8h",
-              "name": "CARRIER NETWORK - MMS Long Code, North America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "8vdlvw3dsq8h",
-          "name": "MMS Long Code, North America",
-          "status": "degraded_performance",
-          "created_at": "2019-01-10T08:51:50.330-08:00",
-          "updated_at": "2026-11-27T13:11:02.841-08:00",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
@@ -517,7 +1189,7 @@
       "name": "SMS Delivery Status From Twilio Long-Codes to US/CA Carriers",
       "status": "monitoring",
       "created_at": "2026-11-27T10:30:05.000-08:00",
-      "updated_at": "2026-11-27T13:57:00.349-08:00",
+      "updated_at": "2026-11-27T18:00:10.460-08:00",
       "monitoring_at": "2026-11-27T13:57:00.326-08:00",
       "resolved_at": null,
       "impact": "minor",
@@ -525,6 +1197,26 @@
       "started_at": "2026-11-27T10:30:05.000-08:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "6f59smckg3y2",
+          "status": "monitoring",
+          "body": "Our monitoring shows overall improvement in carrier-side traffic congestion, and we are observing instant SMS delivery from Twilio Long-Code to US/CA Carriers at this time. We will continue monitoring the overall carrier networks to ensure a full recovery. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "8s075bl36dqp",
+          "created_at": "2026-11-27T18:00:10.457-08:00",
+          "updated_at": "2026-11-27T18:00:10.457-08:00",
+          "display_at": "2026-11-27T18:00:10.457-08:00",
+          "affected_components": [
+            {
+              "code": "7d8w22hqrh6s",
+              "name": "CARRIER NETWORK - SMS Long Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "v3wq195d33vb",
           "status": "monitoring",
@@ -610,7 +1302,7 @@
       "name": "SMS Delivery Status From Twilio Short-Code to US/CA Carriers",
       "status": "monitoring",
       "created_at": "2026-11-27T10:05:28.028-08:00",
-      "updated_at": "2026-11-27T14:15:58.716-08:00",
+      "updated_at": "2026-11-27T18:08:47.156-08:00",
       "monitoring_at": "2026-11-27T14:15:58.692-08:00",
       "resolved_at": null,
       "impact": "minor",
@@ -618,6 +1310,26 @@
       "started_at": "2026-11-27T11:11:34.000-08:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "zmqvw2kr0b4j",
+          "status": "monitoring",
+          "body": "Our monitoring shows overall improvement in carrier-side traffic congestion, and we are observing instant SMS delivery from Twilio Sort-Code to US/CA Carriers at this time. We will continue monitoring the overall carrier networks to ensure a full recovery. We will provide another update in 4 hours or as soon as more information becomes available.",
+          "incident_id": "2yzm68jqtl5q",
+          "created_at": "2026-11-27T18:08:47.153-08:00",
+          "updated_at": "2026-11-27T18:08:47.153-08:00",
+          "display_at": "2026-11-27T18:08:47.153-08:00",
+          "affected_components": [
+            {
+              "code": "39mb8cmw8y2v",
+              "name": "CARRIER NETWORK - SMS Short Code, North America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "12w32pqsjnn0",
           "status": "monitoring",
@@ -804,405 +1516,6 @@
           "showcase": true,
           "start_date": "2025-08-25",
           "group_id": "s2k3h0mkqnth",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "540h10h47l48",
-      "name": "SMS Delivery Status From Twilio Toll-Free to US/CA Carriers",
-      "status": "monitoring",
-      "created_at": "2026-11-27T09:07:46.858-08:00",
-      "updated_at": "2026-11-27T13:49:15.640-08:00",
-      "monitoring_at": "2026-11-27T13:49:15.615-08:00",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/gyrgw2z3kzpz",
-      "started_at": "2026-11-27T09:40:40.000-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "rv5gfqlvhkxz",
-          "status": "monitoring",
-          "body": "Our monitoring shows overall improvement in carrier-side traffic congestion, and we are observing instant SMS delivery from Twilio Toll-Free to US/CA Carriers at this time. We will continue monitoring the overall carrier networks to ensure a full recovery. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "540h10h47l48",
-          "created_at": "2026-11-27T13:49:15.615-08:00",
-          "updated_at": "2026-11-27T13:49:15.615-08:00",
-          "display_at": "2026-11-27T13:49:15.615-08:00",
-          "affected_components": [
-            {
-              "code": "32f2bm54nkvv",
-              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "g1v1jmx65sw9",
-          "status": "investigating",
-          "body": "Please find the current SMS delivery status from Twilio Toll-Free for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\nT-Mobile (status - Operational)\nVerizon (status -  Delays)\nAppalachian (status - Delays)\n\nCanada:\n\nVideotron in Canada  - (status - Monitoring)\nCogeco - (status - Monitoring)\n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
-          "incident_id": "540h10h47l48",
-          "created_at": "2026-11-27T12:34:05.321-08:00",
-          "updated_at": "2026-11-27T12:34:05.321-08:00",
-          "display_at": "2026-11-27T12:34:05.321-08:00",
-          "affected_components": [
-            {
-              "code": "32f2bm54nkvv",
-              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "m59g6g1d931t",
-          "status": "investigating",
-          "body": "Please find the current SMS delivery status from Twilio Toll-Free for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\nT-Mobile (status - Operational)\nVerizon (status -  Delays)\nAppalachian (status - Delays)\n\nCanada:\n\nVideotron in Canada  - (status - DLR Delays)\nCogeco - (status - DLR Delays)\n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
-          "incident_id": "540h10h47l48",
-          "created_at": "2026-11-27T11:58:59.555-08:00",
-          "updated_at": "2026-11-27T12:06:18.077-08:00",
-          "display_at": "2026-11-27T11:56:59.000-08:00",
-          "affected_components": [
-            {
-              "code": "32f2bm54nkvv",
-              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "m1mlzn7nc6br",
-          "status": "investigating",
-          "body": "Please find the current SMS delivery status from Twilio Toll-Free for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)\nAppalachian (status - Delays)\n\nCanada:\n\nVideotron in Canada  - (status - DLR Delays)\nCogeco - (status - DLR Delays)",
-          "incident_id": "540h10h47l48",
-          "created_at": "2026-11-27T09:56:29.185-08:00",
-          "updated_at": "2026-11-27T10:00:04.972-08:00",
-          "display_at": "2026-11-27T09:56:29.000-08:00",
-          "affected_components": [
-            {
-              "code": "32f2bm54nkvv",
-              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "trv4nhd22zzn",
-          "status": "investigating",
-          "body": "Please find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\nT-Mobile (status - Operational)\nVerizon (status -  Delays)\nAppalachian (status - Delays)\n\nCanada:\n\nVideotron in Canada  (status - DLR Delays)\n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
-          "incident_id": "540h10h47l48",
-          "created_at": "2026-11-27T09:40:40.977-08:00",
-          "updated_at": "2026-11-27T10:00:28.443-08:00",
-          "display_at": "2026-11-27T09:40:40.000-08:00",
-          "affected_components": [
-            {
-              "code": "32f2bm54nkvv",
-              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "rttwzwvx17vb",
-          "status": "investigating",
-          "body": "Please find the current SMS delivery status from Twilio Toll-Free for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)\nAppalachian (status - Delays)\n\nCanada:\n\nVideotron in Canada  (status - DLR Delays)\n\nWe will provide another update in 2 hours or as soon as we have any new information to share.",
-          "incident_id": "540h10h47l48",
-          "created_at": "2026-11-27T09:22:40.751-08:00",
-          "updated_at": "2026-11-27T09:22:40.751-08:00",
-          "display_at": "2026-11-27T09:22:40.751-08:00",
-          "affected_components": [
-            {
-              "code": "32f2bm54nkvv",
-              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "vyw87gph48lv",
-          "status": "investigating",
-          "body": "Due to sustained high traffic on the US carrier networks, we are currently experiencing SMS delivery issues from Twilio Toll-Free.  Messages are queued due to capacity shortage, and customers may see delays when sending to certain US carriers.  \n\nPlease find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Operational)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)\nAppalachian (status - Delays)\n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
-          "incident_id": "540h10h47l48",
-          "created_at": "2026-11-27T09:07:46.957-08:00",
-          "updated_at": "2026-11-27T09:07:46.957-08:00",
-          "display_at": "2026-11-27T09:07:46.957-08:00",
-          "affected_components": [
-            {
-              "code": "32f2bm54nkvv",
-              "name": "CARRIER NETWORK - SMS Toll-Free, North America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "32f2bm54nkvv",
-          "name": "SMS Toll-Free, North America",
-          "status": "operational",
-          "created_at": "2019-01-10T08:52:48.226-08:00",
-          "updated_at": "2026-11-27T13:49:15.568-08:00",
-          "position": 5,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "22slxfqncqr7",
-      "name": "MMS Delivery Status From Twilio Short-Code to US/CA Carriers",
-      "status": "monitoring",
-      "created_at": "2026-11-27T08:57:50.744-08:00",
-      "updated_at": "2026-11-27T13:44:09.634-08:00",
-      "monitoring_at": "2026-11-27T13:44:09.603-08:00",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/4ytn0nz8xcgp",
-      "started_at": "2026-11-27T08:57:50.733-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "8h057gtsql72",
-          "status": "monitoring",
-          "body": "Our monitoring shows overall improvement in carrier-side traffic congestion, and we are observing instant MMS delivery from Twilio Short-Code to US/CA Carriers at this time. We will continue monitoring the overall carrier networks to ensure a full recovery. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "22slxfqncqr7",
-          "created_at": "2026-11-27T13:44:09.603-08:00",
-          "updated_at": "2026-11-27T13:44:09.603-08:00",
-          "display_at": "2026-11-27T13:44:09.603-08:00",
-          "affected_components": [
-            {
-              "code": "h0fl7prwfhvm",
-              "name": "CARRIER NETWORK - MMS Short Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "d7j59wmcjb0w",
-          "status": "investigating",
-          "body": "Please find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Monitoring)\nT-Mobile (status - Operational)\nVerizon (status -  DLR Delays)            \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
-          "incident_id": "22slxfqncqr7",
-          "created_at": "2026-11-27T12:37:02.673-08:00",
-          "updated_at": "2026-11-27T12:37:12.004-08:00",
-          "display_at": "2026-11-27T12:36:02.000-08:00",
-          "affected_components": [
-            {
-              "code": "h0fl7prwfhvm",
-              "name": "CARRIER NETWORK - MMS Short Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "wsjmdldwtp8g",
-          "status": "investigating",
-          "body": "Please find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Delays)\nT-Mobile (status - Operational)\nVerizon (status -  DLR Delays)            \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
-          "incident_id": "22slxfqncqr7",
-          "created_at": "2026-11-27T10:58:03.534-08:00",
-          "updated_at": "2026-11-27T10:58:03.534-08:00",
-          "display_at": "2026-11-27T10:58:03.534-08:00",
-          "affected_components": [
-            {
-              "code": "h0fl7prwfhvm",
-              "name": "CARRIER NETWORK - MMS Short Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "2m2sy0zb191c",
-          "status": "investigating",
-          "body": "Due to sustained high traffic on the US carrier networks, we are currently experiencing MMS delivery issues from Twilio Short-Codes.  Messages are queued due to capacity shortage, and customers may see delays when sending to certain US carriers.  \n\nPlease find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Delays)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)            \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
-          "incident_id": "22slxfqncqr7",
-          "created_at": "2026-11-27T08:57:50.868-08:00",
-          "updated_at": "2026-11-27T08:57:50.868-08:00",
-          "display_at": "2026-11-27T08:57:50.868-08:00",
-          "affected_components": [
-            {
-              "code": "h0fl7prwfhvm",
-              "name": "CARRIER NETWORK - MMS Short Code, North America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "h0fl7prwfhvm",
-          "name": "MMS Short Code, North America",
-          "status": "operational",
-          "created_at": "2019-01-10T08:52:12.896-08:00",
-          "updated_at": "2026-11-27T13:44:09.550-08:00",
-          "position": 4,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "93c38rcb25dz",
-      "name": "MMS Delivery Status From Twilio Toll-Free to US/CA Carriers",
-      "status": "monitoring",
-      "created_at": "2026-11-27T08:53:22.483-08:00",
-      "updated_at": "2026-11-27T12:45:08.092-08:00",
-      "monitoring_at": "2026-11-27T12:45:08.065-08:00",
-      "resolved_at": null,
-      "impact": "minor",
-      "shortlink": "https://stspg.io/jbf2vqmwn628",
-      "started_at": "2026-11-27T08:53:22.467-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "t02yltqqhsw2",
-          "status": "monitoring",
-          "body": "Our monitoring shows overall improvement in carrier-side traffic congestion, and we are observing instant MMS delivery from Twilio Toll-Free to US/CA Carriers at this time. We will continue monitoring the overall carrier networks to ensure a full recovery. We will provide another update in 4 hours or as soon as more information becomes available.",
-          "incident_id": "93c38rcb25dz",
-          "created_at": "2026-11-27T12:45:08.065-08:00",
-          "updated_at": "2026-11-27T12:45:08.065-08:00",
-          "display_at": "2026-11-27T12:45:08.065-08:00",
-          "affected_components": [
-            {
-              "code": "tvjwfvczkf46",
-              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "m9kjxt2bbhct",
-          "status": "investigating",
-          "body": "Please find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Monitoring)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)            \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
-          "incident_id": "93c38rcb25dz",
-          "created_at": "2026-11-27T12:40:03.385-08:00",
-          "updated_at": "2026-11-27T12:40:03.385-08:00",
-          "display_at": "2026-11-27T12:40:03.385-08:00",
-          "affected_components": [
-            {
-              "code": "tvjwfvczkf46",
-              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "1jp8zv5fb8pf",
-          "status": "investigating",
-          "body": "Please find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Delays)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)            \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
-          "incident_id": "93c38rcb25dz",
-          "created_at": "2026-11-27T10:54:00.871-08:00",
-          "updated_at": "2026-11-27T10:54:00.871-08:00",
-          "display_at": "2026-11-27T10:54:00.871-08:00",
-          "affected_components": [
-            {
-              "code": "tvjwfvczkf46",
-              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "tggcdb5npdrr",
-          "status": "investigating",
-          "body": "Due to sustained high traffic on the US carrier networks, we are currently experiencing MMS delivery issues from Twilio Toll-Free numbers. Messages are queued due to capacity shortage, and customers may see delays when sending to certain US carriers.  \n\nPlease find the current delivery status for the major carriers below:\n\nUnited States:\n\nAT&T (status - Delays)\nT-Mobile (status - Operational)\nVerizon (status -  Operational)            \n\nWe are actively working with our carrier partners to resolve the issue, and we will provide another update in 2 hours or as soon as we have any new information to share.",
-          "incident_id": "93c38rcb25dz",
-          "created_at": "2026-11-27T08:53:22.639-08:00",
-          "updated_at": "2026-11-27T08:53:22.639-08:00",
-          "display_at": "2026-11-27T08:53:22.639-08:00",
-          "affected_components": [
-            {
-              "code": "tvjwfvczkf46",
-              "name": "CARRIER NETWORK - MMS Toll-Free, North America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "tvjwfvczkf46",
-          "name": "MMS Toll-Free, North America",
-          "status": "operational",
-          "created_at": "2021-03-05T12:17:17.067-08:00",
-          "updated_at": "2026-11-27T12:40:03.329-08:00",
-          "position": 6,
-          "description": null,
-          "showcase": false,
-          "start_date": "2021-03-05",
-          "group_id": "j8hlnyphbbs0",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
@@ -1962,9 +2275,9 @@
         {
           "id": "8vdlvw3dsq8h",
           "name": "MMS Long Code, North America",
-          "status": "degraded_performance",
+          "status": "operational",
           "created_at": "2019-01-10T08:51:50.330-08:00",
-          "updated_at": "2026-11-27T13:11:02.841-08:00",
+          "updated_at": "2026-11-27T15:10:25.734-08:00",
           "position": 2,
           "description": null,
           "showcase": false,
@@ -3226,7 +3539,7 @@
           "name": "SMS",
           "status": "operational",
           "created_at": "2016-04-07T15:15:38.816-07:00",
-          "updated_at": "2026-11-25T20:33:03.343-08:00",
+          "updated_at": "2026-11-27T20:19:40.950-08:00",
           "position": 12,
           "description": null,
           "showcase": false,
@@ -4685,9 +4998,9 @@
         {
           "id": "sqwjyy7x2sc6",
           "name": "SendGrid API",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2026-07-02T08:55:06.870-07:00",
-          "updated_at": "2026-11-23T15:40:11.474-08:00",
+          "updated_at": "2026-11-27T20:11:29.306-08:00",
           "position": 29,
           "description": null,
           "showcase": false,
@@ -7078,9 +7391,9 @@
         {
           "id": "32f2bm54nkvv",
           "name": "SMS Toll-Free, North America",
-          "status": "operational",
+          "status": "degraded_performance",
           "created_at": "2019-01-10T08:52:48.226-08:00",
-          "updated_at": "2026-11-27T13:49:15.568-08:00",
+          "updated_at": "2026-11-27T20:19:40.916-08:00",
           "position": 5,
           "description": null,
           "showcase": false,
@@ -7381,10 +7694,10 @@
     },
     {
       "id": "5zr9yh0c6f8g",
-      "name": "Voice Call Silent and One-Way Audio Between a Subset of Twilio Phone Numbers and Multiple Networks in Colombia",
+      "name": "Voice Call Silent and One-Way Audio between a Subset of Twilio Phone Numbers and Multiple Networks in Colombia",
       "status": "monitoring",
       "created_at": "2026-11-18T07:56:21.187-08:00",
-      "updated_at": "2026-11-27T03:43:05.587-08:00",
+      "updated_at": "2026-11-27T19:43:31.643-08:00",
       "monitoring_at": "2026-11-19T15:38:33.545-08:00",
       "resolved_at": null,
       "impact": "minor",
@@ -7392,6 +7705,26 @@
       "started_at": "2026-11-18T07:56:21.176-08:00",
       "page_id": "gpkpyklzq55q",
       "incident_updates": [
+        {
+          "id": "crj7ykgq494l",
+          "status": "monitoring",
+          "body": "We have observed a recovery in voice calls between a subset of Twilio Phone Numbers and network subscribers on multiple networks in Colombia and are monitoring service stability. We will provide another update in 24 hours or as soon as more information becomes available.",
+          "incident_id": "5zr9yh0c6f8g",
+          "created_at": "2026-11-27T19:43:31.640-08:00",
+          "updated_at": "2026-11-27T19:43:31.640-08:00",
+          "display_at": "2026-11-27T19:43:31.640-08:00",
+          "affected_components": [
+            {
+              "code": "fbtv2g9t3z25",
+              "name": "CARRIER NETWORK - Voice, Latin America",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
         {
           "id": "lxqxl9vs747k",
           "status": "monitoring",
@@ -8211,272 +8544,6 @@
           "showcase": false,
           "start_date": "2026-07-02",
           "group_id": "87xnt5pfw06t",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "1vzhngqd51qb",
-      "name": "SMS Delivery Delays and Failures from a Subset of Twilio Short Codes to Bell and Bell Aliant Canada",
-      "status": "resolved",
-      "created_at": "2026-11-18T02:35:58.904-08:00",
-      "updated_at": "2026-11-18T06:51:00.929-08:00",
-      "monitoring_at": "2026-11-18T05:18:21.293-08:00",
-      "resolved_at": "2026-11-18T06:51:00.900-08:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/zx1wggcfj96c",
-      "started_at": "2026-11-18T02:35:58.896-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "jjnfxjh5qs8l",
-          "status": "resolved",
-          "body": "The incident has been resolved and SMS delivery from a subset of Twilio Short Codes to Bell and Bell Aliant network subscribers in Canada is operating normally.",
-          "incident_id": "1vzhngqd51qb",
-          "created_at": "2026-11-18T06:51:00.900-08:00",
-          "updated_at": "2026-11-18T06:51:00.900-08:00",
-          "display_at": "2026-11-18T06:51:00.900-08:00",
-          "affected_components": [
-            {
-              "code": "39mb8cmw8y2v",
-              "name": "CARRIER NETWORK - SMS Short Code, North America",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "zbj2td5tpwjr",
-          "status": "monitoring",
-          "body": "We have observed a recovery in SMS delivery from a subset of Twilio Short Codes to Bell and Bell Aliant network subscribers in Canada and are monitoring service stability. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "1vzhngqd51qb",
-          "created_at": "2026-11-18T05:18:21.293-08:00",
-          "updated_at": "2026-11-18T05:18:21.293-08:00",
-          "display_at": "2026-11-18T05:18:21.293-08:00",
-          "affected_components": [
-            {
-              "code": "39mb8cmw8y2v",
-              "name": "CARRIER NETWORK - SMS Short Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "fq1wcc6fcdx7",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays and failures from a subset of Twilio Short Codes to Bell and Bell Aliant network subscribers in Canada. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "1vzhngqd51qb",
-          "created_at": "2026-11-18T05:18:02.023-08:00",
-          "updated_at": "2026-11-18T05:18:02.023-08:00",
-          "display_at": "2026-11-18T05:18:02.023-08:00",
-          "affected_components": [
-            {
-              "code": "39mb8cmw8y2v",
-              "name": "CARRIER NETWORK - SMS Short Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "sf2bg0t27jtx",
-          "status": "identified",
-          "body": "Twilio customers may be experiencing SMS delivery delays and delivery failures from a subset of Twilio Short Codes to Bell and Bell Aliant network subscribers in Canada. Our team has identified the cause, and is working to resolve the issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "1vzhngqd51qb",
-          "created_at": "2026-11-18T04:17:38.988-08:00",
-          "updated_at": "2026-11-18T04:17:38.988-08:00",
-          "display_at": "2026-11-18T04:17:38.988-08:00",
-          "affected_components": [
-            {
-              "code": "39mb8cmw8y2v",
-              "name": "CARRIER NETWORK - SMS Short Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "8dbzkwwgfklm",
-          "status": "investigating",
-          "body": "Twilio customers may be experiencing SMS delivery delays and failures from a subset of Twilio Short Codes to Bell and Bell Aliant network subscribers in Canada. Our team is actively investigating this issue. We will provide another update in 2 hours or as soon as more information becomes available.",
-          "incident_id": "1vzhngqd51qb",
-          "created_at": "2026-11-18T03:41:55.001-08:00",
-          "updated_at": "2026-11-18T03:41:55.001-08:00",
-          "display_at": "2026-11-18T03:41:55.001-08:00",
-          "affected_components": [
-            {
-              "code": "39mb8cmw8y2v",
-              "name": "CARRIER NETWORK - SMS Short Code, North America",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "8jblmdkhvbl9",
-          "status": "investigating",
-          "body": "Twilio customers may be experiencing SMS delivery delays from a subset of Twilio Short Codes to Bell and Bell Aliant network subscribers in Canada. Our team is actively investigating this issue. We will provide another update in 1 hour or as soon as more information becomes available.",
-          "incident_id": "1vzhngqd51qb",
-          "created_at": "2026-11-18T02:35:59.041-08:00",
-          "updated_at": "2026-11-18T02:35:59.041-08:00",
-          "display_at": "2026-11-18T02:35:59.041-08:00",
-          "affected_components": [
-            {
-              "code": "39mb8cmw8y2v",
-              "name": "CARRIER NETWORK - SMS Short Code, North America",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "39mb8cmw8y2v",
-          "name": "SMS Short Code, North America",
-          "status": "operational",
-          "created_at": "2016-04-07T15:07:25.830-07:00",
-          "updated_at": "2026-11-27T14:15:58.642-08:00",
-          "position": 3,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j8hlnyphbbs0",
-          "page_id": "gpkpyklzq55q",
-          "group": false,
-          "only_show_if_degraded": false
-        }
-      ],
-      "reminder_intervals": null
-    },
-    {
-      "id": "4xw666kwsl32",
-      "name": "Voice Call Failures from a Subset of Twilio phone numbers in Brasil",
-      "status": "resolved",
-      "created_at": "2026-11-18T03:44:38.596-08:00",
-      "updated_at": "2026-11-18T04:31:42.228-08:00",
-      "monitoring_at": "2026-11-18T04:17:55.518-08:00",
-      "resolved_at": "2026-11-18T04:31:42.188-08:00",
-      "impact": "minor",
-      "shortlink": "https://stspg.io/qzs4df6dd2y1",
-      "started_at": "2026-11-18T03:44:38.585-08:00",
-      "page_id": "gpkpyklzq55q",
-      "incident_updates": [
-        {
-          "id": "b8hmzljzsf1w",
-          "status": "resolved",
-          "body": "We have monitored and resolved the issue with voice call failures from a subset of Twilio Phone Numbers in Brasil. All services are now operating normally at this time",
-          "incident_id": "4xw666kwsl32",
-          "created_at": "2026-11-18T04:31:42.188-08:00",
-          "updated_at": "2026-11-18T04:31:42.188-08:00",
-          "display_at": "2026-11-18T04:31:42.188-08:00",
-          "affected_components": [
-            {
-              "code": "w7nxj548smhd",
-              "name": "PROGRAMMABLE VOICE US1 - SIP Interface US1",
-              "old_status": "operational",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "whpbv5qzn9nq",
-          "status": "monitoring",
-          "body": "Our engineers have mitigated the issue and are monitoring system performance.",
-          "incident_id": "4xw666kwsl32",
-          "created_at": "2026-11-18T04:17:55.518-08:00",
-          "updated_at": "2026-11-18T04:17:55.518-08:00",
-          "display_at": "2026-11-18T04:17:55.518-08:00",
-          "affected_components": [
-            {
-              "code": "w7nxj548smhd",
-              "name": "PROGRAMMABLE VOICE US1 - SIP Interface US1",
-              "old_status": "degraded_performance",
-              "new_status": "operational"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "v2xbf394kmg7",
-          "status": "investigating",
-          "body": "Twilio customers may be experiencing voice call failures from a subset of Twilio Phone Numbers in Brasil. Our team is actively investigating this issue. We will provide another update in 1 hour or as soon as more information becomes available",
-          "incident_id": "4xw666kwsl32",
-          "created_at": "2026-11-18T04:09:53.495-08:00",
-          "updated_at": "2026-11-18T04:09:53.495-08:00",
-          "display_at": "2026-11-18T04:09:53.495-08:00",
-          "affected_components": [
-            {
-              "code": "w7nxj548smhd",
-              "name": "PROGRAMMABLE VOICE US1 - SIP Interface US1",
-              "old_status": "degraded_performance",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        },
-        {
-          "id": "qzn35dqj70rv",
-          "status": "investigating",
-          "body": "Twilio customers may be experiencing voice call failures. Our team is actively investigating this issue. We will provide another update in 1 hour or as soon as more information becomes available",
-          "incident_id": "4xw666kwsl32",
-          "created_at": "2026-11-18T03:44:38.727-08:00",
-          "updated_at": "2026-11-18T03:44:38.727-08:00",
-          "display_at": "2026-11-18T03:44:38.727-08:00",
-          "affected_components": [
-            {
-              "code": "w7nxj548smhd",
-              "name": "PROGRAMMABLE VOICE US1 - SIP Interface US1",
-              "old_status": "operational",
-              "new_status": "degraded_performance"
-            }
-          ],
-          "deliver_notifications": true,
-          "custom_tweet": null,
-          "tweet_id": null
-        }
-      ],
-      "components": [
-        {
-          "id": "w7nxj548smhd",
-          "name": "SIP Interface US1",
-          "status": "operational",
-          "created_at": "2016-04-07T15:23:00.624-07:00",
-          "updated_at": "2026-11-18T04:17:55.474-08:00",
-          "position": 2,
-          "description": null,
-          "showcase": false,
-          "start_date": null,
-          "group_id": "j3s4w3gnsj08",
           "page_id": "gpkpyklzq55q",
           "group": false,
           "only_show_if_degraded": false
